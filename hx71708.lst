@@ -1,0 +1,889 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler
+                                      3 ; Version 4.5.0 #15242 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module hx71708
+                                      6 	
+                                      7 	.optsdcc -mmcs51 --model-large
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _P77
+                                     12 	.globl _P76
+                                     13 	.globl _P75
+                                     14 	.globl _P74
+                                     15 	.globl _P73
+                                     16 	.globl _P72
+                                     17 	.globl _P71
+                                     18 	.globl _P70
+                                     19 	.globl _P67
+                                     20 	.globl _P66
+                                     21 	.globl _P65
+                                     22 	.globl _P64
+                                     23 	.globl _P63
+                                     24 	.globl _P62
+                                     25 	.globl _P61
+                                     26 	.globl _P60
+                                     27 	.globl _P
+                                     28 	.globl _F1
+                                     29 	.globl _OV
+                                     30 	.globl _RS0
+                                     31 	.globl _RS1
+                                     32 	.globl _F0
+                                     33 	.globl _AC
+                                     34 	.globl _CY
+                                     35 	.globl _P57
+                                     36 	.globl _P56
+                                     37 	.globl _P55
+                                     38 	.globl _P54
+                                     39 	.globl _P53
+                                     40 	.globl _P52
+                                     41 	.globl _P51
+                                     42 	.globl _P50
+                                     43 	.globl _P47
+                                     44 	.globl _P46
+                                     45 	.globl _P45
+                                     46 	.globl _P44
+                                     47 	.globl _P43
+                                     48 	.globl _P42
+                                     49 	.globl _P41
+                                     50 	.globl _P40
+                                     51 	.globl _PX0
+                                     52 	.globl _PT0
+                                     53 	.globl _PX1
+                                     54 	.globl _PT1
+                                     55 	.globl _PS
+                                     56 	.globl _PADC
+                                     57 	.globl _PLVD
+                                     58 	.globl _PPCA
+                                     59 	.globl _P37
+                                     60 	.globl _P36
+                                     61 	.globl _P35
+                                     62 	.globl _P34
+                                     63 	.globl _P33
+                                     64 	.globl _P32
+                                     65 	.globl _P31
+                                     66 	.globl _P30
+                                     67 	.globl _EX0
+                                     68 	.globl _ET0
+                                     69 	.globl _EX1
+                                     70 	.globl _ET1
+                                     71 	.globl _ES
+                                     72 	.globl _EADC
+                                     73 	.globl _ELVD
+                                     74 	.globl _EA
+                                     75 	.globl _P27
+                                     76 	.globl _P26
+                                     77 	.globl _P25
+                                     78 	.globl _P24
+                                     79 	.globl _P23
+                                     80 	.globl _P22
+                                     81 	.globl _P21
+                                     82 	.globl _P20
+                                     83 	.globl _RI
+                                     84 	.globl _TI
+                                     85 	.globl _RB8
+                                     86 	.globl _TB8
+                                     87 	.globl _REN
+                                     88 	.globl _SM2
+                                     89 	.globl _SM1
+                                     90 	.globl _SM0
+                                     91 	.globl _P17
+                                     92 	.globl _P16
+                                     93 	.globl _P15
+                                     94 	.globl _P14
+                                     95 	.globl _P13
+                                     96 	.globl _P12
+                                     97 	.globl _P11
+                                     98 	.globl _P10
+                                     99 	.globl _IT0
+                                    100 	.globl _IE0
+                                    101 	.globl _IT1
+                                    102 	.globl _IE1
+                                    103 	.globl _TR0
+                                    104 	.globl _TF0
+                                    105 	.globl _TR1
+                                    106 	.globl _TF1
+                                    107 	.globl _P07
+                                    108 	.globl _P06
+                                    109 	.globl _P05
+                                    110 	.globl _P04
+                                    111 	.globl _P03
+                                    112 	.globl _P02
+                                    113 	.globl _P01
+                                    114 	.globl _P00
+                                    115 	.globl _RSTCFG
+                                    116 	.globl _USBADR
+                                    117 	.globl _IAP_TPS
+                                    118 	.globl _USBCON
+                                    119 	.globl _AUXINTIF
+                                    120 	.globl _IP3H
+                                    121 	.globl _USBDAT
+                                    122 	.globl _CMPCR2
+                                    123 	.globl _CMPCR1
+                                    124 	.globl _DPH1
+                                    125 	.globl _DPL1
+                                    126 	.globl _DPS
+                                    127 	.globl _P7M0
+                                    128 	.globl _P7M1
+                                    129 	.globl _IP3
+                                    130 	.globl _ADCCFG
+                                    131 	.globl _USBCLK
+                                    132 	.globl _VRTRIM
+                                    133 	.globl _P7
+                                    134 	.globl _B
+                                    135 	.globl _P6
+                                    136 	.globl _ACC
+                                    137 	.globl _T2L
+                                    138 	.globl _T2H
+                                    139 	.globl _T3L
+                                    140 	.globl _T3H
+                                    141 	.globl _T4L
+                                    142 	.globl _T4H
+                                    143 	.globl _T4T3M
+                                    144 	.globl _PSW
+                                    145 	.globl _SPDAT
+                                    146 	.globl _SPCTL
+                                    147 	.globl _SPSTAT
+                                    148 	.globl _P6M0
+                                    149 	.globl _P6M1
+                                    150 	.globl _P5M0
+                                    151 	.globl _P5M1
+                                    152 	.globl _P5
+                                    153 	.globl _IAP_CONTR
+                                    154 	.globl _IAP_TRIG
+                                    155 	.globl _IAP_CMD
+                                    156 	.globl _IAP_ADDRL
+                                    157 	.globl _IAP_ADDRH
+                                    158 	.globl _IAP_DATA
+                                    159 	.globl _WDT_CONTR
+                                    160 	.globl _P4
+                                    161 	.globl _ADC_RESL
+                                    162 	.globl _ADC_RES
+                                    163 	.globl _ADC_CONTR
+                                    164 	.globl _P_SW2
+                                    165 	.globl _SADEN
+                                    166 	.globl _IP
+                                    167 	.globl _IPH
+                                    168 	.globl _IP2H
+                                    169 	.globl _IP2
+                                    170 	.globl _P4M0
+                                    171 	.globl _P4M1
+                                    172 	.globl _P3M0
+                                    173 	.globl _P3M1
+                                    174 	.globl _P3
+                                    175 	.globl _IE2
+                                    176 	.globl _TA
+                                    177 	.globl _S3BUF
+                                    178 	.globl _S3CON
+                                    179 	.globl _WKTCH
+                                    180 	.globl _WKTCL
+                                    181 	.globl _SADDR
+                                    182 	.globl _IE
+                                    183 	.globl _P_SW1
+                                    184 	.globl _BUS_SPEED
+                                    185 	.globl _P2
+                                    186 	.globl _IRTRIM
+                                    187 	.globl _LIRTRIM
+                                    188 	.globl _IRCBAND
+                                    189 	.globl _S2BUF
+                                    190 	.globl _S2CON
+                                    191 	.globl _SBUF
+                                    192 	.globl _SCON
+                                    193 	.globl _P2M0
+                                    194 	.globl _P2M1
+                                    195 	.globl _P0M0
+                                    196 	.globl _P0M1
+                                    197 	.globl _P1M0
+                                    198 	.globl _P1M1
+                                    199 	.globl _P1
+                                    200 	.globl _INTCLKO
+                                    201 	.globl _AUXR
+                                    202 	.globl _TH1
+                                    203 	.globl _TH0
+                                    204 	.globl _TL1
+                                    205 	.globl _TL0
+                                    206 	.globl _TMOD
+                                    207 	.globl _TCON
+                                    208 	.globl _PCON
+                                    209 	.globl _S4BUF
+                                    210 	.globl _S4CON
+                                    211 	.globl _DPH
+                                    212 	.globl _DPL
+                                    213 	.globl _SP
+                                    214 	.globl _P0
+                                    215 	.globl _HX_Init
+                                    216 	.globl _Read_HX71708_Raw
+                                    217 	.globl _Get_Steady_Weight
+                                    218 ;--------------------------------------------------------
+                                    219 ; special function registers
+                                    220 ;--------------------------------------------------------
+                                    221 	.area RSEG    (ABS,DATA)
+      000000                        222 	.org 0x0000
+                           000080   223 _P0	=	0x0080
+                           000081   224 _SP	=	0x0081
+                           000082   225 _DPL	=	0x0082
+                           000083   226 _DPH	=	0x0083
+                           000084   227 _S4CON	=	0x0084
+                           000085   228 _S4BUF	=	0x0085
+                           000087   229 _PCON	=	0x0087
+                           000088   230 _TCON	=	0x0088
+                           000089   231 _TMOD	=	0x0089
+                           00008A   232 _TL0	=	0x008a
+                           00008B   233 _TL1	=	0x008b
+                           00008C   234 _TH0	=	0x008c
+                           00008D   235 _TH1	=	0x008d
+                           00008E   236 _AUXR	=	0x008e
+                           00008F   237 _INTCLKO	=	0x008f
+                           000090   238 _P1	=	0x0090
+                           000091   239 _P1M1	=	0x0091
+                           000092   240 _P1M0	=	0x0092
+                           000093   241 _P0M1	=	0x0093
+                           000094   242 _P0M0	=	0x0094
+                           000095   243 _P2M1	=	0x0095
+                           000096   244 _P2M0	=	0x0096
+                           000098   245 _SCON	=	0x0098
+                           000099   246 _SBUF	=	0x0099
+                           00009A   247 _S2CON	=	0x009a
+                           00009B   248 _S2BUF	=	0x009b
+                           00009D   249 _IRCBAND	=	0x009d
+                           00009E   250 _LIRTRIM	=	0x009e
+                           00009F   251 _IRTRIM	=	0x009f
+                           0000A0   252 _P2	=	0x00a0
+                           0000A1   253 _BUS_SPEED	=	0x00a1
+                           0000A2   254 _P_SW1	=	0x00a2
+                           0000A8   255 _IE	=	0x00a8
+                           0000A9   256 _SADDR	=	0x00a9
+                           0000AA   257 _WKTCL	=	0x00aa
+                           0000AB   258 _WKTCH	=	0x00ab
+                           0000AC   259 _S3CON	=	0x00ac
+                           0000AD   260 _S3BUF	=	0x00ad
+                           0000AE   261 _TA	=	0x00ae
+                           0000AF   262 _IE2	=	0x00af
+                           0000B0   263 _P3	=	0x00b0
+                           0000B1   264 _P3M1	=	0x00b1
+                           0000B2   265 _P3M0	=	0x00b2
+                           0000B3   266 _P4M1	=	0x00b3
+                           0000B4   267 _P4M0	=	0x00b4
+                           0000B5   268 _IP2	=	0x00b5
+                           0000B6   269 _IP2H	=	0x00b6
+                           0000B7   270 _IPH	=	0x00b7
+                           0000B8   271 _IP	=	0x00b8
+                           0000B9   272 _SADEN	=	0x00b9
+                           0000BA   273 _P_SW2	=	0x00ba
+                           0000BC   274 _ADC_CONTR	=	0x00bc
+                           0000BD   275 _ADC_RES	=	0x00bd
+                           0000BE   276 _ADC_RESL	=	0x00be
+                           0000C0   277 _P4	=	0x00c0
+                           0000C1   278 _WDT_CONTR	=	0x00c1
+                           0000C2   279 _IAP_DATA	=	0x00c2
+                           0000C3   280 _IAP_ADDRH	=	0x00c3
+                           0000C4   281 _IAP_ADDRL	=	0x00c4
+                           0000C5   282 _IAP_CMD	=	0x00c5
+                           0000C6   283 _IAP_TRIG	=	0x00c6
+                           0000C7   284 _IAP_CONTR	=	0x00c7
+                           0000C8   285 _P5	=	0x00c8
+                           0000C9   286 _P5M1	=	0x00c9
+                           0000CA   287 _P5M0	=	0x00ca
+                           0000CB   288 _P6M1	=	0x00cb
+                           0000CC   289 _P6M0	=	0x00cc
+                           0000CD   290 _SPSTAT	=	0x00cd
+                           0000CE   291 _SPCTL	=	0x00ce
+                           0000CF   292 _SPDAT	=	0x00cf
+                           0000D0   293 _PSW	=	0x00d0
+                           0000D1   294 _T4T3M	=	0x00d1
+                           0000D2   295 _T4H	=	0x00d2
+                           0000D3   296 _T4L	=	0x00d3
+                           0000D4   297 _T3H	=	0x00d4
+                           0000D5   298 _T3L	=	0x00d5
+                           0000D6   299 _T2H	=	0x00d6
+                           0000D7   300 _T2L	=	0x00d7
+                           0000E0   301 _ACC	=	0x00e0
+                           0000E8   302 _P6	=	0x00e8
+                           0000F0   303 _B	=	0x00f0
+                           0000F8   304 _P7	=	0x00f8
+                           0000A6   305 _VRTRIM	=	0x00a6
+                           0000DC   306 _USBCLK	=	0x00dc
+                           0000DE   307 _ADCCFG	=	0x00de
+                           0000DF   308 _IP3	=	0x00df
+                           0000E1   309 _P7M1	=	0x00e1
+                           0000E2   310 _P7M0	=	0x00e2
+                           0000E3   311 _DPS	=	0x00e3
+                           0000E4   312 _DPL1	=	0x00e4
+                           0000E5   313 _DPH1	=	0x00e5
+                           0000E6   314 _CMPCR1	=	0x00e6
+                           0000E7   315 _CMPCR2	=	0x00e7
+                           0000EC   316 _USBDAT	=	0x00ec
+                           0000EE   317 _IP3H	=	0x00ee
+                           0000EF   318 _AUXINTIF	=	0x00ef
+                           0000F4   319 _USBCON	=	0x00f4
+                           0000F5   320 _IAP_TPS	=	0x00f5
+                           0000FC   321 _USBADR	=	0x00fc
+                           0000FF   322 _RSTCFG	=	0x00ff
+                                    323 ;--------------------------------------------------------
+                                    324 ; special function bits
+                                    325 ;--------------------------------------------------------
+                                    326 	.area RSEG    (ABS,DATA)
+      000000                        327 	.org 0x0000
+                           000080   328 _P00	=	0x0080
+                           000081   329 _P01	=	0x0081
+                           000082   330 _P02	=	0x0082
+                           000083   331 _P03	=	0x0083
+                           000084   332 _P04	=	0x0084
+                           000085   333 _P05	=	0x0085
+                           000086   334 _P06	=	0x0086
+                           000087   335 _P07	=	0x0087
+                           00008F   336 _TF1	=	0x008f
+                           00008E   337 _TR1	=	0x008e
+                           00008D   338 _TF0	=	0x008d
+                           00008C   339 _TR0	=	0x008c
+                           00008B   340 _IE1	=	0x008b
+                           00008A   341 _IT1	=	0x008a
+                           000089   342 _IE0	=	0x0089
+                           000088   343 _IT0	=	0x0088
+                           000090   344 _P10	=	0x0090
+                           000091   345 _P11	=	0x0091
+                           000092   346 _P12	=	0x0092
+                           000093   347 _P13	=	0x0093
+                           000094   348 _P14	=	0x0094
+                           000095   349 _P15	=	0x0095
+                           000096   350 _P16	=	0x0096
+                           000097   351 _P17	=	0x0097
+                           00009F   352 _SM0	=	0x009f
+                           00009E   353 _SM1	=	0x009e
+                           00009D   354 _SM2	=	0x009d
+                           00009C   355 _REN	=	0x009c
+                           00009B   356 _TB8	=	0x009b
+                           00009A   357 _RB8	=	0x009a
+                           000099   358 _TI	=	0x0099
+                           000098   359 _RI	=	0x0098
+                           0000A0   360 _P20	=	0x00a0
+                           0000A1   361 _P21	=	0x00a1
+                           0000A2   362 _P22	=	0x00a2
+                           0000A3   363 _P23	=	0x00a3
+                           0000A4   364 _P24	=	0x00a4
+                           0000A5   365 _P25	=	0x00a5
+                           0000A6   366 _P26	=	0x00a6
+                           0000A7   367 _P27	=	0x00a7
+                           0000AF   368 _EA	=	0x00af
+                           0000AE   369 _ELVD	=	0x00ae
+                           0000AD   370 _EADC	=	0x00ad
+                           0000AC   371 _ES	=	0x00ac
+                           0000AB   372 _ET1	=	0x00ab
+                           0000AA   373 _EX1	=	0x00aa
+                           0000A9   374 _ET0	=	0x00a9
+                           0000A8   375 _EX0	=	0x00a8
+                           0000B0   376 _P30	=	0x00b0
+                           0000B1   377 _P31	=	0x00b1
+                           0000B2   378 _P32	=	0x00b2
+                           0000B3   379 _P33	=	0x00b3
+                           0000B4   380 _P34	=	0x00b4
+                           0000B5   381 _P35	=	0x00b5
+                           0000B6   382 _P36	=	0x00b6
+                           0000B7   383 _P37	=	0x00b7
+                           0000BF   384 _PPCA	=	0x00bf
+                           0000BE   385 _PLVD	=	0x00be
+                           0000BD   386 _PADC	=	0x00bd
+                           0000BC   387 _PS	=	0x00bc
+                           0000BB   388 _PT1	=	0x00bb
+                           0000BA   389 _PX1	=	0x00ba
+                           0000B9   390 _PT0	=	0x00b9
+                           0000B8   391 _PX0	=	0x00b8
+                           0000C0   392 _P40	=	0x00c0
+                           0000C1   393 _P41	=	0x00c1
+                           0000C2   394 _P42	=	0x00c2
+                           0000C3   395 _P43	=	0x00c3
+                           0000C4   396 _P44	=	0x00c4
+                           0000C5   397 _P45	=	0x00c5
+                           0000C6   398 _P46	=	0x00c6
+                           0000C7   399 _P47	=	0x00c7
+                           0000C8   400 _P50	=	0x00c8
+                           0000C9   401 _P51	=	0x00c9
+                           0000CA   402 _P52	=	0x00ca
+                           0000CB   403 _P53	=	0x00cb
+                           0000CC   404 _P54	=	0x00cc
+                           0000CD   405 _P55	=	0x00cd
+                           0000CE   406 _P56	=	0x00ce
+                           0000CF   407 _P57	=	0x00cf
+                           0000D7   408 _CY	=	0x00d7
+                           0000D6   409 _AC	=	0x00d6
+                           0000D5   410 _F0	=	0x00d5
+                           0000D4   411 _RS1	=	0x00d4
+                           0000D3   412 _RS0	=	0x00d3
+                           0000D2   413 _OV	=	0x00d2
+                           0000D1   414 _F1	=	0x00d1
+                           0000D0   415 _P	=	0x00d0
+                           0000E8   416 _P60	=	0x00e8
+                           0000E9   417 _P61	=	0x00e9
+                           0000EA   418 _P62	=	0x00ea
+                           0000EB   419 _P63	=	0x00eb
+                           0000EC   420 _P64	=	0x00ec
+                           0000ED   421 _P65	=	0x00ed
+                           0000EE   422 _P66	=	0x00ee
+                           0000EF   423 _P67	=	0x00ef
+                           0000F8   424 _P70	=	0x00f8
+                           0000F9   425 _P71	=	0x00f9
+                           0000FA   426 _P72	=	0x00fa
+                           0000FB   427 _P73	=	0x00fb
+                           0000FC   428 _P74	=	0x00fc
+                           0000FD   429 _P75	=	0x00fd
+                           0000FE   430 _P76	=	0x00fe
+                           0000FF   431 _P77	=	0x00ff
+                                    432 ;--------------------------------------------------------
+                                    433 ; overlayable register banks
+                                    434 ;--------------------------------------------------------
+                                    435 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        436 	.ds 8
+                                    437 ;--------------------------------------------------------
+                                    438 ; internal ram data
+                                    439 ;--------------------------------------------------------
+                                    440 	.area DSEG    (DATA)
+      000000                        441 _Get_Steady_Weight_sloc0_1_0:
+      000000                        442 	.ds 1
+      000001                        443 _Get_Steady_Weight_sloc1_1_0:
+      000001                        444 	.ds 1
+                                    445 ;--------------------------------------------------------
+                                    446 ; overlayable items in internal ram
+                                    447 ;--------------------------------------------------------
+                                    448 ;--------------------------------------------------------
+                                    449 ; indirectly addressable internal ram data
+                                    450 ;--------------------------------------------------------
+                                    451 	.area ISEG    (DATA)
+                                    452 ;--------------------------------------------------------
+                                    453 ; absolute internal ram data
+                                    454 ;--------------------------------------------------------
+                                    455 	.area IABS    (ABS,DATA)
+                                    456 	.area IABS    (ABS,DATA)
+                                    457 ;--------------------------------------------------------
+                                    458 ; bit data
+                                    459 ;--------------------------------------------------------
+                                    460 	.area BSEG    (BIT)
+                                    461 ;--------------------------------------------------------
+                                    462 ; paged external ram data
+                                    463 ;--------------------------------------------------------
+                                    464 	.area PSEG    (PAG,XDATA)
+                                    465 ;--------------------------------------------------------
+                                    466 ; uninitialized external ram data
+                                    467 ;--------------------------------------------------------
+                                    468 	.area XSEG    (XDATA)
+      000000                        469 _Read_HX71708_Raw_count_10000_55:
+      000000                        470 	.ds 4
+      000004                        471 _Get_Steady_Weight_samples_10000_58:
+      000004                        472 	.ds 1
+      000005                        473 _Get_Steady_Weight_sum_10000_59:
+      000005                        474 	.ds 4
+                                    475 ;--------------------------------------------------------
+                                    476 ; absolute external ram data
+                                    477 ;--------------------------------------------------------
+                                    478 	.area XABS    (ABS,XDATA)
+                                    479 ;--------------------------------------------------------
+                                    480 ; initialized external ram data
+                                    481 ;--------------------------------------------------------
+                                    482 	.area XISEG   (XDATA)
+                                    483 	.area HOME    (CODE)
+                                    484 	.area GSINIT0 (CODE)
+                                    485 	.area GSINIT1 (CODE)
+                                    486 	.area GSINIT2 (CODE)
+                                    487 	.area GSINIT3 (CODE)
+                                    488 	.area GSINIT4 (CODE)
+                                    489 	.area GSINIT5 (CODE)
+                                    490 	.area GSINIT  (CODE)
+                                    491 	.area GSFINAL (CODE)
+                                    492 	.area CSEG    (CODE)
+                                    493 ;--------------------------------------------------------
+                                    494 ; global & static initialisations
+                                    495 ;--------------------------------------------------------
+                                    496 	.area HOME    (CODE)
+                                    497 	.area GSINIT  (CODE)
+                                    498 	.area GSFINAL (CODE)
+                                    499 	.area GSINIT  (CODE)
+                                    500 ;--------------------------------------------------------
+                                    501 ; Home
+                                    502 ;--------------------------------------------------------
+                                    503 	.area HOME    (CODE)
+                                    504 	.area HOME    (CODE)
+                                    505 ;--------------------------------------------------------
+                                    506 ; code
+                                    507 ;--------------------------------------------------------
+                                    508 	.area CSEG    (CODE)
+                                    509 ;------------------------------------------------------------
+                                    510 ;Allocation info for local variables in function 'HX_Init'
+                                    511 ;------------------------------------------------------------
+                                    512 ;	.\FwLib_STC8\user\hx71708.c:6: void HX_Init(void) {
+                                    513 ;	-----------------------------------------
+                                    514 ;	 function HX_Init
+                                    515 ;	-----------------------------------------
+      000000                        516 _HX_Init:
+                           000007   517 	ar7 = 0x07
+                           000006   518 	ar6 = 0x06
+                           000005   519 	ar5 = 0x05
+                           000004   520 	ar4 = 0x04
+                           000003   521 	ar3 = 0x03
+                           000002   522 	ar2 = 0x02
+                           000001   523 	ar1 = 0x01
+                           000000   524 	ar0 = 0x00
+                                    525 ;	.\FwLib_STC8\user\hx71708.c:8: GPIO_P3_SetMode(GPIO_Pin_3, GPIO_Mode_Output_PP);
+      000000 74 F7            [12]  526 	mov	a,#0xf7
+      000002 55 B2            [12]  527 	anl	a,_P3M0
+      000004 44 08            [12]  528 	orl	a,#0x08
+      000006 F5 B2            [12]  529 	mov	_P3M0,a
+      000008 53 B1 F7         [24]  530 	anl	_P3M1,#0xf7
+                                    531 ;	.\FwLib_STC8\user\hx71708.c:9: GPIO_P3_SetMode(GPIO_Pin_2, GPIO_Mode_InOut_QBD);
+      00000B 53 B2 FB         [24]  532 	anl	_P3M0,#0xfb
+      00000E 53 B1 FB         [24]  533 	anl	_P3M1,#0xfb
+                                    534 ;	.\FwLib_STC8\user\hx71708.c:10: HX_SCK = 0;
+                                    535 ;	assignBit
+      000011 C2 B3            [12]  536 	clr	_P33
+                                    537 ;	.\FwLib_STC8\user\hx71708.c:11: }
+      000013 22               [24]  538 	ret
+                                    539 ;------------------------------------------------------------
+                                    540 ;Allocation info for local variables in function 'Read_HX71708_Raw'
+                                    541 ;------------------------------------------------------------
+                                    542 ;count         Allocated with name '_Read_HX71708_Raw_count_10000_55'
+                                    543 ;watchdog      Allocated with name '_Read_HX71708_Raw_watchdog_10000_55'
+                                    544 ;i             Allocated with name '_Read_HX71708_Raw_i_20000_56'
+                                    545 ;------------------------------------------------------------
+                                    546 ;	.\FwLib_STC8\user\hx71708.c:13: int32_t Read_HX71708_Raw(void) {
+                                    547 ;	-----------------------------------------
+                                    548 ;	 function Read_HX71708_Raw
+                                    549 ;	-----------------------------------------
+      000014                        550 _Read_HX71708_Raw:
+                                    551 ;	.\FwLib_STC8\user\hx71708.c:14: uint32_t count = 0;
+      000014 90r00r00         [24]  552 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000017 E4               [12]  553 	clr	a
+      000018 F0               [24]  554 	movx	@dptr,a
+      000019 A3               [24]  555 	inc	dptr
+      00001A F0               [24]  556 	movx	@dptr,a
+      00001B A3               [24]  557 	inc	dptr
+      00001C F0               [24]  558 	movx	@dptr,a
+      00001D A3               [24]  559 	inc	dptr
+      00001E F0               [24]  560 	movx	@dptr,a
+                                    561 ;	.\FwLib_STC8\user\hx71708.c:19: while(!HX_DOUT && ++watchdog < 30000);
+      00001F FE               [12]  562 	mov	r6,a
+      000020 FF               [12]  563 	mov	r7,a
+      000021                        564 00102$:
+      000021 20 B2 12         [24]  565 	jb	_P32,00104$
+      000024 0E               [12]  566 	inc	r6
+      000025 BE 00 01         [24]  567 	cjne	r6,#0x00,00179$
+      000028 0F               [12]  568 	inc	r7
+      000029                        569 00179$:
+      000029 8E 04            [24]  570 	mov	ar4,r6
+      00002B 8F 05            [24]  571 	mov	ar5,r7
+      00002D C3               [12]  572 	clr	c
+      00002E EC               [12]  573 	mov	a,r4
+      00002F 94 30            [12]  574 	subb	a,#0x30
+      000031 ED               [12]  575 	mov	a,r5
+      000032 94 75            [12]  576 	subb	a,#0x75
+      000034 40 EB            [24]  577 	jc	00102$
+      000036                        578 00104$:
+                                    579 ;	.\FwLib_STC8\user\hx71708.c:21: while(HX_DOUT && ++watchdog < 60000);
+      000036 7E 00            [12]  580 	mov	r6,#0x00
+      000038 7F 00            [12]  581 	mov	r7,#0x00
+      00003A                        582 00106$:
+      00003A 30 B2 0E         [24]  583 	jnb	_P32,00108$
+      00003D 0E               [12]  584 	inc	r6
+      00003E BE 00 01         [24]  585 	cjne	r6,#0x00,00182$
+      000041 0F               [12]  586 	inc	r7
+      000042                        587 00182$:
+      000042 C3               [12]  588 	clr	c
+      000043 EE               [12]  589 	mov	a,r6
+      000044 94 60            [12]  590 	subb	a,#0x60
+      000046 EF               [12]  591 	mov	a,r7
+      000047 94 EA            [12]  592 	subb	a,#0xea
+      000049 40 EF            [24]  593 	jc	00106$
+      00004B                        594 00108$:
+                                    595 ;	.\FwLib_STC8\user\hx71708.c:22: if(watchdog >= 60000) return -1;
+      00004B C3               [12]  596 	clr	c
+      00004C EE               [12]  597 	mov	a,r6
+      00004D 94 60            [12]  598 	subb	a,#0x60
+      00004F EF               [12]  599 	mov	a,r7
+      000050 94 EA            [12]  600 	subb	a,#0xea
+      000052 40 08            [24]  601 	jc	00128$
+      000054 90 FF FF         [24]  602 	mov	dptr,#0xffff
+      000057 74 FF            [12]  603 	mov	a,#0xff
+      000059 F5 F0            [12]  604 	mov	b,a
+      00005B 22               [24]  605 	ret
+                                    606 ;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
+      00005C                        607 00128$:
+      00005C 7F 00            [12]  608 	mov	r7,#0x00
+      00005E                        609 00117$:
+      00005E BF 18 00         [24]  610 	cjne	r7,#0x18,00185$
+      000061                        611 00185$:
+      000061 50 52            [24]  612 	jnc	00113$
+                                    613 ;	.\FwLib_STC8\user\hx71708.c:25: HX_SCK = 1;
+                                    614 ;	assignBit
+      000063 D2 B3            [12]  615 	setb	_P33
+                                    616 ;	.\FwLib_STC8\user\hx71708.c:26: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+      000065 00               [12]  617 	NOP	
+      000066 00               [12]  618 	NOP	
+      000067 00               [12]  619 	NOP	
+      000068 00               [12]  620 	NOP	
+      000069 00               [12]  621 	NOP	
+                                    622 ;	.\FwLib_STC8\user\hx71708.c:28: count <<= 1;
+      00006A 90r00r00         [24]  623 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      00006D E0               [24]  624 	movx	a,@dptr
+      00006E FB               [12]  625 	mov	r3,a
+      00006F A3               [24]  626 	inc	dptr
+      000070 E0               [24]  627 	movx	a,@dptr
+      000071 FC               [12]  628 	mov	r4,a
+      000072 A3               [24]  629 	inc	dptr
+      000073 E0               [24]  630 	movx	a,@dptr
+      000074 FD               [12]  631 	mov	r5,a
+      000075 A3               [24]  632 	inc	dptr
+      000076 E0               [24]  633 	movx	a,@dptr
+      000077 FE               [12]  634 	mov	r6,a
+      000078 EB               [12]  635 	mov	a,r3
+      000079 2B               [12]  636 	add	a,r3
+      00007A FB               [12]  637 	mov	r3,a
+      00007B EC               [12]  638 	mov	a,r4
+      00007C 33               [12]  639 	rlc	a
+      00007D FC               [12]  640 	mov	r4,a
+      00007E ED               [12]  641 	mov	a,r5
+      00007F 33               [12]  642 	rlc	a
+      000080 FD               [12]  643 	mov	r5,a
+      000081 EE               [12]  644 	mov	a,r6
+      000082 33               [12]  645 	rlc	a
+      000083 FE               [12]  646 	mov	r6,a
+      000084 90r00r00         [24]  647 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000087 EB               [12]  648 	mov	a,r3
+      000088 F0               [24]  649 	movx	@dptr,a
+      000089 EC               [12]  650 	mov	a,r4
+      00008A A3               [24]  651 	inc	dptr
+      00008B F0               [24]  652 	movx	@dptr,a
+      00008C ED               [12]  653 	mov	a,r5
+      00008D A3               [24]  654 	inc	dptr
+      00008E F0               [24]  655 	movx	@dptr,a
+      00008F EE               [12]  656 	mov	a,r6
+      000090 A3               [24]  657 	inc	dptr
+      000091 F0               [24]  658 	movx	@dptr,a
+                                    659 ;	.\FwLib_STC8\user\hx71708.c:29: if(HX_DOUT) count++;
+      000092 30 B2 16         [24]  660 	jnb	_P32,00112$
+      000095 90r00r00         [24]  661 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000098 E0               [24]  662 	movx	a,@dptr
+      000099 24 01            [12]  663 	add	a, #0x01
+      00009B F0               [24]  664 	movx	@dptr,a
+      00009C A3               [24]  665 	inc	dptr
+      00009D E0               [24]  666 	movx	a,@dptr
+      00009E 34 00            [12]  667 	addc	a, #0x00
+      0000A0 F0               [24]  668 	movx	@dptr,a
+      0000A1 A3               [24]  669 	inc	dptr
+      0000A2 E0               [24]  670 	movx	a,@dptr
+      0000A3 34 00            [12]  671 	addc	a, #0x00
+      0000A5 F0               [24]  672 	movx	@dptr,a
+      0000A6 A3               [24]  673 	inc	dptr
+      0000A7 E0               [24]  674 	movx	a,@dptr
+      0000A8 34 00            [12]  675 	addc	a, #0x00
+      0000AA F0               [24]  676 	movx	@dptr,a
+      0000AB                        677 00112$:
+                                    678 ;	.\FwLib_STC8\user\hx71708.c:31: HX_SCK = 0;
+                                    679 ;	assignBit
+      0000AB C2 B3            [12]  680 	clr	_P33
+                                    681 ;	.\FwLib_STC8\user\hx71708.c:32: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+      0000AD 00               [12]  682 	NOP	
+      0000AE 00               [12]  683 	NOP	
+      0000AF 00               [12]  684 	NOP	
+      0000B0 00               [12]  685 	NOP	
+      0000B1 00               [12]  686 	NOP	
+                                    687 ;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
+      0000B2 0F               [12]  688 	inc	r7
+      0000B3 80 A9            [24]  689 	sjmp	00117$
+      0000B5                        690 00113$:
+                                    691 ;	.\FwLib_STC8\user\hx71708.c:36: HX_SCK = 1;
+                                    692 ;	assignBit
+      0000B5 D2 B3            [12]  693 	setb	_P33
+                                    694 ;	.\FwLib_STC8\user\hx71708.c:37: _nop_(); _nop_(); 
+      0000B7 00               [12]  695 	NOP	
+      0000B8 00               [12]  696 	NOP	
+                                    697 ;	.\FwLib_STC8\user\hx71708.c:38: HX_SCK = 0;
+                                    698 ;	assignBit
+      0000B9 C2 B3            [12]  699 	clr	_P33
+                                    700 ;	.\FwLib_STC8\user\hx71708.c:39: _nop_(); _nop_(); 
+      0000BB 00               [12]  701 	NOP	
+      0000BC 00               [12]  702 	NOP	
+                                    703 ;	.\FwLib_STC8\user\hx71708.c:42: if (count & 0x800000)
+      0000BD 90r00r00         [24]  704 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      0000C0 E0               [24]  705 	movx	a,@dptr
+      0000C1 FC               [12]  706 	mov	r4,a
+      0000C2 A3               [24]  707 	inc	dptr
+      0000C3 E0               [24]  708 	movx	a,@dptr
+      0000C4 FD               [12]  709 	mov	r5,a
+      0000C5 A3               [24]  710 	inc	dptr
+      0000C6 E0               [24]  711 	movx	a,@dptr
+      0000C7 FE               [12]  712 	mov	r6,a
+      0000C8 A3               [24]  713 	inc	dptr
+      0000C9 E0               [24]  714 	movx	a,@dptr
+      0000CA EE               [12]  715 	mov	a,r6
+      0000CB 30 E7 0F         [24]  716 	jnb	acc.7,00115$
+                                    717 ;	.\FwLib_STC8\user\hx71708.c:43: count |= 0xFF000000;
+      0000CE 90r00r00         [24]  718 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      0000D1 EC               [12]  719 	mov	a,r4
+      0000D2 F0               [24]  720 	movx	@dptr,a
+      0000D3 ED               [12]  721 	mov	a,r5
+      0000D4 A3               [24]  722 	inc	dptr
+      0000D5 F0               [24]  723 	movx	@dptr,a
+      0000D6 EE               [12]  724 	mov	a,r6
+      0000D7 A3               [24]  725 	inc	dptr
+      0000D8 F0               [24]  726 	movx	@dptr,a
+      0000D9 74 FF            [12]  727 	mov	a,#0xff
+      0000DB A3               [24]  728 	inc	dptr
+      0000DC F0               [24]  729 	movx	@dptr,a
+      0000DD                        730 00115$:
+                                    731 ;	.\FwLib_STC8\user\hx71708.c:45: return (int32_t)count;
+      0000DD 90r00r00         [24]  732 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      0000E0 E0               [24]  733 	movx	a,@dptr
+      0000E1 FC               [12]  734 	mov	r4,a
+      0000E2 A3               [24]  735 	inc	dptr
+      0000E3 E0               [24]  736 	movx	a,@dptr
+      0000E4 FD               [12]  737 	mov	r5,a
+      0000E5 A3               [24]  738 	inc	dptr
+      0000E6 E0               [24]  739 	movx	a,@dptr
+      0000E7 FE               [12]  740 	mov	r6,a
+      0000E8 A3               [24]  741 	inc	dptr
+      0000E9 E0               [24]  742 	movx	a,@dptr
+      0000EA 8C 82            [24]  743 	mov	dpl,r4
+      0000EC 8D 83            [24]  744 	mov	dph,r5
+      0000EE 8E F0            [24]  745 	mov	b,r6
+                                    746 ;	.\FwLib_STC8\user\hx71708.c:46: }
+      0000F0 22               [24]  747 	ret
+                                    748 ;------------------------------------------------------------
+                                    749 ;Allocation info for local variables in function 'Get_Steady_Weight'
+                                    750 ;------------------------------------------------------------
+                                    751 ;sloc0         Allocated with name '_Get_Steady_Weight_sloc0_1_0'
+                                    752 ;sloc1         Allocated with name '_Get_Steady_Weight_sloc1_1_0'
+                                    753 ;samples       Allocated with name '_Get_Steady_Weight_samples_10000_58'
+                                    754 ;sum           Allocated with name '_Get_Steady_Weight_sum_10000_59'
+                                    755 ;valid         Allocated with name '_Get_Steady_Weight_valid_10000_59'
+                                    756 ;i             Allocated with name '_Get_Steady_Weight_i_20000_60'
+                                    757 ;v             Allocated with name '_Get_Steady_Weight_v_30000_61'
+                                    758 ;------------------------------------------------------------
+                                    759 ;	.\FwLib_STC8\user\hx71708.c:48: int32_t Get_Steady_Weight(uint8_t samples) {
+                                    760 ;	-----------------------------------------
+                                    761 ;	 function Get_Steady_Weight
+                                    762 ;	-----------------------------------------
+      0000F1                        763 _Get_Steady_Weight:
+      0000F1 E5 82            [12]  764 	mov	a,dpl
+      0000F3 90r00r04         [24]  765 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
+      0000F6 F0               [24]  766 	movx	@dptr,a
+                                    767 ;	.\FwLib_STC8\user\hx71708.c:49: int32_t sum = 0; // Changed from 64-bit to 32-bit to fix linker error
+      0000F7 90r00r05         [24]  768 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      0000FA E4               [12]  769 	clr	a
+      0000FB F0               [24]  770 	movx	@dptr,a
+      0000FC A3               [24]  771 	inc	dptr
+      0000FD F0               [24]  772 	movx	@dptr,a
+      0000FE A3               [24]  773 	inc	dptr
+      0000FF F0               [24]  774 	movx	@dptr,a
+      000100 A3               [24]  775 	inc	dptr
+      000101 F0               [24]  776 	movx	@dptr,a
+                                    777 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
+      000102 90r00r04         [24]  778 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
+      000105 E0               [24]  779 	movx	a,@dptr
+      000106 FF               [12]  780 	mov	r7,a
+      000107 75*00 00         [24]  781 	mov	_Get_Steady_Weight_sloc0_1_0,#0x00
+      00010A 75*01 00         [24]  782 	mov	_Get_Steady_Weight_sloc1_1_0,#0x00
+      00010D                        783 00107$:
+      00010D C3               [12]  784 	clr	c
+      00010E E5*01            [12]  785 	mov	a,_Get_Steady_Weight_sloc1_1_0
+      000110 9F               [12]  786 	subb	a,r7
+      000111 50 46            [24]  787 	jnc	00103$
+                                    788 ;	.\FwLib_STC8\user\hx71708.c:53: int32_t v = Read_HX71708_Raw();
+      000113 C0 07            [24]  789 	push	ar7
+      000115 12r00r14         [24]  790 	lcall	_Read_HX71708_Raw
+      000118 A9 82            [24]  791 	mov	r1, dpl
+      00011A AA 83            [24]  792 	mov	r2, dph
+      00011C AB F0            [24]  793 	mov	r3, b
+      00011E FC               [12]  794 	mov	r4, a
+      00011F D0 07            [24]  795 	pop	ar7
+                                    796 ;	.\FwLib_STC8\user\hx71708.c:54: if(v != -1) {
+      000121 B9 FF 0B         [24]  797 	cjne	r1,#0xff,00137$
+      000124 BA FF 08         [24]  798 	cjne	r2,#0xff,00137$
+      000127 BB FF 05         [24]  799 	cjne	r3,#0xff,00137$
+      00012A BC FF 02         [24]  800 	cjne	r4,#0xff,00137$
+      00012D 80 26            [24]  801 	sjmp	00108$
+      00012F                        802 00137$:
+                                    803 ;	.\FwLib_STC8\user\hx71708.c:55: sum += v;
+      00012F C0 07            [24]  804 	push	ar7
+      000131 90r00r05         [24]  805 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      000134 E0               [24]  806 	movx	a,@dptr
+      000135 F8               [12]  807 	mov	r0,a
+      000136 A3               [24]  808 	inc	dptr
+      000137 E0               [24]  809 	movx	a,@dptr
+      000138 FD               [12]  810 	mov	r5,a
+      000139 A3               [24]  811 	inc	dptr
+      00013A E0               [24]  812 	movx	a,@dptr
+      00013B FE               [12]  813 	mov	r6,a
+      00013C A3               [24]  814 	inc	dptr
+      00013D E0               [24]  815 	movx	a,@dptr
+      00013E FF               [12]  816 	mov	r7,a
+      00013F 90r00r05         [24]  817 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      000142 E9               [12]  818 	mov	a,r1
+      000143 28               [12]  819 	add	a, r0
+      000144 F0               [24]  820 	movx	@dptr,a
+      000145 EA               [12]  821 	mov	a,r2
+      000146 3D               [12]  822 	addc	a, r5
+      000147 A3               [24]  823 	inc	dptr
+      000148 F0               [24]  824 	movx	@dptr,a
+      000149 EB               [12]  825 	mov	a,r3
+      00014A 3E               [12]  826 	addc	a, r6
+      00014B A3               [24]  827 	inc	dptr
+      00014C F0               [24]  828 	movx	@dptr,a
+      00014D EC               [12]  829 	mov	a,r4
+      00014E 3F               [12]  830 	addc	a, r7
+      00014F A3               [24]  831 	inc	dptr
+      000150 F0               [24]  832 	movx	@dptr,a
+                                    833 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
+      000151 05*00            [12]  834 	inc	_Get_Steady_Weight_sloc0_1_0
+                                    835 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
+      000153 D0 07            [24]  836 	pop	ar7
+                                    837 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
+      000155                        838 00108$:
+                                    839 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
+      000155 05*01            [12]  840 	inc	_Get_Steady_Weight_sloc1_1_0
+      000157 80 B4            [24]  841 	sjmp	00107$
+      000159                        842 00103$:
+                                    843 ;	.\FwLib_STC8\user\hx71708.c:61: if (valid == 0) return -1;
+      000159 E5*00            [12]  844 	mov	a,_Get_Steady_Weight_sloc0_1_0
+      00015B 70 08            [24]  845 	jnz	00105$
+      00015D 90 FF FF         [24]  846 	mov	dptr,#0xffff
+      000160 74 FF            [12]  847 	mov	a,#0xff
+      000162 F5 F0            [12]  848 	mov	b,a
+      000164 22               [24]  849 	ret
+      000165                        850 00105$:
+                                    851 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
+      000165 AC*00            [24]  852 	mov	r4,_Get_Steady_Weight_sloc0_1_0
+      000167 7D 00            [12]  853 	mov	r5,#0x00
+      000169 7E 00            [12]  854 	mov	r6,#0x00
+      00016B 7F 00            [12]  855 	mov	r7,#0x00
+      00016D 90r00r05         [24]  856 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      000170 E0               [24]  857 	movx	a,@dptr
+      000171 F8               [12]  858 	mov	r0,a
+      000172 A3               [24]  859 	inc	dptr
+      000173 E0               [24]  860 	movx	a,@dptr
+      000174 F9               [12]  861 	mov	r1,a
+      000175 A3               [24]  862 	inc	dptr
+      000176 E0               [24]  863 	movx	a,@dptr
+      000177 FA               [12]  864 	mov	r2,a
+      000178 A3               [24]  865 	inc	dptr
+      000179 E0               [24]  866 	movx	a,@dptr
+      00017A FB               [12]  867 	mov	r3,a
+      00017B 90r00r00         [24]  868 	mov	dptr,#__divslong_PARM_2
+      00017E EC               [12]  869 	mov	a,r4
+      00017F F0               [24]  870 	movx	@dptr,a
+      000180 ED               [12]  871 	mov	a,r5
+      000181 A3               [24]  872 	inc	dptr
+      000182 F0               [24]  873 	movx	@dptr,a
+      000183 EE               [12]  874 	mov	a,r6
+      000184 A3               [24]  875 	inc	dptr
+      000185 F0               [24]  876 	movx	@dptr,a
+      000186 EF               [12]  877 	mov	a,r7
+      000187 A3               [24]  878 	inc	dptr
+      000188 F0               [24]  879 	movx	@dptr,a
+      000189 88 82            [24]  880 	mov	dpl, r0
+      00018B 89 83            [24]  881 	mov	dph, r1
+      00018D 8A F0            [24]  882 	mov	b, r2
+      00018F EB               [12]  883 	mov	a, r3
+                                    884 ;	.\FwLib_STC8\user\hx71708.c:63: }
+      000190 02r00r00         [24]  885 	ljmp	__divslong
+                                    886 	.area CSEG    (CODE)
+                                    887 	.area CONST   (CODE)
+                                    888 	.area XINIT   (CODE)
+                                    889 	.area CABS    (ABS,CODE)

@@ -1,0 +1,31 @@
+-muwx
+-i main.ihx
+-M
+-I 0x0100
+-S 0x60
+-X 0x2000
+-b HOME = 0x0000
+-b XSEG = 0x0001
+-b PSEG = 0x0001
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k C:\Program Files\SDCC\bin\..\lib\large
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+main.rel
+fw_sys.rel
+fw_mem.rel
+fw_util.rel
+reg_table.rel
+uart.rel
+hx71708.rel
+adc.rel
+weight_proc.rel
+calibration.rel
+modbus_server.rel
+fw_tim.rel
+
+-e

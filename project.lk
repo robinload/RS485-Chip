@@ -1,0 +1,26 @@
+-muwx
+-i project.ihx
+-M
+-b HOME = 0x0000
+-b XSEG = 0x0001
+-b PSEG = 0x0001
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k C:\Program Files\SDCC\bin\..\lib\large
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+main.rel
+fw_adc.rel
+fw_i2c.rel
+fw_mem.rel
+fw_spi.rel
+fw_sys.rel
+fw_tim.rel
+fw_uart.rel
+fw_usb.rel
+fw_util.rel
+
+-e

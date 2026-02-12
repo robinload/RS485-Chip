@@ -1,0 +1,722 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler
+                                      3 ; Version 4.5.0 #15242 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module fw_usb
+                                      6 	
+                                      7 	.optsdcc -mmcs51 --model-large
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _P77
+                                     12 	.globl _P76
+                                     13 	.globl _P75
+                                     14 	.globl _P74
+                                     15 	.globl _P73
+                                     16 	.globl _P72
+                                     17 	.globl _P71
+                                     18 	.globl _P70
+                                     19 	.globl _P67
+                                     20 	.globl _P66
+                                     21 	.globl _P65
+                                     22 	.globl _P64
+                                     23 	.globl _P63
+                                     24 	.globl _P62
+                                     25 	.globl _P61
+                                     26 	.globl _P60
+                                     27 	.globl _P
+                                     28 	.globl _F1
+                                     29 	.globl _OV
+                                     30 	.globl _RS0
+                                     31 	.globl _RS1
+                                     32 	.globl _F0
+                                     33 	.globl _AC
+                                     34 	.globl _CY
+                                     35 	.globl _P57
+                                     36 	.globl _P56
+                                     37 	.globl _P55
+                                     38 	.globl _P54
+                                     39 	.globl _P53
+                                     40 	.globl _P52
+                                     41 	.globl _P51
+                                     42 	.globl _P50
+                                     43 	.globl _P47
+                                     44 	.globl _P46
+                                     45 	.globl _P45
+                                     46 	.globl _P44
+                                     47 	.globl _P43
+                                     48 	.globl _P42
+                                     49 	.globl _P41
+                                     50 	.globl _P40
+                                     51 	.globl _PX0
+                                     52 	.globl _PT0
+                                     53 	.globl _PX1
+                                     54 	.globl _PT1
+                                     55 	.globl _PS
+                                     56 	.globl _PADC
+                                     57 	.globl _PLVD
+                                     58 	.globl _PPCA
+                                     59 	.globl _P37
+                                     60 	.globl _P36
+                                     61 	.globl _P35
+                                     62 	.globl _P34
+                                     63 	.globl _P33
+                                     64 	.globl _P32
+                                     65 	.globl _P31
+                                     66 	.globl _P30
+                                     67 	.globl _EX0
+                                     68 	.globl _ET0
+                                     69 	.globl _EX1
+                                     70 	.globl _ET1
+                                     71 	.globl _ES
+                                     72 	.globl _EADC
+                                     73 	.globl _ELVD
+                                     74 	.globl _EA
+                                     75 	.globl _P27
+                                     76 	.globl _P26
+                                     77 	.globl _P25
+                                     78 	.globl _P24
+                                     79 	.globl _P23
+                                     80 	.globl _P22
+                                     81 	.globl _P21
+                                     82 	.globl _P20
+                                     83 	.globl _RI
+                                     84 	.globl _TI
+                                     85 	.globl _RB8
+                                     86 	.globl _TB8
+                                     87 	.globl _REN
+                                     88 	.globl _SM2
+                                     89 	.globl _SM1
+                                     90 	.globl _SM0
+                                     91 	.globl _P17
+                                     92 	.globl _P16
+                                     93 	.globl _P15
+                                     94 	.globl _P14
+                                     95 	.globl _P13
+                                     96 	.globl _P12
+                                     97 	.globl _P11
+                                     98 	.globl _P10
+                                     99 	.globl _IT0
+                                    100 	.globl _IE0
+                                    101 	.globl _IT1
+                                    102 	.globl _IE1
+                                    103 	.globl _TR0
+                                    104 	.globl _TF0
+                                    105 	.globl _TR1
+                                    106 	.globl _TF1
+                                    107 	.globl _P07
+                                    108 	.globl _P06
+                                    109 	.globl _P05
+                                    110 	.globl _P04
+                                    111 	.globl _P03
+                                    112 	.globl _P02
+                                    113 	.globl _P01
+                                    114 	.globl _P00
+                                    115 	.globl _RSTCFG
+                                    116 	.globl _USBADR
+                                    117 	.globl _IAP_TPS
+                                    118 	.globl _USBCON
+                                    119 	.globl _AUXINTIF
+                                    120 	.globl _IP3H
+                                    121 	.globl _USBDAT
+                                    122 	.globl _CMPCR2
+                                    123 	.globl _CMPCR1
+                                    124 	.globl _DPH1
+                                    125 	.globl _DPL1
+                                    126 	.globl _DPS
+                                    127 	.globl _P7M0
+                                    128 	.globl _P7M1
+                                    129 	.globl _IP3
+                                    130 	.globl _ADCCFG
+                                    131 	.globl _USBCLK
+                                    132 	.globl _VRTRIM
+                                    133 	.globl _P7
+                                    134 	.globl _B
+                                    135 	.globl _P6
+                                    136 	.globl _ACC
+                                    137 	.globl _T2L
+                                    138 	.globl _T2H
+                                    139 	.globl _T3L
+                                    140 	.globl _T3H
+                                    141 	.globl _T4L
+                                    142 	.globl _T4H
+                                    143 	.globl _T4T3M
+                                    144 	.globl _PSW
+                                    145 	.globl _SPDAT
+                                    146 	.globl _SPCTL
+                                    147 	.globl _SPSTAT
+                                    148 	.globl _P6M0
+                                    149 	.globl _P6M1
+                                    150 	.globl _P5M0
+                                    151 	.globl _P5M1
+                                    152 	.globl _P5
+                                    153 	.globl _IAP_CONTR
+                                    154 	.globl _IAP_TRIG
+                                    155 	.globl _IAP_CMD
+                                    156 	.globl _IAP_ADDRL
+                                    157 	.globl _IAP_ADDRH
+                                    158 	.globl _IAP_DATA
+                                    159 	.globl _WDT_CONTR
+                                    160 	.globl _P4
+                                    161 	.globl _ADC_RESL
+                                    162 	.globl _ADC_RES
+                                    163 	.globl _ADC_CONTR
+                                    164 	.globl _P_SW2
+                                    165 	.globl _SADEN
+                                    166 	.globl _IP
+                                    167 	.globl _IPH
+                                    168 	.globl _IP2H
+                                    169 	.globl _IP2
+                                    170 	.globl _P4M0
+                                    171 	.globl _P4M1
+                                    172 	.globl _P3M0
+                                    173 	.globl _P3M1
+                                    174 	.globl _P3
+                                    175 	.globl _IE2
+                                    176 	.globl _TA
+                                    177 	.globl _S3BUF
+                                    178 	.globl _S3CON
+                                    179 	.globl _WKTCH
+                                    180 	.globl _WKTCL
+                                    181 	.globl _SADDR
+                                    182 	.globl _IE
+                                    183 	.globl _P_SW1
+                                    184 	.globl _BUS_SPEED
+                                    185 	.globl _P2
+                                    186 	.globl _IRTRIM
+                                    187 	.globl _LIRTRIM
+                                    188 	.globl _IRCBAND
+                                    189 	.globl _S2BUF
+                                    190 	.globl _S2CON
+                                    191 	.globl _SBUF
+                                    192 	.globl _SCON
+                                    193 	.globl _P2M0
+                                    194 	.globl _P2M1
+                                    195 	.globl _P0M0
+                                    196 	.globl _P0M1
+                                    197 	.globl _P1M0
+                                    198 	.globl _P1M1
+                                    199 	.globl _P1
+                                    200 	.globl _INTCLKO
+                                    201 	.globl _AUXR
+                                    202 	.globl _TH1
+                                    203 	.globl _TH0
+                                    204 	.globl _TL1
+                                    205 	.globl _TL0
+                                    206 	.globl _TMOD
+                                    207 	.globl _TCON
+                                    208 	.globl _PCON
+                                    209 	.globl _S4BUF
+                                    210 	.globl _S4CON
+                                    211 	.globl _DPH
+                                    212 	.globl _DPL
+                                    213 	.globl _SP
+                                    214 	.globl _P0
+                                    215 	.globl _USB_WriteFIFO_PARM_3
+                                    216 	.globl _USB_WriteFIFO_PARM_2
+                                    217 	.globl _USB_ReadFIFO_PARM_2
+                                    218 	.globl _USB_WriteReg_PARM_2
+                                    219 	.globl _USB_ReadReg
+                                    220 	.globl _USB_WriteReg
+                                    221 	.globl _USB_ReadFIFO
+                                    222 	.globl _USB_WriteFIFO
+                                    223 ;--------------------------------------------------------
+                                    224 ; special function registers
+                                    225 ;--------------------------------------------------------
+                                    226 	.area RSEG    (ABS,DATA)
+      000000                        227 	.org 0x0000
+                           000080   228 _P0	=	0x0080
+                           000081   229 _SP	=	0x0081
+                           000082   230 _DPL	=	0x0082
+                           000083   231 _DPH	=	0x0083
+                           000084   232 _S4CON	=	0x0084
+                           000085   233 _S4BUF	=	0x0085
+                           000087   234 _PCON	=	0x0087
+                           000088   235 _TCON	=	0x0088
+                           000089   236 _TMOD	=	0x0089
+                           00008A   237 _TL0	=	0x008a
+                           00008B   238 _TL1	=	0x008b
+                           00008C   239 _TH0	=	0x008c
+                           00008D   240 _TH1	=	0x008d
+                           00008E   241 _AUXR	=	0x008e
+                           00008F   242 _INTCLKO	=	0x008f
+                           000090   243 _P1	=	0x0090
+                           000091   244 _P1M1	=	0x0091
+                           000092   245 _P1M0	=	0x0092
+                           000093   246 _P0M1	=	0x0093
+                           000094   247 _P0M0	=	0x0094
+                           000095   248 _P2M1	=	0x0095
+                           000096   249 _P2M0	=	0x0096
+                           000098   250 _SCON	=	0x0098
+                           000099   251 _SBUF	=	0x0099
+                           00009A   252 _S2CON	=	0x009a
+                           00009B   253 _S2BUF	=	0x009b
+                           00009D   254 _IRCBAND	=	0x009d
+                           00009E   255 _LIRTRIM	=	0x009e
+                           00009F   256 _IRTRIM	=	0x009f
+                           0000A0   257 _P2	=	0x00a0
+                           0000A1   258 _BUS_SPEED	=	0x00a1
+                           0000A2   259 _P_SW1	=	0x00a2
+                           0000A8   260 _IE	=	0x00a8
+                           0000A9   261 _SADDR	=	0x00a9
+                           0000AA   262 _WKTCL	=	0x00aa
+                           0000AB   263 _WKTCH	=	0x00ab
+                           0000AC   264 _S3CON	=	0x00ac
+                           0000AD   265 _S3BUF	=	0x00ad
+                           0000AE   266 _TA	=	0x00ae
+                           0000AF   267 _IE2	=	0x00af
+                           0000B0   268 _P3	=	0x00b0
+                           0000B1   269 _P3M1	=	0x00b1
+                           0000B2   270 _P3M0	=	0x00b2
+                           0000B3   271 _P4M1	=	0x00b3
+                           0000B4   272 _P4M0	=	0x00b4
+                           0000B5   273 _IP2	=	0x00b5
+                           0000B6   274 _IP2H	=	0x00b6
+                           0000B7   275 _IPH	=	0x00b7
+                           0000B8   276 _IP	=	0x00b8
+                           0000B9   277 _SADEN	=	0x00b9
+                           0000BA   278 _P_SW2	=	0x00ba
+                           0000BC   279 _ADC_CONTR	=	0x00bc
+                           0000BD   280 _ADC_RES	=	0x00bd
+                           0000BE   281 _ADC_RESL	=	0x00be
+                           0000C0   282 _P4	=	0x00c0
+                           0000C1   283 _WDT_CONTR	=	0x00c1
+                           0000C2   284 _IAP_DATA	=	0x00c2
+                           0000C3   285 _IAP_ADDRH	=	0x00c3
+                           0000C4   286 _IAP_ADDRL	=	0x00c4
+                           0000C5   287 _IAP_CMD	=	0x00c5
+                           0000C6   288 _IAP_TRIG	=	0x00c6
+                           0000C7   289 _IAP_CONTR	=	0x00c7
+                           0000C8   290 _P5	=	0x00c8
+                           0000C9   291 _P5M1	=	0x00c9
+                           0000CA   292 _P5M0	=	0x00ca
+                           0000CB   293 _P6M1	=	0x00cb
+                           0000CC   294 _P6M0	=	0x00cc
+                           0000CD   295 _SPSTAT	=	0x00cd
+                           0000CE   296 _SPCTL	=	0x00ce
+                           0000CF   297 _SPDAT	=	0x00cf
+                           0000D0   298 _PSW	=	0x00d0
+                           0000D1   299 _T4T3M	=	0x00d1
+                           0000D2   300 _T4H	=	0x00d2
+                           0000D3   301 _T4L	=	0x00d3
+                           0000D4   302 _T3H	=	0x00d4
+                           0000D5   303 _T3L	=	0x00d5
+                           0000D6   304 _T2H	=	0x00d6
+                           0000D7   305 _T2L	=	0x00d7
+                           0000E0   306 _ACC	=	0x00e0
+                           0000E8   307 _P6	=	0x00e8
+                           0000F0   308 _B	=	0x00f0
+                           0000F8   309 _P7	=	0x00f8
+                           0000A6   310 _VRTRIM	=	0x00a6
+                           0000DC   311 _USBCLK	=	0x00dc
+                           0000DE   312 _ADCCFG	=	0x00de
+                           0000DF   313 _IP3	=	0x00df
+                           0000E1   314 _P7M1	=	0x00e1
+                           0000E2   315 _P7M0	=	0x00e2
+                           0000E3   316 _DPS	=	0x00e3
+                           0000E4   317 _DPL1	=	0x00e4
+                           0000E5   318 _DPH1	=	0x00e5
+                           0000E6   319 _CMPCR1	=	0x00e6
+                           0000E7   320 _CMPCR2	=	0x00e7
+                           0000EC   321 _USBDAT	=	0x00ec
+                           0000EE   322 _IP3H	=	0x00ee
+                           0000EF   323 _AUXINTIF	=	0x00ef
+                           0000F4   324 _USBCON	=	0x00f4
+                           0000F5   325 _IAP_TPS	=	0x00f5
+                           0000FC   326 _USBADR	=	0x00fc
+                           0000FF   327 _RSTCFG	=	0x00ff
+                                    328 ;--------------------------------------------------------
+                                    329 ; special function bits
+                                    330 ;--------------------------------------------------------
+                                    331 	.area RSEG    (ABS,DATA)
+      000000                        332 	.org 0x0000
+                           000080   333 _P00	=	0x0080
+                           000081   334 _P01	=	0x0081
+                           000082   335 _P02	=	0x0082
+                           000083   336 _P03	=	0x0083
+                           000084   337 _P04	=	0x0084
+                           000085   338 _P05	=	0x0085
+                           000086   339 _P06	=	0x0086
+                           000087   340 _P07	=	0x0087
+                           00008F   341 _TF1	=	0x008f
+                           00008E   342 _TR1	=	0x008e
+                           00008D   343 _TF0	=	0x008d
+                           00008C   344 _TR0	=	0x008c
+                           00008B   345 _IE1	=	0x008b
+                           00008A   346 _IT1	=	0x008a
+                           000089   347 _IE0	=	0x0089
+                           000088   348 _IT0	=	0x0088
+                           000090   349 _P10	=	0x0090
+                           000091   350 _P11	=	0x0091
+                           000092   351 _P12	=	0x0092
+                           000093   352 _P13	=	0x0093
+                           000094   353 _P14	=	0x0094
+                           000095   354 _P15	=	0x0095
+                           000096   355 _P16	=	0x0096
+                           000097   356 _P17	=	0x0097
+                           00009F   357 _SM0	=	0x009f
+                           00009E   358 _SM1	=	0x009e
+                           00009D   359 _SM2	=	0x009d
+                           00009C   360 _REN	=	0x009c
+                           00009B   361 _TB8	=	0x009b
+                           00009A   362 _RB8	=	0x009a
+                           000099   363 _TI	=	0x0099
+                           000098   364 _RI	=	0x0098
+                           0000A0   365 _P20	=	0x00a0
+                           0000A1   366 _P21	=	0x00a1
+                           0000A2   367 _P22	=	0x00a2
+                           0000A3   368 _P23	=	0x00a3
+                           0000A4   369 _P24	=	0x00a4
+                           0000A5   370 _P25	=	0x00a5
+                           0000A6   371 _P26	=	0x00a6
+                           0000A7   372 _P27	=	0x00a7
+                           0000AF   373 _EA	=	0x00af
+                           0000AE   374 _ELVD	=	0x00ae
+                           0000AD   375 _EADC	=	0x00ad
+                           0000AC   376 _ES	=	0x00ac
+                           0000AB   377 _ET1	=	0x00ab
+                           0000AA   378 _EX1	=	0x00aa
+                           0000A9   379 _ET0	=	0x00a9
+                           0000A8   380 _EX0	=	0x00a8
+                           0000B0   381 _P30	=	0x00b0
+                           0000B1   382 _P31	=	0x00b1
+                           0000B2   383 _P32	=	0x00b2
+                           0000B3   384 _P33	=	0x00b3
+                           0000B4   385 _P34	=	0x00b4
+                           0000B5   386 _P35	=	0x00b5
+                           0000B6   387 _P36	=	0x00b6
+                           0000B7   388 _P37	=	0x00b7
+                           0000BF   389 _PPCA	=	0x00bf
+                           0000BE   390 _PLVD	=	0x00be
+                           0000BD   391 _PADC	=	0x00bd
+                           0000BC   392 _PS	=	0x00bc
+                           0000BB   393 _PT1	=	0x00bb
+                           0000BA   394 _PX1	=	0x00ba
+                           0000B9   395 _PT0	=	0x00b9
+                           0000B8   396 _PX0	=	0x00b8
+                           0000C0   397 _P40	=	0x00c0
+                           0000C1   398 _P41	=	0x00c1
+                           0000C2   399 _P42	=	0x00c2
+                           0000C3   400 _P43	=	0x00c3
+                           0000C4   401 _P44	=	0x00c4
+                           0000C5   402 _P45	=	0x00c5
+                           0000C6   403 _P46	=	0x00c6
+                           0000C7   404 _P47	=	0x00c7
+                           0000C8   405 _P50	=	0x00c8
+                           0000C9   406 _P51	=	0x00c9
+                           0000CA   407 _P52	=	0x00ca
+                           0000CB   408 _P53	=	0x00cb
+                           0000CC   409 _P54	=	0x00cc
+                           0000CD   410 _P55	=	0x00cd
+                           0000CE   411 _P56	=	0x00ce
+                           0000CF   412 _P57	=	0x00cf
+                           0000D7   413 _CY	=	0x00d7
+                           0000D6   414 _AC	=	0x00d6
+                           0000D5   415 _F0	=	0x00d5
+                           0000D4   416 _RS1	=	0x00d4
+                           0000D3   417 _RS0	=	0x00d3
+                           0000D2   418 _OV	=	0x00d2
+                           0000D1   419 _F1	=	0x00d1
+                           0000D0   420 _P	=	0x00d0
+                           0000E8   421 _P60	=	0x00e8
+                           0000E9   422 _P61	=	0x00e9
+                           0000EA   423 _P62	=	0x00ea
+                           0000EB   424 _P63	=	0x00eb
+                           0000EC   425 _P64	=	0x00ec
+                           0000ED   426 _P65	=	0x00ed
+                           0000EE   427 _P66	=	0x00ee
+                           0000EF   428 _P67	=	0x00ef
+                           0000F8   429 _P70	=	0x00f8
+                           0000F9   430 _P71	=	0x00f9
+                           0000FA   431 _P72	=	0x00fa
+                           0000FB   432 _P73	=	0x00fb
+                           0000FC   433 _P74	=	0x00fc
+                           0000FD   434 _P75	=	0x00fd
+                           0000FE   435 _P76	=	0x00fe
+                           0000FF   436 _P77	=	0x00ff
+                                    437 ;--------------------------------------------------------
+                                    438 ; overlayable register banks
+                                    439 ;--------------------------------------------------------
+                                    440 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        441 	.ds 8
+                                    442 ;--------------------------------------------------------
+                                    443 ; internal ram data
+                                    444 ;--------------------------------------------------------
+                                    445 	.area DSEG    (DATA)
+                                    446 ;--------------------------------------------------------
+                                    447 ; overlayable items in internal ram
+                                    448 ;--------------------------------------------------------
+                                    449 ;--------------------------------------------------------
+                                    450 ; indirectly addressable internal ram data
+                                    451 ;--------------------------------------------------------
+                                    452 	.area ISEG    (DATA)
+                                    453 ;--------------------------------------------------------
+                                    454 ; absolute internal ram data
+                                    455 ;--------------------------------------------------------
+                                    456 	.area IABS    (ABS,DATA)
+                                    457 	.area IABS    (ABS,DATA)
+                                    458 ;--------------------------------------------------------
+                                    459 ; bit data
+                                    460 ;--------------------------------------------------------
+                                    461 	.area BSEG    (BIT)
+                                    462 ;--------------------------------------------------------
+                                    463 ; paged external ram data
+                                    464 ;--------------------------------------------------------
+                                    465 	.area PSEG    (PAG,XDATA)
+                                    466 ;--------------------------------------------------------
+                                    467 ; uninitialized external ram data
+                                    468 ;--------------------------------------------------------
+                                    469 	.area XSEG    (XDATA)
+      0000A2                        470 _USB_ReadReg_addr_10000_9:
+      0000A2                        471 	.ds 1
+      0000A3                        472 _USB_WriteReg_PARM_2:
+      0000A3                        473 	.ds 1
+      0000A4                        474 _USB_WriteReg_addr_10000_11:
+      0000A4                        475 	.ds 1
+      0000A5                        476 _USB_ReadFIFO_PARM_2:
+      0000A5                        477 	.ds 3
+      0000A8                        478 _USB_ReadFIFO_fifo_10000_13:
+      0000A8                        479 	.ds 1
+      0000A9                        480 _USB_WriteFIFO_PARM_2:
+      0000A9                        481 	.ds 3
+      0000AC                        482 _USB_WriteFIFO_PARM_3:
+      0000AC                        483 	.ds 1
+      0000AD                        484 _USB_WriteFIFO_fifo_10000_16:
+      0000AD                        485 	.ds 1
+                                    486 ;--------------------------------------------------------
+                                    487 ; absolute external ram data
+                                    488 ;--------------------------------------------------------
+                                    489 	.area XABS    (ABS,XDATA)
+                                    490 ;--------------------------------------------------------
+                                    491 ; initialized external ram data
+                                    492 ;--------------------------------------------------------
+                                    493 	.area XISEG   (XDATA)
+                                    494 	.area HOME    (CODE)
+                                    495 	.area GSINIT0 (CODE)
+                                    496 	.area GSINIT1 (CODE)
+                                    497 	.area GSINIT2 (CODE)
+                                    498 	.area GSINIT3 (CODE)
+                                    499 	.area GSINIT4 (CODE)
+                                    500 	.area GSINIT5 (CODE)
+                                    501 	.area GSINIT  (CODE)
+                                    502 	.area GSFINAL (CODE)
+                                    503 	.area CSEG    (CODE)
+                                    504 ;--------------------------------------------------------
+                                    505 ; global & static initialisations
+                                    506 ;--------------------------------------------------------
+                                    507 	.area HOME    (CODE)
+                                    508 	.area GSINIT  (CODE)
+                                    509 	.area GSFINAL (CODE)
+                                    510 	.area GSINIT  (CODE)
+                                    511 ;--------------------------------------------------------
+                                    512 ; Home
+                                    513 ;--------------------------------------------------------
+                                    514 	.area HOME    (CODE)
+                                    515 	.area HOME    (CODE)
+                                    516 ;--------------------------------------------------------
+                                    517 ; code
+                                    518 ;--------------------------------------------------------
+                                    519 	.area CSEG    (CODE)
+                                    520 ;------------------------------------------------------------
+                                    521 ;Allocation info for local variables in function 'USB_ReadReg'
+                                    522 ;------------------------------------------------------------
+                                    523 ;addr          Allocated with name '_USB_ReadReg_addr_10000_9'
+                                    524 ;------------------------------------------------------------
+                                    525 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:5: uint8_t USB_ReadReg(uint8_t addr)
+                                    526 ;	-----------------------------------------
+                                    527 ;	 function USB_ReadReg
+                                    528 ;	-----------------------------------------
+      001252                        529 _USB_ReadReg:
+                           000007   530 	ar7 = 0x07
+                           000006   531 	ar6 = 0x06
+                           000005   532 	ar5 = 0x05
+                           000004   533 	ar4 = 0x04
+                           000003   534 	ar3 = 0x03
+                           000002   535 	ar2 = 0x02
+                           000001   536 	ar1 = 0x01
+                           000000   537 	ar0 = 0x00
+      001252 E5 82            [12]  538 	mov	a,dpl
+      001254 90 00 A2         [24]  539 	mov	dptr,#_USB_ReadReg_addr_10000_9
+      001257 F0               [24]  540 	movx	@dptr,a
+                                    541 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:7: while (USB_IsBusy());
+      001258                        542 00101$:
+      001258 E5 FC            [12]  543 	mov	a,_USBADR
+      00125A 20 E7 FB         [24]  544 	jb	acc.7,00101$
+                                    545 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:8: USB_SetAddrForRead(addr);
+      00125D 90 00 A2         [24]  546 	mov	dptr,#_USB_ReadReg_addr_10000_9
+      001260 E0               [24]  547 	movx	a,@dptr
+      001261 44 80            [12]  548 	orl	a,#0x80
+      001263 F5 FC            [12]  549 	mov	_USBADR,a
+                                    550 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:10: while (USB_IsBusy());
+      001265                        551 00104$:
+      001265 E5 FC            [12]  552 	mov	a,_USBADR
+      001267 20 E7 FB         [24]  553 	jb	acc.7,00104$
+                                    554 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:11: return USBDAT;
+      00126A 85 EC 82         [24]  555 	mov	dpl, _USBDAT
+                                    556 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:12: }
+      00126D 22               [24]  557 	ret
+                                    558 ;------------------------------------------------------------
+                                    559 ;Allocation info for local variables in function 'USB_WriteReg'
+                                    560 ;------------------------------------------------------------
+                                    561 ;dat           Allocated with name '_USB_WriteReg_PARM_2'
+                                    562 ;addr          Allocated with name '_USB_WriteReg_addr_10000_11'
+                                    563 ;------------------------------------------------------------
+                                    564 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:14: void USB_WriteReg(uint8_t addr, uint8_t dat)
+                                    565 ;	-----------------------------------------
+                                    566 ;	 function USB_WriteReg
+                                    567 ;	-----------------------------------------
+      00126E                        568 _USB_WriteReg:
+      00126E E5 82            [12]  569 	mov	a,dpl
+      001270 90 00 A4         [24]  570 	mov	dptr,#_USB_WriteReg_addr_10000_11
+      001273 F0               [24]  571 	movx	@dptr,a
+                                    572 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:16: while (USB_IsBusy());
+      001274                        573 00101$:
+      001274 E5 FC            [12]  574 	mov	a,_USBADR
+      001276 20 E7 FB         [24]  575 	jb	acc.7,00101$
+                                    576 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:17: USB_SetAddrForWrite(addr);
+      001279 90 00 A4         [24]  577 	mov	dptr,#_USB_WriteReg_addr_10000_11
+      00127C E0               [24]  578 	movx	a,@dptr
+      00127D 54 7F            [12]  579 	anl	a,#0x7f
+      00127F F5 FC            [12]  580 	mov	_USBADR,a
+                                    581 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:18: USBDAT = dat;
+      001281 90 00 A3         [24]  582 	mov	dptr,#_USB_WriteReg_PARM_2
+      001284 E0               [24]  583 	movx	a,@dptr
+      001285 F5 EC            [12]  584 	mov	_USBDAT,a
+                                    585 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:19: }
+      001287 22               [24]  586 	ret
+                                    587 ;------------------------------------------------------------
+                                    588 ;Allocation info for local variables in function 'USB_ReadFIFO'
+                                    589 ;------------------------------------------------------------
+                                    590 ;pdat          Allocated with name '_USB_ReadFIFO_PARM_2'
+                                    591 ;fifo          Allocated with name '_USB_ReadFIFO_fifo_10000_13'
+                                    592 ;cnt           Allocated with name '_USB_ReadFIFO_cnt_10000_14'
+                                    593 ;ret           Allocated with name '_USB_ReadFIFO_ret_10000_14'
+                                    594 ;------------------------------------------------------------
+                                    595 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:21: uint8_t USB_ReadFIFO(uint8_t fifo, uint8_t *pdat)
+                                    596 ;	-----------------------------------------
+                                    597 ;	 function USB_ReadFIFO
+                                    598 ;	-----------------------------------------
+      001288                        599 _USB_ReadFIFO:
+      001288 E5 82            [12]  600 	mov	a,dpl
+      00128A 90 00 A8         [24]  601 	mov	dptr,#_USB_ReadFIFO_fifo_10000_13
+      00128D F0               [24]  602 	movx	@dptr,a
+                                    603 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:24: ret = cnt = USB_ReadReg(COUNT0);
+      00128E 75 82 16         [24]  604 	mov	dpl, #0x16
+      001291 12 12 52         [24]  605 	lcall	_USB_ReadReg
+      001294 AF 82            [24]  606 	mov	r7, dpl
+                                    607 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:25: while (cnt--)
+      001296 90 00 A8         [24]  608 	mov	dptr,#_USB_ReadFIFO_fifo_10000_13
+      001299 E0               [24]  609 	movx	a,@dptr
+      00129A FE               [12]  610 	mov	r6,a
+      00129B 90 00 A5         [24]  611 	mov	dptr,#_USB_ReadFIFO_PARM_2
+      00129E E0               [24]  612 	movx	a,@dptr
+      00129F FB               [12]  613 	mov	r3,a
+      0012A0 A3               [24]  614 	inc	dptr
+      0012A1 E0               [24]  615 	movx	a,@dptr
+      0012A2 FC               [12]  616 	mov	r4,a
+      0012A3 A3               [24]  617 	inc	dptr
+      0012A4 E0               [24]  618 	movx	a,@dptr
+      0012A5 FD               [12]  619 	mov	r5,a
+      0012A6 8F 02            [24]  620 	mov	ar2,r7
+      0012A8                        621 00101$:
+      0012A8 8A 01            [24]  622 	mov	ar1,r2
+      0012AA 1A               [12]  623 	dec	r2
+      0012AB E9               [12]  624 	mov	a,r1
+      0012AC 60 30            [24]  625 	jz	00103$
+                                    626 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:27: *pdat++ = USB_ReadReg(fifo);
+      0012AE 8E 82            [24]  627 	mov	dpl, r6
+      0012B0 C0 07            [24]  628 	push	ar7
+      0012B2 C0 06            [24]  629 	push	ar6
+      0012B4 C0 05            [24]  630 	push	ar5
+      0012B6 C0 04            [24]  631 	push	ar4
+      0012B8 C0 03            [24]  632 	push	ar3
+      0012BA C0 02            [24]  633 	push	ar2
+      0012BC 12 12 52         [24]  634 	lcall	_USB_ReadReg
+      0012BF A9 82            [24]  635 	mov	r1, dpl
+      0012C1 D0 02            [24]  636 	pop	ar2
+      0012C3 D0 03            [24]  637 	pop	ar3
+      0012C5 D0 04            [24]  638 	pop	ar4
+      0012C7 D0 05            [24]  639 	pop	ar5
+      0012C9 D0 06            [24]  640 	pop	ar6
+      0012CB D0 07            [24]  641 	pop	ar7
+      0012CD 8B 82            [24]  642 	mov	dpl,r3
+      0012CF 8C 83            [24]  643 	mov	dph,r4
+      0012D1 8D F0            [24]  644 	mov	b,r5
+      0012D3 E9               [12]  645 	mov	a,r1
+      0012D4 12 15 51         [24]  646 	lcall	__gptrput
+      0012D7 A3               [24]  647 	inc	dptr
+      0012D8 AB 82            [24]  648 	mov	r3,dpl
+      0012DA AC 83            [24]  649 	mov	r4,dph
+      0012DC 80 CA            [24]  650 	sjmp	00101$
+      0012DE                        651 00103$:
+                                    652 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:29: return ret;
+      0012DE 8F 82            [24]  653 	mov	dpl, r7
+                                    654 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:30: }
+      0012E0 22               [24]  655 	ret
+                                    656 ;------------------------------------------------------------
+                                    657 ;Allocation info for local variables in function 'USB_WriteFIFO'
+                                    658 ;------------------------------------------------------------
+                                    659 ;pdat          Allocated with name '_USB_WriteFIFO_PARM_2'
+                                    660 ;cnt           Allocated with name '_USB_WriteFIFO_PARM_3'
+                                    661 ;fifo          Allocated with name '_USB_WriteFIFO_fifo_10000_16'
+                                    662 ;------------------------------------------------------------
+                                    663 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:32: void USB_WriteFIFO(uint8_t fifo, uint8_t *pdat, uint8_t cnt)
+                                    664 ;	-----------------------------------------
+                                    665 ;	 function USB_WriteFIFO
+                                    666 ;	-----------------------------------------
+      0012E1                        667 _USB_WriteFIFO:
+      0012E1 E5 82            [12]  668 	mov	a,dpl
+      0012E3 90 00 AD         [24]  669 	mov	dptr,#_USB_WriteFIFO_fifo_10000_16
+      0012E6 F0               [24]  670 	movx	@dptr,a
+                                    671 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:34: while (cnt--)
+      0012E7 E0               [24]  672 	movx	a,@dptr
+      0012E8 FF               [12]  673 	mov	r7,a
+      0012E9 90 00 A9         [24]  674 	mov	dptr,#_USB_WriteFIFO_PARM_2
+      0012EC E0               [24]  675 	movx	a,@dptr
+      0012ED FC               [12]  676 	mov	r4,a
+      0012EE A3               [24]  677 	inc	dptr
+      0012EF E0               [24]  678 	movx	a,@dptr
+      0012F0 FD               [12]  679 	mov	r5,a
+      0012F1 A3               [24]  680 	inc	dptr
+      0012F2 E0               [24]  681 	movx	a,@dptr
+      0012F3 FE               [12]  682 	mov	r6,a
+      0012F4 90 00 AC         [24]  683 	mov	dptr,#_USB_WriteFIFO_PARM_3
+      0012F7 E0               [24]  684 	movx	a,@dptr
+      0012F8 FB               [12]  685 	mov	r3,a
+      0012F9                        686 00101$:
+      0012F9 8B 02            [24]  687 	mov	ar2,r3
+      0012FB 1B               [12]  688 	dec	r3
+      0012FC EA               [12]  689 	mov	a,r2
+      0012FD 60 2F            [24]  690 	jz	00104$
+                                    691 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:36: USB_WriteReg(fifo, *pdat++);
+      0012FF 8C 82            [24]  692 	mov	dpl,r4
+      001301 8D 83            [24]  693 	mov	dph,r5
+      001303 8E F0            [24]  694 	mov	b,r6
+      001305 12 16 37         [24]  695 	lcall	__gptrget
+      001308 FA               [12]  696 	mov	r2,a
+      001309 A3               [24]  697 	inc	dptr
+      00130A AC 82            [24]  698 	mov	r4,dpl
+      00130C AD 83            [24]  699 	mov	r5,dph
+      00130E 90 00 A3         [24]  700 	mov	dptr,#_USB_WriteReg_PARM_2
+      001311 EA               [12]  701 	mov	a,r2
+      001312 F0               [24]  702 	movx	@dptr,a
+      001313 8F 82            [24]  703 	mov	dpl, r7
+      001315 C0 07            [24]  704 	push	ar7
+      001317 C0 06            [24]  705 	push	ar6
+      001319 C0 05            [24]  706 	push	ar5
+      00131B C0 04            [24]  707 	push	ar4
+      00131D C0 03            [24]  708 	push	ar3
+      00131F 12 12 6E         [24]  709 	lcall	_USB_WriteReg
+      001322 D0 03            [24]  710 	pop	ar3
+      001324 D0 04            [24]  711 	pop	ar4
+      001326 D0 05            [24]  712 	pop	ar5
+      001328 D0 06            [24]  713 	pop	ar6
+      00132A D0 07            [24]  714 	pop	ar7
+      00132C 80 CB            [24]  715 	sjmp	00101$
+      00132E                        716 00104$:
+                                    717 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_usb.c:38: }
+      00132E 22               [24]  718 	ret
+                                    719 	.area CSEG    (CODE)
+                                    720 	.area CONST   (CODE)
+                                    721 	.area XINIT   (CODE)
+                                    722 	.area CABS    (ABS,CODE)

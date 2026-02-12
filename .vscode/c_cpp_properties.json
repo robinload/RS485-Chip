@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "SDCC-8051",
+            "includePath": [
+                "${workspaceFolder}",
+                "C:/Program Files/SDCC/include",
+                "${workspaceFolder}/FwLib_STC8/include"
+            ],
+            "defines": [],
+            "compilerPath": "sdcc",
+            "cStandard": "c99"
+        }
+    ],
+    "version": 4
+}
