@@ -635,39 +635,33 @@ _main:
 	setb	_ES
 ;	assignBit
 	setb	_EA
-;	.\FwLib_STC8\user\main.c:32: while (1)
-00109$:
-;	.\FwLib_STC8\user\main.c:34: WDT_CONTR = 0x35;
+;	.\FwLib_STC8\user\main.c:31: while (1)
+00106$:
+;	.\FwLib_STC8\user\main.c:33: WDT_CONTR = 0x35;
 	mov	_WDT_CONTR,#0x35
-;	.\FwLib_STC8\user\main.c:38: if (HX_DOUT == 0 && !mb_frame_ready) 
-	jb	_P32,00104$
-	mov	dptr,#_mb_frame_ready
-	movx	a,@dptr
-	jnz	00104$
-;	.\FwLib_STC8\user\main.c:40: MEAS_Process(); 
+;	.\FwLib_STC8\user\main.c:38: MEAS_Process(); 
 	lcall	_MEAS_Process
-00104$:
-;	.\FwLib_STC8\user\main.c:44: if (mb_frame_ready)
+;	.\FwLib_STC8\user\main.c:40: if (mb_frame_ready)
 	mov	dptr,#_mb_frame_ready
 	movx	a,@dptr
-	jz	00109$
-;	.\FwLib_STC8\user\main.c:46: EA = 0; // 执行解析时关闭中断，释放所有 CPU 资源给 Modbus
+	jz	00106$
+;	.\FwLib_STC8\user\main.c:42: EA = 0;
 ;	assignBit
 	clr	_EA
-;	.\FwLib_STC8\user\main.c:47: mb_parse_request(); 
+;	.\FwLib_STC8\user\main.c:43: mb_parse_request(); 
 	lcall	_mb_parse_request
-;	.\FwLib_STC8\user\main.c:48: mb_idx = 0;
+;	.\FwLib_STC8\user\main.c:44: mb_idx = 0;
 	mov	dptr,#_mb_idx
 	clr	a
 	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:49: mb_frame_ready = 0;
+;	.\FwLib_STC8\user\main.c:45: mb_frame_ready = 0;
 	mov	dptr,#_mb_frame_ready
 	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:50: EA = 1;
+;	.\FwLib_STC8\user\main.c:46: EA = 1;
 ;	assignBit
 	setb	_EA
-;	.\FwLib_STC8\user\main.c:53: }
-	sjmp	00109$
+;	.\FwLib_STC8\user\main.c:49: }
+	sjmp	00106$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area CONST   (CODE)

@@ -443,10 +443,10 @@
                                     443 ; overlayable items in internal ram
                                     444 ;--------------------------------------------------------
                                     445 	.area	OSEG    (OVR,DATA)
-      00004D                        446 _weight_proc_update_sloc0_1_0:
-      00004D                        447 	.ds 4
-      000051                        448 _weight_proc_update_sloc1_1_0:
-      000051                        449 	.ds 4
+      000051                        446 _weight_proc_update_sloc0_1_0:
+      000051                        447 	.ds 4
+      000055                        448 _weight_proc_update_sloc1_1_0:
+      000055                        449 	.ds 4
                                     450 ;--------------------------------------------------------
                                     451 ; indirectly addressable internal ram data
                                     452 ;--------------------------------------------------------
@@ -468,12 +468,12 @@
                                     468 ; uninitialized external ram data
                                     469 ;--------------------------------------------------------
                                     470 	.area XSEG    (XDATA)
-      000139                        471 _current_status:
-      000139                        472 	.ds 4
-      00013D                        473 _weight_proc_update_raw_adc_10000_59:
-      00013D                        474 	.ds 4
-      000141                        475 _weight_proc_update_diff_10000_60:
-      000141                        476 	.ds 4
+      00013D                        471 _current_status:
+      00013D                        472 	.ds 4
+      000141                        473 _weight_proc_update_raw_adc_10000_59:
+      000141                        474 	.ds 4
+      000145                        475 _weight_proc_update_diff_10000_60:
+      000145                        476 	.ds 4
                                     477 ;--------------------------------------------------------
                                     478 ; absolute external ram data
                                     479 ;--------------------------------------------------------
@@ -482,10 +482,10 @@
                                     482 ; initialized external ram data
                                     483 ;--------------------------------------------------------
                                     484 	.area XISEG   (XDATA)
-      000206                        485 _filtered_val:
-      000206                        486 	.ds 4
-      00020A                        487 _stability_count:
-      00020A                        488 	.ds 2
+      000226                        485 _filtered_val:
+      000226                        486 	.ds 4
+      00022A                        487 _stability_count:
+      00022A                        488 	.ds 2
                                     489 	.area HOME    (CODE)
                                     490 	.area GSINIT0 (CODE)
                                     491 	.area GSINIT1 (CODE)
@@ -519,7 +519,7 @@
                                     519 ;	-----------------------------------------
                                     520 ;	 function weight_proc_init
                                     521 ;	-----------------------------------------
-      001037                        522 _weight_proc_init:
+      001045                        522 _weight_proc_init:
                            000007   523 	ar7 = 0x07
                            000006   524 	ar6 = 0x06
                            000005   525 	ar5 = 0x05
@@ -529,28 +529,28 @@
                            000001   529 	ar1 = 0x01
                            000000   530 	ar0 = 0x00
                                     531 ;	.\FwLib_STC8\user\weight_proc.c:9: filtered_val = 0;
-      001037 90 02 06         [24]  532 	mov	dptr,#_filtered_val
-      00103A E4               [12]  533 	clr	a
-      00103B F0               [24]  534 	movx	@dptr,a
-      00103C A3               [24]  535 	inc	dptr
-      00103D F0               [24]  536 	movx	@dptr,a
-      00103E A3               [24]  537 	inc	dptr
-      00103F F0               [24]  538 	movx	@dptr,a
-      001040 A3               [24]  539 	inc	dptr
-      001041 F0               [24]  540 	movx	@dptr,a
+      001045 90 02 26         [24]  532 	mov	dptr,#_filtered_val
+      001048 E4               [12]  533 	clr	a
+      001049 F0               [24]  534 	movx	@dptr,a
+      00104A A3               [24]  535 	inc	dptr
+      00104B F0               [24]  536 	movx	@dptr,a
+      00104C A3               [24]  537 	inc	dptr
+      00104D F0               [24]  538 	movx	@dptr,a
+      00104E A3               [24]  539 	inc	dptr
+      00104F F0               [24]  540 	movx	@dptr,a
                                     541 ;	.\FwLib_STC8\user\weight_proc.c:10: stability_count = 0;
-      001042 90 02 0A         [24]  542 	mov	dptr,#_stability_count
-      001045 F0               [24]  543 	movx	@dptr,a
-      001046 A3               [24]  544 	inc	dptr
-      001047 F0               [24]  545 	movx	@dptr,a
+      001050 90 02 2A         [24]  542 	mov	dptr,#_stability_count
+      001053 F0               [24]  543 	movx	@dptr,a
+      001054 A3               [24]  544 	inc	dptr
+      001055 F0               [24]  545 	movx	@dptr,a
                                     546 ;	.\FwLib_STC8\user\weight_proc.c:11: current_status.is_stable = false;
-      001048 90 01 39         [24]  547 	mov	dptr,#_current_status
-      00104B F0               [24]  548 	movx	@dptr,a
+      001056 90 01 3D         [24]  547 	mov	dptr,#_current_status
+      001059 F0               [24]  548 	movx	@dptr,a
                                     549 ;	.\FwLib_STC8\user\weight_proc.c:12: current_status.is_zero = false;
-      00104C 90 01 3A         [24]  550 	mov	dptr,#(_current_status + 0x0001)
-      00104F F0               [24]  551 	movx	@dptr,a
+      00105A 90 01 3E         [24]  550 	mov	dptr,#(_current_status + 0x0001)
+      00105D F0               [24]  551 	movx	@dptr,a
                                     552 ;	.\FwLib_STC8\user\weight_proc.c:13: }
-      001050 22               [24]  553 	ret
+      00105E 22               [24]  553 	ret
                                     554 ;------------------------------------------------------------
                                     555 ;Allocation info for local variables in function 'weight_proc_update'
                                     556 ;------------------------------------------------------------
@@ -563,492 +563,492 @@
                                     563 ;	-----------------------------------------
                                     564 ;	 function weight_proc_update
                                     565 ;	-----------------------------------------
-      001051                        566 _weight_proc_update:
-      001051 AF 82            [24]  567 	mov	r7,dpl
-      001053 AE 83            [24]  568 	mov	r6,dph
-      001055 AD F0            [24]  569 	mov	r5,b
-      001057 FC               [12]  570 	mov	r4,a
-      001058 90 01 3D         [24]  571 	mov	dptr,#_weight_proc_update_raw_adc_10000_59
-      00105B EF               [12]  572 	mov	a,r7
-      00105C F0               [24]  573 	movx	@dptr,a
-      00105D EE               [12]  574 	mov	a,r6
-      00105E A3               [24]  575 	inc	dptr
-      00105F F0               [24]  576 	movx	@dptr,a
-      001060 ED               [12]  577 	mov	a,r5
-      001061 A3               [24]  578 	inc	dptr
-      001062 F0               [24]  579 	movx	@dptr,a
-      001063 EC               [12]  580 	mov	a,r4
-      001064 A3               [24]  581 	inc	dptr
-      001065 F0               [24]  582 	movx	@dptr,a
+      00105F                        566 _weight_proc_update:
+      00105F AF 82            [24]  567 	mov	r7,dpl
+      001061 AE 83            [24]  568 	mov	r6,dph
+      001063 AD F0            [24]  569 	mov	r5,b
+      001065 FC               [12]  570 	mov	r4,a
+      001066 90 01 41         [24]  571 	mov	dptr,#_weight_proc_update_raw_adc_10000_59
+      001069 EF               [12]  572 	mov	a,r7
+      00106A F0               [24]  573 	movx	@dptr,a
+      00106B EE               [12]  574 	mov	a,r6
+      00106C A3               [24]  575 	inc	dptr
+      00106D F0               [24]  576 	movx	@dptr,a
+      00106E ED               [12]  577 	mov	a,r5
+      00106F A3               [24]  578 	inc	dptr
+      001070 F0               [24]  579 	movx	@dptr,a
+      001071 EC               [12]  580 	mov	a,r4
+      001072 A3               [24]  581 	inc	dptr
+      001073 F0               [24]  582 	movx	@dptr,a
                                     583 ;	.\FwLib_STC8\user\weight_proc.c:20: int32_t diff = raw_adc - filtered_val;
-      001066 90 02 06         [24]  584 	mov	dptr,#_filtered_val
-      001069 E0               [24]  585 	movx	a,@dptr
-      00106A F5 51            [12]  586 	mov	_weight_proc_update_sloc1_1_0,a
-      00106C A3               [24]  587 	inc	dptr
-      00106D E0               [24]  588 	movx	a,@dptr
-      00106E F5 52            [12]  589 	mov	(_weight_proc_update_sloc1_1_0 + 1),a
-      001070 A3               [24]  590 	inc	dptr
-      001071 E0               [24]  591 	movx	a,@dptr
-      001072 F5 53            [12]  592 	mov	(_weight_proc_update_sloc1_1_0 + 2),a
-      001074 A3               [24]  593 	inc	dptr
-      001075 E0               [24]  594 	movx	a,@dptr
-      001076 F5 54            [12]  595 	mov	(_weight_proc_update_sloc1_1_0 + 3),a
-      001078 90 01 3D         [24]  596 	mov	dptr,#_weight_proc_update_raw_adc_10000_59
-      00107B E0               [24]  597 	movx	a,@dptr
-      00107C F8               [12]  598 	mov	r0,a
-      00107D A3               [24]  599 	inc	dptr
-      00107E E0               [24]  600 	movx	a,@dptr
-      00107F F9               [12]  601 	mov	r1,a
-      001080 A3               [24]  602 	inc	dptr
-      001081 E0               [24]  603 	movx	a,@dptr
-      001082 FA               [12]  604 	mov	r2,a
-      001083 A3               [24]  605 	inc	dptr
-      001084 E0               [24]  606 	movx	a,@dptr
-      001085 FB               [12]  607 	mov	r3,a
-      001086 E8               [12]  608 	mov	a,r0
-      001087 C3               [12]  609 	clr	c
-      001088 95 51            [12]  610 	subb	a,_weight_proc_update_sloc1_1_0
-      00108A F8               [12]  611 	mov	r0,a
-      00108B E9               [12]  612 	mov	a,r1
-      00108C 95 52            [12]  613 	subb	a,(_weight_proc_update_sloc1_1_0 + 1)
-      00108E F9               [12]  614 	mov	r1,a
-      00108F EA               [12]  615 	mov	a,r2
-      001090 95 53            [12]  616 	subb	a,(_weight_proc_update_sloc1_1_0 + 2)
-      001092 FA               [12]  617 	mov	r2,a
-      001093 EB               [12]  618 	mov	a,r3
-      001094 95 54            [12]  619 	subb	a,(_weight_proc_update_sloc1_1_0 + 3)
-      001096 FB               [12]  620 	mov	r3,a
-      001097 90 01 41         [24]  621 	mov	dptr,#_weight_proc_update_diff_10000_60
-      00109A E8               [12]  622 	mov	a,r0
-      00109B F0               [24]  623 	movx	@dptr,a
-      00109C E9               [12]  624 	mov	a,r1
-      00109D A3               [24]  625 	inc	dptr
-      00109E F0               [24]  626 	movx	@dptr,a
-      00109F EA               [12]  627 	mov	a,r2
-      0010A0 A3               [24]  628 	inc	dptr
-      0010A1 F0               [24]  629 	movx	@dptr,a
-      0010A2 EB               [12]  630 	mov	a,r3
-      0010A3 A3               [24]  631 	inc	dptr
-      0010A4 F0               [24]  632 	movx	@dptr,a
+      001074 90 02 26         [24]  584 	mov	dptr,#_filtered_val
+      001077 E0               [24]  585 	movx	a,@dptr
+      001078 F5 55            [12]  586 	mov	_weight_proc_update_sloc1_1_0,a
+      00107A A3               [24]  587 	inc	dptr
+      00107B E0               [24]  588 	movx	a,@dptr
+      00107C F5 56            [12]  589 	mov	(_weight_proc_update_sloc1_1_0 + 1),a
+      00107E A3               [24]  590 	inc	dptr
+      00107F E0               [24]  591 	movx	a,@dptr
+      001080 F5 57            [12]  592 	mov	(_weight_proc_update_sloc1_1_0 + 2),a
+      001082 A3               [24]  593 	inc	dptr
+      001083 E0               [24]  594 	movx	a,@dptr
+      001084 F5 58            [12]  595 	mov	(_weight_proc_update_sloc1_1_0 + 3),a
+      001086 90 01 41         [24]  596 	mov	dptr,#_weight_proc_update_raw_adc_10000_59
+      001089 E0               [24]  597 	movx	a,@dptr
+      00108A F8               [12]  598 	mov	r0,a
+      00108B A3               [24]  599 	inc	dptr
+      00108C E0               [24]  600 	movx	a,@dptr
+      00108D F9               [12]  601 	mov	r1,a
+      00108E A3               [24]  602 	inc	dptr
+      00108F E0               [24]  603 	movx	a,@dptr
+      001090 FA               [12]  604 	mov	r2,a
+      001091 A3               [24]  605 	inc	dptr
+      001092 E0               [24]  606 	movx	a,@dptr
+      001093 FB               [12]  607 	mov	r3,a
+      001094 E8               [12]  608 	mov	a,r0
+      001095 C3               [12]  609 	clr	c
+      001096 95 55            [12]  610 	subb	a,_weight_proc_update_sloc1_1_0
+      001098 F8               [12]  611 	mov	r0,a
+      001099 E9               [12]  612 	mov	a,r1
+      00109A 95 56            [12]  613 	subb	a,(_weight_proc_update_sloc1_1_0 + 1)
+      00109C F9               [12]  614 	mov	r1,a
+      00109D EA               [12]  615 	mov	a,r2
+      00109E 95 57            [12]  616 	subb	a,(_weight_proc_update_sloc1_1_0 + 2)
+      0010A0 FA               [12]  617 	mov	r2,a
+      0010A1 EB               [12]  618 	mov	a,r3
+      0010A2 95 58            [12]  619 	subb	a,(_weight_proc_update_sloc1_1_0 + 3)
+      0010A4 FB               [12]  620 	mov	r3,a
+      0010A5 90 01 45         [24]  621 	mov	dptr,#_weight_proc_update_diff_10000_60
+      0010A8 E8               [12]  622 	mov	a,r0
+      0010A9 F0               [24]  623 	movx	@dptr,a
+      0010AA E9               [12]  624 	mov	a,r1
+      0010AB A3               [24]  625 	inc	dptr
+      0010AC F0               [24]  626 	movx	@dptr,a
+      0010AD EA               [12]  627 	mov	a,r2
+      0010AE A3               [24]  628 	inc	dptr
+      0010AF F0               [24]  629 	movx	@dptr,a
+      0010B0 EB               [12]  630 	mov	a,r3
+      0010B1 A3               [24]  631 	inc	dptr
+      0010B2 F0               [24]  632 	movx	@dptr,a
                                     633 ;	.\FwLib_STC8\user\weight_proc.c:23: if (diff > (int32_t)reg_filter_band || diff < -(int32_t)reg_filter_band) {
-      0010A5 90 00 76         [24]  634 	mov	dptr,#_reg_filter_band
-      0010A8 E0               [24]  635 	movx	a,@dptr
-      0010A9 F5 4D            [12]  636 	mov	_weight_proc_update_sloc0_1_0,a
-      0010AB A3               [24]  637 	inc	dptr
-      0010AC E0               [24]  638 	movx	a,@dptr
-      0010AD F5 4E            [12]  639 	mov	(_weight_proc_update_sloc0_1_0 + 1),a
-      0010AF A3               [24]  640 	inc	dptr
-      0010B0 E0               [24]  641 	movx	a,@dptr
-      0010B1 F5 4F            [12]  642 	mov	(_weight_proc_update_sloc0_1_0 + 2),a
-      0010B3 A3               [24]  643 	inc	dptr
-      0010B4 E0               [24]  644 	movx	a,@dptr
-      0010B5 F5 50            [12]  645 	mov	(_weight_proc_update_sloc0_1_0 + 3),a
-      0010B7 C3               [12]  646 	clr	c
-      0010B8 E5 4D            [12]  647 	mov	a,_weight_proc_update_sloc0_1_0
-      0010BA 98               [12]  648 	subb	a,r0
-      0010BB E5 4E            [12]  649 	mov	a,(_weight_proc_update_sloc0_1_0 + 1)
-      0010BD 99               [12]  650 	subb	a,r1
-      0010BE E5 4F            [12]  651 	mov	a,(_weight_proc_update_sloc0_1_0 + 2)
-      0010C0 9A               [12]  652 	subb	a,r2
-      0010C1 E5 50            [12]  653 	mov	a,(_weight_proc_update_sloc0_1_0 + 3)
-      0010C3 64 80            [12]  654 	xrl	a,#0x80
-      0010C5 8B F0            [24]  655 	mov	b,r3
-      0010C7 63 F0 80         [24]  656 	xrl	b,#0x80
-      0010CA 95 F0            [12]  657 	subb	a,b
-      0010CC 40 23            [24]  658 	jc	00101$
-      0010CE E4               [12]  659 	clr	a
-      0010CF 95 4D            [12]  660 	subb	a,_weight_proc_update_sloc0_1_0
-      0010D1 FC               [12]  661 	mov	r4,a
-      0010D2 E4               [12]  662 	clr	a
-      0010D3 95 4E            [12]  663 	subb	a,(_weight_proc_update_sloc0_1_0 + 1)
-      0010D5 FD               [12]  664 	mov	r5,a
-      0010D6 E4               [12]  665 	clr	a
-      0010D7 95 4F            [12]  666 	subb	a,(_weight_proc_update_sloc0_1_0 + 2)
-      0010D9 FE               [12]  667 	mov	r6,a
-      0010DA E4               [12]  668 	clr	a
-      0010DB 95 50            [12]  669 	subb	a,(_weight_proc_update_sloc0_1_0 + 3)
-      0010DD FF               [12]  670 	mov	r7,a
-      0010DE C3               [12]  671 	clr	c
-      0010DF E8               [12]  672 	mov	a,r0
-      0010E0 9C               [12]  673 	subb	a,r4
-      0010E1 E9               [12]  674 	mov	a,r1
-      0010E2 9D               [12]  675 	subb	a,r5
-      0010E3 EA               [12]  676 	mov	a,r2
-      0010E4 9E               [12]  677 	subb	a,r6
-      0010E5 EB               [12]  678 	mov	a,r3
-      0010E6 64 80            [12]  679 	xrl	a,#0x80
-      0010E8 8F F0            [24]  680 	mov	b,r7
-      0010EA 63 F0 80         [24]  681 	xrl	b,#0x80
-      0010ED 95 F0            [12]  682 	subb	a,b
-      0010EF 50 24            [24]  683 	jnc	00102$
-      0010F1                        684 00101$:
+      0010B3 90 00 76         [24]  634 	mov	dptr,#_reg_filter_band
+      0010B6 E0               [24]  635 	movx	a,@dptr
+      0010B7 F5 51            [12]  636 	mov	_weight_proc_update_sloc0_1_0,a
+      0010B9 A3               [24]  637 	inc	dptr
+      0010BA E0               [24]  638 	movx	a,@dptr
+      0010BB F5 52            [12]  639 	mov	(_weight_proc_update_sloc0_1_0 + 1),a
+      0010BD A3               [24]  640 	inc	dptr
+      0010BE E0               [24]  641 	movx	a,@dptr
+      0010BF F5 53            [12]  642 	mov	(_weight_proc_update_sloc0_1_0 + 2),a
+      0010C1 A3               [24]  643 	inc	dptr
+      0010C2 E0               [24]  644 	movx	a,@dptr
+      0010C3 F5 54            [12]  645 	mov	(_weight_proc_update_sloc0_1_0 + 3),a
+      0010C5 C3               [12]  646 	clr	c
+      0010C6 E5 51            [12]  647 	mov	a,_weight_proc_update_sloc0_1_0
+      0010C8 98               [12]  648 	subb	a,r0
+      0010C9 E5 52            [12]  649 	mov	a,(_weight_proc_update_sloc0_1_0 + 1)
+      0010CB 99               [12]  650 	subb	a,r1
+      0010CC E5 53            [12]  651 	mov	a,(_weight_proc_update_sloc0_1_0 + 2)
+      0010CE 9A               [12]  652 	subb	a,r2
+      0010CF E5 54            [12]  653 	mov	a,(_weight_proc_update_sloc0_1_0 + 3)
+      0010D1 64 80            [12]  654 	xrl	a,#0x80
+      0010D3 8B F0            [24]  655 	mov	b,r3
+      0010D5 63 F0 80         [24]  656 	xrl	b,#0x80
+      0010D8 95 F0            [12]  657 	subb	a,b
+      0010DA 40 23            [24]  658 	jc	00101$
+      0010DC E4               [12]  659 	clr	a
+      0010DD 95 51            [12]  660 	subb	a,_weight_proc_update_sloc0_1_0
+      0010DF FC               [12]  661 	mov	r4,a
+      0010E0 E4               [12]  662 	clr	a
+      0010E1 95 52            [12]  663 	subb	a,(_weight_proc_update_sloc0_1_0 + 1)
+      0010E3 FD               [12]  664 	mov	r5,a
+      0010E4 E4               [12]  665 	clr	a
+      0010E5 95 53            [12]  666 	subb	a,(_weight_proc_update_sloc0_1_0 + 2)
+      0010E7 FE               [12]  667 	mov	r6,a
+      0010E8 E4               [12]  668 	clr	a
+      0010E9 95 54            [12]  669 	subb	a,(_weight_proc_update_sloc0_1_0 + 3)
+      0010EB FF               [12]  670 	mov	r7,a
+      0010EC C3               [12]  671 	clr	c
+      0010ED E8               [12]  672 	mov	a,r0
+      0010EE 9C               [12]  673 	subb	a,r4
+      0010EF E9               [12]  674 	mov	a,r1
+      0010F0 9D               [12]  675 	subb	a,r5
+      0010F1 EA               [12]  676 	mov	a,r2
+      0010F2 9E               [12]  677 	subb	a,r6
+      0010F3 EB               [12]  678 	mov	a,r3
+      0010F4 64 80            [12]  679 	xrl	a,#0x80
+      0010F6 8F F0            [24]  680 	mov	b,r7
+      0010F8 63 F0 80         [24]  681 	xrl	b,#0x80
+      0010FB 95 F0            [12]  682 	subb	a,b
+      0010FD 50 24            [24]  683 	jnc	00102$
+      0010FF                        684 00101$:
                                     685 ;	.\FwLib_STC8\user\weight_proc.c:24: filtered_val += (diff >> 1); // Fast track
-      0010F1 EB               [12]  686 	mov	a,r3
-      0010F2 A2 E7            [12]  687 	mov	c,acc.7
-      0010F4 13               [12]  688 	rrc	a
-      0010F5 FF               [12]  689 	mov	r7,a
-      0010F6 EA               [12]  690 	mov	a,r2
-      0010F7 13               [12]  691 	rrc	a
-      0010F8 FE               [12]  692 	mov	r6,a
-      0010F9 E9               [12]  693 	mov	a,r1
-      0010FA 13               [12]  694 	rrc	a
-      0010FB FD               [12]  695 	mov	r5,a
-      0010FC E8               [12]  696 	mov	a,r0
-      0010FD 13               [12]  697 	rrc	a
-      0010FE 90 02 06         [24]  698 	mov	dptr,#_filtered_val
-      001101 25 51            [12]  699 	add	a, _weight_proc_update_sloc1_1_0
-      001103 F0               [24]  700 	movx	@dptr,a
-      001104 ED               [12]  701 	mov	a,r5
-      001105 35 52            [12]  702 	addc	a, (_weight_proc_update_sloc1_1_0 + 1)
-      001107 A3               [24]  703 	inc	dptr
-      001108 F0               [24]  704 	movx	@dptr,a
-      001109 EE               [12]  705 	mov	a,r6
-      00110A 35 53            [12]  706 	addc	a, (_weight_proc_update_sloc1_1_0 + 2)
-      00110C A3               [24]  707 	inc	dptr
-      00110D F0               [24]  708 	movx	@dptr,a
-      00110E EF               [12]  709 	mov	a,r7
-      00110F 35 54            [12]  710 	addc	a, (_weight_proc_update_sloc1_1_0 + 3)
-      001111 A3               [24]  711 	inc	dptr
-      001112 F0               [24]  712 	movx	@dptr,a
-      001113 80 3C            [24]  713 	sjmp	00103$
-      001115                        714 00102$:
+      0010FF EB               [12]  686 	mov	a,r3
+      001100 A2 E7            [12]  687 	mov	c,acc.7
+      001102 13               [12]  688 	rrc	a
+      001103 FF               [12]  689 	mov	r7,a
+      001104 EA               [12]  690 	mov	a,r2
+      001105 13               [12]  691 	rrc	a
+      001106 FE               [12]  692 	mov	r6,a
+      001107 E9               [12]  693 	mov	a,r1
+      001108 13               [12]  694 	rrc	a
+      001109 FD               [12]  695 	mov	r5,a
+      00110A E8               [12]  696 	mov	a,r0
+      00110B 13               [12]  697 	rrc	a
+      00110C 90 02 26         [24]  698 	mov	dptr,#_filtered_val
+      00110F 25 55            [12]  699 	add	a, _weight_proc_update_sloc1_1_0
+      001111 F0               [24]  700 	movx	@dptr,a
+      001112 ED               [12]  701 	mov	a,r5
+      001113 35 56            [12]  702 	addc	a, (_weight_proc_update_sloc1_1_0 + 1)
+      001115 A3               [24]  703 	inc	dptr
+      001116 F0               [24]  704 	movx	@dptr,a
+      001117 EE               [12]  705 	mov	a,r6
+      001118 35 57            [12]  706 	addc	a, (_weight_proc_update_sloc1_1_0 + 2)
+      00111A A3               [24]  707 	inc	dptr
+      00111B F0               [24]  708 	movx	@dptr,a
+      00111C EF               [12]  709 	mov	a,r7
+      00111D 35 58            [12]  710 	addc	a, (_weight_proc_update_sloc1_1_0 + 3)
+      00111F A3               [24]  711 	inc	dptr
+      001120 F0               [24]  712 	movx	@dptr,a
+      001121 80 3C            [24]  713 	sjmp	00103$
+      001123                        714 00102$:
                                     715 ;	.\FwLib_STC8\user\weight_proc.c:26: filtered_val += (diff >> reg_filter_level); // Normal smoothing
-      001115 90 00 72         [24]  716 	mov	dptr,#_reg_filter_level
-      001118 E0               [24]  717 	movx	a,@dptr
-      001119 FC               [12]  718 	mov	r4,a
-      00111A A3               [24]  719 	inc	dptr
-      00111B E0               [24]  720 	movx	a,@dptr
-      00111C A3               [24]  721 	inc	dptr
-      00111D E0               [24]  722 	movx	a,@dptr
-      00111E A3               [24]  723 	inc	dptr
-      00111F E0               [24]  724 	movx	a,@dptr
-      001120 8C F0            [24]  725 	mov	b,r4
-      001122 05 F0            [12]  726 	inc	b
-      001124 EB               [12]  727 	mov	a,r3
-      001125 33               [12]  728 	rlc	a
-      001126 92 D2            [24]  729 	mov	ov,c
-      001128 80 0E            [24]  730 	sjmp	00182$
-      00112A                        731 00181$:
-      00112A A2 D2            [12]  732 	mov	c,ov
-      00112C EB               [12]  733 	mov	a,r3
-      00112D 13               [12]  734 	rrc	a
-      00112E FB               [12]  735 	mov	r3,a
-      00112F EA               [12]  736 	mov	a,r2
-      001130 13               [12]  737 	rrc	a
-      001131 FA               [12]  738 	mov	r2,a
-      001132 E9               [12]  739 	mov	a,r1
-      001133 13               [12]  740 	rrc	a
-      001134 F9               [12]  741 	mov	r1,a
-      001135 E8               [12]  742 	mov	a,r0
-      001136 13               [12]  743 	rrc	a
-      001137 F8               [12]  744 	mov	r0,a
-      001138                        745 00182$:
-      001138 D5 F0 EF         [24]  746 	djnz	b,00181$
-      00113B 90 02 06         [24]  747 	mov	dptr,#_filtered_val
-      00113E E8               [12]  748 	mov	a,r0
-      00113F 25 51            [12]  749 	add	a, _weight_proc_update_sloc1_1_0
-      001141 F0               [24]  750 	movx	@dptr,a
-      001142 E9               [12]  751 	mov	a,r1
-      001143 35 52            [12]  752 	addc	a, (_weight_proc_update_sloc1_1_0 + 1)
-      001145 A3               [24]  753 	inc	dptr
-      001146 F0               [24]  754 	movx	@dptr,a
-      001147 EA               [12]  755 	mov	a,r2
-      001148 35 53            [12]  756 	addc	a, (_weight_proc_update_sloc1_1_0 + 2)
-      00114A A3               [24]  757 	inc	dptr
-      00114B F0               [24]  758 	movx	@dptr,a
-      00114C EB               [12]  759 	mov	a,r3
-      00114D 35 54            [12]  760 	addc	a, (_weight_proc_update_sloc1_1_0 + 3)
-      00114F A3               [24]  761 	inc	dptr
-      001150 F0               [24]  762 	movx	@dptr,a
-      001151                        763 00103$:
+      001123 90 00 72         [24]  716 	mov	dptr,#_reg_filter_level
+      001126 E0               [24]  717 	movx	a,@dptr
+      001127 FC               [12]  718 	mov	r4,a
+      001128 A3               [24]  719 	inc	dptr
+      001129 E0               [24]  720 	movx	a,@dptr
+      00112A A3               [24]  721 	inc	dptr
+      00112B E0               [24]  722 	movx	a,@dptr
+      00112C A3               [24]  723 	inc	dptr
+      00112D E0               [24]  724 	movx	a,@dptr
+      00112E 8C F0            [24]  725 	mov	b,r4
+      001130 05 F0            [12]  726 	inc	b
+      001132 EB               [12]  727 	mov	a,r3
+      001133 33               [12]  728 	rlc	a
+      001134 92 D2            [24]  729 	mov	ov,c
+      001136 80 0E            [24]  730 	sjmp	00182$
+      001138                        731 00181$:
+      001138 A2 D2            [12]  732 	mov	c,ov
+      00113A EB               [12]  733 	mov	a,r3
+      00113B 13               [12]  734 	rrc	a
+      00113C FB               [12]  735 	mov	r3,a
+      00113D EA               [12]  736 	mov	a,r2
+      00113E 13               [12]  737 	rrc	a
+      00113F FA               [12]  738 	mov	r2,a
+      001140 E9               [12]  739 	mov	a,r1
+      001141 13               [12]  740 	rrc	a
+      001142 F9               [12]  741 	mov	r1,a
+      001143 E8               [12]  742 	mov	a,r0
+      001144 13               [12]  743 	rrc	a
+      001145 F8               [12]  744 	mov	r0,a
+      001146                        745 00182$:
+      001146 D5 F0 EF         [24]  746 	djnz	b,00181$
+      001149 90 02 26         [24]  747 	mov	dptr,#_filtered_val
+      00114C E8               [12]  748 	mov	a,r0
+      00114D 25 55            [12]  749 	add	a, _weight_proc_update_sloc1_1_0
+      00114F F0               [24]  750 	movx	@dptr,a
+      001150 E9               [12]  751 	mov	a,r1
+      001151 35 56            [12]  752 	addc	a, (_weight_proc_update_sloc1_1_0 + 1)
+      001153 A3               [24]  753 	inc	dptr
+      001154 F0               [24]  754 	movx	@dptr,a
+      001155 EA               [12]  755 	mov	a,r2
+      001156 35 57            [12]  756 	addc	a, (_weight_proc_update_sloc1_1_0 + 2)
+      001158 A3               [24]  757 	inc	dptr
+      001159 F0               [24]  758 	movx	@dptr,a
+      00115A EB               [12]  759 	mov	a,r3
+      00115B 35 58            [12]  760 	addc	a, (_weight_proc_update_sloc1_1_0 + 3)
+      00115D A3               [24]  761 	inc	dptr
+      00115E F0               [24]  762 	movx	@dptr,a
+      00115F                        763 00103$:
                                     764 ;	.\FwLib_STC8\user\weight_proc.c:31: if (diff < (int32_t)reg_stable_band && diff > -(int32_t)reg_stable_band) {
-      001151 90 00 8A         [24]  765 	mov	dptr,#_reg_stable_band
-      001154 E0               [24]  766 	movx	a,@dptr
-      001155 FC               [12]  767 	mov	r4,a
-      001156 A3               [24]  768 	inc	dptr
-      001157 E0               [24]  769 	movx	a,@dptr
-      001158 FD               [12]  770 	mov	r5,a
-      001159 A3               [24]  771 	inc	dptr
-      00115A E0               [24]  772 	movx	a,@dptr
-      00115B FE               [12]  773 	mov	r6,a
-      00115C A3               [24]  774 	inc	dptr
-      00115D E0               [24]  775 	movx	a,@dptr
-      00115E FF               [12]  776 	mov	r7,a
-      00115F 90 01 41         [24]  777 	mov	dptr,#_weight_proc_update_diff_10000_60
-      001162 E0               [24]  778 	movx	a,@dptr
-      001163 F8               [12]  779 	mov	r0,a
-      001164 A3               [24]  780 	inc	dptr
-      001165 E0               [24]  781 	movx	a,@dptr
-      001166 F9               [12]  782 	mov	r1,a
-      001167 A3               [24]  783 	inc	dptr
-      001168 E0               [24]  784 	movx	a,@dptr
-      001169 FA               [12]  785 	mov	r2,a
-      00116A A3               [24]  786 	inc	dptr
-      00116B E0               [24]  787 	movx	a,@dptr
-      00116C FB               [12]  788 	mov	r3,a
-      00116D C3               [12]  789 	clr	c
-      00116E E8               [12]  790 	mov	a,r0
-      00116F 9C               [12]  791 	subb	a,r4
-      001170 E9               [12]  792 	mov	a,r1
-      001171 9D               [12]  793 	subb	a,r5
-      001172 EA               [12]  794 	mov	a,r2
-      001173 9E               [12]  795 	subb	a,r6
-      001174 EB               [12]  796 	mov	a,r3
-      001175 64 80            [12]  797 	xrl	a,#0x80
-      001177 8F F0            [24]  798 	mov	b,r7
-      001179 63 F0 80         [24]  799 	xrl	b,#0x80
-      00117C 95 F0            [12]  800 	subb	a,b
-      00117E 50 6E            [24]  801 	jnc	00109$
-      001180 C3               [12]  802 	clr	c
-      001181 E4               [12]  803 	clr	a
-      001182 9C               [12]  804 	subb	a,r4
-      001183 FC               [12]  805 	mov	r4,a
-      001184 E4               [12]  806 	clr	a
-      001185 9D               [12]  807 	subb	a,r5
-      001186 FD               [12]  808 	mov	r5,a
-      001187 E4               [12]  809 	clr	a
-      001188 9E               [12]  810 	subb	a,r6
-      001189 FE               [12]  811 	mov	r6,a
-      00118A E4               [12]  812 	clr	a
-      00118B 9F               [12]  813 	subb	a,r7
-      00118C FF               [12]  814 	mov	r7,a
-      00118D C3               [12]  815 	clr	c
-      00118E EC               [12]  816 	mov	a,r4
-      00118F 98               [12]  817 	subb	a,r0
-      001190 ED               [12]  818 	mov	a,r5
-      001191 99               [12]  819 	subb	a,r1
-      001192 EE               [12]  820 	mov	a,r6
-      001193 9A               [12]  821 	subb	a,r2
-      001194 EF               [12]  822 	mov	a,r7
-      001195 64 80            [12]  823 	xrl	a,#0x80
-      001197 8B F0            [24]  824 	mov	b,r3
-      001199 63 F0 80         [24]  825 	xrl	b,#0x80
-      00119C 95 F0            [12]  826 	subb	a,b
-      00119E 50 4E            [24]  827 	jnc	00109$
+      00115F 90 00 8A         [24]  765 	mov	dptr,#_reg_stable_band
+      001162 E0               [24]  766 	movx	a,@dptr
+      001163 FC               [12]  767 	mov	r4,a
+      001164 A3               [24]  768 	inc	dptr
+      001165 E0               [24]  769 	movx	a,@dptr
+      001166 FD               [12]  770 	mov	r5,a
+      001167 A3               [24]  771 	inc	dptr
+      001168 E0               [24]  772 	movx	a,@dptr
+      001169 FE               [12]  773 	mov	r6,a
+      00116A A3               [24]  774 	inc	dptr
+      00116B E0               [24]  775 	movx	a,@dptr
+      00116C FF               [12]  776 	mov	r7,a
+      00116D 90 01 45         [24]  777 	mov	dptr,#_weight_proc_update_diff_10000_60
+      001170 E0               [24]  778 	movx	a,@dptr
+      001171 F8               [12]  779 	mov	r0,a
+      001172 A3               [24]  780 	inc	dptr
+      001173 E0               [24]  781 	movx	a,@dptr
+      001174 F9               [12]  782 	mov	r1,a
+      001175 A3               [24]  783 	inc	dptr
+      001176 E0               [24]  784 	movx	a,@dptr
+      001177 FA               [12]  785 	mov	r2,a
+      001178 A3               [24]  786 	inc	dptr
+      001179 E0               [24]  787 	movx	a,@dptr
+      00117A FB               [12]  788 	mov	r3,a
+      00117B C3               [12]  789 	clr	c
+      00117C E8               [12]  790 	mov	a,r0
+      00117D 9C               [12]  791 	subb	a,r4
+      00117E E9               [12]  792 	mov	a,r1
+      00117F 9D               [12]  793 	subb	a,r5
+      001180 EA               [12]  794 	mov	a,r2
+      001181 9E               [12]  795 	subb	a,r6
+      001182 EB               [12]  796 	mov	a,r3
+      001183 64 80            [12]  797 	xrl	a,#0x80
+      001185 8F F0            [24]  798 	mov	b,r7
+      001187 63 F0 80         [24]  799 	xrl	b,#0x80
+      00118A 95 F0            [12]  800 	subb	a,b
+      00118C 50 6E            [24]  801 	jnc	00109$
+      00118E C3               [12]  802 	clr	c
+      00118F E4               [12]  803 	clr	a
+      001190 9C               [12]  804 	subb	a,r4
+      001191 FC               [12]  805 	mov	r4,a
+      001192 E4               [12]  806 	clr	a
+      001193 9D               [12]  807 	subb	a,r5
+      001194 FD               [12]  808 	mov	r5,a
+      001195 E4               [12]  809 	clr	a
+      001196 9E               [12]  810 	subb	a,r6
+      001197 FE               [12]  811 	mov	r6,a
+      001198 E4               [12]  812 	clr	a
+      001199 9F               [12]  813 	subb	a,r7
+      00119A FF               [12]  814 	mov	r7,a
+      00119B C3               [12]  815 	clr	c
+      00119C EC               [12]  816 	mov	a,r4
+      00119D 98               [12]  817 	subb	a,r0
+      00119E ED               [12]  818 	mov	a,r5
+      00119F 99               [12]  819 	subb	a,r1
+      0011A0 EE               [12]  820 	mov	a,r6
+      0011A1 9A               [12]  821 	subb	a,r2
+      0011A2 EF               [12]  822 	mov	a,r7
+      0011A3 64 80            [12]  823 	xrl	a,#0x80
+      0011A5 8B F0            [24]  824 	mov	b,r3
+      0011A7 63 F0 80         [24]  825 	xrl	b,#0x80
+      0011AA 95 F0            [12]  826 	subb	a,b
+      0011AC 50 4E            [24]  827 	jnc	00109$
                                     828 ;	.\FwLib_STC8\user\weight_proc.c:32: if (stability_count < reg_stable_delay) {
-      0011A0 90 02 0A         [24]  829 	mov	dptr,#_stability_count
-      0011A3 E0               [24]  830 	movx	a,@dptr
-      0011A4 FE               [12]  831 	mov	r6,a
-      0011A5 A3               [24]  832 	inc	dptr
-      0011A6 E0               [24]  833 	movx	a,@dptr
-      0011A7 FF               [12]  834 	mov	r7,a
-      0011A8 90 00 86         [24]  835 	mov	dptr,#_reg_stable_delay
-      0011AB E0               [24]  836 	movx	a,@dptr
-      0011AC F5 51            [12]  837 	mov	_weight_proc_update_sloc1_1_0,a
-      0011AE A3               [24]  838 	inc	dptr
-      0011AF E0               [24]  839 	movx	a,@dptr
-      0011B0 F5 52            [12]  840 	mov	(_weight_proc_update_sloc1_1_0 + 1),a
-      0011B2 A3               [24]  841 	inc	dptr
-      0011B3 E0               [24]  842 	movx	a,@dptr
-      0011B4 F5 53            [12]  843 	mov	(_weight_proc_update_sloc1_1_0 + 2),a
-      0011B6 A3               [24]  844 	inc	dptr
-      0011B7 E0               [24]  845 	movx	a,@dptr
-      0011B8 F5 54            [12]  846 	mov	(_weight_proc_update_sloc1_1_0 + 3),a
-      0011BA 8E 00            [24]  847 	mov	ar0,r6
-      0011BC 8F 01            [24]  848 	mov	ar1,r7
-      0011BE 7C 00            [12]  849 	mov	r4,#0x00
-      0011C0 7D 00            [12]  850 	mov	r5,#0x00
-      0011C2 C3               [12]  851 	clr	c
-      0011C3 E8               [12]  852 	mov	a,r0
-      0011C4 95 51            [12]  853 	subb	a,_weight_proc_update_sloc1_1_0
-      0011C6 E9               [12]  854 	mov	a,r1
-      0011C7 95 52            [12]  855 	subb	a,(_weight_proc_update_sloc1_1_0 + 1)
-      0011C9 EC               [12]  856 	mov	a,r4
-      0011CA 95 53            [12]  857 	subb	a,(_weight_proc_update_sloc1_1_0 + 2)
-      0011CC ED               [12]  858 	mov	a,r5
-      0011CD 64 80            [12]  859 	xrl	a,#0x80
-      0011CF 85 54 F0         [24]  860 	mov	b,(_weight_proc_update_sloc1_1_0 + 3)
-      0011D2 63 F0 80         [24]  861 	xrl	b,#0x80
-      0011D5 95 F0            [12]  862 	subb	a,b
-      0011D7 50 0D            [24]  863 	jnc	00106$
+      0011AE 90 02 2A         [24]  829 	mov	dptr,#_stability_count
+      0011B1 E0               [24]  830 	movx	a,@dptr
+      0011B2 FE               [12]  831 	mov	r6,a
+      0011B3 A3               [24]  832 	inc	dptr
+      0011B4 E0               [24]  833 	movx	a,@dptr
+      0011B5 FF               [12]  834 	mov	r7,a
+      0011B6 90 00 86         [24]  835 	mov	dptr,#_reg_stable_delay
+      0011B9 E0               [24]  836 	movx	a,@dptr
+      0011BA F5 55            [12]  837 	mov	_weight_proc_update_sloc1_1_0,a
+      0011BC A3               [24]  838 	inc	dptr
+      0011BD E0               [24]  839 	movx	a,@dptr
+      0011BE F5 56            [12]  840 	mov	(_weight_proc_update_sloc1_1_0 + 1),a
+      0011C0 A3               [24]  841 	inc	dptr
+      0011C1 E0               [24]  842 	movx	a,@dptr
+      0011C2 F5 57            [12]  843 	mov	(_weight_proc_update_sloc1_1_0 + 2),a
+      0011C4 A3               [24]  844 	inc	dptr
+      0011C5 E0               [24]  845 	movx	a,@dptr
+      0011C6 F5 58            [12]  846 	mov	(_weight_proc_update_sloc1_1_0 + 3),a
+      0011C8 8E 00            [24]  847 	mov	ar0,r6
+      0011CA 8F 01            [24]  848 	mov	ar1,r7
+      0011CC 7C 00            [12]  849 	mov	r4,#0x00
+      0011CE 7D 00            [12]  850 	mov	r5,#0x00
+      0011D0 C3               [12]  851 	clr	c
+      0011D1 E8               [12]  852 	mov	a,r0
+      0011D2 95 55            [12]  853 	subb	a,_weight_proc_update_sloc1_1_0
+      0011D4 E9               [12]  854 	mov	a,r1
+      0011D5 95 56            [12]  855 	subb	a,(_weight_proc_update_sloc1_1_0 + 1)
+      0011D7 EC               [12]  856 	mov	a,r4
+      0011D8 95 57            [12]  857 	subb	a,(_weight_proc_update_sloc1_1_0 + 2)
+      0011DA ED               [12]  858 	mov	a,r5
+      0011DB 64 80            [12]  859 	xrl	a,#0x80
+      0011DD 85 58 F0         [24]  860 	mov	b,(_weight_proc_update_sloc1_1_0 + 3)
+      0011E0 63 F0 80         [24]  861 	xrl	b,#0x80
+      0011E3 95 F0            [12]  862 	subb	a,b
+      0011E5 50 0D            [24]  863 	jnc	00106$
                                     864 ;	.\FwLib_STC8\user\weight_proc.c:33: stability_count++;
-      0011D9 90 02 0A         [24]  865 	mov	dptr,#_stability_count
-      0011DC 74 01            [12]  866 	mov	a,#0x01
-      0011DE 2E               [12]  867 	add	a, r6
-      0011DF F0               [24]  868 	movx	@dptr,a
-      0011E0 E4               [12]  869 	clr	a
-      0011E1 3F               [12]  870 	addc	a, r7
-      0011E2 A3               [24]  871 	inc	dptr
-      0011E3 F0               [24]  872 	movx	@dptr,a
-      0011E4 80 13            [24]  873 	sjmp	00110$
-      0011E6                        874 00106$:
+      0011E7 90 02 2A         [24]  865 	mov	dptr,#_stability_count
+      0011EA 74 01            [12]  866 	mov	a,#0x01
+      0011EC 2E               [12]  867 	add	a, r6
+      0011ED F0               [24]  868 	movx	@dptr,a
+      0011EE E4               [12]  869 	clr	a
+      0011EF 3F               [12]  870 	addc	a, r7
+      0011F0 A3               [24]  871 	inc	dptr
+      0011F1 F0               [24]  872 	movx	@dptr,a
+      0011F2 80 13            [24]  873 	sjmp	00110$
+      0011F4                        874 00106$:
                                     875 ;	.\FwLib_STC8\user\weight_proc.c:35: current_status.is_stable = true;
-      0011E6 90 01 39         [24]  876 	mov	dptr,#_current_status
-      0011E9 74 01            [12]  877 	mov	a,#0x01
-      0011EB F0               [24]  878 	movx	@dptr,a
-      0011EC 80 0B            [24]  879 	sjmp	00110$
-      0011EE                        880 00109$:
+      0011F4 90 01 3D         [24]  876 	mov	dptr,#_current_status
+      0011F7 74 01            [12]  877 	mov	a,#0x01
+      0011F9 F0               [24]  878 	movx	@dptr,a
+      0011FA 80 0B            [24]  879 	sjmp	00110$
+      0011FC                        880 00109$:
                                     881 ;	.\FwLib_STC8\user\weight_proc.c:38: stability_count = 0;
-      0011EE 90 02 0A         [24]  882 	mov	dptr,#_stability_count
-      0011F1 E4               [12]  883 	clr	a
-      0011F2 F0               [24]  884 	movx	@dptr,a
-      0011F3 A3               [24]  885 	inc	dptr
-      0011F4 F0               [24]  886 	movx	@dptr,a
+      0011FC 90 02 2A         [24]  882 	mov	dptr,#_stability_count
+      0011FF E4               [12]  883 	clr	a
+      001200 F0               [24]  884 	movx	@dptr,a
+      001201 A3               [24]  885 	inc	dptr
+      001202 F0               [24]  886 	movx	@dptr,a
                                     887 ;	.\FwLib_STC8\user\weight_proc.c:39: current_status.is_stable = false;
-      0011F5 90 01 39         [24]  888 	mov	dptr,#_current_status
-      0011F8 F0               [24]  889 	movx	@dptr,a
-      0011F9                        890 00110$:
+      001203 90 01 3D         [24]  888 	mov	dptr,#_current_status
+      001206 F0               [24]  889 	movx	@dptr,a
+      001207                        890 00110$:
                                     891 ;	.\FwLib_STC8\user\weight_proc.c:45: if (current_status.is_stable) {
-      0011F9 90 01 39         [24]  892 	mov	dptr,#_current_status
-      0011FC E0               [24]  893 	movx	a,@dptr
-      0011FD 70 03            [24]  894 	jnz	00186$
-      0011FF 02 12 A7         [24]  895 	ljmp	00122$
-      001202                        896 00186$:
+      001207 90 01 3D         [24]  892 	mov	dptr,#_current_status
+      00120A E0               [24]  893 	movx	a,@dptr
+      00120B 70 03            [24]  894 	jnz	00186$
+      00120D 02 12 B5         [24]  895 	ljmp	00122$
+      001210                        896 00186$:
                                     897 ;	.\FwLib_STC8\user\weight_proc.c:46: if (filtered_val < (int32_t)reg_zero_trace_band && 
-      001202 90 00 82         [24]  898 	mov	dptr,#_reg_zero_trace_band
-      001205 E0               [24]  899 	movx	a,@dptr
-      001206 FC               [12]  900 	mov	r4,a
-      001207 A3               [24]  901 	inc	dptr
-      001208 E0               [24]  902 	movx	a,@dptr
-      001209 FD               [12]  903 	mov	r5,a
-      00120A A3               [24]  904 	inc	dptr
-      00120B E0               [24]  905 	movx	a,@dptr
-      00120C FE               [12]  906 	mov	r6,a
-      00120D A3               [24]  907 	inc	dptr
-      00120E E0               [24]  908 	movx	a,@dptr
-      00120F FF               [12]  909 	mov	r7,a
-      001210 90 02 06         [24]  910 	mov	dptr,#_filtered_val
-      001213 E0               [24]  911 	movx	a,@dptr
-      001214 F8               [12]  912 	mov	r0,a
-      001215 A3               [24]  913 	inc	dptr
-      001216 E0               [24]  914 	movx	a,@dptr
-      001217 F9               [12]  915 	mov	r1,a
-      001218 A3               [24]  916 	inc	dptr
-      001219 E0               [24]  917 	movx	a,@dptr
-      00121A FA               [12]  918 	mov	r2,a
-      00121B A3               [24]  919 	inc	dptr
-      00121C E0               [24]  920 	movx	a,@dptr
-      00121D FB               [12]  921 	mov	r3,a
-      00121E C3               [12]  922 	clr	c
-      00121F E8               [12]  923 	mov	a,r0
-      001220 9C               [12]  924 	subb	a,r4
-      001221 E9               [12]  925 	mov	a,r1
-      001222 9D               [12]  926 	subb	a,r5
-      001223 EA               [12]  927 	mov	a,r2
-      001224 9E               [12]  928 	subb	a,r6
-      001225 EB               [12]  929 	mov	a,r3
-      001226 64 80            [12]  930 	xrl	a,#0x80
-      001228 8F F0            [24]  931 	mov	b,r7
-      00122A 63 F0 80         [24]  932 	xrl	b,#0x80
-      00122D 95 F0            [12]  933 	subb	a,b
-      00122F 50 71            [24]  934 	jnc	00118$
+      001210 90 00 82         [24]  898 	mov	dptr,#_reg_zero_trace_band
+      001213 E0               [24]  899 	movx	a,@dptr
+      001214 FC               [12]  900 	mov	r4,a
+      001215 A3               [24]  901 	inc	dptr
+      001216 E0               [24]  902 	movx	a,@dptr
+      001217 FD               [12]  903 	mov	r5,a
+      001218 A3               [24]  904 	inc	dptr
+      001219 E0               [24]  905 	movx	a,@dptr
+      00121A FE               [12]  906 	mov	r6,a
+      00121B A3               [24]  907 	inc	dptr
+      00121C E0               [24]  908 	movx	a,@dptr
+      00121D FF               [12]  909 	mov	r7,a
+      00121E 90 02 26         [24]  910 	mov	dptr,#_filtered_val
+      001221 E0               [24]  911 	movx	a,@dptr
+      001222 F8               [12]  912 	mov	r0,a
+      001223 A3               [24]  913 	inc	dptr
+      001224 E0               [24]  914 	movx	a,@dptr
+      001225 F9               [12]  915 	mov	r1,a
+      001226 A3               [24]  916 	inc	dptr
+      001227 E0               [24]  917 	movx	a,@dptr
+      001228 FA               [12]  918 	mov	r2,a
+      001229 A3               [24]  919 	inc	dptr
+      00122A E0               [24]  920 	movx	a,@dptr
+      00122B FB               [12]  921 	mov	r3,a
+      00122C C3               [12]  922 	clr	c
+      00122D E8               [12]  923 	mov	a,r0
+      00122E 9C               [12]  924 	subb	a,r4
+      00122F E9               [12]  925 	mov	a,r1
+      001230 9D               [12]  926 	subb	a,r5
+      001231 EA               [12]  927 	mov	a,r2
+      001232 9E               [12]  928 	subb	a,r6
+      001233 EB               [12]  929 	mov	a,r3
+      001234 64 80            [12]  930 	xrl	a,#0x80
+      001236 8F F0            [24]  931 	mov	b,r7
+      001238 63 F0 80         [24]  932 	xrl	b,#0x80
+      00123B 95 F0            [12]  933 	subb	a,b
+      00123D 50 71            [24]  934 	jnc	00118$
                                     935 ;	.\FwLib_STC8\user\weight_proc.c:47: filtered_val > -(int32_t)reg_zero_trace_band) {
-      001231 C3               [12]  936 	clr	c
-      001232 E4               [12]  937 	clr	a
-      001233 9C               [12]  938 	subb	a,r4
-      001234 FC               [12]  939 	mov	r4,a
-      001235 E4               [12]  940 	clr	a
-      001236 9D               [12]  941 	subb	a,r5
-      001237 FD               [12]  942 	mov	r5,a
-      001238 E4               [12]  943 	clr	a
-      001239 9E               [12]  944 	subb	a,r6
-      00123A FE               [12]  945 	mov	r6,a
-      00123B E4               [12]  946 	clr	a
-      00123C 9F               [12]  947 	subb	a,r7
-      00123D FF               [12]  948 	mov	r7,a
-      00123E C3               [12]  949 	clr	c
-      00123F EC               [12]  950 	mov	a,r4
-      001240 98               [12]  951 	subb	a,r0
-      001241 ED               [12]  952 	mov	a,r5
-      001242 99               [12]  953 	subb	a,r1
-      001243 EE               [12]  954 	mov	a,r6
-      001244 9A               [12]  955 	subb	a,r2
-      001245 EF               [12]  956 	mov	a,r7
-      001246 64 80            [12]  957 	xrl	a,#0x80
-      001248 8B F0            [24]  958 	mov	b,r3
-      00124A 63 F0 80         [24]  959 	xrl	b,#0x80
-      00124D 95 F0            [12]  960 	subb	a,b
-      00124F 50 51            [24]  961 	jnc	00118$
+      00123F C3               [12]  936 	clr	c
+      001240 E4               [12]  937 	clr	a
+      001241 9C               [12]  938 	subb	a,r4
+      001242 FC               [12]  939 	mov	r4,a
+      001243 E4               [12]  940 	clr	a
+      001244 9D               [12]  941 	subb	a,r5
+      001245 FD               [12]  942 	mov	r5,a
+      001246 E4               [12]  943 	clr	a
+      001247 9E               [12]  944 	subb	a,r6
+      001248 FE               [12]  945 	mov	r6,a
+      001249 E4               [12]  946 	clr	a
+      00124A 9F               [12]  947 	subb	a,r7
+      00124B FF               [12]  948 	mov	r7,a
+      00124C C3               [12]  949 	clr	c
+      00124D EC               [12]  950 	mov	a,r4
+      00124E 98               [12]  951 	subb	a,r0
+      00124F ED               [12]  952 	mov	a,r5
+      001250 99               [12]  953 	subb	a,r1
+      001251 EE               [12]  954 	mov	a,r6
+      001252 9A               [12]  955 	subb	a,r2
+      001253 EF               [12]  956 	mov	a,r7
+      001254 64 80            [12]  957 	xrl	a,#0x80
+      001256 8B F0            [24]  958 	mov	b,r3
+      001258 63 F0 80         [24]  959 	xrl	b,#0x80
+      00125B 95 F0            [12]  960 	subb	a,b
+      00125D 50 51            [24]  961 	jnc	00118$
                                     962 ;	.\FwLib_STC8\user\weight_proc.c:50: if (filtered_val > 0) filtered_val--;
-      001251 C3               [12]  963 	clr	c
-      001252 E4               [12]  964 	clr	a
-      001253 98               [12]  965 	subb	a,r0
-      001254 E4               [12]  966 	clr	a
-      001255 99               [12]  967 	subb	a,r1
-      001256 E4               [12]  968 	clr	a
-      001257 9A               [12]  969 	subb	a,r2
-      001258 74 80            [12]  970 	mov	a,#(0x00 ^ 0x80)
-      00125A 8B F0            [24]  971 	mov	b,r3
-      00125C 63 F0 80         [24]  972 	xrl	b,#0x80
-      00125F 95 F0            [12]  973 	subb	a,b
-      001261 50 20            [24]  974 	jnc	00115$
-      001263 E8               [12]  975 	mov	a,r0
-      001264 24 FF            [12]  976 	add	a,#0xff
-      001266 FC               [12]  977 	mov	r4,a
-      001267 E9               [12]  978 	mov	a,r1
-      001268 34 FF            [12]  979 	addc	a,#0xff
-      00126A FD               [12]  980 	mov	r5,a
-      00126B EA               [12]  981 	mov	a,r2
-      00126C 34 FF            [12]  982 	addc	a,#0xff
-      00126E FE               [12]  983 	mov	r6,a
-      00126F EB               [12]  984 	mov	a,r3
-      001270 34 FF            [12]  985 	addc	a,#0xff
-      001272 FF               [12]  986 	mov	r7,a
-      001273 90 02 06         [24]  987 	mov	dptr,#_filtered_val
-      001276 EC               [12]  988 	mov	a,r4
-      001277 F0               [24]  989 	movx	@dptr,a
-      001278 ED               [12]  990 	mov	a,r5
-      001279 A3               [24]  991 	inc	dptr
-      00127A F0               [24]  992 	movx	@dptr,a
-      00127B EE               [12]  993 	mov	a,r6
-      00127C A3               [24]  994 	inc	dptr
-      00127D F0               [24]  995 	movx	@dptr,a
-      00127E EF               [12]  996 	mov	a,r7
-      00127F A3               [24]  997 	inc	dptr
-      001280 F0               [24]  998 	movx	@dptr,a
-      001281 80 17            [24]  999 	sjmp	00116$
-      001283                       1000 00115$:
+      00125F C3               [12]  963 	clr	c
+      001260 E4               [12]  964 	clr	a
+      001261 98               [12]  965 	subb	a,r0
+      001262 E4               [12]  966 	clr	a
+      001263 99               [12]  967 	subb	a,r1
+      001264 E4               [12]  968 	clr	a
+      001265 9A               [12]  969 	subb	a,r2
+      001266 74 80            [12]  970 	mov	a,#(0x00 ^ 0x80)
+      001268 8B F0            [24]  971 	mov	b,r3
+      00126A 63 F0 80         [24]  972 	xrl	b,#0x80
+      00126D 95 F0            [12]  973 	subb	a,b
+      00126F 50 20            [24]  974 	jnc	00115$
+      001271 E8               [12]  975 	mov	a,r0
+      001272 24 FF            [12]  976 	add	a,#0xff
+      001274 FC               [12]  977 	mov	r4,a
+      001275 E9               [12]  978 	mov	a,r1
+      001276 34 FF            [12]  979 	addc	a,#0xff
+      001278 FD               [12]  980 	mov	r5,a
+      001279 EA               [12]  981 	mov	a,r2
+      00127A 34 FF            [12]  982 	addc	a,#0xff
+      00127C FE               [12]  983 	mov	r6,a
+      00127D EB               [12]  984 	mov	a,r3
+      00127E 34 FF            [12]  985 	addc	a,#0xff
+      001280 FF               [12]  986 	mov	r7,a
+      001281 90 02 26         [24]  987 	mov	dptr,#_filtered_val
+      001284 EC               [12]  988 	mov	a,r4
+      001285 F0               [24]  989 	movx	@dptr,a
+      001286 ED               [12]  990 	mov	a,r5
+      001287 A3               [24]  991 	inc	dptr
+      001288 F0               [24]  992 	movx	@dptr,a
+      001289 EE               [12]  993 	mov	a,r6
+      00128A A3               [24]  994 	inc	dptr
+      00128B F0               [24]  995 	movx	@dptr,a
+      00128C EF               [12]  996 	mov	a,r7
+      00128D A3               [24]  997 	inc	dptr
+      00128E F0               [24]  998 	movx	@dptr,a
+      00128F 80 17            [24]  999 	sjmp	00116$
+      001291                       1000 00115$:
                                    1001 ;	.\FwLib_STC8\user\weight_proc.c:51: else if (filtered_val < 0) filtered_val++;
-      001283 EB               [12] 1002 	mov	a,r3
-      001284 30 E7 13         [24] 1003 	jnb	acc.7,00116$
-      001287 90 02 06         [24] 1004 	mov	dptr,#_filtered_val
-      00128A 74 01            [12] 1005 	mov	a,#0x01
-      00128C 28               [12] 1006 	add	a, r0
-      00128D F0               [24] 1007 	movx	@dptr,a
-      00128E E4               [12] 1008 	clr	a
-      00128F 39               [12] 1009 	addc	a, r1
-      001290 A3               [24] 1010 	inc	dptr
-      001291 F0               [24] 1011 	movx	@dptr,a
-      001292 E4               [12] 1012 	clr	a
-      001293 3A               [12] 1013 	addc	a, r2
-      001294 A3               [24] 1014 	inc	dptr
-      001295 F0               [24] 1015 	movx	@dptr,a
-      001296 E4               [12] 1016 	clr	a
-      001297 3B               [12] 1017 	addc	a, r3
-      001298 A3               [24] 1018 	inc	dptr
-      001299 F0               [24] 1019 	movx	@dptr,a
-      00129A                       1020 00116$:
+      001291 EB               [12] 1002 	mov	a,r3
+      001292 30 E7 13         [24] 1003 	jnb	acc.7,00116$
+      001295 90 02 26         [24] 1004 	mov	dptr,#_filtered_val
+      001298 74 01            [12] 1005 	mov	a,#0x01
+      00129A 28               [12] 1006 	add	a, r0
+      00129B F0               [24] 1007 	movx	@dptr,a
+      00129C E4               [12] 1008 	clr	a
+      00129D 39               [12] 1009 	addc	a, r1
+      00129E A3               [24] 1010 	inc	dptr
+      00129F F0               [24] 1011 	movx	@dptr,a
+      0012A0 E4               [12] 1012 	clr	a
+      0012A1 3A               [12] 1013 	addc	a, r2
+      0012A2 A3               [24] 1014 	inc	dptr
+      0012A3 F0               [24] 1015 	movx	@dptr,a
+      0012A4 E4               [12] 1016 	clr	a
+      0012A5 3B               [12] 1017 	addc	a, r3
+      0012A6 A3               [24] 1018 	inc	dptr
+      0012A7 F0               [24] 1019 	movx	@dptr,a
+      0012A8                       1020 00116$:
                                    1021 ;	.\FwLib_STC8\user\weight_proc.c:53: current_status.is_zero = true;
-      00129A 90 01 3A         [24] 1022 	mov	dptr,#(_current_status + 0x0001)
-      00129D 74 01            [12] 1023 	mov	a,#0x01
-      00129F F0               [24] 1024 	movx	@dptr,a
-      0012A0 80 05            [24] 1025 	sjmp	00122$
-      0012A2                       1026 00118$:
+      0012A8 90 01 3E         [24] 1022 	mov	dptr,#(_current_status + 0x0001)
+      0012AB 74 01            [12] 1023 	mov	a,#0x01
+      0012AD F0               [24] 1024 	movx	@dptr,a
+      0012AE 80 05            [24] 1025 	sjmp	00122$
+      0012B0                       1026 00118$:
                                    1027 ;	.\FwLib_STC8\user\weight_proc.c:55: current_status.is_zero = false;
-      0012A2 90 01 3A         [24] 1028 	mov	dptr,#(_current_status + 0x0001)
-      0012A5 E4               [12] 1029 	clr	a
-      0012A6 F0               [24] 1030 	movx	@dptr,a
-      0012A7                       1031 00122$:
+      0012B0 90 01 3E         [24] 1028 	mov	dptr,#(_current_status + 0x0001)
+      0012B3 E4               [12] 1029 	clr	a
+      0012B4 F0               [24] 1030 	movx	@dptr,a
+      0012B5                       1031 00122$:
                                    1032 ;	.\FwLib_STC8\user\weight_proc.c:60: reg_adc_raw_value = (uint16_t)raw_adc; 
-      0012A7 90 01 3D         [24] 1033 	mov	dptr,#_weight_proc_update_raw_adc_10000_59
-      0012AA E0               [24] 1034 	movx	a,@dptr
-      0012AB FE               [12] 1035 	mov	r6,a
-      0012AC A3               [24] 1036 	inc	dptr
-      0012AD E0               [24] 1037 	movx	a,@dptr
-      0012AE FF               [12] 1038 	mov	r7,a
-      0012AF 90 00 0E         [24] 1039 	mov	dptr,#_reg_adc_raw_value
-      0012B2 EE               [12] 1040 	mov	a,r6
-      0012B3 F0               [24] 1041 	movx	@dptr,a
-      0012B4 EF               [12] 1042 	mov	a,r7
-      0012B5 A3               [24] 1043 	inc	dptr
-      0012B6 F0               [24] 1044 	movx	@dptr,a
-      0012B7 E4               [12] 1045 	clr	a
-      0012B8 A3               [24] 1046 	inc	dptr
-      0012B9 F0               [24] 1047 	movx	@dptr,a
-      0012BA A3               [24] 1048 	inc	dptr
-      0012BB F0               [24] 1049 	movx	@dptr,a
+      0012B5 90 01 41         [24] 1033 	mov	dptr,#_weight_proc_update_raw_adc_10000_59
+      0012B8 E0               [24] 1034 	movx	a,@dptr
+      0012B9 FE               [12] 1035 	mov	r6,a
+      0012BA A3               [24] 1036 	inc	dptr
+      0012BB E0               [24] 1037 	movx	a,@dptr
+      0012BC FF               [12] 1038 	mov	r7,a
+      0012BD 90 00 0E         [24] 1039 	mov	dptr,#_reg_adc_raw_value
+      0012C0 EE               [12] 1040 	mov	a,r6
+      0012C1 F0               [24] 1041 	movx	@dptr,a
+      0012C2 EF               [12] 1042 	mov	a,r7
+      0012C3 A3               [24] 1043 	inc	dptr
+      0012C4 F0               [24] 1044 	movx	@dptr,a
+      0012C5 E4               [12] 1045 	clr	a
+      0012C6 A3               [24] 1046 	inc	dptr
+      0012C7 F0               [24] 1047 	movx	@dptr,a
+      0012C8 A3               [24] 1048 	inc	dptr
+      0012C9 F0               [24] 1049 	movx	@dptr,a
                                    1050 ;	.\FwLib_STC8\user\weight_proc.c:61: }
-      0012BC 22               [24] 1051 	ret
+      0012CA 22               [24] 1051 	ret
                                    1052 ;------------------------------------------------------------
                                    1053 ;Allocation info for local variables in function 'weight_get_filtered'
                                    1054 ;------------------------------------------------------------
@@ -1056,24 +1056,24 @@
                                    1056 ;	-----------------------------------------
                                    1057 ;	 function weight_get_filtered
                                    1058 ;	-----------------------------------------
-      0012BD                       1059 _weight_get_filtered:
+      0012CB                       1059 _weight_get_filtered:
                                    1060 ;	.\FwLib_STC8\user\weight_proc.c:64: return filtered_val;
-      0012BD 90 02 06         [24] 1061 	mov	dptr,#_filtered_val
-      0012C0 E0               [24] 1062 	movx	a,@dptr
-      0012C1 FC               [12] 1063 	mov	r4,a
-      0012C2 A3               [24] 1064 	inc	dptr
-      0012C3 E0               [24] 1065 	movx	a,@dptr
-      0012C4 FD               [12] 1066 	mov	r5,a
-      0012C5 A3               [24] 1067 	inc	dptr
-      0012C6 E0               [24] 1068 	movx	a,@dptr
-      0012C7 FE               [12] 1069 	mov	r6,a
-      0012C8 A3               [24] 1070 	inc	dptr
-      0012C9 E0               [24] 1071 	movx	a,@dptr
-      0012CA 8C 82            [24] 1072 	mov	dpl,r4
-      0012CC 8D 83            [24] 1073 	mov	dph,r5
-      0012CE 8E F0            [24] 1074 	mov	b,r6
+      0012CB 90 02 26         [24] 1061 	mov	dptr,#_filtered_val
+      0012CE E0               [24] 1062 	movx	a,@dptr
+      0012CF FC               [12] 1063 	mov	r4,a
+      0012D0 A3               [24] 1064 	inc	dptr
+      0012D1 E0               [24] 1065 	movx	a,@dptr
+      0012D2 FD               [12] 1066 	mov	r5,a
+      0012D3 A3               [24] 1067 	inc	dptr
+      0012D4 E0               [24] 1068 	movx	a,@dptr
+      0012D5 FE               [12] 1069 	mov	r6,a
+      0012D6 A3               [24] 1070 	inc	dptr
+      0012D7 E0               [24] 1071 	movx	a,@dptr
+      0012D8 8C 82            [24] 1072 	mov	dpl,r4
+      0012DA 8D 83            [24] 1073 	mov	dph,r5
+      0012DC 8E F0            [24] 1074 	mov	b,r6
                                    1075 ;	.\FwLib_STC8\user\weight_proc.c:65: }
-      0012D0 22               [24] 1076 	ret
+      0012DE 22               [24] 1076 	ret
                                    1077 ;------------------------------------------------------------
                                    1078 ;Allocation info for local variables in function 'weight_get_status'
                                    1079 ;------------------------------------------------------------
@@ -1081,79 +1081,79 @@
                                    1081 ;	-----------------------------------------
                                    1082 ;	 function weight_get_status
                                    1083 ;	-----------------------------------------
-      0012D1                       1084 _weight_get_status:
+      0012DF                       1084 _weight_get_status:
                                    1085 ;	.\FwLib_STC8\user\weight_proc.c:68: return current_status;
-      0012D1 90 01 39         [24] 1086 	mov	dptr,#_current_status
-      0012D4 E5 81            [12] 1087 	mov	a,sp
-      0012D6 24 FC            [12] 1088 	add	a,#0xfc
-      0012D8 F8               [12] 1089 	mov	r0,a
-      0012D9 86 07            [24] 1090 	mov	ar7,@r0
-      0012DB 08               [12] 1091 	inc	r0
-      0012DC 86 06            [24] 1092 	mov	ar6,@r0
-      0012DE 08               [12] 1093 	inc	r0
-      0012DF 86 F0            [24] 1094 	mov	b,@r0
-      0012E1 E0               [24] 1095 	movx	a,@dptr
-      0012E2 CF               [12] 1096 	xch	a,r7
-      0012E3 C5 82            [12] 1097 	xch	a,dpl
-      0012E5 CF               [12] 1098 	xch	a,r7
-      0012E6 CE               [12] 1099 	xch	a,r6
-      0012E7 C5 83            [12] 1100 	xch	a,dph
-      0012E9 CE               [12] 1101 	xch	a,r6
-      0012EA 12 2F 82         [24] 1102 	lcall	__gptrput
-      0012ED A3               [24] 1103 	inc	dptr
-      0012EE CF               [12] 1104 	xch	a,r7
-      0012EF C5 82            [12] 1105 	xch	a,dpl
-      0012F1 CF               [12] 1106 	xch	a,r7
-      0012F2 CE               [12] 1107 	xch	a,r6
-      0012F3 C5 83            [12] 1108 	xch	a,dph
-      0012F5 CE               [12] 1109 	xch	a,r6
-      0012F6 A3               [24] 1110 	inc	dptr
-      0012F7 E0               [24] 1111 	movx	a,@dptr
-      0012F8 CF               [12] 1112 	xch	a,r7
-      0012F9 C5 82            [12] 1113 	xch	a,dpl
-      0012FB CF               [12] 1114 	xch	a,r7
-      0012FC CE               [12] 1115 	xch	a,r6
-      0012FD C5 83            [12] 1116 	xch	a,dph
-      0012FF CE               [12] 1117 	xch	a,r6
-      001300 12 2F 82         [24] 1118 	lcall	__gptrput
-      001303 A3               [24] 1119 	inc	dptr
-      001304 CF               [12] 1120 	xch	a,r7
-      001305 C5 82            [12] 1121 	xch	a,dpl
-      001307 CF               [12] 1122 	xch	a,r7
-      001308 CE               [12] 1123 	xch	a,r6
-      001309 C5 83            [12] 1124 	xch	a,dph
-      00130B CE               [12] 1125 	xch	a,r6
-      00130C A3               [24] 1126 	inc	dptr
-      00130D E0               [24] 1127 	movx	a,@dptr
-      00130E CF               [12] 1128 	xch	a,r7
-      00130F C5 82            [12] 1129 	xch	a,dpl
-      001311 CF               [12] 1130 	xch	a,r7
-      001312 CE               [12] 1131 	xch	a,r6
-      001313 C5 83            [12] 1132 	xch	a,dph
-      001315 CE               [12] 1133 	xch	a,r6
-      001316 12 2F 82         [24] 1134 	lcall	__gptrput
-      001319 A3               [24] 1135 	inc	dptr
-      00131A CF               [12] 1136 	xch	a,r7
-      00131B C5 82            [12] 1137 	xch	a,dpl
-      00131D CF               [12] 1138 	xch	a,r7
-      00131E CE               [12] 1139 	xch	a,r6
-      00131F C5 83            [12] 1140 	xch	a,dph
-      001321 CE               [12] 1141 	xch	a,r6
-      001322 A3               [24] 1142 	inc	dptr
-      001323 E0               [24] 1143 	movx	a,@dptr
-      001324 CF               [12] 1144 	xch	a,r7
-      001325 C5 82            [12] 1145 	xch	a,dpl
-      001327 CF               [12] 1146 	xch	a,r7
-      001328 CE               [12] 1147 	xch	a,r6
-      001329 C5 83            [12] 1148 	xch	a,dph
-      00132B CE               [12] 1149 	xch	a,r6
+      0012DF 90 01 3D         [24] 1086 	mov	dptr,#_current_status
+      0012E2 E5 81            [12] 1087 	mov	a,sp
+      0012E4 24 FC            [12] 1088 	add	a,#0xfc
+      0012E6 F8               [12] 1089 	mov	r0,a
+      0012E7 86 07            [24] 1090 	mov	ar7,@r0
+      0012E9 08               [12] 1091 	inc	r0
+      0012EA 86 06            [24] 1092 	mov	ar6,@r0
+      0012EC 08               [12] 1093 	inc	r0
+      0012ED 86 F0            [24] 1094 	mov	b,@r0
+      0012EF E0               [24] 1095 	movx	a,@dptr
+      0012F0 CF               [12] 1096 	xch	a,r7
+      0012F1 C5 82            [12] 1097 	xch	a,dpl
+      0012F3 CF               [12] 1098 	xch	a,r7
+      0012F4 CE               [12] 1099 	xch	a,r6
+      0012F5 C5 83            [12] 1100 	xch	a,dph
+      0012F7 CE               [12] 1101 	xch	a,r6
+      0012F8 12 31 70         [24] 1102 	lcall	__gptrput
+      0012FB A3               [24] 1103 	inc	dptr
+      0012FC CF               [12] 1104 	xch	a,r7
+      0012FD C5 82            [12] 1105 	xch	a,dpl
+      0012FF CF               [12] 1106 	xch	a,r7
+      001300 CE               [12] 1107 	xch	a,r6
+      001301 C5 83            [12] 1108 	xch	a,dph
+      001303 CE               [12] 1109 	xch	a,r6
+      001304 A3               [24] 1110 	inc	dptr
+      001305 E0               [24] 1111 	movx	a,@dptr
+      001306 CF               [12] 1112 	xch	a,r7
+      001307 C5 82            [12] 1113 	xch	a,dpl
+      001309 CF               [12] 1114 	xch	a,r7
+      00130A CE               [12] 1115 	xch	a,r6
+      00130B C5 83            [12] 1116 	xch	a,dph
+      00130D CE               [12] 1117 	xch	a,r6
+      00130E 12 31 70         [24] 1118 	lcall	__gptrput
+      001311 A3               [24] 1119 	inc	dptr
+      001312 CF               [12] 1120 	xch	a,r7
+      001313 C5 82            [12] 1121 	xch	a,dpl
+      001315 CF               [12] 1122 	xch	a,r7
+      001316 CE               [12] 1123 	xch	a,r6
+      001317 C5 83            [12] 1124 	xch	a,dph
+      001319 CE               [12] 1125 	xch	a,r6
+      00131A A3               [24] 1126 	inc	dptr
+      00131B E0               [24] 1127 	movx	a,@dptr
+      00131C CF               [12] 1128 	xch	a,r7
+      00131D C5 82            [12] 1129 	xch	a,dpl
+      00131F CF               [12] 1130 	xch	a,r7
+      001320 CE               [12] 1131 	xch	a,r6
+      001321 C5 83            [12] 1132 	xch	a,dph
+      001323 CE               [12] 1133 	xch	a,r6
+      001324 12 31 70         [24] 1134 	lcall	__gptrput
+      001327 A3               [24] 1135 	inc	dptr
+      001328 CF               [12] 1136 	xch	a,r7
+      001329 C5 82            [12] 1137 	xch	a,dpl
+      00132B CF               [12] 1138 	xch	a,r7
+      00132C CE               [12] 1139 	xch	a,r6
+      00132D C5 83            [12] 1140 	xch	a,dph
+      00132F CE               [12] 1141 	xch	a,r6
+      001330 A3               [24] 1142 	inc	dptr
+      001331 E0               [24] 1143 	movx	a,@dptr
+      001332 CF               [12] 1144 	xch	a,r7
+      001333 C5 82            [12] 1145 	xch	a,dpl
+      001335 CF               [12] 1146 	xch	a,r7
+      001336 CE               [12] 1147 	xch	a,r6
+      001337 C5 83            [12] 1148 	xch	a,dph
+      001339 CE               [12] 1149 	xch	a,r6
                                    1150 ;	.\FwLib_STC8\user\weight_proc.c:69: }
-      00132C 02 2F 82         [24] 1151 	ljmp	__gptrput
+      00133A 02 31 70         [24] 1151 	ljmp	__gptrput
                                    1152 	.area CSEG    (CODE)
                                    1153 	.area CONST   (CODE)
                                    1154 	.area XINIT   (CODE)
-      003576                       1155 __xinit__filtered_val:
-      003576 00 00 00 00           1156 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00357A                       1157 __xinit__stability_count:
-      00357A 00 00                 1158 	.byte #0x00, #0x00	; 0
+      003764                       1155 __xinit__filtered_val:
+      003764 00 00 00 00           1156 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      003768                       1157 __xinit__stability_count:
+      003768 00 00                 1158 	.byte #0x00, #0x00	; 0
                                    1159 	.area CABS    (ABS,CODE)

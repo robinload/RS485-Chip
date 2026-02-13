@@ -468,422 +468,441 @@
                                     468 	.area XSEG    (XDATA)
       000130                        469 _Read_HX71708_Raw_count_10000_55:
       000130                        470 	.ds 4
-      000134                        471 _Get_Steady_Weight_samples_10000_58:
-      000134                        472 	.ds 1
-      000135                        473 _Get_Steady_Weight_sum_10000_59:
-      000135                        474 	.ds 4
-                                    475 ;--------------------------------------------------------
-                                    476 ; absolute external ram data
+      000134                        471 _Read_HX71708_Raw_timeout_10000_55:
+      000134                        472 	.ds 4
+      000138                        473 _Get_Steady_Weight_samples_10000_59:
+      000138                        474 	.ds 1
+      000139                        475 _Get_Steady_Weight_sum_10000_60:
+      000139                        476 	.ds 4
                                     477 ;--------------------------------------------------------
-                                    478 	.area XABS    (ABS,XDATA)
+                                    478 ; absolute external ram data
                                     479 ;--------------------------------------------------------
-                                    480 ; initialized external ram data
+                                    480 	.area XABS    (ABS,XDATA)
                                     481 ;--------------------------------------------------------
-                                    482 	.area XISEG   (XDATA)
-                                    483 	.area HOME    (CODE)
-                                    484 	.area GSINIT0 (CODE)
-                                    485 	.area GSINIT1 (CODE)
-                                    486 	.area GSINIT2 (CODE)
-                                    487 	.area GSINIT3 (CODE)
-                                    488 	.area GSINIT4 (CODE)
-                                    489 	.area GSINIT5 (CODE)
-                                    490 	.area GSINIT  (CODE)
-                                    491 	.area GSFINAL (CODE)
-                                    492 	.area CSEG    (CODE)
-                                    493 ;--------------------------------------------------------
-                                    494 ; global & static initialisations
+                                    482 ; initialized external ram data
+                                    483 ;--------------------------------------------------------
+                                    484 	.area XISEG   (XDATA)
+                                    485 	.area HOME    (CODE)
+                                    486 	.area GSINIT0 (CODE)
+                                    487 	.area GSINIT1 (CODE)
+                                    488 	.area GSINIT2 (CODE)
+                                    489 	.area GSINIT3 (CODE)
+                                    490 	.area GSINIT4 (CODE)
+                                    491 	.area GSINIT5 (CODE)
+                                    492 	.area GSINIT  (CODE)
+                                    493 	.area GSFINAL (CODE)
+                                    494 	.area CSEG    (CODE)
                                     495 ;--------------------------------------------------------
-                                    496 	.area HOME    (CODE)
-                                    497 	.area GSINIT  (CODE)
-                                    498 	.area GSFINAL (CODE)
+                                    496 ; global & static initialisations
+                                    497 ;--------------------------------------------------------
+                                    498 	.area HOME    (CODE)
                                     499 	.area GSINIT  (CODE)
-                                    500 ;--------------------------------------------------------
-                                    501 ; Home
+                                    500 	.area GSFINAL (CODE)
+                                    501 	.area GSINIT  (CODE)
                                     502 ;--------------------------------------------------------
-                                    503 	.area HOME    (CODE)
-                                    504 	.area HOME    (CODE)
-                                    505 ;--------------------------------------------------------
-                                    506 ; code
+                                    503 ; Home
+                                    504 ;--------------------------------------------------------
+                                    505 	.area HOME    (CODE)
+                                    506 	.area HOME    (CODE)
                                     507 ;--------------------------------------------------------
-                                    508 	.area CSEG    (CODE)
-                                    509 ;------------------------------------------------------------
-                                    510 ;Allocation info for local variables in function 'HX_Init'
+                                    508 ; code
+                                    509 ;--------------------------------------------------------
+                                    510 	.area CSEG    (CODE)
                                     511 ;------------------------------------------------------------
-                                    512 ;	.\FwLib_STC8\user\hx71708.c:6: void HX_Init(void) {
-                                    513 ;	-----------------------------------------
-                                    514 ;	 function HX_Init
+                                    512 ;Allocation info for local variables in function 'HX_Init'
+                                    513 ;------------------------------------------------------------
+                                    514 ;	.\FwLib_STC8\user\hx71708.c:6: void HX_Init(void) {
                                     515 ;	-----------------------------------------
-      000E6F                        516 _HX_Init:
-                           000007   517 	ar7 = 0x07
-                           000006   518 	ar6 = 0x06
-                           000005   519 	ar5 = 0x05
-                           000004   520 	ar4 = 0x04
-                           000003   521 	ar3 = 0x03
-                           000002   522 	ar2 = 0x02
-                           000001   523 	ar1 = 0x01
-                           000000   524 	ar0 = 0x00
-                                    525 ;	.\FwLib_STC8\user\hx71708.c:8: GPIO_P3_SetMode(GPIO_Pin_3, GPIO_Mode_Output_PP);
-      000E6F 74 F7            [12]  526 	mov	a,#0xf7
-      000E71 55 B2            [12]  527 	anl	a,_P3M0
-      000E73 44 08            [12]  528 	orl	a,#0x08
-      000E75 F5 B2            [12]  529 	mov	_P3M0,a
-      000E77 53 B1 F7         [24]  530 	anl	_P3M1,#0xf7
-                                    531 ;	.\FwLib_STC8\user\hx71708.c:9: GPIO_P3_SetMode(GPIO_Pin_2, GPIO_Mode_InOut_QBD);
-      000E7A 53 B2 FB         [24]  532 	anl	_P3M0,#0xfb
-      000E7D 53 B1 FB         [24]  533 	anl	_P3M1,#0xfb
-                                    534 ;	.\FwLib_STC8\user\hx71708.c:10: HX_SCK = 0;
-                                    535 ;	assignBit
-      000E80 C2 B3            [12]  536 	clr	_P33
-                                    537 ;	.\FwLib_STC8\user\hx71708.c:11: }
-      000E82 22               [24]  538 	ret
-                                    539 ;------------------------------------------------------------
-                                    540 ;Allocation info for local variables in function 'Read_HX71708_Raw'
+                                    516 ;	 function HX_Init
+                                    517 ;	-----------------------------------------
+      000E66                        518 _HX_Init:
+                           000007   519 	ar7 = 0x07
+                           000006   520 	ar6 = 0x06
+                           000005   521 	ar5 = 0x05
+                           000004   522 	ar4 = 0x04
+                           000003   523 	ar3 = 0x03
+                           000002   524 	ar2 = 0x02
+                           000001   525 	ar1 = 0x01
+                           000000   526 	ar0 = 0x00
+                                    527 ;	.\FwLib_STC8\user\hx71708.c:8: GPIO_P3_SetMode(GPIO_Pin_3, GPIO_Mode_Output_PP);
+      000E66 74 F7            [12]  528 	mov	a,#0xf7
+      000E68 55 B2            [12]  529 	anl	a,_P3M0
+      000E6A 44 08            [12]  530 	orl	a,#0x08
+      000E6C F5 B2            [12]  531 	mov	_P3M0,a
+      000E6E 53 B1 F7         [24]  532 	anl	_P3M1,#0xf7
+                                    533 ;	.\FwLib_STC8\user\hx71708.c:9: GPIO_P3_SetMode(GPIO_Pin_2, GPIO_Mode_InOut_QBD);
+      000E71 53 B2 FB         [24]  534 	anl	_P3M0,#0xfb
+      000E74 53 B1 FB         [24]  535 	anl	_P3M1,#0xfb
+                                    536 ;	.\FwLib_STC8\user\hx71708.c:10: HX_SCK = 0;
+                                    537 ;	assignBit
+      000E77 C2 B3            [12]  538 	clr	_P33
+                                    539 ;	.\FwLib_STC8\user\hx71708.c:11: }
+      000E79 22               [24]  540 	ret
                                     541 ;------------------------------------------------------------
-                                    542 ;count         Allocated with name '_Read_HX71708_Raw_count_10000_55'
-                                    543 ;watchdog      Allocated with name '_Read_HX71708_Raw_watchdog_10000_55'
-                                    544 ;i             Allocated with name '_Read_HX71708_Raw_i_20000_56'
-                                    545 ;------------------------------------------------------------
-                                    546 ;	.\FwLib_STC8\user\hx71708.c:13: int32_t Read_HX71708_Raw(void) {
-                                    547 ;	-----------------------------------------
-                                    548 ;	 function Read_HX71708_Raw
+                                    542 ;Allocation info for local variables in function 'Read_HX71708_Raw'
+                                    543 ;------------------------------------------------------------
+                                    544 ;count         Allocated with name '_Read_HX71708_Raw_count_10000_55'
+                                    545 ;timeout       Allocated with name '_Read_HX71708_Raw_timeout_10000_55'
+                                    546 ;i             Allocated with name '_Read_HX71708_Raw_i_20000_57'
+                                    547 ;------------------------------------------------------------
+                                    548 ;	.\FwLib_STC8\user\hx71708.c:13: int32_t Read_HX71708_Raw(void) {
                                     549 ;	-----------------------------------------
-      000E83                        550 _Read_HX71708_Raw:
-                                    551 ;	.\FwLib_STC8\user\hx71708.c:14: uint32_t count = 0;
-      000E83 90 01 30         [24]  552 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000E86 E4               [12]  553 	clr	a
-      000E87 F0               [24]  554 	movx	@dptr,a
-      000E88 A3               [24]  555 	inc	dptr
-      000E89 F0               [24]  556 	movx	@dptr,a
-      000E8A A3               [24]  557 	inc	dptr
-      000E8B F0               [24]  558 	movx	@dptr,a
-      000E8C A3               [24]  559 	inc	dptr
-      000E8D F0               [24]  560 	movx	@dptr,a
-                                    561 ;	.\FwLib_STC8\user\hx71708.c:19: while(!HX_DOUT && ++watchdog < 30000);
-      000E8E FE               [12]  562 	mov	r6,a
-      000E8F FF               [12]  563 	mov	r7,a
-      000E90                        564 00102$:
-      000E90 20 B2 12         [24]  565 	jb	_P32,00104$
-      000E93 0E               [12]  566 	inc	r6
-      000E94 BE 00 01         [24]  567 	cjne	r6,#0x00,00179$
-      000E97 0F               [12]  568 	inc	r7
-      000E98                        569 00179$:
-      000E98 8E 04            [24]  570 	mov	ar4,r6
-      000E9A 8F 05            [24]  571 	mov	ar5,r7
-      000E9C C3               [12]  572 	clr	c
-      000E9D EC               [12]  573 	mov	a,r4
-      000E9E 94 30            [12]  574 	subb	a,#0x30
-      000EA0 ED               [12]  575 	mov	a,r5
-      000EA1 94 75            [12]  576 	subb	a,#0x75
-      000EA3 40 EB            [24]  577 	jc	00102$
-      000EA5                        578 00104$:
-                                    579 ;	.\FwLib_STC8\user\hx71708.c:21: while(HX_DOUT && ++watchdog < 60000);
-      000EA5 7E 00            [12]  580 	mov	r6,#0x00
-      000EA7 7F 00            [12]  581 	mov	r7,#0x00
-      000EA9                        582 00106$:
-      000EA9 30 B2 0E         [24]  583 	jnb	_P32,00108$
-      000EAC 0E               [12]  584 	inc	r6
-      000EAD BE 00 01         [24]  585 	cjne	r6,#0x00,00182$
-      000EB0 0F               [12]  586 	inc	r7
-      000EB1                        587 00182$:
-      000EB1 C3               [12]  588 	clr	c
-      000EB2 EE               [12]  589 	mov	a,r6
-      000EB3 94 60            [12]  590 	subb	a,#0x60
-      000EB5 EF               [12]  591 	mov	a,r7
-      000EB6 94 EA            [12]  592 	subb	a,#0xea
-      000EB8 40 EF            [24]  593 	jc	00106$
-      000EBA                        594 00108$:
-                                    595 ;	.\FwLib_STC8\user\hx71708.c:22: if(watchdog >= 60000) return -1;
-      000EBA C3               [12]  596 	clr	c
-      000EBB EE               [12]  597 	mov	a,r6
-      000EBC 94 60            [12]  598 	subb	a,#0x60
-      000EBE EF               [12]  599 	mov	a,r7
-      000EBF 94 EA            [12]  600 	subb	a,#0xea
-      000EC1 40 08            [24]  601 	jc	00128$
-      000EC3 90 FF FF         [24]  602 	mov	dptr,#0xffff
-      000EC6 74 FF            [12]  603 	mov	a,#0xff
-      000EC8 F5 F0            [12]  604 	mov	b,a
-      000ECA 22               [24]  605 	ret
-                                    606 ;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
-      000ECB                        607 00128$:
-      000ECB 7F 00            [12]  608 	mov	r7,#0x00
-      000ECD                        609 00117$:
-      000ECD BF 18 00         [24]  610 	cjne	r7,#0x18,00185$
-      000ED0                        611 00185$:
-      000ED0 50 52            [24]  612 	jnc	00113$
-                                    613 ;	.\FwLib_STC8\user\hx71708.c:25: HX_SCK = 1;
-                                    614 ;	assignBit
-      000ED2 D2 B3            [12]  615 	setb	_P33
-                                    616 ;	.\FwLib_STC8\user\hx71708.c:26: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
-      000ED4 00               [12]  617 	NOP	
-      000ED5 00               [12]  618 	NOP	
-      000ED6 00               [12]  619 	NOP	
-      000ED7 00               [12]  620 	NOP	
-      000ED8 00               [12]  621 	NOP	
-                                    622 ;	.\FwLib_STC8\user\hx71708.c:28: count <<= 1;
-      000ED9 90 01 30         [24]  623 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000EDC E0               [24]  624 	movx	a,@dptr
-      000EDD FB               [12]  625 	mov	r3,a
-      000EDE A3               [24]  626 	inc	dptr
-      000EDF E0               [24]  627 	movx	a,@dptr
-      000EE0 FC               [12]  628 	mov	r4,a
-      000EE1 A3               [24]  629 	inc	dptr
-      000EE2 E0               [24]  630 	movx	a,@dptr
-      000EE3 FD               [12]  631 	mov	r5,a
-      000EE4 A3               [24]  632 	inc	dptr
-      000EE5 E0               [24]  633 	movx	a,@dptr
-      000EE6 FE               [12]  634 	mov	r6,a
-      000EE7 EB               [12]  635 	mov	a,r3
-      000EE8 2B               [12]  636 	add	a,r3
-      000EE9 FB               [12]  637 	mov	r3,a
-      000EEA EC               [12]  638 	mov	a,r4
-      000EEB 33               [12]  639 	rlc	a
-      000EEC FC               [12]  640 	mov	r4,a
-      000EED ED               [12]  641 	mov	a,r5
-      000EEE 33               [12]  642 	rlc	a
-      000EEF FD               [12]  643 	mov	r5,a
-      000EF0 EE               [12]  644 	mov	a,r6
-      000EF1 33               [12]  645 	rlc	a
-      000EF2 FE               [12]  646 	mov	r6,a
-      000EF3 90 01 30         [24]  647 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000EF6 EB               [12]  648 	mov	a,r3
-      000EF7 F0               [24]  649 	movx	@dptr,a
-      000EF8 EC               [12]  650 	mov	a,r4
-      000EF9 A3               [24]  651 	inc	dptr
-      000EFA F0               [24]  652 	movx	@dptr,a
-      000EFB ED               [12]  653 	mov	a,r5
-      000EFC A3               [24]  654 	inc	dptr
-      000EFD F0               [24]  655 	movx	@dptr,a
-      000EFE EE               [12]  656 	mov	a,r6
-      000EFF A3               [24]  657 	inc	dptr
-      000F00 F0               [24]  658 	movx	@dptr,a
-                                    659 ;	.\FwLib_STC8\user\hx71708.c:29: if(HX_DOUT) count++;
-      000F01 30 B2 16         [24]  660 	jnb	_P32,00112$
-      000F04 90 01 30         [24]  661 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000F07 E0               [24]  662 	movx	a,@dptr
-      000F08 24 01            [12]  663 	add	a, #0x01
-      000F0A F0               [24]  664 	movx	@dptr,a
-      000F0B A3               [24]  665 	inc	dptr
-      000F0C E0               [24]  666 	movx	a,@dptr
-      000F0D 34 00            [12]  667 	addc	a, #0x00
-      000F0F F0               [24]  668 	movx	@dptr,a
-      000F10 A3               [24]  669 	inc	dptr
-      000F11 E0               [24]  670 	movx	a,@dptr
-      000F12 34 00            [12]  671 	addc	a, #0x00
-      000F14 F0               [24]  672 	movx	@dptr,a
-      000F15 A3               [24]  673 	inc	dptr
-      000F16 E0               [24]  674 	movx	a,@dptr
-      000F17 34 00            [12]  675 	addc	a, #0x00
-      000F19 F0               [24]  676 	movx	@dptr,a
-      000F1A                        677 00112$:
-                                    678 ;	.\FwLib_STC8\user\hx71708.c:31: HX_SCK = 0;
-                                    679 ;	assignBit
-      000F1A C2 B3            [12]  680 	clr	_P33
-                                    681 ;	.\FwLib_STC8\user\hx71708.c:32: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
-      000F1C 00               [12]  682 	NOP	
-      000F1D 00               [12]  683 	NOP	
-      000F1E 00               [12]  684 	NOP	
-      000F1F 00               [12]  685 	NOP	
-      000F20 00               [12]  686 	NOP	
-                                    687 ;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
-      000F21 0F               [12]  688 	inc	r7
-      000F22 80 A9            [24]  689 	sjmp	00117$
-      000F24                        690 00113$:
-                                    691 ;	.\FwLib_STC8\user\hx71708.c:36: HX_SCK = 1;
-                                    692 ;	assignBit
-      000F24 D2 B3            [12]  693 	setb	_P33
-                                    694 ;	.\FwLib_STC8\user\hx71708.c:37: _nop_(); _nop_(); 
-      000F26 00               [12]  695 	NOP	
-      000F27 00               [12]  696 	NOP	
-                                    697 ;	.\FwLib_STC8\user\hx71708.c:38: HX_SCK = 0;
+                                    550 ;	 function Read_HX71708_Raw
+                                    551 ;	-----------------------------------------
+      000E7A                        552 _Read_HX71708_Raw:
+                                    553 ;	.\FwLib_STC8\user\hx71708.c:17: count = 0;
+      000E7A 90 01 30         [24]  554 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000E7D E4               [12]  555 	clr	a
+      000E7E F0               [24]  556 	movx	@dptr,a
+      000E7F A3               [24]  557 	inc	dptr
+      000E80 F0               [24]  558 	movx	@dptr,a
+      000E81 A3               [24]  559 	inc	dptr
+      000E82 F0               [24]  560 	movx	@dptr,a
+      000E83 A3               [24]  561 	inc	dptr
+      000E84 F0               [24]  562 	movx	@dptr,a
+                                    563 ;	.\FwLib_STC8\user\hx71708.c:21: timeout = 500000L; 
+      000E85 90 01 34         [24]  564 	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
+      000E88 74 20            [12]  565 	mov	a,#0x20
+      000E8A F0               [24]  566 	movx	@dptr,a
+      000E8B 74 A1            [12]  567 	mov	a,#0xa1
+      000E8D A3               [24]  568 	inc	dptr
+      000E8E F0               [24]  569 	movx	@dptr,a
+      000E8F 74 07            [12]  570 	mov	a,#0x07
+      000E91 A3               [24]  571 	inc	dptr
+      000E92 F0               [24]  572 	movx	@dptr,a
+      000E93 E4               [12]  573 	clr	a
+      000E94 A3               [24]  574 	inc	dptr
+      000E95 F0               [24]  575 	movx	@dptr,a
+                                    576 ;	.\FwLib_STC8\user\hx71708.c:22: while(HX_DOUT) {
+      000E96                        577 00103$:
+      000E96 30 B2 40         [24]  578 	jnb	_P32,00121$
+                                    579 ;	.\FwLib_STC8\user\hx71708.c:23: if(--timeout == 0) return -1; 
+      000E99 90 01 34         [24]  580 	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
+      000E9C E0               [24]  581 	movx	a,@dptr
+      000E9D 24 FF            [12]  582 	add	a,#0xff
+      000E9F FC               [12]  583 	mov	r4,a
+      000EA0 A3               [24]  584 	inc	dptr
+      000EA1 E0               [24]  585 	movx	a,@dptr
+      000EA2 34 FF            [12]  586 	addc	a,#0xff
+      000EA4 FD               [12]  587 	mov	r5,a
+      000EA5 A3               [24]  588 	inc	dptr
+      000EA6 E0               [24]  589 	movx	a,@dptr
+      000EA7 34 FF            [12]  590 	addc	a,#0xff
+      000EA9 FE               [12]  591 	mov	r6,a
+      000EAA A3               [24]  592 	inc	dptr
+      000EAB E0               [24]  593 	movx	a,@dptr
+      000EAC 34 FF            [12]  594 	addc	a,#0xff
+      000EAE FF               [12]  595 	mov	r7,a
+      000EAF 90 01 34         [24]  596 	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
+      000EB2 EC               [12]  597 	mov	a,r4
+      000EB3 F0               [24]  598 	movx	@dptr,a
+      000EB4 ED               [12]  599 	mov	a,r5
+      000EB5 A3               [24]  600 	inc	dptr
+      000EB6 F0               [24]  601 	movx	@dptr,a
+      000EB7 EE               [12]  602 	mov	a,r6
+      000EB8 A3               [24]  603 	inc	dptr
+      000EB9 F0               [24]  604 	movx	@dptr,a
+      000EBA EF               [12]  605 	mov	a,r7
+      000EBB A3               [24]  606 	inc	dptr
+      000EBC F0               [24]  607 	movx	@dptr,a
+      000EBD 90 01 34         [24]  608 	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
+      000EC0 E0               [24]  609 	movx	a,@dptr
+      000EC1 F5 F0            [12]  610 	mov	b,a
+      000EC3 A3               [24]  611 	inc	dptr
+      000EC4 E0               [24]  612 	movx	a,@dptr
+      000EC5 42 F0            [12]  613 	orl	b,a
+      000EC7 A3               [24]  614 	inc	dptr
+      000EC8 E0               [24]  615 	movx	a,@dptr
+      000EC9 42 F0            [12]  616 	orl	b,a
+      000ECB A3               [24]  617 	inc	dptr
+      000ECC E0               [24]  618 	movx	a,@dptr
+      000ECD 45 F0            [12]  619 	orl	a,b
+      000ECF 70 C5            [24]  620 	jnz	00103$
+      000ED1 90 FF FF         [24]  621 	mov	dptr,#0xffff
+      000ED4 74 FF            [12]  622 	mov	a,#0xff
+      000ED6 F5 F0            [12]  623 	mov	b,a
+      000ED8 22               [24]  624 	ret
+                                    625 ;	.\FwLib_STC8\user\hx71708.c:26: for(uint8_t i = 0; i < 24; i++) {
+      000ED9                        626 00121$:
+      000ED9 7F 00            [12]  627 	mov	r7,#0x00
+      000EDB                        628 00112$:
+      000EDB BF 18 00         [24]  629 	cjne	r7,#0x18,00161$
+      000EDE                        630 00161$:
+      000EDE 50 52            [24]  631 	jnc	00108$
+                                    632 ;	.\FwLib_STC8\user\hx71708.c:27: HX_SCK = 1;
+                                    633 ;	assignBit
+      000EE0 D2 B3            [12]  634 	setb	_P33
+                                    635 ;	.\FwLib_STC8\user\hx71708.c:28: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+      000EE2 00               [12]  636 	NOP	
+      000EE3 00               [12]  637 	NOP	
+      000EE4 00               [12]  638 	NOP	
+      000EE5 00               [12]  639 	NOP	
+      000EE6 00               [12]  640 	NOP	
+                                    641 ;	.\FwLib_STC8\user\hx71708.c:30: count <<= 1;
+      000EE7 90 01 30         [24]  642 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000EEA E0               [24]  643 	movx	a,@dptr
+      000EEB FB               [12]  644 	mov	r3,a
+      000EEC A3               [24]  645 	inc	dptr
+      000EED E0               [24]  646 	movx	a,@dptr
+      000EEE FC               [12]  647 	mov	r4,a
+      000EEF A3               [24]  648 	inc	dptr
+      000EF0 E0               [24]  649 	movx	a,@dptr
+      000EF1 FD               [12]  650 	mov	r5,a
+      000EF2 A3               [24]  651 	inc	dptr
+      000EF3 E0               [24]  652 	movx	a,@dptr
+      000EF4 FE               [12]  653 	mov	r6,a
+      000EF5 EB               [12]  654 	mov	a,r3
+      000EF6 2B               [12]  655 	add	a,r3
+      000EF7 FB               [12]  656 	mov	r3,a
+      000EF8 EC               [12]  657 	mov	a,r4
+      000EF9 33               [12]  658 	rlc	a
+      000EFA FC               [12]  659 	mov	r4,a
+      000EFB ED               [12]  660 	mov	a,r5
+      000EFC 33               [12]  661 	rlc	a
+      000EFD FD               [12]  662 	mov	r5,a
+      000EFE EE               [12]  663 	mov	a,r6
+      000EFF 33               [12]  664 	rlc	a
+      000F00 FE               [12]  665 	mov	r6,a
+      000F01 90 01 30         [24]  666 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F04 EB               [12]  667 	mov	a,r3
+      000F05 F0               [24]  668 	movx	@dptr,a
+      000F06 EC               [12]  669 	mov	a,r4
+      000F07 A3               [24]  670 	inc	dptr
+      000F08 F0               [24]  671 	movx	@dptr,a
+      000F09 ED               [12]  672 	mov	a,r5
+      000F0A A3               [24]  673 	inc	dptr
+      000F0B F0               [24]  674 	movx	@dptr,a
+      000F0C EE               [12]  675 	mov	a,r6
+      000F0D A3               [24]  676 	inc	dptr
+      000F0E F0               [24]  677 	movx	@dptr,a
+                                    678 ;	.\FwLib_STC8\user\hx71708.c:31: if(HX_DOUT) count++;
+      000F0F 30 B2 16         [24]  679 	jnb	_P32,00107$
+      000F12 90 01 30         [24]  680 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F15 E0               [24]  681 	movx	a,@dptr
+      000F16 24 01            [12]  682 	add	a, #0x01
+      000F18 F0               [24]  683 	movx	@dptr,a
+      000F19 A3               [24]  684 	inc	dptr
+      000F1A E0               [24]  685 	movx	a,@dptr
+      000F1B 34 00            [12]  686 	addc	a, #0x00
+      000F1D F0               [24]  687 	movx	@dptr,a
+      000F1E A3               [24]  688 	inc	dptr
+      000F1F E0               [24]  689 	movx	a,@dptr
+      000F20 34 00            [12]  690 	addc	a, #0x00
+      000F22 F0               [24]  691 	movx	@dptr,a
+      000F23 A3               [24]  692 	inc	dptr
+      000F24 E0               [24]  693 	movx	a,@dptr
+      000F25 34 00            [12]  694 	addc	a, #0x00
+      000F27 F0               [24]  695 	movx	@dptr,a
+      000F28                        696 00107$:
+                                    697 ;	.\FwLib_STC8\user\hx71708.c:33: HX_SCK = 0;
                                     698 ;	assignBit
       000F28 C2 B3            [12]  699 	clr	_P33
-                                    700 ;	.\FwLib_STC8\user\hx71708.c:39: _nop_(); _nop_(); 
+                                    700 ;	.\FwLib_STC8\user\hx71708.c:34: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
       000F2A 00               [12]  701 	NOP	
       000F2B 00               [12]  702 	NOP	
-                                    703 ;	.\FwLib_STC8\user\hx71708.c:42: if (count & 0x800000)
-      000F2C 90 01 30         [24]  704 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000F2F E0               [24]  705 	movx	a,@dptr
-      000F30 FC               [12]  706 	mov	r4,a
-      000F31 A3               [24]  707 	inc	dptr
-      000F32 E0               [24]  708 	movx	a,@dptr
-      000F33 FD               [12]  709 	mov	r5,a
-      000F34 A3               [24]  710 	inc	dptr
-      000F35 E0               [24]  711 	movx	a,@dptr
-      000F36 FE               [12]  712 	mov	r6,a
-      000F37 A3               [24]  713 	inc	dptr
-      000F38 E0               [24]  714 	movx	a,@dptr
-      000F39 EE               [12]  715 	mov	a,r6
-      000F3A 30 E7 0F         [24]  716 	jnb	acc.7,00115$
-                                    717 ;	.\FwLib_STC8\user\hx71708.c:43: count |= 0xFF000000;
-      000F3D 90 01 30         [24]  718 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000F40 EC               [12]  719 	mov	a,r4
-      000F41 F0               [24]  720 	movx	@dptr,a
-      000F42 ED               [12]  721 	mov	a,r5
-      000F43 A3               [24]  722 	inc	dptr
-      000F44 F0               [24]  723 	movx	@dptr,a
-      000F45 EE               [12]  724 	mov	a,r6
-      000F46 A3               [24]  725 	inc	dptr
-      000F47 F0               [24]  726 	movx	@dptr,a
-      000F48 74 FF            [12]  727 	mov	a,#0xff
-      000F4A A3               [24]  728 	inc	dptr
-      000F4B F0               [24]  729 	movx	@dptr,a
-      000F4C                        730 00115$:
-                                    731 ;	.\FwLib_STC8\user\hx71708.c:45: return (int32_t)count;
-      000F4C 90 01 30         [24]  732 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000F4F E0               [24]  733 	movx	a,@dptr
-      000F50 FC               [12]  734 	mov	r4,a
-      000F51 A3               [24]  735 	inc	dptr
-      000F52 E0               [24]  736 	movx	a,@dptr
-      000F53 FD               [12]  737 	mov	r5,a
-      000F54 A3               [24]  738 	inc	dptr
-      000F55 E0               [24]  739 	movx	a,@dptr
-      000F56 FE               [12]  740 	mov	r6,a
-      000F57 A3               [24]  741 	inc	dptr
-      000F58 E0               [24]  742 	movx	a,@dptr
-      000F59 8C 82            [24]  743 	mov	dpl,r4
-      000F5B 8D 83            [24]  744 	mov	dph,r5
-      000F5D 8E F0            [24]  745 	mov	b,r6
-                                    746 ;	.\FwLib_STC8\user\hx71708.c:46: }
-      000F5F 22               [24]  747 	ret
-                                    748 ;------------------------------------------------------------
-                                    749 ;Allocation info for local variables in function 'Get_Steady_Weight'
-                                    750 ;------------------------------------------------------------
-                                    751 ;sloc0         Allocated with name '_Get_Steady_Weight_sloc0_1_0'
-                                    752 ;sloc1         Allocated with name '_Get_Steady_Weight_sloc1_1_0'
-                                    753 ;samples       Allocated with name '_Get_Steady_Weight_samples_10000_58'
-                                    754 ;sum           Allocated with name '_Get_Steady_Weight_sum_10000_59'
-                                    755 ;valid         Allocated with name '_Get_Steady_Weight_valid_10000_59'
-                                    756 ;i             Allocated with name '_Get_Steady_Weight_i_20000_60'
-                                    757 ;v             Allocated with name '_Get_Steady_Weight_v_30000_61'
-                                    758 ;------------------------------------------------------------
-                                    759 ;	.\FwLib_STC8\user\hx71708.c:48: int32_t Get_Steady_Weight(uint8_t samples) {
-                                    760 ;	-----------------------------------------
-                                    761 ;	 function Get_Steady_Weight
-                                    762 ;	-----------------------------------------
-      000F60                        763 _Get_Steady_Weight:
-      000F60 E5 82            [12]  764 	mov	a,dpl
-      000F62 90 01 34         [24]  765 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
-      000F65 F0               [24]  766 	movx	@dptr,a
-                                    767 ;	.\FwLib_STC8\user\hx71708.c:49: int32_t sum = 0; // Changed from 64-bit to 32-bit to fix linker error
-      000F66 90 01 35         [24]  768 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000F69 E4               [12]  769 	clr	a
-      000F6A F0               [24]  770 	movx	@dptr,a
-      000F6B A3               [24]  771 	inc	dptr
-      000F6C F0               [24]  772 	movx	@dptr,a
-      000F6D A3               [24]  773 	inc	dptr
-      000F6E F0               [24]  774 	movx	@dptr,a
-      000F6F A3               [24]  775 	inc	dptr
-      000F70 F0               [24]  776 	movx	@dptr,a
-                                    777 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
-      000F71 90 01 34         [24]  778 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
-      000F74 E0               [24]  779 	movx	a,@dptr
-      000F75 FF               [12]  780 	mov	r7,a
-      000F76 75 10 00         [24]  781 	mov	_Get_Steady_Weight_sloc0_1_0,#0x00
-      000F79 75 11 00         [24]  782 	mov	_Get_Steady_Weight_sloc1_1_0,#0x00
-      000F7C                        783 00107$:
-      000F7C C3               [12]  784 	clr	c
-      000F7D E5 11            [12]  785 	mov	a,_Get_Steady_Weight_sloc1_1_0
-      000F7F 9F               [12]  786 	subb	a,r7
-      000F80 50 46            [24]  787 	jnc	00103$
-                                    788 ;	.\FwLib_STC8\user\hx71708.c:53: int32_t v = Read_HX71708_Raw();
-      000F82 C0 07            [24]  789 	push	ar7
-      000F84 12 0E 83         [24]  790 	lcall	_Read_HX71708_Raw
-      000F87 A9 82            [24]  791 	mov	r1, dpl
-      000F89 AA 83            [24]  792 	mov	r2, dph
-      000F8B AB F0            [24]  793 	mov	r3, b
-      000F8D FC               [12]  794 	mov	r4, a
-      000F8E D0 07            [24]  795 	pop	ar7
-                                    796 ;	.\FwLib_STC8\user\hx71708.c:54: if(v != -1) {
-      000F90 B9 FF 0B         [24]  797 	cjne	r1,#0xff,00137$
-      000F93 BA FF 08         [24]  798 	cjne	r2,#0xff,00137$
-      000F96 BB FF 05         [24]  799 	cjne	r3,#0xff,00137$
-      000F99 BC FF 02         [24]  800 	cjne	r4,#0xff,00137$
-      000F9C 80 26            [24]  801 	sjmp	00108$
-      000F9E                        802 00137$:
-                                    803 ;	.\FwLib_STC8\user\hx71708.c:55: sum += v;
-      000F9E C0 07            [24]  804 	push	ar7
-      000FA0 90 01 35         [24]  805 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000FA3 E0               [24]  806 	movx	a,@dptr
-      000FA4 F8               [12]  807 	mov	r0,a
-      000FA5 A3               [24]  808 	inc	dptr
-      000FA6 E0               [24]  809 	movx	a,@dptr
-      000FA7 FD               [12]  810 	mov	r5,a
-      000FA8 A3               [24]  811 	inc	dptr
-      000FA9 E0               [24]  812 	movx	a,@dptr
-      000FAA FE               [12]  813 	mov	r6,a
-      000FAB A3               [24]  814 	inc	dptr
-      000FAC E0               [24]  815 	movx	a,@dptr
-      000FAD FF               [12]  816 	mov	r7,a
-      000FAE 90 01 35         [24]  817 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000FB1 E9               [12]  818 	mov	a,r1
-      000FB2 28               [12]  819 	add	a, r0
-      000FB3 F0               [24]  820 	movx	@dptr,a
-      000FB4 EA               [12]  821 	mov	a,r2
-      000FB5 3D               [12]  822 	addc	a, r5
-      000FB6 A3               [24]  823 	inc	dptr
-      000FB7 F0               [24]  824 	movx	@dptr,a
-      000FB8 EB               [12]  825 	mov	a,r3
-      000FB9 3E               [12]  826 	addc	a, r6
-      000FBA A3               [24]  827 	inc	dptr
-      000FBB F0               [24]  828 	movx	@dptr,a
-      000FBC EC               [12]  829 	mov	a,r4
-      000FBD 3F               [12]  830 	addc	a, r7
-      000FBE A3               [24]  831 	inc	dptr
-      000FBF F0               [24]  832 	movx	@dptr,a
-                                    833 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
-      000FC0 05 10            [12]  834 	inc	_Get_Steady_Weight_sloc0_1_0
-                                    835 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
-      000FC2 D0 07            [24]  836 	pop	ar7
-                                    837 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
-      000FC4                        838 00108$:
-                                    839 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
-      000FC4 05 11            [12]  840 	inc	_Get_Steady_Weight_sloc1_1_0
-      000FC6 80 B4            [24]  841 	sjmp	00107$
-      000FC8                        842 00103$:
-                                    843 ;	.\FwLib_STC8\user\hx71708.c:61: if (valid == 0) return -1;
-      000FC8 E5 10            [12]  844 	mov	a,_Get_Steady_Weight_sloc0_1_0
-      000FCA 70 08            [24]  845 	jnz	00105$
-      000FCC 90 FF FF         [24]  846 	mov	dptr,#0xffff
-      000FCF 74 FF            [12]  847 	mov	a,#0xff
-      000FD1 F5 F0            [12]  848 	mov	b,a
-      000FD3 22               [24]  849 	ret
-      000FD4                        850 00105$:
-                                    851 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
-      000FD4 AC 10            [24]  852 	mov	r4,_Get_Steady_Weight_sloc0_1_0
-      000FD6 7D 00            [12]  853 	mov	r5,#0x00
-      000FD8 7E 00            [12]  854 	mov	r6,#0x00
-      000FDA 7F 00            [12]  855 	mov	r7,#0x00
-      000FDC 90 01 35         [24]  856 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000FDF E0               [24]  857 	movx	a,@dptr
-      000FE0 F8               [12]  858 	mov	r0,a
-      000FE1 A3               [24]  859 	inc	dptr
-      000FE2 E0               [24]  860 	movx	a,@dptr
-      000FE3 F9               [12]  861 	mov	r1,a
-      000FE4 A3               [24]  862 	inc	dptr
-      000FE5 E0               [24]  863 	movx	a,@dptr
-      000FE6 FA               [12]  864 	mov	r2,a
-      000FE7 A3               [24]  865 	inc	dptr
-      000FE8 E0               [24]  866 	movx	a,@dptr
-      000FE9 FB               [12]  867 	mov	r3,a
-      000FEA 90 01 DA         [24]  868 	mov	dptr,#__divslong_PARM_2
-      000FED EC               [12]  869 	mov	a,r4
-      000FEE F0               [24]  870 	movx	@dptr,a
-      000FEF ED               [12]  871 	mov	a,r5
-      000FF0 A3               [24]  872 	inc	dptr
-      000FF1 F0               [24]  873 	movx	@dptr,a
-      000FF2 EE               [12]  874 	mov	a,r6
-      000FF3 A3               [24]  875 	inc	dptr
-      000FF4 F0               [24]  876 	movx	@dptr,a
-      000FF5 EF               [12]  877 	mov	a,r7
-      000FF6 A3               [24]  878 	inc	dptr
-      000FF7 F0               [24]  879 	movx	@dptr,a
-      000FF8 88 82            [24]  880 	mov	dpl, r0
-      000FFA 89 83            [24]  881 	mov	dph, r1
-      000FFC 8A F0            [24]  882 	mov	b, r2
-      000FFE EB               [12]  883 	mov	a, r3
-                                    884 ;	.\FwLib_STC8\user\hx71708.c:63: }
-      000FFF 02 2C 61         [24]  885 	ljmp	__divslong
-                                    886 	.area CSEG    (CODE)
-                                    887 	.area CONST   (CODE)
-                                    888 	.area XINIT   (CODE)
-                                    889 	.area CABS    (ABS,CODE)
+      000F2C 00               [12]  703 	NOP	
+      000F2D 00               [12]  704 	NOP	
+      000F2E 00               [12]  705 	NOP	
+                                    706 ;	.\FwLib_STC8\user\hx71708.c:26: for(uint8_t i = 0; i < 24; i++) {
+      000F2F 0F               [12]  707 	inc	r7
+      000F30 80 A9            [24]  708 	sjmp	00112$
+      000F32                        709 00108$:
+                                    710 ;	.\FwLib_STC8\user\hx71708.c:37: HX_SCK = 1;
+                                    711 ;	assignBit
+      000F32 D2 B3            [12]  712 	setb	_P33
+                                    713 ;	.\FwLib_STC8\user\hx71708.c:38: _nop_(); _nop_(); 
+      000F34 00               [12]  714 	NOP	
+      000F35 00               [12]  715 	NOP	
+                                    716 ;	.\FwLib_STC8\user\hx71708.c:39: HX_SCK = 0;
+                                    717 ;	assignBit
+      000F36 C2 B3            [12]  718 	clr	_P33
+                                    719 ;	.\FwLib_STC8\user\hx71708.c:40: _nop_(); _nop_(); 
+      000F38 00               [12]  720 	NOP	
+      000F39 00               [12]  721 	NOP	
+                                    722 ;	.\FwLib_STC8\user\hx71708.c:42: if (count & 0x800000)
+      000F3A 90 01 30         [24]  723 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F3D E0               [24]  724 	movx	a,@dptr
+      000F3E FC               [12]  725 	mov	r4,a
+      000F3F A3               [24]  726 	inc	dptr
+      000F40 E0               [24]  727 	movx	a,@dptr
+      000F41 FD               [12]  728 	mov	r5,a
+      000F42 A3               [24]  729 	inc	dptr
+      000F43 E0               [24]  730 	movx	a,@dptr
+      000F44 FE               [12]  731 	mov	r6,a
+      000F45 A3               [24]  732 	inc	dptr
+      000F46 E0               [24]  733 	movx	a,@dptr
+      000F47 EE               [12]  734 	mov	a,r6
+      000F48 30 E7 0F         [24]  735 	jnb	acc.7,00110$
+                                    736 ;	.\FwLib_STC8\user\hx71708.c:43: count |= 0xFF000000;
+      000F4B 90 01 30         [24]  737 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F4E EC               [12]  738 	mov	a,r4
+      000F4F F0               [24]  739 	movx	@dptr,a
+      000F50 ED               [12]  740 	mov	a,r5
+      000F51 A3               [24]  741 	inc	dptr
+      000F52 F0               [24]  742 	movx	@dptr,a
+      000F53 EE               [12]  743 	mov	a,r6
+      000F54 A3               [24]  744 	inc	dptr
+      000F55 F0               [24]  745 	movx	@dptr,a
+      000F56 74 FF            [12]  746 	mov	a,#0xff
+      000F58 A3               [24]  747 	inc	dptr
+      000F59 F0               [24]  748 	movx	@dptr,a
+      000F5A                        749 00110$:
+                                    750 ;	.\FwLib_STC8\user\hx71708.c:45: return (int32_t)count;
+      000F5A 90 01 30         [24]  751 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F5D E0               [24]  752 	movx	a,@dptr
+      000F5E FC               [12]  753 	mov	r4,a
+      000F5F A3               [24]  754 	inc	dptr
+      000F60 E0               [24]  755 	movx	a,@dptr
+      000F61 FD               [12]  756 	mov	r5,a
+      000F62 A3               [24]  757 	inc	dptr
+      000F63 E0               [24]  758 	movx	a,@dptr
+      000F64 FE               [12]  759 	mov	r6,a
+      000F65 A3               [24]  760 	inc	dptr
+      000F66 E0               [24]  761 	movx	a,@dptr
+      000F67 8C 82            [24]  762 	mov	dpl,r4
+      000F69 8D 83            [24]  763 	mov	dph,r5
+      000F6B 8E F0            [24]  764 	mov	b,r6
+                                    765 ;	.\FwLib_STC8\user\hx71708.c:46: }
+      000F6D 22               [24]  766 	ret
+                                    767 ;------------------------------------------------------------
+                                    768 ;Allocation info for local variables in function 'Get_Steady_Weight'
+                                    769 ;------------------------------------------------------------
+                                    770 ;sloc0         Allocated with name '_Get_Steady_Weight_sloc0_1_0'
+                                    771 ;sloc1         Allocated with name '_Get_Steady_Weight_sloc1_1_0'
+                                    772 ;samples       Allocated with name '_Get_Steady_Weight_samples_10000_59'
+                                    773 ;sum           Allocated with name '_Get_Steady_Weight_sum_10000_60'
+                                    774 ;valid         Allocated with name '_Get_Steady_Weight_valid_10000_60'
+                                    775 ;i             Allocated with name '_Get_Steady_Weight_i_20000_61'
+                                    776 ;v             Allocated with name '_Get_Steady_Weight_v_30000_62'
+                                    777 ;------------------------------------------------------------
+                                    778 ;	.\FwLib_STC8\user\hx71708.c:48: int32_t Get_Steady_Weight(uint8_t samples) {
+                                    779 ;	-----------------------------------------
+                                    780 ;	 function Get_Steady_Weight
+                                    781 ;	-----------------------------------------
+      000F6E                        782 _Get_Steady_Weight:
+      000F6E E5 82            [12]  783 	mov	a,dpl
+      000F70 90 01 38         [24]  784 	mov	dptr,#_Get_Steady_Weight_samples_10000_59
+      000F73 F0               [24]  785 	movx	@dptr,a
+                                    786 ;	.\FwLib_STC8\user\hx71708.c:49: int32_t sum = 0; // Changed from 64-bit to 32-bit to fix linker error
+      000F74 90 01 39         [24]  787 	mov	dptr,#_Get_Steady_Weight_sum_10000_60
+      000F77 E4               [12]  788 	clr	a
+      000F78 F0               [24]  789 	movx	@dptr,a
+      000F79 A3               [24]  790 	inc	dptr
+      000F7A F0               [24]  791 	movx	@dptr,a
+      000F7B A3               [24]  792 	inc	dptr
+      000F7C F0               [24]  793 	movx	@dptr,a
+      000F7D A3               [24]  794 	inc	dptr
+      000F7E F0               [24]  795 	movx	@dptr,a
+                                    796 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
+      000F7F 90 01 38         [24]  797 	mov	dptr,#_Get_Steady_Weight_samples_10000_59
+      000F82 E0               [24]  798 	movx	a,@dptr
+      000F83 FF               [12]  799 	mov	r7,a
+      000F84 75 10 00         [24]  800 	mov	_Get_Steady_Weight_sloc0_1_0,#0x00
+      000F87 75 11 00         [24]  801 	mov	_Get_Steady_Weight_sloc1_1_0,#0x00
+      000F8A                        802 00107$:
+      000F8A C3               [12]  803 	clr	c
+      000F8B E5 11            [12]  804 	mov	a,_Get_Steady_Weight_sloc1_1_0
+      000F8D 9F               [12]  805 	subb	a,r7
+      000F8E 50 46            [24]  806 	jnc	00103$
+                                    807 ;	.\FwLib_STC8\user\hx71708.c:53: int32_t v = Read_HX71708_Raw();
+      000F90 C0 07            [24]  808 	push	ar7
+      000F92 12 0E 7A         [24]  809 	lcall	_Read_HX71708_Raw
+      000F95 A9 82            [24]  810 	mov	r1, dpl
+      000F97 AA 83            [24]  811 	mov	r2, dph
+      000F99 AB F0            [24]  812 	mov	r3, b
+      000F9B FC               [12]  813 	mov	r4, a
+      000F9C D0 07            [24]  814 	pop	ar7
+                                    815 ;	.\FwLib_STC8\user\hx71708.c:54: if(v != -1) {
+      000F9E B9 FF 0B         [24]  816 	cjne	r1,#0xff,00137$
+      000FA1 BA FF 08         [24]  817 	cjne	r2,#0xff,00137$
+      000FA4 BB FF 05         [24]  818 	cjne	r3,#0xff,00137$
+      000FA7 BC FF 02         [24]  819 	cjne	r4,#0xff,00137$
+      000FAA 80 26            [24]  820 	sjmp	00108$
+      000FAC                        821 00137$:
+                                    822 ;	.\FwLib_STC8\user\hx71708.c:55: sum += v;
+      000FAC C0 07            [24]  823 	push	ar7
+      000FAE 90 01 39         [24]  824 	mov	dptr,#_Get_Steady_Weight_sum_10000_60
+      000FB1 E0               [24]  825 	movx	a,@dptr
+      000FB2 F8               [12]  826 	mov	r0,a
+      000FB3 A3               [24]  827 	inc	dptr
+      000FB4 E0               [24]  828 	movx	a,@dptr
+      000FB5 FD               [12]  829 	mov	r5,a
+      000FB6 A3               [24]  830 	inc	dptr
+      000FB7 E0               [24]  831 	movx	a,@dptr
+      000FB8 FE               [12]  832 	mov	r6,a
+      000FB9 A3               [24]  833 	inc	dptr
+      000FBA E0               [24]  834 	movx	a,@dptr
+      000FBB FF               [12]  835 	mov	r7,a
+      000FBC 90 01 39         [24]  836 	mov	dptr,#_Get_Steady_Weight_sum_10000_60
+      000FBF E9               [12]  837 	mov	a,r1
+      000FC0 28               [12]  838 	add	a, r0
+      000FC1 F0               [24]  839 	movx	@dptr,a
+      000FC2 EA               [12]  840 	mov	a,r2
+      000FC3 3D               [12]  841 	addc	a, r5
+      000FC4 A3               [24]  842 	inc	dptr
+      000FC5 F0               [24]  843 	movx	@dptr,a
+      000FC6 EB               [12]  844 	mov	a,r3
+      000FC7 3E               [12]  845 	addc	a, r6
+      000FC8 A3               [24]  846 	inc	dptr
+      000FC9 F0               [24]  847 	movx	@dptr,a
+      000FCA EC               [12]  848 	mov	a,r4
+      000FCB 3F               [12]  849 	addc	a, r7
+      000FCC A3               [24]  850 	inc	dptr
+      000FCD F0               [24]  851 	movx	@dptr,a
+                                    852 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
+      000FCE 05 10            [12]  853 	inc	_Get_Steady_Weight_sloc0_1_0
+                                    854 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
+      000FD0 D0 07            [24]  855 	pop	ar7
+                                    856 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
+      000FD2                        857 00108$:
+                                    858 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
+      000FD2 05 11            [12]  859 	inc	_Get_Steady_Weight_sloc1_1_0
+      000FD4 80 B4            [24]  860 	sjmp	00107$
+      000FD6                        861 00103$:
+                                    862 ;	.\FwLib_STC8\user\hx71708.c:61: if (valid == 0) return -1;
+      000FD6 E5 10            [12]  863 	mov	a,_Get_Steady_Weight_sloc0_1_0
+      000FD8 70 08            [24]  864 	jnz	00105$
+      000FDA 90 FF FF         [24]  865 	mov	dptr,#0xffff
+      000FDD 74 FF            [12]  866 	mov	a,#0xff
+      000FDF F5 F0            [12]  867 	mov	b,a
+      000FE1 22               [24]  868 	ret
+      000FE2                        869 00105$:
+                                    870 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
+      000FE2 AC 10            [24]  871 	mov	r4,_Get_Steady_Weight_sloc0_1_0
+      000FE4 7D 00            [12]  872 	mov	r5,#0x00
+      000FE6 7E 00            [12]  873 	mov	r6,#0x00
+      000FE8 7F 00            [12]  874 	mov	r7,#0x00
+      000FEA 90 01 39         [24]  875 	mov	dptr,#_Get_Steady_Weight_sum_10000_60
+      000FED E0               [24]  876 	movx	a,@dptr
+      000FEE F8               [12]  877 	mov	r0,a
+      000FEF A3               [24]  878 	inc	dptr
+      000FF0 E0               [24]  879 	movx	a,@dptr
+      000FF1 F9               [12]  880 	mov	r1,a
+      000FF2 A3               [24]  881 	inc	dptr
+      000FF3 E0               [24]  882 	movx	a,@dptr
+      000FF4 FA               [12]  883 	mov	r2,a
+      000FF5 A3               [24]  884 	inc	dptr
+      000FF6 E0               [24]  885 	movx	a,@dptr
+      000FF7 FB               [12]  886 	mov	r3,a
+      000FF8 90 01 FA         [24]  887 	mov	dptr,#__divslong_PARM_2
+      000FFB EC               [12]  888 	mov	a,r4
+      000FFC F0               [24]  889 	movx	@dptr,a
+      000FFD ED               [12]  890 	mov	a,r5
+      000FFE A3               [24]  891 	inc	dptr
+      000FFF F0               [24]  892 	movx	@dptr,a
+      001000 EE               [12]  893 	mov	a,r6
+      001001 A3               [24]  894 	inc	dptr
+      001002 F0               [24]  895 	movx	@dptr,a
+      001003 EF               [12]  896 	mov	a,r7
+      001004 A3               [24]  897 	inc	dptr
+      001005 F0               [24]  898 	movx	@dptr,a
+      001006 88 82            [24]  899 	mov	dpl, r0
+      001008 89 83            [24]  900 	mov	dph, r1
+      00100A 8A F0            [24]  901 	mov	b, r2
+      00100C EB               [12]  902 	mov	a, r3
+                                    903 ;	.\FwLib_STC8\user\hx71708.c:63: }
+      00100D 02 2E 4F         [24]  904 	ljmp	__divslong
+                                    905 	.area CSEG    (CODE)
+                                    906 	.area CONST   (CODE)
+                                    907 	.area XINIT   (CODE)
+                                    908 	.area CABS    (ABS,CODE)

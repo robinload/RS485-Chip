@@ -502,7 +502,7 @@
                                     502 ;	-----------------------------------------
                                     503 ;	 function ADC_Init
                                     504 ;	-----------------------------------------
-      001002                        505 _ADC_Init:
+      001010                        505 _ADC_Init:
                            000007   506 	ar7 = 0x07
                            000006   507 	ar6 = 0x06
                            000005   508 	ar5 = 0x05
@@ -512,20 +512,20 @@
                            000001   512 	ar1 = 0x01
                            000000   513 	ar0 = 0x00
                                     514 ;	.\FwLib_STC8\user\adc.c:9: P1M0 &= ~0x10;
-      001002 53 92 EF         [24]  515 	anl	_P1M0,#0xef
+      001010 53 92 EF         [24]  515 	anl	_P1M0,#0xef
                                     516 ;	.\FwLib_STC8\user\adc.c:10: P1M1 |=  0x10;
-      001005 43 91 10         [24]  517 	orl	_P1M1,#0x10
+      001013 43 91 10         [24]  517 	orl	_P1M1,#0x10
                                     518 ;	.\FwLib_STC8\user\adc.c:13: P1IE &= ~0x10;
-      001008 90 FE 31         [24]  519 	mov	dptr,#0xfe31
-      00100B E0               [24]  520 	movx	a,@dptr
-      00100C 54 EF            [12]  521 	anl	a,#0xef
-      00100E F0               [24]  522 	movx	@dptr,a
+      001016 90 FE 31         [24]  519 	mov	dptr,#0xfe31
+      001019 E0               [24]  520 	movx	a,@dptr
+      00101A 54 EF            [12]  521 	anl	a,#0xef
+      00101C F0               [24]  522 	movx	@dptr,a
                                     523 ;	.\FwLib_STC8\user\adc.c:17: ADCCFG = 0x2F;
-      00100F 75 DE 2F         [24]  524 	mov	_ADCCFG,#0x2f
+      00101D 75 DE 2F         [24]  524 	mov	_ADCCFG,#0x2f
                                     525 ;	.\FwLib_STC8\user\adc.c:20: ADC_CONTR = 0x80;
-      001012 75 BC 80         [24]  526 	mov	_ADC_CONTR,#0x80
+      001020 75 BC 80         [24]  526 	mov	_ADC_CONTR,#0x80
                                     527 ;	.\FwLib_STC8\user\adc.c:21: }
-      001015 22               [24]  528 	ret
+      001023 22               [24]  528 	ret
                                     529 ;------------------------------------------------------------
                                     530 ;Allocation info for local variables in function 'ADC_Read'
                                     531 ;------------------------------------------------------------
@@ -535,33 +535,33 @@
                                     535 ;	-----------------------------------------
                                     536 ;	 function ADC_Read
                                     537 ;	-----------------------------------------
-      001016                        538 _ADC_Read:
+      001024                        538 _ADC_Read:
                                     539 ;	.\FwLib_STC8\user\adc.c:31: ADC_CONTR = 0x80 | ADC_CH_P14;
-      001016 75 BC 84         [24]  540 	mov	_ADC_CONTR,#0x84
+      001024 75 BC 84         [24]  540 	mov	_ADC_CONTR,#0x84
                                     541 ;	.\FwLib_STC8\user\adc.c:34: ADC_CONTR |= 0x40;
-      001019 43 BC 40         [24]  542 	orl	_ADC_CONTR,#0x40
+      001027 43 BC 40         [24]  542 	orl	_ADC_CONTR,#0x40
                                     543 ;	.\FwLib_STC8\user\adc.c:37: while (!(ADC_CONTR & 0x20));
-      00101C                        544 00101$:
-      00101C E5 BC            [12]  545 	mov	a,_ADC_CONTR
-      00101E 30 E5 FB         [24]  546 	jnb	acc.5,00101$
+      00102A                        544 00101$:
+      00102A E5 BC            [12]  545 	mov	a,_ADC_CONTR
+      00102C 30 E5 FB         [24]  546 	jnb	acc.5,00101$
                                     547 ;	.\FwLib_STC8\user\adc.c:40: ADC_CONTR &= ~0x20;
-      001021 53 BC DF         [24]  548 	anl	_ADC_CONTR,#0xdf
+      00102F 53 BC DF         [24]  548 	anl	_ADC_CONTR,#0xdf
                                     549 ;	.\FwLib_STC8\user\adc.c:43: res = ADC_RES;
                                     550 ;	.\FwLib_STC8\user\adc.c:44: res <<= 8;
-      001024 AF BD            [24]  551 	mov	r7,_ADC_RES
-      001026 7E 00            [12]  552 	mov	r6,#0x00
+      001032 AF BD            [24]  551 	mov	r7,_ADC_RES
+      001034 7E 00            [12]  552 	mov	r6,#0x00
                                     553 ;	.\FwLib_STC8\user\adc.c:45: res |= ADC_RESL;
-      001028 AC BE            [24]  554 	mov	r4,_ADC_RESL
-      00102A 7D 00            [12]  555 	mov	r5,#0x00
-      00102C EC               [12]  556 	mov	a,r4
-      00102D 42 06            [12]  557 	orl	ar6,a
-      00102F ED               [12]  558 	mov	a,r5
-      001030 42 07            [12]  559 	orl	ar7,a
+      001036 AC BE            [24]  554 	mov	r4,_ADC_RESL
+      001038 7D 00            [12]  555 	mov	r5,#0x00
+      00103A EC               [12]  556 	mov	a,r4
+      00103B 42 06            [12]  557 	orl	ar6,a
+      00103D ED               [12]  558 	mov	a,r5
+      00103E 42 07            [12]  559 	orl	ar7,a
                                     560 ;	.\FwLib_STC8\user\adc.c:47: return res;
-      001032 8E 82            [24]  561 	mov	dpl, r6
-      001034 8F 83            [24]  562 	mov	dph, r7
+      001040 8E 82            [24]  561 	mov	dpl, r6
+      001042 8F 83            [24]  562 	mov	dph, r7
                                     563 ;	.\FwLib_STC8\user\adc.c:48: }
-      001036 22               [24]  564 	ret
+      001044 22               [24]  564 	ret
                                     565 	.area CSEG    (CODE)
                                     566 	.area CONST   (CODE)
                                     567 	.area XINIT   (CODE)

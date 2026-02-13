@@ -635,47 +635,41 @@
       000025 D2 AC            [12]  635 	setb	_ES
                                     636 ;	assignBit
       000027 D2 AF            [12]  637 	setb	_EA
-                                    638 ;	.\FwLib_STC8\user\main.c:32: while (1)
-      000029                        639 00109$:
-                                    640 ;	.\FwLib_STC8\user\main.c:34: WDT_CONTR = 0x35;
+                                    638 ;	.\FwLib_STC8\user\main.c:31: while (1)
+      000029                        639 00106$:
+                                    640 ;	.\FwLib_STC8\user\main.c:33: WDT_CONTR = 0x35;
       000029 75 C1 35         [24]  641 	mov	_WDT_CONTR,#0x35
-                                    642 ;	.\FwLib_STC8\user\main.c:38: if (HX_DOUT == 0 && !mb_frame_ready) 
-      00002C 20 B2 09         [24]  643 	jb	_P32,00104$
-      00002F 90r00r00         [24]  644 	mov	dptr,#_mb_frame_ready
-      000032 E0               [24]  645 	movx	a,@dptr
-      000033 70 03            [24]  646 	jnz	00104$
-                                    647 ;	.\FwLib_STC8\user\main.c:40: MEAS_Process(); 
-      000035 12r00r00         [24]  648 	lcall	_MEAS_Process
-      000038                        649 00104$:
-                                    650 ;	.\FwLib_STC8\user\main.c:44: if (mb_frame_ready)
-      000038 90r00r00         [24]  651 	mov	dptr,#_mb_frame_ready
-      00003B E0               [24]  652 	movx	a,@dptr
-      00003C 60 EB            [24]  653 	jz	00109$
-                                    654 ;	.\FwLib_STC8\user\main.c:46: EA = 0; // 执行解析时关闭中断，释放所有 CPU 资源给 Modbus
-                                    655 ;	assignBit
-      00003E C2 AF            [12]  656 	clr	_EA
-                                    657 ;	.\FwLib_STC8\user\main.c:47: mb_parse_request(); 
-      000040 12r00r00         [24]  658 	lcall	_mb_parse_request
-                                    659 ;	.\FwLib_STC8\user\main.c:48: mb_idx = 0;
-      000043 90r00r00         [24]  660 	mov	dptr,#_mb_idx
-      000046 E4               [12]  661 	clr	a
-      000047 F0               [24]  662 	movx	@dptr,a
-                                    663 ;	.\FwLib_STC8\user\main.c:49: mb_frame_ready = 0;
-      000048 90r00r00         [24]  664 	mov	dptr,#_mb_frame_ready
-      00004B F0               [24]  665 	movx	@dptr,a
-                                    666 ;	.\FwLib_STC8\user\main.c:50: EA = 1;
-                                    667 ;	assignBit
-      00004C D2 AF            [12]  668 	setb	_EA
-                                    669 ;	.\FwLib_STC8\user\main.c:53: }
-      00004E 80 D9            [24]  670 	sjmp	00109$
-                                    671 	.area CSEG    (CODE)
-                                    672 	.area CONST   (CODE)
-                                    673 	.area CONST   (CODE)
-      000000                        674 ___str_0:
-      000000 42 4F 4F 54 5F 4F 4B   675 	.ascii "BOOT_OK"
-      000007 0D                     676 	.db 0x0d
-      000008 0A                     677 	.db 0x0a
-      000009 00                     678 	.db 0x00
-                                    679 	.area CSEG    (CODE)
-                                    680 	.area XINIT   (CODE)
-                                    681 	.area CABS    (ABS,CODE)
+                                    642 ;	.\FwLib_STC8\user\main.c:38: MEAS_Process(); 
+      00002C 12r00r00         [24]  643 	lcall	_MEAS_Process
+                                    644 ;	.\FwLib_STC8\user\main.c:40: if (mb_frame_ready)
+      00002F 90r00r00         [24]  645 	mov	dptr,#_mb_frame_ready
+      000032 E0               [24]  646 	movx	a,@dptr
+      000033 60 F4            [24]  647 	jz	00106$
+                                    648 ;	.\FwLib_STC8\user\main.c:42: EA = 0;
+                                    649 ;	assignBit
+      000035 C2 AF            [12]  650 	clr	_EA
+                                    651 ;	.\FwLib_STC8\user\main.c:43: mb_parse_request(); 
+      000037 12r00r00         [24]  652 	lcall	_mb_parse_request
+                                    653 ;	.\FwLib_STC8\user\main.c:44: mb_idx = 0;
+      00003A 90r00r00         [24]  654 	mov	dptr,#_mb_idx
+      00003D E4               [12]  655 	clr	a
+      00003E F0               [24]  656 	movx	@dptr,a
+                                    657 ;	.\FwLib_STC8\user\main.c:45: mb_frame_ready = 0;
+      00003F 90r00r00         [24]  658 	mov	dptr,#_mb_frame_ready
+      000042 F0               [24]  659 	movx	@dptr,a
+                                    660 ;	.\FwLib_STC8\user\main.c:46: EA = 1;
+                                    661 ;	assignBit
+      000043 D2 AF            [12]  662 	setb	_EA
+                                    663 ;	.\FwLib_STC8\user\main.c:49: }
+      000045 80 E2            [24]  664 	sjmp	00106$
+                                    665 	.area CSEG    (CODE)
+                                    666 	.area CONST   (CODE)
+                                    667 	.area CONST   (CODE)
+      000000                        668 ___str_0:
+      000000 42 4F 4F 54 5F 4F 4B   669 	.ascii "BOOT_OK"
+      000007 0D                     670 	.db 0x0d
+      000008 0A                     671 	.db 0x0a
+      000009 00                     672 	.db 0x00
+                                    673 	.area CSEG    (CODE)
+                                    674 	.area XINIT   (CODE)
+                                    675 	.area CABS    (ABS,CODE)

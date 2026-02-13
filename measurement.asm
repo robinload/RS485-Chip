@@ -214,7 +214,6 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
-	.globl _filtered_adc
 	.globl _MEAS_Init
 	.globl _scale_value
 	.globl _MEAS_Process
@@ -452,6 +451,8 @@ _scale_value_sloc3_1_0:
 	.ds 4
 _scale_value_sloc4_1_0:
 	.ds 4
+_scale_value_sloc5_1_0:
+	.ds 4
 _MEAS_Process_sloc0_1_0:
 	.ds 4
 _MEAS_Process_sloc1_1_0:
@@ -486,7 +487,21 @@ _scale_value_raw_adc_10000_62:
 	.ds 4
 _scale_value_i_10000_63:
 	.ds 1
-_MEAS_Process_current_weight_10001_72:
+_scale_value_x0_10000_63:
+	.ds 4
+_scale_value_x1_10000_63:
+	.ds 4
+_scale_value_y0_10000_63:
+	.ds 4
+_scale_value_y1_10000_63:
+	.ds 4
+_MEAS_Process_raw_adc_10000_67:
+	.ds 4
+_MEAS_Process_current_weight_10000_67:
+	.ds 4
+_MEAS_Process_diff_10000_67:
+	.ds 4
+_MEAS_Process_stable_diff_10000_67:
 	.ds 4
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -496,7 +511,7 @@ _MEAS_Process_current_weight_10001_72:
 ; initialized external ram data
 ;--------------------------------------------------------
 	.area XISEG   (XDATA)
-_filtered_adc::
+_filtered_adc:
 	.ds 4
 _zero_track_cnt:
 	.ds 2
@@ -546,7 +561,7 @@ _MEAS_Init:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	.\FwLib_STC8\user\measurement.c:13: filtered_adc = Read_HX71708_Raw();
+;	.\FwLib_STC8\user\measurement.c:12: filtered_adc = Read_HX71708_Raw();
 	lcall	_Read_HX71708_Raw
 	mov	r4, dpl
 	mov	r5, dph
@@ -564,7 +579,7 @@ _MEAS_Init:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:14: last_stable_val = 0;
+;	.\FwLib_STC8\user\measurement.c:13: last_stable_val = 0;
 	mov	dptr,#_last_stable_val
 	clr	a
 	movx	@dptr,a
@@ -574,17 +589,17 @@ _MEAS_Init:
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:15: stable_cnt = 0;
+;	.\FwLib_STC8\user\measurement.c:14: stable_cnt = 0;
 	mov	dptr,#_stable_cnt
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:16: zero_track_cnt = 0;
+;	.\FwLib_STC8\user\measurement.c:15: zero_track_cnt = 0;
 	mov	dptr,#_zero_track_cnt
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:17: }
+;	.\FwLib_STC8\user\measurement.c:16: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'scale_value'
@@ -594,16 +609,15 @@ _MEAS_Init:
 ;sloc2         Allocated with name '_scale_value_sloc2_1_0'
 ;sloc3         Allocated with name '_scale_value_sloc3_1_0'
 ;sloc4         Allocated with name '_scale_value_sloc4_1_0'
+;sloc5         Allocated with name '_scale_value_sloc5_1_0'
 ;raw_adc       Allocated with name '_scale_value_raw_adc_10000_62'
 ;i             Allocated with name '_scale_value_i_10000_63'
 ;x0            Allocated with name '_scale_value_x0_10000_63'
 ;x1            Allocated with name '_scale_value_x1_10000_63'
 ;y0            Allocated with name '_scale_value_y0_10000_63'
 ;y1            Allocated with name '_scale_value_y1_10000_63'
-;dx            Allocated with name '_scale_value_dx_10000_63'
-;dy            Allocated with name '_scale_value_dy_10000_63'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\measurement.c:19: int32_t scale_value(int32_t raw_adc) {
+;	.\FwLib_STC8\user\measurement.c:22: int32_t scale_value(int32_t raw_adc) {
 ;	-----------------------------------------
 ;	 function scale_value
 ;	-----------------------------------------
@@ -624,7 +638,7 @@ _scale_value:
 	mov	a,r4
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:24: if (reg_cal_points_num < 2) return 0;
+;	.\FwLib_STC8\user\measurement.c:26: if (reg_cal_points_num < 2) return 0;
 	mov	dptr,#_reg_cal_points_num
 	movx	a,@dptr
 	mov	r4,a
@@ -647,13 +661,16 @@ _scale_value:
 	mov	a,r7
 	xrl	a,#0x80
 	subb	a,#0x80
-	jnc	00118$
+	jnc	00102$
 	mov	dptr,#0x0000
 	clr	a
 	mov	b,a
 	ret
-;	.\FwLib_STC8\user\measurement.c:27: for (i = 0; i < (uint8_t)(reg_cal_points_num - 1); i++) {
-00118$:
+00102$:
+;	.\FwLib_STC8\user\measurement.c:29: for (i = 0; i < (uint8_t)(reg_cal_points_num - 1); i++) {
+	mov	dptr,#_scale_value_i_10000_63
+	clr	a
+	movx	@dptr,a
 	mov	dptr,#_scale_value_raw_adc_10000_62
 	movx	a,@dptr
 	mov	r0,a
@@ -666,48 +683,49 @@ _scale_value:
 	inc	dptr
 	movx	a,@dptr
 	mov	r3,a
-	mov	_scale_value_sloc0_1_0,#0x00
 00111$:
 	push	ar0
 	push	ar1
 	push	ar2
 	push	ar3
 	mov	a,r4
-	mov	_scale_value_sloc1_1_0,a
+	mov	_scale_value_sloc0_1_0,a
 	dec	a
 	mov	r3,a
+	mov	dptr,#_scale_value_i_10000_63
+	movx	a,@dptr
+	mov	_scale_value_sloc1_1_0,a
 	clr	c
-	mov	a,_scale_value_sloc0_1_0
 	subb	a,r3
 	pop	ar3
 	pop	ar2
 	pop	ar1
 	pop	ar0
-	jnc	00121$
-;	.\FwLib_STC8\user\measurement.c:28: if (raw_adc < reg_avp[i + 1]) break;
+	jnc	00105$
+;	.\FwLib_STC8\user\measurement.c:30: if (raw_adc < reg_avp[i + 1]) break;
 	push	ar4
 	push	ar5
 	push	ar6
 	push	ar7
-	mov	r7,_scale_value_sloc0_1_0
+	mov	r7,_scale_value_sloc1_1_0
 	inc	r7
 	clr	F0
 	mov	b,#0x04
 	mov	a,r7
-	jnb	acc.7,00154$
+	jnb	acc.7,00153$
 	cpl	F0
 	cpl	a
 	inc	a
-00154$:
+00153$:
 	mul	ab
-	jnb	F0,00155$
+	jnb	F0,00154$
 	cpl	a
 	add	a,#0x01
 	xch	a,b
 	cpl	a
 	addc	a,#0x00
 	xch	a,b
-00155$:
+00154$:
 	add	a, #_reg_avp
 	mov	dpl,a
 	mov	a,#(_reg_avp >> 8)
@@ -740,24 +758,26 @@ _scale_value:
 	pop	ar6
 	pop	ar5
 	pop	ar4
-	jc	00121$
-;	.\FwLib_STC8\user\measurement.c:27: for (i = 0; i < (uint8_t)(reg_cal_points_num - 1); i++) {
-	inc	_scale_value_sloc0_1_0
-	sjmp	00111$
-00121$:
+	jc	00105$
+;	.\FwLib_STC8\user\measurement.c:29: for (i = 0; i < (uint8_t)(reg_cal_points_num - 1); i++) {
 	mov	dptr,#_scale_value_i_10000_63
-	mov	a,_scale_value_sloc0_1_0
+	mov	a,_scale_value_sloc1_1_0
+	inc	a
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:31: if (i >= (reg_cal_points_num - 1)) i = reg_cal_points_num - 2;
+	sjmp	00111$
+00105$:
+;	.\FwLib_STC8\user\measurement.c:33: if (i >= (reg_cal_points_num - 1)) i = reg_cal_points_num - 2;
 	dec	r4
-	cjne	r4,#0xff,00157$
+	cjne	r4,#0xff,00156$
 	dec	r5
-	cjne	r5,#0xff,00157$
+	cjne	r5,#0xff,00156$
 	dec	r6
-	cjne	r6,#0xff,00157$
+	cjne	r6,#0xff,00156$
 	dec	r7
-00157$:
-	mov	r0,_scale_value_sloc0_1_0
+00156$:
+	mov	dptr,#_scale_value_i_10000_63
+	movx	a,@dptr
+	mov	r0,a
 	mov	r1,#0x00
 	mov	r2,#0x00
 	mov	r3,#0x00
@@ -774,12 +794,12 @@ _scale_value:
 	xrl	b,#0x80
 	subb	a,b
 	jc	00107$
-	mov	a,_scale_value_sloc1_1_0
+	mov	a,_scale_value_sloc0_1_0
 	add	a,#0xfe
 	mov	dptr,#_scale_value_i_10000_63
 	movx	@dptr,a
 00107$:
-;	.\FwLib_STC8\user\measurement.c:33: x0 = reg_avp[i];     y0 = reg_pvp[i];
+;	.\FwLib_STC8\user\measurement.c:35: x0 = reg_avp[i];     y0 = reg_pvp[i];
 	mov	dptr,#_scale_value_i_10000_63
 	movx	a,@dptr
 	mov	r7,a
@@ -803,6 +823,18 @@ _scale_value:
 	inc	dptr
 	movx	a,@dptr
 	mov	r4,a
+	mov	dptr,#_scale_value_x0_10000_63
+	mov	a,r1
+	movx	@dptr,a
+	mov	a,r2
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r3
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r4
+	inc	dptr
+	movx	@dptr,a
 	mov	a,r5
 	add	a, #_reg_pvp
 	mov	dpl,a
@@ -820,25 +852,37 @@ _scale_value:
 	inc	dptr
 	movx	a,@dptr
 	mov	(_scale_value_sloc2_1_0 + 3),a
-;	.\FwLib_STC8\user\measurement.c:34: x1 = reg_avp[i + 1]; y1 = reg_pvp[i + 1];
+	mov	dptr,#_scale_value_y0_10000_63
+	mov	a,_scale_value_sloc2_1_0
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc2_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc2_1_0 + 2)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc2_1_0 + 3)
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\measurement.c:36: x1 = reg_avp[i + 1]; y1 = reg_pvp[i + 1];
 	inc	r7
 	clr	F0
 	mov	b,#0x04
 	mov	a,r7
-	jnb	acc.7,00159$
+	jnb	acc.7,00158$
 	cpl	F0
 	cpl	a
 	inc	a
-00159$:
+00158$:
 	mul	ab
-	jnb	F0,00160$
+	jnb	F0,00159$
 	cpl	a
 	add	a,#0x01
 	xch	a,b
 	cpl	a
 	addc	a,#0x00
 	xch	a,b
-00160$:
+00159$:
 	mov	r7,a
 	mov	r6,b
 	add	a, #_reg_avp
@@ -857,6 +901,18 @@ _scale_value:
 	inc	dptr
 	movx	a,@dptr
 	mov	(_scale_value_sloc3_1_0 + 3),a
+	mov	dptr,#_scale_value_x1_10000_63
+	mov	a,_scale_value_sloc3_1_0
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc3_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc3_1_0 + 2)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc3_1_0 + 3)
+	inc	dptr
+	movx	@dptr,a
 	mov	a,r7
 	add	a, #_reg_pvp
 	mov	dpl,a
@@ -874,7 +930,19 @@ _scale_value:
 	inc	dptr
 	movx	a,@dptr
 	mov	(_scale_value_sloc4_1_0 + 3),a
-;	.\FwLib_STC8\user\measurement.c:36: if (x1 == x0) return y0;
+	mov	dptr,#_scale_value_y1_10000_63
+	mov	a,_scale_value_sloc4_1_0
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc4_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc4_1_0 + 2)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_scale_value_sloc4_1_0 + 3)
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\measurement.c:38: if (x1 == x0) return y0;
 	mov	a,r1
 	cjne	a,_scale_value_sloc3_1_0,00109$
 	mov	a,r2
@@ -889,35 +957,7 @@ _scale_value:
 	mov	a, (_scale_value_sloc2_1_0 + 3)
 	ret
 00109$:
-;	.\FwLib_STC8\user\measurement.c:40: dx = x1 - x0;
-	mov	a,_scale_value_sloc3_1_0
-	clr	c
-	subb	a,r1
-	mov	_scale_value_sloc3_1_0,a
-	mov	a,(_scale_value_sloc3_1_0 + 1)
-	subb	a,r2
-	mov	(_scale_value_sloc3_1_0 + 1),a
-	mov	a,(_scale_value_sloc3_1_0 + 2)
-	subb	a,r3
-	mov	(_scale_value_sloc3_1_0 + 2),a
-	mov	a,(_scale_value_sloc3_1_0 + 3)
-	subb	a,r4
-	mov	(_scale_value_sloc3_1_0 + 3),a
-;	.\FwLib_STC8\user\measurement.c:41: dy = y1 - y0;
-	mov	a,_scale_value_sloc4_1_0
-	clr	c
-	subb	a,_scale_value_sloc2_1_0
-	mov	_scale_value_sloc4_1_0,a
-	mov	a,(_scale_value_sloc4_1_0 + 1)
-	subb	a,(_scale_value_sloc2_1_0 + 1)
-	mov	(_scale_value_sloc4_1_0 + 1),a
-	mov	a,(_scale_value_sloc4_1_0 + 2)
-	subb	a,(_scale_value_sloc2_1_0 + 2)
-	mov	(_scale_value_sloc4_1_0 + 2),a
-	mov	a,(_scale_value_sloc4_1_0 + 3)
-	subb	a,(_scale_value_sloc2_1_0 + 3)
-	mov	(_scale_value_sloc4_1_0 + 3),a
-;	.\FwLib_STC8\user\measurement.c:44: return y0 + (int32_t)(((raw_adc - x0) * dy) / dx);
+;	.\FwLib_STC8\user\measurement.c:42: return y0 + (int32_t)((float)(raw_adc - x0) * (y1 - y0) / (x1 - x0));
 	mov	dptr,#_scale_value_raw_adc_10000_62
 	movx	a,@dptr
 	mov	r0,a
@@ -933,54 +973,116 @@ _scale_value:
 	mov	a,r0
 	clr	c
 	subb	a,r1
-	mov	r1,a
+	mov	r0,a
 	mov	a,r5
 	subb	a,r2
-	mov	r2,a
+	mov	r5,a
 	mov	a,r6
 	subb	a,r3
-	mov	r3,a
+	mov	r6,a
 	mov	a,r7
 	subb	a,r4
-	mov	r4,a
-	mov	dptr,#__mullong_PARM_2
+	mov	dpl,r0
+	mov	dph,r5
+	mov	b,r6
+	push	ar4
+	push	ar3
+	push	ar2
+	push	ar1
+	lcall	___slong2fs
+	mov	_scale_value_sloc5_1_0,dpl
+	mov	(_scale_value_sloc5_1_0 + 1),dph
+	mov	(_scale_value_sloc5_1_0 + 2),b
+	mov	(_scale_value_sloc5_1_0 + 3),a
 	mov	a,_scale_value_sloc4_1_0
-	movx	@dptr,a
+	clr	c
+	subb	a,_scale_value_sloc2_1_0
+	mov	r0,a
 	mov	a,(_scale_value_sloc4_1_0 + 1)
-	inc	dptr
-	movx	@dptr,a
+	subb	a,(_scale_value_sloc2_1_0 + 1)
+	mov	r5,a
 	mov	a,(_scale_value_sloc4_1_0 + 2)
-	inc	dptr
-	movx	@dptr,a
+	subb	a,(_scale_value_sloc2_1_0 + 2)
+	mov	r6,a
 	mov	a,(_scale_value_sloc4_1_0 + 3)
-	inc	dptr
-	movx	@dptr,a
-	mov	dpl, r1
-	mov	dph, r2
-	mov	b, r3
-	mov	a, r4
-	lcall	__mullong
+	subb	a,(_scale_value_sloc2_1_0 + 3)
+	mov	dpl,r0
+	mov	dph,r5
+	mov	b,r6
+	lcall	___slong2fs
+	mov	r0, dpl
+	mov	r5, dph
+	mov	r6, b
+	mov	r7, a
+	push	ar0
+	push	ar5
+	push	ar6
+	push	ar7
+	mov	dpl, _scale_value_sloc5_1_0
+	mov	dph, (_scale_value_sloc5_1_0 + 1)
+	mov	b, (_scale_value_sloc5_1_0 + 2)
+	mov	a, (_scale_value_sloc5_1_0 + 3)
+	lcall	___fsmul
+	mov	r0, dpl
+	mov	r5, dph
+	mov	r6, b
+	mov	r7, a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar1
+	pop	ar2
+	pop	ar3
+	pop	ar4
+	mov	a,_scale_value_sloc3_1_0
+	clr	c
+	subb	a,r1
+	mov	r1,a
+	mov	a,(_scale_value_sloc3_1_0 + 1)
+	subb	a,r2
+	mov	r2,a
+	mov	a,(_scale_value_sloc3_1_0 + 2)
+	subb	a,r3
+	mov	r3,a
+	mov	a,(_scale_value_sloc3_1_0 + 3)
+	subb	a,r4
+	mov	dpl,r1
+	mov	dph,r2
+	mov	b,r3
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar0
+	lcall	___slong2fs
+	mov	r1, dpl
+	mov	r2, dph
+	mov	r3, b
+	mov	r4, a
+	pop	ar0
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	push	ar1
+	push	ar2
+	push	ar3
+	push	ar4
+	mov	dpl, r0
+	mov	dph, r5
+	mov	b, r6
+	mov	a, r7
+	lcall	___fsdiv
 	mov	r4, dpl
 	mov	r5, dph
 	mov	r6, b
 	mov	r7, a
-	mov	dptr,#__divslong_PARM_2
-	mov	a,_scale_value_sloc3_1_0
-	movx	@dptr,a
-	mov	a,(_scale_value_sloc3_1_0 + 1)
-	inc	dptr
-	movx	@dptr,a
-	mov	a,(_scale_value_sloc3_1_0 + 2)
-	inc	dptr
-	movx	@dptr,a
-	mov	a,(_scale_value_sloc3_1_0 + 3)
-	inc	dptr
-	movx	@dptr,a
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
 	mov	dpl, r4
 	mov	dph, r5
 	mov	b, r6
 	mov	a, r7
-	lcall	__divslong
+	lcall	___fs2slong
 	mov	r4, dpl
 	mov	r5, dph
 	mov	r6, b
@@ -999,7 +1101,7 @@ _scale_value:
 	mov	dpl,r4
 	mov	dph,r5
 	mov	b,r6
-;	.\FwLib_STC8\user\measurement.c:45: }
+;	.\FwLib_STC8\user\measurement.c:43: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'MEAS_Process'
@@ -1008,29 +1110,54 @@ _scale_value:
 ;sloc1         Allocated with name '_MEAS_Process_sloc1_1_0'
 ;sloc2         Allocated with name '_MEAS_Process_sloc2_1_0'
 ;raw_adc       Allocated with name '_MEAS_Process_raw_adc_10000_67'
-;diff          Allocated with name '_MEAS_Process_diff_20000_69'
-;current_weight Allocated with name '_MEAS_Process_current_weight_10001_72'
-;stable_diff   Allocated with name '_MEAS_Process_stable_diff_10002_78'
+;current_weight Allocated with name '_MEAS_Process_current_weight_10000_67'
+;diff          Allocated with name '_MEAS_Process_diff_10000_67'
+;stable_diff   Allocated with name '_MEAS_Process_stable_diff_10000_67'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\measurement.c:47: void MEAS_Process(void) {
 ;	-----------------------------------------
 ;	 function MEAS_Process
 ;	-----------------------------------------
 _MEAS_Process:
-;	.\FwLib_STC8\user\measurement.c:48: int32_t raw_adc = Read_HX71708_Raw();
+;	.\FwLib_STC8\user\measurement.c:52: reg_adc_raw_value = 0x12345678; // 强制写入一个固定值
+	mov	dptr,#_reg_adc_raw_value
+	mov	a,#0x78
+	movx	@dptr,a
+	mov	a,#0x56
+	inc	dptr
+	movx	@dptr,a
+	mov	a,#0x34
+	inc	dptr
+	movx	@dptr,a
+	mov	a,#0x12
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\measurement.c:53: raw_adc = Read_HX71708_Raw();
 	lcall	_Read_HX71708_Raw
 	mov	r4, dpl
 	mov	r5, dph
 	mov	r6, b
 	mov	r7, a
-;	.\FwLib_STC8\user\measurement.c:49: if (raw_adc == -1) return; // ADC 超时或错误
+	mov	dptr,#_MEAS_Process_raw_adc_10000_67
+	mov	a,r4
+	movx	@dptr,a
+	mov	a,r5
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\measurement.c:54: if (raw_adc == -1) return; 
 	cjne	r4,#0xff,00102$
 	cjne	r5,#0xff,00102$
 	cjne	r6,#0xff,00102$
 	cjne	r7,#0xff,00102$
 	ret
 00102$:
-;	.\FwLib_STC8\user\measurement.c:51: reg_adc_raw_value = raw_adc;
+;	.\FwLib_STC8\user\measurement.c:56: reg_adc_raw_value = raw_adc;
 	mov	dptr,#_reg_adc_raw_value
 	mov	a,r4
 	movx	@dptr,a
@@ -1043,7 +1170,7 @@ _MEAS_Process:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:54: if (reg_filter_level == 0) {
+;	.\FwLib_STC8\user\measurement.c:59: if (reg_filter_level == 0) {
 	mov	dptr,#_reg_filter_level
 	movx	a,@dptr
 	mov	r0,a
@@ -1069,7 +1196,7 @@ _MEAS_Process:
 	movx	a,@dptr
 	orl	a,b
 	jnz	00108$
-;	.\FwLib_STC8\user\measurement.c:55: filtered_adc = raw_adc;
+;	.\FwLib_STC8\user\measurement.c:60: filtered_adc = raw_adc;
 	mov	dptr,#_filtered_adc
 	mov	a,r4
 	movx	@dptr,a
@@ -1084,7 +1211,7 @@ _MEAS_Process:
 	movx	@dptr,a
 	ljmp	00109$
 00108$:
-;	.\FwLib_STC8\user\measurement.c:57: int32_t diff = raw_adc - filtered_adc;
+;	.\FwLib_STC8\user\measurement.c:62: diff = raw_adc - filtered_adc;
 	mov	dptr,#_filtered_adc
 	movx	a,@dptr
 	mov	_MEAS_Process_sloc0_1_0,a
@@ -1110,7 +1237,19 @@ _MEAS_Process:
 	mov	a,r7
 	subb	a,(_MEAS_Process_sloc0_1_0 + 3)
 	mov	(_MEAS_Process_sloc1_1_0 + 3),a
-;	.\FwLib_STC8\user\measurement.c:59: if (diff > reg_filter_band || diff < -reg_filter_band) {
+	mov	dptr,#_MEAS_Process_diff_10000_67
+	mov	a,_MEAS_Process_sloc1_1_0
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc1_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc1_1_0 + 2)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc1_1_0 + 3)
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\measurement.c:64: if (diff > reg_filter_band || diff < -reg_filter_band) {
 	mov	dptr,#_reg_filter_band
 	movx	a,@dptr
 	mov	_MEAS_Process_sloc2_1_0,a
@@ -1171,7 +1310,7 @@ _MEAS_Process:
 	pop	ar0
 	jnc	00104$
 00103$:
-;	.\FwLib_STC8\user\measurement.c:60: filtered_adc = raw_adc;
+;	.\FwLib_STC8\user\measurement.c:65: filtered_adc = raw_adc;
 	mov	dptr,#_filtered_adc
 	mov	a,r4
 	movx	@dptr,a
@@ -1186,7 +1325,7 @@ _MEAS_Process:
 	movx	@dptr,a
 	sjmp	00109$
 00104$:
-;	.\FwLib_STC8\user\measurement.c:63: filtered_adc += (diff >> reg_filter_level);
+;	.\FwLib_STC8\user\measurement.c:68: filtered_adc += (diff >> reg_filter_level);
 	mov	b,r0
 	inc	b
 	mov	r0,_MEAS_Process_sloc1_1_0
@@ -1196,8 +1335,8 @@ _MEAS_Process:
 	mov	r3,a
 	rlc	a
 	mov	ov,c
-	sjmp	00208$
-00207$:
+	sjmp	00217$
+00216$:
 	mov	c,ov
 	mov	a,r3
 	rrc	a
@@ -1211,8 +1350,8 @@ _MEAS_Process:
 	mov	a,r0
 	rrc	a
 	mov	r0,a
-00208$:
-	djnz	b,00207$
+00217$:
+	djnz	b,00216$
 	mov	dptr,#_filtered_adc
 	mov	a,r0
 	add	a, _MEAS_Process_sloc0_1_0
@@ -1230,7 +1369,7 @@ _MEAS_Process:
 	inc	dptr
 	movx	@dptr,a
 00109$:
-;	.\FwLib_STC8\user\measurement.c:68: int32_t current_weight = scale_value(filtered_adc);
+;	.\FwLib_STC8\user\measurement.c:73: current_weight = scale_value(filtered_adc);
 	mov	dptr,#_filtered_adc
 	movx	a,@dptr
 	mov	r4,a
@@ -1250,7 +1389,7 @@ _MEAS_Process:
 	mov	r5, dph
 	mov	r6, b
 	mov	r7, a
-;	.\FwLib_STC8\user\measurement.c:71: current_weight += reg_offset_val;
+;	.\FwLib_STC8\user\measurement.c:76: current_weight += reg_offset_val;
 	mov	dptr,#_reg_offset_val
 	movx	a,@dptr
 	mov	r0,a
@@ -1275,7 +1414,7 @@ _MEAS_Process:
 	mov	a,r3
 	addc	a, r7
 	mov	r7,a
-	mov	dptr,#_MEAS_Process_current_weight_10001_72
+	mov	dptr,#_MEAS_Process_current_weight_10000_67
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
@@ -1287,7 +1426,7 @@ _MEAS_Process:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:74: if (reg_output_round > 1) {
+;	.\FwLib_STC8\user\measurement.c:79: if (reg_output_round > 1) {
 	mov	dptr,#_reg_output_round
 	movx	a,@dptr
 	mov	_MEAS_Process_sloc2_1_0,a
@@ -1311,8 +1450,163 @@ _MEAS_Process:
 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
 	xrl	b,#0x80
 	subb	a,b
-	jnc	00111$
-;	.\FwLib_STC8\user\measurement.c:75: current_weight = (current_weight / reg_output_round) * reg_output_round;
+	jc	00218$
+	ljmp	00114$
+00218$:
+;	.\FwLib_STC8\user\measurement.c:80: if (current_weight >= 0) {
+	mov	a,r7
+	jnb	acc.7,00219$
+	ljmp	00111$
+00219$:
+;	.\FwLib_STC8\user\measurement.c:81: current_weight = (current_weight + (reg_output_round / 2)) / reg_output_round * reg_output_round;
+	push	ar0
+	push	ar1
+	push	ar2
+	push	ar3
+	mov	dptr,#__divslong_PARM_2
+	mov	a,#0x02
+	movx	@dptr,a
+	clr	a
+	inc	dptr
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+	mov	dpl, _MEAS_Process_sloc2_1_0
+	mov	dph, (_MEAS_Process_sloc2_1_0 + 1)
+	mov	b, (_MEAS_Process_sloc2_1_0 + 2)
+	mov	a, (_MEAS_Process_sloc2_1_0 + 3)
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	lcall	__divslong
+	mov	r0, dpl
+	mov	r1, dph
+	mov	r2, b
+	mov	r3, a
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	mov	a,r0
+	add	a, r4
+	mov	r0,a
+	mov	a,r1
+	addc	a, r5
+	mov	r1,a
+	mov	a,r2
+	addc	a, r6
+	mov	r2,a
+	mov	a,r3
+	addc	a, r7
+	mov	r3,a
+	mov	dptr,#__divslong_PARM_2
+	mov	a,_MEAS_Process_sloc2_1_0
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+	inc	dptr
+	movx	@dptr,a
+	mov	dpl, r0
+	mov	dph, r1
+	mov	b, r2
+	mov	a, r3
+	lcall	__divslong
+	mov	r0, dpl
+	mov	r1, dph
+	mov	r2, b
+	mov	r3, a
+	mov	dptr,#__mullong_PARM_2
+	mov	a,_MEAS_Process_sloc2_1_0
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+	inc	dptr
+	movx	@dptr,a
+	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+	inc	dptr
+	movx	@dptr,a
+	mov	dpl, r0
+	mov	dph, r1
+	mov	b, r2
+	mov	a, r3
+	lcall	__mullong
+	mov	r0, dpl
+	mov	r1, dph
+	mov	r2, b
+	mov	r3, a
+	mov	dptr,#_MEAS_Process_current_weight_10000_67
+	mov	a,r0
+	movx	@dptr,a
+	mov	a,r1
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r2
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r3
+	inc	dptr
+	movx	@dptr,a
+	pop	ar3
+	pop	ar2
+	pop	ar1
+	pop	ar0
+	ljmp	00114$
+00111$:
+;	.\FwLib_STC8\user\measurement.c:83: current_weight = (current_weight - (reg_output_round / 2)) / reg_output_round * reg_output_round;
+	push	ar0
+	push	ar1
+	push	ar2
+	push	ar3
+	mov	dptr,#__divslong_PARM_2
+	mov	a,#0x02
+	movx	@dptr,a
+	clr	a
+	inc	dptr
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+	mov	dpl, _MEAS_Process_sloc2_1_0
+	mov	dph, (_MEAS_Process_sloc2_1_0 + 1)
+	mov	b, (_MEAS_Process_sloc2_1_0 + 2)
+	mov	a, (_MEAS_Process_sloc2_1_0 + 3)
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	lcall	__divslong
+	mov	r0, dpl
+	mov	r1, dph
+	mov	r2, b
+	mov	r3, a
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	mov	a,r4
+	clr	c
+	subb	a,r0
+	mov	r4,a
+	mov	a,r5
+	subb	a,r1
+	mov	r5,a
+	mov	a,r6
+	subb	a,r2
+	mov	r6,a
+	mov	a,r7
+	subb	a,r3
+	mov	r7,a
 	mov	dptr,#__divslong_PARM_2
 	mov	a,_MEAS_Process_sloc2_1_0
 	movx	@dptr,a
@@ -1363,7 +1657,7 @@ _MEAS_Process:
 	pop	ar1
 	pop	ar2
 	pop	ar3
-	mov	dptr,#_MEAS_Process_current_weight_10001_72
+	mov	dptr,#_MEAS_Process_current_weight_10000_67
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
@@ -1375,9 +1669,15 @@ _MEAS_Process:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-00111$:
-;	.\FwLib_STC8\user\measurement.c:77: reg_measuring_val = current_weight;
-	mov	dptr,#_MEAS_Process_current_weight_10001_72
+;	.\FwLib_STC8\user\measurement.c:111: reg_stable_mark = 0;
+	pop	ar3
+	pop	ar2
+	pop	ar1
+	pop	ar0
+;	.\FwLib_STC8\user\measurement.c:83: current_weight = (current_weight - (reg_output_round / 2)) / reg_output_round * reg_output_round;
+00114$:
+;	.\FwLib_STC8\user\measurement.c:86: reg_measuring_val = current_weight;
+	mov	dptr,#_MEAS_Process_current_weight_10000_67
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
@@ -1401,7 +1701,7 @@ _MEAS_Process:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:80: if (reg_zero_trace_band > 0) {
+;	.\FwLib_STC8\user\measurement.c:89: if (reg_zero_trace_band > 0) {
 	mov	dptr,#_reg_zero_trace_band
 	movx	a,@dptr
 	mov	_MEAS_Process_sloc2_1_0,a
@@ -1425,10 +1725,10 @@ _MEAS_Process:
 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
 	xrl	b,#0x80
 	subb	a,b
-	jc	00210$
-	ljmp	00119$
-00210$:
-;	.\FwLib_STC8\user\measurement.c:81: if (reg_measuring_val > -reg_zero_trace_band && reg_measuring_val < reg_zero_trace_band) {
+	jc	00220$
+	ljmp	00122$
+00220$:
+;	.\FwLib_STC8\user\measurement.c:90: if (reg_measuring_val > -reg_zero_trace_band && reg_measuring_val < reg_zero_trace_band) {
 	push	ar0
 	push	ar1
 	push	ar2
@@ -1462,9 +1762,9 @@ _MEAS_Process:
 	pop	ar2
 	pop	ar1
 	pop	ar0
-	jc	00211$
-	ljmp	00115$
-00211$:
+	jc	00221$
+	ljmp	00118$
+00221$:
 	clr	c
 	mov	a,r4
 	subb	a,_MEAS_Process_sloc2_1_0
@@ -1477,8 +1777,8 @@ _MEAS_Process:
 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
 	xrl	b,#0x80
 	subb	a,b
-	jnc	00115$
-;	.\FwLib_STC8\user\measurement.c:83: if (++zero_track_cnt > (uint16_t)(reg_zero_trace_delay * 10)) {
+	jnc	00118$
+;	.\FwLib_STC8\user\measurement.c:92: if (++zero_track_cnt > (uint16_t)(reg_zero_trace_delay * 10)) {
 	push	ar0
 	push	ar1
 	push	ar2
@@ -1534,8 +1834,8 @@ _MEAS_Process:
 	pop	ar2
 	pop	ar1
 	pop	ar0
-	jnc	00119$
-;	.\FwLib_STC8\user\measurement.c:84: reg_offset_val -= reg_measuring_val;
+	jnc	00122$
+;	.\FwLib_STC8\user\measurement.c:93: reg_offset_val -= reg_measuring_val;
 	mov	dptr,#_reg_offset_val
 	mov	a,r0
 	clr	c
@@ -1553,22 +1853,22 @@ _MEAS_Process:
 	subb	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:85: zero_track_cnt = 0;
+;	.\FwLib_STC8\user\measurement.c:94: zero_track_cnt = 0;
 	mov	dptr,#_zero_track_cnt
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-	sjmp	00119$
-00115$:
-;	.\FwLib_STC8\user\measurement.c:88: zero_track_cnt = 0;
+	sjmp	00122$
+00118$:
+;	.\FwLib_STC8\user\measurement.c:97: zero_track_cnt = 0;
 	mov	dptr,#_zero_track_cnt
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-00119$:
-;	.\FwLib_STC8\user\measurement.c:93: int32_t stable_diff = reg_measuring_val - last_stable_val;
+00122$:
+;	.\FwLib_STC8\user\measurement.c:102: stable_diff = reg_measuring_val - last_stable_val;
 	mov	dptr,#_last_stable_val
 	movx	a,@dptr
 	mov	r0,a
@@ -1594,7 +1894,19 @@ _MEAS_Process:
 	mov	a,r7
 	subb	a,r3
 	mov	r3,a
-;	.\FwLib_STC8\user\measurement.c:94: if (stable_diff >= -reg_stable_band && stable_diff <= reg_stable_band) {
+	mov	dptr,#_MEAS_Process_stable_diff_10000_67
+	mov	a,r0
+	movx	@dptr,a
+	mov	a,r1
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r2
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r3
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\measurement.c:103: if (stable_diff >= -reg_stable_band && stable_diff <= reg_stable_band) {
 	mov	dptr,#_reg_stable_band
 	movx	a,@dptr
 	mov	_MEAS_Process_sloc2_1_0,a
@@ -1640,7 +1952,7 @@ _MEAS_Process:
 	pop	ar6
 	pop	ar5
 	pop	ar4
-	jc	00125$
+	jc	00128$
 	mov	a,_MEAS_Process_sloc2_1_0
 	subb	a,r0
 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
@@ -1652,8 +1964,8 @@ _MEAS_Process:
 	mov	b,r3
 	xrl	b,#0x80
 	subb	a,b
-	jc	00125$
-;	.\FwLib_STC8\user\measurement.c:95: if (stable_cnt < 1000) stable_cnt++; 
+	jc	00128$
+;	.\FwLib_STC8\user\measurement.c:104: if (stable_cnt < 2000) stable_cnt++; 
 	mov	dptr,#_stable_cnt
 	movx	a,@dptr
 	mov	r2,a
@@ -1664,10 +1976,10 @@ _MEAS_Process:
 	mov	ar1,r3
 	clr	c
 	mov	a,r0
-	subb	a,#0xe8
+	subb	a,#0xd0
 	mov	a,r1
-	subb	a,#0x03
-	jnc	00121$
+	subb	a,#0x07
+	jnc	00124$
 	mov	dptr,#_stable_cnt
 	mov	a,#0x01
 	add	a, r2
@@ -1676,8 +1988,8 @@ _MEAS_Process:
 	addc	a, r3
 	inc	dptr
 	movx	@dptr,a
-00121$:
-;	.\FwLib_STC8\user\measurement.c:96: if (stable_cnt >= (uint16_t)(reg_stable_delay * 10)) {
+00124$:
+;	.\FwLib_STC8\user\measurement.c:105: if (stable_cnt >= (uint16_t)(reg_stable_delay * 10)) {
 	mov	dptr,#_reg_stable_delay
 	movx	a,@dptr
 	mov	r2,a
@@ -1705,8 +2017,8 @@ _MEAS_Process:
 	subb	a,r2
 	mov	a,r1
 	subb	a,r3
-	jc	00128$
-;	.\FwLib_STC8\user\measurement.c:97: reg_stable_mark = 1; // 稳定标志置位
+	jc	00131$
+;	.\FwLib_STC8\user\measurement.c:106: reg_stable_mark = 1;
 	mov	dptr,#_reg_stable_mark
 	mov	a,#0x01
 	movx	@dptr,a
@@ -1718,8 +2030,8 @@ _MEAS_Process:
 	inc	dptr
 	movx	@dptr,a
 	ret
-00125$:
-;	.\FwLib_STC8\user\measurement.c:100: last_stable_val = reg_measuring_val;
+00128$:
+;	.\FwLib_STC8\user\measurement.c:109: last_stable_val = reg_measuring_val;
 	mov	dptr,#_last_stable_val
 	mov	a,r4
 	movx	@dptr,a
@@ -1732,13 +2044,13 @@ _MEAS_Process:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:101: stable_cnt = 0;
+;	.\FwLib_STC8\user\measurement.c:110: stable_cnt = 0;
 	mov	dptr,#_stable_cnt
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:102: reg_stable_mark = 0;
+;	.\FwLib_STC8\user\measurement.c:111: reg_stable_mark = 0;
 	mov	dptr,#_reg_stable_mark
 	movx	@dptr,a
 	inc	dptr
@@ -1747,18 +2059,18 @@ _MEAS_Process:
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-00128$:
-;	.\FwLib_STC8\user\measurement.c:104: }
+00131$:
+;	.\FwLib_STC8\user\measurement.c:113: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'MEAS_SetZero'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\measurement.c:106: uint8_t MEAS_SetZero(void) {
+;	.\FwLib_STC8\user\measurement.c:115: uint8_t MEAS_SetZero(void) {
 ;	-----------------------------------------
 ;	 function MEAS_SetZero
 ;	-----------------------------------------
 _MEAS_SetZero:
-;	.\FwLib_STC8\user\measurement.c:108: if (reg_stable_mark == 0) return 1;
+;	.\FwLib_STC8\user\measurement.c:116: if (reg_stable_mark == 0) return 1;
 	mov	dptr,#_reg_stable_mark
 	movx	a,@dptr
 	mov	b,a
@@ -1775,7 +2087,7 @@ _MEAS_SetZero:
 	mov	dpl, #0x01
 	ret
 00102$:
-;	.\FwLib_STC8\user\measurement.c:110: reg_offset_val -= reg_measuring_val;
+;	.\FwLib_STC8\user\measurement.c:118: reg_offset_val -= reg_measuring_val;
 	mov	dptr,#_reg_measuring_val
 	movx	a,@dptr
 	mov	r4,a
@@ -1817,17 +2129,17 @@ _MEAS_SetZero:
 	subb	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:111: zero_track_cnt = 0;
+;	.\FwLib_STC8\user\measurement.c:119: zero_track_cnt = 0;
 	mov	dptr,#_zero_track_cnt
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\measurement.c:114: reg_save_all(); 
+;	.\FwLib_STC8\user\measurement.c:122: reg_save_all(); 
 	lcall	_reg_save_all
-;	.\FwLib_STC8\user\measurement.c:115: return 0;
+;	.\FwLib_STC8\user\measurement.c:123: return 0;
 	mov	dpl, #0x00
-;	.\FwLib_STC8\user\measurement.c:116: }
+;	.\FwLib_STC8\user\measurement.c:124: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

@@ -53,8 +53,8 @@ C:   00000020  s_BSEG_BYTES
 C:   00000020  s__CODE                         
 C:   00000022  l_GSINIT3                       
 C:   0000002A  l_GSINIT4                       
-C:   0000004D  s_OSEG                          
-C:   00000055  s_SSEG                          
+C:   00000051  s_OSEG                          
+C:   00000059  s_SSEG                          
 C:   00000060  l_SSEG                          
 C:   0000006C  l_HOME                          
 ASxxxx Linker V03.00/V05.40 + sdld,  page 2.
@@ -77,12 +77,12 @@ C:   000000C5  s_GSINIT5
 C:   000000CA  s_GSFINAL                       
 C:   000000CD  s_CSEG                          
 C:   00000100  l_IRAM                          
-C:   00000202  l_XSEG                          
-C:   00000203  s_XISEG                         
+C:   00000222  l_XSEG                          
+C:   00000223  s_XISEG                         
 C:   0000032A  l_CONST                         
-C:   0000317C  l_CSEG                          
-C:   00003249  s_CONST                         
-C:   00003573  s_XINIT                         
+C:   0000336A  l_CSEG                          
+C:   00003437  s_CONST                         
+C:   00003761  s_XINIT                         
 
 ASxxxx Linker V03.00/V05.40 + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -362,7 +362,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-OSEG                                0000004D    00000008 =           8. bytes (REL,OVR)
+OSEG                                00000051    00000008 =           8. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -371,18 +371,18 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-SSEG                                00000055    00000060 =          96. bytes (REL,OVR)
+SSEG                                00000059    00000060 =          96. bytes (REL,OVR)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000055  __start__stack                     main
+     00000059  __start__stack                     main
 
 ASxxxx Linker V03.00/V05.40 + sdld,  page 12.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-XSEG                                00000001    00000202 =         514. bytes (REL,CON,XDATA)
+XSEG                                00000001    00000222 =         546. bytes (REL,CON,XDATA)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -414,58 +414,56 @@ D:   000000AA  _reg_magic_key                     reg_table
 D:   000000BC  _reg_write_PARM_2                  reg_table
 D:   000000CA  _mb_buf                            uart
 D:   0000010C  _UART_SendBuffer_PARM_2            uart
-D:   00000145  _calib_set_point_at_PARM_2         calibration
-D:   00000188  _mb_crc16_PARM_2                   modbus_server
-D:   0000019A  _TIM_Timer0n1_CalculateInitValue   fw_tim
-D:   0000019B  _TIM_Timer0n1_CalculateInitValue   fw_tim
-D:   000001A3  _TIM_Timer0_Config_PARM_2          fw_tim
-D:   000001A4  _TIM_Timer0_Config_PARM_3          fw_tim
-D:   000001A7  _TIM_Timer1_Config_PARM_2          fw_tim
-D:   000001A8  _TIM_Timer1_Config_PARM_3          fw_tim
-D:   000001AB  __TIM_Timer234_InitValueCalculat   fw_tim
-D:   000001AC  __TIM_Timer234_InitValueCalculat   fw_tim
-D:   000001B3  _TIM_Timer2_Config_PARM_2          fw_tim
-D:   000001B4  _TIM_Timer2_Config_PARM_3          fw_tim
-D:   000001B7  _TIM_Timer3_Config_PARM_2          fw_tim
-D:   000001B8  _TIM_Timer3_Config_PARM_3          fw_tim
-D:   000001BA  _TIM_Timer3_Config_PARM_4          fw_tim
-D:   000001BC  _TIM_Timer4_Config_PARM_2          fw_tim
-D:   000001BD  _TIM_Timer4_Config_PARM_3          fw_tim
-D:   000001BF  _TIM_Timer4_Config_PARM_4          fw_tim
-D:   000001CA  __divuint_PARM_2                   _divuint
-D:   000001D1  __modulong_PARM_2                  _modulong
-D:   000001DA  __divslong_PARM_2                  _divslong
-D:   000001E2  __divulong_PARM_2                  _divulong
+D:   00000149  _calib_set_point_at_PARM_2         calibration
+D:   0000018C  _mb_crc16_PARM_2                   modbus_server
+D:   0000019E  _TIM_Timer0n1_CalculateInitValue   fw_tim
+D:   0000019F  _TIM_Timer0n1_CalculateInitValue   fw_tim
+D:   000001A7  _TIM_Timer0_Config_PARM_2          fw_tim
+D:   000001A8  _TIM_Timer0_Config_PARM_3          fw_tim
+D:   000001AB  _TIM_Timer1_Config_PARM_2          fw_tim
+D:   000001AC  _TIM_Timer1_Config_PARM_3          fw_tim
+D:   000001AF  __TIM_Timer234_InitValueCalculat   fw_tim
+D:   000001B0  __TIM_Timer234_InitValueCalculat   fw_tim
+D:   000001B7  _TIM_Timer2_Config_PARM_2          fw_tim
+D:   000001B8  _TIM_Timer2_Config_PARM_3          fw_tim
+D:   000001BB  _TIM_Timer3_Config_PARM_2          fw_tim
+D:   000001BC  _TIM_Timer3_Config_PARM_3          fw_tim
+D:   000001BE  _TIM_Timer3_Config_PARM_4          fw_tim
+D:   000001C0  _TIM_Timer4_Config_PARM_2          fw_tim
+D:   000001C1  _TIM_Timer4_Config_PARM_3          fw_tim
+D:   000001C3  _TIM_Timer4_Config_PARM_4          fw_tim
+D:   000001EA  __divuint_PARM_2                   _divuint
+D:   000001F1  __modulong_PARM_2                  _modulong
+D:   000001FA  __divslong_PARM_2                  _divslong
+D:   00000202  __divulong_PARM_2                  _divulong
 ASxxxx Linker V03.00/V05.40 + sdld,  page 13.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-XSEG                                00000001    00000202 =         514. bytes (REL,CON,XDATA)
+XSEG                                00000001    00000222 =         546. bytes (REL,CON,XDATA)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-D:   000001EF  ___memcpy_PARM_2                   __memcpy
-D:   000001F2  ___memcpy_PARM_3                   __memcpy
-D:   000001F7  __gptrput_PARM_2                   _gptrput
-D:   000001F8  __mulint_PARM_2                    _mulint
-D:   000001FA  __mullong_PARM_2                   _mullong
-D:   000001FE  __moduint_PARM_2                   _moduint
+D:   0000020F  ___memcpy_PARM_2                   __memcpy
+D:   00000212  ___memcpy_PARM_3                   __memcpy
+D:   00000217  __gptrput_PARM_2                   _gptrput
+D:   00000218  __mulint_PARM_2                    _mulint
+D:   0000021A  __mullong_PARM_2                   _mullong
+D:   0000021E  __moduint_PARM_2                   _moduint
 
 ASxxxx Linker V03.00/V05.40 + sdld,  page 14.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-XISEG                               00000203    00000015 =          21. bytes (REL,CON,XDATA)
+XISEG                               00000223    00000015 =          21. bytes (REL,CON,XDATA)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-D:   00000203  _mb_idx                            uart
-D:   00000204  _mb_frame_ready                    uart
-D:   00000205  _cached_id                         uart
-D:   0000020C  _filtered_adc                      measurement
-
+D:   00000223  _mb_idx                            uart
+D:   00000224  _mb_frame_ready                    uart
+D:   00000225  _cached_id                         uart
 ASxxxx Linker V03.00/V05.40 + sdld,  page 15.
 Hexadecimal  [32-Bits]
 
@@ -547,123 +545,123 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                000000CD    0000317C =       12668. bytes (REL,CON,CODE)
+CSEG                                000000CD    0000336A =       13162. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
 C:   000000CD  _main                              main
-C:   0000011D  _SYS_SetClock                      fw_sys
-C:   0000016A  _SYS_TrimClock                     fw_sys
-C:   0000018D  _SYS_Delay                         fw_sys
-C:   000001CD  _SYS_DelayUs                       fw_sys
-C:   00000202  _MEM_SelectWorkRegGroup            fw_mem
-C:   00000219  _MEM_SetOnchipExtRAM               fw_mem
-C:   0000022B  _MEM_ReadChipID                    fw_mem
-C:   00000283  _UTIL_Uart1_24M_9600_Init          fw_util
-C:   0000029A  _UTIL_Uart1_24M_115200_Init        fw_util
-C:   000002B1  _UTIL_Uart1_33M1776_9600_Init      fw_util
-C:   000002C8  _UTIL_Uart1_33M1776_115200_Init    fw_util
-C:   000002DF  _UTIL_Uart1_35M_9600_Init          fw_util
-C:   000002F6  _UTIL_Uart1_36M864_9600_Init       fw_util
-C:   0000030D  _UTIL_Uart1_36M864_115200_Init     fw_util
-C:   00000324  _reg_save_all                      reg_table
-C:   000004F2  _reg_load                          reg_table
-C:   00000817  _reg_write                         reg_table
-C:   0000096A  _reg_load_all                      reg_table
-C:   0000098F  _reg_init                          reg_table
-C:   000009D5  _reg_reset_defaults                reg_table
-C:   00000AEE  _UART_Init                         uart
-C:   00000B23  _UART_ISR                          uart
-C:   00000B7C  _Timer0_ISR                        uart
-C:   00000B99  _UART_SendChar                     uart
-C:   00000BAD  _UART_SendBuffer                   uart
-C:   00000C22  _UART_SendString                   uart
-C:   00000C78  _UART_SendInt                      uart
-C:   00000D24  _UART_SendLong                     uart
-C:   00000E51  _UART_CheckRx                      uart
-C:   00000E58  _UART_GetRxChar                    uart
-C:   00000E6F  _HX_Init                           hx71708
-C:   00000E83  _Read_HX71708_Raw                  hx71708
-C:   00000F60  _Get_Steady_Weight                 hx71708
-C:   00001002  _ADC_Init                          adc
-C:   00001016  _ADC_Read                          adc
-C:   00001037  _weight_proc_init                  weight_proc
-C:   00001051  _weight_proc_update                weight_proc
-C:   000012BD  _weight_get_filtered               weight_proc
-C:   000012D1  _weight_get_status                 weight_proc
-C:   0000132F  _calib_set_point_at                calibration
-C:   00001483  _calib_clear_all                   calibration
-C:   000014CD  _calib_solve_weight                calibration
-C:   00001A3F  _mb_crc16                          modbus_server
-C:   00001ACB  _find_reg                          modbus_server
-C:   00001E3A  _mb_parse_request                  modbus_server
-C:   00001FA8  _TIM_Timer0n1_CalculateInitValue   fw_tim
-C:   0000205B  _TIM_Timer0_Config                 fw_tim
-C:   000020D1  _TIM_Timer1_Config                 fw_tim
-C:   0000214C  __TIM_Timer234_InitValueCalculat   fw_tim
+C:   00000114  _SYS_SetClock                      fw_sys
+C:   00000161  _SYS_TrimClock                     fw_sys
+C:   00000184  _SYS_Delay                         fw_sys
+C:   000001C4  _SYS_DelayUs                       fw_sys
+C:   000001F9  _MEM_SelectWorkRegGroup            fw_mem
+C:   00000210  _MEM_SetOnchipExtRAM               fw_mem
+C:   00000222  _MEM_ReadChipID                    fw_mem
+C:   0000027A  _UTIL_Uart1_24M_9600_Init          fw_util
+C:   00000291  _UTIL_Uart1_24M_115200_Init        fw_util
+C:   000002A8  _UTIL_Uart1_33M1776_9600_Init      fw_util
+C:   000002BF  _UTIL_Uart1_33M1776_115200_Init    fw_util
+C:   000002D6  _UTIL_Uart1_35M_9600_Init          fw_util
+C:   000002ED  _UTIL_Uart1_36M864_9600_Init       fw_util
+C:   00000304  _UTIL_Uart1_36M864_115200_Init     fw_util
+C:   0000031B  _reg_save_all                      reg_table
+C:   000004E9  _reg_load                          reg_table
+C:   0000080E  _reg_write                         reg_table
+C:   00000961  _reg_load_all                      reg_table
+C:   00000986  _reg_init                          reg_table
+C:   000009CC  _reg_reset_defaults                reg_table
+C:   00000AE5  _UART_Init                         uart
+C:   00000B1A  _UART_ISR                          uart
+C:   00000B73  _Timer0_ISR                        uart
+C:   00000B90  _UART_SendChar                     uart
+C:   00000BA4  _UART_SendBuffer                   uart
+C:   00000C19  _UART_SendString                   uart
+C:   00000C6F  _UART_SendInt                      uart
+C:   00000D1B  _UART_SendLong                     uart
+C:   00000E48  _UART_CheckRx                      uart
+C:   00000E4F  _UART_GetRxChar                    uart
+C:   00000E66  _HX_Init                           hx71708
+C:   00000E7A  _Read_HX71708_Raw                  hx71708
+C:   00000F6E  _Get_Steady_Weight                 hx71708
+C:   00001010  _ADC_Init                          adc
+C:   00001024  _ADC_Read                          adc
+C:   00001045  _weight_proc_init                  weight_proc
+C:   0000105F  _weight_proc_update                weight_proc
+C:   000012CB  _weight_get_filtered               weight_proc
+C:   000012DF  _weight_get_status                 weight_proc
+C:   0000133D  _calib_set_point_at                calibration
+C:   00001491  _calib_clear_all                   calibration
+C:   000014DB  _calib_solve_weight                calibration
+C:   00001A4D  _mb_crc16                          modbus_server
+C:   00001AD9  _find_reg                          modbus_server
+C:   00001E48  _mb_parse_request                  modbus_server
+C:   00001FB6  _TIM_Timer0n1_CalculateInitValue   fw_tim
+C:   00002069  _TIM_Timer0_Config                 fw_tim
+C:   000020DF  _TIM_Timer1_Config                 fw_tim
+C:   0000215A  __TIM_Timer234_InitValueCalculat   fw_tim
 ASxxxx Linker V03.00/V05.40 + sdld,  page 23.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                000000CD    0000317C =       12668. bytes (REL,CON,CODE)
+CSEG                                000000CD    0000336A =       13162. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000220C  _TIM_Timer2_Config                 fw_tim
-C:   00002261  _TIM_Timer3_Config                 fw_tim
-C:   000022C4  _TIM_Timer4_Config                 fw_tim
-C:   0000232A  _MEAS_Init                         measurement
-C:   0000235A  _scale_value                       measurement
-C:   0000259B  _MEAS_Process                      measurement
-C:   0000299D  _MEAS_SetZero                      measurement
-C:   000029F2  __divuint                          _divuint
-C:   00002A7F  __modulong                         _modulong
-C:   00002BBE  ___fsmul                           _fsmul
-C:   00002C61  __divslong                         _divslong
-C:   00002D1D  fsgetargs                          _fsget2args
-C:   00002D4B  __divulong                         _divulong
-C:   00002E3F  ___memcpy                          __memcpy
-C:   00002EB5  fs_normalize_a                     _fsnormalize
-C:   00002EE8  ___slong2fs                        _slong2fs
-C:   00002EF1  slong2fs_doit                      _slong2fs
-C:   00002F15  ___fs2slong                        _fs2slong
-C:   00002F70  fsgetarg                           _fsget1arg
-C:   00002F82  __gptrput                          _gptrput
-C:   00002F9D  __mulint                           _mulint
-C:   00002FBD  __mullong                          _mullong
-C:   00002FBD  __mullong_dummy                    _mullong
-C:   00003029  __moduint                          _moduint
-C:   000030D4  fs_round_and_return                _fsreturnval
-C:   000030EC  fs_zerocheck_return                _fsreturnval
-C:   000030F5  fs_return_zero                     _fsreturnval
-C:   000030FD  fs_direct_return                   _fsreturnval
-C:   0000310B  fs_return_inf                      _fsreturnval
-C:   00003118  fs_return_nan                      _fsreturnval
-C:   00003123  ___fsdiv                           _fsdiv
-C:   000031E6  __gptrget                          _gptrget
-C:   00003202  fs_rshift_a                        _fsrshift
-C:   00003245  ___sdcc_external_startup           _startup
+C:   0000221A  _TIM_Timer2_Config                 fw_tim
+C:   0000226F  _TIM_Timer3_Config                 fw_tim
+C:   000022D2  _TIM_Timer4_Config                 fw_tim
+C:   00002338  _MEAS_Init                         measurement
+C:   00002368  _scale_value                       measurement
+C:   0000264B  _MEAS_Process                      measurement
+C:   00002B8B  _MEAS_SetZero                      measurement
+C:   00002BE0  __divuint                          _divuint
+C:   00002C6D  __modulong                         _modulong
+C:   00002DAC  ___fsmul                           _fsmul
+C:   00002E4F  __divslong                         _divslong
+C:   00002F0B  fsgetargs                          _fsget2args
+C:   00002F39  __divulong                         _divulong
+C:   0000302D  ___memcpy                          __memcpy
+C:   000030A3  fs_normalize_a                     _fsnormalize
+C:   000030D6  ___slong2fs                        _slong2fs
+C:   000030DF  slong2fs_doit                      _slong2fs
+C:   00003103  ___fs2slong                        _fs2slong
+C:   0000315E  fsgetarg                           _fsget1arg
+C:   00003170  __gptrput                          _gptrput
+C:   0000318B  __mulint                           _mulint
+C:   000031AB  __mullong                          _mullong
+C:   000031AB  __mullong_dummy                    _mullong
+C:   00003217  __moduint                          _moduint
+C:   000032C2  fs_round_and_return                _fsreturnval
+C:   000032DA  fs_zerocheck_return                _fsreturnval
+C:   000032E3  fs_return_zero                     _fsreturnval
+C:   000032EB  fs_direct_return                   _fsreturnval
+C:   000032F9  fs_return_inf                      _fsreturnval
+C:   00003306  fs_return_nan                      _fsreturnval
+C:   00003311  ___fsdiv                           _fsdiv
+C:   000033D4  __gptrget                          _gptrget
+C:   000033F0  fs_rshift_a                        _fsrshift
+C:   00003433  ___sdcc_external_startup           _startup
 ASxxxx Linker V03.00/V05.40 + sdld,  page 24.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CONST                               00003249    0000032A =         810. bytes (REL,CON,CODE)
+CONST                               00003437    0000032A =         810. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00003253  _ticks_ms                          fw_sys
-C:   00003255  _ticks_us                          fw_sys
-C:   00003256  _HEX_TABLE                         fw_util
-C:   00003266  _reg_table                         reg_table
+C:   00003441  _ticks_ms                          fw_sys
+C:   00003443  _ticks_us                          fw_sys
+C:   00003444  _HEX_TABLE                         fw_util
+C:   00003454  _reg_table                         reg_table
 
 ASxxxx Linker V03.00/V05.40 + sdld,  page 25.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-XINIT                               00003573    00000015 =          21. bytes (REL,CON,CODE)
+XINIT                               00003761    00000015 =          21. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------

@@ -468,9 +468,11 @@ _Get_Steady_Weight_sloc1_1_0:
 	.area XSEG    (XDATA)
 _Read_HX71708_Raw_count_10000_55:
 	.ds 4
-_Get_Steady_Weight_samples_10000_58:
+_Read_HX71708_Raw_timeout_10000_55:
+	.ds 4
+_Get_Steady_Weight_samples_10000_59:
 	.ds 1
-_Get_Steady_Weight_sum_10000_59:
+_Get_Steady_Weight_sum_10000_60:
 	.ds 4
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -540,15 +542,15 @@ _HX_Init:
 ;Allocation info for local variables in function 'Read_HX71708_Raw'
 ;------------------------------------------------------------
 ;count         Allocated with name '_Read_HX71708_Raw_count_10000_55'
-;watchdog      Allocated with name '_Read_HX71708_Raw_watchdog_10000_55'
-;i             Allocated with name '_Read_HX71708_Raw_i_20000_56'
+;timeout       Allocated with name '_Read_HX71708_Raw_timeout_10000_55'
+;i             Allocated with name '_Read_HX71708_Raw_i_20000_57'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\hx71708.c:13: int32_t Read_HX71708_Raw(void) {
 ;	-----------------------------------------
 ;	 function Read_HX71708_Raw
 ;	-----------------------------------------
 _Read_HX71708_Raw:
-;	.\FwLib_STC8\user\hx71708.c:14: uint32_t count = 0;
+;	.\FwLib_STC8\user\hx71708.c:17: count = 0;
 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
 	clr	a
 	movx	@dptr,a
@@ -558,68 +560,85 @@ _Read_HX71708_Raw:
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\hx71708.c:19: while(!HX_DOUT && ++watchdog < 30000);
+;	.\FwLib_STC8\user\hx71708.c:21: timeout = 500000L; 
+	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
+	mov	a,#0x20
+	movx	@dptr,a
+	mov	a,#0xa1
+	inc	dptr
+	movx	@dptr,a
+	mov	a,#0x07
+	inc	dptr
+	movx	@dptr,a
+	clr	a
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\hx71708.c:22: while(HX_DOUT) {
+00103$:
+	jnb	_P32,00121$
+;	.\FwLib_STC8\user\hx71708.c:23: if(--timeout == 0) return -1; 
+	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
+	movx	a,@dptr
+	add	a,#0xff
+	mov	r4,a
+	inc	dptr
+	movx	a,@dptr
+	addc	a,#0xff
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	addc	a,#0xff
 	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	addc	a,#0xff
 	mov	r7,a
-00102$:
-	jb	_P32,00104$
-	inc	r6
-	cjne	r6,#0x00,00179$
-	inc	r7
-00179$:
-	mov	ar4,r6
-	mov	ar5,r7
-	clr	c
+	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
 	mov	a,r4
-	subb	a,#0x30
+	movx	@dptr,a
 	mov	a,r5
-	subb	a,#0x75
-	jc	00102$
-00104$:
-;	.\FwLib_STC8\user\hx71708.c:21: while(HX_DOUT && ++watchdog < 60000);
-	mov	r6,#0x00
-	mov	r7,#0x00
-00106$:
-	jnb	_P32,00108$
-	inc	r6
-	cjne	r6,#0x00,00182$
-	inc	r7
-00182$:
-	clr	c
+	inc	dptr
+	movx	@dptr,a
 	mov	a,r6
-	subb	a,#0x60
+	inc	dptr
+	movx	@dptr,a
 	mov	a,r7
-	subb	a,#0xea
-	jc	00106$
-00108$:
-;	.\FwLib_STC8\user\hx71708.c:22: if(watchdog >= 60000) return -1;
-	clr	c
-	mov	a,r6
-	subb	a,#0x60
-	mov	a,r7
-	subb	a,#0xea
-	jc	00128$
+	inc	dptr
+	movx	@dptr,a
+	mov	dptr,#_Read_HX71708_Raw_timeout_10000_55
+	movx	a,@dptr
+	mov	b,a
+	inc	dptr
+	movx	a,@dptr
+	orl	b,a
+	inc	dptr
+	movx	a,@dptr
+	orl	b,a
+	inc	dptr
+	movx	a,@dptr
+	orl	a,b
+	jnz	00103$
 	mov	dptr,#0xffff
 	mov	a,#0xff
 	mov	b,a
 	ret
-;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
-00128$:
+;	.\FwLib_STC8\user\hx71708.c:26: for(uint8_t i = 0; i < 24; i++) {
+00121$:
 	mov	r7,#0x00
-00117$:
-	cjne	r7,#0x18,00185$
-00185$:
-	jnc	00113$
-;	.\FwLib_STC8\user\hx71708.c:25: HX_SCK = 1;
+00112$:
+	cjne	r7,#0x18,00161$
+00161$:
+	jnc	00108$
+;	.\FwLib_STC8\user\hx71708.c:27: HX_SCK = 1;
 ;	assignBit
 	setb	_P33
-;	.\FwLib_STC8\user\hx71708.c:26: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+;	.\FwLib_STC8\user\hx71708.c:28: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
 	NOP	
 	NOP	
 	NOP	
 	NOP	
 	NOP	
-;	.\FwLib_STC8\user\hx71708.c:28: count <<= 1;
+;	.\FwLib_STC8\user\hx71708.c:30: count <<= 1;
 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
 	movx	a,@dptr
 	mov	r3,a
@@ -656,8 +675,8 @@ _Read_HX71708_Raw:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\hx71708.c:29: if(HX_DOUT) count++;
-	jnb	_P32,00112$
+;	.\FwLib_STC8\user\hx71708.c:31: if(HX_DOUT) count++;
+	jnb	_P32,00107$
 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
 	movx	a,@dptr
 	add	a, #0x01
@@ -674,30 +693,30 @@ _Read_HX71708_Raw:
 	movx	a,@dptr
 	addc	a, #0x00
 	movx	@dptr,a
-00112$:
-;	.\FwLib_STC8\user\hx71708.c:31: HX_SCK = 0;
+00107$:
+;	.\FwLib_STC8\user\hx71708.c:33: HX_SCK = 0;
 ;	assignBit
 	clr	_P33
-;	.\FwLib_STC8\user\hx71708.c:32: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
+;	.\FwLib_STC8\user\hx71708.c:34: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
 	NOP	
 	NOP	
 	NOP	
 	NOP	
 	NOP	
-;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
+;	.\FwLib_STC8\user\hx71708.c:26: for(uint8_t i = 0; i < 24; i++) {
 	inc	r7
-	sjmp	00117$
-00113$:
-;	.\FwLib_STC8\user\hx71708.c:36: HX_SCK = 1;
+	sjmp	00112$
+00108$:
+;	.\FwLib_STC8\user\hx71708.c:37: HX_SCK = 1;
 ;	assignBit
 	setb	_P33
-;	.\FwLib_STC8\user\hx71708.c:37: _nop_(); _nop_(); 
+;	.\FwLib_STC8\user\hx71708.c:38: _nop_(); _nop_(); 
 	NOP	
 	NOP	
-;	.\FwLib_STC8\user\hx71708.c:38: HX_SCK = 0;
+;	.\FwLib_STC8\user\hx71708.c:39: HX_SCK = 0;
 ;	assignBit
 	clr	_P33
-;	.\FwLib_STC8\user\hx71708.c:39: _nop_(); _nop_(); 
+;	.\FwLib_STC8\user\hx71708.c:40: _nop_(); _nop_(); 
 	NOP	
 	NOP	
 ;	.\FwLib_STC8\user\hx71708.c:42: if (count & 0x800000)
@@ -713,7 +732,7 @@ _Read_HX71708_Raw:
 	inc	dptr
 	movx	a,@dptr
 	mov	a,r6
-	jnb	acc.7,00115$
+	jnb	acc.7,00110$
 ;	.\FwLib_STC8\user\hx71708.c:43: count |= 0xFF000000;
 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
 	mov	a,r4
@@ -727,7 +746,7 @@ _Read_HX71708_Raw:
 	mov	a,#0xff
 	inc	dptr
 	movx	@dptr,a
-00115$:
+00110$:
 ;	.\FwLib_STC8\user\hx71708.c:45: return (int32_t)count;
 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
 	movx	a,@dptr
@@ -750,11 +769,11 @@ _Read_HX71708_Raw:
 ;------------------------------------------------------------
 ;sloc0         Allocated with name '_Get_Steady_Weight_sloc0_1_0'
 ;sloc1         Allocated with name '_Get_Steady_Weight_sloc1_1_0'
-;samples       Allocated with name '_Get_Steady_Weight_samples_10000_58'
-;sum           Allocated with name '_Get_Steady_Weight_sum_10000_59'
-;valid         Allocated with name '_Get_Steady_Weight_valid_10000_59'
-;i             Allocated with name '_Get_Steady_Weight_i_20000_60'
-;v             Allocated with name '_Get_Steady_Weight_v_30000_61'
+;samples       Allocated with name '_Get_Steady_Weight_samples_10000_59'
+;sum           Allocated with name '_Get_Steady_Weight_sum_10000_60'
+;valid         Allocated with name '_Get_Steady_Weight_valid_10000_60'
+;i             Allocated with name '_Get_Steady_Weight_i_20000_61'
+;v             Allocated with name '_Get_Steady_Weight_v_30000_62'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\hx71708.c:48: int32_t Get_Steady_Weight(uint8_t samples) {
 ;	-----------------------------------------
@@ -762,10 +781,10 @@ _Read_HX71708_Raw:
 ;	-----------------------------------------
 _Get_Steady_Weight:
 	mov	a,dpl
-	mov	dptr,#_Get_Steady_Weight_samples_10000_58
+	mov	dptr,#_Get_Steady_Weight_samples_10000_59
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\hx71708.c:49: int32_t sum = 0; // Changed from 64-bit to 32-bit to fix linker error
-	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+	mov	dptr,#_Get_Steady_Weight_sum_10000_60
 	clr	a
 	movx	@dptr,a
 	inc	dptr
@@ -775,7 +794,7 @@ _Get_Steady_Weight:
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
-	mov	dptr,#_Get_Steady_Weight_samples_10000_58
+	mov	dptr,#_Get_Steady_Weight_samples_10000_59
 	movx	a,@dptr
 	mov	r7,a
 	mov	_Get_Steady_Weight_sloc0_1_0,#0x00
@@ -802,7 +821,7 @@ _Get_Steady_Weight:
 00137$:
 ;	.\FwLib_STC8\user\hx71708.c:55: sum += v;
 	push	ar7
-	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+	mov	dptr,#_Get_Steady_Weight_sum_10000_60
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
@@ -814,7 +833,7 @@ _Get_Steady_Weight:
 	inc	dptr
 	movx	a,@dptr
 	mov	r7,a
-	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+	mov	dptr,#_Get_Steady_Weight_sum_10000_60
 	mov	a,r1
 	add	a, r0
 	movx	@dptr,a
@@ -853,7 +872,7 @@ _Get_Steady_Weight:
 	mov	r5,#0x00
 	mov	r6,#0x00
 	mov	r7,#0x00
-	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+	mov	dptr,#_Get_Steady_Weight_sum_10000_60
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
