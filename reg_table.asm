@@ -572,9 +572,9 @@ _reg_write_target_10000_78:
 	.ds 3
 _reg_write_r_10000_79:
 	.ds 3
-_reg_init_ran_once_10000_91:
+_reg_init_ran_once_10000_92:
 	.ds 1
-_reg_reset_defaults_r_10000_96:
+_reg_reset_defaults_r_10000_97:
 	.ds 3
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -604,10 +604,10 @@ _reg_reset_defaults_r_10000_96:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'reg_init'
 ;------------------------------------------------------------
-;ran_once      Allocated with name '_reg_init_ran_once_10000_91'
+;ran_once      Allocated with name '_reg_init_ran_once_10000_92'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\reg_table.c:211: static uint8_t ran_once = 0;
-	mov	dptr,#_reg_init_ran_once_10000_91
+;	.\FwLib_STC8\user\reg_table.c:213: static uint8_t ran_once = 0;
+	mov	dptr,#_reg_init_ran_once_10000_92
 	clr	a
 	movx	@dptr,a
 ;--------------------------------------------------------
@@ -1595,7 +1595,7 @@ _reg_write:
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\reg_table.c:174: for (i = 0; i < REG_TABLE_SIZE; i++) {
 	mov	r7,a
-00113$:
+00117$:
 ;	.\FwLib_STC8\user\reg_table.c:175: if (reg_table[i].ram_ptr == target) {
 	mov	a,r7
 	mov	b,#0x14
@@ -1626,9 +1626,9 @@ _reg_write:
 	movx	a,@dptr
 	mov	r2,a
 	mov	a,r3
-	cjne	a,ar1,00114$
+	cjne	a,ar1,00118$
 	mov	a,r4
-	cjne	a,ar2,00114$
+	cjne	a,ar2,00118$
 ;	.\FwLib_STC8\user\reg_table.c:176: r = &reg_table[i];
 	mov	dptr,#_reg_write_r_10000_79
 	mov	a,r5
@@ -1641,14 +1641,14 @@ _reg_write:
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\reg_table.c:177: break;
 	sjmp	00103$
-00114$:
+00118$:
 ;	.\FwLib_STC8\user\reg_table.c:174: for (i = 0; i < REG_TABLE_SIZE; i++) {
 	inc	r7
-	cjne	r7,#0x22,00149$
-00149$:
-	jc	00113$
+	cjne	r7,#0x22,00165$
+00165$:
+	jc	00117$
 00103$:
-;	.\FwLib_STC8\user\reg_table.c:182: if (!r) return 1;
+;	.\FwLib_STC8\user\reg_table.c:181: if (!r) return 1; // Not found
 	mov	dptr,#_reg_write_r_10000_79
 	movx	a,@dptr
 	mov	r5,a
@@ -1664,7 +1664,23 @@ _reg_write:
 	mov	dpl, #0x01
 	ret
 00105$:
-;	.\FwLib_STC8\user\reg_table.c:186: if (r->type == REG_U8) { 
+;	.\FwLib_STC8\user\reg_table.c:184: if (r->flags & REG_FLAG_READONLY) return 2;
+	mov	a,#0x13
+	add	a, r5
+	mov	r2,a
+	clr	a
+	addc	a, r6
+	mov	r3,a
+	mov	ar4,r7
+	mov	dpl,r2
+	mov	dph,r3
+	mov	b,r4
+	lcall	__gptrget
+	jnb	acc.0,00107$
+	mov	dpl, #0x02
+	ret
+00107$:
+;	.\FwLib_STC8\user\reg_table.c:187: if (r->type == REG_U8) { 
 	mov	a,#0x04
 	add	a, r5
 	mov	r2,a
@@ -1677,8 +1693,8 @@ _reg_write:
 	mov	b,r4
 	lcall	__gptrget
 	mov	r4,a
-	jnz	00111$
-;	.\FwLib_STC8\user\reg_table.c:187: *(uint8_t*)r->ram_ptr = (uint8_t)value; 
+	jnz	00113$
+;	.\FwLib_STC8\user\reg_table.c:188: *(uint8_t*)r->ram_ptr = (uint8_t)value; 
 	mov	a,#0x05
 	add	a, r5
 	mov	r1,a
@@ -1699,15 +1715,15 @@ _reg_write:
 	mov	dpl,r1
 	mov	dph,r2
 	movx	@dptr,a
-	sjmp	00112$
-00111$:
-;	.\FwLib_STC8\user\reg_table.c:189: else if (r->type == REG_U16 || r->type == REG_I16) { 
-	cjne	r4,#0x01,00153$
-	sjmp	00106$
-00153$:
-	cjne	r4,#0x03,00107$
-00106$:
-;	.\FwLib_STC8\user\reg_table.c:190: *(uint16_t*)r->ram_ptr = (uint16_t)value; 
+	sjmp	00114$
+00113$:
+;	.\FwLib_STC8\user\reg_table.c:190: else if (r->type == REG_U16 || r->type == REG_I16) { 
+	cjne	r4,#0x01,00170$
+	sjmp	00108$
+00170$:
+	cjne	r4,#0x03,00109$
+00108$:
+;	.\FwLib_STC8\user\reg_table.c:191: *(uint16_t*)r->ram_ptr = (uint16_t)value; 
 	mov	dptr,#_reg_write_r_10000_79
 	movx	a,@dptr
 	mov	r2,a
@@ -1744,9 +1760,9 @@ _reg_write:
 	mov	a,r4
 	inc	dptr
 	movx	@dptr,a
-	sjmp	00112$
-00107$:
-;	.\FwLib_STC8\user\reg_table.c:193: *(uint32_t*)r->ram_ptr = (uint32_t)value; 
+	sjmp	00114$
+00109$:
+;	.\FwLib_STC8\user\reg_table.c:194: *(uint32_t*)r->ram_ptr = (uint32_t)value; 
 	mov	a,#0x05
 	add	a, r5
 	mov	r5,a
@@ -1786,27 +1802,49 @@ _reg_write:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-00112$:
-;	.\FwLib_STC8\user\reg_table.c:198: reg_save_all(); 
+00114$:
+;	.\FwLib_STC8\user\reg_table.c:198: if (!(r->flags & REG_FLAG_VOLATILE)) {
+	mov	dptr,#_reg_write_r_10000_79
+	movx	a,@dptr
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	a,#0x13
+	add	a, r5
+	mov	r5,a
+	clr	a
+	addc	a, r6
+	mov	r6,a
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+	lcall	__gptrget
+	jb	acc.7,00116$
+;	.\FwLib_STC8\user\reg_table.c:199: reg_save_all(); 
 	lcall	_reg_save_all
-;	.\FwLib_STC8\user\reg_table.c:200: return 0;
+00116$:
+;	.\FwLib_STC8\user\reg_table.c:202: return 0;
 	mov	dpl, #0x00
-;	.\FwLib_STC8\user\reg_table.c:201: }
+;	.\FwLib_STC8\user\reg_table.c:203: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'reg_load_all'
 ;------------------------------------------------------------
-;i             Allocated with name '_reg_load_all_i_10000_87'
+;i             Allocated with name '_reg_load_all_i_10000_88'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\reg_table.c:203: void reg_load_all(void) {
+;	.\FwLib_STC8\user\reg_table.c:205: void reg_load_all(void) {
 ;	-----------------------------------------
 ;	 function reg_load_all
 ;	-----------------------------------------
 _reg_load_all:
-;	.\FwLib_STC8\user\reg_table.c:205: for (i = 0; i < REG_TABLE_SIZE; i++) {
+;	.\FwLib_STC8\user\reg_table.c:207: for (i = 0; i < REG_TABLE_SIZE; i++) {
 	mov	r7,#0x00
 00102$:
-;	.\FwLib_STC8\user\reg_table.c:206: reg_load(&reg_table[i]);
+;	.\FwLib_STC8\user\reg_table.c:208: reg_load(&reg_table[i]);
 	mov	a,r7
 	mov	b,#0x14
 	mul	ab
@@ -1822,44 +1860,44 @@ _reg_load_all:
 	push	ar7
 	lcall	_reg_load
 	pop	ar7
-;	.\FwLib_STC8\user\reg_table.c:205: for (i = 0; i < REG_TABLE_SIZE; i++) {
+;	.\FwLib_STC8\user\reg_table.c:207: for (i = 0; i < REG_TABLE_SIZE; i++) {
 	inc	r7
 	cjne	r7,#0x22,00113$
 00113$:
 	jc	00102$
-;	.\FwLib_STC8\user\reg_table.c:208: }
+;	.\FwLib_STC8\user\reg_table.c:210: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'reg_init'
 ;------------------------------------------------------------
-;ran_once      Allocated with name '_reg_init_ran_once_10000_91'
+;ran_once      Allocated with name '_reg_init_ran_once_10000_92'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\reg_table.c:210: void reg_init(void) {
+;	.\FwLib_STC8\user\reg_table.c:212: void reg_init(void) {
 ;	-----------------------------------------
 ;	 function reg_init
 ;	-----------------------------------------
 _reg_init:
-;	.\FwLib_STC8\user\reg_table.c:213: if (ran_once) {
-	mov	dptr,#_reg_init_ran_once_10000_91
+;	.\FwLib_STC8\user\reg_table.c:215: if (ran_once) {
+	mov	dptr,#_reg_init_ran_once_10000_92
 	movx	a,@dptr
 	jz	00105$
-;	.\FwLib_STC8\user\reg_table.c:214: UART_SendString("REG_INIT CALLED AGAIN\r\n");
+;	.\FwLib_STC8\user\reg_table.c:216: UART_SendString("REG_INIT CALLED AGAIN\r\n");
 	mov	dptr,#___str_0
 	mov	b, #0x80
 	lcall	_UART_SendString
-;	.\FwLib_STC8\user\reg_table.c:215: while (1);   // freeze here
+;	.\FwLib_STC8\user\reg_table.c:217: while (1);   // freeze here
 00102$:
 	sjmp	00102$
 00105$:
-;	.\FwLib_STC8\user\reg_table.c:217: ran_once = 1;
-	mov	dptr,#_reg_init_ran_once_10000_91
+;	.\FwLib_STC8\user\reg_table.c:219: ran_once = 1;
+	mov	dptr,#_reg_init_ran_once_10000_92
 	mov	a,#0x01
 	movx	@dptr,a
-;	.\FwLib_STC8\user\reg_table.c:218: reg_load(&reg_table[REG_TABLE_SIZE - 1]);
+;	.\FwLib_STC8\user\reg_table.c:220: reg_load(&reg_table[REG_TABLE_SIZE - 1]);
 	mov	dptr,#(_reg_table + 0x0294)
 	mov	b, #0x80
 	lcall	_reg_load
-;	.\FwLib_STC8\user\reg_table.c:219: if (reg_magic_key == 0x55AA) {
+;	.\FwLib_STC8\user\reg_table.c:221: if (reg_magic_key == 0x55AA) {
 	mov	dptr,#_reg_magic_key
 	movx	a,@dptr
 	mov	r6,a
@@ -1868,37 +1906,37 @@ _reg_init:
 	mov	r7,a
 	cjne	r6,#0xaa,00107$
 	cjne	r7,#0x55,00107$
-;	.\FwLib_STC8\user\reg_table.c:220: UART_SendString("Valid Config Found. Loading...\r\n");
+;	.\FwLib_STC8\user\reg_table.c:222: UART_SendString("Valid Config Found. Loading...\r\n");
 	mov	dptr,#___str_1
 	mov	b, #0x80
 	lcall	_UART_SendString
-;	.\FwLib_STC8\user\reg_table.c:221: reg_load_all();
+;	.\FwLib_STC8\user\reg_table.c:223: reg_load_all();
 	ljmp	_reg_load_all
 00107$:
-;	.\FwLib_STC8\user\reg_table.c:223: UART_SendString("No Config Found. Initializing Defaults...\r\n");
+;	.\FwLib_STC8\user\reg_table.c:225: UART_SendString("No Config Found. Initializing Defaults...\r\n");
 	mov	dptr,#___str_2
 	mov	b, #0x80
 	lcall	_UART_SendString
-;	.\FwLib_STC8\user\reg_table.c:224: reg_reset_defaults();
-;	.\FwLib_STC8\user\reg_table.c:226: }
+;	.\FwLib_STC8\user\reg_table.c:226: reg_reset_defaults();
+;	.\FwLib_STC8\user\reg_table.c:228: }
 	ljmp	_reg_reset_defaults
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'reg_reset_defaults'
 ;------------------------------------------------------------
 ;sloc0         Allocated with name '_reg_reset_defaults_sloc0_1_0'
 ;sloc1         Allocated with name '_reg_reset_defaults_sloc1_1_0'
-;i             Allocated with name '_reg_reset_defaults_i_10000_96'
-;r             Allocated with name '_reg_reset_defaults_r_10000_96'
+;i             Allocated with name '_reg_reset_defaults_i_10000_97'
+;r             Allocated with name '_reg_reset_defaults_r_10000_97'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\reg_table.c:228: void reg_reset_defaults(void) {
+;	.\FwLib_STC8\user\reg_table.c:230: void reg_reset_defaults(void) {
 ;	-----------------------------------------
 ;	 function reg_reset_defaults
 ;	-----------------------------------------
 _reg_reset_defaults:
-;	.\FwLib_STC8\user\reg_table.c:231: for (i = 0; i < REG_TABLE_SIZE; i++) {
+;	.\FwLib_STC8\user\reg_table.c:233: for (i = 0; i < REG_TABLE_SIZE; i++) {
 	mov	r7,#0x00
 00109$:
-;	.\FwLib_STC8\user\reg_table.c:232: r = &reg_table[i];
+;	.\FwLib_STC8\user\reg_table.c:234: r = &reg_table[i];
 	mov	a,r7
 	mov	b,#0x14
 	mul	ab
@@ -1908,7 +1946,7 @@ _reg_reset_defaults:
 	addc	a, b
 	mov	r4,a
 	mov	r6,#0x80
-	mov	dptr,#_reg_reset_defaults_r_10000_96
+	mov	dptr,#_reg_reset_defaults_r_10000_97
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r4
@@ -1917,7 +1955,7 @@ _reg_reset_defaults:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\reg_table.c:233: if (r->type == REG_U8) *(uint8_t*)r->ram_ptr = (uint8_t)r->default_val;
+;	.\FwLib_STC8\user\reg_table.c:235: if (r->type == REG_U8) *(uint8_t*)r->ram_ptr = (uint8_t)r->default_val;
 	mov	a,#0x04
 	add	a, r5
 	mov	r1,a
@@ -1966,14 +2004,14 @@ _reg_reset_defaults:
 	pop	ar7
 	ljmp	00110$
 00106$:
-;	.\FwLib_STC8\user\reg_table.c:234: else if (r->type == REG_U16 || r->type == REG_I16) *(uint16_t*)r->ram_ptr = (uint16_t)r->default_val;
+;	.\FwLib_STC8\user\reg_table.c:236: else if (r->type == REG_U16 || r->type == REG_I16) *(uint16_t*)r->ram_ptr = (uint16_t)r->default_val;
 	cjne	r3,#0x01,00139$
 	sjmp	00101$
 00139$:
 	cjne	r3,#0x03,00102$
 00101$:
 	push	ar7
-	mov	dptr,#_reg_reset_defaults_r_10000_96
+	mov	dptr,#_reg_reset_defaults_r_10000_97
 	movx	a,@dptr
 	mov	_reg_reset_defaults_sloc1_1_0,a
 	inc	dptr
@@ -2022,7 +2060,7 @@ _reg_reset_defaults:
 	pop	ar7
 	sjmp	00110$
 00102$:
-;	.\FwLib_STC8\user\reg_table.c:235: else *(uint32_t*)r->ram_ptr = (uint32_t)r->default_val;
+;	.\FwLib_STC8\user\reg_table.c:237: else *(uint32_t*)r->ram_ptr = (uint32_t)r->default_val;
 	mov	a,#0x05
 	add	a, r5
 	mov	r1,a
@@ -2072,15 +2110,15 @@ _reg_reset_defaults:
 	inc	dptr
 	movx	@dptr,a
 00110$:
-;	.\FwLib_STC8\user\reg_table.c:231: for (i = 0; i < REG_TABLE_SIZE; i++) {
+;	.\FwLib_STC8\user\reg_table.c:233: for (i = 0; i < REG_TABLE_SIZE; i++) {
 	inc	r7
 	cjne	r7,#0x22,00142$
 00142$:
 	jnc	00143$
 	ljmp	00109$
 00143$:
-;	.\FwLib_STC8\user\reg_table.c:237: reg_save_all();
-;	.\FwLib_STC8\user\reg_table.c:238: }
+;	.\FwLib_STC8\user\reg_table.c:239: reg_save_all();
+;	.\FwLib_STC8\user\reg_table.c:240: }
 	ljmp	_reg_save_all
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

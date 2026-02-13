@@ -9,8 +9,10 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
+	.globl _MEAS_Process
 	.globl _reg_init
 	.globl _mb_parse_request
+	.globl _UART_SendString
 	.globl _UART_Init
 	.globl _P77
 	.globl _P76
@@ -591,7 +593,7 @@ __sdcc_program_startup:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\main.c:212: void main(void)
+;	.\FwLib_STC8\user\main.c:20: void main(void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
@@ -604,55 +606,76 @@ _main:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	.\FwLib_STC8\user\main.c:214: ENABLE_XRAM();
+;	.\FwLib_STC8\user\main.c:22: ENABLE_XRAM();
 	orl	_P_SW2,#0x80
-;	.\FwLib_STC8\user\main.c:215: UART_Init(); 
+;	.\FwLib_STC8\user\main.c:23: UART_Init(); 
 	lcall	_UART_Init
-;	.\FwLib_STC8\user\main.c:216: reg_init(); 
+;	.\FwLib_STC8\user\main.c:24: reg_init(); 
 	lcall	_reg_init
-;	.\FwLib_STC8\user\main.c:219: cached_id = (uint8_t)reg_station_id; 
+;	.\FwLib_STC8\user\main.c:27: cached_id = (uint8_t)reg_station_id; 
 	mov	dptr,#_reg_station_id
 	movx	a,@dptr
 	mov	dptr,#_cached_id
 	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:220: if(cached_id == 0) cached_id = 0x01; // 防止初始化失败变为 0
+;	.\FwLib_STC8\user\main.c:28: if(cached_id == 0) cached_id = 0x01; // 防止初始化失败变为 0
 	movx	a,@dptr
 	jnz	00102$
 	mov	dptr,#_cached_id
 	mov	a,#0x01
 	movx	@dptr,a
 00102$:
-;	.\FwLib_STC8\user\main.c:222: ET0 = 1; ES = 1; EA = 1; 
+;	.\FwLib_STC8\user\main.c:29: UART_SendString("BOOT_OK\r\n"); // 只要重启，串口助手就会看到这句话
+	mov	dptr,#___str_0
+	mov	b, #0x80
+	lcall	_UART_SendString
+;	.\FwLib_STC8\user\main.c:30: ET0 = 1; ES = 1; EA = 1; 
 ;	assignBit
 	setb	_ET0
 ;	assignBit
 	setb	_ES
 ;	assignBit
 	setb	_EA
-;	.\FwLib_STC8\user\main.c:224: while (1)
-00106$:
-;	.\FwLib_STC8\user\main.c:226: if (mb_frame_ready)
+;	.\FwLib_STC8\user\main.c:32: while (1)
+00109$:
+;	.\FwLib_STC8\user\main.c:34: WDT_CONTR = 0x35;
+	mov	_WDT_CONTR,#0x35
+;	.\FwLib_STC8\user\main.c:38: if (HX_DOUT == 0 && !mb_frame_ready) 
+	jb	_P32,00104$
 	mov	dptr,#_mb_frame_ready
 	movx	a,@dptr
-	jz	00106$
-;	.\FwLib_STC8\user\main.c:228: mb_parse_request(); // 不再传参，简单直接
-	lcall	_mb_parse_request
-;	.\FwLib_STC8\user\main.c:230: EA = 0;
+	jnz	00104$
+;	.\FwLib_STC8\user\main.c:40: MEAS_Process(); 
+	lcall	_MEAS_Process
+00104$:
+;	.\FwLib_STC8\user\main.c:44: if (mb_frame_ready)
+	mov	dptr,#_mb_frame_ready
+	movx	a,@dptr
+	jz	00109$
+;	.\FwLib_STC8\user\main.c:46: EA = 0; // 执行解析时关闭中断，释放所有 CPU 资源给 Modbus
 ;	assignBit
 	clr	_EA
-;	.\FwLib_STC8\user\main.c:231: mb_idx = 0;
+;	.\FwLib_STC8\user\main.c:47: mb_parse_request(); 
+	lcall	_mb_parse_request
+;	.\FwLib_STC8\user\main.c:48: mb_idx = 0;
 	mov	dptr,#_mb_idx
 	clr	a
 	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:232: mb_frame_ready = 0;
+;	.\FwLib_STC8\user\main.c:49: mb_frame_ready = 0;
 	mov	dptr,#_mb_frame_ready
 	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:233: EA = 1;
+;	.\FwLib_STC8\user\main.c:50: EA = 1;
 ;	assignBit
 	setb	_EA
-;	.\FwLib_STC8\user\main.c:236: }
-	sjmp	00106$
+;	.\FwLib_STC8\user\main.c:53: }
+	sjmp	00109$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
+	.area CONST   (CODE)
+___str_0:
+	.ascii "BOOT_OK"
+	.db 0x0d
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
 	.area XINIT   (CODE)
 	.area CABS    (ABS,CODE)

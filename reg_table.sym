@@ -439,10 +439,10 @@ Symbol Table
   B _reg_filter_band                                               000068 GR
   B _reg_filter_level                                              000064 GR
   B _reg_fir_filter_on                                             000060 GR
- 17 _reg_init                                                      000634 GR
-  B _reg_init_ran_once_10000_91                                    0000B8 R
+ 17 _reg_init                                                      00066B GR
+  B _reg_init_ran_once_10000_92                                    0000B8 R
  17 _reg_load                                                      0001CE GR
- 17 _reg_load_all                                                  00060F GR
+ 17 _reg_load_all                                                  000646 GR
   B _reg_load_r_10000_72                                           0000A6 R
   B _reg_load_size_10000_73                                        0000AD R
   6 _reg_load_sloc0_1_0                                            000000 R
@@ -453,8 +453,8 @@ Symbol Table
   B _reg_output_round                                              000080 GR
   B _reg_parity                                                    000084 GR
   B _reg_pvp                                                       000038 GR
- 17 _reg_reset_defaults                                            00067A GR
-  B _reg_reset_defaults_r_10000_96                                 0000B9 R
+ 17 _reg_reset_defaults                                            0006B1 GR
+  B _reg_reset_defaults_r_10000_97                                 0000B9 R
   5 _reg_reset_defaults_sloc0_1_0                                  000000 R
   5 _reg_reset_defaults_sloc1_1_0                                  000002 R
  17 _reg_save_all                                                  000000 GR
@@ -708,7 +708,7 @@ Area Table
   14 GSINIT5                                    size      0   flags   20
   15 GSINIT                                     size      5   flags   20
   16 GSFINAL                                    size      0   flags   20
-  17 CSEG                                       size    793   flags   20
+  17 CSEG                                       size    7CA   flags   20
   18 CONST                                      size    30D   flags   20
   19 XINIT                                      size      0   flags   20
   1A CABS                                       size      0   flags   28

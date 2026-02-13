@@ -11,6 +11,7 @@
 -b BSEG = 0x0000
 -k C:\Program Files\SDCC\bin\..\lib\large
 -l mcs51
+-l mcs51
 -l libsdcc
 -l libint
 -l liblong
@@ -27,5 +28,6 @@ weight_proc.rel
 calibration.rel
 modbus_server.rel
 fw_tim.rel
+measurement.rel
 
 -e

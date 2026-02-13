@@ -572,9 +572,9 @@
       0000B2                        572 	.ds 3
       0000B5                        573 _reg_write_r_10000_79:
       0000B5                        574 	.ds 3
-      0000B8                        575 _reg_init_ran_once_10000_91:
+      0000B8                        575 _reg_init_ran_once_10000_92:
       0000B8                        576 	.ds 1
-      0000B9                        577 _reg_reset_defaults_r_10000_96:
+      0000B9                        577 _reg_reset_defaults_r_10000_97:
       0000B9                        578 	.ds 3
                                     579 ;--------------------------------------------------------
                                     580 ; absolute external ram data
@@ -604,10 +604,10 @@
                                     604 ;------------------------------------------------------------
                                     605 ;Allocation info for local variables in function 'reg_init'
                                     606 ;------------------------------------------------------------
-                                    607 ;ran_once      Allocated with name '_reg_init_ran_once_10000_91'
+                                    607 ;ran_once      Allocated with name '_reg_init_ran_once_10000_92'
                                     608 ;------------------------------------------------------------
-                                    609 ;	.\FwLib_STC8\user\reg_table.c:211: static uint8_t ran_once = 0;
-      000000 90r00rB8         [24]  610 	mov	dptr,#_reg_init_ran_once_10000_91
+                                    609 ;	.\FwLib_STC8\user\reg_table.c:213: static uint8_t ran_once = 0;
+      000000 90r00rB8         [24]  610 	mov	dptr,#_reg_init_ran_once_10000_92
       000003 E4               [12]  611 	clr	a
       000004 F0               [24]  612 	movx	@dptr,a
                                     613 ;--------------------------------------------------------
@@ -1595,7 +1595,7 @@
       00050B F0               [24] 1595 	movx	@dptr,a
                                    1596 ;	.\FwLib_STC8\user\reg_table.c:174: for (i = 0; i < REG_TABLE_SIZE; i++) {
       00050C FF               [12] 1597 	mov	r7,a
-      00050D                       1598 00113$:
+      00050D                       1598 00117$:
                                    1599 ;	.\FwLib_STC8\user\reg_table.c:175: if (reg_table[i].ram_ptr == target) {
       00050D EF               [12] 1600 	mov	a,r7
       00050E 75 F0 14         [24] 1601 	mov	b,#0x14
@@ -1626,9 +1626,9 @@
       000530 E0               [24] 1626 	movx	a,@dptr
       000531 FA               [12] 1627 	mov	r2,a
       000532 EB               [12] 1628 	mov	a,r3
-      000533 B5 01 12         [24] 1629 	cjne	a,ar1,00114$
+      000533 B5 01 12         [24] 1629 	cjne	a,ar1,00118$
       000536 EC               [12] 1630 	mov	a,r4
-      000537 B5 02 0E         [24] 1631 	cjne	a,ar2,00114$
+      000537 B5 02 0E         [24] 1631 	cjne	a,ar2,00118$
                                    1632 ;	.\FwLib_STC8\user\reg_table.c:176: r = &reg_table[i];
       00053A 90r00rB5         [24] 1633 	mov	dptr,#_reg_write_r_10000_79
       00053D ED               [12] 1634 	mov	a,r5
@@ -1641,14 +1641,14 @@
       000545 F0               [24] 1641 	movx	@dptr,a
                                    1642 ;	.\FwLib_STC8\user\reg_table.c:177: break;
       000546 80 06            [24] 1643 	sjmp	00103$
-      000548                       1644 00114$:
+      000548                       1644 00118$:
                                    1645 ;	.\FwLib_STC8\user\reg_table.c:174: for (i = 0; i < REG_TABLE_SIZE; i++) {
       000548 0F               [12] 1646 	inc	r7
-      000549 BF 22 00         [24] 1647 	cjne	r7,#0x22,00149$
-      00054C                       1648 00149$:
-      00054C 40 BF            [24] 1649 	jc	00113$
+      000549 BF 22 00         [24] 1647 	cjne	r7,#0x22,00165$
+      00054C                       1648 00165$:
+      00054C 40 BF            [24] 1649 	jc	00117$
       00054E                       1650 00103$:
-                                   1651 ;	.\FwLib_STC8\user\reg_table.c:182: if (!r) return 1;
+                                   1651 ;	.\FwLib_STC8\user\reg_table.c:181: if (!r) return 1; // Not found
       00054E 90r00rB5         [24] 1652 	mov	dptr,#_reg_write_r_10000_79
       000551 E0               [24] 1653 	movx	a,@dptr
       000552 FD               [12] 1654 	mov	r5,a
@@ -1664,8 +1664,8 @@
       00055D 75 82 01         [24] 1664 	mov	dpl, #0x01
       000560 22               [24] 1665 	ret
       000561                       1666 00105$:
-                                   1667 ;	.\FwLib_STC8\user\reg_table.c:186: if (r->type == REG_U8) { 
-      000561 74 04            [12] 1668 	mov	a,#0x04
+                                   1667 ;	.\FwLib_STC8\user\reg_table.c:184: if (r->flags & REG_FLAG_READONLY) return 2;
+      000561 74 13            [12] 1668 	mov	a,#0x13
       000563 2D               [12] 1669 	add	a, r5
       000564 FA               [12] 1670 	mov	r2,a
       000565 E4               [12] 1671 	clr	a
@@ -1676,720 +1676,758 @@
       00056C 8B 83            [24] 1676 	mov	dph,r3
       00056E 8C F0            [24] 1677 	mov	b,r4
       000570 12r00r00         [24] 1678 	lcall	__gptrget
-      000573 FC               [12] 1679 	mov	r4,a
-      000574 70 23            [24] 1680 	jnz	00111$
-                                   1681 ;	.\FwLib_STC8\user\reg_table.c:187: *(uint8_t*)r->ram_ptr = (uint8_t)value; 
-      000576 74 05            [12] 1682 	mov	a,#0x05
-      000578 2D               [12] 1683 	add	a, r5
-      000579 F9               [12] 1684 	mov	r1,a
-      00057A E4               [12] 1685 	clr	a
-      00057B 3E               [12] 1686 	addc	a, r6
-      00057C FA               [12] 1687 	mov	r2,a
-      00057D 8F 03            [24] 1688 	mov	ar3,r7
-      00057F 89 82            [24] 1689 	mov	dpl,r1
-      000581 8A 83            [24] 1690 	mov	dph,r2
-      000583 8B F0            [24] 1691 	mov	b,r3
-      000585 12r00r00         [24] 1692 	lcall	__gptrget
-      000588 F9               [12] 1693 	mov	r1,a
-      000589 A3               [24] 1694 	inc	dptr
-      00058A 12r00r00         [24] 1695 	lcall	__gptrget
-      00058D FA               [12] 1696 	mov	r2,a
-      00058E 90r00rAE         [24] 1697 	mov	dptr,#_reg_write_PARM_2
-      000591 E0               [24] 1698 	movx	a,@dptr
-      000592 89 82            [24] 1699 	mov	dpl,r1
-      000594 8A 83            [24] 1700 	mov	dph,r2
-      000596 F0               [24] 1701 	movx	@dptr,a
-      000597 80 6F            [24] 1702 	sjmp	00112$
-      000599                       1703 00111$:
-                                   1704 ;	.\FwLib_STC8\user\reg_table.c:189: else if (r->type == REG_U16 || r->type == REG_I16) { 
-      000599 BC 01 02         [24] 1705 	cjne	r4,#0x01,00153$
-      00059C 80 03            [24] 1706 	sjmp	00106$
-      00059E                       1707 00153$:
-      00059E BC 03 34         [24] 1708 	cjne	r4,#0x03,00107$
-      0005A1                       1709 00106$:
-                                   1710 ;	.\FwLib_STC8\user\reg_table.c:190: *(uint16_t*)r->ram_ptr = (uint16_t)value; 
-      0005A1 90r00rB5         [24] 1711 	mov	dptr,#_reg_write_r_10000_79
-      0005A4 E0               [24] 1712 	movx	a,@dptr
-      0005A5 FA               [12] 1713 	mov	r2,a
-      0005A6 A3               [24] 1714 	inc	dptr
-      0005A7 E0               [24] 1715 	movx	a,@dptr
-      0005A8 FB               [12] 1716 	mov	r3,a
-      0005A9 A3               [24] 1717 	inc	dptr
-      0005AA E0               [24] 1718 	movx	a,@dptr
-      0005AB FC               [12] 1719 	mov	r4,a
-      0005AC 74 05            [12] 1720 	mov	a,#0x05
-      0005AE 2A               [12] 1721 	add	a, r2
-      0005AF FA               [12] 1722 	mov	r2,a
-      0005B0 E4               [12] 1723 	clr	a
-      0005B1 3B               [12] 1724 	addc	a, r3
-      0005B2 FB               [12] 1725 	mov	r3,a
-      0005B3 8A 82            [24] 1726 	mov	dpl,r2
-      0005B5 8B 83            [24] 1727 	mov	dph,r3
-      0005B7 8C F0            [24] 1728 	mov	b,r4
-      0005B9 12r00r00         [24] 1729 	lcall	__gptrget
-      0005BC FA               [12] 1730 	mov	r2,a
-      0005BD A3               [24] 1731 	inc	dptr
-      0005BE 12r00r00         [24] 1732 	lcall	__gptrget
-      0005C1 FB               [12] 1733 	mov	r3,a
-      0005C2 90r00rAE         [24] 1734 	mov	dptr,#_reg_write_PARM_2
-      0005C5 E0               [24] 1735 	movx	a,@dptr
-      0005C6 F9               [12] 1736 	mov	r1,a
-      0005C7 A3               [24] 1737 	inc	dptr
-      0005C8 E0               [24] 1738 	movx	a,@dptr
-      0005C9 FC               [12] 1739 	mov	r4,a
-      0005CA 8A 82            [24] 1740 	mov	dpl,r2
-      0005CC 8B 83            [24] 1741 	mov	dph,r3
-      0005CE E9               [12] 1742 	mov	a,r1
-      0005CF F0               [24] 1743 	movx	@dptr,a
-      0005D0 EC               [12] 1744 	mov	a,r4
-      0005D1 A3               [24] 1745 	inc	dptr
-      0005D2 F0               [24] 1746 	movx	@dptr,a
-      0005D3 80 33            [24] 1747 	sjmp	00112$
-      0005D5                       1748 00107$:
-                                   1749 ;	.\FwLib_STC8\user\reg_table.c:193: *(uint32_t*)r->ram_ptr = (uint32_t)value; 
-      0005D5 74 05            [12] 1750 	mov	a,#0x05
-      0005D7 2D               [12] 1751 	add	a, r5
-      0005D8 FD               [12] 1752 	mov	r5,a
-      0005D9 E4               [12] 1753 	clr	a
-      0005DA 3E               [12] 1754 	addc	a, r6
-      0005DB FE               [12] 1755 	mov	r6,a
-      0005DC 8D 82            [24] 1756 	mov	dpl,r5
-      0005DE 8E 83            [24] 1757 	mov	dph,r6
-      0005E0 8F F0            [24] 1758 	mov	b,r7
-      0005E2 12r00r00         [24] 1759 	lcall	__gptrget
-      0005E5 FD               [12] 1760 	mov	r5,a
-      0005E6 A3               [24] 1761 	inc	dptr
-      0005E7 12r00r00         [24] 1762 	lcall	__gptrget
-      0005EA FE               [12] 1763 	mov	r6,a
-      0005EB 90r00rAE         [24] 1764 	mov	dptr,#_reg_write_PARM_2
-      0005EE E0               [24] 1765 	movx	a,@dptr
-      0005EF FA               [12] 1766 	mov	r2,a
-      0005F0 A3               [24] 1767 	inc	dptr
-      0005F1 E0               [24] 1768 	movx	a,@dptr
-      0005F2 FB               [12] 1769 	mov	r3,a
-      0005F3 A3               [24] 1770 	inc	dptr
-      0005F4 E0               [24] 1771 	movx	a,@dptr
-      0005F5 FC               [12] 1772 	mov	r4,a
-      0005F6 A3               [24] 1773 	inc	dptr
-      0005F7 E0               [24] 1774 	movx	a,@dptr
-      0005F8 FF               [12] 1775 	mov	r7,a
-      0005F9 8D 82            [24] 1776 	mov	dpl,r5
-      0005FB 8E 83            [24] 1777 	mov	dph,r6
-      0005FD EA               [12] 1778 	mov	a,r2
-      0005FE F0               [24] 1779 	movx	@dptr,a
-      0005FF EB               [12] 1780 	mov	a,r3
-      000600 A3               [24] 1781 	inc	dptr
-      000601 F0               [24] 1782 	movx	@dptr,a
-      000602 EC               [12] 1783 	mov	a,r4
-      000603 A3               [24] 1784 	inc	dptr
-      000604 F0               [24] 1785 	movx	@dptr,a
-      000605 EF               [12] 1786 	mov	a,r7
-      000606 A3               [24] 1787 	inc	dptr
-      000607 F0               [24] 1788 	movx	@dptr,a
-      000608                       1789 00112$:
-                                   1790 ;	.\FwLib_STC8\user\reg_table.c:198: reg_save_all(); 
-      000608 12r00r00         [24] 1791 	lcall	_reg_save_all
-                                   1792 ;	.\FwLib_STC8\user\reg_table.c:200: return 0;
-      00060B 75 82 00         [24] 1793 	mov	dpl, #0x00
-                                   1794 ;	.\FwLib_STC8\user\reg_table.c:201: }
-      00060E 22               [24] 1795 	ret
-                                   1796 ;------------------------------------------------------------
-                                   1797 ;Allocation info for local variables in function 'reg_load_all'
-                                   1798 ;------------------------------------------------------------
-                                   1799 ;i             Allocated with name '_reg_load_all_i_10000_87'
-                                   1800 ;------------------------------------------------------------
-                                   1801 ;	.\FwLib_STC8\user\reg_table.c:203: void reg_load_all(void) {
-                                   1802 ;	-----------------------------------------
-                                   1803 ;	 function reg_load_all
-                                   1804 ;	-----------------------------------------
-      00060F                       1805 _reg_load_all:
-                                   1806 ;	.\FwLib_STC8\user\reg_table.c:205: for (i = 0; i < REG_TABLE_SIZE; i++) {
-      00060F 7F 00            [12] 1807 	mov	r7,#0x00
-      000611                       1808 00102$:
-                                   1809 ;	.\FwLib_STC8\user\reg_table.c:206: reg_load(&reg_table[i]);
-      000611 EF               [12] 1810 	mov	a,r7
-      000612 75 F0 14         [24] 1811 	mov	b,#0x14
-      000615 A4               [48] 1812 	mul	ab
-      000616 24r00            [12] 1813 	add	a, #_reg_table
-      000618 FD               [12] 1814 	mov	r5,a
-      000619 74s00            [12] 1815 	mov	a,#(_reg_table >> 8)
-      00061B 35 F0            [12] 1816 	addc	a, b
-      00061D FE               [12] 1817 	mov	r6,a
-      00061E 7C 80            [12] 1818 	mov	r4,#0x80
-      000620 8D 82            [24] 1819 	mov	dpl, r5
-      000622 8E 83            [24] 1820 	mov	dph, r6
-      000624 8C F0            [24] 1821 	mov	b, r4
-      000626 C0 07            [24] 1822 	push	ar7
-      000628 12r01rCE         [24] 1823 	lcall	_reg_load
-      00062B D0 07            [24] 1824 	pop	ar7
-                                   1825 ;	.\FwLib_STC8\user\reg_table.c:205: for (i = 0; i < REG_TABLE_SIZE; i++) {
-      00062D 0F               [12] 1826 	inc	r7
-      00062E BF 22 00         [24] 1827 	cjne	r7,#0x22,00113$
-      000631                       1828 00113$:
-      000631 40 DE            [24] 1829 	jc	00102$
-                                   1830 ;	.\FwLib_STC8\user\reg_table.c:208: }
-      000633 22               [24] 1831 	ret
-                                   1832 ;------------------------------------------------------------
-                                   1833 ;Allocation info for local variables in function 'reg_init'
+      000573 30 E0 04         [24] 1679 	jnb	acc.0,00107$
+      000576 75 82 02         [24] 1680 	mov	dpl, #0x02
+      000579 22               [24] 1681 	ret
+      00057A                       1682 00107$:
+                                   1683 ;	.\FwLib_STC8\user\reg_table.c:187: if (r->type == REG_U8) { 
+      00057A 74 04            [12] 1684 	mov	a,#0x04
+      00057C 2D               [12] 1685 	add	a, r5
+      00057D FA               [12] 1686 	mov	r2,a
+      00057E E4               [12] 1687 	clr	a
+      00057F 3E               [12] 1688 	addc	a, r6
+      000580 FB               [12] 1689 	mov	r3,a
+      000581 8F 04            [24] 1690 	mov	ar4,r7
+      000583 8A 82            [24] 1691 	mov	dpl,r2
+      000585 8B 83            [24] 1692 	mov	dph,r3
+      000587 8C F0            [24] 1693 	mov	b,r4
+      000589 12r00r00         [24] 1694 	lcall	__gptrget
+      00058C FC               [12] 1695 	mov	r4,a
+      00058D 70 23            [24] 1696 	jnz	00113$
+                                   1697 ;	.\FwLib_STC8\user\reg_table.c:188: *(uint8_t*)r->ram_ptr = (uint8_t)value; 
+      00058F 74 05            [12] 1698 	mov	a,#0x05
+      000591 2D               [12] 1699 	add	a, r5
+      000592 F9               [12] 1700 	mov	r1,a
+      000593 E4               [12] 1701 	clr	a
+      000594 3E               [12] 1702 	addc	a, r6
+      000595 FA               [12] 1703 	mov	r2,a
+      000596 8F 03            [24] 1704 	mov	ar3,r7
+      000598 89 82            [24] 1705 	mov	dpl,r1
+      00059A 8A 83            [24] 1706 	mov	dph,r2
+      00059C 8B F0            [24] 1707 	mov	b,r3
+      00059E 12r00r00         [24] 1708 	lcall	__gptrget
+      0005A1 F9               [12] 1709 	mov	r1,a
+      0005A2 A3               [24] 1710 	inc	dptr
+      0005A3 12r00r00         [24] 1711 	lcall	__gptrget
+      0005A6 FA               [12] 1712 	mov	r2,a
+      0005A7 90r00rAE         [24] 1713 	mov	dptr,#_reg_write_PARM_2
+      0005AA E0               [24] 1714 	movx	a,@dptr
+      0005AB 89 82            [24] 1715 	mov	dpl,r1
+      0005AD 8A 83            [24] 1716 	mov	dph,r2
+      0005AF F0               [24] 1717 	movx	@dptr,a
+      0005B0 80 6F            [24] 1718 	sjmp	00114$
+      0005B2                       1719 00113$:
+                                   1720 ;	.\FwLib_STC8\user\reg_table.c:190: else if (r->type == REG_U16 || r->type == REG_I16) { 
+      0005B2 BC 01 02         [24] 1721 	cjne	r4,#0x01,00170$
+      0005B5 80 03            [24] 1722 	sjmp	00108$
+      0005B7                       1723 00170$:
+      0005B7 BC 03 34         [24] 1724 	cjne	r4,#0x03,00109$
+      0005BA                       1725 00108$:
+                                   1726 ;	.\FwLib_STC8\user\reg_table.c:191: *(uint16_t*)r->ram_ptr = (uint16_t)value; 
+      0005BA 90r00rB5         [24] 1727 	mov	dptr,#_reg_write_r_10000_79
+      0005BD E0               [24] 1728 	movx	a,@dptr
+      0005BE FA               [12] 1729 	mov	r2,a
+      0005BF A3               [24] 1730 	inc	dptr
+      0005C0 E0               [24] 1731 	movx	a,@dptr
+      0005C1 FB               [12] 1732 	mov	r3,a
+      0005C2 A3               [24] 1733 	inc	dptr
+      0005C3 E0               [24] 1734 	movx	a,@dptr
+      0005C4 FC               [12] 1735 	mov	r4,a
+      0005C5 74 05            [12] 1736 	mov	a,#0x05
+      0005C7 2A               [12] 1737 	add	a, r2
+      0005C8 FA               [12] 1738 	mov	r2,a
+      0005C9 E4               [12] 1739 	clr	a
+      0005CA 3B               [12] 1740 	addc	a, r3
+      0005CB FB               [12] 1741 	mov	r3,a
+      0005CC 8A 82            [24] 1742 	mov	dpl,r2
+      0005CE 8B 83            [24] 1743 	mov	dph,r3
+      0005D0 8C F0            [24] 1744 	mov	b,r4
+      0005D2 12r00r00         [24] 1745 	lcall	__gptrget
+      0005D5 FA               [12] 1746 	mov	r2,a
+      0005D6 A3               [24] 1747 	inc	dptr
+      0005D7 12r00r00         [24] 1748 	lcall	__gptrget
+      0005DA FB               [12] 1749 	mov	r3,a
+      0005DB 90r00rAE         [24] 1750 	mov	dptr,#_reg_write_PARM_2
+      0005DE E0               [24] 1751 	movx	a,@dptr
+      0005DF F9               [12] 1752 	mov	r1,a
+      0005E0 A3               [24] 1753 	inc	dptr
+      0005E1 E0               [24] 1754 	movx	a,@dptr
+      0005E2 FC               [12] 1755 	mov	r4,a
+      0005E3 8A 82            [24] 1756 	mov	dpl,r2
+      0005E5 8B 83            [24] 1757 	mov	dph,r3
+      0005E7 E9               [12] 1758 	mov	a,r1
+      0005E8 F0               [24] 1759 	movx	@dptr,a
+      0005E9 EC               [12] 1760 	mov	a,r4
+      0005EA A3               [24] 1761 	inc	dptr
+      0005EB F0               [24] 1762 	movx	@dptr,a
+      0005EC 80 33            [24] 1763 	sjmp	00114$
+      0005EE                       1764 00109$:
+                                   1765 ;	.\FwLib_STC8\user\reg_table.c:194: *(uint32_t*)r->ram_ptr = (uint32_t)value; 
+      0005EE 74 05            [12] 1766 	mov	a,#0x05
+      0005F0 2D               [12] 1767 	add	a, r5
+      0005F1 FD               [12] 1768 	mov	r5,a
+      0005F2 E4               [12] 1769 	clr	a
+      0005F3 3E               [12] 1770 	addc	a, r6
+      0005F4 FE               [12] 1771 	mov	r6,a
+      0005F5 8D 82            [24] 1772 	mov	dpl,r5
+      0005F7 8E 83            [24] 1773 	mov	dph,r6
+      0005F9 8F F0            [24] 1774 	mov	b,r7
+      0005FB 12r00r00         [24] 1775 	lcall	__gptrget
+      0005FE FD               [12] 1776 	mov	r5,a
+      0005FF A3               [24] 1777 	inc	dptr
+      000600 12r00r00         [24] 1778 	lcall	__gptrget
+      000603 FE               [12] 1779 	mov	r6,a
+      000604 90r00rAE         [24] 1780 	mov	dptr,#_reg_write_PARM_2
+      000607 E0               [24] 1781 	movx	a,@dptr
+      000608 FA               [12] 1782 	mov	r2,a
+      000609 A3               [24] 1783 	inc	dptr
+      00060A E0               [24] 1784 	movx	a,@dptr
+      00060B FB               [12] 1785 	mov	r3,a
+      00060C A3               [24] 1786 	inc	dptr
+      00060D E0               [24] 1787 	movx	a,@dptr
+      00060E FC               [12] 1788 	mov	r4,a
+      00060F A3               [24] 1789 	inc	dptr
+      000610 E0               [24] 1790 	movx	a,@dptr
+      000611 FF               [12] 1791 	mov	r7,a
+      000612 8D 82            [24] 1792 	mov	dpl,r5
+      000614 8E 83            [24] 1793 	mov	dph,r6
+      000616 EA               [12] 1794 	mov	a,r2
+      000617 F0               [24] 1795 	movx	@dptr,a
+      000618 EB               [12] 1796 	mov	a,r3
+      000619 A3               [24] 1797 	inc	dptr
+      00061A F0               [24] 1798 	movx	@dptr,a
+      00061B EC               [12] 1799 	mov	a,r4
+      00061C A3               [24] 1800 	inc	dptr
+      00061D F0               [24] 1801 	movx	@dptr,a
+      00061E EF               [12] 1802 	mov	a,r7
+      00061F A3               [24] 1803 	inc	dptr
+      000620 F0               [24] 1804 	movx	@dptr,a
+      000621                       1805 00114$:
+                                   1806 ;	.\FwLib_STC8\user\reg_table.c:198: if (!(r->flags & REG_FLAG_VOLATILE)) {
+      000621 90r00rB5         [24] 1807 	mov	dptr,#_reg_write_r_10000_79
+      000624 E0               [24] 1808 	movx	a,@dptr
+      000625 FD               [12] 1809 	mov	r5,a
+      000626 A3               [24] 1810 	inc	dptr
+      000627 E0               [24] 1811 	movx	a,@dptr
+      000628 FE               [12] 1812 	mov	r6,a
+      000629 A3               [24] 1813 	inc	dptr
+      00062A E0               [24] 1814 	movx	a,@dptr
+      00062B FF               [12] 1815 	mov	r7,a
+      00062C 74 13            [12] 1816 	mov	a,#0x13
+      00062E 2D               [12] 1817 	add	a, r5
+      00062F FD               [12] 1818 	mov	r5,a
+      000630 E4               [12] 1819 	clr	a
+      000631 3E               [12] 1820 	addc	a, r6
+      000632 FE               [12] 1821 	mov	r6,a
+      000633 8D 82            [24] 1822 	mov	dpl,r5
+      000635 8E 83            [24] 1823 	mov	dph,r6
+      000637 8F F0            [24] 1824 	mov	b,r7
+      000639 12r00r00         [24] 1825 	lcall	__gptrget
+      00063C 20 E7 03         [24] 1826 	jb	acc.7,00116$
+                                   1827 ;	.\FwLib_STC8\user\reg_table.c:199: reg_save_all(); 
+      00063F 12r00r00         [24] 1828 	lcall	_reg_save_all
+      000642                       1829 00116$:
+                                   1830 ;	.\FwLib_STC8\user\reg_table.c:202: return 0;
+      000642 75 82 00         [24] 1831 	mov	dpl, #0x00
+                                   1832 ;	.\FwLib_STC8\user\reg_table.c:203: }
+      000645 22               [24] 1833 	ret
                                    1834 ;------------------------------------------------------------
-                                   1835 ;ran_once      Allocated with name '_reg_init_ran_once_10000_91'
+                                   1835 ;Allocation info for local variables in function 'reg_load_all'
                                    1836 ;------------------------------------------------------------
-                                   1837 ;	.\FwLib_STC8\user\reg_table.c:210: void reg_init(void) {
-                                   1838 ;	-----------------------------------------
-                                   1839 ;	 function reg_init
+                                   1837 ;i             Allocated with name '_reg_load_all_i_10000_88'
+                                   1838 ;------------------------------------------------------------
+                                   1839 ;	.\FwLib_STC8\user\reg_table.c:205: void reg_load_all(void) {
                                    1840 ;	-----------------------------------------
-      000634                       1841 _reg_init:
-                                   1842 ;	.\FwLib_STC8\user\reg_table.c:213: if (ran_once) {
-      000634 90r00rB8         [24] 1843 	mov	dptr,#_reg_init_ran_once_10000_91
-      000637 E0               [24] 1844 	movx	a,@dptr
-      000638 60 0B            [24] 1845 	jz	00105$
-                                   1846 ;	.\FwLib_STC8\user\reg_table.c:214: UART_SendString("REG_INIT CALLED AGAIN\r\n");
-      00063A 90r02rA8         [24] 1847 	mov	dptr,#___str_0
-      00063D 75 F0 80         [24] 1848 	mov	b, #0x80
-      000640 12r00r00         [24] 1849 	lcall	_UART_SendString
-                                   1850 ;	.\FwLib_STC8\user\reg_table.c:215: while (1);   // freeze here
-      000643                       1851 00102$:
-      000643 80 FE            [24] 1852 	sjmp	00102$
-      000645                       1853 00105$:
-                                   1854 ;	.\FwLib_STC8\user\reg_table.c:217: ran_once = 1;
-      000645 90r00rB8         [24] 1855 	mov	dptr,#_reg_init_ran_once_10000_91
-      000648 74 01            [12] 1856 	mov	a,#0x01
-      00064A F0               [24] 1857 	movx	@dptr,a
-                                   1858 ;	.\FwLib_STC8\user\reg_table.c:218: reg_load(&reg_table[REG_TABLE_SIZE - 1]);
-      00064B 90r02r94         [24] 1859 	mov	dptr,#(_reg_table + 0x0294)
-      00064E 75 F0 80         [24] 1860 	mov	b, #0x80
-      000651 12r01rCE         [24] 1861 	lcall	_reg_load
-                                   1862 ;	.\FwLib_STC8\user\reg_table.c:219: if (reg_magic_key == 0x55AA) {
-      000654 90r00r9C         [24] 1863 	mov	dptr,#_reg_magic_key
-      000657 E0               [24] 1864 	movx	a,@dptr
-      000658 FE               [12] 1865 	mov	r6,a
-      000659 A3               [24] 1866 	inc	dptr
-      00065A E0               [24] 1867 	movx	a,@dptr
-      00065B FF               [12] 1868 	mov	r7,a
-      00065C BE AA 0F         [24] 1869 	cjne	r6,#0xaa,00107$
-      00065F BF 55 0C         [24] 1870 	cjne	r7,#0x55,00107$
-                                   1871 ;	.\FwLib_STC8\user\reg_table.c:220: UART_SendString("Valid Config Found. Loading...\r\n");
-      000662 90r02rC0         [24] 1872 	mov	dptr,#___str_1
-      000665 75 F0 80         [24] 1873 	mov	b, #0x80
-      000668 12r00r00         [24] 1874 	lcall	_UART_SendString
-                                   1875 ;	.\FwLib_STC8\user\reg_table.c:221: reg_load_all();
-      00066B 02r06r0F         [24] 1876 	ljmp	_reg_load_all
-      00066E                       1877 00107$:
-                                   1878 ;	.\FwLib_STC8\user\reg_table.c:223: UART_SendString("No Config Found. Initializing Defaults...\r\n");
-      00066E 90r02rE1         [24] 1879 	mov	dptr,#___str_2
-      000671 75 F0 80         [24] 1880 	mov	b, #0x80
-      000674 12r00r00         [24] 1881 	lcall	_UART_SendString
-                                   1882 ;	.\FwLib_STC8\user\reg_table.c:224: reg_reset_defaults();
-                                   1883 ;	.\FwLib_STC8\user\reg_table.c:226: }
-      000677 02r06r7A         [24] 1884 	ljmp	_reg_reset_defaults
-                                   1885 ;------------------------------------------------------------
-                                   1886 ;Allocation info for local variables in function 'reg_reset_defaults'
-                                   1887 ;------------------------------------------------------------
-                                   1888 ;sloc0         Allocated with name '_reg_reset_defaults_sloc0_1_0'
-                                   1889 ;sloc1         Allocated with name '_reg_reset_defaults_sloc1_1_0'
-                                   1890 ;i             Allocated with name '_reg_reset_defaults_i_10000_96'
-                                   1891 ;r             Allocated with name '_reg_reset_defaults_r_10000_96'
-                                   1892 ;------------------------------------------------------------
-                                   1893 ;	.\FwLib_STC8\user\reg_table.c:228: void reg_reset_defaults(void) {
-                                   1894 ;	-----------------------------------------
-                                   1895 ;	 function reg_reset_defaults
-                                   1896 ;	-----------------------------------------
-      00067A                       1897 _reg_reset_defaults:
-                                   1898 ;	.\FwLib_STC8\user\reg_table.c:231: for (i = 0; i < REG_TABLE_SIZE; i++) {
-      00067A 7F 00            [12] 1899 	mov	r7,#0x00
-      00067C                       1900 00109$:
-                                   1901 ;	.\FwLib_STC8\user\reg_table.c:232: r = &reg_table[i];
-      00067C EF               [12] 1902 	mov	a,r7
-      00067D 75 F0 14         [24] 1903 	mov	b,#0x14
-      000680 A4               [48] 1904 	mul	ab
-      000681 24r00            [12] 1905 	add	a, #_reg_table
-      000683 FD               [12] 1906 	mov	r5,a
-      000684 74s00            [12] 1907 	mov	a,#(_reg_table >> 8)
-      000686 35 F0            [12] 1908 	addc	a, b
-      000688 FC               [12] 1909 	mov	r4,a
-      000689 7E 80            [12] 1910 	mov	r6,#0x80
-      00068B 90r00rB9         [24] 1911 	mov	dptr,#_reg_reset_defaults_r_10000_96
-      00068E ED               [12] 1912 	mov	a,r5
-      00068F F0               [24] 1913 	movx	@dptr,a
-      000690 EC               [12] 1914 	mov	a,r4
-      000691 A3               [24] 1915 	inc	dptr
-      000692 F0               [24] 1916 	movx	@dptr,a
-      000693 EE               [12] 1917 	mov	a,r6
-      000694 A3               [24] 1918 	inc	dptr
-      000695 F0               [24] 1919 	movx	@dptr,a
-                                   1920 ;	.\FwLib_STC8\user\reg_table.c:233: if (r->type == REG_U8) *(uint8_t*)r->ram_ptr = (uint8_t)r->default_val;
-      000696 74 04            [12] 1921 	mov	a,#0x04
-      000698 2D               [12] 1922 	add	a, r5
-      000699 F9               [12] 1923 	mov	r1,a
-      00069A E4               [12] 1924 	clr	a
-      00069B 3C               [12] 1925 	addc	a, r4
-      00069C FA               [12] 1926 	mov	r2,a
-      00069D 8E 03            [24] 1927 	mov	ar3,r6
-      00069F 89 82            [24] 1928 	mov	dpl,r1
-      0006A1 8A 83            [24] 1929 	mov	dph,r2
-      0006A3 8B F0            [24] 1930 	mov	b,r3
-      0006A5 12r00r00         [24] 1931 	lcall	__gptrget
-      0006A8 FB               [12] 1932 	mov	r3,a
-      0006A9 70 3C            [24] 1933 	jnz	00106$
-      0006AB C0 07            [24] 1934 	push	ar7
-      0006AD 74 05            [12] 1935 	mov	a,#0x05
-      0006AF 2D               [12] 1936 	add	a, r5
-      0006B0 F8               [12] 1937 	mov	r0,a
-      0006B1 E4               [12] 1938 	clr	a
-      0006B2 3C               [12] 1939 	addc	a, r4
-      0006B3 F9               [12] 1940 	mov	r1,a
-      0006B4 8E 02            [24] 1941 	mov	ar2,r6
-      0006B6 88 82            [24] 1942 	mov	dpl,r0
-      0006B8 89 83            [24] 1943 	mov	dph,r1
-      0006BA 8A F0            [24] 1944 	mov	b,r2
-      0006BC 12r00r00         [24] 1945 	lcall	__gptrget
-      0006BF F8               [12] 1946 	mov	r0,a
-      0006C0 A3               [24] 1947 	inc	dptr
-      0006C1 12r00r00         [24] 1948 	lcall	__gptrget
-      0006C4 F9               [12] 1949 	mov	r1,a
-      0006C5 88*00            [24] 1950 	mov	_reg_reset_defaults_sloc0_1_0,r0
-      0006C7 89*01            [24] 1951 	mov	(_reg_reset_defaults_sloc0_1_0 + 1),r1
-      0006C9 74 07            [12] 1952 	mov	a,#0x07
-      0006CB 2D               [12] 1953 	add	a, r5
-      0006CC F9               [12] 1954 	mov	r1,a
-      0006CD E4               [12] 1955 	clr	a
-      0006CE 3C               [12] 1956 	addc	a, r4
-      0006CF FA               [12] 1957 	mov	r2,a
-      0006D0 8E 07            [24] 1958 	mov	ar7,r6
-      0006D2 89 82            [24] 1959 	mov	dpl,r1
-      0006D4 8A 83            [24] 1960 	mov	dph,r2
-      0006D6 8F F0            [24] 1961 	mov	b,r7
-      0006D8 12r00r00         [24] 1962 	lcall	__gptrget
-      0006DB 85*00 82         [24] 1963 	mov	dpl,_reg_reset_defaults_sloc0_1_0
-      0006DE 85*01 83         [24] 1964 	mov	dph,(_reg_reset_defaults_sloc0_1_0 + 1)
-      0006E1 F0               [24] 1965 	movx	@dptr,a
-      0006E2 D0 07            [24] 1966 	pop	ar7
-      0006E4 02r07r87         [24] 1967 	ljmp	00110$
-      0006E7                       1968 00106$:
-                                   1969 ;	.\FwLib_STC8\user\reg_table.c:234: else if (r->type == REG_U16 || r->type == REG_I16) *(uint16_t*)r->ram_ptr = (uint16_t)r->default_val;
-      0006E7 BB 01 02         [24] 1970 	cjne	r3,#0x01,00139$
-      0006EA 80 03            [24] 1971 	sjmp	00101$
-      0006EC                       1972 00139$:
-      0006EC BB 03 51         [24] 1973 	cjne	r3,#0x03,00102$
-      0006EF                       1974 00101$:
-      0006EF C0 07            [24] 1975 	push	ar7
-      0006F1 90r00rB9         [24] 1976 	mov	dptr,#_reg_reset_defaults_r_10000_96
-      0006F4 E0               [24] 1977 	movx	a,@dptr
-      0006F5 F5*02            [12] 1978 	mov	_reg_reset_defaults_sloc1_1_0,a
-      0006F7 A3               [24] 1979 	inc	dptr
-      0006F8 E0               [24] 1980 	movx	a,@dptr
-      0006F9 F5*03            [12] 1981 	mov	(_reg_reset_defaults_sloc1_1_0 + 1),a
-      0006FB A3               [24] 1982 	inc	dptr
-      0006FC E0               [24] 1983 	movx	a,@dptr
-      0006FD F5*04            [12] 1984 	mov	(_reg_reset_defaults_sloc1_1_0 + 2),a
-      0006FF 74 05            [12] 1985 	mov	a,#0x05
-      000701 25*02            [12] 1986 	add	a, _reg_reset_defaults_sloc1_1_0
-      000703 F8               [12] 1987 	mov	r0,a
-      000704 E4               [12] 1988 	clr	a
-      000705 35*03            [12] 1989 	addc	a, (_reg_reset_defaults_sloc1_1_0 + 1)
-      000707 FB               [12] 1990 	mov	r3,a
-      000708 AF*04            [24] 1991 	mov	r7,(_reg_reset_defaults_sloc1_1_0 + 2)
-      00070A 88 82            [24] 1992 	mov	dpl,r0
-      00070C 8B 83            [24] 1993 	mov	dph,r3
-      00070E 8F F0            [24] 1994 	mov	b,r7
-      000710 12r00r00         [24] 1995 	lcall	__gptrget
-      000713 F8               [12] 1996 	mov	r0,a
-      000714 A3               [24] 1997 	inc	dptr
-      000715 12r00r00         [24] 1998 	lcall	__gptrget
-      000718 FB               [12] 1999 	mov	r3,a
-      000719 74 07            [12] 2000 	mov	a,#0x07
-      00071B 25*02            [12] 2001 	add	a, _reg_reset_defaults_sloc1_1_0
-      00071D F9               [12] 2002 	mov	r1,a
-      00071E E4               [12] 2003 	clr	a
-      00071F 35*03            [12] 2004 	addc	a, (_reg_reset_defaults_sloc1_1_0 + 1)
-      000721 FA               [12] 2005 	mov	r2,a
-      000722 AF*04            [24] 2006 	mov	r7,(_reg_reset_defaults_sloc1_1_0 + 2)
-      000724 89 82            [24] 2007 	mov	dpl,r1
-      000726 8A 83            [24] 2008 	mov	dph,r2
-      000728 8F F0            [24] 2009 	mov	b,r7
-      00072A 12r00r00         [24] 2010 	lcall	__gptrget
-      00072D F9               [12] 2011 	mov	r1,a
-      00072E A3               [24] 2012 	inc	dptr
-      00072F 12r00r00         [24] 2013 	lcall	__gptrget
-      000732 FA               [12] 2014 	mov	r2,a
-      000733 88 82            [24] 2015 	mov	dpl,r0
-      000735 8B 83            [24] 2016 	mov	dph,r3
-      000737 E9               [12] 2017 	mov	a,r1
-      000738 F0               [24] 2018 	movx	@dptr,a
-      000739 EA               [12] 2019 	mov	a,r2
-      00073A A3               [24] 2020 	inc	dptr
-      00073B F0               [24] 2021 	movx	@dptr,a
-      00073C D0 07            [24] 2022 	pop	ar7
-      00073E 80 47            [24] 2023 	sjmp	00110$
-      000740                       2024 00102$:
-                                   2025 ;	.\FwLib_STC8\user\reg_table.c:235: else *(uint32_t*)r->ram_ptr = (uint32_t)r->default_val;
-      000740 74 05            [12] 2026 	mov	a,#0x05
-      000742 2D               [12] 2027 	add	a, r5
-      000743 F9               [12] 2028 	mov	r1,a
-      000744 E4               [12] 2029 	clr	a
-      000745 3C               [12] 2030 	addc	a, r4
-      000746 FA               [12] 2031 	mov	r2,a
-      000747 8E 03            [24] 2032 	mov	ar3,r6
-      000749 89 82            [24] 2033 	mov	dpl,r1
-      00074B 8A 83            [24] 2034 	mov	dph,r2
-      00074D 8B F0            [24] 2035 	mov	b,r3
-      00074F 12r00r00         [24] 2036 	lcall	__gptrget
-      000752 F9               [12] 2037 	mov	r1,a
-      000753 A3               [24] 2038 	inc	dptr
-      000754 12r00r00         [24] 2039 	lcall	__gptrget
-      000757 FA               [12] 2040 	mov	r2,a
-      000758 74 07            [12] 2041 	mov	a,#0x07
-      00075A 2D               [12] 2042 	add	a, r5
-      00075B FD               [12] 2043 	mov	r5,a
-      00075C E4               [12] 2044 	clr	a
-      00075D 3C               [12] 2045 	addc	a, r4
-      00075E FC               [12] 2046 	mov	r4,a
-      00075F 8D 82            [24] 2047 	mov	dpl,r5
-      000761 8C 83            [24] 2048 	mov	dph,r4
-      000763 8E F0            [24] 2049 	mov	b,r6
-      000765 12r00r00         [24] 2050 	lcall	__gptrget
-      000768 FD               [12] 2051 	mov	r5,a
-      000769 A3               [24] 2052 	inc	dptr
-      00076A 12r00r00         [24] 2053 	lcall	__gptrget
-      00076D FC               [12] 2054 	mov	r4,a
-      00076E A3               [24] 2055 	inc	dptr
-      00076F 12r00r00         [24] 2056 	lcall	__gptrget
-      000772 FE               [12] 2057 	mov	r6,a
-      000773 A3               [24] 2058 	inc	dptr
-      000774 12r00r00         [24] 2059 	lcall	__gptrget
-      000777 FB               [12] 2060 	mov	r3,a
-      000778 89 82            [24] 2061 	mov	dpl,r1
-      00077A 8A 83            [24] 2062 	mov	dph,r2
-      00077C ED               [12] 2063 	mov	a,r5
-      00077D F0               [24] 2064 	movx	@dptr,a
-      00077E EC               [12] 2065 	mov	a,r4
-      00077F A3               [24] 2066 	inc	dptr
-      000780 F0               [24] 2067 	movx	@dptr,a
-      000781 EE               [12] 2068 	mov	a,r6
-      000782 A3               [24] 2069 	inc	dptr
-      000783 F0               [24] 2070 	movx	@dptr,a
-      000784 EB               [12] 2071 	mov	a,r3
-      000785 A3               [24] 2072 	inc	dptr
-      000786 F0               [24] 2073 	movx	@dptr,a
-      000787                       2074 00110$:
-                                   2075 ;	.\FwLib_STC8\user\reg_table.c:231: for (i = 0; i < REG_TABLE_SIZE; i++) {
-      000787 0F               [12] 2076 	inc	r7
-      000788 BF 22 00         [24] 2077 	cjne	r7,#0x22,00142$
-      00078B                       2078 00142$:
-      00078B 50 03            [24] 2079 	jnc	00143$
-      00078D 02r06r7C         [24] 2080 	ljmp	00109$
-      000790                       2081 00143$:
-                                   2082 ;	.\FwLib_STC8\user\reg_table.c:237: reg_save_all();
-                                   2083 ;	.\FwLib_STC8\user\reg_table.c:238: }
-      000790 02r00r00         [24] 2084 	ljmp	_reg_save_all
-                                   2085 	.area CSEG    (CODE)
-                                   2086 	.area CONST   (CODE)
-                                   2087 	.area CONST   (CODE)
-      000000                       2088 _reg_table:
-      000000 00 00                 2089 	.byte #0x00, #0x00	; 0
-      000002 00 00                 2090 	.byte #0x00, #0x00	; 0
-      000004 04                    2091 	.db #0x04	; 4
-      000005r04s00                 2092 	.byte _reg_measuring_val, (_reg_measuring_val >> 8)
-      000007 00 00 00 00           2093 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00000B 00 00 00 80           2094 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00000F FF FF FF 7F           2095 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000013 80                    2096 	.db #0x80	; 128
-      000014 02 00                 2097 	.byte #0x02, #0x00	; 2
-      000016 04 00                 2098 	.byte #0x04, #0x00	; 4
-      000018 04                    2099 	.db #0x04	; 4
-      000019r08s00                 2100 	.byte _reg_station_id, (_reg_station_id >> 8)
-      00001B 01 00 00 00           2101 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      00001F 01 00 00 00           2102 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      000023 FE 00 00 00           2103 	.byte #0xfe, #0x00, #0x00, #0x00	;  254
-      000027 00                    2104 	.db #0x00	; 0
-      000028 04 00                 2105 	.byte #0x04, #0x00	; 4
-      00002A 08 00                 2106 	.byte #0x08, #0x00	; 8
-      00002C 04                    2107 	.db #0x04	; 4
-      00002Dr0Cs00                 2108 	.byte _reg_offset_val, (_reg_offset_val >> 8)
-      00002F 00 00 00 00           2109 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000033 00 00 00 80           2110 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      000037 FF FF FF 7F           2111 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      00003B 00                    2112 	.db #0x00	; 0
-      00003C 06 00                 2113 	.byte #0x06, #0x00	; 6
-      00003E 0C 00                 2114 	.byte #0x0c, #0x00	; 12
-      000040 04                    2115 	.db #0x04	; 4
-      000041r10s00                 2116 	.byte _reg_cal_points_num, (_reg_cal_points_num >> 8)
-      000043 02 00 00 00           2117 	.byte #0x02, #0x00, #0x00, #0x00	;  2
-      000047 02 00 00 00           2118 	.byte #0x02, #0x00, #0x00, #0x00	;  2
-      00004B 09 00 00 00           2119 	.byte #0x09, #0x00, #0x00, #0x00	;  9
-      00004F 00                    2120 	.db #0x00	; 0
-      000050 08 00                 2121 	.byte #0x08, #0x00	; 8
-      000052 10 00                 2122 	.byte #0x10, #0x00	; 16
-      000054 04                    2123 	.db #0x04	; 4
-      000055r14s00                 2124 	.byte (_reg_avp + 0), ((_reg_avp + 0) >> 8)
-      000057 00 00 00 00           2125 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00005B 00 00 00 80           2126 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00005F FF FF FF 7F           2127 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000063 00                    2128 	.db #0x00	; 0
-      000064 0A 00                 2129 	.byte #0x0a, #0x00	; 10
-      000066 14 00                 2130 	.byte #0x14, #0x00	; 20
-      000068 04                    2131 	.db #0x04	; 4
-      000069r18s00                 2132 	.byte (_reg_avp + 4), ((_reg_avp + 4) >> 8)
-      00006B 00 00 00 00           2133 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00006F 00 00 00 80           2134 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      000073 FF FF FF 7F           2135 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000077 00                    2136 	.db #0x00	; 0
-      000078 0C 00                 2137 	.byte #0x0c, #0x00	; 12
-      00007A 18 00                 2138 	.byte #0x18, #0x00	; 24
-      00007C 04                    2139 	.db #0x04	; 4
-      00007Dr1Cs00                 2140 	.byte (_reg_avp + 8), ((_reg_avp + 8) >> 8)
-      00007F 00 00 00 00           2141 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000083 00 00 00 80           2142 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      000087 FF FF FF 7F           2143 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      00008B 00                    2144 	.db #0x00	; 0
-      00008C 0E 00                 2145 	.byte #0x0e, #0x00	; 14
-      00008E 1C 00                 2146 	.byte #0x1c, #0x00	; 28
-      000090 04                    2147 	.db #0x04	; 4
-      000091r20s00                 2148 	.byte (_reg_avp + 12), ((_reg_avp + 12) >> 8)
-      000093 00 00 00 00           2149 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000097 00 00 00 80           2150 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00009B FF FF FF 7F           2151 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      00009F 00                    2152 	.db #0x00	; 0
-      0000A0 10 00                 2153 	.byte #0x10, #0x00	; 16
-      0000A2 20 00                 2154 	.byte #0x20, #0x00	; 32
-      0000A4 04                    2155 	.db #0x04	; 4
-      0000A5r24s00                 2156 	.byte (_reg_avp + 16), ((_reg_avp + 16) >> 8)
-      0000A7 00 00 00 00           2157 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0000AB 00 00 00 80           2158 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      0000AF FF FF FF 7F           2159 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      0000B3 00                    2160 	.db #0x00	; 0
-      0000B4 12 00                 2161 	.byte #0x12, #0x00	; 18
-      0000B6 24 00                 2162 	.byte #0x24, #0x00	; 36
-      0000B8 04                    2163 	.db #0x04	; 4
-      0000B9r28s00                 2164 	.byte (_reg_avp + 20), ((_reg_avp + 20) >> 8)
-      0000BB 00 00 00 00           2165 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0000BF 00 00 00 80           2166 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      0000C3 FF FF FF 7F           2167 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      0000C7 00                    2168 	.db #0x00	; 0
-      0000C8 14 00                 2169 	.byte #0x14, #0x00	; 20
-      0000CA 28 00                 2170 	.byte #0x28, #0x00	; 40
-      0000CC 04                    2171 	.db #0x04	; 4
-      0000CDr2Cs00                 2172 	.byte (_reg_avp + 24), ((_reg_avp + 24) >> 8)
-      0000CF 00 00 00 00           2173 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0000D3 00 00 00 80           2174 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      0000D7 FF FF FF 7F           2175 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      0000DB 00                    2176 	.db #0x00	; 0
-      0000DC 16 00                 2177 	.byte #0x16, #0x00	; 22
-      0000DE 2C 00                 2178 	.byte #0x2c, #0x00	; 44
-      0000E0 04                    2179 	.db #0x04	; 4
-      0000E1r30s00                 2180 	.byte (_reg_avp + 28), ((_reg_avp + 28) >> 8)
-      0000E3 00 00 00 00           2181 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0000E7 00 00 00 80           2182 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      0000EB FF FF FF 7F           2183 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      0000EF 00                    2184 	.db #0x00	; 0
-      0000F0 18 00                 2185 	.byte #0x18, #0x00	; 24
-      0000F2 30 00                 2186 	.byte #0x30, #0x00	; 48
-      0000F4 04                    2187 	.db #0x04	; 4
-      0000F5r34s00                 2188 	.byte (_reg_avp + 32), ((_reg_avp + 32) >> 8)
-      0000F7 00 00 00 00           2189 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0000FB 00 00 00 80           2190 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      0000FF FF FF FF 7F           2191 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000103 00                    2192 	.db #0x00	; 0
-      000104 1A 00                 2193 	.byte #0x1a, #0x00	; 26
-      000106 34 00                 2194 	.byte #0x34, #0x00	; 52
-      000108 04                    2195 	.db #0x04	; 4
-      000109r38s00                 2196 	.byte (_reg_pvp + 0), ((_reg_pvp + 0) >> 8)
-      00010B 00 00 00 00           2197 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00010F 00 00 00 80           2198 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      000113 FF FF FF 7F           2199 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000117 00                    2200 	.db #0x00	; 0
-      000118 1C 00                 2201 	.byte #0x1c, #0x00	; 28
-      00011A 38 00                 2202 	.byte #0x38, #0x00	; 56
-      00011C 04                    2203 	.db #0x04	; 4
-      00011Dr3Cs00                 2204 	.byte (_reg_pvp + 4), ((_reg_pvp + 4) >> 8)
-      00011F 00 00 00 00           2205 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000123 00 00 00 80           2206 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      000127 FF FF FF 7F           2207 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      00012B 00                    2208 	.db #0x00	; 0
-      00012C 1E 00                 2209 	.byte #0x1e, #0x00	; 30
-      00012E 3C 00                 2210 	.byte #0x3c, #0x00	; 60
-      000130 04                    2211 	.db #0x04	; 4
-      000131r40s00                 2212 	.byte (_reg_pvp + 8), ((_reg_pvp + 8) >> 8)
-      000133 00 00 00 00           2213 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000137 00 00 00 80           2214 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00013B FF FF FF 7F           2215 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      00013F 00                    2216 	.db #0x00	; 0
-      000140 20 00                 2217 	.byte #0x20, #0x00	; 32
-      000142 40 00                 2218 	.byte #0x40, #0x00	; 64
-      000144 04                    2219 	.db #0x04	; 4
-      000145r44s00                 2220 	.byte (_reg_pvp + 12), ((_reg_pvp + 12) >> 8)
-      000147 00 00 00 00           2221 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00014B 00 00 00 80           2222 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00014F FF FF FF 7F           2223 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000153 00                    2224 	.db #0x00	; 0
-      000154 22 00                 2225 	.byte #0x22, #0x00	; 34
-      000156 44 00                 2226 	.byte #0x44, #0x00	; 68
-      000158 04                    2227 	.db #0x04	; 4
-      000159r48s00                 2228 	.byte (_reg_pvp + 16), ((_reg_pvp + 16) >> 8)
-      00015B 00 00 00 00           2229 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00015F 00 00 00 80           2230 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      000163 FF FF FF 7F           2231 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000167 00                    2232 	.db #0x00	; 0
-      000168 24 00                 2233 	.byte #0x24, #0x00	; 36
-      00016A 48 00                 2234 	.byte #0x48, #0x00	; 72
-      00016C 04                    2235 	.db #0x04	; 4
-      00016Dr4Cs00                 2236 	.byte (_reg_pvp + 20), ((_reg_pvp + 20) >> 8)
-      00016F 00 00 00 00           2237 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000173 00 00 00 80           2238 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      000177 FF FF FF 7F           2239 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      00017B 00                    2240 	.db #0x00	; 0
-      00017C 26 00                 2241 	.byte #0x26, #0x00	; 38
-      00017E 4C 00                 2242 	.byte #0x4c, #0x00	; 76
-      000180 04                    2243 	.db #0x04	; 4
-      000181r50s00                 2244 	.byte (_reg_pvp + 24), ((_reg_pvp + 24) >> 8)
-      000183 00 00 00 00           2245 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000187 00 00 00 80           2246 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00018B FF FF FF 7F           2247 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      00018F 00                    2248 	.db #0x00	; 0
-      000190 28 00                 2249 	.byte #0x28, #0x00	; 40
-      000192 50 00                 2250 	.byte #0x50, #0x00	; 80
-      000194 04                    2251 	.db #0x04	; 4
-      000195r54s00                 2252 	.byte (_reg_pvp + 28), ((_reg_pvp + 28) >> 8)
-      000197 00 00 00 00           2253 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00019B 00 00 00 80           2254 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00019F FF FF FF 7F           2255 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      0001A3 00                    2256 	.db #0x00	; 0
-      0001A4 2A 00                 2257 	.byte #0x2a, #0x00	; 42
-      0001A6 54 00                 2258 	.byte #0x54, #0x00	; 84
-      0001A8 04                    2259 	.db #0x04	; 4
-      0001A9r58s00                 2260 	.byte (_reg_pvp + 32), ((_reg_pvp + 32) >> 8)
-      0001AB 00 00 00 00           2261 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0001AF 00 00 00 80           2262 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      0001B3 FF FF FF 7F           2263 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      0001B7 00                    2264 	.db #0x00	; 0
-      0001B8 34 00                 2265 	.byte #0x34, #0x00	; 52
-      0001BA 58 00                 2266 	.byte #0x58, #0x00	; 88
-      0001BC 04                    2267 	.db #0x04	; 4
-      0001BDr5Cs00                 2268 	.byte _reg_adc_speed, (_reg_adc_speed >> 8)
-      0001BF 00 00 00 00           2269 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0001C3 00 00 00 00           2270 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0001C7 01 00 00 00           2271 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      0001CB 00                    2272 	.db #0x00	; 0
-      0001CC 56 00                 2273 	.byte #0x56, #0x00	; 86
-      0001CE 5C 00                 2274 	.byte #0x5c, #0x00	; 92
-      0001D0 04                    2275 	.db #0x04	; 4
-      0001D1r64s00                 2276 	.byte _reg_filter_level, (_reg_filter_level >> 8)
-      0001D3 02 00 00 00           2277 	.byte #0x02, #0x00, #0x00, #0x00	;  2
-      0001D7 00 00 00 00           2278 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0001DB 05 00 00 00           2279 	.byte #0x05, #0x00, #0x00, #0x00	;  5
-      0001DF 00                    2280 	.db #0x00	; 0
-      0001E0 58 00                 2281 	.byte #0x58, #0x00	; 88
-      0001E2 60 00                 2282 	.byte #0x60, #0x00	; 96
-      0001E4 04                    2283 	.db #0x04	; 4
-      0001E5r68s00                 2284 	.byte _reg_filter_band, (_reg_filter_band >> 8)
-      0001E7 0A 00 00 00           2285 	.byte #0x0a, #0x00, #0x00, #0x00	;  10
-      0001EB 00 00 00 00           2286 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0001EF E8 03 00 00           2287 	.byte #0xe8, #0x03, #0x00, #0x00	;  1000
-      0001F3 00                    2288 	.db #0x00	; 0
-      0001F4 5A 00                 2289 	.byte #0x5a, #0x00	; 90
-      0001F6 64 00                 2290 	.byte #0x64, #0x00	; 100
-      0001F8 04                    2291 	.db #0x04	; 4
-      0001F9r6Cs00                 2292 	.byte _reg_baud_rate, (_reg_baud_rate >> 8)
-      0001FB 03 00 00 00           2293 	.byte #0x03, #0x00, #0x00, #0x00	;  3
-      0001FF 00 00 00 00           2294 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000203 0A 00 00 00           2295 	.byte #0x0a, #0x00, #0x00, #0x00	;  10
-      000207 00                    2296 	.db #0x00	; 0
-      000208 5C 00                 2297 	.byte #0x5c, #0x00	; 92
-      00020A 68 00                 2298 	.byte #0x68, #0x00	; 104
-      00020C 04                    2299 	.db #0x04	; 4
-      00020Dr70s00                 2300 	.byte _reg_zero_trace_delay, (_reg_zero_trace_delay >> 8)
-      00020F 00 00 00 00           2301 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000213 00 00 00 00           2302 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000217 32 00 00 00           2303 	.byte #0x32, #0x00, #0x00, #0x00	;  50
-      00021B 00                    2304 	.db #0x00	; 0
-      00021C 5E 00                 2305 	.byte #0x5e, #0x00	; 94
-      00021E 6C 00                 2306 	.byte #0x6c, #0x00	; 108
-      000220 04                    2307 	.db #0x04	; 4
-      000221r74s00                 2308 	.byte _reg_zero_trace_band, (_reg_zero_trace_band >> 8)
-      000223 00 00 00 00           2309 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000227 00 00 00 00           2310 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00022B 10 27 00 00           2311 	.byte #0x10, #0x27, #0x00, #0x00	;  10000
-      00022F 00                    2312 	.db #0x00	; 0
-      000230 60 00                 2313 	.byte #0x60, #0x00	; 96
-      000232 70 00                 2314 	.byte #0x70, #0x00	; 112
-      000234 04                    2315 	.db #0x04	; 4
-      000235r78s00                 2316 	.byte _reg_stable_delay, (_reg_stable_delay >> 8)
-      000237 01 00 00 00           2317 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      00023B 01 00 00 00           2318 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      00023F 32 00 00 00           2319 	.byte #0x32, #0x00, #0x00, #0x00	;  50
-      000243 00                    2320 	.db #0x00	; 0
-      000244 62 00                 2321 	.byte #0x62, #0x00	; 98
-      000246 74 00                 2322 	.byte #0x74, #0x00	; 116
-      000248 04                    2323 	.db #0x04	; 4
-      000249r7Cs00                 2324 	.byte _reg_stable_band, (_reg_stable_band >> 8)
-      00024B 01 00 00 00           2325 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      00024F 01 00 00 00           2326 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      000253 64 00 00 00           2327 	.byte #0x64, #0x00, #0x00, #0x00	;  100
-      000257 00                    2328 	.db #0x00	; 0
-      000258 64 00                 2329 	.byte #0x64, #0x00	; 100
-      00025A 78 00                 2330 	.byte #0x78, #0x00	; 120
-      00025C 04                    2331 	.db #0x04	; 4
-      00025Dr80s00                 2332 	.byte _reg_output_round, (_reg_output_round >> 8)
-      00025F 01 00 00 00           2333 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      000263 01 00 00 00           2334 	.byte #0x01, #0x00, #0x00, #0x00	;  1
-      000267 FA 00 00 00           2335 	.byte #0xfa, #0x00, #0x00, #0x00	;  250
-      00026B 00                    2336 	.db #0x00	; 0
-      00026C 66 00                 2337 	.byte #0x66, #0x00	; 102
-      00026E 7C 00                 2338 	.byte #0x7c, #0x00	; 124
-      000270 04                    2339 	.db #0x04	; 4
-      000271r84s00                 2340 	.byte _reg_parity, (_reg_parity >> 8)
-      000273 00 00 00 00           2341 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      000277 00 00 00 00           2342 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00027B 04 00 00 00           2343 	.byte #0x04, #0x00, #0x00, #0x00	;  4
-      00027F 00                    2344 	.db #0x00	; 0
-      000280 40 1F                 2345 	.byte #0x40, #0x1f	; 8000
-      000282 FF FF                 2346 	.byte #0xff, #0xff	; 65535
-      000284 04                    2347 	.db #0x04	; 4
-      000285r00s00                 2348 	.byte _reg_adc_raw_value, (_reg_adc_raw_value >> 8)
-      000287 00 00 00 00           2349 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00028B 00 00 00 80           2350 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
-      00028F FF FF FF 7F           2351 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
-      000293 81                    2352 	.db #0x81	; 129
-      000294 F0 1F                 2353 	.byte #0xf0, #0x1f	; 8176
-      000296 80 00                 2354 	.byte #0x80, #0x00	; 128
-      000298 01                    2355 	.db #0x01	; 1
-      000299r9Cs00                 2356 	.byte _reg_magic_key, (_reg_magic_key >> 8)
-      00029B AA 55 00 00           2357 	.byte #0xaa, #0x55, #0x00, #0x00	;  21930
-      00029F 00 00 00 00           2358 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      0002A3 FF FF 00 00           2359 	.byte #0xff, #0xff, #0x00, #0x00	;  65535
-      0002A7 01                    2360 	.db #0x01	; 1
-                                   2361 	.area CSEG    (CODE)
-                                   2362 	.area CONST   (CODE)
-      0002A8                       2363 ___str_0:
-      0002A8 52 45 47 5F 49 4E 49  2364 	.ascii "REG_INIT CALLED AGAIN"
+                                   1841 ;	 function reg_load_all
+                                   1842 ;	-----------------------------------------
+      000646                       1843 _reg_load_all:
+                                   1844 ;	.\FwLib_STC8\user\reg_table.c:207: for (i = 0; i < REG_TABLE_SIZE; i++) {
+      000646 7F 00            [12] 1845 	mov	r7,#0x00
+      000648                       1846 00102$:
+                                   1847 ;	.\FwLib_STC8\user\reg_table.c:208: reg_load(&reg_table[i]);
+      000648 EF               [12] 1848 	mov	a,r7
+      000649 75 F0 14         [24] 1849 	mov	b,#0x14
+      00064C A4               [48] 1850 	mul	ab
+      00064D 24r00            [12] 1851 	add	a, #_reg_table
+      00064F FD               [12] 1852 	mov	r5,a
+      000650 74s00            [12] 1853 	mov	a,#(_reg_table >> 8)
+      000652 35 F0            [12] 1854 	addc	a, b
+      000654 FE               [12] 1855 	mov	r6,a
+      000655 7C 80            [12] 1856 	mov	r4,#0x80
+      000657 8D 82            [24] 1857 	mov	dpl, r5
+      000659 8E 83            [24] 1858 	mov	dph, r6
+      00065B 8C F0            [24] 1859 	mov	b, r4
+      00065D C0 07            [24] 1860 	push	ar7
+      00065F 12r01rCE         [24] 1861 	lcall	_reg_load
+      000662 D0 07            [24] 1862 	pop	ar7
+                                   1863 ;	.\FwLib_STC8\user\reg_table.c:207: for (i = 0; i < REG_TABLE_SIZE; i++) {
+      000664 0F               [12] 1864 	inc	r7
+      000665 BF 22 00         [24] 1865 	cjne	r7,#0x22,00113$
+      000668                       1866 00113$:
+      000668 40 DE            [24] 1867 	jc	00102$
+                                   1868 ;	.\FwLib_STC8\user\reg_table.c:210: }
+      00066A 22               [24] 1869 	ret
+                                   1870 ;------------------------------------------------------------
+                                   1871 ;Allocation info for local variables in function 'reg_init'
+                                   1872 ;------------------------------------------------------------
+                                   1873 ;ran_once      Allocated with name '_reg_init_ran_once_10000_92'
+                                   1874 ;------------------------------------------------------------
+                                   1875 ;	.\FwLib_STC8\user\reg_table.c:212: void reg_init(void) {
+                                   1876 ;	-----------------------------------------
+                                   1877 ;	 function reg_init
+                                   1878 ;	-----------------------------------------
+      00066B                       1879 _reg_init:
+                                   1880 ;	.\FwLib_STC8\user\reg_table.c:215: if (ran_once) {
+      00066B 90r00rB8         [24] 1881 	mov	dptr,#_reg_init_ran_once_10000_92
+      00066E E0               [24] 1882 	movx	a,@dptr
+      00066F 60 0B            [24] 1883 	jz	00105$
+                                   1884 ;	.\FwLib_STC8\user\reg_table.c:216: UART_SendString("REG_INIT CALLED AGAIN\r\n");
+      000671 90r02rA8         [24] 1885 	mov	dptr,#___str_0
+      000674 75 F0 80         [24] 1886 	mov	b, #0x80
+      000677 12r00r00         [24] 1887 	lcall	_UART_SendString
+                                   1888 ;	.\FwLib_STC8\user\reg_table.c:217: while (1);   // freeze here
+      00067A                       1889 00102$:
+      00067A 80 FE            [24] 1890 	sjmp	00102$
+      00067C                       1891 00105$:
+                                   1892 ;	.\FwLib_STC8\user\reg_table.c:219: ran_once = 1;
+      00067C 90r00rB8         [24] 1893 	mov	dptr,#_reg_init_ran_once_10000_92
+      00067F 74 01            [12] 1894 	mov	a,#0x01
+      000681 F0               [24] 1895 	movx	@dptr,a
+                                   1896 ;	.\FwLib_STC8\user\reg_table.c:220: reg_load(&reg_table[REG_TABLE_SIZE - 1]);
+      000682 90r02r94         [24] 1897 	mov	dptr,#(_reg_table + 0x0294)
+      000685 75 F0 80         [24] 1898 	mov	b, #0x80
+      000688 12r01rCE         [24] 1899 	lcall	_reg_load
+                                   1900 ;	.\FwLib_STC8\user\reg_table.c:221: if (reg_magic_key == 0x55AA) {
+      00068B 90r00r9C         [24] 1901 	mov	dptr,#_reg_magic_key
+      00068E E0               [24] 1902 	movx	a,@dptr
+      00068F FE               [12] 1903 	mov	r6,a
+      000690 A3               [24] 1904 	inc	dptr
+      000691 E0               [24] 1905 	movx	a,@dptr
+      000692 FF               [12] 1906 	mov	r7,a
+      000693 BE AA 0F         [24] 1907 	cjne	r6,#0xaa,00107$
+      000696 BF 55 0C         [24] 1908 	cjne	r7,#0x55,00107$
+                                   1909 ;	.\FwLib_STC8\user\reg_table.c:222: UART_SendString("Valid Config Found. Loading...\r\n");
+      000699 90r02rC0         [24] 1910 	mov	dptr,#___str_1
+      00069C 75 F0 80         [24] 1911 	mov	b, #0x80
+      00069F 12r00r00         [24] 1912 	lcall	_UART_SendString
+                                   1913 ;	.\FwLib_STC8\user\reg_table.c:223: reg_load_all();
+      0006A2 02r06r46         [24] 1914 	ljmp	_reg_load_all
+      0006A5                       1915 00107$:
+                                   1916 ;	.\FwLib_STC8\user\reg_table.c:225: UART_SendString("No Config Found. Initializing Defaults...\r\n");
+      0006A5 90r02rE1         [24] 1917 	mov	dptr,#___str_2
+      0006A8 75 F0 80         [24] 1918 	mov	b, #0x80
+      0006AB 12r00r00         [24] 1919 	lcall	_UART_SendString
+                                   1920 ;	.\FwLib_STC8\user\reg_table.c:226: reg_reset_defaults();
+                                   1921 ;	.\FwLib_STC8\user\reg_table.c:228: }
+      0006AE 02r06rB1         [24] 1922 	ljmp	_reg_reset_defaults
+                                   1923 ;------------------------------------------------------------
+                                   1924 ;Allocation info for local variables in function 'reg_reset_defaults'
+                                   1925 ;------------------------------------------------------------
+                                   1926 ;sloc0         Allocated with name '_reg_reset_defaults_sloc0_1_0'
+                                   1927 ;sloc1         Allocated with name '_reg_reset_defaults_sloc1_1_0'
+                                   1928 ;i             Allocated with name '_reg_reset_defaults_i_10000_97'
+                                   1929 ;r             Allocated with name '_reg_reset_defaults_r_10000_97'
+                                   1930 ;------------------------------------------------------------
+                                   1931 ;	.\FwLib_STC8\user\reg_table.c:230: void reg_reset_defaults(void) {
+                                   1932 ;	-----------------------------------------
+                                   1933 ;	 function reg_reset_defaults
+                                   1934 ;	-----------------------------------------
+      0006B1                       1935 _reg_reset_defaults:
+                                   1936 ;	.\FwLib_STC8\user\reg_table.c:233: for (i = 0; i < REG_TABLE_SIZE; i++) {
+      0006B1 7F 00            [12] 1937 	mov	r7,#0x00
+      0006B3                       1938 00109$:
+                                   1939 ;	.\FwLib_STC8\user\reg_table.c:234: r = &reg_table[i];
+      0006B3 EF               [12] 1940 	mov	a,r7
+      0006B4 75 F0 14         [24] 1941 	mov	b,#0x14
+      0006B7 A4               [48] 1942 	mul	ab
+      0006B8 24r00            [12] 1943 	add	a, #_reg_table
+      0006BA FD               [12] 1944 	mov	r5,a
+      0006BB 74s00            [12] 1945 	mov	a,#(_reg_table >> 8)
+      0006BD 35 F0            [12] 1946 	addc	a, b
+      0006BF FC               [12] 1947 	mov	r4,a
+      0006C0 7E 80            [12] 1948 	mov	r6,#0x80
+      0006C2 90r00rB9         [24] 1949 	mov	dptr,#_reg_reset_defaults_r_10000_97
+      0006C5 ED               [12] 1950 	mov	a,r5
+      0006C6 F0               [24] 1951 	movx	@dptr,a
+      0006C7 EC               [12] 1952 	mov	a,r4
+      0006C8 A3               [24] 1953 	inc	dptr
+      0006C9 F0               [24] 1954 	movx	@dptr,a
+      0006CA EE               [12] 1955 	mov	a,r6
+      0006CB A3               [24] 1956 	inc	dptr
+      0006CC F0               [24] 1957 	movx	@dptr,a
+                                   1958 ;	.\FwLib_STC8\user\reg_table.c:235: if (r->type == REG_U8) *(uint8_t*)r->ram_ptr = (uint8_t)r->default_val;
+      0006CD 74 04            [12] 1959 	mov	a,#0x04
+      0006CF 2D               [12] 1960 	add	a, r5
+      0006D0 F9               [12] 1961 	mov	r1,a
+      0006D1 E4               [12] 1962 	clr	a
+      0006D2 3C               [12] 1963 	addc	a, r4
+      0006D3 FA               [12] 1964 	mov	r2,a
+      0006D4 8E 03            [24] 1965 	mov	ar3,r6
+      0006D6 89 82            [24] 1966 	mov	dpl,r1
+      0006D8 8A 83            [24] 1967 	mov	dph,r2
+      0006DA 8B F0            [24] 1968 	mov	b,r3
+      0006DC 12r00r00         [24] 1969 	lcall	__gptrget
+      0006DF FB               [12] 1970 	mov	r3,a
+      0006E0 70 3C            [24] 1971 	jnz	00106$
+      0006E2 C0 07            [24] 1972 	push	ar7
+      0006E4 74 05            [12] 1973 	mov	a,#0x05
+      0006E6 2D               [12] 1974 	add	a, r5
+      0006E7 F8               [12] 1975 	mov	r0,a
+      0006E8 E4               [12] 1976 	clr	a
+      0006E9 3C               [12] 1977 	addc	a, r4
+      0006EA F9               [12] 1978 	mov	r1,a
+      0006EB 8E 02            [24] 1979 	mov	ar2,r6
+      0006ED 88 82            [24] 1980 	mov	dpl,r0
+      0006EF 89 83            [24] 1981 	mov	dph,r1
+      0006F1 8A F0            [24] 1982 	mov	b,r2
+      0006F3 12r00r00         [24] 1983 	lcall	__gptrget
+      0006F6 F8               [12] 1984 	mov	r0,a
+      0006F7 A3               [24] 1985 	inc	dptr
+      0006F8 12r00r00         [24] 1986 	lcall	__gptrget
+      0006FB F9               [12] 1987 	mov	r1,a
+      0006FC 88*00            [24] 1988 	mov	_reg_reset_defaults_sloc0_1_0,r0
+      0006FE 89*01            [24] 1989 	mov	(_reg_reset_defaults_sloc0_1_0 + 1),r1
+      000700 74 07            [12] 1990 	mov	a,#0x07
+      000702 2D               [12] 1991 	add	a, r5
+      000703 F9               [12] 1992 	mov	r1,a
+      000704 E4               [12] 1993 	clr	a
+      000705 3C               [12] 1994 	addc	a, r4
+      000706 FA               [12] 1995 	mov	r2,a
+      000707 8E 07            [24] 1996 	mov	ar7,r6
+      000709 89 82            [24] 1997 	mov	dpl,r1
+      00070B 8A 83            [24] 1998 	mov	dph,r2
+      00070D 8F F0            [24] 1999 	mov	b,r7
+      00070F 12r00r00         [24] 2000 	lcall	__gptrget
+      000712 85*00 82         [24] 2001 	mov	dpl,_reg_reset_defaults_sloc0_1_0
+      000715 85*01 83         [24] 2002 	mov	dph,(_reg_reset_defaults_sloc0_1_0 + 1)
+      000718 F0               [24] 2003 	movx	@dptr,a
+      000719 D0 07            [24] 2004 	pop	ar7
+      00071B 02r07rBE         [24] 2005 	ljmp	00110$
+      00071E                       2006 00106$:
+                                   2007 ;	.\FwLib_STC8\user\reg_table.c:236: else if (r->type == REG_U16 || r->type == REG_I16) *(uint16_t*)r->ram_ptr = (uint16_t)r->default_val;
+      00071E BB 01 02         [24] 2008 	cjne	r3,#0x01,00139$
+      000721 80 03            [24] 2009 	sjmp	00101$
+      000723                       2010 00139$:
+      000723 BB 03 51         [24] 2011 	cjne	r3,#0x03,00102$
+      000726                       2012 00101$:
+      000726 C0 07            [24] 2013 	push	ar7
+      000728 90r00rB9         [24] 2014 	mov	dptr,#_reg_reset_defaults_r_10000_97
+      00072B E0               [24] 2015 	movx	a,@dptr
+      00072C F5*02            [12] 2016 	mov	_reg_reset_defaults_sloc1_1_0,a
+      00072E A3               [24] 2017 	inc	dptr
+      00072F E0               [24] 2018 	movx	a,@dptr
+      000730 F5*03            [12] 2019 	mov	(_reg_reset_defaults_sloc1_1_0 + 1),a
+      000732 A3               [24] 2020 	inc	dptr
+      000733 E0               [24] 2021 	movx	a,@dptr
+      000734 F5*04            [12] 2022 	mov	(_reg_reset_defaults_sloc1_1_0 + 2),a
+      000736 74 05            [12] 2023 	mov	a,#0x05
+      000738 25*02            [12] 2024 	add	a, _reg_reset_defaults_sloc1_1_0
+      00073A F8               [12] 2025 	mov	r0,a
+      00073B E4               [12] 2026 	clr	a
+      00073C 35*03            [12] 2027 	addc	a, (_reg_reset_defaults_sloc1_1_0 + 1)
+      00073E FB               [12] 2028 	mov	r3,a
+      00073F AF*04            [24] 2029 	mov	r7,(_reg_reset_defaults_sloc1_1_0 + 2)
+      000741 88 82            [24] 2030 	mov	dpl,r0
+      000743 8B 83            [24] 2031 	mov	dph,r3
+      000745 8F F0            [24] 2032 	mov	b,r7
+      000747 12r00r00         [24] 2033 	lcall	__gptrget
+      00074A F8               [12] 2034 	mov	r0,a
+      00074B A3               [24] 2035 	inc	dptr
+      00074C 12r00r00         [24] 2036 	lcall	__gptrget
+      00074F FB               [12] 2037 	mov	r3,a
+      000750 74 07            [12] 2038 	mov	a,#0x07
+      000752 25*02            [12] 2039 	add	a, _reg_reset_defaults_sloc1_1_0
+      000754 F9               [12] 2040 	mov	r1,a
+      000755 E4               [12] 2041 	clr	a
+      000756 35*03            [12] 2042 	addc	a, (_reg_reset_defaults_sloc1_1_0 + 1)
+      000758 FA               [12] 2043 	mov	r2,a
+      000759 AF*04            [24] 2044 	mov	r7,(_reg_reset_defaults_sloc1_1_0 + 2)
+      00075B 89 82            [24] 2045 	mov	dpl,r1
+      00075D 8A 83            [24] 2046 	mov	dph,r2
+      00075F 8F F0            [24] 2047 	mov	b,r7
+      000761 12r00r00         [24] 2048 	lcall	__gptrget
+      000764 F9               [12] 2049 	mov	r1,a
+      000765 A3               [24] 2050 	inc	dptr
+      000766 12r00r00         [24] 2051 	lcall	__gptrget
+      000769 FA               [12] 2052 	mov	r2,a
+      00076A 88 82            [24] 2053 	mov	dpl,r0
+      00076C 8B 83            [24] 2054 	mov	dph,r3
+      00076E E9               [12] 2055 	mov	a,r1
+      00076F F0               [24] 2056 	movx	@dptr,a
+      000770 EA               [12] 2057 	mov	a,r2
+      000771 A3               [24] 2058 	inc	dptr
+      000772 F0               [24] 2059 	movx	@dptr,a
+      000773 D0 07            [24] 2060 	pop	ar7
+      000775 80 47            [24] 2061 	sjmp	00110$
+      000777                       2062 00102$:
+                                   2063 ;	.\FwLib_STC8\user\reg_table.c:237: else *(uint32_t*)r->ram_ptr = (uint32_t)r->default_val;
+      000777 74 05            [12] 2064 	mov	a,#0x05
+      000779 2D               [12] 2065 	add	a, r5
+      00077A F9               [12] 2066 	mov	r1,a
+      00077B E4               [12] 2067 	clr	a
+      00077C 3C               [12] 2068 	addc	a, r4
+      00077D FA               [12] 2069 	mov	r2,a
+      00077E 8E 03            [24] 2070 	mov	ar3,r6
+      000780 89 82            [24] 2071 	mov	dpl,r1
+      000782 8A 83            [24] 2072 	mov	dph,r2
+      000784 8B F0            [24] 2073 	mov	b,r3
+      000786 12r00r00         [24] 2074 	lcall	__gptrget
+      000789 F9               [12] 2075 	mov	r1,a
+      00078A A3               [24] 2076 	inc	dptr
+      00078B 12r00r00         [24] 2077 	lcall	__gptrget
+      00078E FA               [12] 2078 	mov	r2,a
+      00078F 74 07            [12] 2079 	mov	a,#0x07
+      000791 2D               [12] 2080 	add	a, r5
+      000792 FD               [12] 2081 	mov	r5,a
+      000793 E4               [12] 2082 	clr	a
+      000794 3C               [12] 2083 	addc	a, r4
+      000795 FC               [12] 2084 	mov	r4,a
+      000796 8D 82            [24] 2085 	mov	dpl,r5
+      000798 8C 83            [24] 2086 	mov	dph,r4
+      00079A 8E F0            [24] 2087 	mov	b,r6
+      00079C 12r00r00         [24] 2088 	lcall	__gptrget
+      00079F FD               [12] 2089 	mov	r5,a
+      0007A0 A3               [24] 2090 	inc	dptr
+      0007A1 12r00r00         [24] 2091 	lcall	__gptrget
+      0007A4 FC               [12] 2092 	mov	r4,a
+      0007A5 A3               [24] 2093 	inc	dptr
+      0007A6 12r00r00         [24] 2094 	lcall	__gptrget
+      0007A9 FE               [12] 2095 	mov	r6,a
+      0007AA A3               [24] 2096 	inc	dptr
+      0007AB 12r00r00         [24] 2097 	lcall	__gptrget
+      0007AE FB               [12] 2098 	mov	r3,a
+      0007AF 89 82            [24] 2099 	mov	dpl,r1
+      0007B1 8A 83            [24] 2100 	mov	dph,r2
+      0007B3 ED               [12] 2101 	mov	a,r5
+      0007B4 F0               [24] 2102 	movx	@dptr,a
+      0007B5 EC               [12] 2103 	mov	a,r4
+      0007B6 A3               [24] 2104 	inc	dptr
+      0007B7 F0               [24] 2105 	movx	@dptr,a
+      0007B8 EE               [12] 2106 	mov	a,r6
+      0007B9 A3               [24] 2107 	inc	dptr
+      0007BA F0               [24] 2108 	movx	@dptr,a
+      0007BB EB               [12] 2109 	mov	a,r3
+      0007BC A3               [24] 2110 	inc	dptr
+      0007BD F0               [24] 2111 	movx	@dptr,a
+      0007BE                       2112 00110$:
+                                   2113 ;	.\FwLib_STC8\user\reg_table.c:233: for (i = 0; i < REG_TABLE_SIZE; i++) {
+      0007BE 0F               [12] 2114 	inc	r7
+      0007BF BF 22 00         [24] 2115 	cjne	r7,#0x22,00142$
+      0007C2                       2116 00142$:
+      0007C2 50 03            [24] 2117 	jnc	00143$
+      0007C4 02r06rB3         [24] 2118 	ljmp	00109$
+      0007C7                       2119 00143$:
+                                   2120 ;	.\FwLib_STC8\user\reg_table.c:239: reg_save_all();
+                                   2121 ;	.\FwLib_STC8\user\reg_table.c:240: }
+      0007C7 02r00r00         [24] 2122 	ljmp	_reg_save_all
+                                   2123 	.area CSEG    (CODE)
+                                   2124 	.area CONST   (CODE)
+                                   2125 	.area CONST   (CODE)
+      000000                       2126 _reg_table:
+      000000 00 00                 2127 	.byte #0x00, #0x00	; 0
+      000002 00 00                 2128 	.byte #0x00, #0x00	; 0
+      000004 04                    2129 	.db #0x04	; 4
+      000005r04s00                 2130 	.byte _reg_measuring_val, (_reg_measuring_val >> 8)
+      000007 00 00 00 00           2131 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00000B 00 00 00 80           2132 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00000F FF FF FF 7F           2133 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000013 80                    2134 	.db #0x80	; 128
+      000014 02 00                 2135 	.byte #0x02, #0x00	; 2
+      000016 04 00                 2136 	.byte #0x04, #0x00	; 4
+      000018 04                    2137 	.db #0x04	; 4
+      000019r08s00                 2138 	.byte _reg_station_id, (_reg_station_id >> 8)
+      00001B 01 00 00 00           2139 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      00001F 01 00 00 00           2140 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      000023 FE 00 00 00           2141 	.byte #0xfe, #0x00, #0x00, #0x00	;  254
+      000027 00                    2142 	.db #0x00	; 0
+      000028 04 00                 2143 	.byte #0x04, #0x00	; 4
+      00002A 08 00                 2144 	.byte #0x08, #0x00	; 8
+      00002C 04                    2145 	.db #0x04	; 4
+      00002Dr0Cs00                 2146 	.byte _reg_offset_val, (_reg_offset_val >> 8)
+      00002F 00 00 00 00           2147 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000033 00 00 00 80           2148 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      000037 FF FF FF 7F           2149 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      00003B 00                    2150 	.db #0x00	; 0
+      00003C 06 00                 2151 	.byte #0x06, #0x00	; 6
+      00003E 0C 00                 2152 	.byte #0x0c, #0x00	; 12
+      000040 04                    2153 	.db #0x04	; 4
+      000041r10s00                 2154 	.byte _reg_cal_points_num, (_reg_cal_points_num >> 8)
+      000043 02 00 00 00           2155 	.byte #0x02, #0x00, #0x00, #0x00	;  2
+      000047 02 00 00 00           2156 	.byte #0x02, #0x00, #0x00, #0x00	;  2
+      00004B 09 00 00 00           2157 	.byte #0x09, #0x00, #0x00, #0x00	;  9
+      00004F 00                    2158 	.db #0x00	; 0
+      000050 08 00                 2159 	.byte #0x08, #0x00	; 8
+      000052 10 00                 2160 	.byte #0x10, #0x00	; 16
+      000054 04                    2161 	.db #0x04	; 4
+      000055r14s00                 2162 	.byte (_reg_avp + 0), ((_reg_avp + 0) >> 8)
+      000057 00 00 00 00           2163 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00005B 00 00 00 80           2164 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00005F FF FF FF 7F           2165 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000063 00                    2166 	.db #0x00	; 0
+      000064 0A 00                 2167 	.byte #0x0a, #0x00	; 10
+      000066 14 00                 2168 	.byte #0x14, #0x00	; 20
+      000068 04                    2169 	.db #0x04	; 4
+      000069r18s00                 2170 	.byte (_reg_avp + 4), ((_reg_avp + 4) >> 8)
+      00006B 00 00 00 00           2171 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00006F 00 00 00 80           2172 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      000073 FF FF FF 7F           2173 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000077 00                    2174 	.db #0x00	; 0
+      000078 0C 00                 2175 	.byte #0x0c, #0x00	; 12
+      00007A 18 00                 2176 	.byte #0x18, #0x00	; 24
+      00007C 04                    2177 	.db #0x04	; 4
+      00007Dr1Cs00                 2178 	.byte (_reg_avp + 8), ((_reg_avp + 8) >> 8)
+      00007F 00 00 00 00           2179 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000083 00 00 00 80           2180 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      000087 FF FF FF 7F           2181 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      00008B 00                    2182 	.db #0x00	; 0
+      00008C 0E 00                 2183 	.byte #0x0e, #0x00	; 14
+      00008E 1C 00                 2184 	.byte #0x1c, #0x00	; 28
+      000090 04                    2185 	.db #0x04	; 4
+      000091r20s00                 2186 	.byte (_reg_avp + 12), ((_reg_avp + 12) >> 8)
+      000093 00 00 00 00           2187 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000097 00 00 00 80           2188 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00009B FF FF FF 7F           2189 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      00009F 00                    2190 	.db #0x00	; 0
+      0000A0 10 00                 2191 	.byte #0x10, #0x00	; 16
+      0000A2 20 00                 2192 	.byte #0x20, #0x00	; 32
+      0000A4 04                    2193 	.db #0x04	; 4
+      0000A5r24s00                 2194 	.byte (_reg_avp + 16), ((_reg_avp + 16) >> 8)
+      0000A7 00 00 00 00           2195 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0000AB 00 00 00 80           2196 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      0000AF FF FF FF 7F           2197 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      0000B3 00                    2198 	.db #0x00	; 0
+      0000B4 12 00                 2199 	.byte #0x12, #0x00	; 18
+      0000B6 24 00                 2200 	.byte #0x24, #0x00	; 36
+      0000B8 04                    2201 	.db #0x04	; 4
+      0000B9r28s00                 2202 	.byte (_reg_avp + 20), ((_reg_avp + 20) >> 8)
+      0000BB 00 00 00 00           2203 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0000BF 00 00 00 80           2204 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      0000C3 FF FF FF 7F           2205 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      0000C7 00                    2206 	.db #0x00	; 0
+      0000C8 14 00                 2207 	.byte #0x14, #0x00	; 20
+      0000CA 28 00                 2208 	.byte #0x28, #0x00	; 40
+      0000CC 04                    2209 	.db #0x04	; 4
+      0000CDr2Cs00                 2210 	.byte (_reg_avp + 24), ((_reg_avp + 24) >> 8)
+      0000CF 00 00 00 00           2211 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0000D3 00 00 00 80           2212 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      0000D7 FF FF FF 7F           2213 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      0000DB 00                    2214 	.db #0x00	; 0
+      0000DC 16 00                 2215 	.byte #0x16, #0x00	; 22
+      0000DE 2C 00                 2216 	.byte #0x2c, #0x00	; 44
+      0000E0 04                    2217 	.db #0x04	; 4
+      0000E1r30s00                 2218 	.byte (_reg_avp + 28), ((_reg_avp + 28) >> 8)
+      0000E3 00 00 00 00           2219 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0000E7 00 00 00 80           2220 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      0000EB FF FF FF 7F           2221 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      0000EF 00                    2222 	.db #0x00	; 0
+      0000F0 18 00                 2223 	.byte #0x18, #0x00	; 24
+      0000F2 30 00                 2224 	.byte #0x30, #0x00	; 48
+      0000F4 04                    2225 	.db #0x04	; 4
+      0000F5r34s00                 2226 	.byte (_reg_avp + 32), ((_reg_avp + 32) >> 8)
+      0000F7 00 00 00 00           2227 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0000FB 00 00 00 80           2228 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      0000FF FF FF FF 7F           2229 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000103 00                    2230 	.db #0x00	; 0
+      000104 1A 00                 2231 	.byte #0x1a, #0x00	; 26
+      000106 34 00                 2232 	.byte #0x34, #0x00	; 52
+      000108 04                    2233 	.db #0x04	; 4
+      000109r38s00                 2234 	.byte (_reg_pvp + 0), ((_reg_pvp + 0) >> 8)
+      00010B 00 00 00 00           2235 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00010F 00 00 00 80           2236 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      000113 FF FF FF 7F           2237 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000117 00                    2238 	.db #0x00	; 0
+      000118 1C 00                 2239 	.byte #0x1c, #0x00	; 28
+      00011A 38 00                 2240 	.byte #0x38, #0x00	; 56
+      00011C 04                    2241 	.db #0x04	; 4
+      00011Dr3Cs00                 2242 	.byte (_reg_pvp + 4), ((_reg_pvp + 4) >> 8)
+      00011F 00 00 00 00           2243 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000123 00 00 00 80           2244 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      000127 FF FF FF 7F           2245 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      00012B 00                    2246 	.db #0x00	; 0
+      00012C 1E 00                 2247 	.byte #0x1e, #0x00	; 30
+      00012E 3C 00                 2248 	.byte #0x3c, #0x00	; 60
+      000130 04                    2249 	.db #0x04	; 4
+      000131r40s00                 2250 	.byte (_reg_pvp + 8), ((_reg_pvp + 8) >> 8)
+      000133 00 00 00 00           2251 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000137 00 00 00 80           2252 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00013B FF FF FF 7F           2253 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      00013F 00                    2254 	.db #0x00	; 0
+      000140 20 00                 2255 	.byte #0x20, #0x00	; 32
+      000142 40 00                 2256 	.byte #0x40, #0x00	; 64
+      000144 04                    2257 	.db #0x04	; 4
+      000145r44s00                 2258 	.byte (_reg_pvp + 12), ((_reg_pvp + 12) >> 8)
+      000147 00 00 00 00           2259 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00014B 00 00 00 80           2260 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00014F FF FF FF 7F           2261 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000153 00                    2262 	.db #0x00	; 0
+      000154 22 00                 2263 	.byte #0x22, #0x00	; 34
+      000156 44 00                 2264 	.byte #0x44, #0x00	; 68
+      000158 04                    2265 	.db #0x04	; 4
+      000159r48s00                 2266 	.byte (_reg_pvp + 16), ((_reg_pvp + 16) >> 8)
+      00015B 00 00 00 00           2267 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00015F 00 00 00 80           2268 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      000163 FF FF FF 7F           2269 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000167 00                    2270 	.db #0x00	; 0
+      000168 24 00                 2271 	.byte #0x24, #0x00	; 36
+      00016A 48 00                 2272 	.byte #0x48, #0x00	; 72
+      00016C 04                    2273 	.db #0x04	; 4
+      00016Dr4Cs00                 2274 	.byte (_reg_pvp + 20), ((_reg_pvp + 20) >> 8)
+      00016F 00 00 00 00           2275 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000173 00 00 00 80           2276 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      000177 FF FF FF 7F           2277 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      00017B 00                    2278 	.db #0x00	; 0
+      00017C 26 00                 2279 	.byte #0x26, #0x00	; 38
+      00017E 4C 00                 2280 	.byte #0x4c, #0x00	; 76
+      000180 04                    2281 	.db #0x04	; 4
+      000181r50s00                 2282 	.byte (_reg_pvp + 24), ((_reg_pvp + 24) >> 8)
+      000183 00 00 00 00           2283 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000187 00 00 00 80           2284 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00018B FF FF FF 7F           2285 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      00018F 00                    2286 	.db #0x00	; 0
+      000190 28 00                 2287 	.byte #0x28, #0x00	; 40
+      000192 50 00                 2288 	.byte #0x50, #0x00	; 80
+      000194 04                    2289 	.db #0x04	; 4
+      000195r54s00                 2290 	.byte (_reg_pvp + 28), ((_reg_pvp + 28) >> 8)
+      000197 00 00 00 00           2291 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00019B 00 00 00 80           2292 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00019F FF FF FF 7F           2293 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      0001A3 00                    2294 	.db #0x00	; 0
+      0001A4 2A 00                 2295 	.byte #0x2a, #0x00	; 42
+      0001A6 54 00                 2296 	.byte #0x54, #0x00	; 84
+      0001A8 04                    2297 	.db #0x04	; 4
+      0001A9r58s00                 2298 	.byte (_reg_pvp + 32), ((_reg_pvp + 32) >> 8)
+      0001AB 00 00 00 00           2299 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0001AF 00 00 00 80           2300 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      0001B3 FF FF FF 7F           2301 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      0001B7 00                    2302 	.db #0x00	; 0
+      0001B8 34 00                 2303 	.byte #0x34, #0x00	; 52
+      0001BA 58 00                 2304 	.byte #0x58, #0x00	; 88
+      0001BC 04                    2305 	.db #0x04	; 4
+      0001BDr5Cs00                 2306 	.byte _reg_adc_speed, (_reg_adc_speed >> 8)
+      0001BF 00 00 00 00           2307 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0001C3 00 00 00 00           2308 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0001C7 01 00 00 00           2309 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      0001CB 00                    2310 	.db #0x00	; 0
+      0001CC 56 00                 2311 	.byte #0x56, #0x00	; 86
+      0001CE 5C 00                 2312 	.byte #0x5c, #0x00	; 92
+      0001D0 04                    2313 	.db #0x04	; 4
+      0001D1r64s00                 2314 	.byte _reg_filter_level, (_reg_filter_level >> 8)
+      0001D3 02 00 00 00           2315 	.byte #0x02, #0x00, #0x00, #0x00	;  2
+      0001D7 00 00 00 00           2316 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0001DB 05 00 00 00           2317 	.byte #0x05, #0x00, #0x00, #0x00	;  5
+      0001DF 00                    2318 	.db #0x00	; 0
+      0001E0 58 00                 2319 	.byte #0x58, #0x00	; 88
+      0001E2 60 00                 2320 	.byte #0x60, #0x00	; 96
+      0001E4 04                    2321 	.db #0x04	; 4
+      0001E5r68s00                 2322 	.byte _reg_filter_band, (_reg_filter_band >> 8)
+      0001E7 0A 00 00 00           2323 	.byte #0x0a, #0x00, #0x00, #0x00	;  10
+      0001EB 00 00 00 00           2324 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0001EF E8 03 00 00           2325 	.byte #0xe8, #0x03, #0x00, #0x00	;  1000
+      0001F3 00                    2326 	.db #0x00	; 0
+      0001F4 5A 00                 2327 	.byte #0x5a, #0x00	; 90
+      0001F6 64 00                 2328 	.byte #0x64, #0x00	; 100
+      0001F8 04                    2329 	.db #0x04	; 4
+      0001F9r6Cs00                 2330 	.byte _reg_baud_rate, (_reg_baud_rate >> 8)
+      0001FB 03 00 00 00           2331 	.byte #0x03, #0x00, #0x00, #0x00	;  3
+      0001FF 00 00 00 00           2332 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000203 0A 00 00 00           2333 	.byte #0x0a, #0x00, #0x00, #0x00	;  10
+      000207 00                    2334 	.db #0x00	; 0
+      000208 5C 00                 2335 	.byte #0x5c, #0x00	; 92
+      00020A 68 00                 2336 	.byte #0x68, #0x00	; 104
+      00020C 04                    2337 	.db #0x04	; 4
+      00020Dr70s00                 2338 	.byte _reg_zero_trace_delay, (_reg_zero_trace_delay >> 8)
+      00020F 00 00 00 00           2339 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000213 00 00 00 00           2340 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000217 32 00 00 00           2341 	.byte #0x32, #0x00, #0x00, #0x00	;  50
+      00021B 00                    2342 	.db #0x00	; 0
+      00021C 5E 00                 2343 	.byte #0x5e, #0x00	; 94
+      00021E 6C 00                 2344 	.byte #0x6c, #0x00	; 108
+      000220 04                    2345 	.db #0x04	; 4
+      000221r74s00                 2346 	.byte _reg_zero_trace_band, (_reg_zero_trace_band >> 8)
+      000223 00 00 00 00           2347 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000227 00 00 00 00           2348 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00022B 10 27 00 00           2349 	.byte #0x10, #0x27, #0x00, #0x00	;  10000
+      00022F 00                    2350 	.db #0x00	; 0
+      000230 60 00                 2351 	.byte #0x60, #0x00	; 96
+      000232 70 00                 2352 	.byte #0x70, #0x00	; 112
+      000234 04                    2353 	.db #0x04	; 4
+      000235r78s00                 2354 	.byte _reg_stable_delay, (_reg_stable_delay >> 8)
+      000237 01 00 00 00           2355 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      00023B 01 00 00 00           2356 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      00023F 32 00 00 00           2357 	.byte #0x32, #0x00, #0x00, #0x00	;  50
+      000243 00                    2358 	.db #0x00	; 0
+      000244 62 00                 2359 	.byte #0x62, #0x00	; 98
+      000246 74 00                 2360 	.byte #0x74, #0x00	; 116
+      000248 04                    2361 	.db #0x04	; 4
+      000249r7Cs00                 2362 	.byte _reg_stable_band, (_reg_stable_band >> 8)
+      00024B 01 00 00 00           2363 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      00024F 01 00 00 00           2364 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      000253 64 00 00 00           2365 	.byte #0x64, #0x00, #0x00, #0x00	;  100
+      000257 00                    2366 	.db #0x00	; 0
+      000258 64 00                 2367 	.byte #0x64, #0x00	; 100
+      00025A 78 00                 2368 	.byte #0x78, #0x00	; 120
+      00025C 04                    2369 	.db #0x04	; 4
+      00025Dr80s00                 2370 	.byte _reg_output_round, (_reg_output_round >> 8)
+      00025F 01 00 00 00           2371 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      000263 01 00 00 00           2372 	.byte #0x01, #0x00, #0x00, #0x00	;  1
+      000267 FA 00 00 00           2373 	.byte #0xfa, #0x00, #0x00, #0x00	;  250
+      00026B 00                    2374 	.db #0x00	; 0
+      00026C 66 00                 2375 	.byte #0x66, #0x00	; 102
+      00026E 7C 00                 2376 	.byte #0x7c, #0x00	; 124
+      000270 04                    2377 	.db #0x04	; 4
+      000271r84s00                 2378 	.byte _reg_parity, (_reg_parity >> 8)
+      000273 00 00 00 00           2379 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      000277 00 00 00 00           2380 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00027B 04 00 00 00           2381 	.byte #0x04, #0x00, #0x00, #0x00	;  4
+      00027F 00                    2382 	.db #0x00	; 0
+      000280 40 1F                 2383 	.byte #0x40, #0x1f	; 8000
+      000282 FF FF                 2384 	.byte #0xff, #0xff	; 65535
+      000284 04                    2385 	.db #0x04	; 4
+      000285r00s00                 2386 	.byte _reg_adc_raw_value, (_reg_adc_raw_value >> 8)
+      000287 00 00 00 00           2387 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      00028B 00 00 00 80           2388 	.byte #0x00, #0x00, #0x00, #0x80	; -2147483648
+      00028F FF FF FF 7F           2389 	.byte #0xff, #0xff, #0xff, #0x7f	;  2147483647
+      000293 81                    2390 	.db #0x81	; 129
+      000294 F0 1F                 2391 	.byte #0xf0, #0x1f	; 8176
+      000296 80 00                 2392 	.byte #0x80, #0x00	; 128
+      000298 01                    2393 	.db #0x01	; 1
+      000299r9Cs00                 2394 	.byte _reg_magic_key, (_reg_magic_key >> 8)
+      00029B AA 55 00 00           2395 	.byte #0xaa, #0x55, #0x00, #0x00	;  21930
+      00029F 00 00 00 00           2396 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0002A3 FF FF 00 00           2397 	.byte #0xff, #0xff, #0x00, #0x00	;  65535
+      0002A7 01                    2398 	.db #0x01	; 1
+                                   2399 	.area CSEG    (CODE)
+                                   2400 	.area CONST   (CODE)
+      0002A8                       2401 ___str_0:
+      0002A8 52 45 47 5F 49 4E 49  2402 	.ascii "REG_INIT CALLED AGAIN"
              54 20 43 41 4C 4C 45
              44 20 41 47 41 49 4E
-      0002BD 0D                    2365 	.db 0x0d
-      0002BE 0A                    2366 	.db 0x0a
-      0002BF 00                    2367 	.db 0x00
-                                   2368 	.area CSEG    (CODE)
-                                   2369 	.area CONST   (CODE)
-      0002C0                       2370 ___str_1:
-      0002C0 56 61 6C 69 64 20 43  2371 	.ascii "Valid Config Found. Loading..."
+      0002BD 0D                    2403 	.db 0x0d
+      0002BE 0A                    2404 	.db 0x0a
+      0002BF 00                    2405 	.db 0x00
+                                   2406 	.area CSEG    (CODE)
+                                   2407 	.area CONST   (CODE)
+      0002C0                       2408 ___str_1:
+      0002C0 56 61 6C 69 64 20 43  2409 	.ascii "Valid Config Found. Loading..."
              6F 6E 66 69 67 20 46
              6F 75 6E 64 2E 20 4C
              6F 61 64 69 6E 67 2E
              2E 2E
-      0002DE 0D                    2372 	.db 0x0d
-      0002DF 0A                    2373 	.db 0x0a
-      0002E0 00                    2374 	.db 0x00
-                                   2375 	.area CSEG    (CODE)
-                                   2376 	.area CONST   (CODE)
-      0002E1                       2377 ___str_2:
-      0002E1 4E 6F 20 43 6F 6E 66  2378 	.ascii "No Config Found. Initializing Defaults..."
+      0002DE 0D                    2410 	.db 0x0d
+      0002DF 0A                    2411 	.db 0x0a
+      0002E0 00                    2412 	.db 0x00
+                                   2413 	.area CSEG    (CODE)
+                                   2414 	.area CONST   (CODE)
+      0002E1                       2415 ___str_2:
+      0002E1 4E 6F 20 43 6F 6E 66  2416 	.ascii "No Config Found. Initializing Defaults..."
              69 67 20 46 6F 75 6E
              64 2E 20 49 6E 69 74
              69 61 6C 69 7A 69 6E
              67 20 44 65 66 61 75
              6C 74 73 2E 2E 2E
-      00030A 0D                    2379 	.db 0x0d
-      00030B 0A                    2380 	.db 0x0a
-      00030C 00                    2381 	.db 0x00
-                                   2382 	.area CSEG    (CODE)
-                                   2383 	.area XINIT   (CODE)
-                                   2384 	.area CABS    (ABS,CODE)
+      00030A 0D                    2417 	.db 0x0d
+      00030B 0A                    2418 	.db 0x0a
+      00030C 00                    2419 	.db 0x00
+                                   2420 	.area CSEG    (CODE)
+                                   2421 	.area XINIT   (CODE)
+                                   2422 	.area CABS    (ABS,CODE)

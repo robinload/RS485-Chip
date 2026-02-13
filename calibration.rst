@@ -549,7 +549,7 @@
                                     549 ;	-----------------------------------------
                                     550 ;	 function calib_set_point_at
                                     551 ;	-----------------------------------------
-      0012E0                        552 _calib_set_point_at:
+      00132F                        552 _calib_set_point_at:
                            000007   553 	ar7 = 0x07
                            000006   554 	ar6 = 0x06
                            000005   555 	ar5 = 0x05
@@ -558,249 +558,249 @@
                            000002   558 	ar2 = 0x02
                            000001   559 	ar1 = 0x01
                            000000   560 	ar0 = 0x00
-      0012E0 E5 82            [12]  561 	mov	a,dpl
-      0012E2 90 01 49         [24]  562 	mov	dptr,#_calib_set_point_at_index_10000_60
-      0012E5 F0               [24]  563 	movx	@dptr,a
+      00132F E5 82            [12]  561 	mov	a,dpl
+      001331 90 01 49         [24]  562 	mov	dptr,#_calib_set_point_at_index_10000_60
+      001334 F0               [24]  563 	movx	@dptr,a
                                     564 ;	.\FwLib_STC8\user\calibration.c:7: int32_t current_adc = weight_get_filtered();
-      0012E6 12 12 6E         [24]  565 	lcall	_weight_get_filtered
-      0012E9 AC 82            [24]  566 	mov	r4, dpl
-      0012EB AD 83            [24]  567 	mov	r5, dph
-      0012ED AE F0            [24]  568 	mov	r6, b
-      0012EF FF               [12]  569 	mov	r7, a
+      001335 12 12 BD         [24]  565 	lcall	_weight_get_filtered
+      001338 AC 82            [24]  566 	mov	r4, dpl
+      00133A AD 83            [24]  567 	mov	r5, dph
+      00133C AE F0            [24]  568 	mov	r6, b
+      00133E FF               [12]  569 	mov	r7, a
                                     570 ;	.\FwLib_STC8\user\calibration.c:8: weight_status_t status = weight_get_status();
-      0012F0 C0 07            [24]  571 	push	ar7
-      0012F2 C0 06            [24]  572 	push	ar6
-      0012F4 C0 05            [24]  573 	push	ar5
-      0012F6 C0 04            [24]  574 	push	ar4
-      0012F8 74 4E            [12]  575 	mov	a, #_calib_set_point_at___100000005_1_0
-      0012FA C0 E0            [24]  576 	push	acc
-      0012FC 74 01            [12]  577 	mov	a, #(_calib_set_point_at___100000005_1_0 >> 8)
-      0012FE C0 E0            [24]  578 	push	acc
-      001300 E4               [12]  579 	clr	a
-      001301 C0 E0            [24]  580 	push	acc
-      001303 12 12 82         [24]  581 	lcall	_weight_get_status
-      001306 15 81            [12]  582 	dec	sp
-      001308 15 81            [12]  583 	dec	sp
-      00130A 15 81            [12]  584 	dec	sp
-      00130C 90 01 E6         [24]  585 	mov	dptr,#___memcpy_PARM_2
-      00130F 74 4E            [12]  586 	mov	a,#_calib_set_point_at___100000005_1_0
-      001311 F0               [24]  587 	movx	@dptr,a
-      001312 74 01            [12]  588 	mov	a,#(_calib_set_point_at___100000005_1_0 >> 8)
-      001314 A3               [24]  589 	inc	dptr
-      001315 F0               [24]  590 	movx	@dptr,a
-      001316 E4               [12]  591 	clr	a
-      001317 A3               [24]  592 	inc	dptr
-      001318 F0               [24]  593 	movx	@dptr,a
-      001319 90 01 E9         [24]  594 	mov	dptr,#___memcpy_PARM_3
-      00131C 74 04            [12]  595 	mov	a,#0x04
-      00131E F0               [24]  596 	movx	@dptr,a
-      00131F E4               [12]  597 	clr	a
-      001320 A3               [24]  598 	inc	dptr
-      001321 F0               [24]  599 	movx	@dptr,a
-      001322 90 01 4A         [24]  600 	mov	dptr,#_calib_set_point_at_status_10000_61
-      001325 F5 F0            [12]  601 	mov	b,a
-      001327 12 27 28         [24]  602 	lcall	___memcpy
-      00132A D0 04            [24]  603 	pop	ar4
-      00132C D0 05            [24]  604 	pop	ar5
-      00132E D0 06            [24]  605 	pop	ar6
-      001330 D0 07            [24]  606 	pop	ar7
+      00133F C0 07            [24]  571 	push	ar7
+      001341 C0 06            [24]  572 	push	ar6
+      001343 C0 05            [24]  573 	push	ar5
+      001345 C0 04            [24]  574 	push	ar4
+      001347 74 4E            [12]  575 	mov	a, #_calib_set_point_at___100000005_1_0
+      001349 C0 E0            [24]  576 	push	acc
+      00134B 74 01            [12]  577 	mov	a, #(_calib_set_point_at___100000005_1_0 >> 8)
+      00134D C0 E0            [24]  578 	push	acc
+      00134F E4               [12]  579 	clr	a
+      001350 C0 E0            [24]  580 	push	acc
+      001352 12 12 D1         [24]  581 	lcall	_weight_get_status
+      001355 15 81            [12]  582 	dec	sp
+      001357 15 81            [12]  583 	dec	sp
+      001359 15 81            [12]  584 	dec	sp
+      00135B 90 01 EF         [24]  585 	mov	dptr,#___memcpy_PARM_2
+      00135E 74 4E            [12]  586 	mov	a,#_calib_set_point_at___100000005_1_0
+      001360 F0               [24]  587 	movx	@dptr,a
+      001361 74 01            [12]  588 	mov	a,#(_calib_set_point_at___100000005_1_0 >> 8)
+      001363 A3               [24]  589 	inc	dptr
+      001364 F0               [24]  590 	movx	@dptr,a
+      001365 E4               [12]  591 	clr	a
+      001366 A3               [24]  592 	inc	dptr
+      001367 F0               [24]  593 	movx	@dptr,a
+      001368 90 01 F2         [24]  594 	mov	dptr,#___memcpy_PARM_3
+      00136B 74 04            [12]  595 	mov	a,#0x04
+      00136D F0               [24]  596 	movx	@dptr,a
+      00136E E4               [12]  597 	clr	a
+      00136F A3               [24]  598 	inc	dptr
+      001370 F0               [24]  599 	movx	@dptr,a
+      001371 90 01 4A         [24]  600 	mov	dptr,#_calib_set_point_at_status_10000_61
+      001374 F5 F0            [12]  601 	mov	b,a
+      001376 12 2E 3F         [24]  602 	lcall	___memcpy
+      001379 D0 04            [24]  603 	pop	ar4
+      00137B D0 05            [24]  604 	pop	ar5
+      00137D D0 06            [24]  605 	pop	ar6
+      00137F D0 07            [24]  606 	pop	ar7
                                     607 ;	.\FwLib_STC8\user\calibration.c:14: if (index == 0) {
-      001332 90 01 49         [24]  608 	mov	dptr,#_calib_set_point_at_index_10000_60
-      001335 E0               [24]  609 	movx	a,@dptr
-      001336 FB               [12]  610 	mov	r3,a
-      001337 E0               [24]  611 	movx	a,@dptr
-      001338 70 3F            [24]  612 	jnz	00102$
+      001381 90 01 49         [24]  608 	mov	dptr,#_calib_set_point_at_index_10000_60
+      001384 E0               [24]  609 	movx	a,@dptr
+      001385 FB               [12]  610 	mov	r3,a
+      001386 E0               [24]  611 	movx	a,@dptr
+      001387 70 3F            [24]  612 	jnz	00102$
                                     613 ;	.\FwLib_STC8\user\calibration.c:16: reg_offset_val = current_adc;
-      00133A 90 00 1A         [24]  614 	mov	dptr,#_reg_offset_val
-      00133D EC               [12]  615 	mov	a,r4
-      00133E F0               [24]  616 	movx	@dptr,a
-      00133F ED               [12]  617 	mov	a,r5
-      001340 A3               [24]  618 	inc	dptr
-      001341 F0               [24]  619 	movx	@dptr,a
-      001342 EE               [12]  620 	mov	a,r6
-      001343 A3               [24]  621 	inc	dptr
-      001344 F0               [24]  622 	movx	@dptr,a
-      001345 EF               [12]  623 	mov	a,r7
-      001346 A3               [24]  624 	inc	dptr
-      001347 F0               [24]  625 	movx	@dptr,a
+      001389 90 00 1A         [24]  614 	mov	dptr,#_reg_offset_val
+      00138C EC               [12]  615 	mov	a,r4
+      00138D F0               [24]  616 	movx	@dptr,a
+      00138E ED               [12]  617 	mov	a,r5
+      00138F A3               [24]  618 	inc	dptr
+      001390 F0               [24]  619 	movx	@dptr,a
+      001391 EE               [12]  620 	mov	a,r6
+      001392 A3               [24]  621 	inc	dptr
+      001393 F0               [24]  622 	movx	@dptr,a
+      001394 EF               [12]  623 	mov	a,r7
+      001395 A3               [24]  624 	inc	dptr
+      001396 F0               [24]  625 	movx	@dptr,a
                                     626 ;	.\FwLib_STC8\user\calibration.c:17: reg_avp[0] = 0;
-      001348 90 00 22         [24]  627 	mov	dptr,#_reg_avp
-      00134B E4               [12]  628 	clr	a
-      00134C F0               [24]  629 	movx	@dptr,a
-      00134D A3               [24]  630 	inc	dptr
-      00134E F0               [24]  631 	movx	@dptr,a
-      00134F A3               [24]  632 	inc	dptr
-      001350 F0               [24]  633 	movx	@dptr,a
-      001351 A3               [24]  634 	inc	dptr
-      001352 F0               [24]  635 	movx	@dptr,a
+      001397 90 00 22         [24]  627 	mov	dptr,#_reg_avp
+      00139A E4               [12]  628 	clr	a
+      00139B F0               [24]  629 	movx	@dptr,a
+      00139C A3               [24]  630 	inc	dptr
+      00139D F0               [24]  631 	movx	@dptr,a
+      00139E A3               [24]  632 	inc	dptr
+      00139F F0               [24]  633 	movx	@dptr,a
+      0013A0 A3               [24]  634 	inc	dptr
+      0013A1 F0               [24]  635 	movx	@dptr,a
                                     636 ;	.\FwLib_STC8\user\calibration.c:18: reg_pvp[0] = target_weight; 
-      001353 90 01 45         [24]  637 	mov	dptr,#_calib_set_point_at_PARM_2
-      001356 E0               [24]  638 	movx	a,@dptr
-      001357 F5 12            [12]  639 	mov	_calib_set_point_at_sloc0_1_0,a
-      001359 A3               [24]  640 	inc	dptr
-      00135A E0               [24]  641 	movx	a,@dptr
-      00135B F5 13            [12]  642 	mov	(_calib_set_point_at_sloc0_1_0 + 1),a
-      00135D A3               [24]  643 	inc	dptr
-      00135E E0               [24]  644 	movx	a,@dptr
-      00135F F5 14            [12]  645 	mov	(_calib_set_point_at_sloc0_1_0 + 2),a
-      001361 A3               [24]  646 	inc	dptr
-      001362 E0               [24]  647 	movx	a,@dptr
-      001363 F5 15            [12]  648 	mov	(_calib_set_point_at_sloc0_1_0 + 3),a
-      001365 90 00 46         [24]  649 	mov	dptr,#_reg_pvp
-      001368 E5 12            [12]  650 	mov	a,_calib_set_point_at_sloc0_1_0
-      00136A F0               [24]  651 	movx	@dptr,a
-      00136B E5 13            [12]  652 	mov	a,(_calib_set_point_at_sloc0_1_0 + 1)
-      00136D A3               [24]  653 	inc	dptr
-      00136E F0               [24]  654 	movx	@dptr,a
-      00136F E5 14            [12]  655 	mov	a,(_calib_set_point_at_sloc0_1_0 + 2)
-      001371 A3               [24]  656 	inc	dptr
-      001372 F0               [24]  657 	movx	@dptr,a
-      001373 E5 15            [12]  658 	mov	a,(_calib_set_point_at_sloc0_1_0 + 3)
-      001375 A3               [24]  659 	inc	dptr
-      001376 F0               [24]  660 	movx	@dptr,a
-      001377 80 67            [24]  661 	sjmp	00103$
-      001379                        662 00102$:
+      0013A2 90 01 45         [24]  637 	mov	dptr,#_calib_set_point_at_PARM_2
+      0013A5 E0               [24]  638 	movx	a,@dptr
+      0013A6 F5 12            [12]  639 	mov	_calib_set_point_at_sloc0_1_0,a
+      0013A8 A3               [24]  640 	inc	dptr
+      0013A9 E0               [24]  641 	movx	a,@dptr
+      0013AA F5 13            [12]  642 	mov	(_calib_set_point_at_sloc0_1_0 + 1),a
+      0013AC A3               [24]  643 	inc	dptr
+      0013AD E0               [24]  644 	movx	a,@dptr
+      0013AE F5 14            [12]  645 	mov	(_calib_set_point_at_sloc0_1_0 + 2),a
+      0013B0 A3               [24]  646 	inc	dptr
+      0013B1 E0               [24]  647 	movx	a,@dptr
+      0013B2 F5 15            [12]  648 	mov	(_calib_set_point_at_sloc0_1_0 + 3),a
+      0013B4 90 00 46         [24]  649 	mov	dptr,#_reg_pvp
+      0013B7 E5 12            [12]  650 	mov	a,_calib_set_point_at_sloc0_1_0
+      0013B9 F0               [24]  651 	movx	@dptr,a
+      0013BA E5 13            [12]  652 	mov	a,(_calib_set_point_at_sloc0_1_0 + 1)
+      0013BC A3               [24]  653 	inc	dptr
+      0013BD F0               [24]  654 	movx	@dptr,a
+      0013BE E5 14            [12]  655 	mov	a,(_calib_set_point_at_sloc0_1_0 + 2)
+      0013C0 A3               [24]  656 	inc	dptr
+      0013C1 F0               [24]  657 	movx	@dptr,a
+      0013C2 E5 15            [12]  658 	mov	a,(_calib_set_point_at_sloc0_1_0 + 3)
+      0013C4 A3               [24]  659 	inc	dptr
+      0013C5 F0               [24]  660 	movx	@dptr,a
+      0013C6 80 67            [24]  661 	sjmp	00103$
+      0013C8                        662 00102$:
                                     663 ;	.\FwLib_STC8\user\calibration.c:21: reg_avp[index] = current_adc - reg_offset_val;
-      001379 EB               [12]  664 	mov	a,r3
-      00137A 75 F0 04         [24]  665 	mov	b,#0x04
-      00137D A4               [48]  666 	mul	ab
-      00137E F5 16            [12]  667 	mov	_calib_set_point_at_sloc1_1_0,a
-      001380 85 F0 17         [24]  668 	mov	(_calib_set_point_at_sloc1_1_0 + 1),b
-      001383 24 22            [12]  669 	add	a, #_reg_avp
-      001385 F5 12            [12]  670 	mov	_calib_set_point_at_sloc0_1_0,a
-      001387 E5 17            [12]  671 	mov	a,(_calib_set_point_at_sloc1_1_0 + 1)
-      001389 34 00            [12]  672 	addc	a, #(_reg_avp >> 8)
-      00138B F5 13            [12]  673 	mov	(_calib_set_point_at_sloc0_1_0 + 1),a
-      00138D 90 00 1A         [24]  674 	mov	dptr,#_reg_offset_val
-      001390 E0               [24]  675 	movx	a,@dptr
-      001391 F8               [12]  676 	mov	r0,a
-      001392 A3               [24]  677 	inc	dptr
-      001393 E0               [24]  678 	movx	a,@dptr
-      001394 F9               [12]  679 	mov	r1,a
-      001395 A3               [24]  680 	inc	dptr
-      001396 E0               [24]  681 	movx	a,@dptr
-      001397 FA               [12]  682 	mov	r2,a
-      001398 A3               [24]  683 	inc	dptr
-      001399 E0               [24]  684 	movx	a,@dptr
-      00139A FB               [12]  685 	mov	r3,a
-      00139B EC               [12]  686 	mov	a,r4
-      00139C C3               [12]  687 	clr	c
-      00139D 98               [12]  688 	subb	a,r0
-      00139E FC               [12]  689 	mov	r4,a
-      00139F ED               [12]  690 	mov	a,r5
-      0013A0 99               [12]  691 	subb	a,r1
-      0013A1 FD               [12]  692 	mov	r5,a
-      0013A2 EE               [12]  693 	mov	a,r6
-      0013A3 9A               [12]  694 	subb	a,r2
-      0013A4 FE               [12]  695 	mov	r6,a
-      0013A5 EF               [12]  696 	mov	a,r7
-      0013A6 9B               [12]  697 	subb	a,r3
-      0013A7 FF               [12]  698 	mov	r7,a
-      0013A8 85 12 82         [24]  699 	mov	dpl,_calib_set_point_at_sloc0_1_0
-      0013AB 85 13 83         [24]  700 	mov	dph,(_calib_set_point_at_sloc0_1_0 + 1)
-      0013AE EC               [12]  701 	mov	a,r4
-      0013AF F0               [24]  702 	movx	@dptr,a
-      0013B0 ED               [12]  703 	mov	a,r5
-      0013B1 A3               [24]  704 	inc	dptr
-      0013B2 F0               [24]  705 	movx	@dptr,a
-      0013B3 EE               [12]  706 	mov	a,r6
-      0013B4 A3               [24]  707 	inc	dptr
-      0013B5 F0               [24]  708 	movx	@dptr,a
-      0013B6 EF               [12]  709 	mov	a,r7
-      0013B7 A3               [24]  710 	inc	dptr
-      0013B8 F0               [24]  711 	movx	@dptr,a
+      0013C8 EB               [12]  664 	mov	a,r3
+      0013C9 75 F0 04         [24]  665 	mov	b,#0x04
+      0013CC A4               [48]  666 	mul	ab
+      0013CD F5 16            [12]  667 	mov	_calib_set_point_at_sloc1_1_0,a
+      0013CF 85 F0 17         [24]  668 	mov	(_calib_set_point_at_sloc1_1_0 + 1),b
+      0013D2 24 22            [12]  669 	add	a, #_reg_avp
+      0013D4 F5 12            [12]  670 	mov	_calib_set_point_at_sloc0_1_0,a
+      0013D6 E5 17            [12]  671 	mov	a,(_calib_set_point_at_sloc1_1_0 + 1)
+      0013D8 34 00            [12]  672 	addc	a, #(_reg_avp >> 8)
+      0013DA F5 13            [12]  673 	mov	(_calib_set_point_at_sloc0_1_0 + 1),a
+      0013DC 90 00 1A         [24]  674 	mov	dptr,#_reg_offset_val
+      0013DF E0               [24]  675 	movx	a,@dptr
+      0013E0 F8               [12]  676 	mov	r0,a
+      0013E1 A3               [24]  677 	inc	dptr
+      0013E2 E0               [24]  678 	movx	a,@dptr
+      0013E3 F9               [12]  679 	mov	r1,a
+      0013E4 A3               [24]  680 	inc	dptr
+      0013E5 E0               [24]  681 	movx	a,@dptr
+      0013E6 FA               [12]  682 	mov	r2,a
+      0013E7 A3               [24]  683 	inc	dptr
+      0013E8 E0               [24]  684 	movx	a,@dptr
+      0013E9 FB               [12]  685 	mov	r3,a
+      0013EA EC               [12]  686 	mov	a,r4
+      0013EB C3               [12]  687 	clr	c
+      0013EC 98               [12]  688 	subb	a,r0
+      0013ED FC               [12]  689 	mov	r4,a
+      0013EE ED               [12]  690 	mov	a,r5
+      0013EF 99               [12]  691 	subb	a,r1
+      0013F0 FD               [12]  692 	mov	r5,a
+      0013F1 EE               [12]  693 	mov	a,r6
+      0013F2 9A               [12]  694 	subb	a,r2
+      0013F3 FE               [12]  695 	mov	r6,a
+      0013F4 EF               [12]  696 	mov	a,r7
+      0013F5 9B               [12]  697 	subb	a,r3
+      0013F6 FF               [12]  698 	mov	r7,a
+      0013F7 85 12 82         [24]  699 	mov	dpl,_calib_set_point_at_sloc0_1_0
+      0013FA 85 13 83         [24]  700 	mov	dph,(_calib_set_point_at_sloc0_1_0 + 1)
+      0013FD EC               [12]  701 	mov	a,r4
+      0013FE F0               [24]  702 	movx	@dptr,a
+      0013FF ED               [12]  703 	mov	a,r5
+      001400 A3               [24]  704 	inc	dptr
+      001401 F0               [24]  705 	movx	@dptr,a
+      001402 EE               [12]  706 	mov	a,r6
+      001403 A3               [24]  707 	inc	dptr
+      001404 F0               [24]  708 	movx	@dptr,a
+      001405 EF               [12]  709 	mov	a,r7
+      001406 A3               [24]  710 	inc	dptr
+      001407 F0               [24]  711 	movx	@dptr,a
                                     712 ;	.\FwLib_STC8\user\calibration.c:22: reg_pvp[index] = target_weight;
-      0013B9 E5 16            [12]  713 	mov	a,_calib_set_point_at_sloc1_1_0
-      0013BB 24 46            [12]  714 	add	a, #_reg_pvp
-      0013BD FE               [12]  715 	mov	r6,a
-      0013BE E5 17            [12]  716 	mov	a,(_calib_set_point_at_sloc1_1_0 + 1)
-      0013C0 34 00            [12]  717 	addc	a, #(_reg_pvp >> 8)
-      0013C2 FF               [12]  718 	mov	r7,a
-      0013C3 90 01 45         [24]  719 	mov	dptr,#_calib_set_point_at_PARM_2
-      0013C6 E0               [24]  720 	movx	a,@dptr
-      0013C7 FA               [12]  721 	mov	r2,a
-      0013C8 A3               [24]  722 	inc	dptr
-      0013C9 E0               [24]  723 	movx	a,@dptr
-      0013CA FB               [12]  724 	mov	r3,a
-      0013CB A3               [24]  725 	inc	dptr
-      0013CC E0               [24]  726 	movx	a,@dptr
-      0013CD FC               [12]  727 	mov	r4,a
-      0013CE A3               [24]  728 	inc	dptr
-      0013CF E0               [24]  729 	movx	a,@dptr
-      0013D0 FD               [12]  730 	mov	r5,a
-      0013D1 8E 82            [24]  731 	mov	dpl,r6
-      0013D3 8F 83            [24]  732 	mov	dph,r7
-      0013D5 EA               [12]  733 	mov	a,r2
-      0013D6 F0               [24]  734 	movx	@dptr,a
-      0013D7 EB               [12]  735 	mov	a,r3
-      0013D8 A3               [24]  736 	inc	dptr
-      0013D9 F0               [24]  737 	movx	@dptr,a
-      0013DA EC               [12]  738 	mov	a,r4
-      0013DB A3               [24]  739 	inc	dptr
-      0013DC F0               [24]  740 	movx	@dptr,a
-      0013DD ED               [12]  741 	mov	a,r5
-      0013DE A3               [24]  742 	inc	dptr
-      0013DF F0               [24]  743 	movx	@dptr,a
-      0013E0                        744 00103$:
+      001408 E5 16            [12]  713 	mov	a,_calib_set_point_at_sloc1_1_0
+      00140A 24 46            [12]  714 	add	a, #_reg_pvp
+      00140C FE               [12]  715 	mov	r6,a
+      00140D E5 17            [12]  716 	mov	a,(_calib_set_point_at_sloc1_1_0 + 1)
+      00140F 34 00            [12]  717 	addc	a, #(_reg_pvp >> 8)
+      001411 FF               [12]  718 	mov	r7,a
+      001412 90 01 45         [24]  719 	mov	dptr,#_calib_set_point_at_PARM_2
+      001415 E0               [24]  720 	movx	a,@dptr
+      001416 FA               [12]  721 	mov	r2,a
+      001417 A3               [24]  722 	inc	dptr
+      001418 E0               [24]  723 	movx	a,@dptr
+      001419 FB               [12]  724 	mov	r3,a
+      00141A A3               [24]  725 	inc	dptr
+      00141B E0               [24]  726 	movx	a,@dptr
+      00141C FC               [12]  727 	mov	r4,a
+      00141D A3               [24]  728 	inc	dptr
+      00141E E0               [24]  729 	movx	a,@dptr
+      00141F FD               [12]  730 	mov	r5,a
+      001420 8E 82            [24]  731 	mov	dpl,r6
+      001422 8F 83            [24]  732 	mov	dph,r7
+      001424 EA               [12]  733 	mov	a,r2
+      001425 F0               [24]  734 	movx	@dptr,a
+      001426 EB               [12]  735 	mov	a,r3
+      001427 A3               [24]  736 	inc	dptr
+      001428 F0               [24]  737 	movx	@dptr,a
+      001429 EC               [12]  738 	mov	a,r4
+      00142A A3               [24]  739 	inc	dptr
+      00142B F0               [24]  740 	movx	@dptr,a
+      00142C ED               [12]  741 	mov	a,r5
+      00142D A3               [24]  742 	inc	dptr
+      00142E F0               [24]  743 	movx	@dptr,a
+      00142F                        744 00103$:
                                     745 ;	.\FwLib_STC8\user\calibration.c:26: if (index >= reg_cal_points_num) {
-      0013E0 90 01 49         [24]  746 	mov	dptr,#_calib_set_point_at_index_10000_60
-      0013E3 E0               [24]  747 	movx	a,@dptr
-      0013E4 FF               [12]  748 	mov	r7,a
-      0013E5 90 00 1E         [24]  749 	mov	dptr,#_reg_cal_points_num
-      0013E8 E0               [24]  750 	movx	a,@dptr
-      0013E9 F5 12            [12]  751 	mov	_calib_set_point_at_sloc0_1_0,a
-      0013EB A3               [24]  752 	inc	dptr
-      0013EC E0               [24]  753 	movx	a,@dptr
-      0013ED F5 13            [12]  754 	mov	(_calib_set_point_at_sloc0_1_0 + 1),a
-      0013EF A3               [24]  755 	inc	dptr
-      0013F0 E0               [24]  756 	movx	a,@dptr
-      0013F1 F5 14            [12]  757 	mov	(_calib_set_point_at_sloc0_1_0 + 2),a
-      0013F3 A3               [24]  758 	inc	dptr
-      0013F4 E0               [24]  759 	movx	a,@dptr
-      0013F5 F5 15            [12]  760 	mov	(_calib_set_point_at_sloc0_1_0 + 3),a
-      0013F7 8F 00            [24]  761 	mov	ar0,r7
-      0013F9 79 00            [12]  762 	mov	r1,#0x00
-      0013FB 7A 00            [12]  763 	mov	r2,#0x00
-      0013FD 7E 00            [12]  764 	mov	r6,#0x00
-      0013FF C3               [12]  765 	clr	c
-      001400 E8               [12]  766 	mov	a,r0
-      001401 95 12            [12]  767 	subb	a,_calib_set_point_at_sloc0_1_0
-      001403 E9               [12]  768 	mov	a,r1
-      001404 95 13            [12]  769 	subb	a,(_calib_set_point_at_sloc0_1_0 + 1)
-      001406 EA               [12]  770 	mov	a,r2
-      001407 95 14            [12]  771 	subb	a,(_calib_set_point_at_sloc0_1_0 + 2)
-      001409 EE               [12]  772 	mov	a,r6
-      00140A 64 80            [12]  773 	xrl	a,#0x80
-      00140C 85 15 F0         [24]  774 	mov	b,(_calib_set_point_at_sloc0_1_0 + 3)
-      00140F 63 F0 80         [24]  775 	xrl	b,#0x80
-      001412 95 F0            [12]  776 	subb	a,b
-      001414 40 17            [24]  777 	jc	00105$
+      00142F 90 01 49         [24]  746 	mov	dptr,#_calib_set_point_at_index_10000_60
+      001432 E0               [24]  747 	movx	a,@dptr
+      001433 FF               [12]  748 	mov	r7,a
+      001434 90 00 1E         [24]  749 	mov	dptr,#_reg_cal_points_num
+      001437 E0               [24]  750 	movx	a,@dptr
+      001438 F5 12            [12]  751 	mov	_calib_set_point_at_sloc0_1_0,a
+      00143A A3               [24]  752 	inc	dptr
+      00143B E0               [24]  753 	movx	a,@dptr
+      00143C F5 13            [12]  754 	mov	(_calib_set_point_at_sloc0_1_0 + 1),a
+      00143E A3               [24]  755 	inc	dptr
+      00143F E0               [24]  756 	movx	a,@dptr
+      001440 F5 14            [12]  757 	mov	(_calib_set_point_at_sloc0_1_0 + 2),a
+      001442 A3               [24]  758 	inc	dptr
+      001443 E0               [24]  759 	movx	a,@dptr
+      001444 F5 15            [12]  760 	mov	(_calib_set_point_at_sloc0_1_0 + 3),a
+      001446 8F 00            [24]  761 	mov	ar0,r7
+      001448 79 00            [12]  762 	mov	r1,#0x00
+      00144A 7A 00            [12]  763 	mov	r2,#0x00
+      00144C 7E 00            [12]  764 	mov	r6,#0x00
+      00144E C3               [12]  765 	clr	c
+      00144F E8               [12]  766 	mov	a,r0
+      001450 95 12            [12]  767 	subb	a,_calib_set_point_at_sloc0_1_0
+      001452 E9               [12]  768 	mov	a,r1
+      001453 95 13            [12]  769 	subb	a,(_calib_set_point_at_sloc0_1_0 + 1)
+      001455 EA               [12]  770 	mov	a,r2
+      001456 95 14            [12]  771 	subb	a,(_calib_set_point_at_sloc0_1_0 + 2)
+      001458 EE               [12]  772 	mov	a,r6
+      001459 64 80            [12]  773 	xrl	a,#0x80
+      00145B 85 15 F0         [24]  774 	mov	b,(_calib_set_point_at_sloc0_1_0 + 3)
+      00145E 63 F0 80         [24]  775 	xrl	b,#0x80
+      001461 95 F0            [12]  776 	subb	a,b
+      001463 40 17            [24]  777 	jc	00105$
                                     778 ;	.\FwLib_STC8\user\calibration.c:27: reg_cal_points_num = index + 1;
-      001416 7E 00            [12]  779 	mov	r6,#0x00
-      001418 0F               [12]  780 	inc	r7
-      001419 BF 00 01         [24]  781 	cjne	r7,#0x00,00122$
-      00141C 0E               [12]  782 	inc	r6
-      00141D                        783 00122$:
-      00141D 90 00 1E         [24]  784 	mov	dptr,#_reg_cal_points_num
-      001420 EF               [12]  785 	mov	a,r7
-      001421 F0               [24]  786 	movx	@dptr,a
-      001422 EE               [12]  787 	mov	a,r6
-      001423 A3               [24]  788 	inc	dptr
-      001424 F0               [24]  789 	movx	@dptr,a
-      001425 EE               [12]  790 	mov	a,r6
-      001426 33               [12]  791 	rlc	a
-      001427 95 E0            [12]  792 	subb	a,acc
-      001429 A3               [24]  793 	inc	dptr
-      00142A F0               [24]  794 	movx	@dptr,a
-      00142B A3               [24]  795 	inc	dptr
-      00142C F0               [24]  796 	movx	@dptr,a
-      00142D                        797 00105$:
+      001465 7E 00            [12]  779 	mov	r6,#0x00
+      001467 0F               [12]  780 	inc	r7
+      001468 BF 00 01         [24]  781 	cjne	r7,#0x00,00122$
+      00146B 0E               [12]  782 	inc	r6
+      00146C                        783 00122$:
+      00146C 90 00 1E         [24]  784 	mov	dptr,#_reg_cal_points_num
+      00146F EF               [12]  785 	mov	a,r7
+      001470 F0               [24]  786 	movx	@dptr,a
+      001471 EE               [12]  787 	mov	a,r6
+      001472 A3               [24]  788 	inc	dptr
+      001473 F0               [24]  789 	movx	@dptr,a
+      001474 EE               [12]  790 	mov	a,r6
+      001475 33               [12]  791 	rlc	a
+      001476 95 E0            [12]  792 	subb	a,acc
+      001478 A3               [24]  793 	inc	dptr
+      001479 F0               [24]  794 	movx	@dptr,a
+      00147A A3               [24]  795 	inc	dptr
+      00147B F0               [24]  796 	movx	@dptr,a
+      00147C                        797 00105$:
                                     798 ;	.\FwLib_STC8\user\calibration.c:30: reg_save_all();
-      00142D 12 03 0C         [24]  799 	lcall	_reg_save_all
+      00147C 12 03 24         [24]  799 	lcall	_reg_save_all
                                     800 ;	.\FwLib_STC8\user\calibration.c:31: return CAL_OK;
-      001430 75 82 00         [24]  801 	mov	dpl, #0x00
+      00147F 75 82 00         [24]  801 	mov	dpl, #0x00
                                     802 ;	.\FwLib_STC8\user\calibration.c:32: }
-      001433 22               [24]  803 	ret
+      001482 22               [24]  803 	ret
                                     804 ;------------------------------------------------------------
                                     805 ;Allocation info for local variables in function 'calib_clear_all'
                                     806 ;------------------------------------------------------------
@@ -810,71 +810,71 @@
                                     810 ;	-----------------------------------------
                                     811 ;	 function calib_clear_all
                                     812 ;	-----------------------------------------
-      001434                        813 _calib_clear_all:
+      001483                        813 _calib_clear_all:
                                     814 ;	.\FwLib_STC8\user\calibration.c:36: reg_offset_val = 0;
-      001434 90 00 1A         [24]  815 	mov	dptr,#_reg_offset_val
-      001437 E4               [12]  816 	clr	a
-      001438 F0               [24]  817 	movx	@dptr,a
-      001439 A3               [24]  818 	inc	dptr
-      00143A F0               [24]  819 	movx	@dptr,a
-      00143B A3               [24]  820 	inc	dptr
-      00143C F0               [24]  821 	movx	@dptr,a
-      00143D A3               [24]  822 	inc	dptr
-      00143E F0               [24]  823 	movx	@dptr,a
+      001483 90 00 1A         [24]  815 	mov	dptr,#_reg_offset_val
+      001486 E4               [12]  816 	clr	a
+      001487 F0               [24]  817 	movx	@dptr,a
+      001488 A3               [24]  818 	inc	dptr
+      001489 F0               [24]  819 	movx	@dptr,a
+      00148A A3               [24]  820 	inc	dptr
+      00148B F0               [24]  821 	movx	@dptr,a
+      00148C A3               [24]  822 	inc	dptr
+      00148D F0               [24]  823 	movx	@dptr,a
                                     824 ;	.\FwLib_STC8\user\calibration.c:37: reg_cal_points_num = 0;
-      00143F 90 00 1E         [24]  825 	mov	dptr,#_reg_cal_points_num
-      001442 F0               [24]  826 	movx	@dptr,a
-      001443 A3               [24]  827 	inc	dptr
-      001444 F0               [24]  828 	movx	@dptr,a
-      001445 A3               [24]  829 	inc	dptr
-      001446 F0               [24]  830 	movx	@dptr,a
-      001447 A3               [24]  831 	inc	dptr
-      001448 F0               [24]  832 	movx	@dptr,a
+      00148E 90 00 1E         [24]  825 	mov	dptr,#_reg_cal_points_num
+      001491 F0               [24]  826 	movx	@dptr,a
+      001492 A3               [24]  827 	inc	dptr
+      001493 F0               [24]  828 	movx	@dptr,a
+      001494 A3               [24]  829 	inc	dptr
+      001495 F0               [24]  830 	movx	@dptr,a
+      001496 A3               [24]  831 	inc	dptr
+      001497 F0               [24]  832 	movx	@dptr,a
                                     833 ;	.\FwLib_STC8\user\calibration.c:38: for (i = 0; i < 9; i++) {
-      001449 FF               [12]  834 	mov	r7,a
-      00144A                        835 00102$:
+      001498 FF               [12]  834 	mov	r7,a
+      001499                        835 00102$:
                                     836 ;	.\FwLib_STC8\user\calibration.c:39: reg_avp[i] = 0;
-      00144A EF               [12]  837 	mov	a,r7
-      00144B 75 F0 04         [24]  838 	mov	b,#0x04
-      00144E A4               [48]  839 	mul	ab
-      00144F FD               [12]  840 	mov	r5,a
-      001450 AE F0            [24]  841 	mov	r6,b
-      001452 24 22            [12]  842 	add	a, #_reg_avp
-      001454 F5 82            [12]  843 	mov	dpl,a
-      001456 EE               [12]  844 	mov	a,r6
-      001457 34 00            [12]  845 	addc	a, #(_reg_avp >> 8)
-      001459 F5 83            [12]  846 	mov	dph,a
-      00145B E4               [12]  847 	clr	a
-      00145C F0               [24]  848 	movx	@dptr,a
-      00145D A3               [24]  849 	inc	dptr
-      00145E F0               [24]  850 	movx	@dptr,a
-      00145F A3               [24]  851 	inc	dptr
-      001460 F0               [24]  852 	movx	@dptr,a
-      001461 A3               [24]  853 	inc	dptr
-      001462 F0               [24]  854 	movx	@dptr,a
+      001499 EF               [12]  837 	mov	a,r7
+      00149A 75 F0 04         [24]  838 	mov	b,#0x04
+      00149D A4               [48]  839 	mul	ab
+      00149E FD               [12]  840 	mov	r5,a
+      00149F AE F0            [24]  841 	mov	r6,b
+      0014A1 24 22            [12]  842 	add	a, #_reg_avp
+      0014A3 F5 82            [12]  843 	mov	dpl,a
+      0014A5 EE               [12]  844 	mov	a,r6
+      0014A6 34 00            [12]  845 	addc	a, #(_reg_avp >> 8)
+      0014A8 F5 83            [12]  846 	mov	dph,a
+      0014AA E4               [12]  847 	clr	a
+      0014AB F0               [24]  848 	movx	@dptr,a
+      0014AC A3               [24]  849 	inc	dptr
+      0014AD F0               [24]  850 	movx	@dptr,a
+      0014AE A3               [24]  851 	inc	dptr
+      0014AF F0               [24]  852 	movx	@dptr,a
+      0014B0 A3               [24]  853 	inc	dptr
+      0014B1 F0               [24]  854 	movx	@dptr,a
                                     855 ;	.\FwLib_STC8\user\calibration.c:40: reg_pvp[i] = 0;
-      001463 ED               [12]  856 	mov	a,r5
-      001464 24 46            [12]  857 	add	a, #_reg_pvp
-      001466 F5 82            [12]  858 	mov	dpl,a
-      001468 EE               [12]  859 	mov	a,r6
-      001469 34 00            [12]  860 	addc	a, #(_reg_pvp >> 8)
-      00146B F5 83            [12]  861 	mov	dph,a
-      00146D E4               [12]  862 	clr	a
-      00146E F0               [24]  863 	movx	@dptr,a
-      00146F A3               [24]  864 	inc	dptr
-      001470 F0               [24]  865 	movx	@dptr,a
-      001471 A3               [24]  866 	inc	dptr
-      001472 F0               [24]  867 	movx	@dptr,a
-      001473 A3               [24]  868 	inc	dptr
-      001474 F0               [24]  869 	movx	@dptr,a
+      0014B2 ED               [12]  856 	mov	a,r5
+      0014B3 24 46            [12]  857 	add	a, #_reg_pvp
+      0014B5 F5 82            [12]  858 	mov	dpl,a
+      0014B7 EE               [12]  859 	mov	a,r6
+      0014B8 34 00            [12]  860 	addc	a, #(_reg_pvp >> 8)
+      0014BA F5 83            [12]  861 	mov	dph,a
+      0014BC E4               [12]  862 	clr	a
+      0014BD F0               [24]  863 	movx	@dptr,a
+      0014BE A3               [24]  864 	inc	dptr
+      0014BF F0               [24]  865 	movx	@dptr,a
+      0014C0 A3               [24]  866 	inc	dptr
+      0014C1 F0               [24]  867 	movx	@dptr,a
+      0014C2 A3               [24]  868 	inc	dptr
+      0014C3 F0               [24]  869 	movx	@dptr,a
                                     870 ;	.\FwLib_STC8\user\calibration.c:38: for (i = 0; i < 9; i++) {
-      001475 0F               [12]  871 	inc	r7
-      001476 BF 09 00         [24]  872 	cjne	r7,#0x09,00119$
-      001479                        873 00119$:
-      001479 40 CF            [24]  874 	jc	00102$
+      0014C4 0F               [12]  871 	inc	r7
+      0014C5 BF 09 00         [24]  872 	cjne	r7,#0x09,00119$
+      0014C8                        873 00119$:
+      0014C8 40 CF            [24]  874 	jc	00102$
                                     875 ;	.\FwLib_STC8\user\calibration.c:42: reg_save_all();
                                     876 ;	.\FwLib_STC8\user\calibration.c:43: }
-      00147B 02 03 0C         [24]  877 	ljmp	_reg_save_all
+      0014CA 02 03 24         [24]  877 	ljmp	_reg_save_all
                                     878 ;------------------------------------------------------------
                                     879 ;Allocation info for local variables in function 'calib_solve_weight'
                                     880 ;------------------------------------------------------------
@@ -899,937 +899,937 @@
                                     899 ;	-----------------------------------------
                                     900 ;	 function calib_solve_weight
                                     901 ;	-----------------------------------------
-      00147E                        902 _calib_solve_weight:
-      00147E AF 82            [24]  903 	mov	r7,dpl
-      001480 AE 83            [24]  904 	mov	r6,dph
-      001482 AD F0            [24]  905 	mov	r5,b
-      001484 FC               [12]  906 	mov	r4,a
-      001485 90 01 52         [24]  907 	mov	dptr,#_calib_solve_weight_current_adc_10000_69
-      001488 EF               [12]  908 	mov	a,r7
-      001489 F0               [24]  909 	movx	@dptr,a
-      00148A EE               [12]  910 	mov	a,r6
-      00148B A3               [24]  911 	inc	dptr
-      00148C F0               [24]  912 	movx	@dptr,a
-      00148D ED               [12]  913 	mov	a,r5
-      00148E A3               [24]  914 	inc	dptr
-      00148F F0               [24]  915 	movx	@dptr,a
-      001490 EC               [12]  916 	mov	a,r4
-      001491 A3               [24]  917 	inc	dptr
-      001492 F0               [24]  918 	movx	@dptr,a
+      0014CD                        902 _calib_solve_weight:
+      0014CD AF 82            [24]  903 	mov	r7,dpl
+      0014CF AE 83            [24]  904 	mov	r6,dph
+      0014D1 AD F0            [24]  905 	mov	r5,b
+      0014D3 FC               [12]  906 	mov	r4,a
+      0014D4 90 01 52         [24]  907 	mov	dptr,#_calib_solve_weight_current_adc_10000_69
+      0014D7 EF               [12]  908 	mov	a,r7
+      0014D8 F0               [24]  909 	movx	@dptr,a
+      0014D9 EE               [12]  910 	mov	a,r6
+      0014DA A3               [24]  911 	inc	dptr
+      0014DB F0               [24]  912 	movx	@dptr,a
+      0014DC ED               [12]  913 	mov	a,r5
+      0014DD A3               [24]  914 	inc	dptr
+      0014DE F0               [24]  915 	movx	@dptr,a
+      0014DF EC               [12]  916 	mov	a,r4
+      0014E0 A3               [24]  917 	inc	dptr
+      0014E1 F0               [24]  918 	movx	@dptr,a
                                     919 ;	.\FwLib_STC8\user\calibration.c:48: int32_t x = current_adc - reg_offset_val;
-      001493 90 00 1A         [24]  920 	mov	dptr,#_reg_offset_val
-      001496 E0               [24]  921 	movx	a,@dptr
-      001497 FC               [12]  922 	mov	r4,a
-      001498 A3               [24]  923 	inc	dptr
-      001499 E0               [24]  924 	movx	a,@dptr
-      00149A FD               [12]  925 	mov	r5,a
-      00149B A3               [24]  926 	inc	dptr
-      00149C E0               [24]  927 	movx	a,@dptr
-      00149D FE               [12]  928 	mov	r6,a
-      00149E A3               [24]  929 	inc	dptr
-      00149F E0               [24]  930 	movx	a,@dptr
-      0014A0 FF               [12]  931 	mov	r7,a
-      0014A1 90 01 52         [24]  932 	mov	dptr,#_calib_solve_weight_current_adc_10000_69
-      0014A4 E0               [24]  933 	movx	a,@dptr
-      0014A5 F8               [12]  934 	mov	r0,a
-      0014A6 A3               [24]  935 	inc	dptr
-      0014A7 E0               [24]  936 	movx	a,@dptr
-      0014A8 F9               [12]  937 	mov	r1,a
-      0014A9 A3               [24]  938 	inc	dptr
-      0014AA E0               [24]  939 	movx	a,@dptr
-      0014AB FA               [12]  940 	mov	r2,a
-      0014AC A3               [24]  941 	inc	dptr
-      0014AD E0               [24]  942 	movx	a,@dptr
-      0014AE FB               [12]  943 	mov	r3,a
-      0014AF E8               [12]  944 	mov	a,r0
-      0014B0 C3               [12]  945 	clr	c
-      0014B1 9C               [12]  946 	subb	a,r4
-      0014B2 FC               [12]  947 	mov	r4,a
-      0014B3 E9               [12]  948 	mov	a,r1
-      0014B4 9D               [12]  949 	subb	a,r5
-      0014B5 FD               [12]  950 	mov	r5,a
-      0014B6 EA               [12]  951 	mov	a,r2
-      0014B7 9E               [12]  952 	subb	a,r6
-      0014B8 FE               [12]  953 	mov	r6,a
-      0014B9 EB               [12]  954 	mov	a,r3
-      0014BA 9F               [12]  955 	subb	a,r7
-      0014BB FF               [12]  956 	mov	r7,a
+      0014E2 90 00 1A         [24]  920 	mov	dptr,#_reg_offset_val
+      0014E5 E0               [24]  921 	movx	a,@dptr
+      0014E6 FC               [12]  922 	mov	r4,a
+      0014E7 A3               [24]  923 	inc	dptr
+      0014E8 E0               [24]  924 	movx	a,@dptr
+      0014E9 FD               [12]  925 	mov	r5,a
+      0014EA A3               [24]  926 	inc	dptr
+      0014EB E0               [24]  927 	movx	a,@dptr
+      0014EC FE               [12]  928 	mov	r6,a
+      0014ED A3               [24]  929 	inc	dptr
+      0014EE E0               [24]  930 	movx	a,@dptr
+      0014EF FF               [12]  931 	mov	r7,a
+      0014F0 90 01 52         [24]  932 	mov	dptr,#_calib_solve_weight_current_adc_10000_69
+      0014F3 E0               [24]  933 	movx	a,@dptr
+      0014F4 F8               [12]  934 	mov	r0,a
+      0014F5 A3               [24]  935 	inc	dptr
+      0014F6 E0               [24]  936 	movx	a,@dptr
+      0014F7 F9               [12]  937 	mov	r1,a
+      0014F8 A3               [24]  938 	inc	dptr
+      0014F9 E0               [24]  939 	movx	a,@dptr
+      0014FA FA               [12]  940 	mov	r2,a
+      0014FB A3               [24]  941 	inc	dptr
+      0014FC E0               [24]  942 	movx	a,@dptr
+      0014FD FB               [12]  943 	mov	r3,a
+      0014FE E8               [12]  944 	mov	a,r0
+      0014FF C3               [12]  945 	clr	c
+      001500 9C               [12]  946 	subb	a,r4
+      001501 FC               [12]  947 	mov	r4,a
+      001502 E9               [12]  948 	mov	a,r1
+      001503 9D               [12]  949 	subb	a,r5
+      001504 FD               [12]  950 	mov	r5,a
+      001505 EA               [12]  951 	mov	a,r2
+      001506 9E               [12]  952 	subb	a,r6
+      001507 FE               [12]  953 	mov	r6,a
+      001508 EB               [12]  954 	mov	a,r3
+      001509 9F               [12]  955 	subb	a,r7
+      00150A FF               [12]  956 	mov	r7,a
                                     957 ;	.\FwLib_STC8\user\calibration.c:50: if (reg_cal_points_num < 2) {
-      0014BC 90 00 1E         [24]  958 	mov	dptr,#_reg_cal_points_num
-      0014BF E0               [24]  959 	movx	a,@dptr
-      0014C0 F8               [12]  960 	mov	r0,a
-      0014C1 A3               [24]  961 	inc	dptr
-      0014C2 E0               [24]  962 	movx	a,@dptr
-      0014C3 F9               [12]  963 	mov	r1,a
-      0014C4 A3               [24]  964 	inc	dptr
-      0014C5 E0               [24]  965 	movx	a,@dptr
-      0014C6 FA               [12]  966 	mov	r2,a
-      0014C7 A3               [24]  967 	inc	dptr
-      0014C8 E0               [24]  968 	movx	a,@dptr
-      0014C9 FB               [12]  969 	mov	r3,a
-      0014CA C3               [12]  970 	clr	c
-      0014CB E8               [12]  971 	mov	a,r0
-      0014CC 94 02            [12]  972 	subb	a,#0x02
-      0014CE E9               [12]  973 	mov	a,r1
-      0014CF 94 00            [12]  974 	subb	a,#0x00
-      0014D1 EA               [12]  975 	mov	a,r2
-      0014D2 94 00            [12]  976 	subb	a,#0x00
-      0014D4 EB               [12]  977 	mov	a,r3
-      0014D5 64 80            [12]  978 	xrl	a,#0x80
-      0014D7 94 80            [12]  979 	subb	a,#0x80
-      0014D9 50 07            [24]  980 	jnc	00126$
+      00150B 90 00 1E         [24]  958 	mov	dptr,#_reg_cal_points_num
+      00150E E0               [24]  959 	movx	a,@dptr
+      00150F F8               [12]  960 	mov	r0,a
+      001510 A3               [24]  961 	inc	dptr
+      001511 E0               [24]  962 	movx	a,@dptr
+      001512 F9               [12]  963 	mov	r1,a
+      001513 A3               [24]  964 	inc	dptr
+      001514 E0               [24]  965 	movx	a,@dptr
+      001515 FA               [12]  966 	mov	r2,a
+      001516 A3               [24]  967 	inc	dptr
+      001517 E0               [24]  968 	movx	a,@dptr
+      001518 FB               [12]  969 	mov	r3,a
+      001519 C3               [12]  970 	clr	c
+      00151A E8               [12]  971 	mov	a,r0
+      00151B 94 02            [12]  972 	subb	a,#0x02
+      00151D E9               [12]  973 	mov	a,r1
+      00151E 94 00            [12]  974 	subb	a,#0x00
+      001520 EA               [12]  975 	mov	a,r2
+      001521 94 00            [12]  976 	subb	a,#0x00
+      001523 EB               [12]  977 	mov	a,r3
+      001524 64 80            [12]  978 	xrl	a,#0x80
+      001526 94 80            [12]  979 	subb	a,#0x80
+      001528 50 07            [24]  980 	jnc	00126$
                                     981 ;	.\FwLib_STC8\user\calibration.c:51: return 0; 
-      0014DB 90 00 00         [24]  982 	mov	dptr,#0x0000
-      0014DE E4               [12]  983 	clr	a
-      0014DF F5 F0            [12]  984 	mov	b,a
-      0014E1 22               [24]  985 	ret
+      00152A 90 00 00         [24]  982 	mov	dptr,#0x0000
+      00152D E4               [12]  983 	clr	a
+      00152E F5 F0            [12]  984 	mov	b,a
+      001530 22               [24]  985 	ret
                                     986 ;	.\FwLib_STC8\user\calibration.c:54: for (i = 0; i < (reg_cal_points_num - 1); i++) {
-      0014E2                        987 00126$:
-      0014E2 E8               [12]  988 	mov	a,r0
-      0014E3 24 FF            [12]  989 	add	a,#0xff
-      0014E5 F5 18            [12]  990 	mov	_calib_solve_weight_sloc0_1_0,a
-      0014E7 E9               [12]  991 	mov	a,r1
-      0014E8 34 FF            [12]  992 	addc	a,#0xff
-      0014EA F5 19            [12]  993 	mov	(_calib_solve_weight_sloc0_1_0 + 1),a
-      0014EC EA               [12]  994 	mov	a,r2
-      0014ED 34 FF            [12]  995 	addc	a,#0xff
-      0014EF F5 1A            [12]  996 	mov	(_calib_solve_weight_sloc0_1_0 + 2),a
-      0014F1 EB               [12]  997 	mov	a,r3
-      0014F2 34 FF            [12]  998 	addc	a,#0xff
-      0014F4 F5 1B            [12]  999 	mov	(_calib_solve_weight_sloc0_1_0 + 3),a
-      0014F6 75 1C 00         [24] 1000 	mov	_calib_solve_weight_sloc1_1_0,#0x00
-      0014F9                       1001 00119$:
-      0014F9 C0 00            [24] 1002 	push	ar0
-      0014FB C0 01            [24] 1003 	push	ar1
-      0014FD C0 02            [24] 1004 	push	ar2
-      0014FF C0 03            [24] 1005 	push	ar3
-      001501 A8 1C            [24] 1006 	mov	r0,_calib_solve_weight_sloc1_1_0
-      001503 79 00            [12] 1007 	mov	r1,#0x00
-      001505 7A 00            [12] 1008 	mov	r2,#0x00
-      001507 7B 00            [12] 1009 	mov	r3,#0x00
-      001509 C3               [12] 1010 	clr	c
-      00150A E8               [12] 1011 	mov	a,r0
-      00150B 95 18            [12] 1012 	subb	a,_calib_solve_weight_sloc0_1_0
-      00150D E9               [12] 1013 	mov	a,r1
-      00150E 95 19            [12] 1014 	subb	a,(_calib_solve_weight_sloc0_1_0 + 1)
-      001510 EA               [12] 1015 	mov	a,r2
-      001511 95 1A            [12] 1016 	subb	a,(_calib_solve_weight_sloc0_1_0 + 2)
-      001513 EB               [12] 1017 	mov	a,r3
-      001514 64 80            [12] 1018 	xrl	a,#0x80
-      001516 85 1B F0         [24] 1019 	mov	b,(_calib_solve_weight_sloc0_1_0 + 3)
-      001519 63 F0 80         [24] 1020 	xrl	b,#0x80
-      00151C 95 F0            [12] 1021 	subb	a,b
-      00151E D0 03            [24] 1022 	pop	ar3
-      001520 D0 02            [24] 1023 	pop	ar2
-      001522 D0 01            [24] 1024 	pop	ar1
-      001524 D0 00            [24] 1025 	pop	ar0
-      001526 40 03            [24] 1026 	jc	00183$
-      001528 02 16 C4         [24] 1027 	ljmp	00108$
-      00152B                       1028 00183$:
+      001531                        987 00126$:
+      001531 E8               [12]  988 	mov	a,r0
+      001532 24 FF            [12]  989 	add	a,#0xff
+      001534 F5 18            [12]  990 	mov	_calib_solve_weight_sloc0_1_0,a
+      001536 E9               [12]  991 	mov	a,r1
+      001537 34 FF            [12]  992 	addc	a,#0xff
+      001539 F5 19            [12]  993 	mov	(_calib_solve_weight_sloc0_1_0 + 1),a
+      00153B EA               [12]  994 	mov	a,r2
+      00153C 34 FF            [12]  995 	addc	a,#0xff
+      00153E F5 1A            [12]  996 	mov	(_calib_solve_weight_sloc0_1_0 + 2),a
+      001540 EB               [12]  997 	mov	a,r3
+      001541 34 FF            [12]  998 	addc	a,#0xff
+      001543 F5 1B            [12]  999 	mov	(_calib_solve_weight_sloc0_1_0 + 3),a
+      001545 75 1C 00         [24] 1000 	mov	_calib_solve_weight_sloc1_1_0,#0x00
+      001548                       1001 00119$:
+      001548 C0 00            [24] 1002 	push	ar0
+      00154A C0 01            [24] 1003 	push	ar1
+      00154C C0 02            [24] 1004 	push	ar2
+      00154E C0 03            [24] 1005 	push	ar3
+      001550 A8 1C            [24] 1006 	mov	r0,_calib_solve_weight_sloc1_1_0
+      001552 79 00            [12] 1007 	mov	r1,#0x00
+      001554 7A 00            [12] 1008 	mov	r2,#0x00
+      001556 7B 00            [12] 1009 	mov	r3,#0x00
+      001558 C3               [12] 1010 	clr	c
+      001559 E8               [12] 1011 	mov	a,r0
+      00155A 95 18            [12] 1012 	subb	a,_calib_solve_weight_sloc0_1_0
+      00155C E9               [12] 1013 	mov	a,r1
+      00155D 95 19            [12] 1014 	subb	a,(_calib_solve_weight_sloc0_1_0 + 1)
+      00155F EA               [12] 1015 	mov	a,r2
+      001560 95 1A            [12] 1016 	subb	a,(_calib_solve_weight_sloc0_1_0 + 2)
+      001562 EB               [12] 1017 	mov	a,r3
+      001563 64 80            [12] 1018 	xrl	a,#0x80
+      001565 85 1B F0         [24] 1019 	mov	b,(_calib_solve_weight_sloc0_1_0 + 3)
+      001568 63 F0 80         [24] 1020 	xrl	b,#0x80
+      00156B 95 F0            [12] 1021 	subb	a,b
+      00156D D0 03            [24] 1022 	pop	ar3
+      00156F D0 02            [24] 1023 	pop	ar2
+      001571 D0 01            [24] 1024 	pop	ar1
+      001573 D0 00            [24] 1025 	pop	ar0
+      001575 40 03            [24] 1026 	jc	00183$
+      001577 02 17 13         [24] 1027 	ljmp	00108$
+      00157A                       1028 00183$:
                                    1029 ;	.\FwLib_STC8\user\calibration.c:56: if (reg_avp[i+1] <= reg_avp[i]) continue; 
-      00152B C0 00            [24] 1030 	push	ar0
-      00152D C0 01            [24] 1031 	push	ar1
-      00152F C0 02            [24] 1032 	push	ar2
-      001531 C0 03            [24] 1033 	push	ar3
-      001533 E5 1C            [12] 1034 	mov	a,_calib_solve_weight_sloc1_1_0
-      001535 F5 1D            [12] 1035 	mov	_calib_solve_weight_sloc2_1_0,a
-      001537 04               [12] 1036 	inc	a
-      001538 FB               [12] 1037 	mov	r3,a
-      001539 C2 D5            [12] 1038 	clr	F0
-      00153B 75 F0 04         [24] 1039 	mov	b,#0x04
-      00153E EB               [12] 1040 	mov	a,r3
-      00153F 30 E7 04         [24] 1041 	jnb	acc.7,00184$
-      001542 B2 D5            [12] 1042 	cpl	F0
-      001544 F4               [12] 1043 	cpl	a
-      001545 04               [12] 1044 	inc	a
-      001546                       1045 00184$:
-      001546 A4               [48] 1046 	mul	ab
-      001547 30 D5 0A         [24] 1047 	jnb	F0,00185$
-      00154A F4               [12] 1048 	cpl	a
-      00154B 24 01            [12] 1049 	add	a,#0x01
-      00154D C5 F0            [12] 1050 	xch	a,b
-      00154F F4               [12] 1051 	cpl	a
-      001550 34 00            [12] 1052 	addc	a,#0x00
-      001552 C5 F0            [12] 1053 	xch	a,b
-      001554                       1054 00185$:
-      001554 24 22            [12] 1055 	add	a, #_reg_avp
-      001556 F5 82            [12] 1056 	mov	dpl,a
-      001558 74 00            [12] 1057 	mov	a,#(_reg_avp >> 8)
-      00155A 35 F0            [12] 1058 	addc	a, b
-      00155C F5 83            [12] 1059 	mov	dph,a
-      00155E E0               [24] 1060 	movx	a,@dptr
-      00155F F8               [12] 1061 	mov	r0,a
-      001560 A3               [24] 1062 	inc	dptr
-      001561 E0               [24] 1063 	movx	a,@dptr
-      001562 F9               [12] 1064 	mov	r1,a
-      001563 A3               [24] 1065 	inc	dptr
-      001564 E0               [24] 1066 	movx	a,@dptr
-      001565 FA               [12] 1067 	mov	r2,a
-      001566 A3               [24] 1068 	inc	dptr
-      001567 E0               [24] 1069 	movx	a,@dptr
-      001568 FB               [12] 1070 	mov	r3,a
-      001569 E5 1C            [12] 1071 	mov	a,_calib_solve_weight_sloc1_1_0
-      00156B 75 F0 04         [24] 1072 	mov	b,#0x04
-      00156E A4               [48] 1073 	mul	ab
-      00156F F5 1E            [12] 1074 	mov	_calib_solve_weight_sloc3_1_0,a
-      001571 85 F0 1F         [24] 1075 	mov	(_calib_solve_weight_sloc3_1_0 + 1),b
-      001574 24 22            [12] 1076 	add	a, #_reg_avp
-      001576 F5 82            [12] 1077 	mov	dpl,a
-      001578 E5 1F            [12] 1078 	mov	a,(_calib_solve_weight_sloc3_1_0 + 1)
-      00157A 34 00            [12] 1079 	addc	a, #(_reg_avp >> 8)
-      00157C F5 83            [12] 1080 	mov	dph,a
-      00157E E0               [24] 1081 	movx	a,@dptr
-      00157F F5 20            [12] 1082 	mov	_calib_solve_weight_sloc4_1_0,a
-      001581 A3               [24] 1083 	inc	dptr
-      001582 E0               [24] 1084 	movx	a,@dptr
-      001583 F5 21            [12] 1085 	mov	(_calib_solve_weight_sloc4_1_0 + 1),a
-      001585 A3               [24] 1086 	inc	dptr
-      001586 E0               [24] 1087 	movx	a,@dptr
-      001587 F5 22            [12] 1088 	mov	(_calib_solve_weight_sloc4_1_0 + 2),a
-      001589 A3               [24] 1089 	inc	dptr
-      00158A E0               [24] 1090 	movx	a,@dptr
-      00158B F5 23            [12] 1091 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
-      00158D C3               [12] 1092 	clr	c
-      00158E E5 20            [12] 1093 	mov	a,_calib_solve_weight_sloc4_1_0
-      001590 98               [12] 1094 	subb	a,r0
-      001591 E5 21            [12] 1095 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      001593 99               [12] 1096 	subb	a,r1
-      001594 E5 22            [12] 1097 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
-      001596 9A               [12] 1098 	subb	a,r2
-      001597 E5 23            [12] 1099 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
-      001599 64 80            [12] 1100 	xrl	a,#0x80
-      00159B 8B F0            [24] 1101 	mov	b,r3
-      00159D 63 F0 80         [24] 1102 	xrl	b,#0x80
-      0015A0 95 F0            [12] 1103 	subb	a,b
-      0015A2 D0 03            [24] 1104 	pop	ar3
-      0015A4 D0 02            [24] 1105 	pop	ar2
-      0015A6 D0 01            [24] 1106 	pop	ar1
-      0015A8 D0 00            [24] 1107 	pop	ar0
-      0015AA 40 03            [24] 1108 	jc	00186$
-      0015AC 02 16 BF         [24] 1109 	ljmp	00107$
-      0015AF                       1110 00186$:
+      00157A C0 00            [24] 1030 	push	ar0
+      00157C C0 01            [24] 1031 	push	ar1
+      00157E C0 02            [24] 1032 	push	ar2
+      001580 C0 03            [24] 1033 	push	ar3
+      001582 E5 1C            [12] 1034 	mov	a,_calib_solve_weight_sloc1_1_0
+      001584 F5 1D            [12] 1035 	mov	_calib_solve_weight_sloc2_1_0,a
+      001586 04               [12] 1036 	inc	a
+      001587 FB               [12] 1037 	mov	r3,a
+      001588 C2 D5            [12] 1038 	clr	F0
+      00158A 75 F0 04         [24] 1039 	mov	b,#0x04
+      00158D EB               [12] 1040 	mov	a,r3
+      00158E 30 E7 04         [24] 1041 	jnb	acc.7,00184$
+      001591 B2 D5            [12] 1042 	cpl	F0
+      001593 F4               [12] 1043 	cpl	a
+      001594 04               [12] 1044 	inc	a
+      001595                       1045 00184$:
+      001595 A4               [48] 1046 	mul	ab
+      001596 30 D5 0A         [24] 1047 	jnb	F0,00185$
+      001599 F4               [12] 1048 	cpl	a
+      00159A 24 01            [12] 1049 	add	a,#0x01
+      00159C C5 F0            [12] 1050 	xch	a,b
+      00159E F4               [12] 1051 	cpl	a
+      00159F 34 00            [12] 1052 	addc	a,#0x00
+      0015A1 C5 F0            [12] 1053 	xch	a,b
+      0015A3                       1054 00185$:
+      0015A3 24 22            [12] 1055 	add	a, #_reg_avp
+      0015A5 F5 82            [12] 1056 	mov	dpl,a
+      0015A7 74 00            [12] 1057 	mov	a,#(_reg_avp >> 8)
+      0015A9 35 F0            [12] 1058 	addc	a, b
+      0015AB F5 83            [12] 1059 	mov	dph,a
+      0015AD E0               [24] 1060 	movx	a,@dptr
+      0015AE F8               [12] 1061 	mov	r0,a
+      0015AF A3               [24] 1062 	inc	dptr
+      0015B0 E0               [24] 1063 	movx	a,@dptr
+      0015B1 F9               [12] 1064 	mov	r1,a
+      0015B2 A3               [24] 1065 	inc	dptr
+      0015B3 E0               [24] 1066 	movx	a,@dptr
+      0015B4 FA               [12] 1067 	mov	r2,a
+      0015B5 A3               [24] 1068 	inc	dptr
+      0015B6 E0               [24] 1069 	movx	a,@dptr
+      0015B7 FB               [12] 1070 	mov	r3,a
+      0015B8 E5 1C            [12] 1071 	mov	a,_calib_solve_weight_sloc1_1_0
+      0015BA 75 F0 04         [24] 1072 	mov	b,#0x04
+      0015BD A4               [48] 1073 	mul	ab
+      0015BE F5 1E            [12] 1074 	mov	_calib_solve_weight_sloc3_1_0,a
+      0015C0 85 F0 1F         [24] 1075 	mov	(_calib_solve_weight_sloc3_1_0 + 1),b
+      0015C3 24 22            [12] 1076 	add	a, #_reg_avp
+      0015C5 F5 82            [12] 1077 	mov	dpl,a
+      0015C7 E5 1F            [12] 1078 	mov	a,(_calib_solve_weight_sloc3_1_0 + 1)
+      0015C9 34 00            [12] 1079 	addc	a, #(_reg_avp >> 8)
+      0015CB F5 83            [12] 1080 	mov	dph,a
+      0015CD E0               [24] 1081 	movx	a,@dptr
+      0015CE F5 20            [12] 1082 	mov	_calib_solve_weight_sloc4_1_0,a
+      0015D0 A3               [24] 1083 	inc	dptr
+      0015D1 E0               [24] 1084 	movx	a,@dptr
+      0015D2 F5 21            [12] 1085 	mov	(_calib_solve_weight_sloc4_1_0 + 1),a
+      0015D4 A3               [24] 1086 	inc	dptr
+      0015D5 E0               [24] 1087 	movx	a,@dptr
+      0015D6 F5 22            [12] 1088 	mov	(_calib_solve_weight_sloc4_1_0 + 2),a
+      0015D8 A3               [24] 1089 	inc	dptr
+      0015D9 E0               [24] 1090 	movx	a,@dptr
+      0015DA F5 23            [12] 1091 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
+      0015DC C3               [12] 1092 	clr	c
+      0015DD E5 20            [12] 1093 	mov	a,_calib_solve_weight_sloc4_1_0
+      0015DF 98               [12] 1094 	subb	a,r0
+      0015E0 E5 21            [12] 1095 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      0015E2 99               [12] 1096 	subb	a,r1
+      0015E3 E5 22            [12] 1097 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
+      0015E5 9A               [12] 1098 	subb	a,r2
+      0015E6 E5 23            [12] 1099 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
+      0015E8 64 80            [12] 1100 	xrl	a,#0x80
+      0015EA 8B F0            [24] 1101 	mov	b,r3
+      0015EC 63 F0 80         [24] 1102 	xrl	b,#0x80
+      0015EF 95 F0            [12] 1103 	subb	a,b
+      0015F1 D0 03            [24] 1104 	pop	ar3
+      0015F3 D0 02            [24] 1105 	pop	ar2
+      0015F5 D0 01            [24] 1106 	pop	ar1
+      0015F7 D0 00            [24] 1107 	pop	ar0
+      0015F9 40 03            [24] 1108 	jc	00186$
+      0015FB 02 17 0E         [24] 1109 	ljmp	00107$
+      0015FE                       1110 00186$:
                                    1111 ;	.\FwLib_STC8\user\calibration.c:58: if (x <= reg_avp[i + 1]) {
-      0015AF C0 00            [24] 1112 	push	ar0
-      0015B1 C0 01            [24] 1113 	push	ar1
-      0015B3 C0 02            [24] 1114 	push	ar2
-      0015B5 C0 03            [24] 1115 	push	ar3
-      0015B7 E5 1D            [12] 1116 	mov	a,_calib_solve_weight_sloc2_1_0
-      0015B9 04               [12] 1117 	inc	a
-      0015BA FB               [12] 1118 	mov	r3,a
-      0015BB C2 D5            [12] 1119 	clr	F0
-      0015BD 75 F0 04         [24] 1120 	mov	b,#0x04
-      0015C0 EB               [12] 1121 	mov	a,r3
-      0015C1 30 E7 04         [24] 1122 	jnb	acc.7,00187$
-      0015C4 B2 D5            [12] 1123 	cpl	F0
-      0015C6 F4               [12] 1124 	cpl	a
-      0015C7 04               [12] 1125 	inc	a
-      0015C8                       1126 00187$:
-      0015C8 A4               [48] 1127 	mul	ab
-      0015C9 30 D5 0A         [24] 1128 	jnb	F0,00188$
-      0015CC F4               [12] 1129 	cpl	a
-      0015CD 24 01            [12] 1130 	add	a,#0x01
-      0015CF C5 F0            [12] 1131 	xch	a,b
-      0015D1 F4               [12] 1132 	cpl	a
-      0015D2 34 00            [12] 1133 	addc	a,#0x00
-      0015D4 C5 F0            [12] 1134 	xch	a,b
-      0015D6                       1135 00188$:
-      0015D6 24 22            [12] 1136 	add	a, #_reg_avp
-      0015D8 F5 82            [12] 1137 	mov	dpl,a
-      0015DA 74 00            [12] 1138 	mov	a,#(_reg_avp >> 8)
-      0015DC 35 F0            [12] 1139 	addc	a, b
-      0015DE F5 83            [12] 1140 	mov	dph,a
-      0015E0 E0               [24] 1141 	movx	a,@dptr
-      0015E1 F8               [12] 1142 	mov	r0,a
-      0015E2 A3               [24] 1143 	inc	dptr
-      0015E3 E0               [24] 1144 	movx	a,@dptr
-      0015E4 F9               [12] 1145 	mov	r1,a
-      0015E5 A3               [24] 1146 	inc	dptr
-      0015E6 E0               [24] 1147 	movx	a,@dptr
-      0015E7 FA               [12] 1148 	mov	r2,a
-      0015E8 A3               [24] 1149 	inc	dptr
-      0015E9 E0               [24] 1150 	movx	a,@dptr
-      0015EA FB               [12] 1151 	mov	r3,a
-      0015EB C3               [12] 1152 	clr	c
-      0015EC E8               [12] 1153 	mov	a,r0
-      0015ED 9C               [12] 1154 	subb	a,r4
-      0015EE E9               [12] 1155 	mov	a,r1
-      0015EF 9D               [12] 1156 	subb	a,r5
-      0015F0 EA               [12] 1157 	mov	a,r2
-      0015F1 9E               [12] 1158 	subb	a,r6
-      0015F2 EB               [12] 1159 	mov	a,r3
-      0015F3 64 80            [12] 1160 	xrl	a,#0x80
-      0015F5 8F F0            [24] 1161 	mov	b,r7
-      0015F7 63 F0 80         [24] 1162 	xrl	b,#0x80
-      0015FA 95 F0            [12] 1163 	subb	a,b
-      0015FC D0 03            [24] 1164 	pop	ar3
-      0015FE D0 02            [24] 1165 	pop	ar2
-      001600 D0 01            [24] 1166 	pop	ar1
-      001602 D0 00            [24] 1167 	pop	ar0
-      001604 50 03            [24] 1168 	jnc	00189$
-      001606 02 16 BF         [24] 1169 	ljmp	00107$
-      001609                       1170 00189$:
+      0015FE C0 00            [24] 1112 	push	ar0
+      001600 C0 01            [24] 1113 	push	ar1
+      001602 C0 02            [24] 1114 	push	ar2
+      001604 C0 03            [24] 1115 	push	ar3
+      001606 E5 1D            [12] 1116 	mov	a,_calib_solve_weight_sloc2_1_0
+      001608 04               [12] 1117 	inc	a
+      001609 FB               [12] 1118 	mov	r3,a
+      00160A C2 D5            [12] 1119 	clr	F0
+      00160C 75 F0 04         [24] 1120 	mov	b,#0x04
+      00160F EB               [12] 1121 	mov	a,r3
+      001610 30 E7 04         [24] 1122 	jnb	acc.7,00187$
+      001613 B2 D5            [12] 1123 	cpl	F0
+      001615 F4               [12] 1124 	cpl	a
+      001616 04               [12] 1125 	inc	a
+      001617                       1126 00187$:
+      001617 A4               [48] 1127 	mul	ab
+      001618 30 D5 0A         [24] 1128 	jnb	F0,00188$
+      00161B F4               [12] 1129 	cpl	a
+      00161C 24 01            [12] 1130 	add	a,#0x01
+      00161E C5 F0            [12] 1131 	xch	a,b
+      001620 F4               [12] 1132 	cpl	a
+      001621 34 00            [12] 1133 	addc	a,#0x00
+      001623 C5 F0            [12] 1134 	xch	a,b
+      001625                       1135 00188$:
+      001625 24 22            [12] 1136 	add	a, #_reg_avp
+      001627 F5 82            [12] 1137 	mov	dpl,a
+      001629 74 00            [12] 1138 	mov	a,#(_reg_avp >> 8)
+      00162B 35 F0            [12] 1139 	addc	a, b
+      00162D F5 83            [12] 1140 	mov	dph,a
+      00162F E0               [24] 1141 	movx	a,@dptr
+      001630 F8               [12] 1142 	mov	r0,a
+      001631 A3               [24] 1143 	inc	dptr
+      001632 E0               [24] 1144 	movx	a,@dptr
+      001633 F9               [12] 1145 	mov	r1,a
+      001634 A3               [24] 1146 	inc	dptr
+      001635 E0               [24] 1147 	movx	a,@dptr
+      001636 FA               [12] 1148 	mov	r2,a
+      001637 A3               [24] 1149 	inc	dptr
+      001638 E0               [24] 1150 	movx	a,@dptr
+      001639 FB               [12] 1151 	mov	r3,a
+      00163A C3               [12] 1152 	clr	c
+      00163B E8               [12] 1153 	mov	a,r0
+      00163C 9C               [12] 1154 	subb	a,r4
+      00163D E9               [12] 1155 	mov	a,r1
+      00163E 9D               [12] 1156 	subb	a,r5
+      00163F EA               [12] 1157 	mov	a,r2
+      001640 9E               [12] 1158 	subb	a,r6
+      001641 EB               [12] 1159 	mov	a,r3
+      001642 64 80            [12] 1160 	xrl	a,#0x80
+      001644 8F F0            [24] 1161 	mov	b,r7
+      001646 63 F0 80         [24] 1162 	xrl	b,#0x80
+      001649 95 F0            [12] 1163 	subb	a,b
+      00164B D0 03            [24] 1164 	pop	ar3
+      00164D D0 02            [24] 1165 	pop	ar2
+      00164F D0 01            [24] 1166 	pop	ar1
+      001651 D0 00            [24] 1167 	pop	ar0
+      001653 50 03            [24] 1168 	jnc	00189$
+      001655 02 17 0E         [24] 1169 	ljmp	00107$
+      001658                       1170 00189$:
                                    1171 ;	.\FwLib_STC8\user\calibration.c:59: x0 = reg_avp[i];
-      001609 C0 04            [24] 1172 	push	ar4
-      00160B C0 05            [24] 1173 	push	ar5
-      00160D C0 06            [24] 1174 	push	ar6
-      00160F C0 07            [24] 1175 	push	ar7
-      001611 90 01 56         [24] 1176 	mov	dptr,#_calib_solve_weight_x0_10000_70
-      001614 E5 20            [12] 1177 	mov	a,_calib_solve_weight_sloc4_1_0
-      001616 F0               [24] 1178 	movx	@dptr,a
-      001617 E5 21            [12] 1179 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      001619 A3               [24] 1180 	inc	dptr
-      00161A F0               [24] 1181 	movx	@dptr,a
-      00161B E5 22            [12] 1182 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
-      00161D A3               [24] 1183 	inc	dptr
-      00161E F0               [24] 1184 	movx	@dptr,a
-      00161F E5 23            [12] 1185 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
-      001621 A3               [24] 1186 	inc	dptr
-      001622 F0               [24] 1187 	movx	@dptr,a
+      001658 C0 04            [24] 1172 	push	ar4
+      00165A C0 05            [24] 1173 	push	ar5
+      00165C C0 06            [24] 1174 	push	ar6
+      00165E C0 07            [24] 1175 	push	ar7
+      001660 90 01 56         [24] 1176 	mov	dptr,#_calib_solve_weight_x0_10000_70
+      001663 E5 20            [12] 1177 	mov	a,_calib_solve_weight_sloc4_1_0
+      001665 F0               [24] 1178 	movx	@dptr,a
+      001666 E5 21            [12] 1179 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      001668 A3               [24] 1180 	inc	dptr
+      001669 F0               [24] 1181 	movx	@dptr,a
+      00166A E5 22            [12] 1182 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
+      00166C A3               [24] 1183 	inc	dptr
+      00166D F0               [24] 1184 	movx	@dptr,a
+      00166E E5 23            [12] 1185 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
+      001670 A3               [24] 1186 	inc	dptr
+      001671 F0               [24] 1187 	movx	@dptr,a
                                    1188 ;	.\FwLib_STC8\user\calibration.c:60: x1 = reg_avp[i + 1];
-      001623 E5 1D            [12] 1189 	mov	a,_calib_solve_weight_sloc2_1_0
-      001625 04               [12] 1190 	inc	a
-      001626 FF               [12] 1191 	mov	r7,a
-      001627 C2 D5            [12] 1192 	clr	F0
-      001629 75 F0 04         [24] 1193 	mov	b,#0x04
-      00162C EF               [12] 1194 	mov	a,r7
-      00162D 30 E7 04         [24] 1195 	jnb	acc.7,00190$
-      001630 B2 D5            [12] 1196 	cpl	F0
-      001632 F4               [12] 1197 	cpl	a
-      001633 04               [12] 1198 	inc	a
-      001634                       1199 00190$:
-      001634 A4               [48] 1200 	mul	ab
-      001635 30 D5 0A         [24] 1201 	jnb	F0,00191$
-      001638 F4               [12] 1202 	cpl	a
-      001639 24 01            [12] 1203 	add	a,#0x01
-      00163B C5 F0            [12] 1204 	xch	a,b
-      00163D F4               [12] 1205 	cpl	a
-      00163E 34 00            [12] 1206 	addc	a,#0x00
-      001640 C5 F0            [12] 1207 	xch	a,b
-      001642                       1208 00191$:
-      001642 F5 20            [12] 1209 	mov	_calib_solve_weight_sloc4_1_0,a
-      001644 85 F0 21         [24] 1210 	mov	(_calib_solve_weight_sloc4_1_0 + 1),b
-      001647 24 22            [12] 1211 	add	a, #_reg_avp
-      001649 F5 82            [12] 1212 	mov	dpl,a
-      00164B E5 21            [12] 1213 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      00164D 34 00            [12] 1214 	addc	a, #(_reg_avp >> 8)
-      00164F F5 83            [12] 1215 	mov	dph,a
-      001651 E0               [24] 1216 	movx	a,@dptr
-      001652 FC               [12] 1217 	mov	r4,a
-      001653 A3               [24] 1218 	inc	dptr
-      001654 E0               [24] 1219 	movx	a,@dptr
-      001655 FD               [12] 1220 	mov	r5,a
-      001656 A3               [24] 1221 	inc	dptr
-      001657 E0               [24] 1222 	movx	a,@dptr
-      001658 FE               [12] 1223 	mov	r6,a
-      001659 A3               [24] 1224 	inc	dptr
-      00165A E0               [24] 1225 	movx	a,@dptr
-      00165B FF               [12] 1226 	mov	r7,a
-      00165C 90 01 5A         [24] 1227 	mov	dptr,#_calib_solve_weight_x1_10000_70
-      00165F EC               [12] 1228 	mov	a,r4
-      001660 F0               [24] 1229 	movx	@dptr,a
-      001661 ED               [12] 1230 	mov	a,r5
-      001662 A3               [24] 1231 	inc	dptr
-      001663 F0               [24] 1232 	movx	@dptr,a
-      001664 EE               [12] 1233 	mov	a,r6
-      001665 A3               [24] 1234 	inc	dptr
-      001666 F0               [24] 1235 	movx	@dptr,a
-      001667 EF               [12] 1236 	mov	a,r7
-      001668 A3               [24] 1237 	inc	dptr
-      001669 F0               [24] 1238 	movx	@dptr,a
+      001672 E5 1D            [12] 1189 	mov	a,_calib_solve_weight_sloc2_1_0
+      001674 04               [12] 1190 	inc	a
+      001675 FF               [12] 1191 	mov	r7,a
+      001676 C2 D5            [12] 1192 	clr	F0
+      001678 75 F0 04         [24] 1193 	mov	b,#0x04
+      00167B EF               [12] 1194 	mov	a,r7
+      00167C 30 E7 04         [24] 1195 	jnb	acc.7,00190$
+      00167F B2 D5            [12] 1196 	cpl	F0
+      001681 F4               [12] 1197 	cpl	a
+      001682 04               [12] 1198 	inc	a
+      001683                       1199 00190$:
+      001683 A4               [48] 1200 	mul	ab
+      001684 30 D5 0A         [24] 1201 	jnb	F0,00191$
+      001687 F4               [12] 1202 	cpl	a
+      001688 24 01            [12] 1203 	add	a,#0x01
+      00168A C5 F0            [12] 1204 	xch	a,b
+      00168C F4               [12] 1205 	cpl	a
+      00168D 34 00            [12] 1206 	addc	a,#0x00
+      00168F C5 F0            [12] 1207 	xch	a,b
+      001691                       1208 00191$:
+      001691 F5 20            [12] 1209 	mov	_calib_solve_weight_sloc4_1_0,a
+      001693 85 F0 21         [24] 1210 	mov	(_calib_solve_weight_sloc4_1_0 + 1),b
+      001696 24 22            [12] 1211 	add	a, #_reg_avp
+      001698 F5 82            [12] 1212 	mov	dpl,a
+      00169A E5 21            [12] 1213 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      00169C 34 00            [12] 1214 	addc	a, #(_reg_avp >> 8)
+      00169E F5 83            [12] 1215 	mov	dph,a
+      0016A0 E0               [24] 1216 	movx	a,@dptr
+      0016A1 FC               [12] 1217 	mov	r4,a
+      0016A2 A3               [24] 1218 	inc	dptr
+      0016A3 E0               [24] 1219 	movx	a,@dptr
+      0016A4 FD               [12] 1220 	mov	r5,a
+      0016A5 A3               [24] 1221 	inc	dptr
+      0016A6 E0               [24] 1222 	movx	a,@dptr
+      0016A7 FE               [12] 1223 	mov	r6,a
+      0016A8 A3               [24] 1224 	inc	dptr
+      0016A9 E0               [24] 1225 	movx	a,@dptr
+      0016AA FF               [12] 1226 	mov	r7,a
+      0016AB 90 01 5A         [24] 1227 	mov	dptr,#_calib_solve_weight_x1_10000_70
+      0016AE EC               [12] 1228 	mov	a,r4
+      0016AF F0               [24] 1229 	movx	@dptr,a
+      0016B0 ED               [12] 1230 	mov	a,r5
+      0016B1 A3               [24] 1231 	inc	dptr
+      0016B2 F0               [24] 1232 	movx	@dptr,a
+      0016B3 EE               [12] 1233 	mov	a,r6
+      0016B4 A3               [24] 1234 	inc	dptr
+      0016B5 F0               [24] 1235 	movx	@dptr,a
+      0016B6 EF               [12] 1236 	mov	a,r7
+      0016B7 A3               [24] 1237 	inc	dptr
+      0016B8 F0               [24] 1238 	movx	@dptr,a
                                    1239 ;	.\FwLib_STC8\user\calibration.c:61: y0 = reg_pvp[i];
-      00166A E5 1E            [12] 1240 	mov	a,_calib_solve_weight_sloc3_1_0
-      00166C 24 46            [12] 1241 	add	a, #_reg_pvp
-      00166E F5 82            [12] 1242 	mov	dpl,a
-      001670 E5 1F            [12] 1243 	mov	a,(_calib_solve_weight_sloc3_1_0 + 1)
-      001672 34 00            [12] 1244 	addc	a, #(_reg_pvp >> 8)
-      001674 F5 83            [12] 1245 	mov	dph,a
-      001676 E0               [24] 1246 	movx	a,@dptr
-      001677 FC               [12] 1247 	mov	r4,a
-      001678 A3               [24] 1248 	inc	dptr
-      001679 E0               [24] 1249 	movx	a,@dptr
-      00167A FD               [12] 1250 	mov	r5,a
-      00167B A3               [24] 1251 	inc	dptr
-      00167C E0               [24] 1252 	movx	a,@dptr
-      00167D FE               [12] 1253 	mov	r6,a
-      00167E A3               [24] 1254 	inc	dptr
-      00167F E0               [24] 1255 	movx	a,@dptr
-      001680 FF               [12] 1256 	mov	r7,a
-      001681 90 01 5E         [24] 1257 	mov	dptr,#_calib_solve_weight_y0_10000_70
-      001684 EC               [12] 1258 	mov	a,r4
-      001685 F0               [24] 1259 	movx	@dptr,a
-      001686 ED               [12] 1260 	mov	a,r5
-      001687 A3               [24] 1261 	inc	dptr
-      001688 F0               [24] 1262 	movx	@dptr,a
-      001689 EE               [12] 1263 	mov	a,r6
-      00168A A3               [24] 1264 	inc	dptr
-      00168B F0               [24] 1265 	movx	@dptr,a
-      00168C EF               [12] 1266 	mov	a,r7
-      00168D A3               [24] 1267 	inc	dptr
-      00168E F0               [24] 1268 	movx	@dptr,a
+      0016B9 E5 1E            [12] 1240 	mov	a,_calib_solve_weight_sloc3_1_0
+      0016BB 24 46            [12] 1241 	add	a, #_reg_pvp
+      0016BD F5 82            [12] 1242 	mov	dpl,a
+      0016BF E5 1F            [12] 1243 	mov	a,(_calib_solve_weight_sloc3_1_0 + 1)
+      0016C1 34 00            [12] 1244 	addc	a, #(_reg_pvp >> 8)
+      0016C3 F5 83            [12] 1245 	mov	dph,a
+      0016C5 E0               [24] 1246 	movx	a,@dptr
+      0016C6 FC               [12] 1247 	mov	r4,a
+      0016C7 A3               [24] 1248 	inc	dptr
+      0016C8 E0               [24] 1249 	movx	a,@dptr
+      0016C9 FD               [12] 1250 	mov	r5,a
+      0016CA A3               [24] 1251 	inc	dptr
+      0016CB E0               [24] 1252 	movx	a,@dptr
+      0016CC FE               [12] 1253 	mov	r6,a
+      0016CD A3               [24] 1254 	inc	dptr
+      0016CE E0               [24] 1255 	movx	a,@dptr
+      0016CF FF               [12] 1256 	mov	r7,a
+      0016D0 90 01 5E         [24] 1257 	mov	dptr,#_calib_solve_weight_y0_10000_70
+      0016D3 EC               [12] 1258 	mov	a,r4
+      0016D4 F0               [24] 1259 	movx	@dptr,a
+      0016D5 ED               [12] 1260 	mov	a,r5
+      0016D6 A3               [24] 1261 	inc	dptr
+      0016D7 F0               [24] 1262 	movx	@dptr,a
+      0016D8 EE               [12] 1263 	mov	a,r6
+      0016D9 A3               [24] 1264 	inc	dptr
+      0016DA F0               [24] 1265 	movx	@dptr,a
+      0016DB EF               [12] 1266 	mov	a,r7
+      0016DC A3               [24] 1267 	inc	dptr
+      0016DD F0               [24] 1268 	movx	@dptr,a
                                    1269 ;	.\FwLib_STC8\user\calibration.c:62: y1 = reg_pvp[i + 1];
-      00168F E5 20            [12] 1270 	mov	a,_calib_solve_weight_sloc4_1_0
-      001691 24 46            [12] 1271 	add	a, #_reg_pvp
-      001693 F5 82            [12] 1272 	mov	dpl,a
-      001695 E5 21            [12] 1273 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      001697 34 00            [12] 1274 	addc	a, #(_reg_pvp >> 8)
-      001699 F5 83            [12] 1275 	mov	dph,a
-      00169B E0               [24] 1276 	movx	a,@dptr
-      00169C FC               [12] 1277 	mov	r4,a
-      00169D A3               [24] 1278 	inc	dptr
-      00169E E0               [24] 1279 	movx	a,@dptr
-      00169F FD               [12] 1280 	mov	r5,a
-      0016A0 A3               [24] 1281 	inc	dptr
-      0016A1 E0               [24] 1282 	movx	a,@dptr
-      0016A2 FE               [12] 1283 	mov	r6,a
-      0016A3 A3               [24] 1284 	inc	dptr
-      0016A4 E0               [24] 1285 	movx	a,@dptr
-      0016A5 FF               [12] 1286 	mov	r7,a
-      0016A6 90 01 62         [24] 1287 	mov	dptr,#_calib_solve_weight_y1_10000_70
-      0016A9 EC               [12] 1288 	mov	a,r4
-      0016AA F0               [24] 1289 	movx	@dptr,a
-      0016AB ED               [12] 1290 	mov	a,r5
-      0016AC A3               [24] 1291 	inc	dptr
-      0016AD F0               [24] 1292 	movx	@dptr,a
-      0016AE EE               [12] 1293 	mov	a,r6
-      0016AF A3               [24] 1294 	inc	dptr
-      0016B0 F0               [24] 1295 	movx	@dptr,a
-      0016B1 EF               [12] 1296 	mov	a,r7
-      0016B2 A3               [24] 1297 	inc	dptr
-      0016B3 F0               [24] 1298 	movx	@dptr,a
+      0016DE E5 20            [12] 1270 	mov	a,_calib_solve_weight_sloc4_1_0
+      0016E0 24 46            [12] 1271 	add	a, #_reg_pvp
+      0016E2 F5 82            [12] 1272 	mov	dpl,a
+      0016E4 E5 21            [12] 1273 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      0016E6 34 00            [12] 1274 	addc	a, #(_reg_pvp >> 8)
+      0016E8 F5 83            [12] 1275 	mov	dph,a
+      0016EA E0               [24] 1276 	movx	a,@dptr
+      0016EB FC               [12] 1277 	mov	r4,a
+      0016EC A3               [24] 1278 	inc	dptr
+      0016ED E0               [24] 1279 	movx	a,@dptr
+      0016EE FD               [12] 1280 	mov	r5,a
+      0016EF A3               [24] 1281 	inc	dptr
+      0016F0 E0               [24] 1282 	movx	a,@dptr
+      0016F1 FE               [12] 1283 	mov	r6,a
+      0016F2 A3               [24] 1284 	inc	dptr
+      0016F3 E0               [24] 1285 	movx	a,@dptr
+      0016F4 FF               [12] 1286 	mov	r7,a
+      0016F5 90 01 62         [24] 1287 	mov	dptr,#_calib_solve_weight_y1_10000_70
+      0016F8 EC               [12] 1288 	mov	a,r4
+      0016F9 F0               [24] 1289 	movx	@dptr,a
+      0016FA ED               [12] 1290 	mov	a,r5
+      0016FB A3               [24] 1291 	inc	dptr
+      0016FC F0               [24] 1292 	movx	@dptr,a
+      0016FD EE               [12] 1293 	mov	a,r6
+      0016FE A3               [24] 1294 	inc	dptr
+      0016FF F0               [24] 1295 	movx	@dptr,a
+      001700 EF               [12] 1296 	mov	a,r7
+      001701 A3               [24] 1297 	inc	dptr
+      001702 F0               [24] 1298 	movx	@dptr,a
                                    1299 ;	.\FwLib_STC8\user\calibration.c:63: goto calculate;
-      0016B4 D0 07            [24] 1300 	pop	ar7
-      0016B6 D0 06            [24] 1301 	pop	ar6
-      0016B8 D0 05            [24] 1302 	pop	ar5
-      0016BA D0 04            [24] 1303 	pop	ar4
-      0016BC 02 17 A8         [24] 1304 	ljmp	00109$
-      0016BF                       1305 00107$:
+      001703 D0 07            [24] 1300 	pop	ar7
+      001705 D0 06            [24] 1301 	pop	ar6
+      001707 D0 05            [24] 1302 	pop	ar5
+      001709 D0 04            [24] 1303 	pop	ar4
+      00170B 02 17 F7         [24] 1304 	ljmp	00109$
+      00170E                       1305 00107$:
                                    1306 ;	.\FwLib_STC8\user\calibration.c:54: for (i = 0; i < (reg_cal_points_num - 1); i++) {
-      0016BF 05 1C            [12] 1307 	inc	_calib_solve_weight_sloc1_1_0
-      0016C1 02 14 F9         [24] 1308 	ljmp	00119$
-      0016C4                       1309 00108$:
+      00170E 05 1C            [12] 1307 	inc	_calib_solve_weight_sloc1_1_0
+      001710 02 15 48         [24] 1308 	ljmp	00119$
+      001713                       1309 00108$:
                                    1310 ;	.\FwLib_STC8\user\calibration.c:68: i = reg_cal_points_num - 2;
-      0016C4 C0 04            [24] 1311 	push	ar4
-      0016C6 C0 05            [24] 1312 	push	ar5
-      0016C8 C0 06            [24] 1313 	push	ar6
-      0016CA C0 07            [24] 1314 	push	ar7
-      0016CC 18               [12] 1315 	dec	r0
-      0016CD 18               [12] 1316 	dec	r0
+      001713 C0 04            [24] 1311 	push	ar4
+      001715 C0 05            [24] 1312 	push	ar5
+      001717 C0 06            [24] 1313 	push	ar6
+      001719 C0 07            [24] 1314 	push	ar7
+      00171B 18               [12] 1315 	dec	r0
+      00171C 18               [12] 1316 	dec	r0
                                    1317 ;	.\FwLib_STC8\user\calibration.c:69: x0 = reg_avp[i];
-      0016CE 88 E0            [24] 1318 	mov	acc,r0
-      0016D0 75 F0 04         [24] 1319 	mov	b,#0x04
-      0016D3 A4               [48] 1320 	mul	ab
-      0016D4 24 22            [12] 1321 	add	a, #_reg_avp
-      0016D6 F5 82            [12] 1322 	mov	dpl,a
-      0016D8 74 00            [12] 1323 	mov	a,#(_reg_avp >> 8)
-      0016DA 35 F0            [12] 1324 	addc	a, b
-      0016DC F5 83            [12] 1325 	mov	dph,a
-      0016DE E0               [24] 1326 	movx	a,@dptr
-      0016DF F9               [12] 1327 	mov	r1,a
-      0016E0 A3               [24] 1328 	inc	dptr
-      0016E1 E0               [24] 1329 	movx	a,@dptr
-      0016E2 FA               [12] 1330 	mov	r2,a
-      0016E3 A3               [24] 1331 	inc	dptr
-      0016E4 E0               [24] 1332 	movx	a,@dptr
-      0016E5 FB               [12] 1333 	mov	r3,a
-      0016E6 A3               [24] 1334 	inc	dptr
-      0016E7 E0               [24] 1335 	movx	a,@dptr
-      0016E8 FF               [12] 1336 	mov	r7,a
-      0016E9 90 01 56         [24] 1337 	mov	dptr,#_calib_solve_weight_x0_10000_70
-      0016EC E9               [12] 1338 	mov	a,r1
-      0016ED F0               [24] 1339 	movx	@dptr,a
-      0016EE EA               [12] 1340 	mov	a,r2
-      0016EF A3               [24] 1341 	inc	dptr
-      0016F0 F0               [24] 1342 	movx	@dptr,a
-      0016F1 EB               [12] 1343 	mov	a,r3
-      0016F2 A3               [24] 1344 	inc	dptr
-      0016F3 F0               [24] 1345 	movx	@dptr,a
-      0016F4 EF               [12] 1346 	mov	a,r7
-      0016F5 A3               [24] 1347 	inc	dptr
-      0016F6 F0               [24] 1348 	movx	@dptr,a
+      00171D 88 E0            [24] 1318 	mov	acc,r0
+      00171F 75 F0 04         [24] 1319 	mov	b,#0x04
+      001722 A4               [48] 1320 	mul	ab
+      001723 24 22            [12] 1321 	add	a, #_reg_avp
+      001725 F5 82            [12] 1322 	mov	dpl,a
+      001727 74 00            [12] 1323 	mov	a,#(_reg_avp >> 8)
+      001729 35 F0            [12] 1324 	addc	a, b
+      00172B F5 83            [12] 1325 	mov	dph,a
+      00172D E0               [24] 1326 	movx	a,@dptr
+      00172E F9               [12] 1327 	mov	r1,a
+      00172F A3               [24] 1328 	inc	dptr
+      001730 E0               [24] 1329 	movx	a,@dptr
+      001731 FA               [12] 1330 	mov	r2,a
+      001732 A3               [24] 1331 	inc	dptr
+      001733 E0               [24] 1332 	movx	a,@dptr
+      001734 FB               [12] 1333 	mov	r3,a
+      001735 A3               [24] 1334 	inc	dptr
+      001736 E0               [24] 1335 	movx	a,@dptr
+      001737 FF               [12] 1336 	mov	r7,a
+      001738 90 01 56         [24] 1337 	mov	dptr,#_calib_solve_weight_x0_10000_70
+      00173B E9               [12] 1338 	mov	a,r1
+      00173C F0               [24] 1339 	movx	@dptr,a
+      00173D EA               [12] 1340 	mov	a,r2
+      00173E A3               [24] 1341 	inc	dptr
+      00173F F0               [24] 1342 	movx	@dptr,a
+      001740 EB               [12] 1343 	mov	a,r3
+      001741 A3               [24] 1344 	inc	dptr
+      001742 F0               [24] 1345 	movx	@dptr,a
+      001743 EF               [12] 1346 	mov	a,r7
+      001744 A3               [24] 1347 	inc	dptr
+      001745 F0               [24] 1348 	movx	@dptr,a
                                    1349 ;	.\FwLib_STC8\user\calibration.c:70: x1 = reg_avp[i + 1];
-      0016F7 88 07            [24] 1350 	mov	ar7,r0
-      0016F9 0F               [12] 1351 	inc	r7
-      0016FA C2 D5            [12] 1352 	clr	F0
-      0016FC 75 F0 04         [24] 1353 	mov	b,#0x04
-      0016FF EF               [12] 1354 	mov	a,r7
-      001700 30 E7 04         [24] 1355 	jnb	acc.7,00192$
-      001703 B2 D5            [12] 1356 	cpl	F0
-      001705 F4               [12] 1357 	cpl	a
-      001706 04               [12] 1358 	inc	a
-      001707                       1359 00192$:
-      001707 A4               [48] 1360 	mul	ab
-      001708 30 D5 0A         [24] 1361 	jnb	F0,00193$
-      00170B F4               [12] 1362 	cpl	a
-      00170C 24 01            [12] 1363 	add	a,#0x01
-      00170E C5 F0            [12] 1364 	xch	a,b
-      001710 F4               [12] 1365 	cpl	a
-      001711 34 00            [12] 1366 	addc	a,#0x00
-      001713 C5 F0            [12] 1367 	xch	a,b
-      001715                       1368 00193$:
-      001715 24 22            [12] 1369 	add	a, #_reg_avp
-      001717 F5 82            [12] 1370 	mov	dpl,a
-      001719 74 00            [12] 1371 	mov	a,#(_reg_avp >> 8)
-      00171B 35 F0            [12] 1372 	addc	a, b
-      00171D F5 83            [12] 1373 	mov	dph,a
-      00171F E0               [24] 1374 	movx	a,@dptr
-      001720 FC               [12] 1375 	mov	r4,a
-      001721 A3               [24] 1376 	inc	dptr
-      001722 E0               [24] 1377 	movx	a,@dptr
-      001723 FD               [12] 1378 	mov	r5,a
-      001724 A3               [24] 1379 	inc	dptr
-      001725 E0               [24] 1380 	movx	a,@dptr
-      001726 FE               [12] 1381 	mov	r6,a
-      001727 A3               [24] 1382 	inc	dptr
-      001728 E0               [24] 1383 	movx	a,@dptr
-      001729 FF               [12] 1384 	mov	r7,a
-      00172A 90 01 5A         [24] 1385 	mov	dptr,#_calib_solve_weight_x1_10000_70
-      00172D EC               [12] 1386 	mov	a,r4
-      00172E F0               [24] 1387 	movx	@dptr,a
-      00172F ED               [12] 1388 	mov	a,r5
-      001730 A3               [24] 1389 	inc	dptr
-      001731 F0               [24] 1390 	movx	@dptr,a
-      001732 EE               [12] 1391 	mov	a,r6
-      001733 A3               [24] 1392 	inc	dptr
-      001734 F0               [24] 1393 	movx	@dptr,a
-      001735 EF               [12] 1394 	mov	a,r7
-      001736 A3               [24] 1395 	inc	dptr
-      001737 F0               [24] 1396 	movx	@dptr,a
+      001746 88 07            [24] 1350 	mov	ar7,r0
+      001748 0F               [12] 1351 	inc	r7
+      001749 C2 D5            [12] 1352 	clr	F0
+      00174B 75 F0 04         [24] 1353 	mov	b,#0x04
+      00174E EF               [12] 1354 	mov	a,r7
+      00174F 30 E7 04         [24] 1355 	jnb	acc.7,00192$
+      001752 B2 D5            [12] 1356 	cpl	F0
+      001754 F4               [12] 1357 	cpl	a
+      001755 04               [12] 1358 	inc	a
+      001756                       1359 00192$:
+      001756 A4               [48] 1360 	mul	ab
+      001757 30 D5 0A         [24] 1361 	jnb	F0,00193$
+      00175A F4               [12] 1362 	cpl	a
+      00175B 24 01            [12] 1363 	add	a,#0x01
+      00175D C5 F0            [12] 1364 	xch	a,b
+      00175F F4               [12] 1365 	cpl	a
+      001760 34 00            [12] 1366 	addc	a,#0x00
+      001762 C5 F0            [12] 1367 	xch	a,b
+      001764                       1368 00193$:
+      001764 24 22            [12] 1369 	add	a, #_reg_avp
+      001766 F5 82            [12] 1370 	mov	dpl,a
+      001768 74 00            [12] 1371 	mov	a,#(_reg_avp >> 8)
+      00176A 35 F0            [12] 1372 	addc	a, b
+      00176C F5 83            [12] 1373 	mov	dph,a
+      00176E E0               [24] 1374 	movx	a,@dptr
+      00176F FC               [12] 1375 	mov	r4,a
+      001770 A3               [24] 1376 	inc	dptr
+      001771 E0               [24] 1377 	movx	a,@dptr
+      001772 FD               [12] 1378 	mov	r5,a
+      001773 A3               [24] 1379 	inc	dptr
+      001774 E0               [24] 1380 	movx	a,@dptr
+      001775 FE               [12] 1381 	mov	r6,a
+      001776 A3               [24] 1382 	inc	dptr
+      001777 E0               [24] 1383 	movx	a,@dptr
+      001778 FF               [12] 1384 	mov	r7,a
+      001779 90 01 5A         [24] 1385 	mov	dptr,#_calib_solve_weight_x1_10000_70
+      00177C EC               [12] 1386 	mov	a,r4
+      00177D F0               [24] 1387 	movx	@dptr,a
+      00177E ED               [12] 1388 	mov	a,r5
+      00177F A3               [24] 1389 	inc	dptr
+      001780 F0               [24] 1390 	movx	@dptr,a
+      001781 EE               [12] 1391 	mov	a,r6
+      001782 A3               [24] 1392 	inc	dptr
+      001783 F0               [24] 1393 	movx	@dptr,a
+      001784 EF               [12] 1394 	mov	a,r7
+      001785 A3               [24] 1395 	inc	dptr
+      001786 F0               [24] 1396 	movx	@dptr,a
                                    1397 ;	.\FwLib_STC8\user\calibration.c:71: y0 = reg_pvp[i];
-      001738 88 E0            [24] 1398 	mov	acc,r0
-      00173A 75 F0 04         [24] 1399 	mov	b,#0x04
-      00173D A4               [48] 1400 	mul	ab
-      00173E 24 46            [12] 1401 	add	a, #_reg_pvp
-      001740 F5 82            [12] 1402 	mov	dpl,a
-      001742 74 00            [12] 1403 	mov	a,#(_reg_pvp >> 8)
-      001744 35 F0            [12] 1404 	addc	a, b
-      001746 F5 83            [12] 1405 	mov	dph,a
-      001748 E0               [24] 1406 	movx	a,@dptr
-      001749 FC               [12] 1407 	mov	r4,a
-      00174A A3               [24] 1408 	inc	dptr
-      00174B E0               [24] 1409 	movx	a,@dptr
-      00174C FD               [12] 1410 	mov	r5,a
-      00174D A3               [24] 1411 	inc	dptr
-      00174E E0               [24] 1412 	movx	a,@dptr
-      00174F FE               [12] 1413 	mov	r6,a
-      001750 A3               [24] 1414 	inc	dptr
-      001751 E0               [24] 1415 	movx	a,@dptr
-      001752 FF               [12] 1416 	mov	r7,a
-      001753 90 01 5E         [24] 1417 	mov	dptr,#_calib_solve_weight_y0_10000_70
-      001756 EC               [12] 1418 	mov	a,r4
-      001757 F0               [24] 1419 	movx	@dptr,a
-      001758 ED               [12] 1420 	mov	a,r5
-      001759 A3               [24] 1421 	inc	dptr
-      00175A F0               [24] 1422 	movx	@dptr,a
-      00175B EE               [12] 1423 	mov	a,r6
-      00175C A3               [24] 1424 	inc	dptr
-      00175D F0               [24] 1425 	movx	@dptr,a
-      00175E EF               [12] 1426 	mov	a,r7
-      00175F A3               [24] 1427 	inc	dptr
-      001760 F0               [24] 1428 	movx	@dptr,a
+      001787 88 E0            [24] 1398 	mov	acc,r0
+      001789 75 F0 04         [24] 1399 	mov	b,#0x04
+      00178C A4               [48] 1400 	mul	ab
+      00178D 24 46            [12] 1401 	add	a, #_reg_pvp
+      00178F F5 82            [12] 1402 	mov	dpl,a
+      001791 74 00            [12] 1403 	mov	a,#(_reg_pvp >> 8)
+      001793 35 F0            [12] 1404 	addc	a, b
+      001795 F5 83            [12] 1405 	mov	dph,a
+      001797 E0               [24] 1406 	movx	a,@dptr
+      001798 FC               [12] 1407 	mov	r4,a
+      001799 A3               [24] 1408 	inc	dptr
+      00179A E0               [24] 1409 	movx	a,@dptr
+      00179B FD               [12] 1410 	mov	r5,a
+      00179C A3               [24] 1411 	inc	dptr
+      00179D E0               [24] 1412 	movx	a,@dptr
+      00179E FE               [12] 1413 	mov	r6,a
+      00179F A3               [24] 1414 	inc	dptr
+      0017A0 E0               [24] 1415 	movx	a,@dptr
+      0017A1 FF               [12] 1416 	mov	r7,a
+      0017A2 90 01 5E         [24] 1417 	mov	dptr,#_calib_solve_weight_y0_10000_70
+      0017A5 EC               [12] 1418 	mov	a,r4
+      0017A6 F0               [24] 1419 	movx	@dptr,a
+      0017A7 ED               [12] 1420 	mov	a,r5
+      0017A8 A3               [24] 1421 	inc	dptr
+      0017A9 F0               [24] 1422 	movx	@dptr,a
+      0017AA EE               [12] 1423 	mov	a,r6
+      0017AB A3               [24] 1424 	inc	dptr
+      0017AC F0               [24] 1425 	movx	@dptr,a
+      0017AD EF               [12] 1426 	mov	a,r7
+      0017AE A3               [24] 1427 	inc	dptr
+      0017AF F0               [24] 1428 	movx	@dptr,a
                                    1429 ;	.\FwLib_STC8\user\calibration.c:72: y1 = reg_pvp[i + 1];
-      001761 08               [12] 1430 	inc	r0
-      001762 C2 D5            [12] 1431 	clr	F0
-      001764 75 F0 04         [24] 1432 	mov	b,#0x04
-      001767 E8               [12] 1433 	mov	a,r0
-      001768 30 E7 04         [24] 1434 	jnb	acc.7,00194$
-      00176B B2 D5            [12] 1435 	cpl	F0
-      00176D F4               [12] 1436 	cpl	a
-      00176E 04               [12] 1437 	inc	a
-      00176F                       1438 00194$:
-      00176F A4               [48] 1439 	mul	ab
-      001770 30 D5 0A         [24] 1440 	jnb	F0,00195$
-      001773 F4               [12] 1441 	cpl	a
-      001774 24 01            [12] 1442 	add	a,#0x01
-      001776 C5 F0            [12] 1443 	xch	a,b
-      001778 F4               [12] 1444 	cpl	a
-      001779 34 00            [12] 1445 	addc	a,#0x00
-      00177B C5 F0            [12] 1446 	xch	a,b
-      00177D                       1447 00195$:
-      00177D 24 46            [12] 1448 	add	a, #_reg_pvp
-      00177F F5 82            [12] 1449 	mov	dpl,a
-      001781 74 00            [12] 1450 	mov	a,#(_reg_pvp >> 8)
-      001783 35 F0            [12] 1451 	addc	a, b
-      001785 F5 83            [12] 1452 	mov	dph,a
-      001787 E0               [24] 1453 	movx	a,@dptr
-      001788 FC               [12] 1454 	mov	r4,a
-      001789 A3               [24] 1455 	inc	dptr
-      00178A E0               [24] 1456 	movx	a,@dptr
-      00178B FD               [12] 1457 	mov	r5,a
-      00178C A3               [24] 1458 	inc	dptr
-      00178D E0               [24] 1459 	movx	a,@dptr
-      00178E FE               [12] 1460 	mov	r6,a
-      00178F A3               [24] 1461 	inc	dptr
-      001790 E0               [24] 1462 	movx	a,@dptr
-      001791 FF               [12] 1463 	mov	r7,a
-      001792 90 01 62         [24] 1464 	mov	dptr,#_calib_solve_weight_y1_10000_70
-      001795 EC               [12] 1465 	mov	a,r4
-      001796 F0               [24] 1466 	movx	@dptr,a
-      001797 ED               [12] 1467 	mov	a,r5
-      001798 A3               [24] 1468 	inc	dptr
-      001799 F0               [24] 1469 	movx	@dptr,a
-      00179A EE               [12] 1470 	mov	a,r6
-      00179B A3               [24] 1471 	inc	dptr
-      00179C F0               [24] 1472 	movx	@dptr,a
-      00179D EF               [12] 1473 	mov	a,r7
-      00179E A3               [24] 1474 	inc	dptr
-      00179F F0               [24] 1475 	movx	@dptr,a
+      0017B0 08               [12] 1430 	inc	r0
+      0017B1 C2 D5            [12] 1431 	clr	F0
+      0017B3 75 F0 04         [24] 1432 	mov	b,#0x04
+      0017B6 E8               [12] 1433 	mov	a,r0
+      0017B7 30 E7 04         [24] 1434 	jnb	acc.7,00194$
+      0017BA B2 D5            [12] 1435 	cpl	F0
+      0017BC F4               [12] 1436 	cpl	a
+      0017BD 04               [12] 1437 	inc	a
+      0017BE                       1438 00194$:
+      0017BE A4               [48] 1439 	mul	ab
+      0017BF 30 D5 0A         [24] 1440 	jnb	F0,00195$
+      0017C2 F4               [12] 1441 	cpl	a
+      0017C3 24 01            [12] 1442 	add	a,#0x01
+      0017C5 C5 F0            [12] 1443 	xch	a,b
+      0017C7 F4               [12] 1444 	cpl	a
+      0017C8 34 00            [12] 1445 	addc	a,#0x00
+      0017CA C5 F0            [12] 1446 	xch	a,b
+      0017CC                       1447 00195$:
+      0017CC 24 46            [12] 1448 	add	a, #_reg_pvp
+      0017CE F5 82            [12] 1449 	mov	dpl,a
+      0017D0 74 00            [12] 1450 	mov	a,#(_reg_pvp >> 8)
+      0017D2 35 F0            [12] 1451 	addc	a, b
+      0017D4 F5 83            [12] 1452 	mov	dph,a
+      0017D6 E0               [24] 1453 	movx	a,@dptr
+      0017D7 FC               [12] 1454 	mov	r4,a
+      0017D8 A3               [24] 1455 	inc	dptr
+      0017D9 E0               [24] 1456 	movx	a,@dptr
+      0017DA FD               [12] 1457 	mov	r5,a
+      0017DB A3               [24] 1458 	inc	dptr
+      0017DC E0               [24] 1459 	movx	a,@dptr
+      0017DD FE               [12] 1460 	mov	r6,a
+      0017DE A3               [24] 1461 	inc	dptr
+      0017DF E0               [24] 1462 	movx	a,@dptr
+      0017E0 FF               [12] 1463 	mov	r7,a
+      0017E1 90 01 62         [24] 1464 	mov	dptr,#_calib_solve_weight_y1_10000_70
+      0017E4 EC               [12] 1465 	mov	a,r4
+      0017E5 F0               [24] 1466 	movx	@dptr,a
+      0017E6 ED               [12] 1467 	mov	a,r5
+      0017E7 A3               [24] 1468 	inc	dptr
+      0017E8 F0               [24] 1469 	movx	@dptr,a
+      0017E9 EE               [12] 1470 	mov	a,r6
+      0017EA A3               [24] 1471 	inc	dptr
+      0017EB F0               [24] 1472 	movx	@dptr,a
+      0017EC EF               [12] 1473 	mov	a,r7
+      0017ED A3               [24] 1474 	inc	dptr
+      0017EE F0               [24] 1475 	movx	@dptr,a
                                    1476 ;	.\FwLib_STC8\user\calibration.c:94: return y0 + (int32_t)(((float)dx * dy) / run);
-      0017A0 D0 07            [24] 1477 	pop	ar7
-      0017A2 D0 06            [24] 1478 	pop	ar6
-      0017A4 D0 05            [24] 1479 	pop	ar5
-      0017A6 D0 04            [24] 1480 	pop	ar4
+      0017EF D0 07            [24] 1477 	pop	ar7
+      0017F1 D0 06            [24] 1478 	pop	ar6
+      0017F3 D0 05            [24] 1479 	pop	ar5
+      0017F5 D0 04            [24] 1480 	pop	ar4
                                    1481 ;	.\FwLib_STC8\user\calibration.c:74: calculate:
-      0017A8                       1482 00109$:
+      0017F7                       1482 00109$:
                                    1483 ;	.\FwLib_STC8\user\calibration.c:75: if (x1 == x0) return y0;
-      0017A8 90 01 5A         [24] 1484 	mov	dptr,#_calib_solve_weight_x1_10000_70
-      0017AB E0               [24] 1485 	movx	a,@dptr
-      0017AC F5 24            [12] 1486 	mov	_calib_solve_weight_sloc5_1_0,a
-      0017AE A3               [24] 1487 	inc	dptr
-      0017AF E0               [24] 1488 	movx	a,@dptr
-      0017B0 F5 25            [12] 1489 	mov	(_calib_solve_weight_sloc5_1_0 + 1),a
-      0017B2 A3               [24] 1490 	inc	dptr
-      0017B3 E0               [24] 1491 	movx	a,@dptr
-      0017B4 F5 26            [12] 1492 	mov	(_calib_solve_weight_sloc5_1_0 + 2),a
-      0017B6 A3               [24] 1493 	inc	dptr
-      0017B7 E0               [24] 1494 	movx	a,@dptr
-      0017B8 F5 27            [12] 1495 	mov	(_calib_solve_weight_sloc5_1_0 + 3),a
-      0017BA 90 01 56         [24] 1496 	mov	dptr,#_calib_solve_weight_x0_10000_70
-      0017BD E0               [24] 1497 	movx	a,@dptr
-      0017BE F5 20            [12] 1498 	mov	_calib_solve_weight_sloc4_1_0,a
-      0017C0 A3               [24] 1499 	inc	dptr
-      0017C1 E0               [24] 1500 	movx	a,@dptr
-      0017C2 F5 21            [12] 1501 	mov	(_calib_solve_weight_sloc4_1_0 + 1),a
-      0017C4 A3               [24] 1502 	inc	dptr
-      0017C5 E0               [24] 1503 	movx	a,@dptr
-      0017C6 F5 22            [12] 1504 	mov	(_calib_solve_weight_sloc4_1_0 + 2),a
-      0017C8 A3               [24] 1505 	inc	dptr
-      0017C9 E0               [24] 1506 	movx	a,@dptr
-      0017CA F5 23            [12] 1507 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
-      0017CC E5 20            [12] 1508 	mov	a,_calib_solve_weight_sloc4_1_0
-      0017CE B5 24 2B         [24] 1509 	cjne	a,_calib_solve_weight_sloc5_1_0,00111$
-      0017D1 E5 21            [12] 1510 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      0017D3 B5 25 26         [24] 1511 	cjne	a,(_calib_solve_weight_sloc5_1_0 + 1),00111$
-      0017D6 E5 22            [12] 1512 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
-      0017D8 B5 26 21         [24] 1513 	cjne	a,(_calib_solve_weight_sloc5_1_0 + 2),00111$
-      0017DB E5 23            [12] 1514 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
-      0017DD B5 27 1C         [24] 1515 	cjne	a,(_calib_solve_weight_sloc5_1_0 + 3),00111$
-      0017E0 90 01 5E         [24] 1516 	mov	dptr,#_calib_solve_weight_y0_10000_70
-      0017E3 E0               [24] 1517 	movx	a,@dptr
-      0017E4 F5 18            [12] 1518 	mov	_calib_solve_weight_sloc0_1_0,a
-      0017E6 A3               [24] 1519 	inc	dptr
-      0017E7 E0               [24] 1520 	movx	a,@dptr
-      0017E8 F5 19            [12] 1521 	mov	(_calib_solve_weight_sloc0_1_0 + 1),a
-      0017EA A3               [24] 1522 	inc	dptr
-      0017EB E0               [24] 1523 	movx	a,@dptr
-      0017EC F5 1A            [12] 1524 	mov	(_calib_solve_weight_sloc0_1_0 + 2),a
-      0017EE A3               [24] 1525 	inc	dptr
-      0017EF E0               [24] 1526 	movx	a,@dptr
-      0017F0 F5 1B            [12] 1527 	mov	(_calib_solve_weight_sloc0_1_0 + 3),a
-      0017F2 85 18 82         [24] 1528 	mov	dpl,_calib_solve_weight_sloc0_1_0
-      0017F5 85 19 83         [24] 1529 	mov	dph,(_calib_solve_weight_sloc0_1_0 + 1)
-      0017F8 85 1A F0         [24] 1530 	mov	b,(_calib_solve_weight_sloc0_1_0 + 2)
-      0017FB 22               [24] 1531 	ret
-      0017FC                       1532 00111$:
+      0017F7 90 01 5A         [24] 1484 	mov	dptr,#_calib_solve_weight_x1_10000_70
+      0017FA E0               [24] 1485 	movx	a,@dptr
+      0017FB F5 24            [12] 1486 	mov	_calib_solve_weight_sloc5_1_0,a
+      0017FD A3               [24] 1487 	inc	dptr
+      0017FE E0               [24] 1488 	movx	a,@dptr
+      0017FF F5 25            [12] 1489 	mov	(_calib_solve_weight_sloc5_1_0 + 1),a
+      001801 A3               [24] 1490 	inc	dptr
+      001802 E0               [24] 1491 	movx	a,@dptr
+      001803 F5 26            [12] 1492 	mov	(_calib_solve_weight_sloc5_1_0 + 2),a
+      001805 A3               [24] 1493 	inc	dptr
+      001806 E0               [24] 1494 	movx	a,@dptr
+      001807 F5 27            [12] 1495 	mov	(_calib_solve_weight_sloc5_1_0 + 3),a
+      001809 90 01 56         [24] 1496 	mov	dptr,#_calib_solve_weight_x0_10000_70
+      00180C E0               [24] 1497 	movx	a,@dptr
+      00180D F5 20            [12] 1498 	mov	_calib_solve_weight_sloc4_1_0,a
+      00180F A3               [24] 1499 	inc	dptr
+      001810 E0               [24] 1500 	movx	a,@dptr
+      001811 F5 21            [12] 1501 	mov	(_calib_solve_weight_sloc4_1_0 + 1),a
+      001813 A3               [24] 1502 	inc	dptr
+      001814 E0               [24] 1503 	movx	a,@dptr
+      001815 F5 22            [12] 1504 	mov	(_calib_solve_weight_sloc4_1_0 + 2),a
+      001817 A3               [24] 1505 	inc	dptr
+      001818 E0               [24] 1506 	movx	a,@dptr
+      001819 F5 23            [12] 1507 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
+      00181B E5 20            [12] 1508 	mov	a,_calib_solve_weight_sloc4_1_0
+      00181D B5 24 2B         [24] 1509 	cjne	a,_calib_solve_weight_sloc5_1_0,00111$
+      001820 E5 21            [12] 1510 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      001822 B5 25 26         [24] 1511 	cjne	a,(_calib_solve_weight_sloc5_1_0 + 1),00111$
+      001825 E5 22            [12] 1512 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
+      001827 B5 26 21         [24] 1513 	cjne	a,(_calib_solve_weight_sloc5_1_0 + 2),00111$
+      00182A E5 23            [12] 1514 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
+      00182C B5 27 1C         [24] 1515 	cjne	a,(_calib_solve_weight_sloc5_1_0 + 3),00111$
+      00182F 90 01 5E         [24] 1516 	mov	dptr,#_calib_solve_weight_y0_10000_70
+      001832 E0               [24] 1517 	movx	a,@dptr
+      001833 F5 18            [12] 1518 	mov	_calib_solve_weight_sloc0_1_0,a
+      001835 A3               [24] 1519 	inc	dptr
+      001836 E0               [24] 1520 	movx	a,@dptr
+      001837 F5 19            [12] 1521 	mov	(_calib_solve_weight_sloc0_1_0 + 1),a
+      001839 A3               [24] 1522 	inc	dptr
+      00183A E0               [24] 1523 	movx	a,@dptr
+      00183B F5 1A            [12] 1524 	mov	(_calib_solve_weight_sloc0_1_0 + 2),a
+      00183D A3               [24] 1525 	inc	dptr
+      00183E E0               [24] 1526 	movx	a,@dptr
+      00183F F5 1B            [12] 1527 	mov	(_calib_solve_weight_sloc0_1_0 + 3),a
+      001841 85 18 82         [24] 1528 	mov	dpl,_calib_solve_weight_sloc0_1_0
+      001844 85 19 83         [24] 1529 	mov	dph,(_calib_solve_weight_sloc0_1_0 + 1)
+      001847 85 1A F0         [24] 1530 	mov	b,(_calib_solve_weight_sloc0_1_0 + 2)
+      00184A 22               [24] 1531 	ret
+      00184B                       1532 00111$:
                                    1533 ;	.\FwLib_STC8\user\calibration.c:83: int32_t dx = x - x0;
-      0017FC EC               [12] 1534 	mov	a,r4
-      0017FD C3               [12] 1535 	clr	c
-      0017FE 95 20            [12] 1536 	subb	a,_calib_solve_weight_sloc4_1_0
-      001800 FC               [12] 1537 	mov	r4,a
-      001801 ED               [12] 1538 	mov	a,r5
-      001802 95 21            [12] 1539 	subb	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      001804 FD               [12] 1540 	mov	r5,a
-      001805 EE               [12] 1541 	mov	a,r6
-      001806 95 22            [12] 1542 	subb	a,(_calib_solve_weight_sloc4_1_0 + 2)
-      001808 FE               [12] 1543 	mov	r6,a
-      001809 EF               [12] 1544 	mov	a,r7
-      00180A 95 23            [12] 1545 	subb	a,(_calib_solve_weight_sloc4_1_0 + 3)
-      00180C FF               [12] 1546 	mov	r7,a
+      00184B EC               [12] 1534 	mov	a,r4
+      00184C C3               [12] 1535 	clr	c
+      00184D 95 20            [12] 1536 	subb	a,_calib_solve_weight_sloc4_1_0
+      00184F FC               [12] 1537 	mov	r4,a
+      001850 ED               [12] 1538 	mov	a,r5
+      001851 95 21            [12] 1539 	subb	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      001853 FD               [12] 1540 	mov	r5,a
+      001854 EE               [12] 1541 	mov	a,r6
+      001855 95 22            [12] 1542 	subb	a,(_calib_solve_weight_sloc4_1_0 + 2)
+      001857 FE               [12] 1543 	mov	r6,a
+      001858 EF               [12] 1544 	mov	a,r7
+      001859 95 23            [12] 1545 	subb	a,(_calib_solve_weight_sloc4_1_0 + 3)
+      00185B FF               [12] 1546 	mov	r7,a
                                    1547 ;	.\FwLib_STC8\user\calibration.c:84: int32_t dy = y1 - y0;
-      00180D 90 01 5E         [24] 1548 	mov	dptr,#_calib_solve_weight_y0_10000_70
-      001810 E0               [24] 1549 	movx	a,@dptr
-      001811 F5 18            [12] 1550 	mov	_calib_solve_weight_sloc0_1_0,a
-      001813 A3               [24] 1551 	inc	dptr
-      001814 E0               [24] 1552 	movx	a,@dptr
-      001815 F5 19            [12] 1553 	mov	(_calib_solve_weight_sloc0_1_0 + 1),a
-      001817 A3               [24] 1554 	inc	dptr
-      001818 E0               [24] 1555 	movx	a,@dptr
-      001819 F5 1A            [12] 1556 	mov	(_calib_solve_weight_sloc0_1_0 + 2),a
-      00181B A3               [24] 1557 	inc	dptr
-      00181C E0               [24] 1558 	movx	a,@dptr
-      00181D F5 1B            [12] 1559 	mov	(_calib_solve_weight_sloc0_1_0 + 3),a
-      00181F 90 01 62         [24] 1560 	mov	dptr,#_calib_solve_weight_y1_10000_70
-      001822 E0               [24] 1561 	movx	a,@dptr
-      001823 F8               [12] 1562 	mov	r0,a
-      001824 A3               [24] 1563 	inc	dptr
-      001825 E0               [24] 1564 	movx	a,@dptr
-      001826 F9               [12] 1565 	mov	r1,a
-      001827 A3               [24] 1566 	inc	dptr
-      001828 E0               [24] 1567 	movx	a,@dptr
-      001829 FA               [12] 1568 	mov	r2,a
-      00182A A3               [24] 1569 	inc	dptr
-      00182B E0               [24] 1570 	movx	a,@dptr
-      00182C FB               [12] 1571 	mov	r3,a
-      00182D E8               [12] 1572 	mov	a,r0
-      00182E C3               [12] 1573 	clr	c
-      00182F 95 18            [12] 1574 	subb	a,_calib_solve_weight_sloc0_1_0
-      001831 F8               [12] 1575 	mov	r0,a
-      001832 E9               [12] 1576 	mov	a,r1
-      001833 95 19            [12] 1577 	subb	a,(_calib_solve_weight_sloc0_1_0 + 1)
-      001835 F9               [12] 1578 	mov	r1,a
-      001836 EA               [12] 1579 	mov	a,r2
-      001837 95 1A            [12] 1580 	subb	a,(_calib_solve_weight_sloc0_1_0 + 2)
-      001839 FA               [12] 1581 	mov	r2,a
-      00183A EB               [12] 1582 	mov	a,r3
-      00183B 95 1B            [12] 1583 	subb	a,(_calib_solve_weight_sloc0_1_0 + 3)
-      00183D FB               [12] 1584 	mov	r3,a
+      00185C 90 01 5E         [24] 1548 	mov	dptr,#_calib_solve_weight_y0_10000_70
+      00185F E0               [24] 1549 	movx	a,@dptr
+      001860 F5 18            [12] 1550 	mov	_calib_solve_weight_sloc0_1_0,a
+      001862 A3               [24] 1551 	inc	dptr
+      001863 E0               [24] 1552 	movx	a,@dptr
+      001864 F5 19            [12] 1553 	mov	(_calib_solve_weight_sloc0_1_0 + 1),a
+      001866 A3               [24] 1554 	inc	dptr
+      001867 E0               [24] 1555 	movx	a,@dptr
+      001868 F5 1A            [12] 1556 	mov	(_calib_solve_weight_sloc0_1_0 + 2),a
+      00186A A3               [24] 1557 	inc	dptr
+      00186B E0               [24] 1558 	movx	a,@dptr
+      00186C F5 1B            [12] 1559 	mov	(_calib_solve_weight_sloc0_1_0 + 3),a
+      00186E 90 01 62         [24] 1560 	mov	dptr,#_calib_solve_weight_y1_10000_70
+      001871 E0               [24] 1561 	movx	a,@dptr
+      001872 F8               [12] 1562 	mov	r0,a
+      001873 A3               [24] 1563 	inc	dptr
+      001874 E0               [24] 1564 	movx	a,@dptr
+      001875 F9               [12] 1565 	mov	r1,a
+      001876 A3               [24] 1566 	inc	dptr
+      001877 E0               [24] 1567 	movx	a,@dptr
+      001878 FA               [12] 1568 	mov	r2,a
+      001879 A3               [24] 1569 	inc	dptr
+      00187A E0               [24] 1570 	movx	a,@dptr
+      00187B FB               [12] 1571 	mov	r3,a
+      00187C E8               [12] 1572 	mov	a,r0
+      00187D C3               [12] 1573 	clr	c
+      00187E 95 18            [12] 1574 	subb	a,_calib_solve_weight_sloc0_1_0
+      001880 F8               [12] 1575 	mov	r0,a
+      001881 E9               [12] 1576 	mov	a,r1
+      001882 95 19            [12] 1577 	subb	a,(_calib_solve_weight_sloc0_1_0 + 1)
+      001884 F9               [12] 1578 	mov	r1,a
+      001885 EA               [12] 1579 	mov	a,r2
+      001886 95 1A            [12] 1580 	subb	a,(_calib_solve_weight_sloc0_1_0 + 2)
+      001888 FA               [12] 1581 	mov	r2,a
+      001889 EB               [12] 1582 	mov	a,r3
+      00188A 95 1B            [12] 1583 	subb	a,(_calib_solve_weight_sloc0_1_0 + 3)
+      00188C FB               [12] 1584 	mov	r3,a
                                    1585 ;	.\FwLib_STC8\user\calibration.c:85: int32_t run = x1 - x0;
-      00183E E5 24            [12] 1586 	mov	a,_calib_solve_weight_sloc5_1_0
-      001840 C3               [12] 1587 	clr	c
-      001841 95 20            [12] 1588 	subb	a,_calib_solve_weight_sloc4_1_0
-      001843 F5 24            [12] 1589 	mov	_calib_solve_weight_sloc5_1_0,a
-      001845 E5 25            [12] 1590 	mov	a,(_calib_solve_weight_sloc5_1_0 + 1)
-      001847 95 21            [12] 1591 	subb	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      001849 F5 25            [12] 1592 	mov	(_calib_solve_weight_sloc5_1_0 + 1),a
-      00184B E5 26            [12] 1593 	mov	a,(_calib_solve_weight_sloc5_1_0 + 2)
-      00184D 95 22            [12] 1594 	subb	a,(_calib_solve_weight_sloc4_1_0 + 2)
-      00184F F5 26            [12] 1595 	mov	(_calib_solve_weight_sloc5_1_0 + 2),a
-      001851 E5 27            [12] 1596 	mov	a,(_calib_solve_weight_sloc5_1_0 + 3)
-      001853 95 23            [12] 1597 	subb	a,(_calib_solve_weight_sloc4_1_0 + 3)
-      001855 F5 27            [12] 1598 	mov	(_calib_solve_weight_sloc5_1_0 + 3),a
+      00188D E5 24            [12] 1586 	mov	a,_calib_solve_weight_sloc5_1_0
+      00188F C3               [12] 1587 	clr	c
+      001890 95 20            [12] 1588 	subb	a,_calib_solve_weight_sloc4_1_0
+      001892 F5 24            [12] 1589 	mov	_calib_solve_weight_sloc5_1_0,a
+      001894 E5 25            [12] 1590 	mov	a,(_calib_solve_weight_sloc5_1_0 + 1)
+      001896 95 21            [12] 1591 	subb	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      001898 F5 25            [12] 1592 	mov	(_calib_solve_weight_sloc5_1_0 + 1),a
+      00189A E5 26            [12] 1593 	mov	a,(_calib_solve_weight_sloc5_1_0 + 2)
+      00189C 95 22            [12] 1594 	subb	a,(_calib_solve_weight_sloc4_1_0 + 2)
+      00189E F5 26            [12] 1595 	mov	(_calib_solve_weight_sloc5_1_0 + 2),a
+      0018A0 E5 27            [12] 1596 	mov	a,(_calib_solve_weight_sloc5_1_0 + 3)
+      0018A2 95 23            [12] 1597 	subb	a,(_calib_solve_weight_sloc4_1_0 + 3)
+      0018A4 F5 27            [12] 1598 	mov	(_calib_solve_weight_sloc5_1_0 + 3),a
                                    1599 ;	.\FwLib_STC8\user\calibration.c:89: if (dx < 32767 && dx > -32768 && dy < 32767 && dy > -32768) {
-      001857 C3               [12] 1600 	clr	c
-      001858 EC               [12] 1601 	mov	a,r4
-      001859 94 FF            [12] 1602 	subb	a,#0xff
-      00185B ED               [12] 1603 	mov	a,r5
-      00185C 94 7F            [12] 1604 	subb	a,#0x7f
-      00185E EE               [12] 1605 	mov	a,r6
-      00185F 94 00            [12] 1606 	subb	a,#0x00
-      001861 EF               [12] 1607 	mov	a,r7
-      001862 64 80            [12] 1608 	xrl	a,#0x80
-      001864 94 80            [12] 1609 	subb	a,#0x80
-      001866 40 03            [24] 1610 	jc	00198$
-      001868 02 19 1A         [24] 1611 	ljmp	00113$
-      00186B                       1612 00198$:
-      00186B C3               [12] 1613 	clr	c
-      00186C E4               [12] 1614 	clr	a
-      00186D 9C               [12] 1615 	subb	a,r4
-      00186E 74 80            [12] 1616 	mov	a,#0x80
-      001870 9D               [12] 1617 	subb	a,r5
-      001871 74 FF            [12] 1618 	mov	a,#0xff
-      001873 9E               [12] 1619 	subb	a,r6
-      001874 74 7F            [12] 1620 	mov	a,#(0xff ^ 0x80)
-      001876 8F F0            [24] 1621 	mov	b,r7
-      001878 63 F0 80         [24] 1622 	xrl	b,#0x80
-      00187B 95 F0            [12] 1623 	subb	a,b
-      00187D 40 03            [24] 1624 	jc	00199$
-      00187F 02 19 1A         [24] 1625 	ljmp	00113$
-      001882                       1626 00199$:
-      001882 C3               [12] 1627 	clr	c
-      001883 E8               [12] 1628 	mov	a,r0
-      001884 94 FF            [12] 1629 	subb	a,#0xff
-      001886 E9               [12] 1630 	mov	a,r1
-      001887 94 7F            [12] 1631 	subb	a,#0x7f
-      001889 EA               [12] 1632 	mov	a,r2
-      00188A 94 00            [12] 1633 	subb	a,#0x00
-      00188C EB               [12] 1634 	mov	a,r3
-      00188D 64 80            [12] 1635 	xrl	a,#0x80
-      00188F 94 80            [12] 1636 	subb	a,#0x80
-      001891 40 03            [24] 1637 	jc	00200$
-      001893 02 19 1A         [24] 1638 	ljmp	00113$
-      001896                       1639 00200$:
-      001896 C3               [12] 1640 	clr	c
-      001897 E4               [12] 1641 	clr	a
-      001898 98               [12] 1642 	subb	a,r0
-      001899 74 80            [12] 1643 	mov	a,#0x80
-      00189B 99               [12] 1644 	subb	a,r1
-      00189C 74 FF            [12] 1645 	mov	a,#0xff
-      00189E 9A               [12] 1646 	subb	a,r2
-      00189F 74 7F            [12] 1647 	mov	a,#(0xff ^ 0x80)
-      0018A1 8B F0            [24] 1648 	mov	b,r3
-      0018A3 63 F0 80         [24] 1649 	xrl	b,#0x80
-      0018A6 95 F0            [12] 1650 	subb	a,b
-      0018A8 50 70            [24] 1651 	jnc	00113$
+      0018A6 C3               [12] 1600 	clr	c
+      0018A7 EC               [12] 1601 	mov	a,r4
+      0018A8 94 FF            [12] 1602 	subb	a,#0xff
+      0018AA ED               [12] 1603 	mov	a,r5
+      0018AB 94 7F            [12] 1604 	subb	a,#0x7f
+      0018AD EE               [12] 1605 	mov	a,r6
+      0018AE 94 00            [12] 1606 	subb	a,#0x00
+      0018B0 EF               [12] 1607 	mov	a,r7
+      0018B1 64 80            [12] 1608 	xrl	a,#0x80
+      0018B3 94 80            [12] 1609 	subb	a,#0x80
+      0018B5 40 03            [24] 1610 	jc	00198$
+      0018B7 02 19 69         [24] 1611 	ljmp	00113$
+      0018BA                       1612 00198$:
+      0018BA C3               [12] 1613 	clr	c
+      0018BB E4               [12] 1614 	clr	a
+      0018BC 9C               [12] 1615 	subb	a,r4
+      0018BD 74 80            [12] 1616 	mov	a,#0x80
+      0018BF 9D               [12] 1617 	subb	a,r5
+      0018C0 74 FF            [12] 1618 	mov	a,#0xff
+      0018C2 9E               [12] 1619 	subb	a,r6
+      0018C3 74 7F            [12] 1620 	mov	a,#(0xff ^ 0x80)
+      0018C5 8F F0            [24] 1621 	mov	b,r7
+      0018C7 63 F0 80         [24] 1622 	xrl	b,#0x80
+      0018CA 95 F0            [12] 1623 	subb	a,b
+      0018CC 40 03            [24] 1624 	jc	00199$
+      0018CE 02 19 69         [24] 1625 	ljmp	00113$
+      0018D1                       1626 00199$:
+      0018D1 C3               [12] 1627 	clr	c
+      0018D2 E8               [12] 1628 	mov	a,r0
+      0018D3 94 FF            [12] 1629 	subb	a,#0xff
+      0018D5 E9               [12] 1630 	mov	a,r1
+      0018D6 94 7F            [12] 1631 	subb	a,#0x7f
+      0018D8 EA               [12] 1632 	mov	a,r2
+      0018D9 94 00            [12] 1633 	subb	a,#0x00
+      0018DB EB               [12] 1634 	mov	a,r3
+      0018DC 64 80            [12] 1635 	xrl	a,#0x80
+      0018DE 94 80            [12] 1636 	subb	a,#0x80
+      0018E0 40 03            [24] 1637 	jc	00200$
+      0018E2 02 19 69         [24] 1638 	ljmp	00113$
+      0018E5                       1639 00200$:
+      0018E5 C3               [12] 1640 	clr	c
+      0018E6 E4               [12] 1641 	clr	a
+      0018E7 98               [12] 1642 	subb	a,r0
+      0018E8 74 80            [12] 1643 	mov	a,#0x80
+      0018EA 99               [12] 1644 	subb	a,r1
+      0018EB 74 FF            [12] 1645 	mov	a,#0xff
+      0018ED 9A               [12] 1646 	subb	a,r2
+      0018EE 74 7F            [12] 1647 	mov	a,#(0xff ^ 0x80)
+      0018F0 8B F0            [24] 1648 	mov	b,r3
+      0018F2 63 F0 80         [24] 1649 	xrl	b,#0x80
+      0018F5 95 F0            [12] 1650 	subb	a,b
+      0018F7 50 70            [24] 1651 	jnc	00113$
                                    1652 ;	.\FwLib_STC8\user\calibration.c:90: return y0 + (dx * dy) / run;
-      0018AA 90 01 F1         [24] 1653 	mov	dptr,#__mullong_PARM_2
-      0018AD E8               [12] 1654 	mov	a,r0
-      0018AE F0               [24] 1655 	movx	@dptr,a
-      0018AF E9               [12] 1656 	mov	a,r1
-      0018B0 A3               [24] 1657 	inc	dptr
-      0018B1 F0               [24] 1658 	movx	@dptr,a
-      0018B2 EA               [12] 1659 	mov	a,r2
-      0018B3 A3               [24] 1660 	inc	dptr
-      0018B4 F0               [24] 1661 	movx	@dptr,a
-      0018B5 EB               [12] 1662 	mov	a,r3
-      0018B6 A3               [24] 1663 	inc	dptr
-      0018B7 F0               [24] 1664 	movx	@dptr,a
-      0018B8 8C 82            [24] 1665 	mov	dpl, r4
-      0018BA 8D 83            [24] 1666 	mov	dph, r5
-      0018BC 8E F0            [24] 1667 	mov	b, r6
-      0018BE EF               [12] 1668 	mov	a, r7
-      0018BF 12 28 A6         [24] 1669 	lcall	__mullong
-      0018C2 85 82 20         [24] 1670 	mov	_calib_solve_weight_sloc4_1_0,dpl
-      0018C5 85 83 21         [24] 1671 	mov	(_calib_solve_weight_sloc4_1_0 + 1),dph
-      0018C8 85 F0 22         [24] 1672 	mov	(_calib_solve_weight_sloc4_1_0 + 2),b
-      0018CB F5 23            [12] 1673 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
-      0018CD 90 01 D1         [24] 1674 	mov	dptr,#__divslong_PARM_2
-      0018D0 E5 24            [12] 1675 	mov	a,_calib_solve_weight_sloc5_1_0
-      0018D2 F0               [24] 1676 	movx	@dptr,a
-      0018D3 E5 25            [12] 1677 	mov	a,(_calib_solve_weight_sloc5_1_0 + 1)
-      0018D5 A3               [24] 1678 	inc	dptr
-      0018D6 F0               [24] 1679 	movx	@dptr,a
-      0018D7 E5 26            [12] 1680 	mov	a,(_calib_solve_weight_sloc5_1_0 + 2)
-      0018D9 A3               [24] 1681 	inc	dptr
-      0018DA F0               [24] 1682 	movx	@dptr,a
-      0018DB E5 27            [12] 1683 	mov	a,(_calib_solve_weight_sloc5_1_0 + 3)
-      0018DD A3               [24] 1684 	inc	dptr
-      0018DE F0               [24] 1685 	movx	@dptr,a
-      0018DF 85 20 82         [24] 1686 	mov	dpl, _calib_solve_weight_sloc4_1_0
-      0018E2 85 21 83         [24] 1687 	mov	dph, (_calib_solve_weight_sloc4_1_0 + 1)
-      0018E5 85 22 F0         [24] 1688 	mov	b, (_calib_solve_weight_sloc4_1_0 + 2)
-      0018E8 E5 23            [12] 1689 	mov	a, (_calib_solve_weight_sloc4_1_0 + 3)
-      0018EA 12 25 4A         [24] 1690 	lcall	__divslong
-      0018ED 85 82 20         [24] 1691 	mov	_calib_solve_weight_sloc4_1_0,dpl
-      0018F0 85 83 21         [24] 1692 	mov	(_calib_solve_weight_sloc4_1_0 + 1),dph
-      0018F3 85 F0 22         [24] 1693 	mov	(_calib_solve_weight_sloc4_1_0 + 2),b
-      0018F6 F5 23            [12] 1694 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
-      0018F8 E5 20            [12] 1695 	mov	a,_calib_solve_weight_sloc4_1_0
-      0018FA 25 18            [12] 1696 	add	a, _calib_solve_weight_sloc0_1_0
-      0018FC F5 20            [12] 1697 	mov	_calib_solve_weight_sloc4_1_0,a
-      0018FE E5 21            [12] 1698 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
-      001900 35 19            [12] 1699 	addc	a, (_calib_solve_weight_sloc0_1_0 + 1)
-      001902 F5 21            [12] 1700 	mov	(_calib_solve_weight_sloc4_1_0 + 1),a
-      001904 E5 22            [12] 1701 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
-      001906 35 1A            [12] 1702 	addc	a, (_calib_solve_weight_sloc0_1_0 + 2)
-      001908 F5 22            [12] 1703 	mov	(_calib_solve_weight_sloc4_1_0 + 2),a
-      00190A E5 23            [12] 1704 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
-      00190C 35 1B            [12] 1705 	addc	a, (_calib_solve_weight_sloc0_1_0 + 3)
-      00190E F5 23            [12] 1706 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
-      001910 85 20 82         [24] 1707 	mov	dpl,_calib_solve_weight_sloc4_1_0
-      001913 85 21 83         [24] 1708 	mov	dph,(_calib_solve_weight_sloc4_1_0 + 1)
-      001916 85 22 F0         [24] 1709 	mov	b,(_calib_solve_weight_sloc4_1_0 + 2)
-      001919 22               [24] 1710 	ret
-      00191A                       1711 00113$:
+      0018F9 90 01 FA         [24] 1653 	mov	dptr,#__mullong_PARM_2
+      0018FC E8               [12] 1654 	mov	a,r0
+      0018FD F0               [24] 1655 	movx	@dptr,a
+      0018FE E9               [12] 1656 	mov	a,r1
+      0018FF A3               [24] 1657 	inc	dptr
+      001900 F0               [24] 1658 	movx	@dptr,a
+      001901 EA               [12] 1659 	mov	a,r2
+      001902 A3               [24] 1660 	inc	dptr
+      001903 F0               [24] 1661 	movx	@dptr,a
+      001904 EB               [12] 1662 	mov	a,r3
+      001905 A3               [24] 1663 	inc	dptr
+      001906 F0               [24] 1664 	movx	@dptr,a
+      001907 8C 82            [24] 1665 	mov	dpl, r4
+      001909 8D 83            [24] 1666 	mov	dph, r5
+      00190B 8E F0            [24] 1667 	mov	b, r6
+      00190D EF               [12] 1668 	mov	a, r7
+      00190E 12 2F BD         [24] 1669 	lcall	__mullong
+      001911 85 82 20         [24] 1670 	mov	_calib_solve_weight_sloc4_1_0,dpl
+      001914 85 83 21         [24] 1671 	mov	(_calib_solve_weight_sloc4_1_0 + 1),dph
+      001917 85 F0 22         [24] 1672 	mov	(_calib_solve_weight_sloc4_1_0 + 2),b
+      00191A F5 23            [12] 1673 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
+      00191C 90 01 DA         [24] 1674 	mov	dptr,#__divslong_PARM_2
+      00191F E5 24            [12] 1675 	mov	a,_calib_solve_weight_sloc5_1_0
+      001921 F0               [24] 1676 	movx	@dptr,a
+      001922 E5 25            [12] 1677 	mov	a,(_calib_solve_weight_sloc5_1_0 + 1)
+      001924 A3               [24] 1678 	inc	dptr
+      001925 F0               [24] 1679 	movx	@dptr,a
+      001926 E5 26            [12] 1680 	mov	a,(_calib_solve_weight_sloc5_1_0 + 2)
+      001928 A3               [24] 1681 	inc	dptr
+      001929 F0               [24] 1682 	movx	@dptr,a
+      00192A E5 27            [12] 1683 	mov	a,(_calib_solve_weight_sloc5_1_0 + 3)
+      00192C A3               [24] 1684 	inc	dptr
+      00192D F0               [24] 1685 	movx	@dptr,a
+      00192E 85 20 82         [24] 1686 	mov	dpl, _calib_solve_weight_sloc4_1_0
+      001931 85 21 83         [24] 1687 	mov	dph, (_calib_solve_weight_sloc4_1_0 + 1)
+      001934 85 22 F0         [24] 1688 	mov	b, (_calib_solve_weight_sloc4_1_0 + 2)
+      001937 E5 23            [12] 1689 	mov	a, (_calib_solve_weight_sloc4_1_0 + 3)
+      001939 12 2C 61         [24] 1690 	lcall	__divslong
+      00193C 85 82 20         [24] 1691 	mov	_calib_solve_weight_sloc4_1_0,dpl
+      00193F 85 83 21         [24] 1692 	mov	(_calib_solve_weight_sloc4_1_0 + 1),dph
+      001942 85 F0 22         [24] 1693 	mov	(_calib_solve_weight_sloc4_1_0 + 2),b
+      001945 F5 23            [12] 1694 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
+      001947 E5 20            [12] 1695 	mov	a,_calib_solve_weight_sloc4_1_0
+      001949 25 18            [12] 1696 	add	a, _calib_solve_weight_sloc0_1_0
+      00194B F5 20            [12] 1697 	mov	_calib_solve_weight_sloc4_1_0,a
+      00194D E5 21            [12] 1698 	mov	a,(_calib_solve_weight_sloc4_1_0 + 1)
+      00194F 35 19            [12] 1699 	addc	a, (_calib_solve_weight_sloc0_1_0 + 1)
+      001951 F5 21            [12] 1700 	mov	(_calib_solve_weight_sloc4_1_0 + 1),a
+      001953 E5 22            [12] 1701 	mov	a,(_calib_solve_weight_sloc4_1_0 + 2)
+      001955 35 1A            [12] 1702 	addc	a, (_calib_solve_weight_sloc0_1_0 + 2)
+      001957 F5 22            [12] 1703 	mov	(_calib_solve_weight_sloc4_1_0 + 2),a
+      001959 E5 23            [12] 1704 	mov	a,(_calib_solve_weight_sloc4_1_0 + 3)
+      00195B 35 1B            [12] 1705 	addc	a, (_calib_solve_weight_sloc0_1_0 + 3)
+      00195D F5 23            [12] 1706 	mov	(_calib_solve_weight_sloc4_1_0 + 3),a
+      00195F 85 20 82         [24] 1707 	mov	dpl,_calib_solve_weight_sloc4_1_0
+      001962 85 21 83         [24] 1708 	mov	dph,(_calib_solve_weight_sloc4_1_0 + 1)
+      001965 85 22 F0         [24] 1709 	mov	b,(_calib_solve_weight_sloc4_1_0 + 2)
+      001968 22               [24] 1710 	ret
+      001969                       1711 00113$:
                                    1712 ;	.\FwLib_STC8\user\calibration.c:94: return y0 + (int32_t)(((float)dx * dy) / run);
-      00191A 8C 82            [24] 1713 	mov	dpl, r4
-      00191C 8D 83            [24] 1714 	mov	dph, r5
-      00191E 8E F0            [24] 1715 	mov	b, r6
-      001920 EF               [12] 1716 	mov	a, r7
-      001921 C0 03            [24] 1717 	push	ar3
-      001923 C0 02            [24] 1718 	push	ar2
-      001925 C0 01            [24] 1719 	push	ar1
-      001927 C0 00            [24] 1720 	push	ar0
-      001929 12 27 D1         [24] 1721 	lcall	___slong2fs
-      00192C AC 82            [24] 1722 	mov	r4, dpl
-      00192E AD 83            [24] 1723 	mov	r5, dph
-      001930 AE F0            [24] 1724 	mov	r6, b
-      001932 FF               [12] 1725 	mov	r7, a
-      001933 D0 00            [24] 1726 	pop	ar0
-      001935 D0 01            [24] 1727 	pop	ar1
-      001937 D0 02            [24] 1728 	pop	ar2
-      001939 D0 03            [24] 1729 	pop	ar3
-      00193B 88 82            [24] 1730 	mov	dpl, r0
-      00193D 89 83            [24] 1731 	mov	dph, r1
-      00193F 8A F0            [24] 1732 	mov	b, r2
-      001941 EB               [12] 1733 	mov	a, r3
-      001942 C0 07            [24] 1734 	push	ar7
-      001944 C0 06            [24] 1735 	push	ar6
-      001946 C0 05            [24] 1736 	push	ar5
-      001948 C0 04            [24] 1737 	push	ar4
-      00194A 12 27 D1         [24] 1738 	lcall	___slong2fs
-      00194D A8 82            [24] 1739 	mov	r0, dpl
-      00194F A9 83            [24] 1740 	mov	r1, dph
-      001951 AA F0            [24] 1741 	mov	r2, b
-      001953 FB               [12] 1742 	mov	r3, a
-      001954 D0 04            [24] 1743 	pop	ar4
-      001956 D0 05            [24] 1744 	pop	ar5
-      001958 D0 06            [24] 1745 	pop	ar6
-      00195A D0 07            [24] 1746 	pop	ar7
-      00195C C0 00            [24] 1747 	push	ar0
-      00195E C0 01            [24] 1748 	push	ar1
-      001960 C0 02            [24] 1749 	push	ar2
-      001962 C0 03            [24] 1750 	push	ar3
-      001964 8C 82            [24] 1751 	mov	dpl, r4
-      001966 8D 83            [24] 1752 	mov	dph, r5
-      001968 8E F0            [24] 1753 	mov	b, r6
-      00196A EF               [12] 1754 	mov	a, r7
-      00196B 12 24 A7         [24] 1755 	lcall	___fsmul
-      00196E AC 82            [24] 1756 	mov	r4, dpl
-      001970 AD 83            [24] 1757 	mov	r5, dph
-      001972 AE F0            [24] 1758 	mov	r6, b
-      001974 FF               [12] 1759 	mov	r7, a
-      001975 E5 81            [12] 1760 	mov	a,sp
-      001977 24 FC            [12] 1761 	add	a,#0xfc
-      001979 F5 81            [12] 1762 	mov	sp,a
-      00197B 85 24 82         [24] 1763 	mov	dpl, _calib_solve_weight_sloc5_1_0
-      00197E 85 25 83         [24] 1764 	mov	dph, (_calib_solve_weight_sloc5_1_0 + 1)
-      001981 85 26 F0         [24] 1765 	mov	b, (_calib_solve_weight_sloc5_1_0 + 2)
-      001984 E5 27            [12] 1766 	mov	a, (_calib_solve_weight_sloc5_1_0 + 3)
-      001986 C0 07            [24] 1767 	push	ar7
-      001988 C0 06            [24] 1768 	push	ar6
-      00198A C0 05            [24] 1769 	push	ar5
-      00198C C0 04            [24] 1770 	push	ar4
-      00198E 12 27 D1         [24] 1771 	lcall	___slong2fs
-      001991 A8 82            [24] 1772 	mov	r0, dpl
-      001993 A9 83            [24] 1773 	mov	r1, dph
-      001995 AA F0            [24] 1774 	mov	r2, b
-      001997 FB               [12] 1775 	mov	r3, a
-      001998 D0 04            [24] 1776 	pop	ar4
-      00199A D0 05            [24] 1777 	pop	ar5
-      00199C D0 06            [24] 1778 	pop	ar6
-      00199E D0 07            [24] 1779 	pop	ar7
-      0019A0 C0 00            [24] 1780 	push	ar0
-      0019A2 C0 01            [24] 1781 	push	ar1
-      0019A4 C0 02            [24] 1782 	push	ar2
-      0019A6 C0 03            [24] 1783 	push	ar3
-      0019A8 8C 82            [24] 1784 	mov	dpl, r4
-      0019AA 8D 83            [24] 1785 	mov	dph, r5
-      0019AC 8E F0            [24] 1786 	mov	b, r6
-      0019AE EF               [12] 1787 	mov	a, r7
-      0019AF 12 2A 0C         [24] 1788 	lcall	___fsdiv
-      0019B2 AC 82            [24] 1789 	mov	r4, dpl
-      0019B4 AD 83            [24] 1790 	mov	r5, dph
-      0019B6 AE F0            [24] 1791 	mov	r6, b
-      0019B8 FF               [12] 1792 	mov	r7, a
-      0019B9 E5 81            [12] 1793 	mov	a,sp
-      0019BB 24 FC            [12] 1794 	add	a,#0xfc
-      0019BD F5 81            [12] 1795 	mov	sp,a
-      0019BF 8C 82            [24] 1796 	mov	dpl, r4
-      0019C1 8D 83            [24] 1797 	mov	dph, r5
-      0019C3 8E F0            [24] 1798 	mov	b, r6
-      0019C5 EF               [12] 1799 	mov	a, r7
-      0019C6 12 27 FE         [24] 1800 	lcall	___fs2slong
-      0019C9 AC 82            [24] 1801 	mov	r4, dpl
-      0019CB AD 83            [24] 1802 	mov	r5, dph
-      0019CD AE F0            [24] 1803 	mov	r6, b
-      0019CF FF               [12] 1804 	mov	r7, a
-      0019D0 90 01 5E         [24] 1805 	mov	dptr,#_calib_solve_weight_y0_10000_70
-      0019D3 E0               [24] 1806 	movx	a,@dptr
-      0019D4 F8               [12] 1807 	mov	r0,a
-      0019D5 A3               [24] 1808 	inc	dptr
-      0019D6 E0               [24] 1809 	movx	a,@dptr
-      0019D7 F9               [12] 1810 	mov	r1,a
-      0019D8 A3               [24] 1811 	inc	dptr
-      0019D9 E0               [24] 1812 	movx	a,@dptr
-      0019DA FA               [12] 1813 	mov	r2,a
-      0019DB A3               [24] 1814 	inc	dptr
-      0019DC E0               [24] 1815 	movx	a,@dptr
-      0019DD FB               [12] 1816 	mov	r3,a
-      0019DE EC               [12] 1817 	mov	a,r4
-      0019DF 28               [12] 1818 	add	a, r0
-      0019E0 FC               [12] 1819 	mov	r4,a
-      0019E1 ED               [12] 1820 	mov	a,r5
-      0019E2 39               [12] 1821 	addc	a, r1
-      0019E3 FD               [12] 1822 	mov	r5,a
-      0019E4 EE               [12] 1823 	mov	a,r6
-      0019E5 3A               [12] 1824 	addc	a, r2
-      0019E6 FE               [12] 1825 	mov	r6,a
-      0019E7 EF               [12] 1826 	mov	a,r7
-      0019E8 3B               [12] 1827 	addc	a, r3
-      0019E9 8C 82            [24] 1828 	mov	dpl,r4
-      0019EB 8D 83            [24] 1829 	mov	dph,r5
-      0019ED 8E F0            [24] 1830 	mov	b,r6
+      001969 8C 82            [24] 1713 	mov	dpl, r4
+      00196B 8D 83            [24] 1714 	mov	dph, r5
+      00196D 8E F0            [24] 1715 	mov	b, r6
+      00196F EF               [12] 1716 	mov	a, r7
+      001970 C0 03            [24] 1717 	push	ar3
+      001972 C0 02            [24] 1718 	push	ar2
+      001974 C0 01            [24] 1719 	push	ar1
+      001976 C0 00            [24] 1720 	push	ar0
+      001978 12 2E E8         [24] 1721 	lcall	___slong2fs
+      00197B AC 82            [24] 1722 	mov	r4, dpl
+      00197D AD 83            [24] 1723 	mov	r5, dph
+      00197F AE F0            [24] 1724 	mov	r6, b
+      001981 FF               [12] 1725 	mov	r7, a
+      001982 D0 00            [24] 1726 	pop	ar0
+      001984 D0 01            [24] 1727 	pop	ar1
+      001986 D0 02            [24] 1728 	pop	ar2
+      001988 D0 03            [24] 1729 	pop	ar3
+      00198A 88 82            [24] 1730 	mov	dpl, r0
+      00198C 89 83            [24] 1731 	mov	dph, r1
+      00198E 8A F0            [24] 1732 	mov	b, r2
+      001990 EB               [12] 1733 	mov	a, r3
+      001991 C0 07            [24] 1734 	push	ar7
+      001993 C0 06            [24] 1735 	push	ar6
+      001995 C0 05            [24] 1736 	push	ar5
+      001997 C0 04            [24] 1737 	push	ar4
+      001999 12 2E E8         [24] 1738 	lcall	___slong2fs
+      00199C A8 82            [24] 1739 	mov	r0, dpl
+      00199E A9 83            [24] 1740 	mov	r1, dph
+      0019A0 AA F0            [24] 1741 	mov	r2, b
+      0019A2 FB               [12] 1742 	mov	r3, a
+      0019A3 D0 04            [24] 1743 	pop	ar4
+      0019A5 D0 05            [24] 1744 	pop	ar5
+      0019A7 D0 06            [24] 1745 	pop	ar6
+      0019A9 D0 07            [24] 1746 	pop	ar7
+      0019AB C0 00            [24] 1747 	push	ar0
+      0019AD C0 01            [24] 1748 	push	ar1
+      0019AF C0 02            [24] 1749 	push	ar2
+      0019B1 C0 03            [24] 1750 	push	ar3
+      0019B3 8C 82            [24] 1751 	mov	dpl, r4
+      0019B5 8D 83            [24] 1752 	mov	dph, r5
+      0019B7 8E F0            [24] 1753 	mov	b, r6
+      0019B9 EF               [12] 1754 	mov	a, r7
+      0019BA 12 2B BE         [24] 1755 	lcall	___fsmul
+      0019BD AC 82            [24] 1756 	mov	r4, dpl
+      0019BF AD 83            [24] 1757 	mov	r5, dph
+      0019C1 AE F0            [24] 1758 	mov	r6, b
+      0019C3 FF               [12] 1759 	mov	r7, a
+      0019C4 E5 81            [12] 1760 	mov	a,sp
+      0019C6 24 FC            [12] 1761 	add	a,#0xfc
+      0019C8 F5 81            [12] 1762 	mov	sp,a
+      0019CA 85 24 82         [24] 1763 	mov	dpl, _calib_solve_weight_sloc5_1_0
+      0019CD 85 25 83         [24] 1764 	mov	dph, (_calib_solve_weight_sloc5_1_0 + 1)
+      0019D0 85 26 F0         [24] 1765 	mov	b, (_calib_solve_weight_sloc5_1_0 + 2)
+      0019D3 E5 27            [12] 1766 	mov	a, (_calib_solve_weight_sloc5_1_0 + 3)
+      0019D5 C0 07            [24] 1767 	push	ar7
+      0019D7 C0 06            [24] 1768 	push	ar6
+      0019D9 C0 05            [24] 1769 	push	ar5
+      0019DB C0 04            [24] 1770 	push	ar4
+      0019DD 12 2E E8         [24] 1771 	lcall	___slong2fs
+      0019E0 A8 82            [24] 1772 	mov	r0, dpl
+      0019E2 A9 83            [24] 1773 	mov	r1, dph
+      0019E4 AA F0            [24] 1774 	mov	r2, b
+      0019E6 FB               [12] 1775 	mov	r3, a
+      0019E7 D0 04            [24] 1776 	pop	ar4
+      0019E9 D0 05            [24] 1777 	pop	ar5
+      0019EB D0 06            [24] 1778 	pop	ar6
+      0019ED D0 07            [24] 1779 	pop	ar7
+      0019EF C0 00            [24] 1780 	push	ar0
+      0019F1 C0 01            [24] 1781 	push	ar1
+      0019F3 C0 02            [24] 1782 	push	ar2
+      0019F5 C0 03            [24] 1783 	push	ar3
+      0019F7 8C 82            [24] 1784 	mov	dpl, r4
+      0019F9 8D 83            [24] 1785 	mov	dph, r5
+      0019FB 8E F0            [24] 1786 	mov	b, r6
+      0019FD EF               [12] 1787 	mov	a, r7
+      0019FE 12 31 23         [24] 1788 	lcall	___fsdiv
+      001A01 AC 82            [24] 1789 	mov	r4, dpl
+      001A03 AD 83            [24] 1790 	mov	r5, dph
+      001A05 AE F0            [24] 1791 	mov	r6, b
+      001A07 FF               [12] 1792 	mov	r7, a
+      001A08 E5 81            [12] 1793 	mov	a,sp
+      001A0A 24 FC            [12] 1794 	add	a,#0xfc
+      001A0C F5 81            [12] 1795 	mov	sp,a
+      001A0E 8C 82            [24] 1796 	mov	dpl, r4
+      001A10 8D 83            [24] 1797 	mov	dph, r5
+      001A12 8E F0            [24] 1798 	mov	b, r6
+      001A14 EF               [12] 1799 	mov	a, r7
+      001A15 12 2F 15         [24] 1800 	lcall	___fs2slong
+      001A18 AC 82            [24] 1801 	mov	r4, dpl
+      001A1A AD 83            [24] 1802 	mov	r5, dph
+      001A1C AE F0            [24] 1803 	mov	r6, b
+      001A1E FF               [12] 1804 	mov	r7, a
+      001A1F 90 01 5E         [24] 1805 	mov	dptr,#_calib_solve_weight_y0_10000_70
+      001A22 E0               [24] 1806 	movx	a,@dptr
+      001A23 F8               [12] 1807 	mov	r0,a
+      001A24 A3               [24] 1808 	inc	dptr
+      001A25 E0               [24] 1809 	movx	a,@dptr
+      001A26 F9               [12] 1810 	mov	r1,a
+      001A27 A3               [24] 1811 	inc	dptr
+      001A28 E0               [24] 1812 	movx	a,@dptr
+      001A29 FA               [12] 1813 	mov	r2,a
+      001A2A A3               [24] 1814 	inc	dptr
+      001A2B E0               [24] 1815 	movx	a,@dptr
+      001A2C FB               [12] 1816 	mov	r3,a
+      001A2D EC               [12] 1817 	mov	a,r4
+      001A2E 28               [12] 1818 	add	a, r0
+      001A2F FC               [12] 1819 	mov	r4,a
+      001A30 ED               [12] 1820 	mov	a,r5
+      001A31 39               [12] 1821 	addc	a, r1
+      001A32 FD               [12] 1822 	mov	r5,a
+      001A33 EE               [12] 1823 	mov	a,r6
+      001A34 3A               [12] 1824 	addc	a, r2
+      001A35 FE               [12] 1825 	mov	r6,a
+      001A36 EF               [12] 1826 	mov	a,r7
+      001A37 3B               [12] 1827 	addc	a, r3
+      001A38 8C 82            [24] 1828 	mov	dpl,r4
+      001A3A 8D 83            [24] 1829 	mov	dph,r5
+      001A3C 8E F0            [24] 1830 	mov	b,r6
                                    1831 ;	.\FwLib_STC8\user\calibration.c:97: }
-      0019EF 22               [24] 1832 	ret
+      001A3E 22               [24] 1832 	ret
                                    1833 	.area CSEG    (CODE)
                                    1834 	.area CONST   (CODE)
                                    1835 	.area XINIT   (CODE)

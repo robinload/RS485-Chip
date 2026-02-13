@@ -508,12 +508,12 @@
                                     508 ; initialized external ram data
                                     509 ;--------------------------------------------------------
                                     510 	.area XISEG   (XDATA)
-      0001FA                        511 _mb_idx::
-      0001FA                        512 	.ds 1
-      0001FB                        513 _mb_frame_ready::
-      0001FB                        514 	.ds 1
-      0001FC                        515 _cached_id::
-      0001FC                        516 	.ds 1
+      000203                        511 _mb_idx::
+      000203                        512 	.ds 1
+      000204                        513 _mb_frame_ready::
+      000204                        514 	.ds 1
+      000205                        515 _cached_id::
+      000205                        516 	.ds 1
                                     517 	.area HOME    (CODE)
                                     518 	.area GSINIT0 (CODE)
                                     519 	.area GSINIT1 (CODE)
@@ -547,7 +547,7 @@
                                     547 ;	-----------------------------------------
                                     548 ;	 function UART_Init
                                     549 ;	-----------------------------------------
-      000A9F                        550 _UART_Init:
+      000AEE                        550 _UART_Init:
                            000007   551 	ar7 = 0x07
                            000006   552 	ar6 = 0x06
                            000005   553 	ar5 = 0x05
@@ -557,37 +557,37 @@
                            000001   557 	ar1 = 0x01
                            000000   558 	ar0 = 0x00
                                     559 ;	.\FwLib_STC8\user\uart.c:21: SCON = 0x50;
-      000A9F 75 98 50         [24]  560 	mov	_SCON,#0x50
+      000AEE 75 98 50         [24]  560 	mov	_SCON,#0x50
                                     561 ;	.\FwLib_STC8\user\uart.c:22: AUXR |= 0x01;   // Serial 1 selects Timer 2 as baud rate generator
-      000AA2 43 8E 01         [24]  562 	orl	_AUXR,#0x01
+      000AF1 43 8E 01         [24]  562 	orl	_AUXR,#0x01
                                     563 ;	.\FwLib_STC8\user\uart.c:23: AUXR |= 0x04;   // Timer 2 in 1T mode
-      000AA5 43 8E 04         [24]  564 	orl	_AUXR,#0x04
+      000AF4 43 8E 04         [24]  564 	orl	_AUXR,#0x04
                                     565 ;	.\FwLib_STC8\user\uart.c:24: T2H = 0xFD; T2L = 0xC0;
-      000AA8 75 D6 FD         [24]  566 	mov	_T2H,#0xfd
-      000AAB 75 D7 C0         [24]  567 	mov	_T2L,#0xc0
+      000AF7 75 D6 FD         [24]  566 	mov	_T2H,#0xfd
+      000AFA 75 D7 C0         [24]  567 	mov	_T2L,#0xc0
                                     568 ;	.\FwLib_STC8\user\uart.c:25: AUXR |= 0x10;   // Start Timer 2
-      000AAE 43 8E 10         [24]  569 	orl	_AUXR,#0x10
+      000AFD 43 8E 10         [24]  569 	orl	_AUXR,#0x10
                                     570 ;	.\FwLib_STC8\user\uart.c:26: P_SW1 &= ~0xC0; // Select Pins P3.0/P3.1
-      000AB1 53 A2 3F         [24]  571 	anl	_P_SW1,#0x3f
+      000B00 53 A2 3F         [24]  571 	anl	_P_SW1,#0x3f
                                     572 ;	.\FwLib_STC8\user\uart.c:29: TMOD &= 0xF0;   // Timer 0 in Mode 0 (16-bit auto-reload)
-      000AB4 53 89 F0         [24]  573 	anl	_TMOD,#0xf0
+      000B03 53 89 F0         [24]  573 	anl	_TMOD,#0xf0
                                     574 ;	.\FwLib_STC8\user\uart.c:30: AUXR |= 0x80;   // Timer 0 in 1T mode
-      000AB7 43 8E 80         [24]  575 	orl	_AUXR,#0x80
+      000B06 43 8E 80         [24]  575 	orl	_AUXR,#0x80
                                     576 ;	.\FwLib_STC8\user\uart.c:32: TH0 = T0_RELOAD_H; 
-      000ABA 75 8C 20         [24]  577 	mov	_TH0,#0x20
+      000B09 75 8C 20         [24]  577 	mov	_TH0,#0x20
                                     578 ;	.\FwLib_STC8\user\uart.c:33: TL0 = T0_RELOAD_L;
-      000ABD 75 8A 00         [24]  579 	mov	_TL0,#0x00
+      000B0C 75 8A 00         [24]  579 	mov	_TL0,#0x00
                                     580 ;	.\FwLib_STC8\user\uart.c:35: TF0 = 0;        // Clear overflow flag
                                     581 ;	assignBit
-      000AC0 C2 8D            [12]  582 	clr	_TF0
+      000B0F C2 8D            [12]  582 	clr	_TF0
                                     583 ;	.\FwLib_STC8\user\uart.c:36: ET0 = 1;        // Enable Timer 0 interrupt
                                     584 ;	assignBit
-      000AC2 D2 A9            [12]  585 	setb	_ET0
+      000B11 D2 A9            [12]  585 	setb	_ET0
                                     586 ;	.\FwLib_STC8\user\uart.c:37: TR0 = 0;        // Keep off until first byte arrives
                                     587 ;	assignBit
-      000AC4 C2 8C            [12]  588 	clr	_TR0
+      000B13 C2 8C            [12]  588 	clr	_TR0
                                     589 ;	.\FwLib_STC8\user\uart.c:38: }
-      000AC6 22               [24]  590 	ret
+      000B15 22               [24]  590 	ret
                                     591 ;------------------------------------------------------------
                                     592 ;Allocation info for local variables in function 'Modbus_ResetSilentTimer'
                                     593 ;------------------------------------------------------------
@@ -595,22 +595,22 @@
                                     595 ;	-----------------------------------------
                                     596 ;	 function Modbus_ResetSilentTimer
                                     597 ;	-----------------------------------------
-      000AC7                        598 _Modbus_ResetSilentTimer:
+      000B16                        598 _Modbus_ResetSilentTimer:
                                     599 ;	.\FwLib_STC8\user\uart.c:42: TR0 = 0;        // Stop
                                     600 ;	assignBit
-      000AC7 C2 8C            [12]  601 	clr	_TR0
+      000B16 C2 8C            [12]  601 	clr	_TR0
                                     602 ;	.\FwLib_STC8\user\uart.c:43: TH0 = T0_RELOAD_H; 
-      000AC9 75 8C 20         [24]  603 	mov	_TH0,#0x20
+      000B18 75 8C 20         [24]  603 	mov	_TH0,#0x20
                                     604 ;	.\FwLib_STC8\user\uart.c:44: TL0 = T0_RELOAD_L; 
-      000ACC 75 8A 00         [24]  605 	mov	_TL0,#0x00
+      000B1B 75 8A 00         [24]  605 	mov	_TL0,#0x00
                                     606 ;	.\FwLib_STC8\user\uart.c:45: TF0 = 0;        // Clear flag
                                     607 ;	assignBit
-      000ACF C2 8D            [12]  608 	clr	_TF0
+      000B1E C2 8D            [12]  608 	clr	_TF0
                                     609 ;	.\FwLib_STC8\user\uart.c:46: TR0 = 1;        // Restart
                                     610 ;	assignBit
-      000AD1 D2 8C            [12]  611 	setb	_TR0
+      000B20 D2 8C            [12]  611 	setb	_TR0
                                     612 ;	.\FwLib_STC8\user\uart.c:47: }
-      000AD3 22               [24]  613 	ret
+      000B22 22               [24]  613 	ret
                                     614 ;------------------------------------------------------------
                                     615 ;Allocation info for local variables in function 'UART_ISR'
                                     616 ;------------------------------------------------------------
@@ -620,73 +620,73 @@
                                     620 ;	-----------------------------------------
                                     621 ;	 function UART_ISR
                                     622 ;	-----------------------------------------
-      000AD4                        623 _UART_ISR:
-      000AD4 C0 E0            [24]  624 	push	acc
-      000AD6 C0 82            [24]  625 	push	dpl
-      000AD8 C0 83            [24]  626 	push	dph
-      000ADA C0 07            [24]  627 	push	ar7
-      000ADC C0 06            [24]  628 	push	ar6
-      000ADE C0 05            [24]  629 	push	ar5
-      000AE0 C0 D0            [24]  630 	push	psw
-      000AE2 75 D0 00         [24]  631 	mov	psw,#0x00
+      000B23                        623 _UART_ISR:
+      000B23 C0 E0            [24]  624 	push	acc
+      000B25 C0 82            [24]  625 	push	dpl
+      000B27 C0 83            [24]  626 	push	dph
+      000B29 C0 07            [24]  627 	push	ar7
+      000B2B C0 06            [24]  628 	push	ar6
+      000B2D C0 05            [24]  629 	push	ar5
+      000B2F C0 D0            [24]  630 	push	psw
+      000B31 75 D0 00         [24]  631 	mov	psw,#0x00
                                     632 ;	.\FwLib_STC8\user\uart.c:54: if (RI) 
-      000AE5 30 98 36         [24]  633 	jnb	_RI,00106$
+      000B34 30 98 36         [24]  633 	jnb	_RI,00106$
                                     634 ;	.\FwLib_STC8\user\uart.c:56: uint8_t b = SBUF; 
-      000AE8 90 01 0A         [24]  635 	mov	dptr,#_UART_ISR_b_20000_67
-      000AEB E5 99            [12]  636 	mov	a,_SBUF
-      000AED F0               [24]  637 	movx	@dptr,a
+      000B37 90 01 0A         [24]  635 	mov	dptr,#_UART_ISR_b_20000_67
+      000B3A E5 99            [12]  636 	mov	a,_SBUF
+      000B3C F0               [24]  637 	movx	@dptr,a
                                     638 ;	.\FwLib_STC8\user\uart.c:57: RI = 0; 
                                     639 ;	assignBit
-      000AEE C2 98            [12]  640 	clr	_RI
+      000B3D C2 98            [12]  640 	clr	_RI
                                     641 ;	.\FwLib_STC8\user\uart.c:59: if (mb_idx < sizeof(mb_buf)) 
-      000AF0 90 01 FA         [24]  642 	mov	dptr,#_mb_idx
-      000AF3 E0               [24]  643 	movx	a,@dptr
-      000AF4 FF               [12]  644 	mov	r7,a
-      000AF5 BF 40 00         [24]  645 	cjne	r7,#0x40,00121$
-      000AF8                        646 00121$:
-      000AF8 50 18            [24]  647 	jnc	00102$
+      000B3F 90 02 03         [24]  642 	mov	dptr,#_mb_idx
+      000B42 E0               [24]  643 	movx	a,@dptr
+      000B43 FF               [12]  644 	mov	r7,a
+      000B44 BF 40 00         [24]  645 	cjne	r7,#0x40,00121$
+      000B47                        646 00121$:
+      000B47 50 18            [24]  647 	jnc	00102$
                                     648 ;	.\FwLib_STC8\user\uart.c:61: mb_buf[mb_idx++] = b;
-      000AFA 90 01 FA         [24]  649 	mov	dptr,#_mb_idx
-      000AFD E0               [24]  650 	movx	a,@dptr
-      000AFE FF               [12]  651 	mov	r7,a
-      000AFF 04               [12]  652 	inc	a
-      000B00 F0               [24]  653 	movx	@dptr,a
-      000B01 EF               [12]  654 	mov	a,r7
-      000B02 24 CA            [12]  655 	add	a, #_mb_buf
-      000B04 FF               [12]  656 	mov	r7,a
-      000B05 E4               [12]  657 	clr	a
-      000B06 34 00            [12]  658 	addc	a, #(_mb_buf >> 8)
-      000B08 FE               [12]  659 	mov	r6,a
-      000B09 90 01 0A         [24]  660 	mov	dptr,#_UART_ISR_b_20000_67
-      000B0C E0               [24]  661 	movx	a,@dptr
-      000B0D 8F 82            [24]  662 	mov	dpl,r7
-      000B0F 8E 83            [24]  663 	mov	dph,r6
-      000B11 F0               [24]  664 	movx	@dptr,a
-      000B12                        665 00102$:
+      000B49 90 02 03         [24]  649 	mov	dptr,#_mb_idx
+      000B4C E0               [24]  650 	movx	a,@dptr
+      000B4D FF               [12]  651 	mov	r7,a
+      000B4E 04               [12]  652 	inc	a
+      000B4F F0               [24]  653 	movx	@dptr,a
+      000B50 EF               [12]  654 	mov	a,r7
+      000B51 24 CA            [12]  655 	add	a, #_mb_buf
+      000B53 FF               [12]  656 	mov	r7,a
+      000B54 E4               [12]  657 	clr	a
+      000B55 34 00            [12]  658 	addc	a, #(_mb_buf >> 8)
+      000B57 FE               [12]  659 	mov	r6,a
+      000B58 90 01 0A         [24]  660 	mov	dptr,#_UART_ISR_b_20000_67
+      000B5B E0               [24]  661 	movx	a,@dptr
+      000B5C 8F 82            [24]  662 	mov	dpl,r7
+      000B5E 8E 83            [24]  663 	mov	dph,r6
+      000B60 F0               [24]  664 	movx	@dptr,a
+      000B61                        665 00102$:
                                     666 ;	.\FwLib_STC8\user\uart.c:42: TR0 = 0;        // Stop
                                     667 ;	assignBit
-      000B12 C2 8C            [12]  668 	clr	_TR0
+      000B61 C2 8C            [12]  668 	clr	_TR0
                                     669 ;	.\FwLib_STC8\user\uart.c:43: TH0 = T0_RELOAD_H; 
-      000B14 75 8C 20         [24]  670 	mov	_TH0,#0x20
+      000B63 75 8C 20         [24]  670 	mov	_TH0,#0x20
                                     671 ;	.\FwLib_STC8\user\uart.c:44: TL0 = T0_RELOAD_L; 
-      000B17 75 8A 00         [24]  672 	mov	_TL0,#0x00
+      000B66 75 8A 00         [24]  672 	mov	_TL0,#0x00
                                     673 ;	.\FwLib_STC8\user\uart.c:45: TF0 = 0;        // Clear flag
                                     674 ;	assignBit
-      000B1A C2 8D            [12]  675 	clr	_TF0
+      000B69 C2 8D            [12]  675 	clr	_TF0
                                     676 ;	.\FwLib_STC8\user\uart.c:46: TR0 = 1;        // Restart
                                     677 ;	assignBit
-      000B1C D2 8C            [12]  678 	setb	_TR0
+      000B6B D2 8C            [12]  678 	setb	_TR0
                                     679 ;	.\FwLib_STC8\user\uart.c:63: Modbus_ResetSilentTimer(); // Re-trigger silence countdown
-      000B1E                        680 00106$:
+      000B6D                        680 00106$:
                                     681 ;	.\FwLib_STC8\user\uart.c:67: }
-      000B1E D0 D0            [24]  682 	pop	psw
-      000B20 D0 05            [24]  683 	pop	ar5
-      000B22 D0 06            [24]  684 	pop	ar6
-      000B24 D0 07            [24]  685 	pop	ar7
-      000B26 D0 83            [24]  686 	pop	dph
-      000B28 D0 82            [24]  687 	pop	dpl
-      000B2A D0 E0            [24]  688 	pop	acc
-      000B2C 32               [24]  689 	reti
+      000B6D D0 D0            [24]  682 	pop	psw
+      000B6F D0 05            [24]  683 	pop	ar5
+      000B71 D0 06            [24]  684 	pop	ar6
+      000B73 D0 07            [24]  685 	pop	ar7
+      000B75 D0 83            [24]  686 	pop	dph
+      000B77 D0 82            [24]  687 	pop	dpl
+      000B79 D0 E0            [24]  688 	pop	acc
+      000B7B 32               [24]  689 	reti
                                     690 ;	eliminated unneeded push/pop b
                                     691 ;------------------------------------------------------------
                                     692 ;Allocation info for local variables in function 'Timer0_ISR'
@@ -695,30 +695,30 @@
                                     695 ;	-----------------------------------------
                                     696 ;	 function Timer0_ISR
                                     697 ;	-----------------------------------------
-      000B2D                        698 _Timer0_ISR:
-      000B2D C0 E0            [24]  699 	push	acc
-      000B2F C0 82            [24]  700 	push	dpl
-      000B31 C0 83            [24]  701 	push	dph
+      000B7C                        698 _Timer0_ISR:
+      000B7C C0 E0            [24]  699 	push	acc
+      000B7E C0 82            [24]  700 	push	dpl
+      000B80 C0 83            [24]  701 	push	dph
                                     702 ;	.\FwLib_STC8\user\uart.c:72: TR0 = 0;    // Stop timer
                                     703 ;	assignBit
-      000B33 C2 8C            [12]  704 	clr	_TR0
+      000B82 C2 8C            [12]  704 	clr	_TR0
                                     705 ;	.\FwLib_STC8\user\uart.c:73: TF0 = 0;    // Clear flag
                                     706 ;	assignBit
-      000B35 C2 8D            [12]  707 	clr	_TF0
+      000B84 C2 8D            [12]  707 	clr	_TF0
                                     708 ;	.\FwLib_STC8\user\uart.c:75: if (mb_idx > 0)
-      000B37 90 01 FA         [24]  709 	mov	dptr,#_mb_idx
-      000B3A E0               [24]  710 	movx	a,@dptr
-      000B3B 60 06            [24]  711 	jz	00103$
+      000B86 90 02 03         [24]  709 	mov	dptr,#_mb_idx
+      000B89 E0               [24]  710 	movx	a,@dptr
+      000B8A 60 06            [24]  711 	jz	00103$
                                     712 ;	.\FwLib_STC8\user\uart.c:77: mb_frame_ready = 1; // Notify main loop to parse mb_buf
-      000B3D 90 01 FB         [24]  713 	mov	dptr,#_mb_frame_ready
-      000B40 74 01            [12]  714 	mov	a,#0x01
-      000B42 F0               [24]  715 	movx	@dptr,a
-      000B43                        716 00103$:
+      000B8C 90 02 04         [24]  713 	mov	dptr,#_mb_frame_ready
+      000B8F 74 01            [12]  714 	mov	a,#0x01
+      000B91 F0               [24]  715 	movx	@dptr,a
+      000B92                        716 00103$:
                                     717 ;	.\FwLib_STC8\user\uart.c:79: }
-      000B43 D0 83            [24]  718 	pop	dph
-      000B45 D0 82            [24]  719 	pop	dpl
-      000B47 D0 E0            [24]  720 	pop	acc
-      000B49 32               [24]  721 	reti
+      000B92 D0 83            [24]  718 	pop	dph
+      000B94 D0 82            [24]  719 	pop	dpl
+      000B96 D0 E0            [24]  720 	pop	acc
+      000B98 32               [24]  721 	reti
                                     722 ;	eliminated unneeded mov psw,# (no regs used in bank)
                                     723 ;	eliminated unneeded push/pop not_psw
                                     724 ;	eliminated unneeded push/pop b
@@ -731,26 +731,26 @@
                                     731 ;	-----------------------------------------
                                     732 ;	 function UART_SendChar
                                     733 ;	-----------------------------------------
-      000B4A                        734 _UART_SendChar:
-      000B4A E5 82            [12]  735 	mov	a,dpl
-      000B4C 90 01 0B         [24]  736 	mov	dptr,#_UART_SendChar_c_10000_75
-      000B4F F0               [24]  737 	movx	@dptr,a
+      000B99                        734 _UART_SendChar:
+      000B99 E5 82            [12]  735 	mov	a,dpl
+      000B9B 90 01 0B         [24]  736 	mov	dptr,#_UART_SendChar_c_10000_75
+      000B9E F0               [24]  737 	movx	@dptr,a
                                     738 ;	.\FwLib_STC8\user\uart.c:85: TI = 0;         // Ensure flag is clear
                                     739 ;	assignBit
-      000B50 C2 99            [12]  740 	clr	_TI
+      000B9F C2 99            [12]  740 	clr	_TI
                                     741 ;	.\FwLib_STC8\user\uart.c:86: SBUF = c;
-      000B52 90 01 0B         [24]  742 	mov	dptr,#_UART_SendChar_c_10000_75
-      000B55 E0               [24]  743 	movx	a,@dptr
-      000B56 F5 99            [12]  744 	mov	_SBUF,a
+      000BA1 90 01 0B         [24]  742 	mov	dptr,#_UART_SendChar_c_10000_75
+      000BA4 E0               [24]  743 	movx	a,@dptr
+      000BA5 F5 99            [12]  744 	mov	_SBUF,a
                                     745 ;	.\FwLib_STC8\user\uart.c:87: while (!TI);    // Wait for hardware to finish
-      000B58                        746 00101$:
+      000BA7                        746 00101$:
                                     747 ;	.\FwLib_STC8\user\uart.c:88: TI = 0;         // Clear flag for next byte
                                     748 ;	assignBit
-      000B58 10 99 02         [24]  749 	jbc	_TI,00118$
-      000B5B 80 FB            [24]  750 	sjmp	00101$
-      000B5D                        751 00118$:
+      000BA7 10 99 02         [24]  749 	jbc	_TI,00118$
+      000BAA 80 FB            [24]  750 	sjmp	00101$
+      000BAC                        751 00118$:
                                     752 ;	.\FwLib_STC8\user\uart.c:89: }
-      000B5D 22               [24]  753 	ret
+      000BAC 22               [24]  753 	ret
                                     754 ;------------------------------------------------------------
                                     755 ;Allocation info for local variables in function 'UART_SendBuffer'
                                     756 ;------------------------------------------------------------
@@ -761,93 +761,93 @@
                                     761 ;	-----------------------------------------
                                     762 ;	 function UART_SendBuffer
                                     763 ;	-----------------------------------------
-      000B5E                        764 _UART_SendBuffer:
-      000B5E AF F0            [24]  765 	mov	r7,b
-      000B60 AE 83            [24]  766 	mov	r6,dph
-      000B62 E5 82            [12]  767 	mov	a,dpl
-      000B64 90 01 0E         [24]  768 	mov	dptr,#_UART_SendBuffer_dat_10000_77
-      000B67 F0               [24]  769 	movx	@dptr,a
-      000B68 EE               [12]  770 	mov	a,r6
-      000B69 A3               [24]  771 	inc	dptr
-      000B6A F0               [24]  772 	movx	@dptr,a
-      000B6B EF               [12]  773 	mov	a,r7
-      000B6C A3               [24]  774 	inc	dptr
-      000B6D F0               [24]  775 	movx	@dptr,a
+      000BAD                        764 _UART_SendBuffer:
+      000BAD AF F0            [24]  765 	mov	r7,b
+      000BAF AE 83            [24]  766 	mov	r6,dph
+      000BB1 E5 82            [12]  767 	mov	a,dpl
+      000BB3 90 01 0E         [24]  768 	mov	dptr,#_UART_SendBuffer_dat_10000_77
+      000BB6 F0               [24]  769 	movx	@dptr,a
+      000BB7 EE               [12]  770 	mov	a,r6
+      000BB8 A3               [24]  771 	inc	dptr
+      000BB9 F0               [24]  772 	movx	@dptr,a
+      000BBA EF               [12]  773 	mov	a,r7
+      000BBB A3               [24]  774 	inc	dptr
+      000BBC F0               [24]  775 	movx	@dptr,a
                                     776 ;	.\FwLib_STC8\user\uart.c:93: ES = 0;         // Disable UART interrupt to prevent TI deadlock
                                     777 ;	assignBit
-      000B6E C2 AC            [12]  778 	clr	_ES
+      000BBD C2 AC            [12]  778 	clr	_ES
                                     779 ;	.\FwLib_STC8\user\uart.c:94: while (len--)
-      000B70 90 01 0E         [24]  780 	mov	dptr,#_UART_SendBuffer_dat_10000_77
-      000B73 E0               [24]  781 	movx	a,@dptr
-      000B74 FD               [12]  782 	mov	r5,a
-      000B75 A3               [24]  783 	inc	dptr
-      000B76 E0               [24]  784 	movx	a,@dptr
-      000B77 FE               [12]  785 	mov	r6,a
-      000B78 A3               [24]  786 	inc	dptr
-      000B79 E0               [24]  787 	movx	a,@dptr
-      000B7A FF               [12]  788 	mov	r7,a
-      000B7B 90 01 0C         [24]  789 	mov	dptr,#_UART_SendBuffer_PARM_2
-      000B7E E0               [24]  790 	movx	a,@dptr
-      000B7F FB               [12]  791 	mov	r3,a
-      000B80 A3               [24]  792 	inc	dptr
-      000B81 E0               [24]  793 	movx	a,@dptr
-      000B82 FC               [12]  794 	mov	r4,a
-      000B83                        795 00101$:
-      000B83 8B 01            [24]  796 	mov	ar1,r3
-      000B85 8C 02            [24]  797 	mov	ar2,r4
-      000B87 1B               [12]  798 	dec	r3
-      000B88 BB FF 01         [24]  799 	cjne	r3,#0xff,00119$
-      000B8B 1C               [12]  800 	dec	r4
-      000B8C                        801 00119$:
-      000B8C E9               [12]  802 	mov	a,r1
-      000B8D 4A               [12]  803 	orl	a,r2
-      000B8E 60 35            [24]  804 	jz	00108$
+      000BBF 90 01 0E         [24]  780 	mov	dptr,#_UART_SendBuffer_dat_10000_77
+      000BC2 E0               [24]  781 	movx	a,@dptr
+      000BC3 FD               [12]  782 	mov	r5,a
+      000BC4 A3               [24]  783 	inc	dptr
+      000BC5 E0               [24]  784 	movx	a,@dptr
+      000BC6 FE               [12]  785 	mov	r6,a
+      000BC7 A3               [24]  786 	inc	dptr
+      000BC8 E0               [24]  787 	movx	a,@dptr
+      000BC9 FF               [12]  788 	mov	r7,a
+      000BCA 90 01 0C         [24]  789 	mov	dptr,#_UART_SendBuffer_PARM_2
+      000BCD E0               [24]  790 	movx	a,@dptr
+      000BCE FB               [12]  791 	mov	r3,a
+      000BCF A3               [24]  792 	inc	dptr
+      000BD0 E0               [24]  793 	movx	a,@dptr
+      000BD1 FC               [12]  794 	mov	r4,a
+      000BD2                        795 00101$:
+      000BD2 8B 01            [24]  796 	mov	ar1,r3
+      000BD4 8C 02            [24]  797 	mov	ar2,r4
+      000BD6 1B               [12]  798 	dec	r3
+      000BD7 BB FF 01         [24]  799 	cjne	r3,#0xff,00119$
+      000BDA 1C               [12]  800 	dec	r4
+      000BDB                        801 00119$:
+      000BDB E9               [12]  802 	mov	a,r1
+      000BDC 4A               [12]  803 	orl	a,r2
+      000BDD 60 35            [24]  804 	jz	00108$
                                     805 ;	.\FwLib_STC8\user\uart.c:96: UART_SendChar((char)*dat++);
-      000B90 8D 82            [24]  806 	mov	dpl,r5
-      000B92 8E 83            [24]  807 	mov	dph,r6
-      000B94 8F F0            [24]  808 	mov	b,r7
-      000B96 12 2A CF         [24]  809 	lcall	__gptrget
-      000B99 FA               [12]  810 	mov	r2,a
-      000B9A A3               [24]  811 	inc	dptr
-      000B9B AD 82            [24]  812 	mov	r5,dpl
-      000B9D AE 83            [24]  813 	mov	r6,dph
-      000B9F 90 01 0E         [24]  814 	mov	dptr,#_UART_SendBuffer_dat_10000_77
-      000BA2 ED               [12]  815 	mov	a,r5
-      000BA3 F0               [24]  816 	movx	@dptr,a
-      000BA4 EE               [12]  817 	mov	a,r6
-      000BA5 A3               [24]  818 	inc	dptr
-      000BA6 F0               [24]  819 	movx	@dptr,a
-      000BA7 EF               [12]  820 	mov	a,r7
-      000BA8 A3               [24]  821 	inc	dptr
-      000BA9 F0               [24]  822 	movx	@dptr,a
-      000BAA 8A 82            [24]  823 	mov	dpl, r2
-      000BAC C0 07            [24]  824 	push	ar7
-      000BAE C0 06            [24]  825 	push	ar6
-      000BB0 C0 05            [24]  826 	push	ar5
-      000BB2 C0 04            [24]  827 	push	ar4
-      000BB4 C0 03            [24]  828 	push	ar3
-      000BB6 12 0B 4A         [24]  829 	lcall	_UART_SendChar
-      000BB9 D0 03            [24]  830 	pop	ar3
-      000BBB D0 04            [24]  831 	pop	ar4
-      000BBD D0 05            [24]  832 	pop	ar5
-      000BBF D0 06            [24]  833 	pop	ar6
-      000BC1 D0 07            [24]  834 	pop	ar7
-      000BC3 80 BE            [24]  835 	sjmp	00101$
-      000BC5                        836 00108$:
-      000BC5 90 01 0E         [24]  837 	mov	dptr,#_UART_SendBuffer_dat_10000_77
-      000BC8 ED               [12]  838 	mov	a,r5
-      000BC9 F0               [24]  839 	movx	@dptr,a
-      000BCA EE               [12]  840 	mov	a,r6
-      000BCB A3               [24]  841 	inc	dptr
-      000BCC F0               [24]  842 	movx	@dptr,a
-      000BCD EF               [12]  843 	mov	a,r7
-      000BCE A3               [24]  844 	inc	dptr
-      000BCF F0               [24]  845 	movx	@dptr,a
+      000BDF 8D 82            [24]  806 	mov	dpl,r5
+      000BE1 8E 83            [24]  807 	mov	dph,r6
+      000BE3 8F F0            [24]  808 	mov	b,r7
+      000BE5 12 31 E6         [24]  809 	lcall	__gptrget
+      000BE8 FA               [12]  810 	mov	r2,a
+      000BE9 A3               [24]  811 	inc	dptr
+      000BEA AD 82            [24]  812 	mov	r5,dpl
+      000BEC AE 83            [24]  813 	mov	r6,dph
+      000BEE 90 01 0E         [24]  814 	mov	dptr,#_UART_SendBuffer_dat_10000_77
+      000BF1 ED               [12]  815 	mov	a,r5
+      000BF2 F0               [24]  816 	movx	@dptr,a
+      000BF3 EE               [12]  817 	mov	a,r6
+      000BF4 A3               [24]  818 	inc	dptr
+      000BF5 F0               [24]  819 	movx	@dptr,a
+      000BF6 EF               [12]  820 	mov	a,r7
+      000BF7 A3               [24]  821 	inc	dptr
+      000BF8 F0               [24]  822 	movx	@dptr,a
+      000BF9 8A 82            [24]  823 	mov	dpl, r2
+      000BFB C0 07            [24]  824 	push	ar7
+      000BFD C0 06            [24]  825 	push	ar6
+      000BFF C0 05            [24]  826 	push	ar5
+      000C01 C0 04            [24]  827 	push	ar4
+      000C03 C0 03            [24]  828 	push	ar3
+      000C05 12 0B 99         [24]  829 	lcall	_UART_SendChar
+      000C08 D0 03            [24]  830 	pop	ar3
+      000C0A D0 04            [24]  831 	pop	ar4
+      000C0C D0 05            [24]  832 	pop	ar5
+      000C0E D0 06            [24]  833 	pop	ar6
+      000C10 D0 07            [24]  834 	pop	ar7
+      000C12 80 BE            [24]  835 	sjmp	00101$
+      000C14                        836 00108$:
+      000C14 90 01 0E         [24]  837 	mov	dptr,#_UART_SendBuffer_dat_10000_77
+      000C17 ED               [12]  838 	mov	a,r5
+      000C18 F0               [24]  839 	movx	@dptr,a
+      000C19 EE               [12]  840 	mov	a,r6
+      000C1A A3               [24]  841 	inc	dptr
+      000C1B F0               [24]  842 	movx	@dptr,a
+      000C1C EF               [12]  843 	mov	a,r7
+      000C1D A3               [24]  844 	inc	dptr
+      000C1E F0               [24]  845 	movx	@dptr,a
                                     846 ;	.\FwLib_STC8\user\uart.c:98: ES = 1;         // Re-enable
                                     847 ;	assignBit
-      000BD0 D2 AC            [12]  848 	setb	_ES
+      000C1F D2 AC            [12]  848 	setb	_ES
                                     849 ;	.\FwLib_STC8\user\uart.c:99: }
-      000BD2 22               [24]  850 	ret
+      000C21 22               [24]  850 	ret
                                     851 ;------------------------------------------------------------
                                     852 ;Allocation info for local variables in function 'UART_SendString'
                                     853 ;------------------------------------------------------------
@@ -857,70 +857,70 @@
                                     857 ;	-----------------------------------------
                                     858 ;	 function UART_SendString
                                     859 ;	-----------------------------------------
-      000BD3                        860 _UART_SendString:
-      000BD3 AF F0            [24]  861 	mov	r7,b
-      000BD5 AE 83            [24]  862 	mov	r6,dph
-      000BD7 E5 82            [12]  863 	mov	a,dpl
-      000BD9 90 01 11         [24]  864 	mov	dptr,#_UART_SendString_s_10000_80
-      000BDC F0               [24]  865 	movx	@dptr,a
-      000BDD EE               [12]  866 	mov	a,r6
-      000BDE A3               [24]  867 	inc	dptr
-      000BDF F0               [24]  868 	movx	@dptr,a
-      000BE0 EF               [12]  869 	mov	a,r7
-      000BE1 A3               [24]  870 	inc	dptr
-      000BE2 F0               [24]  871 	movx	@dptr,a
+      000C22                        860 _UART_SendString:
+      000C22 AF F0            [24]  861 	mov	r7,b
+      000C24 AE 83            [24]  862 	mov	r6,dph
+      000C26 E5 82            [12]  863 	mov	a,dpl
+      000C28 90 01 11         [24]  864 	mov	dptr,#_UART_SendString_s_10000_80
+      000C2B F0               [24]  865 	movx	@dptr,a
+      000C2C EE               [12]  866 	mov	a,r6
+      000C2D A3               [24]  867 	inc	dptr
+      000C2E F0               [24]  868 	movx	@dptr,a
+      000C2F EF               [12]  869 	mov	a,r7
+      000C30 A3               [24]  870 	inc	dptr
+      000C31 F0               [24]  871 	movx	@dptr,a
                                     872 ;	.\FwLib_STC8\user\uart.c:103: while (*s)
-      000BE3 90 01 11         [24]  873 	mov	dptr,#_UART_SendString_s_10000_80
-      000BE6 E0               [24]  874 	movx	a,@dptr
-      000BE7 FD               [12]  875 	mov	r5,a
-      000BE8 A3               [24]  876 	inc	dptr
-      000BE9 E0               [24]  877 	movx	a,@dptr
-      000BEA FE               [12]  878 	mov	r6,a
-      000BEB A3               [24]  879 	inc	dptr
-      000BEC E0               [24]  880 	movx	a,@dptr
-      000BED FF               [12]  881 	mov	r7,a
-      000BEE                        882 00101$:
-      000BEE 8D 82            [24]  883 	mov	dpl,r5
-      000BF0 8E 83            [24]  884 	mov	dph,r6
-      000BF2 8F F0            [24]  885 	mov	b,r7
-      000BF4 12 2A CF         [24]  886 	lcall	__gptrget
-      000BF7 FC               [12]  887 	mov	r4,a
-      000BF8 60 23            [24]  888 	jz	00108$
+      000C32 90 01 11         [24]  873 	mov	dptr,#_UART_SendString_s_10000_80
+      000C35 E0               [24]  874 	movx	a,@dptr
+      000C36 FD               [12]  875 	mov	r5,a
+      000C37 A3               [24]  876 	inc	dptr
+      000C38 E0               [24]  877 	movx	a,@dptr
+      000C39 FE               [12]  878 	mov	r6,a
+      000C3A A3               [24]  879 	inc	dptr
+      000C3B E0               [24]  880 	movx	a,@dptr
+      000C3C FF               [12]  881 	mov	r7,a
+      000C3D                        882 00101$:
+      000C3D 8D 82            [24]  883 	mov	dpl,r5
+      000C3F 8E 83            [24]  884 	mov	dph,r6
+      000C41 8F F0            [24]  885 	mov	b,r7
+      000C43 12 31 E6         [24]  886 	lcall	__gptrget
+      000C46 FC               [12]  887 	mov	r4,a
+      000C47 60 23            [24]  888 	jz	00108$
                                     889 ;	.\FwLib_STC8\user\uart.c:104: UART_SendChar(*s++);
-      000BFA 0D               [12]  890 	inc	r5
-      000BFB BD 00 01         [24]  891 	cjne	r5,#0x00,00120$
-      000BFE 0E               [12]  892 	inc	r6
-      000BFF                        893 00120$:
-      000BFF 90 01 11         [24]  894 	mov	dptr,#_UART_SendString_s_10000_80
-      000C02 ED               [12]  895 	mov	a,r5
-      000C03 F0               [24]  896 	movx	@dptr,a
-      000C04 EE               [12]  897 	mov	a,r6
-      000C05 A3               [24]  898 	inc	dptr
-      000C06 F0               [24]  899 	movx	@dptr,a
-      000C07 EF               [12]  900 	mov	a,r7
-      000C08 A3               [24]  901 	inc	dptr
-      000C09 F0               [24]  902 	movx	@dptr,a
-      000C0A 8C 82            [24]  903 	mov	dpl, r4
-      000C0C C0 07            [24]  904 	push	ar7
-      000C0E C0 06            [24]  905 	push	ar6
-      000C10 C0 05            [24]  906 	push	ar5
-      000C12 12 0B 4A         [24]  907 	lcall	_UART_SendChar
-      000C15 D0 05            [24]  908 	pop	ar5
-      000C17 D0 06            [24]  909 	pop	ar6
-      000C19 D0 07            [24]  910 	pop	ar7
-      000C1B 80 D1            [24]  911 	sjmp	00101$
-      000C1D                        912 00108$:
-      000C1D 90 01 11         [24]  913 	mov	dptr,#_UART_SendString_s_10000_80
-      000C20 ED               [12]  914 	mov	a,r5
-      000C21 F0               [24]  915 	movx	@dptr,a
-      000C22 EE               [12]  916 	mov	a,r6
-      000C23 A3               [24]  917 	inc	dptr
-      000C24 F0               [24]  918 	movx	@dptr,a
-      000C25 EF               [12]  919 	mov	a,r7
-      000C26 A3               [24]  920 	inc	dptr
-      000C27 F0               [24]  921 	movx	@dptr,a
+      000C49 0D               [12]  890 	inc	r5
+      000C4A BD 00 01         [24]  891 	cjne	r5,#0x00,00120$
+      000C4D 0E               [12]  892 	inc	r6
+      000C4E                        893 00120$:
+      000C4E 90 01 11         [24]  894 	mov	dptr,#_UART_SendString_s_10000_80
+      000C51 ED               [12]  895 	mov	a,r5
+      000C52 F0               [24]  896 	movx	@dptr,a
+      000C53 EE               [12]  897 	mov	a,r6
+      000C54 A3               [24]  898 	inc	dptr
+      000C55 F0               [24]  899 	movx	@dptr,a
+      000C56 EF               [12]  900 	mov	a,r7
+      000C57 A3               [24]  901 	inc	dptr
+      000C58 F0               [24]  902 	movx	@dptr,a
+      000C59 8C 82            [24]  903 	mov	dpl, r4
+      000C5B C0 07            [24]  904 	push	ar7
+      000C5D C0 06            [24]  905 	push	ar6
+      000C5F C0 05            [24]  906 	push	ar5
+      000C61 12 0B 99         [24]  907 	lcall	_UART_SendChar
+      000C64 D0 05            [24]  908 	pop	ar5
+      000C66 D0 06            [24]  909 	pop	ar6
+      000C68 D0 07            [24]  910 	pop	ar7
+      000C6A 80 D1            [24]  911 	sjmp	00101$
+      000C6C                        912 00108$:
+      000C6C 90 01 11         [24]  913 	mov	dptr,#_UART_SendString_s_10000_80
+      000C6F ED               [12]  914 	mov	a,r5
+      000C70 F0               [24]  915 	movx	@dptr,a
+      000C71 EE               [12]  916 	mov	a,r6
+      000C72 A3               [24]  917 	inc	dptr
+      000C73 F0               [24]  918 	movx	@dptr,a
+      000C74 EF               [12]  919 	mov	a,r7
+      000C75 A3               [24]  920 	inc	dptr
+      000C76 F0               [24]  921 	movx	@dptr,a
                                     922 ;	.\FwLib_STC8\user\uart.c:105: }
-      000C28 22               [24]  923 	ret
+      000C77 22               [24]  923 	ret
                                     924 ;------------------------------------------------------------
                                     925 ;Allocation info for local variables in function 'UART_SendInt'
                                     926 ;------------------------------------------------------------
@@ -932,120 +932,120 @@
                                     932 ;	-----------------------------------------
                                     933 ;	 function UART_SendInt
                                     934 ;	-----------------------------------------
-      000C29                        935 _UART_SendInt:
-      000C29 AF 83            [24]  936 	mov	r7,dph
-      000C2B E5 82            [12]  937 	mov	a,dpl
-      000C2D 90 01 14         [24]  938 	mov	dptr,#_UART_SendInt_n_10000_82
-      000C30 F0               [24]  939 	movx	@dptr,a
-      000C31 EF               [12]  940 	mov	a,r7
-      000C32 A3               [24]  941 	inc	dptr
-      000C33 F0               [24]  942 	movx	@dptr,a
+      000C78                        935 _UART_SendInt:
+      000C78 AF 83            [24]  936 	mov	r7,dph
+      000C7A E5 82            [12]  937 	mov	a,dpl
+      000C7C 90 01 14         [24]  938 	mov	dptr,#_UART_SendInt_n_10000_82
+      000C7F F0               [24]  939 	movx	@dptr,a
+      000C80 EF               [12]  940 	mov	a,r7
+      000C81 A3               [24]  941 	inc	dptr
+      000C82 F0               [24]  942 	movx	@dptr,a
                                     943 ;	.\FwLib_STC8\user\uart.c:113: if (n == 0) { UART_SendChar('0'); return; }
-      000C34 90 01 14         [24]  944 	mov	dptr,#_UART_SendInt_n_10000_82
-      000C37 E0               [24]  945 	movx	a,@dptr
-      000C38 F5 F0            [12]  946 	mov	b,a
-      000C3A A3               [24]  947 	inc	dptr
-      000C3B E0               [24]  948 	movx	a,@dptr
-      000C3C 45 F0            [12]  949 	orl	a,b
-      000C3E 70 06            [24]  950 	jnz	00113$
-      000C40 75 82 30         [24]  951 	mov	dpl, #0x30
-      000C43 02 0B 4A         [24]  952 	ljmp	_UART_SendChar
+      000C83 90 01 14         [24]  944 	mov	dptr,#_UART_SendInt_n_10000_82
+      000C86 E0               [24]  945 	movx	a,@dptr
+      000C87 F5 F0            [12]  946 	mov	b,a
+      000C89 A3               [24]  947 	inc	dptr
+      000C8A E0               [24]  948 	movx	a,@dptr
+      000C8B 45 F0            [12]  949 	orl	a,b
+      000C8D 70 06            [24]  950 	jnz	00113$
+      000C8F 75 82 30         [24]  951 	mov	dpl, #0x30
+      000C92 02 0B 99         [24]  952 	ljmp	_UART_SendChar
                                     953 ;	.\FwLib_STC8\user\uart.c:114: while (n > 0) {
-      000C46                        954 00113$:
-      000C46 7F 00            [12]  955 	mov	r7,#0x00
-      000C48                        956 00103$:
-      000C48 90 01 14         [24]  957 	mov	dptr,#_UART_SendInt_n_10000_82
-      000C4B E0               [24]  958 	movx	a,@dptr
-      000C4C FD               [12]  959 	mov	r5,a
-      000C4D A3               [24]  960 	inc	dptr
-      000C4E E0               [24]  961 	movx	a,@dptr
-      000C4F FE               [12]  962 	mov	r6,a
-      000C50 90 01 14         [24]  963 	mov	dptr,#_UART_SendInt_n_10000_82
-      000C53 E0               [24]  964 	movx	a,@dptr
-      000C54 F5 F0            [12]  965 	mov	b,a
-      000C56 A3               [24]  966 	inc	dptr
-      000C57 E0               [24]  967 	movx	a,@dptr
-      000C58 45 F0            [12]  968 	orl	a,b
-      000C5A 60 5B            [24]  969 	jz	00115$
+      000C95                        954 00113$:
+      000C95 7F 00            [12]  955 	mov	r7,#0x00
+      000C97                        956 00103$:
+      000C97 90 01 14         [24]  957 	mov	dptr,#_UART_SendInt_n_10000_82
+      000C9A E0               [24]  958 	movx	a,@dptr
+      000C9B FD               [12]  959 	mov	r5,a
+      000C9C A3               [24]  960 	inc	dptr
+      000C9D E0               [24]  961 	movx	a,@dptr
+      000C9E FE               [12]  962 	mov	r6,a
+      000C9F 90 01 14         [24]  963 	mov	dptr,#_UART_SendInt_n_10000_82
+      000CA2 E0               [24]  964 	movx	a,@dptr
+      000CA3 F5 F0            [12]  965 	mov	b,a
+      000CA5 A3               [24]  966 	inc	dptr
+      000CA6 E0               [24]  967 	movx	a,@dptr
+      000CA7 45 F0            [12]  968 	orl	a,b
+      000CA9 60 5B            [24]  969 	jz	00115$
                                     970 ;	.\FwLib_STC8\user\uart.c:115: buf[i++] = (n % 10) + '0';
-      000C5C EF               [12]  971 	mov	a,r7
-      000C5D FB               [12]  972 	mov	r3,a
-      000C5E 33               [12]  973 	rlc	a
-      000C5F 95 E0            [12]  974 	subb	a,acc
-      000C61 FC               [12]  975 	mov	r4,a
-      000C62 0F               [12]  976 	inc	r7
-      000C63 EB               [12]  977 	mov	a,r3
-      000C64 24 16            [12]  978 	add	a, #_UART_SendInt_buf_10000_83
-      000C66 FB               [12]  979 	mov	r3,a
-      000C67 EC               [12]  980 	mov	a,r4
-      000C68 34 01            [12]  981 	addc	a, #(_UART_SendInt_buf_10000_83 >> 8)
-      000C6A FC               [12]  982 	mov	r4,a
-      000C6B 90 01 F5         [24]  983 	mov	dptr,#__moduint_PARM_2
-      000C6E 74 0A            [12]  984 	mov	a,#0x0a
-      000C70 F0               [24]  985 	movx	@dptr,a
-      000C71 E4               [12]  986 	clr	a
-      000C72 A3               [24]  987 	inc	dptr
-      000C73 F0               [24]  988 	movx	@dptr,a
-      000C74 8D 82            [24]  989 	mov	dpl, r5
-      000C76 8E 83            [24]  990 	mov	dph, r6
-      000C78 C0 07            [24]  991 	push	ar7
-      000C7A C0 06            [24]  992 	push	ar6
-      000C7C C0 05            [24]  993 	push	ar5
-      000C7E C0 04            [24]  994 	push	ar4
-      000C80 C0 03            [24]  995 	push	ar3
-      000C82 12 29 12         [24]  996 	lcall	__moduint
-      000C85 A9 82            [24]  997 	mov	r1, dpl
-      000C87 D0 03            [24]  998 	pop	ar3
-      000C89 D0 04            [24]  999 	pop	ar4
-      000C8B D0 05            [24] 1000 	pop	ar5
-      000C8D D0 06            [24] 1001 	pop	ar6
-      000C8F 74 30            [12] 1002 	mov	a,#0x30
-      000C91 29               [12] 1003 	add	a, r1
-      000C92 8B 82            [24] 1004 	mov	dpl,r3
-      000C94 8C 83            [24] 1005 	mov	dph,r4
-      000C96 F0               [24] 1006 	movx	@dptr,a
+      000CAB EF               [12]  971 	mov	a,r7
+      000CAC FB               [12]  972 	mov	r3,a
+      000CAD 33               [12]  973 	rlc	a
+      000CAE 95 E0            [12]  974 	subb	a,acc
+      000CB0 FC               [12]  975 	mov	r4,a
+      000CB1 0F               [12]  976 	inc	r7
+      000CB2 EB               [12]  977 	mov	a,r3
+      000CB3 24 16            [12]  978 	add	a, #_UART_SendInt_buf_10000_83
+      000CB5 FB               [12]  979 	mov	r3,a
+      000CB6 EC               [12]  980 	mov	a,r4
+      000CB7 34 01            [12]  981 	addc	a, #(_UART_SendInt_buf_10000_83 >> 8)
+      000CB9 FC               [12]  982 	mov	r4,a
+      000CBA 90 01 FE         [24]  983 	mov	dptr,#__moduint_PARM_2
+      000CBD 74 0A            [12]  984 	mov	a,#0x0a
+      000CBF F0               [24]  985 	movx	@dptr,a
+      000CC0 E4               [12]  986 	clr	a
+      000CC1 A3               [24]  987 	inc	dptr
+      000CC2 F0               [24]  988 	movx	@dptr,a
+      000CC3 8D 82            [24]  989 	mov	dpl, r5
+      000CC5 8E 83            [24]  990 	mov	dph, r6
+      000CC7 C0 07            [24]  991 	push	ar7
+      000CC9 C0 06            [24]  992 	push	ar6
+      000CCB C0 05            [24]  993 	push	ar5
+      000CCD C0 04            [24]  994 	push	ar4
+      000CCF C0 03            [24]  995 	push	ar3
+      000CD1 12 30 29         [24]  996 	lcall	__moduint
+      000CD4 A9 82            [24]  997 	mov	r1, dpl
+      000CD6 D0 03            [24]  998 	pop	ar3
+      000CD8 D0 04            [24]  999 	pop	ar4
+      000CDA D0 05            [24] 1000 	pop	ar5
+      000CDC D0 06            [24] 1001 	pop	ar6
+      000CDE 74 30            [12] 1002 	mov	a,#0x30
+      000CE0 29               [12] 1003 	add	a, r1
+      000CE1 8B 82            [24] 1004 	mov	dpl,r3
+      000CE3 8C 83            [24] 1005 	mov	dph,r4
+      000CE5 F0               [24] 1006 	movx	@dptr,a
                                    1007 ;	.\FwLib_STC8\user\uart.c:116: n /= 10;
-      000C97 90 01 C1         [24] 1008 	mov	dptr,#__divuint_PARM_2
-      000C9A 74 0A            [12] 1009 	mov	a,#0x0a
-      000C9C F0               [24] 1010 	movx	@dptr,a
-      000C9D E4               [12] 1011 	clr	a
-      000C9E A3               [24] 1012 	inc	dptr
-      000C9F F0               [24] 1013 	movx	@dptr,a
-      000CA0 8D 82            [24] 1014 	mov	dpl, r5
-      000CA2 8E 83            [24] 1015 	mov	dph, r6
-      000CA4 12 22 DB         [24] 1016 	lcall	__divuint
-      000CA7 AD 82            [24] 1017 	mov	r5, dpl
-      000CA9 AE 83            [24] 1018 	mov	r6, dph
-      000CAB D0 07            [24] 1019 	pop	ar7
-      000CAD 90 01 14         [24] 1020 	mov	dptr,#_UART_SendInt_n_10000_82
-      000CB0 ED               [12] 1021 	mov	a,r5
-      000CB1 F0               [24] 1022 	movx	@dptr,a
-      000CB2 EE               [12] 1023 	mov	a,r6
-      000CB3 A3               [24] 1024 	inc	dptr
-      000CB4 F0               [24] 1025 	movx	@dptr,a
+      000CE6 90 01 CA         [24] 1008 	mov	dptr,#__divuint_PARM_2
+      000CE9 74 0A            [12] 1009 	mov	a,#0x0a
+      000CEB F0               [24] 1010 	movx	@dptr,a
+      000CEC E4               [12] 1011 	clr	a
+      000CED A3               [24] 1012 	inc	dptr
+      000CEE F0               [24] 1013 	movx	@dptr,a
+      000CEF 8D 82            [24] 1014 	mov	dpl, r5
+      000CF1 8E 83            [24] 1015 	mov	dph, r6
+      000CF3 12 29 F2         [24] 1016 	lcall	__divuint
+      000CF6 AD 82            [24] 1017 	mov	r5, dpl
+      000CF8 AE 83            [24] 1018 	mov	r6, dph
+      000CFA D0 07            [24] 1019 	pop	ar7
+      000CFC 90 01 14         [24] 1020 	mov	dptr,#_UART_SendInt_n_10000_82
+      000CFF ED               [12] 1021 	mov	a,r5
+      000D00 F0               [24] 1022 	movx	@dptr,a
+      000D01 EE               [12] 1023 	mov	a,r6
+      000D02 A3               [24] 1024 	inc	dptr
+      000D03 F0               [24] 1025 	movx	@dptr,a
                                    1026 ;	.\FwLib_STC8\user\uart.c:118: while (--i >= 0) UART_SendChar(buf[i]);
-      000CB5 80 91            [24] 1027 	sjmp	00103$
-      000CB7                       1028 00115$:
-      000CB7                       1029 00106$:
-      000CB7 1F               [12] 1030 	dec	r7
-      000CB8 EF               [12] 1031 	mov	a,r7
-      000CB9 20 E7 18         [24] 1032 	jb	acc.7,00109$
-      000CBC 8F 06            [24] 1033 	mov	ar6,r7
-      000CBE EE               [12] 1034 	mov	a,r6
-      000CBF 24 16            [12] 1035 	add	a, #_UART_SendInt_buf_10000_83
-      000CC1 F5 82            [12] 1036 	mov	dpl,a
-      000CC3 E4               [12] 1037 	clr	a
-      000CC4 34 01            [12] 1038 	addc	a, #(_UART_SendInt_buf_10000_83 >> 8)
-      000CC6 F5 83            [12] 1039 	mov	dph,a
-      000CC8 E0               [24] 1040 	movx	a,@dptr
-      000CC9 F5 82            [12] 1041 	mov	dpl,a
-      000CCB C0 07            [24] 1042 	push	ar7
-      000CCD 12 0B 4A         [24] 1043 	lcall	_UART_SendChar
-      000CD0 D0 07            [24] 1044 	pop	ar7
-      000CD2 80 E3            [24] 1045 	sjmp	00106$
-      000CD4                       1046 00109$:
+      000D04 80 91            [24] 1027 	sjmp	00103$
+      000D06                       1028 00115$:
+      000D06                       1029 00106$:
+      000D06 1F               [12] 1030 	dec	r7
+      000D07 EF               [12] 1031 	mov	a,r7
+      000D08 20 E7 18         [24] 1032 	jb	acc.7,00109$
+      000D0B 8F 06            [24] 1033 	mov	ar6,r7
+      000D0D EE               [12] 1034 	mov	a,r6
+      000D0E 24 16            [12] 1035 	add	a, #_UART_SendInt_buf_10000_83
+      000D10 F5 82            [12] 1036 	mov	dpl,a
+      000D12 E4               [12] 1037 	clr	a
+      000D13 34 01            [12] 1038 	addc	a, #(_UART_SendInt_buf_10000_83 >> 8)
+      000D15 F5 83            [12] 1039 	mov	dph,a
+      000D17 E0               [24] 1040 	movx	a,@dptr
+      000D18 F5 82            [12] 1041 	mov	dpl,a
+      000D1A C0 07            [24] 1042 	push	ar7
+      000D1C 12 0B 99         [24] 1043 	lcall	_UART_SendChar
+      000D1F D0 07            [24] 1044 	pop	ar7
+      000D21 80 E3            [24] 1045 	sjmp	00106$
+      000D23                       1046 00109$:
                                    1047 ;	.\FwLib_STC8\user\uart.c:119: }
-      000CD4 22               [24] 1048 	ret
+      000D23 22               [24] 1048 	ret
                                    1049 ;------------------------------------------------------------
                                    1050 ;Allocation info for local variables in function 'UART_SendLong'
                                    1051 ;------------------------------------------------------------
@@ -1060,225 +1060,225 @@
                                    1060 ;	-----------------------------------------
                                    1061 ;	 function UART_SendLong
                                    1062 ;	-----------------------------------------
-      000CD5                       1063 _UART_SendLong:
-      000CD5 AF 82            [24] 1064 	mov	r7,dpl
-      000CD7 AE 83            [24] 1065 	mov	r6,dph
-      000CD9 AD F0            [24] 1066 	mov	r5,b
-      000CDB FC               [12] 1067 	mov	r4,a
-      000CDC 90 01 1C         [24] 1068 	mov	dptr,#_UART_SendLong_n_10000_86
-      000CDF EF               [12] 1069 	mov	a,r7
-      000CE0 F0               [24] 1070 	movx	@dptr,a
-      000CE1 EE               [12] 1071 	mov	a,r6
-      000CE2 A3               [24] 1072 	inc	dptr
-      000CE3 F0               [24] 1073 	movx	@dptr,a
-      000CE4 ED               [12] 1074 	mov	a,r5
-      000CE5 A3               [24] 1075 	inc	dptr
-      000CE6 F0               [24] 1076 	movx	@dptr,a
-      000CE7 EC               [12] 1077 	mov	a,r4
-      000CE8 A3               [24] 1078 	inc	dptr
-      000CE9 F0               [24] 1079 	movx	@dptr,a
+      000D24                       1063 _UART_SendLong:
+      000D24 AF 82            [24] 1064 	mov	r7,dpl
+      000D26 AE 83            [24] 1065 	mov	r6,dph
+      000D28 AD F0            [24] 1066 	mov	r5,b
+      000D2A FC               [12] 1067 	mov	r4,a
+      000D2B 90 01 1C         [24] 1068 	mov	dptr,#_UART_SendLong_n_10000_86
+      000D2E EF               [12] 1069 	mov	a,r7
+      000D2F F0               [24] 1070 	movx	@dptr,a
+      000D30 EE               [12] 1071 	mov	a,r6
+      000D31 A3               [24] 1072 	inc	dptr
+      000D32 F0               [24] 1073 	movx	@dptr,a
+      000D33 ED               [12] 1074 	mov	a,r5
+      000D34 A3               [24] 1075 	inc	dptr
+      000D35 F0               [24] 1076 	movx	@dptr,a
+      000D36 EC               [12] 1077 	mov	a,r4
+      000D37 A3               [24] 1078 	inc	dptr
+      000D38 F0               [24] 1079 	movx	@dptr,a
                                    1080 ;	.\FwLib_STC8\user\uart.c:127: if (n < 0) {
-      000CEA 90 01 1C         [24] 1081 	mov	dptr,#_UART_SendLong_n_10000_86
-      000CED E0               [24] 1082 	movx	a,@dptr
-      000CEE FC               [12] 1083 	mov	r4,a
-      000CEF A3               [24] 1084 	inc	dptr
-      000CF0 E0               [24] 1085 	movx	a,@dptr
-      000CF1 FD               [12] 1086 	mov	r5,a
-      000CF2 A3               [24] 1087 	inc	dptr
-      000CF3 E0               [24] 1088 	movx	a,@dptr
-      000CF4 FE               [12] 1089 	mov	r6,a
-      000CF5 A3               [24] 1090 	inc	dptr
-      000CF6 E0               [24] 1091 	movx	a,@dptr
-      000CF7 FF               [12] 1092 	mov	r7,a
-      000CF8 30 E7 33         [24] 1093 	jnb	acc.7,00102$
+      000D39 90 01 1C         [24] 1081 	mov	dptr,#_UART_SendLong_n_10000_86
+      000D3C E0               [24] 1082 	movx	a,@dptr
+      000D3D FC               [12] 1083 	mov	r4,a
+      000D3E A3               [24] 1084 	inc	dptr
+      000D3F E0               [24] 1085 	movx	a,@dptr
+      000D40 FD               [12] 1086 	mov	r5,a
+      000D41 A3               [24] 1087 	inc	dptr
+      000D42 E0               [24] 1088 	movx	a,@dptr
+      000D43 FE               [12] 1089 	mov	r6,a
+      000D44 A3               [24] 1090 	inc	dptr
+      000D45 E0               [24] 1091 	movx	a,@dptr
+      000D46 FF               [12] 1092 	mov	r7,a
+      000D47 30 E7 33         [24] 1093 	jnb	acc.7,00102$
                                    1094 ;	.\FwLib_STC8\user\uart.c:128: UART_SendChar('-');
-      000CFB 75 82 2D         [24] 1095 	mov	dpl, #0x2d
-      000CFE C0 07            [24] 1096 	push	ar7
-      000D00 C0 06            [24] 1097 	push	ar6
-      000D02 C0 05            [24] 1098 	push	ar5
-      000D04 C0 04            [24] 1099 	push	ar4
-      000D06 12 0B 4A         [24] 1100 	lcall	_UART_SendChar
-      000D09 D0 04            [24] 1101 	pop	ar4
-      000D0B D0 05            [24] 1102 	pop	ar5
-      000D0D D0 06            [24] 1103 	pop	ar6
-      000D0F D0 07            [24] 1104 	pop	ar7
+      000D4A 75 82 2D         [24] 1095 	mov	dpl, #0x2d
+      000D4D C0 07            [24] 1096 	push	ar7
+      000D4F C0 06            [24] 1097 	push	ar6
+      000D51 C0 05            [24] 1098 	push	ar5
+      000D53 C0 04            [24] 1099 	push	ar4
+      000D55 12 0B 99         [24] 1100 	lcall	_UART_SendChar
+      000D58 D0 04            [24] 1101 	pop	ar4
+      000D5A D0 05            [24] 1102 	pop	ar5
+      000D5C D0 06            [24] 1103 	pop	ar6
+      000D5E D0 07            [24] 1104 	pop	ar7
                                    1105 ;	.\FwLib_STC8\user\uart.c:129: v = (uint32_t)(-n);
-      000D11 C3               [12] 1106 	clr	c
-      000D12 E4               [12] 1107 	clr	a
-      000D13 9C               [12] 1108 	subb	a,r4
-      000D14 F8               [12] 1109 	mov	r0,a
-      000D15 E4               [12] 1110 	clr	a
-      000D16 9D               [12] 1111 	subb	a,r5
-      000D17 F9               [12] 1112 	mov	r1,a
-      000D18 E4               [12] 1113 	clr	a
-      000D19 9E               [12] 1114 	subb	a,r6
-      000D1A FA               [12] 1115 	mov	r2,a
-      000D1B E4               [12] 1116 	clr	a
-      000D1C 9F               [12] 1117 	subb	a,r7
-      000D1D FB               [12] 1118 	mov	r3,a
-      000D1E 90 01 2C         [24] 1119 	mov	dptr,#_UART_SendLong_v_10000_87
-      000D21 E8               [12] 1120 	mov	a,r0
-      000D22 F0               [24] 1121 	movx	@dptr,a
-      000D23 E9               [12] 1122 	mov	a,r1
-      000D24 A3               [24] 1123 	inc	dptr
-      000D25 F0               [24] 1124 	movx	@dptr,a
-      000D26 EA               [12] 1125 	mov	a,r2
-      000D27 A3               [24] 1126 	inc	dptr
-      000D28 F0               [24] 1127 	movx	@dptr,a
-      000D29 EB               [12] 1128 	mov	a,r3
-      000D2A A3               [24] 1129 	inc	dptr
-      000D2B F0               [24] 1130 	movx	@dptr,a
-      000D2C 80 0E            [24] 1131 	sjmp	00103$
-      000D2E                       1132 00102$:
+      000D60 C3               [12] 1106 	clr	c
+      000D61 E4               [12] 1107 	clr	a
+      000D62 9C               [12] 1108 	subb	a,r4
+      000D63 F8               [12] 1109 	mov	r0,a
+      000D64 E4               [12] 1110 	clr	a
+      000D65 9D               [12] 1111 	subb	a,r5
+      000D66 F9               [12] 1112 	mov	r1,a
+      000D67 E4               [12] 1113 	clr	a
+      000D68 9E               [12] 1114 	subb	a,r6
+      000D69 FA               [12] 1115 	mov	r2,a
+      000D6A E4               [12] 1116 	clr	a
+      000D6B 9F               [12] 1117 	subb	a,r7
+      000D6C FB               [12] 1118 	mov	r3,a
+      000D6D 90 01 2C         [24] 1119 	mov	dptr,#_UART_SendLong_v_10000_87
+      000D70 E8               [12] 1120 	mov	a,r0
+      000D71 F0               [24] 1121 	movx	@dptr,a
+      000D72 E9               [12] 1122 	mov	a,r1
+      000D73 A3               [24] 1123 	inc	dptr
+      000D74 F0               [24] 1124 	movx	@dptr,a
+      000D75 EA               [12] 1125 	mov	a,r2
+      000D76 A3               [24] 1126 	inc	dptr
+      000D77 F0               [24] 1127 	movx	@dptr,a
+      000D78 EB               [12] 1128 	mov	a,r3
+      000D79 A3               [24] 1129 	inc	dptr
+      000D7A F0               [24] 1130 	movx	@dptr,a
+      000D7B 80 0E            [24] 1131 	sjmp	00103$
+      000D7D                       1132 00102$:
                                    1133 ;	.\FwLib_STC8\user\uart.c:131: v = (uint32_t)n;
-      000D2E 90 01 2C         [24] 1134 	mov	dptr,#_UART_SendLong_v_10000_87
-      000D31 EC               [12] 1135 	mov	a,r4
-      000D32 F0               [24] 1136 	movx	@dptr,a
-      000D33 ED               [12] 1137 	mov	a,r5
-      000D34 A3               [24] 1138 	inc	dptr
-      000D35 F0               [24] 1139 	movx	@dptr,a
-      000D36 EE               [12] 1140 	mov	a,r6
-      000D37 A3               [24] 1141 	inc	dptr
-      000D38 F0               [24] 1142 	movx	@dptr,a
-      000D39 EF               [12] 1143 	mov	a,r7
-      000D3A A3               [24] 1144 	inc	dptr
-      000D3B F0               [24] 1145 	movx	@dptr,a
-      000D3C                       1146 00103$:
+      000D7D 90 01 2C         [24] 1134 	mov	dptr,#_UART_SendLong_v_10000_87
+      000D80 EC               [12] 1135 	mov	a,r4
+      000D81 F0               [24] 1136 	movx	@dptr,a
+      000D82 ED               [12] 1137 	mov	a,r5
+      000D83 A3               [24] 1138 	inc	dptr
+      000D84 F0               [24] 1139 	movx	@dptr,a
+      000D85 EE               [12] 1140 	mov	a,r6
+      000D86 A3               [24] 1141 	inc	dptr
+      000D87 F0               [24] 1142 	movx	@dptr,a
+      000D88 EF               [12] 1143 	mov	a,r7
+      000D89 A3               [24] 1144 	inc	dptr
+      000D8A F0               [24] 1145 	movx	@dptr,a
+      000D8B                       1146 00103$:
                                    1147 ;	.\FwLib_STC8\user\uart.c:134: if (v == 0) { UART_SendChar('0'); return; }
-      000D3C 90 01 2C         [24] 1148 	mov	dptr,#_UART_SendLong_v_10000_87
-      000D3F E0               [24] 1149 	movx	a,@dptr
-      000D40 F5 F0            [12] 1150 	mov	b,a
-      000D42 A3               [24] 1151 	inc	dptr
-      000D43 E0               [24] 1152 	movx	a,@dptr
-      000D44 42 F0            [12] 1153 	orl	b,a
-      000D46 A3               [24] 1154 	inc	dptr
-      000D47 E0               [24] 1155 	movx	a,@dptr
-      000D48 42 F0            [12] 1156 	orl	b,a
-      000D4A A3               [24] 1157 	inc	dptr
-      000D4B E0               [24] 1158 	movx	a,@dptr
-      000D4C 45 F0            [12] 1159 	orl	a,b
-      000D4E 70 06            [24] 1160 	jnz	00117$
-      000D50 75 82 30         [24] 1161 	mov	dpl, #0x30
-      000D53 02 0B 4A         [24] 1162 	ljmp	_UART_SendChar
+      000D8B 90 01 2C         [24] 1148 	mov	dptr,#_UART_SendLong_v_10000_87
+      000D8E E0               [24] 1149 	movx	a,@dptr
+      000D8F F5 F0            [12] 1150 	mov	b,a
+      000D91 A3               [24] 1151 	inc	dptr
+      000D92 E0               [24] 1152 	movx	a,@dptr
+      000D93 42 F0            [12] 1153 	orl	b,a
+      000D95 A3               [24] 1154 	inc	dptr
+      000D96 E0               [24] 1155 	movx	a,@dptr
+      000D97 42 F0            [12] 1156 	orl	b,a
+      000D99 A3               [24] 1157 	inc	dptr
+      000D9A E0               [24] 1158 	movx	a,@dptr
+      000D9B 45 F0            [12] 1159 	orl	a,b
+      000D9D 70 06            [24] 1160 	jnz	00117$
+      000D9F 75 82 30         [24] 1161 	mov	dpl, #0x30
+      000DA2 02 0B 99         [24] 1162 	ljmp	_UART_SendChar
                                    1163 ;	.\FwLib_STC8\user\uart.c:135: while (v > 0) {
-      000D56                       1164 00117$:
-      000D56 75 0F 00         [24] 1165 	mov	_UART_SendLong_sloc1_1_0,#0x00
-      000D59                       1166 00106$:
-      000D59 90 01 2C         [24] 1167 	mov	dptr,#_UART_SendLong_v_10000_87
-      000D5C E0               [24] 1168 	movx	a,@dptr
-      000D5D FB               [12] 1169 	mov	r3,a
-      000D5E A3               [24] 1170 	inc	dptr
-      000D5F E0               [24] 1171 	movx	a,@dptr
-      000D60 FC               [12] 1172 	mov	r4,a
-      000D61 A3               [24] 1173 	inc	dptr
-      000D62 E0               [24] 1174 	movx	a,@dptr
-      000D63 FD               [12] 1175 	mov	r5,a
-      000D64 A3               [24] 1176 	inc	dptr
-      000D65 E0               [24] 1177 	movx	a,@dptr
-      000D66 FE               [12] 1178 	mov	r6,a
-      000D67 EB               [12] 1179 	mov	a,r3
-      000D68 4C               [12] 1180 	orl	a,r4
-      000D69 4D               [12] 1181 	orl	a,r5
-      000D6A 4E               [12] 1182 	orl	a,r6
-      000D6B 60 75            [24] 1183 	jz	00119$
+      000DA5                       1164 00117$:
+      000DA5 75 0F 00         [24] 1165 	mov	_UART_SendLong_sloc1_1_0,#0x00
+      000DA8                       1166 00106$:
+      000DA8 90 01 2C         [24] 1167 	mov	dptr,#_UART_SendLong_v_10000_87
+      000DAB E0               [24] 1168 	movx	a,@dptr
+      000DAC FB               [12] 1169 	mov	r3,a
+      000DAD A3               [24] 1170 	inc	dptr
+      000DAE E0               [24] 1171 	movx	a,@dptr
+      000DAF FC               [12] 1172 	mov	r4,a
+      000DB0 A3               [24] 1173 	inc	dptr
+      000DB1 E0               [24] 1174 	movx	a,@dptr
+      000DB2 FD               [12] 1175 	mov	r5,a
+      000DB3 A3               [24] 1176 	inc	dptr
+      000DB4 E0               [24] 1177 	movx	a,@dptr
+      000DB5 FE               [12] 1178 	mov	r6,a
+      000DB6 EB               [12] 1179 	mov	a,r3
+      000DB7 4C               [12] 1180 	orl	a,r4
+      000DB8 4D               [12] 1181 	orl	a,r5
+      000DB9 4E               [12] 1182 	orl	a,r6
+      000DBA 60 75            [24] 1183 	jz	00119$
                                    1184 ;	.\FwLib_STC8\user\uart.c:136: buf[i++] = (v % 10) + '0';
-      000D6D E5 0F            [12] 1185 	mov	a,_UART_SendLong_sloc1_1_0
-      000D6F F9               [12] 1186 	mov	r1,a
-      000D70 33               [12] 1187 	rlc	a
-      000D71 95 E0            [12] 1188 	subb	a,acc
-      000D73 FA               [12] 1189 	mov	r2,a
-      000D74 05 0F            [12] 1190 	inc	_UART_SendLong_sloc1_1_0
-      000D76 E9               [12] 1191 	mov	a,r1
-      000D77 24 20            [12] 1192 	add	a, #_UART_SendLong_buf_10000_87
-      000D79 F5 0D            [12] 1193 	mov	_UART_SendLong_sloc0_1_0,a
-      000D7B EA               [12] 1194 	mov	a,r2
-      000D7C 34 01            [12] 1195 	addc	a, #(_UART_SendLong_buf_10000_87 >> 8)
-      000D7E F5 0E            [12] 1196 	mov	(_UART_SendLong_sloc0_1_0 + 1),a
-      000D80 90 01 C8         [24] 1197 	mov	dptr,#__modulong_PARM_2
-      000D83 74 0A            [12] 1198 	mov	a,#0x0a
-      000D85 F0               [24] 1199 	movx	@dptr,a
-      000D86 E4               [12] 1200 	clr	a
-      000D87 A3               [24] 1201 	inc	dptr
-      000D88 F0               [24] 1202 	movx	@dptr,a
-      000D89 A3               [24] 1203 	inc	dptr
-      000D8A F0               [24] 1204 	movx	@dptr,a
-      000D8B A3               [24] 1205 	inc	dptr
-      000D8C F0               [24] 1206 	movx	@dptr,a
-      000D8D 8B 82            [24] 1207 	mov	dpl, r3
-      000D8F 8C 83            [24] 1208 	mov	dph, r4
-      000D91 8D F0            [24] 1209 	mov	b, r5
-      000D93 EE               [12] 1210 	mov	a, r6
-      000D94 C0 06            [24] 1211 	push	ar6
-      000D96 C0 05            [24] 1212 	push	ar5
-      000D98 C0 04            [24] 1213 	push	ar4
-      000D9A C0 03            [24] 1214 	push	ar3
-      000D9C 12 23 68         [24] 1215 	lcall	__modulong
-      000D9F A8 82            [24] 1216 	mov	r0, dpl
-      000DA1 D0 03            [24] 1217 	pop	ar3
-      000DA3 D0 04            [24] 1218 	pop	ar4
-      000DA5 D0 05            [24] 1219 	pop	ar5
-      000DA7 D0 06            [24] 1220 	pop	ar6
-      000DA9 74 30            [12] 1221 	mov	a,#0x30
-      000DAB 28               [12] 1222 	add	a, r0
-      000DAC 85 0D 82         [24] 1223 	mov	dpl,_UART_SendLong_sloc0_1_0
-      000DAF 85 0E 83         [24] 1224 	mov	dph,(_UART_SendLong_sloc0_1_0 + 1)
-      000DB2 F0               [24] 1225 	movx	@dptr,a
+      000DBC E5 0F            [12] 1185 	mov	a,_UART_SendLong_sloc1_1_0
+      000DBE F9               [12] 1186 	mov	r1,a
+      000DBF 33               [12] 1187 	rlc	a
+      000DC0 95 E0            [12] 1188 	subb	a,acc
+      000DC2 FA               [12] 1189 	mov	r2,a
+      000DC3 05 0F            [12] 1190 	inc	_UART_SendLong_sloc1_1_0
+      000DC5 E9               [12] 1191 	mov	a,r1
+      000DC6 24 20            [12] 1192 	add	a, #_UART_SendLong_buf_10000_87
+      000DC8 F5 0D            [12] 1193 	mov	_UART_SendLong_sloc0_1_0,a
+      000DCA EA               [12] 1194 	mov	a,r2
+      000DCB 34 01            [12] 1195 	addc	a, #(_UART_SendLong_buf_10000_87 >> 8)
+      000DCD F5 0E            [12] 1196 	mov	(_UART_SendLong_sloc0_1_0 + 1),a
+      000DCF 90 01 D1         [24] 1197 	mov	dptr,#__modulong_PARM_2
+      000DD2 74 0A            [12] 1198 	mov	a,#0x0a
+      000DD4 F0               [24] 1199 	movx	@dptr,a
+      000DD5 E4               [12] 1200 	clr	a
+      000DD6 A3               [24] 1201 	inc	dptr
+      000DD7 F0               [24] 1202 	movx	@dptr,a
+      000DD8 A3               [24] 1203 	inc	dptr
+      000DD9 F0               [24] 1204 	movx	@dptr,a
+      000DDA A3               [24] 1205 	inc	dptr
+      000DDB F0               [24] 1206 	movx	@dptr,a
+      000DDC 8B 82            [24] 1207 	mov	dpl, r3
+      000DDE 8C 83            [24] 1208 	mov	dph, r4
+      000DE0 8D F0            [24] 1209 	mov	b, r5
+      000DE2 EE               [12] 1210 	mov	a, r6
+      000DE3 C0 06            [24] 1211 	push	ar6
+      000DE5 C0 05            [24] 1212 	push	ar5
+      000DE7 C0 04            [24] 1213 	push	ar4
+      000DE9 C0 03            [24] 1214 	push	ar3
+      000DEB 12 2A 7F         [24] 1215 	lcall	__modulong
+      000DEE A8 82            [24] 1216 	mov	r0, dpl
+      000DF0 D0 03            [24] 1217 	pop	ar3
+      000DF2 D0 04            [24] 1218 	pop	ar4
+      000DF4 D0 05            [24] 1219 	pop	ar5
+      000DF6 D0 06            [24] 1220 	pop	ar6
+      000DF8 74 30            [12] 1221 	mov	a,#0x30
+      000DFA 28               [12] 1222 	add	a, r0
+      000DFB 85 0D 82         [24] 1223 	mov	dpl,_UART_SendLong_sloc0_1_0
+      000DFE 85 0E 83         [24] 1224 	mov	dph,(_UART_SendLong_sloc0_1_0 + 1)
+      000E01 F0               [24] 1225 	movx	@dptr,a
                                    1226 ;	.\FwLib_STC8\user\uart.c:137: v /= 10;
-      000DB3 90 01 D9         [24] 1227 	mov	dptr,#__divulong_PARM_2
-      000DB6 74 0A            [12] 1228 	mov	a,#0x0a
-      000DB8 F0               [24] 1229 	movx	@dptr,a
-      000DB9 E4               [12] 1230 	clr	a
-      000DBA A3               [24] 1231 	inc	dptr
-      000DBB F0               [24] 1232 	movx	@dptr,a
-      000DBC A3               [24] 1233 	inc	dptr
-      000DBD F0               [24] 1234 	movx	@dptr,a
-      000DBE A3               [24] 1235 	inc	dptr
-      000DBF F0               [24] 1236 	movx	@dptr,a
-      000DC0 8B 82            [24] 1237 	mov	dpl, r3
-      000DC2 8C 83            [24] 1238 	mov	dph, r4
-      000DC4 8D F0            [24] 1239 	mov	b, r5
-      000DC6 EE               [12] 1240 	mov	a, r6
-      000DC7 12 26 34         [24] 1241 	lcall	__divulong
-      000DCA AC 82            [24] 1242 	mov	r4, dpl
-      000DCC AD 83            [24] 1243 	mov	r5, dph
-      000DCE AE F0            [24] 1244 	mov	r6, b
-      000DD0 FF               [12] 1245 	mov	r7, a
-      000DD1 90 01 2C         [24] 1246 	mov	dptr,#_UART_SendLong_v_10000_87
-      000DD4 EC               [12] 1247 	mov	a,r4
-      000DD5 F0               [24] 1248 	movx	@dptr,a
-      000DD6 ED               [12] 1249 	mov	a,r5
-      000DD7 A3               [24] 1250 	inc	dptr
-      000DD8 F0               [24] 1251 	movx	@dptr,a
-      000DD9 EE               [12] 1252 	mov	a,r6
-      000DDA A3               [24] 1253 	inc	dptr
-      000DDB F0               [24] 1254 	movx	@dptr,a
-      000DDC EF               [12] 1255 	mov	a,r7
-      000DDD A3               [24] 1256 	inc	dptr
-      000DDE F0               [24] 1257 	movx	@dptr,a
-      000DDF 02 0D 59         [24] 1258 	ljmp	00106$
+      000E02 90 01 E2         [24] 1227 	mov	dptr,#__divulong_PARM_2
+      000E05 74 0A            [12] 1228 	mov	a,#0x0a
+      000E07 F0               [24] 1229 	movx	@dptr,a
+      000E08 E4               [12] 1230 	clr	a
+      000E09 A3               [24] 1231 	inc	dptr
+      000E0A F0               [24] 1232 	movx	@dptr,a
+      000E0B A3               [24] 1233 	inc	dptr
+      000E0C F0               [24] 1234 	movx	@dptr,a
+      000E0D A3               [24] 1235 	inc	dptr
+      000E0E F0               [24] 1236 	movx	@dptr,a
+      000E0F 8B 82            [24] 1237 	mov	dpl, r3
+      000E11 8C 83            [24] 1238 	mov	dph, r4
+      000E13 8D F0            [24] 1239 	mov	b, r5
+      000E15 EE               [12] 1240 	mov	a, r6
+      000E16 12 2D 4B         [24] 1241 	lcall	__divulong
+      000E19 AC 82            [24] 1242 	mov	r4, dpl
+      000E1B AD 83            [24] 1243 	mov	r5, dph
+      000E1D AE F0            [24] 1244 	mov	r6, b
+      000E1F FF               [12] 1245 	mov	r7, a
+      000E20 90 01 2C         [24] 1246 	mov	dptr,#_UART_SendLong_v_10000_87
+      000E23 EC               [12] 1247 	mov	a,r4
+      000E24 F0               [24] 1248 	movx	@dptr,a
+      000E25 ED               [12] 1249 	mov	a,r5
+      000E26 A3               [24] 1250 	inc	dptr
+      000E27 F0               [24] 1251 	movx	@dptr,a
+      000E28 EE               [12] 1252 	mov	a,r6
+      000E29 A3               [24] 1253 	inc	dptr
+      000E2A F0               [24] 1254 	movx	@dptr,a
+      000E2B EF               [12] 1255 	mov	a,r7
+      000E2C A3               [24] 1256 	inc	dptr
+      000E2D F0               [24] 1257 	movx	@dptr,a
+      000E2E 02 0D A8         [24] 1258 	ljmp	00106$
                                    1259 ;	.\FwLib_STC8\user\uart.c:139: while (--i >= 0) UART_SendChar(buf[i]);
-      000DE2                       1260 00119$:
-      000DE2 AF 0F            [24] 1261 	mov	r7,_UART_SendLong_sloc1_1_0
-      000DE4                       1262 00109$:
-      000DE4 1F               [12] 1263 	dec	r7
-      000DE5 EF               [12] 1264 	mov	a,r7
-      000DE6 20 E7 18         [24] 1265 	jb	acc.7,00112$
-      000DE9 8F 06            [24] 1266 	mov	ar6,r7
-      000DEB EE               [12] 1267 	mov	a,r6
-      000DEC 24 20            [12] 1268 	add	a, #_UART_SendLong_buf_10000_87
-      000DEE F5 82            [12] 1269 	mov	dpl,a
-      000DF0 E4               [12] 1270 	clr	a
-      000DF1 34 01            [12] 1271 	addc	a, #(_UART_SendLong_buf_10000_87 >> 8)
-      000DF3 F5 83            [12] 1272 	mov	dph,a
-      000DF5 E0               [24] 1273 	movx	a,@dptr
-      000DF6 F5 82            [12] 1274 	mov	dpl,a
-      000DF8 C0 07            [24] 1275 	push	ar7
-      000DFA 12 0B 4A         [24] 1276 	lcall	_UART_SendChar
-      000DFD D0 07            [24] 1277 	pop	ar7
-      000DFF 80 E3            [24] 1278 	sjmp	00109$
-      000E01                       1279 00112$:
+      000E31                       1260 00119$:
+      000E31 AF 0F            [24] 1261 	mov	r7,_UART_SendLong_sloc1_1_0
+      000E33                       1262 00109$:
+      000E33 1F               [12] 1263 	dec	r7
+      000E34 EF               [12] 1264 	mov	a,r7
+      000E35 20 E7 18         [24] 1265 	jb	acc.7,00112$
+      000E38 8F 06            [24] 1266 	mov	ar6,r7
+      000E3A EE               [12] 1267 	mov	a,r6
+      000E3B 24 20            [12] 1268 	add	a, #_UART_SendLong_buf_10000_87
+      000E3D F5 82            [12] 1269 	mov	dpl,a
+      000E3F E4               [12] 1270 	clr	a
+      000E40 34 01            [12] 1271 	addc	a, #(_UART_SendLong_buf_10000_87 >> 8)
+      000E42 F5 83            [12] 1272 	mov	dph,a
+      000E44 E0               [24] 1273 	movx	a,@dptr
+      000E45 F5 82            [12] 1274 	mov	dpl,a
+      000E47 C0 07            [24] 1275 	push	ar7
+      000E49 12 0B 99         [24] 1276 	lcall	_UART_SendChar
+      000E4C D0 07            [24] 1277 	pop	ar7
+      000E4E 80 E3            [24] 1278 	sjmp	00109$
+      000E50                       1279 00112$:
                                    1280 ;	.\FwLib_STC8\user\uart.c:140: }
-      000E01 22               [24] 1281 	ret
+      000E50 22               [24] 1281 	ret
                                    1282 ;------------------------------------------------------------
                                    1283 ;Allocation info for local variables in function 'UART_CheckRx'
                                    1284 ;------------------------------------------------------------
@@ -1286,14 +1286,14 @@
                                    1286 ;	-----------------------------------------
                                    1287 ;	 function UART_CheckRx
                                    1288 ;	-----------------------------------------
-      000E02                       1289 _UART_CheckRx:
+      000E51                       1289 _UART_CheckRx:
                                    1290 ;	.\FwLib_STC8\user\uart.c:146: return RI;
-      000E02 A2 98            [12] 1291 	mov	c,_RI
-      000E04 E4               [12] 1292 	clr	a
-      000E05 33               [12] 1293 	rlc	a
+      000E51 A2 98            [12] 1291 	mov	c,_RI
+      000E53 E4               [12] 1292 	clr	a
+      000E54 33               [12] 1293 	rlc	a
                                    1294 ;	.\FwLib_STC8\user\uart.c:147: }
-      000E06 F5 82            [12] 1295 	mov	dpl,a
-      000E08 22               [24] 1296 	ret
+      000E55 F5 82            [12] 1295 	mov	dpl,a
+      000E57 22               [24] 1296 	ret
                                    1297 ;------------------------------------------------------------
                                    1298 ;Allocation info for local variables in function 'UART_GetRxChar'
                                    1299 ;------------------------------------------------------------
@@ -1303,37 +1303,37 @@
                                    1303 ;	-----------------------------------------
                                    1304 ;	 function UART_GetRxChar
                                    1305 ;	-----------------------------------------
-      000E09                       1306 _UART_GetRxChar:
+      000E58                       1306 _UART_GetRxChar:
                                    1307 ;	.\FwLib_STC8\user\uart.c:152: while (mb_idx == 0);
-      000E09                       1308 00101$:
-      000E09 90 01 FA         [24] 1309 	mov	dptr,#_mb_idx
-      000E0C E0               [24] 1310 	movx	a,@dptr
-      000E0D 60 FA            [24] 1311 	jz	00101$
+      000E58                       1308 00101$:
+      000E58 90 02 03         [24] 1309 	mov	dptr,#_mb_idx
+      000E5B E0               [24] 1310 	movx	a,@dptr
+      000E5C 60 FA            [24] 1311 	jz	00101$
                                    1312 ;	.\FwLib_STC8\user\uart.c:153: ES = 0;
                                    1313 ;	assignBit
-      000E0F C2 AC            [12] 1314 	clr	_ES
+      000E5E C2 AC            [12] 1314 	clr	_ES
                                    1315 ;	.\FwLib_STC8\user\uart.c:154: c = mb_buf[0];
-      000E11 90 00 CA         [24] 1316 	mov	dptr,#_mb_buf
-      000E14 E0               [24] 1317 	movx	a,@dptr
-      000E15 FF               [12] 1318 	mov	r7,a
+      000E60 90 00 CA         [24] 1316 	mov	dptr,#_mb_buf
+      000E63 E0               [24] 1317 	movx	a,@dptr
+      000E64 FF               [12] 1318 	mov	r7,a
                                    1319 ;	.\FwLib_STC8\user\uart.c:155: mb_idx = 0;
-      000E16 90 01 FA         [24] 1320 	mov	dptr,#_mb_idx
-      000E19 E4               [12] 1321 	clr	a
-      000E1A F0               [24] 1322 	movx	@dptr,a
+      000E65 90 02 03         [24] 1320 	mov	dptr,#_mb_idx
+      000E68 E4               [12] 1321 	clr	a
+      000E69 F0               [24] 1322 	movx	@dptr,a
                                    1323 ;	.\FwLib_STC8\user\uart.c:156: ES = 1;
                                    1324 ;	assignBit
-      000E1B D2 AC            [12] 1325 	setb	_ES
+      000E6A D2 AC            [12] 1325 	setb	_ES
                                    1326 ;	.\FwLib_STC8\user\uart.c:157: return c;
-      000E1D 8F 82            [24] 1327 	mov	dpl, r7
+      000E6C 8F 82            [24] 1327 	mov	dpl, r7
                                    1328 ;	.\FwLib_STC8\user\uart.c:158: }
-      000E1F 22               [24] 1329 	ret
+      000E6E 22               [24] 1329 	ret
                                    1330 	.area CSEG    (CODE)
                                    1331 	.area CONST   (CODE)
                                    1332 	.area XINIT   (CODE)
-      002E52                       1333 __xinit__mb_idx:
-      002E52 00                    1334 	.db #0x00	; 0
-      002E53                       1335 __xinit__mb_frame_ready:
-      002E53 00                    1336 	.db #0x00	; 0
-      002E54                       1337 __xinit__cached_id:
-      002E54 01                    1338 	.db #0x01	; 1
+      003573                       1333 __xinit__mb_idx:
+      003573 00                    1334 	.db #0x00	; 0
+      003574                       1335 __xinit__mb_frame_ready:
+      003574 00                    1336 	.db #0x00	; 0
+      003575                       1337 __xinit__cached_id:
+      003575 01                    1338 	.db #0x01	; 1
                                    1339 	.area CABS    (ABS,CODE)

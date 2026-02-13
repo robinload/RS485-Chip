@@ -513,7 +513,7 @@
                                     513 ;	-----------------------------------------
                                     514 ;	 function HX_Init
                                     515 ;	-----------------------------------------
-      000E20                        516 _HX_Init:
+      000E6F                        516 _HX_Init:
                            000007   517 	ar7 = 0x07
                            000006   518 	ar6 = 0x06
                            000005   519 	ar5 = 0x05
@@ -523,19 +523,19 @@
                            000001   523 	ar1 = 0x01
                            000000   524 	ar0 = 0x00
                                     525 ;	.\FwLib_STC8\user\hx71708.c:8: GPIO_P3_SetMode(GPIO_Pin_3, GPIO_Mode_Output_PP);
-      000E20 74 F7            [12]  526 	mov	a,#0xf7
-      000E22 55 B2            [12]  527 	anl	a,_P3M0
-      000E24 44 08            [12]  528 	orl	a,#0x08
-      000E26 F5 B2            [12]  529 	mov	_P3M0,a
-      000E28 53 B1 F7         [24]  530 	anl	_P3M1,#0xf7
+      000E6F 74 F7            [12]  526 	mov	a,#0xf7
+      000E71 55 B2            [12]  527 	anl	a,_P3M0
+      000E73 44 08            [12]  528 	orl	a,#0x08
+      000E75 F5 B2            [12]  529 	mov	_P3M0,a
+      000E77 53 B1 F7         [24]  530 	anl	_P3M1,#0xf7
                                     531 ;	.\FwLib_STC8\user\hx71708.c:9: GPIO_P3_SetMode(GPIO_Pin_2, GPIO_Mode_InOut_QBD);
-      000E2B 53 B2 FB         [24]  532 	anl	_P3M0,#0xfb
-      000E2E 53 B1 FB         [24]  533 	anl	_P3M1,#0xfb
+      000E7A 53 B2 FB         [24]  532 	anl	_P3M0,#0xfb
+      000E7D 53 B1 FB         [24]  533 	anl	_P3M1,#0xfb
                                     534 ;	.\FwLib_STC8\user\hx71708.c:10: HX_SCK = 0;
                                     535 ;	assignBit
-      000E31 C2 B3            [12]  536 	clr	_P33
+      000E80 C2 B3            [12]  536 	clr	_P33
                                     537 ;	.\FwLib_STC8\user\hx71708.c:11: }
-      000E33 22               [24]  538 	ret
+      000E82 22               [24]  538 	ret
                                     539 ;------------------------------------------------------------
                                     540 ;Allocation info for local variables in function 'Read_HX71708_Raw'
                                     541 ;------------------------------------------------------------
@@ -547,204 +547,204 @@
                                     547 ;	-----------------------------------------
                                     548 ;	 function Read_HX71708_Raw
                                     549 ;	-----------------------------------------
-      000E34                        550 _Read_HX71708_Raw:
+      000E83                        550 _Read_HX71708_Raw:
                                     551 ;	.\FwLib_STC8\user\hx71708.c:14: uint32_t count = 0;
-      000E34 90 01 30         [24]  552 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000E37 E4               [12]  553 	clr	a
-      000E38 F0               [24]  554 	movx	@dptr,a
-      000E39 A3               [24]  555 	inc	dptr
-      000E3A F0               [24]  556 	movx	@dptr,a
-      000E3B A3               [24]  557 	inc	dptr
-      000E3C F0               [24]  558 	movx	@dptr,a
-      000E3D A3               [24]  559 	inc	dptr
-      000E3E F0               [24]  560 	movx	@dptr,a
+      000E83 90 01 30         [24]  552 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000E86 E4               [12]  553 	clr	a
+      000E87 F0               [24]  554 	movx	@dptr,a
+      000E88 A3               [24]  555 	inc	dptr
+      000E89 F0               [24]  556 	movx	@dptr,a
+      000E8A A3               [24]  557 	inc	dptr
+      000E8B F0               [24]  558 	movx	@dptr,a
+      000E8C A3               [24]  559 	inc	dptr
+      000E8D F0               [24]  560 	movx	@dptr,a
                                     561 ;	.\FwLib_STC8\user\hx71708.c:19: while(!HX_DOUT && ++watchdog < 30000);
-      000E3F FE               [12]  562 	mov	r6,a
-      000E40 FF               [12]  563 	mov	r7,a
-      000E41                        564 00102$:
-      000E41 20 B2 12         [24]  565 	jb	_P32,00104$
-      000E44 0E               [12]  566 	inc	r6
-      000E45 BE 00 01         [24]  567 	cjne	r6,#0x00,00179$
-      000E48 0F               [12]  568 	inc	r7
-      000E49                        569 00179$:
-      000E49 8E 04            [24]  570 	mov	ar4,r6
-      000E4B 8F 05            [24]  571 	mov	ar5,r7
-      000E4D C3               [12]  572 	clr	c
-      000E4E EC               [12]  573 	mov	a,r4
-      000E4F 94 30            [12]  574 	subb	a,#0x30
-      000E51 ED               [12]  575 	mov	a,r5
-      000E52 94 75            [12]  576 	subb	a,#0x75
-      000E54 40 EB            [24]  577 	jc	00102$
-      000E56                        578 00104$:
+      000E8E FE               [12]  562 	mov	r6,a
+      000E8F FF               [12]  563 	mov	r7,a
+      000E90                        564 00102$:
+      000E90 20 B2 12         [24]  565 	jb	_P32,00104$
+      000E93 0E               [12]  566 	inc	r6
+      000E94 BE 00 01         [24]  567 	cjne	r6,#0x00,00179$
+      000E97 0F               [12]  568 	inc	r7
+      000E98                        569 00179$:
+      000E98 8E 04            [24]  570 	mov	ar4,r6
+      000E9A 8F 05            [24]  571 	mov	ar5,r7
+      000E9C C3               [12]  572 	clr	c
+      000E9D EC               [12]  573 	mov	a,r4
+      000E9E 94 30            [12]  574 	subb	a,#0x30
+      000EA0 ED               [12]  575 	mov	a,r5
+      000EA1 94 75            [12]  576 	subb	a,#0x75
+      000EA3 40 EB            [24]  577 	jc	00102$
+      000EA5                        578 00104$:
                                     579 ;	.\FwLib_STC8\user\hx71708.c:21: while(HX_DOUT && ++watchdog < 60000);
-      000E56 7E 00            [12]  580 	mov	r6,#0x00
-      000E58 7F 00            [12]  581 	mov	r7,#0x00
-      000E5A                        582 00106$:
-      000E5A 30 B2 0E         [24]  583 	jnb	_P32,00108$
-      000E5D 0E               [12]  584 	inc	r6
-      000E5E BE 00 01         [24]  585 	cjne	r6,#0x00,00182$
-      000E61 0F               [12]  586 	inc	r7
-      000E62                        587 00182$:
-      000E62 C3               [12]  588 	clr	c
-      000E63 EE               [12]  589 	mov	a,r6
-      000E64 94 60            [12]  590 	subb	a,#0x60
-      000E66 EF               [12]  591 	mov	a,r7
-      000E67 94 EA            [12]  592 	subb	a,#0xea
-      000E69 40 EF            [24]  593 	jc	00106$
-      000E6B                        594 00108$:
+      000EA5 7E 00            [12]  580 	mov	r6,#0x00
+      000EA7 7F 00            [12]  581 	mov	r7,#0x00
+      000EA9                        582 00106$:
+      000EA9 30 B2 0E         [24]  583 	jnb	_P32,00108$
+      000EAC 0E               [12]  584 	inc	r6
+      000EAD BE 00 01         [24]  585 	cjne	r6,#0x00,00182$
+      000EB0 0F               [12]  586 	inc	r7
+      000EB1                        587 00182$:
+      000EB1 C3               [12]  588 	clr	c
+      000EB2 EE               [12]  589 	mov	a,r6
+      000EB3 94 60            [12]  590 	subb	a,#0x60
+      000EB5 EF               [12]  591 	mov	a,r7
+      000EB6 94 EA            [12]  592 	subb	a,#0xea
+      000EB8 40 EF            [24]  593 	jc	00106$
+      000EBA                        594 00108$:
                                     595 ;	.\FwLib_STC8\user\hx71708.c:22: if(watchdog >= 60000) return -1;
-      000E6B C3               [12]  596 	clr	c
-      000E6C EE               [12]  597 	mov	a,r6
-      000E6D 94 60            [12]  598 	subb	a,#0x60
-      000E6F EF               [12]  599 	mov	a,r7
-      000E70 94 EA            [12]  600 	subb	a,#0xea
-      000E72 40 08            [24]  601 	jc	00128$
-      000E74 90 FF FF         [24]  602 	mov	dptr,#0xffff
-      000E77 74 FF            [12]  603 	mov	a,#0xff
-      000E79 F5 F0            [12]  604 	mov	b,a
-      000E7B 22               [24]  605 	ret
+      000EBA C3               [12]  596 	clr	c
+      000EBB EE               [12]  597 	mov	a,r6
+      000EBC 94 60            [12]  598 	subb	a,#0x60
+      000EBE EF               [12]  599 	mov	a,r7
+      000EBF 94 EA            [12]  600 	subb	a,#0xea
+      000EC1 40 08            [24]  601 	jc	00128$
+      000EC3 90 FF FF         [24]  602 	mov	dptr,#0xffff
+      000EC6 74 FF            [12]  603 	mov	a,#0xff
+      000EC8 F5 F0            [12]  604 	mov	b,a
+      000ECA 22               [24]  605 	ret
                                     606 ;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
-      000E7C                        607 00128$:
-      000E7C 7F 00            [12]  608 	mov	r7,#0x00
-      000E7E                        609 00117$:
-      000E7E BF 18 00         [24]  610 	cjne	r7,#0x18,00185$
-      000E81                        611 00185$:
-      000E81 50 52            [24]  612 	jnc	00113$
+      000ECB                        607 00128$:
+      000ECB 7F 00            [12]  608 	mov	r7,#0x00
+      000ECD                        609 00117$:
+      000ECD BF 18 00         [24]  610 	cjne	r7,#0x18,00185$
+      000ED0                        611 00185$:
+      000ED0 50 52            [24]  612 	jnc	00113$
                                     613 ;	.\FwLib_STC8\user\hx71708.c:25: HX_SCK = 1;
                                     614 ;	assignBit
-      000E83 D2 B3            [12]  615 	setb	_P33
+      000ED2 D2 B3            [12]  615 	setb	_P33
                                     616 ;	.\FwLib_STC8\user\hx71708.c:26: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
-      000E85 00               [12]  617 	NOP	
-      000E86 00               [12]  618 	NOP	
-      000E87 00               [12]  619 	NOP	
-      000E88 00               [12]  620 	NOP	
-      000E89 00               [12]  621 	NOP	
+      000ED4 00               [12]  617 	NOP	
+      000ED5 00               [12]  618 	NOP	
+      000ED6 00               [12]  619 	NOP	
+      000ED7 00               [12]  620 	NOP	
+      000ED8 00               [12]  621 	NOP	
                                     622 ;	.\FwLib_STC8\user\hx71708.c:28: count <<= 1;
-      000E8A 90 01 30         [24]  623 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000E8D E0               [24]  624 	movx	a,@dptr
-      000E8E FB               [12]  625 	mov	r3,a
-      000E8F A3               [24]  626 	inc	dptr
-      000E90 E0               [24]  627 	movx	a,@dptr
-      000E91 FC               [12]  628 	mov	r4,a
-      000E92 A3               [24]  629 	inc	dptr
-      000E93 E0               [24]  630 	movx	a,@dptr
-      000E94 FD               [12]  631 	mov	r5,a
-      000E95 A3               [24]  632 	inc	dptr
-      000E96 E0               [24]  633 	movx	a,@dptr
-      000E97 FE               [12]  634 	mov	r6,a
-      000E98 EB               [12]  635 	mov	a,r3
-      000E99 2B               [12]  636 	add	a,r3
-      000E9A FB               [12]  637 	mov	r3,a
-      000E9B EC               [12]  638 	mov	a,r4
-      000E9C 33               [12]  639 	rlc	a
-      000E9D FC               [12]  640 	mov	r4,a
-      000E9E ED               [12]  641 	mov	a,r5
-      000E9F 33               [12]  642 	rlc	a
-      000EA0 FD               [12]  643 	mov	r5,a
-      000EA1 EE               [12]  644 	mov	a,r6
-      000EA2 33               [12]  645 	rlc	a
-      000EA3 FE               [12]  646 	mov	r6,a
-      000EA4 90 01 30         [24]  647 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000EA7 EB               [12]  648 	mov	a,r3
-      000EA8 F0               [24]  649 	movx	@dptr,a
-      000EA9 EC               [12]  650 	mov	a,r4
-      000EAA A3               [24]  651 	inc	dptr
-      000EAB F0               [24]  652 	movx	@dptr,a
-      000EAC ED               [12]  653 	mov	a,r5
-      000EAD A3               [24]  654 	inc	dptr
-      000EAE F0               [24]  655 	movx	@dptr,a
-      000EAF EE               [12]  656 	mov	a,r6
-      000EB0 A3               [24]  657 	inc	dptr
-      000EB1 F0               [24]  658 	movx	@dptr,a
+      000ED9 90 01 30         [24]  623 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000EDC E0               [24]  624 	movx	a,@dptr
+      000EDD FB               [12]  625 	mov	r3,a
+      000EDE A3               [24]  626 	inc	dptr
+      000EDF E0               [24]  627 	movx	a,@dptr
+      000EE0 FC               [12]  628 	mov	r4,a
+      000EE1 A3               [24]  629 	inc	dptr
+      000EE2 E0               [24]  630 	movx	a,@dptr
+      000EE3 FD               [12]  631 	mov	r5,a
+      000EE4 A3               [24]  632 	inc	dptr
+      000EE5 E0               [24]  633 	movx	a,@dptr
+      000EE6 FE               [12]  634 	mov	r6,a
+      000EE7 EB               [12]  635 	mov	a,r3
+      000EE8 2B               [12]  636 	add	a,r3
+      000EE9 FB               [12]  637 	mov	r3,a
+      000EEA EC               [12]  638 	mov	a,r4
+      000EEB 33               [12]  639 	rlc	a
+      000EEC FC               [12]  640 	mov	r4,a
+      000EED ED               [12]  641 	mov	a,r5
+      000EEE 33               [12]  642 	rlc	a
+      000EEF FD               [12]  643 	mov	r5,a
+      000EF0 EE               [12]  644 	mov	a,r6
+      000EF1 33               [12]  645 	rlc	a
+      000EF2 FE               [12]  646 	mov	r6,a
+      000EF3 90 01 30         [24]  647 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000EF6 EB               [12]  648 	mov	a,r3
+      000EF7 F0               [24]  649 	movx	@dptr,a
+      000EF8 EC               [12]  650 	mov	a,r4
+      000EF9 A3               [24]  651 	inc	dptr
+      000EFA F0               [24]  652 	movx	@dptr,a
+      000EFB ED               [12]  653 	mov	a,r5
+      000EFC A3               [24]  654 	inc	dptr
+      000EFD F0               [24]  655 	movx	@dptr,a
+      000EFE EE               [12]  656 	mov	a,r6
+      000EFF A3               [24]  657 	inc	dptr
+      000F00 F0               [24]  658 	movx	@dptr,a
                                     659 ;	.\FwLib_STC8\user\hx71708.c:29: if(HX_DOUT) count++;
-      000EB2 30 B2 16         [24]  660 	jnb	_P32,00112$
-      000EB5 90 01 30         [24]  661 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000EB8 E0               [24]  662 	movx	a,@dptr
-      000EB9 24 01            [12]  663 	add	a, #0x01
-      000EBB F0               [24]  664 	movx	@dptr,a
-      000EBC A3               [24]  665 	inc	dptr
-      000EBD E0               [24]  666 	movx	a,@dptr
-      000EBE 34 00            [12]  667 	addc	a, #0x00
-      000EC0 F0               [24]  668 	movx	@dptr,a
-      000EC1 A3               [24]  669 	inc	dptr
-      000EC2 E0               [24]  670 	movx	a,@dptr
-      000EC3 34 00            [12]  671 	addc	a, #0x00
-      000EC5 F0               [24]  672 	movx	@dptr,a
-      000EC6 A3               [24]  673 	inc	dptr
-      000EC7 E0               [24]  674 	movx	a,@dptr
-      000EC8 34 00            [12]  675 	addc	a, #0x00
-      000ECA F0               [24]  676 	movx	@dptr,a
-      000ECB                        677 00112$:
+      000F01 30 B2 16         [24]  660 	jnb	_P32,00112$
+      000F04 90 01 30         [24]  661 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F07 E0               [24]  662 	movx	a,@dptr
+      000F08 24 01            [12]  663 	add	a, #0x01
+      000F0A F0               [24]  664 	movx	@dptr,a
+      000F0B A3               [24]  665 	inc	dptr
+      000F0C E0               [24]  666 	movx	a,@dptr
+      000F0D 34 00            [12]  667 	addc	a, #0x00
+      000F0F F0               [24]  668 	movx	@dptr,a
+      000F10 A3               [24]  669 	inc	dptr
+      000F11 E0               [24]  670 	movx	a,@dptr
+      000F12 34 00            [12]  671 	addc	a, #0x00
+      000F14 F0               [24]  672 	movx	@dptr,a
+      000F15 A3               [24]  673 	inc	dptr
+      000F16 E0               [24]  674 	movx	a,@dptr
+      000F17 34 00            [12]  675 	addc	a, #0x00
+      000F19 F0               [24]  676 	movx	@dptr,a
+      000F1A                        677 00112$:
                                     678 ;	.\FwLib_STC8\user\hx71708.c:31: HX_SCK = 0;
                                     679 ;	assignBit
-      000ECB C2 B3            [12]  680 	clr	_P33
+      000F1A C2 B3            [12]  680 	clr	_P33
                                     681 ;	.\FwLib_STC8\user\hx71708.c:32: _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
-      000ECD 00               [12]  682 	NOP	
-      000ECE 00               [12]  683 	NOP	
-      000ECF 00               [12]  684 	NOP	
-      000ED0 00               [12]  685 	NOP	
-      000ED1 00               [12]  686 	NOP	
+      000F1C 00               [12]  682 	NOP	
+      000F1D 00               [12]  683 	NOP	
+      000F1E 00               [12]  684 	NOP	
+      000F1F 00               [12]  685 	NOP	
+      000F20 00               [12]  686 	NOP	
                                     687 ;	.\FwLib_STC8\user\hx71708.c:24: for(uint8_t i = 0; i < 24; i++) {
-      000ED2 0F               [12]  688 	inc	r7
-      000ED3 80 A9            [24]  689 	sjmp	00117$
-      000ED5                        690 00113$:
+      000F21 0F               [12]  688 	inc	r7
+      000F22 80 A9            [24]  689 	sjmp	00117$
+      000F24                        690 00113$:
                                     691 ;	.\FwLib_STC8\user\hx71708.c:36: HX_SCK = 1;
                                     692 ;	assignBit
-      000ED5 D2 B3            [12]  693 	setb	_P33
+      000F24 D2 B3            [12]  693 	setb	_P33
                                     694 ;	.\FwLib_STC8\user\hx71708.c:37: _nop_(); _nop_(); 
-      000ED7 00               [12]  695 	NOP	
-      000ED8 00               [12]  696 	NOP	
+      000F26 00               [12]  695 	NOP	
+      000F27 00               [12]  696 	NOP	
                                     697 ;	.\FwLib_STC8\user\hx71708.c:38: HX_SCK = 0;
                                     698 ;	assignBit
-      000ED9 C2 B3            [12]  699 	clr	_P33
+      000F28 C2 B3            [12]  699 	clr	_P33
                                     700 ;	.\FwLib_STC8\user\hx71708.c:39: _nop_(); _nop_(); 
-      000EDB 00               [12]  701 	NOP	
-      000EDC 00               [12]  702 	NOP	
+      000F2A 00               [12]  701 	NOP	
+      000F2B 00               [12]  702 	NOP	
                                     703 ;	.\FwLib_STC8\user\hx71708.c:42: if (count & 0x800000)
-      000EDD 90 01 30         [24]  704 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000EE0 E0               [24]  705 	movx	a,@dptr
-      000EE1 FC               [12]  706 	mov	r4,a
-      000EE2 A3               [24]  707 	inc	dptr
-      000EE3 E0               [24]  708 	movx	a,@dptr
-      000EE4 FD               [12]  709 	mov	r5,a
-      000EE5 A3               [24]  710 	inc	dptr
-      000EE6 E0               [24]  711 	movx	a,@dptr
-      000EE7 FE               [12]  712 	mov	r6,a
-      000EE8 A3               [24]  713 	inc	dptr
-      000EE9 E0               [24]  714 	movx	a,@dptr
-      000EEA EE               [12]  715 	mov	a,r6
-      000EEB 30 E7 0F         [24]  716 	jnb	acc.7,00115$
+      000F2C 90 01 30         [24]  704 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F2F E0               [24]  705 	movx	a,@dptr
+      000F30 FC               [12]  706 	mov	r4,a
+      000F31 A3               [24]  707 	inc	dptr
+      000F32 E0               [24]  708 	movx	a,@dptr
+      000F33 FD               [12]  709 	mov	r5,a
+      000F34 A3               [24]  710 	inc	dptr
+      000F35 E0               [24]  711 	movx	a,@dptr
+      000F36 FE               [12]  712 	mov	r6,a
+      000F37 A3               [24]  713 	inc	dptr
+      000F38 E0               [24]  714 	movx	a,@dptr
+      000F39 EE               [12]  715 	mov	a,r6
+      000F3A 30 E7 0F         [24]  716 	jnb	acc.7,00115$
                                     717 ;	.\FwLib_STC8\user\hx71708.c:43: count |= 0xFF000000;
-      000EEE 90 01 30         [24]  718 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000EF1 EC               [12]  719 	mov	a,r4
-      000EF2 F0               [24]  720 	movx	@dptr,a
-      000EF3 ED               [12]  721 	mov	a,r5
-      000EF4 A3               [24]  722 	inc	dptr
-      000EF5 F0               [24]  723 	movx	@dptr,a
-      000EF6 EE               [12]  724 	mov	a,r6
-      000EF7 A3               [24]  725 	inc	dptr
-      000EF8 F0               [24]  726 	movx	@dptr,a
-      000EF9 74 FF            [12]  727 	mov	a,#0xff
-      000EFB A3               [24]  728 	inc	dptr
-      000EFC F0               [24]  729 	movx	@dptr,a
-      000EFD                        730 00115$:
+      000F3D 90 01 30         [24]  718 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F40 EC               [12]  719 	mov	a,r4
+      000F41 F0               [24]  720 	movx	@dptr,a
+      000F42 ED               [12]  721 	mov	a,r5
+      000F43 A3               [24]  722 	inc	dptr
+      000F44 F0               [24]  723 	movx	@dptr,a
+      000F45 EE               [12]  724 	mov	a,r6
+      000F46 A3               [24]  725 	inc	dptr
+      000F47 F0               [24]  726 	movx	@dptr,a
+      000F48 74 FF            [12]  727 	mov	a,#0xff
+      000F4A A3               [24]  728 	inc	dptr
+      000F4B F0               [24]  729 	movx	@dptr,a
+      000F4C                        730 00115$:
                                     731 ;	.\FwLib_STC8\user\hx71708.c:45: return (int32_t)count;
-      000EFD 90 01 30         [24]  732 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
-      000F00 E0               [24]  733 	movx	a,@dptr
-      000F01 FC               [12]  734 	mov	r4,a
-      000F02 A3               [24]  735 	inc	dptr
-      000F03 E0               [24]  736 	movx	a,@dptr
-      000F04 FD               [12]  737 	mov	r5,a
-      000F05 A3               [24]  738 	inc	dptr
-      000F06 E0               [24]  739 	movx	a,@dptr
-      000F07 FE               [12]  740 	mov	r6,a
-      000F08 A3               [24]  741 	inc	dptr
-      000F09 E0               [24]  742 	movx	a,@dptr
-      000F0A 8C 82            [24]  743 	mov	dpl,r4
-      000F0C 8D 83            [24]  744 	mov	dph,r5
-      000F0E 8E F0            [24]  745 	mov	b,r6
+      000F4C 90 01 30         [24]  732 	mov	dptr,#_Read_HX71708_Raw_count_10000_55
+      000F4F E0               [24]  733 	movx	a,@dptr
+      000F50 FC               [12]  734 	mov	r4,a
+      000F51 A3               [24]  735 	inc	dptr
+      000F52 E0               [24]  736 	movx	a,@dptr
+      000F53 FD               [12]  737 	mov	r5,a
+      000F54 A3               [24]  738 	inc	dptr
+      000F55 E0               [24]  739 	movx	a,@dptr
+      000F56 FE               [12]  740 	mov	r6,a
+      000F57 A3               [24]  741 	inc	dptr
+      000F58 E0               [24]  742 	movx	a,@dptr
+      000F59 8C 82            [24]  743 	mov	dpl,r4
+      000F5B 8D 83            [24]  744 	mov	dph,r5
+      000F5D 8E F0            [24]  745 	mov	b,r6
                                     746 ;	.\FwLib_STC8\user\hx71708.c:46: }
-      000F10 22               [24]  747 	ret
+      000F5F 22               [24]  747 	ret
                                     748 ;------------------------------------------------------------
                                     749 ;Allocation info for local variables in function 'Get_Steady_Weight'
                                     750 ;------------------------------------------------------------
@@ -760,129 +760,129 @@
                                     760 ;	-----------------------------------------
                                     761 ;	 function Get_Steady_Weight
                                     762 ;	-----------------------------------------
-      000F11                        763 _Get_Steady_Weight:
-      000F11 E5 82            [12]  764 	mov	a,dpl
-      000F13 90 01 34         [24]  765 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
-      000F16 F0               [24]  766 	movx	@dptr,a
+      000F60                        763 _Get_Steady_Weight:
+      000F60 E5 82            [12]  764 	mov	a,dpl
+      000F62 90 01 34         [24]  765 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
+      000F65 F0               [24]  766 	movx	@dptr,a
                                     767 ;	.\FwLib_STC8\user\hx71708.c:49: int32_t sum = 0; // Changed from 64-bit to 32-bit to fix linker error
-      000F17 90 01 35         [24]  768 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000F1A E4               [12]  769 	clr	a
-      000F1B F0               [24]  770 	movx	@dptr,a
-      000F1C A3               [24]  771 	inc	dptr
-      000F1D F0               [24]  772 	movx	@dptr,a
-      000F1E A3               [24]  773 	inc	dptr
-      000F1F F0               [24]  774 	movx	@dptr,a
-      000F20 A3               [24]  775 	inc	dptr
-      000F21 F0               [24]  776 	movx	@dptr,a
+      000F66 90 01 35         [24]  768 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      000F69 E4               [12]  769 	clr	a
+      000F6A F0               [24]  770 	movx	@dptr,a
+      000F6B A3               [24]  771 	inc	dptr
+      000F6C F0               [24]  772 	movx	@dptr,a
+      000F6D A3               [24]  773 	inc	dptr
+      000F6E F0               [24]  774 	movx	@dptr,a
+      000F6F A3               [24]  775 	inc	dptr
+      000F70 F0               [24]  776 	movx	@dptr,a
                                     777 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
-      000F22 90 01 34         [24]  778 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
-      000F25 E0               [24]  779 	movx	a,@dptr
-      000F26 FF               [12]  780 	mov	r7,a
-      000F27 75 10 00         [24]  781 	mov	_Get_Steady_Weight_sloc0_1_0,#0x00
-      000F2A 75 11 00         [24]  782 	mov	_Get_Steady_Weight_sloc1_1_0,#0x00
-      000F2D                        783 00107$:
-      000F2D C3               [12]  784 	clr	c
-      000F2E E5 11            [12]  785 	mov	a,_Get_Steady_Weight_sloc1_1_0
-      000F30 9F               [12]  786 	subb	a,r7
-      000F31 50 46            [24]  787 	jnc	00103$
+      000F71 90 01 34         [24]  778 	mov	dptr,#_Get_Steady_Weight_samples_10000_58
+      000F74 E0               [24]  779 	movx	a,@dptr
+      000F75 FF               [12]  780 	mov	r7,a
+      000F76 75 10 00         [24]  781 	mov	_Get_Steady_Weight_sloc0_1_0,#0x00
+      000F79 75 11 00         [24]  782 	mov	_Get_Steady_Weight_sloc1_1_0,#0x00
+      000F7C                        783 00107$:
+      000F7C C3               [12]  784 	clr	c
+      000F7D E5 11            [12]  785 	mov	a,_Get_Steady_Weight_sloc1_1_0
+      000F7F 9F               [12]  786 	subb	a,r7
+      000F80 50 46            [24]  787 	jnc	00103$
                                     788 ;	.\FwLib_STC8\user\hx71708.c:53: int32_t v = Read_HX71708_Raw();
-      000F33 C0 07            [24]  789 	push	ar7
-      000F35 12 0E 34         [24]  790 	lcall	_Read_HX71708_Raw
-      000F38 A9 82            [24]  791 	mov	r1, dpl
-      000F3A AA 83            [24]  792 	mov	r2, dph
-      000F3C AB F0            [24]  793 	mov	r3, b
-      000F3E FC               [12]  794 	mov	r4, a
-      000F3F D0 07            [24]  795 	pop	ar7
+      000F82 C0 07            [24]  789 	push	ar7
+      000F84 12 0E 83         [24]  790 	lcall	_Read_HX71708_Raw
+      000F87 A9 82            [24]  791 	mov	r1, dpl
+      000F89 AA 83            [24]  792 	mov	r2, dph
+      000F8B AB F0            [24]  793 	mov	r3, b
+      000F8D FC               [12]  794 	mov	r4, a
+      000F8E D0 07            [24]  795 	pop	ar7
                                     796 ;	.\FwLib_STC8\user\hx71708.c:54: if(v != -1) {
-      000F41 B9 FF 0B         [24]  797 	cjne	r1,#0xff,00137$
-      000F44 BA FF 08         [24]  798 	cjne	r2,#0xff,00137$
-      000F47 BB FF 05         [24]  799 	cjne	r3,#0xff,00137$
-      000F4A BC FF 02         [24]  800 	cjne	r4,#0xff,00137$
-      000F4D 80 26            [24]  801 	sjmp	00108$
-      000F4F                        802 00137$:
+      000F90 B9 FF 0B         [24]  797 	cjne	r1,#0xff,00137$
+      000F93 BA FF 08         [24]  798 	cjne	r2,#0xff,00137$
+      000F96 BB FF 05         [24]  799 	cjne	r3,#0xff,00137$
+      000F99 BC FF 02         [24]  800 	cjne	r4,#0xff,00137$
+      000F9C 80 26            [24]  801 	sjmp	00108$
+      000F9E                        802 00137$:
                                     803 ;	.\FwLib_STC8\user\hx71708.c:55: sum += v;
-      000F4F C0 07            [24]  804 	push	ar7
-      000F51 90 01 35         [24]  805 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000F54 E0               [24]  806 	movx	a,@dptr
-      000F55 F8               [12]  807 	mov	r0,a
-      000F56 A3               [24]  808 	inc	dptr
-      000F57 E0               [24]  809 	movx	a,@dptr
-      000F58 FD               [12]  810 	mov	r5,a
-      000F59 A3               [24]  811 	inc	dptr
-      000F5A E0               [24]  812 	movx	a,@dptr
-      000F5B FE               [12]  813 	mov	r6,a
-      000F5C A3               [24]  814 	inc	dptr
-      000F5D E0               [24]  815 	movx	a,@dptr
-      000F5E FF               [12]  816 	mov	r7,a
-      000F5F 90 01 35         [24]  817 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000F62 E9               [12]  818 	mov	a,r1
-      000F63 28               [12]  819 	add	a, r0
-      000F64 F0               [24]  820 	movx	@dptr,a
-      000F65 EA               [12]  821 	mov	a,r2
-      000F66 3D               [12]  822 	addc	a, r5
-      000F67 A3               [24]  823 	inc	dptr
-      000F68 F0               [24]  824 	movx	@dptr,a
-      000F69 EB               [12]  825 	mov	a,r3
-      000F6A 3E               [12]  826 	addc	a, r6
-      000F6B A3               [24]  827 	inc	dptr
-      000F6C F0               [24]  828 	movx	@dptr,a
-      000F6D EC               [12]  829 	mov	a,r4
-      000F6E 3F               [12]  830 	addc	a, r7
-      000F6F A3               [24]  831 	inc	dptr
-      000F70 F0               [24]  832 	movx	@dptr,a
+      000F9E C0 07            [24]  804 	push	ar7
+      000FA0 90 01 35         [24]  805 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      000FA3 E0               [24]  806 	movx	a,@dptr
+      000FA4 F8               [12]  807 	mov	r0,a
+      000FA5 A3               [24]  808 	inc	dptr
+      000FA6 E0               [24]  809 	movx	a,@dptr
+      000FA7 FD               [12]  810 	mov	r5,a
+      000FA8 A3               [24]  811 	inc	dptr
+      000FA9 E0               [24]  812 	movx	a,@dptr
+      000FAA FE               [12]  813 	mov	r6,a
+      000FAB A3               [24]  814 	inc	dptr
+      000FAC E0               [24]  815 	movx	a,@dptr
+      000FAD FF               [12]  816 	mov	r7,a
+      000FAE 90 01 35         [24]  817 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      000FB1 E9               [12]  818 	mov	a,r1
+      000FB2 28               [12]  819 	add	a, r0
+      000FB3 F0               [24]  820 	movx	@dptr,a
+      000FB4 EA               [12]  821 	mov	a,r2
+      000FB5 3D               [12]  822 	addc	a, r5
+      000FB6 A3               [24]  823 	inc	dptr
+      000FB7 F0               [24]  824 	movx	@dptr,a
+      000FB8 EB               [12]  825 	mov	a,r3
+      000FB9 3E               [12]  826 	addc	a, r6
+      000FBA A3               [24]  827 	inc	dptr
+      000FBB F0               [24]  828 	movx	@dptr,a
+      000FBC EC               [12]  829 	mov	a,r4
+      000FBD 3F               [12]  830 	addc	a, r7
+      000FBE A3               [24]  831 	inc	dptr
+      000FBF F0               [24]  832 	movx	@dptr,a
                                     833 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
-      000F71 05 10            [12]  834 	inc	_Get_Steady_Weight_sloc0_1_0
+      000FC0 05 10            [12]  834 	inc	_Get_Steady_Weight_sloc0_1_0
                                     835 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
-      000F73 D0 07            [24]  836 	pop	ar7
+      000FC2 D0 07            [24]  836 	pop	ar7
                                     837 ;	.\FwLib_STC8\user\hx71708.c:56: valid++;
-      000F75                        838 00108$:
+      000FC4                        838 00108$:
                                     839 ;	.\FwLib_STC8\user\hx71708.c:52: for(uint8_t i = 0; i < samples; i++) {
-      000F75 05 11            [12]  840 	inc	_Get_Steady_Weight_sloc1_1_0
-      000F77 80 B4            [24]  841 	sjmp	00107$
-      000F79                        842 00103$:
+      000FC4 05 11            [12]  840 	inc	_Get_Steady_Weight_sloc1_1_0
+      000FC6 80 B4            [24]  841 	sjmp	00107$
+      000FC8                        842 00103$:
                                     843 ;	.\FwLib_STC8\user\hx71708.c:61: if (valid == 0) return -1;
-      000F79 E5 10            [12]  844 	mov	a,_Get_Steady_Weight_sloc0_1_0
-      000F7B 70 08            [24]  845 	jnz	00105$
-      000F7D 90 FF FF         [24]  846 	mov	dptr,#0xffff
-      000F80 74 FF            [12]  847 	mov	a,#0xff
-      000F82 F5 F0            [12]  848 	mov	b,a
-      000F84 22               [24]  849 	ret
-      000F85                        850 00105$:
+      000FC8 E5 10            [12]  844 	mov	a,_Get_Steady_Weight_sloc0_1_0
+      000FCA 70 08            [24]  845 	jnz	00105$
+      000FCC 90 FF FF         [24]  846 	mov	dptr,#0xffff
+      000FCF 74 FF            [12]  847 	mov	a,#0xff
+      000FD1 F5 F0            [12]  848 	mov	b,a
+      000FD3 22               [24]  849 	ret
+      000FD4                        850 00105$:
                                     851 ;	.\FwLib_STC8\user\hx71708.c:62: return (sum / (int32_t)valid);
-      000F85 AC 10            [24]  852 	mov	r4,_Get_Steady_Weight_sloc0_1_0
-      000F87 7D 00            [12]  853 	mov	r5,#0x00
-      000F89 7E 00            [12]  854 	mov	r6,#0x00
-      000F8B 7F 00            [12]  855 	mov	r7,#0x00
-      000F8D 90 01 35         [24]  856 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
-      000F90 E0               [24]  857 	movx	a,@dptr
-      000F91 F8               [12]  858 	mov	r0,a
-      000F92 A3               [24]  859 	inc	dptr
-      000F93 E0               [24]  860 	movx	a,@dptr
-      000F94 F9               [12]  861 	mov	r1,a
-      000F95 A3               [24]  862 	inc	dptr
-      000F96 E0               [24]  863 	movx	a,@dptr
-      000F97 FA               [12]  864 	mov	r2,a
-      000F98 A3               [24]  865 	inc	dptr
-      000F99 E0               [24]  866 	movx	a,@dptr
-      000F9A FB               [12]  867 	mov	r3,a
-      000F9B 90 01 D1         [24]  868 	mov	dptr,#__divslong_PARM_2
-      000F9E EC               [12]  869 	mov	a,r4
-      000F9F F0               [24]  870 	movx	@dptr,a
-      000FA0 ED               [12]  871 	mov	a,r5
-      000FA1 A3               [24]  872 	inc	dptr
-      000FA2 F0               [24]  873 	movx	@dptr,a
-      000FA3 EE               [12]  874 	mov	a,r6
-      000FA4 A3               [24]  875 	inc	dptr
-      000FA5 F0               [24]  876 	movx	@dptr,a
-      000FA6 EF               [12]  877 	mov	a,r7
-      000FA7 A3               [24]  878 	inc	dptr
-      000FA8 F0               [24]  879 	movx	@dptr,a
-      000FA9 88 82            [24]  880 	mov	dpl, r0
-      000FAB 89 83            [24]  881 	mov	dph, r1
-      000FAD 8A F0            [24]  882 	mov	b, r2
-      000FAF EB               [12]  883 	mov	a, r3
+      000FD4 AC 10            [24]  852 	mov	r4,_Get_Steady_Weight_sloc0_1_0
+      000FD6 7D 00            [12]  853 	mov	r5,#0x00
+      000FD8 7E 00            [12]  854 	mov	r6,#0x00
+      000FDA 7F 00            [12]  855 	mov	r7,#0x00
+      000FDC 90 01 35         [24]  856 	mov	dptr,#_Get_Steady_Weight_sum_10000_59
+      000FDF E0               [24]  857 	movx	a,@dptr
+      000FE0 F8               [12]  858 	mov	r0,a
+      000FE1 A3               [24]  859 	inc	dptr
+      000FE2 E0               [24]  860 	movx	a,@dptr
+      000FE3 F9               [12]  861 	mov	r1,a
+      000FE4 A3               [24]  862 	inc	dptr
+      000FE5 E0               [24]  863 	movx	a,@dptr
+      000FE6 FA               [12]  864 	mov	r2,a
+      000FE7 A3               [24]  865 	inc	dptr
+      000FE8 E0               [24]  866 	movx	a,@dptr
+      000FE9 FB               [12]  867 	mov	r3,a
+      000FEA 90 01 DA         [24]  868 	mov	dptr,#__divslong_PARM_2
+      000FED EC               [12]  869 	mov	a,r4
+      000FEE F0               [24]  870 	movx	@dptr,a
+      000FEF ED               [12]  871 	mov	a,r5
+      000FF0 A3               [24]  872 	inc	dptr
+      000FF1 F0               [24]  873 	movx	@dptr,a
+      000FF2 EE               [12]  874 	mov	a,r6
+      000FF3 A3               [24]  875 	inc	dptr
+      000FF4 F0               [24]  876 	movx	@dptr,a
+      000FF5 EF               [12]  877 	mov	a,r7
+      000FF6 A3               [24]  878 	inc	dptr
+      000FF7 F0               [24]  879 	movx	@dptr,a
+      000FF8 88 82            [24]  880 	mov	dpl, r0
+      000FFA 89 83            [24]  881 	mov	dph, r1
+      000FFC 8A F0            [24]  882 	mov	b, r2
+      000FFE EB               [12]  883 	mov	a, r3
                                     884 ;	.\FwLib_STC8\user\hx71708.c:63: }
-      000FB0 02 25 4A         [24]  885 	ljmp	__divslong
+      000FFF 02 2C 61         [24]  885 	ljmp	__divslong
                                     886 	.area CSEG    (CODE)
                                     887 	.area CONST   (CODE)
                                     888 	.area XINIT   (CODE)
