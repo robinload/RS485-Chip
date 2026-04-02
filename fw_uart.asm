@@ -590,7 +590,7 @@ _UART4_ConfigOnTimer4__1TMode_10000_63:
 ;sysclk        Allocated with name '_UART_Timer_InitValueCalculate_sysclk_10000_25'
 ;value         Allocated with name '_UART_Timer_InitValueCalculate_value_10000_26'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:20: int16_t UART_Timer_InitValueCalculate(uint32_t sysclk, HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:20: int16_t UART_Timer_InitValueCalculate(uint32_t sysclk, HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART_Timer_InitValueCalculate
 ;	-----------------------------------------
@@ -619,7 +619,7 @@ _UART_Timer_InitValueCalculate:
 	mov	a,r4
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:23: value = sysclk / (4 * baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:23: value = sysclk / (4 * baudrate);
 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
 	movx	a,@dptr
 	mov	r4,a
@@ -701,11 +701,11 @@ _UART_Timer_InitValueCalculate:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:24: if (!_1TMode)
+;	.\FwLib_STC8\src\fw_uart.c:24: if (!_1TMode)
 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
 	movx	a,@dptr
 	jnz	00102$
-;	FwLib_STC8\src\fw_uart.c:25: value = value / 12;
+;	.\FwLib_STC8\src\fw_uart.c:25: value = value / 12;
 	mov	dptr,#__divulong_PARM_2
 	mov	a,#0x0c
 	movx	@dptr,a
@@ -738,7 +738,7 @@ _UART_Timer_InitValueCalculate:
 	inc	dptr
 	movx	@dptr,a
 00102$:
-;	FwLib_STC8\src\fw_uart.c:26: if (value > 0xFFFF)
+;	.\FwLib_STC8\src\fw_uart.c:26: if (value > 0xFFFF)
 	mov	dptr,#_UART_Timer_InitValueCalculate_value_10000_26
 	movx	a,@dptr
 	mov	r4,a
@@ -761,18 +761,18 @@ _UART_Timer_InitValueCalculate:
 	clr	a
 	subb	a,r7
 	jnc	00104$
-;	FwLib_STC8\src\fw_uart.c:27: return 0;
+;	.\FwLib_STC8\src\fw_uart.c:27: return 0;
 	mov	dptr,#0x0000
 	ret
 00104$:
-;	FwLib_STC8\src\fw_uart.c:29: return 0xFFFF - value + 1;
+;	.\FwLib_STC8\src\fw_uart.c:29: return 0xFFFF - value + 1;
 	clr	c
 	clr	a
 	subb	a,r4
 	mov	r4,a
 	clr	a
 	subb	a,r5
-;	FwLib_STC8\src\fw_uart.c:30: }
+;	.\FwLib_STC8\src\fw_uart.c:30: }
 	mov	dpl,r4
 	mov	dph,a
 	ret
@@ -783,7 +783,7 @@ _UART_Timer_InitValueCalculate:
 ;init          Allocated with name '__UART1_ConfigDynUart_PARM_3'
 ;baudSource    Allocated with name '__UART1_ConfigDynUart_baudSource_10000_27'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:36: void _UART1_ConfigDynUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, int16_t init)
+;	.\FwLib_STC8\src\fw_uart.c:36: void _UART1_ConfigDynUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, int16_t init)
 ;	-----------------------------------------
 ;	 function _UART1_ConfigDynUart
 ;	-----------------------------------------
@@ -791,7 +791,7 @@ __UART1_ConfigDynUart:
 	mov	a,dpl
 	mov	dptr,#__UART1_ConfigDynUart_baudSource_10000_27
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:38: UART1_SetBaudSource(baudSource);
+;	.\FwLib_STC8\src\fw_uart.c:38: UART1_SetBaudSource(baudSource);
 	mov	a,#0xfe
 	anl	a,_AUXR
 	mov	r7,a
@@ -799,10 +799,10 @@ __UART1_ConfigDynUart:
 	mov	r6,a
 	orl	a,r7
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:40: if (baudSource == UART1_BaudSource_Timer1)
+;	.\FwLib_STC8\src\fw_uart.c:40: if (baudSource == UART1_BaudSource_Timer1)
 	mov	a,r6
 	jnz	00108$
-;	FwLib_STC8\src\fw_uart.c:42: TIM_Timer1_Set1TMode(_1TMode);
+;	.\FwLib_STC8\src\fw_uart.c:42: TIM_Timer1_Set1TMode(_1TMode);
 	mov	a,#0xbf
 	anl	a,_AUXR
 	mov	r7,a
@@ -813,9 +813,9 @@ __UART1_ConfigDynUart:
 	anl	a,#0xc0
 	orl	a,r7
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:43: TIM_Timer1_SetMode(TIM_TimerMode_16BitAuto);
+;	.\FwLib_STC8\src\fw_uart.c:43: TIM_Timer1_SetMode(TIM_TimerMode_16BitAuto);
 	anl	_TMOD,#0xcf
-;	FwLib_STC8\src\fw_uart.c:44: TIM_Timer1_SetInitValue(init >> 8, init & 0xFF);
+;	.\FwLib_STC8\src\fw_uart.c:44: TIM_Timer1_SetInitValue(init >> 8, init & 0xFF);
 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
 	movx	a,@dptr
 	mov	r6,a
@@ -823,12 +823,12 @@ __UART1_ConfigDynUart:
 	movx	a,@dptr
 	mov	_TH1, a
 	mov	_TL1,r6
-;	FwLib_STC8\src\fw_uart.c:45: TIM_Timer1_SetRunState(HAL_State_ON);
+;	.\FwLib_STC8\src\fw_uart.c:45: TIM_Timer1_SetRunState(HAL_State_ON);
 ;	assignBit
 	setb	_TR1
 	ret
 00108$:
-;	FwLib_STC8\src\fw_uart.c:51: TIM_Timer2_Set1TMode(_1TMode);
+;	.\FwLib_STC8\src\fw_uart.c:51: TIM_Timer2_Set1TMode(_1TMode);
 	mov	a,#0xfb
 	anl	a,_AUXR
 	mov	r7,a
@@ -838,7 +838,7 @@ __UART1_ConfigDynUart:
 	add	a,acc
 	orl	a,r7
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:52: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+;	.\FwLib_STC8\src\fw_uart.c:52: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
 	movx	a,@dptr
 	mov	r6,a
@@ -846,12 +846,12 @@ __UART1_ConfigDynUart:
 	movx	a,@dptr
 	mov	_T2H, a
 	mov	_T2L,r6
-;	FwLib_STC8\src\fw_uart.c:53: TIM_Timer2_SetRunState(HAL_State_ON);
+;	.\FwLib_STC8\src\fw_uart.c:53: TIM_Timer2_SetRunState(HAL_State_ON);
 	mov	a,#0xef
 	anl	a,_AUXR
 	orl	a,#0x10
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:55: }
+;	.\FwLib_STC8\src\fw_uart.c:55: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART1_Config8bitUart'
@@ -861,7 +861,7 @@ __UART1_ConfigDynUart:
 ;baudSource    Allocated with name '_UART1_Config8bitUart_baudSource_10000_33'
 ;init          Allocated with name '_UART1_Config8bitUart_init_10000_34'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:56: void UART1_Config8bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:56: void UART1_Config8bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART1_Config8bitUart
 ;	-----------------------------------------
@@ -869,12 +869,12 @@ _UART1_Config8bitUart:
 	mov	a,dpl
 	mov	dptr,#_UART1_Config8bitUart_baudSource_10000_33
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:59: SM0=0; SM1=1;
+;	.\FwLib_STC8\src\fw_uart.c:59: SM0=0; SM1=1;
 ;	assignBit
 	clr	_SM0
 ;	assignBit
 	setb	_SM1
-;	FwLib_STC8\src\fw_uart.c:60: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:60: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
 	mov	dptr,#_UART1_Config8bitUart_PARM_2
 	movx	a,@dptr
 	mov	r7,a
@@ -905,15 +905,15 @@ _UART1_Config8bitUart:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3600
-	mov	b, #0x6e
+	mov	dptr,#0x8000
+	mov	b, #0x51
 	mov	a, #0x01
 	push	ar7
 	lcall	_UART_Timer_InitValueCalculate
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:61: _UART1_ConfigDynUart(baudSource, _1TMode, init);
+;	.\FwLib_STC8\src\fw_uart.c:61: _UART1_ConfigDynUart(baudSource, _1TMode, init);
 	mov	dptr,#_UART1_Config8bitUart_baudSource_10000_33
 	movx	a,@dptr
 	mov	r4,a
@@ -927,7 +927,7 @@ _UART1_Config8bitUart:
 	inc	dptr
 	movx	@dptr,a
 	mov	dpl, r4
-;	FwLib_STC8\src\fw_uart.c:62: }
+;	.\FwLib_STC8\src\fw_uart.c:62: }
 	ljmp	__UART1_ConfigDynUart
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART1_Config9bitUart'
@@ -937,7 +937,7 @@ _UART1_Config8bitUart:
 ;baudSource    Allocated with name '_UART1_Config9bitUart_baudSource_10000_35'
 ;init          Allocated with name '_UART1_Config9bitUart_init_10000_36'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:64: void UART1_Config9bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:64: void UART1_Config9bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART1_Config9bitUart
 ;	-----------------------------------------
@@ -945,12 +945,12 @@ _UART1_Config9bitUart:
 	mov	a,dpl
 	mov	dptr,#_UART1_Config9bitUart_baudSource_10000_35
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:67: SM0=1; SM1=1;
+;	.\FwLib_STC8\src\fw_uart.c:67: SM0=1; SM1=1;
 ;	assignBit
 	setb	_SM0
 ;	assignBit
 	setb	_SM1
-;	FwLib_STC8\src\fw_uart.c:68: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:68: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
 	mov	dptr,#_UART1_Config9bitUart_PARM_2
 	movx	a,@dptr
 	mov	r7,a
@@ -981,15 +981,15 @@ _UART1_Config9bitUart:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3600
-	mov	b, #0x6e
+	mov	dptr,#0x8000
+	mov	b, #0x51
 	mov	a, #0x01
 	push	ar7
 	lcall	_UART_Timer_InitValueCalculate
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:69: _UART1_ConfigDynUart(baudSource, _1TMode, init);
+;	.\FwLib_STC8\src\fw_uart.c:69: _UART1_ConfigDynUart(baudSource, _1TMode, init);
 	mov	dptr,#_UART1_Config9bitUart_baudSource_10000_35
 	movx	a,@dptr
 	mov	r4,a
@@ -1003,14 +1003,14 @@ _UART1_Config9bitUart:
 	inc	dptr
 	movx	@dptr,a
 	mov	dpl, r4
-;	FwLib_STC8\src\fw_uart.c:70: }
+;	.\FwLib_STC8\src\fw_uart.c:70: }
 	ljmp	__UART1_ConfigDynUart
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART1_TxChar'
 ;------------------------------------------------------------
 ;dat           Allocated with name '_UART1_TxChar_dat_10000_37'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:72: void UART1_TxChar(char dat)
+;	.\FwLib_STC8\src\fw_uart.c:72: void UART1_TxChar(char dat)
 ;	-----------------------------------------
 ;	 function UART1_TxChar
 ;	-----------------------------------------
@@ -1018,24 +1018,24 @@ _UART1_TxChar:
 	mov	a,dpl
 	mov	dptr,#_UART1_TxChar_dat_10000_37
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:74: UART1_WriteBuffer(dat);
+;	.\FwLib_STC8\src\fw_uart.c:74: UART1_WriteBuffer(dat);
 	movx	a,@dptr
 	mov	_SBUF,a
-;	FwLib_STC8\src\fw_uart.c:75: while(!TI);
+;	.\FwLib_STC8\src\fw_uart.c:75: while(!TI);
 00101$:
-;	FwLib_STC8\src\fw_uart.c:76: UART1_ClearTxInterrupt();
+;	.\FwLib_STC8\src\fw_uart.c:76: UART1_ClearTxInterrupt();
 ;	assignBit
 	jbc	_TI,00118$
 	sjmp	00101$
 00118$:
-;	FwLib_STC8\src\fw_uart.c:77: }
+;	.\FwLib_STC8\src\fw_uart.c:77: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART1_TxHex'
 ;------------------------------------------------------------
 ;hex           Allocated with name '_UART1_TxHex_hex_10000_39'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:79: void UART1_TxHex(uint8_t hex)
+;	.\FwLib_STC8\src\fw_uart.c:79: void UART1_TxHex(uint8_t hex)
 ;	-----------------------------------------
 ;	 function UART1_TxHex
 ;	-----------------------------------------
@@ -1043,7 +1043,7 @@ _UART1_TxHex:
 	mov	a,dpl
 	mov	dptr,#_UART1_TxHex_hex_10000_39
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:81: UART1_TxChar(HEX_TABLE[hex >> 4]);
+;	.\FwLib_STC8\src\fw_uart.c:81: UART1_TxChar(HEX_TABLE[hex >> 4]);
 	movx	a,@dptr
 	mov	r7,a
 	swap	a
@@ -1054,20 +1054,20 @@ _UART1_TxHex:
 	push	ar7
 	lcall	_UART1_TxChar
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:82: UART1_TxChar(HEX_TABLE[hex & 0xF]);
+;	.\FwLib_STC8\src\fw_uart.c:82: UART1_TxChar(HEX_TABLE[hex & 0xF]);
 	mov	a,#0x0f
 	anl	a,r7
 	mov	dptr,#_HEX_TABLE
 	movc	a,@a+dptr
 	mov	dpl,a
-;	FwLib_STC8\src\fw_uart.c:83: }
+;	.\FwLib_STC8\src\fw_uart.c:83: }
 	ljmp	_UART1_TxChar
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART1_TxString'
 ;------------------------------------------------------------
 ;str           Allocated with name '_UART1_TxString_str_10000_41'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:85: void UART1_TxString(uint8_t *str)
+;	.\FwLib_STC8\src\fw_uart.c:85: void UART1_TxString(uint8_t *str)
 ;	-----------------------------------------
 ;	 function UART1_TxString
 ;	-----------------------------------------
@@ -1083,7 +1083,7 @@ _UART1_TxString:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:87: while (*str) UART1_TxChar(*str++);
+;	.\FwLib_STC8\src\fw_uart.c:87: while (*str) UART1_TxChar(*str++);
 	mov	dptr,#_UART1_TxString_str_10000_41
 	movx	a,@dptr
 	mov	r5,a
@@ -1132,14 +1132,14 @@ _UART1_TxString:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:88: }
+;	.\FwLib_STC8\src\fw_uart.c:88: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'putchar'
 ;------------------------------------------------------------
 ;dat           Allocated with name '_putchar_dat_10000_43'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:90: int putchar(int dat) {
+;	.\FwLib_STC8\src\fw_uart.c:90: int putchar(int dat) {
 ;	-----------------------------------------
 ;	 function putchar
 ;	-----------------------------------------
@@ -1151,7 +1151,7 @@ _putchar:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:91: UART1_WriteBuffer(dat);
+;	.\FwLib_STC8\src\fw_uart.c:91: UART1_WriteBuffer(dat);
 	mov	dptr,#_putchar_dat_10000_43
 	movx	a,@dptr
 	mov	r6,a
@@ -1159,17 +1159,17 @@ _putchar:
 	movx	a,@dptr
 	mov	r7,a
 	mov	_SBUF,r6
-;	FwLib_STC8\src\fw_uart.c:92: while(!TI);
+;	.\FwLib_STC8\src\fw_uart.c:92: while(!TI);
 00101$:
-;	FwLib_STC8\src\fw_uart.c:93: UART1_ClearTxInterrupt();
+;	.\FwLib_STC8\src\fw_uart.c:93: UART1_ClearTxInterrupt();
 ;	assignBit
 	jbc	_TI,00118$
 	sjmp	00101$
 00118$:
-;	FwLib_STC8\src\fw_uart.c:94: return dat;
+;	.\FwLib_STC8\src\fw_uart.c:94: return dat;
 	mov	dpl, r6
 	mov	dph, r7
-;	FwLib_STC8\src\fw_uart.c:95: }
+;	.\FwLib_STC8\src\fw_uart.c:95: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART2_Config'
@@ -1178,7 +1178,7 @@ _putchar:
 ;_1TMode       Allocated with name '_UART2_Config__1TMode_10000_45'
 ;init          Allocated with name '_UART2_Config_init_10000_46'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:102: void UART2_Config(HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:102: void UART2_Config(HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART2_Config
 ;	-----------------------------------------
@@ -1186,7 +1186,7 @@ _UART2_Config:
 	mov	a,dpl
 	mov	dptr,#_UART2_Config__1TMode_10000_45
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:106: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:106: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
 	movx	a,@dptr
 	mov	r7,a
 	mov	dptr,#_UART2_Config_PARM_2
@@ -1216,15 +1216,15 @@ _UART2_Config:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3600
-	mov	b, #0x6e
+	mov	dptr,#0x8000
+	mov	b, #0x51
 	mov	a, #0x01
 	push	ar7
 	lcall	_UART_Timer_InitValueCalculate
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:108: TIM_Timer2_Set1TMode(_1TMode);
+;	.\FwLib_STC8\src\fw_uart.c:108: TIM_Timer2_Set1TMode(_1TMode);
 	mov	a,#0xfb
 	anl	a,_AUXR
 	mov	r4,a
@@ -1233,24 +1233,24 @@ _UART2_Config:
 	add	a,acc
 	orl	a,r4
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:109: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+;	.\FwLib_STC8\src\fw_uart.c:109: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
 	mov	ar4,r5
 	mov	ar7,r6
 	mov	_T2H,r7
 	mov	_T2L,r5
-;	FwLib_STC8\src\fw_uart.c:110: TIM_Timer2_SetRunState(HAL_State_ON);
+;	.\FwLib_STC8\src\fw_uart.c:110: TIM_Timer2_SetRunState(HAL_State_ON);
 	mov	a,#0xef
 	anl	a,_AUXR
 	orl	a,#0x10
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:111: }
+;	.\FwLib_STC8\src\fw_uart.c:111: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART2_TxChar'
 ;------------------------------------------------------------
 ;dat           Allocated with name '_UART2_TxChar_dat_10000_48'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:113: void UART2_TxChar(char dat)
+;	.\FwLib_STC8\src\fw_uart.c:113: void UART2_TxChar(char dat)
 ;	-----------------------------------------
 ;	 function UART2_TxChar
 ;	-----------------------------------------
@@ -1258,23 +1258,23 @@ _UART2_TxChar:
 	mov	a,dpl
 	mov	dptr,#_UART2_TxChar_dat_10000_48
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:115: UART2_WriteBuffer(dat);
+;	.\FwLib_STC8\src\fw_uart.c:115: UART2_WriteBuffer(dat);
 	movx	a,@dptr
 	mov	_S2BUF,a
-;	FwLib_STC8\src\fw_uart.c:116: while(!UART2_TxFinished());
+;	.\FwLib_STC8\src\fw_uart.c:116: while(!UART2_TxFinished());
 00101$:
 	mov	a,_S2CON
 	jnb	acc.1,00101$
-;	FwLib_STC8\src\fw_uart.c:117: UART2_ClearTxInterrupt();
+;	.\FwLib_STC8\src\fw_uart.c:117: UART2_ClearTxInterrupt();
 	anl	_S2CON,#0xfd
-;	FwLib_STC8\src\fw_uart.c:118: }
+;	.\FwLib_STC8\src\fw_uart.c:118: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART2_TxHex'
 ;------------------------------------------------------------
 ;hex           Allocated with name '_UART2_TxHex_hex_10000_50'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:120: void UART2_TxHex(uint8_t hex)
+;	.\FwLib_STC8\src\fw_uart.c:120: void UART2_TxHex(uint8_t hex)
 ;	-----------------------------------------
 ;	 function UART2_TxHex
 ;	-----------------------------------------
@@ -1282,7 +1282,7 @@ _UART2_TxHex:
 	mov	a,dpl
 	mov	dptr,#_UART2_TxHex_hex_10000_50
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:122: UART2_TxChar(HEX_TABLE[hex >> 4]);
+;	.\FwLib_STC8\src\fw_uart.c:122: UART2_TxChar(HEX_TABLE[hex >> 4]);
 	movx	a,@dptr
 	mov	r7,a
 	swap	a
@@ -1293,20 +1293,20 @@ _UART2_TxHex:
 	push	ar7
 	lcall	_UART2_TxChar
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:123: UART2_TxChar(HEX_TABLE[hex & 0xF]);
+;	.\FwLib_STC8\src\fw_uart.c:123: UART2_TxChar(HEX_TABLE[hex & 0xF]);
 	mov	a,#0x0f
 	anl	a,r7
 	mov	dptr,#_HEX_TABLE
 	movc	a,@a+dptr
 	mov	dpl,a
-;	FwLib_STC8\src\fw_uart.c:124: }
+;	.\FwLib_STC8\src\fw_uart.c:124: }
 	ljmp	_UART2_TxChar
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART2_TxString'
 ;------------------------------------------------------------
 ;str           Allocated with name '_UART2_TxString_str_10000_52'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:126: void UART2_TxString(uint8_t *str)
+;	.\FwLib_STC8\src\fw_uart.c:126: void UART2_TxString(uint8_t *str)
 ;	-----------------------------------------
 ;	 function UART2_TxString
 ;	-----------------------------------------
@@ -1322,7 +1322,7 @@ _UART2_TxString:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:128: while (*str) UART2_TxChar(*str++);
+;	.\FwLib_STC8\src\fw_uart.c:128: while (*str) UART2_TxChar(*str++);
 	mov	dptr,#_UART2_TxString_str_10000_52
 	movx	a,@dptr
 	mov	r5,a
@@ -1371,7 +1371,7 @@ _UART2_TxString:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:129: }
+;	.\FwLib_STC8\src\fw_uart.c:129: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART3_ConfigOnTimer2'
@@ -1380,7 +1380,7 @@ _UART2_TxString:
 ;_1TMode       Allocated with name '_UART3_ConfigOnTimer2__1TMode_10000_54'
 ;init          Allocated with name '_UART3_ConfigOnTimer2_init_10000_55'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:136: void UART3_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:136: void UART3_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART3_ConfigOnTimer2
 ;	-----------------------------------------
@@ -1388,9 +1388,9 @@ _UART3_ConfigOnTimer2:
 	mov	a,dpl
 	mov	dptr,#_UART3_ConfigOnTimer2__1TMode_10000_54
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:140: UART3_SetBaudSource(0x00);
+;	.\FwLib_STC8\src\fw_uart.c:140: UART3_SetBaudSource(0x00);
 	anl	_S3CON,#0xbf
-;	FwLib_STC8\src\fw_uart.c:141: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:141: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
 	mov	dptr,#_UART3_ConfigOnTimer2__1TMode_10000_54
 	movx	a,@dptr
 	mov	r7,a
@@ -1421,15 +1421,15 @@ _UART3_ConfigOnTimer2:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3600
-	mov	b, #0x6e
+	mov	dptr,#0x8000
+	mov	b, #0x51
 	mov	a, #0x01
 	push	ar7
 	lcall	_UART_Timer_InitValueCalculate
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:143: TIM_Timer2_Set1TMode(_1TMode);
+;	.\FwLib_STC8\src\fw_uart.c:143: TIM_Timer2_Set1TMode(_1TMode);
 	mov	a,#0xfb
 	anl	a,_AUXR
 	mov	r4,a
@@ -1438,17 +1438,17 @@ _UART3_ConfigOnTimer2:
 	add	a,acc
 	orl	a,r4
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:144: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+;	.\FwLib_STC8\src\fw_uart.c:144: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
 	mov	ar4,r5
 	mov	ar7,r6
 	mov	_T2H,r7
 	mov	_T2L,r5
-;	FwLib_STC8\src\fw_uart.c:145: TIM_Timer2_SetRunState(HAL_State_ON);
+;	.\FwLib_STC8\src\fw_uart.c:145: TIM_Timer2_SetRunState(HAL_State_ON);
 	mov	a,#0xef
 	anl	a,_AUXR
 	orl	a,#0x10
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:146: }
+;	.\FwLib_STC8\src\fw_uart.c:146: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART3_ConfigOnTimer3'
@@ -1457,7 +1457,7 @@ _UART3_ConfigOnTimer2:
 ;_1TMode       Allocated with name '_UART3_ConfigOnTimer3__1TMode_10000_57'
 ;init          Allocated with name '_UART3_ConfigOnTimer3_init_10000_58'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:148: void UART3_ConfigOnTimer3(HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:148: void UART3_ConfigOnTimer3(HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART3_ConfigOnTimer3
 ;	-----------------------------------------
@@ -1465,12 +1465,12 @@ _UART3_ConfigOnTimer3:
 	mov	a,dpl
 	mov	dptr,#_UART3_ConfigOnTimer3__1TMode_10000_57
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:152: UART3_SetBaudSource(0x01);
+;	.\FwLib_STC8\src\fw_uart.c:152: UART3_SetBaudSource(0x01);
 	mov	a,#0xbf
 	anl	a,_S3CON
 	orl	a,#0x40
 	mov	_S3CON,a
-;	FwLib_STC8\src\fw_uart.c:153: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:153: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
 	movx	a,@dptr
 	mov	r7,a
 	mov	dptr,#_UART3_ConfigOnTimer3_PARM_2
@@ -1500,15 +1500,15 @@ _UART3_ConfigOnTimer3:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3600
-	mov	b, #0x6e
+	mov	dptr,#0x8000
+	mov	b, #0x51
 	mov	a, #0x01
 	push	ar7
 	lcall	_UART_Timer_InitValueCalculate
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:155: TIM_Timer3_Set1TMode(_1TMode);
+;	.\FwLib_STC8\src\fw_uart.c:155: TIM_Timer3_Set1TMode(_1TMode);
 	mov	a,#0xfd
 	anl	a,_T4T3M
 	mov	r4,a
@@ -1516,17 +1516,17 @@ _UART3_ConfigOnTimer3:
 	add	a,r7
 	orl	a,r4
 	mov	_T4T3M,a
-;	FwLib_STC8\src\fw_uart.c:156: TIM_Timer3_SetInitValue(init >> 8, init & 0xFF);
+;	.\FwLib_STC8\src\fw_uart.c:156: TIM_Timer3_SetInitValue(init >> 8, init & 0xFF);
 	mov	ar4,r5
 	mov	ar7,r6
 	mov	_T3H,r7
 	mov	_T3L,r5
-;	FwLib_STC8\src\fw_uart.c:157: TIM_Timer3_SetRunState(HAL_State_ON);
+;	.\FwLib_STC8\src\fw_uart.c:157: TIM_Timer3_SetRunState(HAL_State_ON);
 	mov	a,#0xf7
 	anl	a,_T4T3M
 	orl	a,#0x08
 	mov	_T4T3M,a
-;	FwLib_STC8\src\fw_uart.c:158: }
+;	.\FwLib_STC8\src\fw_uart.c:158: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART4_ConfigOnTimer2'
@@ -1535,7 +1535,7 @@ _UART3_ConfigOnTimer3:
 ;_1TMode       Allocated with name '_UART4_ConfigOnTimer2__1TMode_10000_60'
 ;init          Allocated with name '_UART4_ConfigOnTimer2_init_10000_61'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:165: void UART4_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:165: void UART4_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART4_ConfigOnTimer2
 ;	-----------------------------------------
@@ -1543,9 +1543,9 @@ _UART4_ConfigOnTimer2:
 	mov	a,dpl
 	mov	dptr,#_UART4_ConfigOnTimer2__1TMode_10000_60
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:169: UART4_SetBaudSource(0x00);
+;	.\FwLib_STC8\src\fw_uart.c:169: UART4_SetBaudSource(0x00);
 	anl	_S4CON,#0xbf
-;	FwLib_STC8\src\fw_uart.c:170: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:170: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
 	mov	dptr,#_UART4_ConfigOnTimer2__1TMode_10000_60
 	movx	a,@dptr
 	mov	r7,a
@@ -1576,15 +1576,15 @@ _UART4_ConfigOnTimer2:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3600
-	mov	b, #0x6e
+	mov	dptr,#0x8000
+	mov	b, #0x51
 	mov	a, #0x01
 	push	ar7
 	lcall	_UART_Timer_InitValueCalculate
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:171: TIM_Timer2_Set1TMode(_1TMode);
+;	.\FwLib_STC8\src\fw_uart.c:171: TIM_Timer2_Set1TMode(_1TMode);
 	mov	a,#0xfb
 	anl	a,_AUXR
 	mov	r4,a
@@ -1593,17 +1593,17 @@ _UART4_ConfigOnTimer2:
 	add	a,acc
 	orl	a,r4
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:172: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+;	.\FwLib_STC8\src\fw_uart.c:172: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
 	mov	ar4,r5
 	mov	ar7,r6
 	mov	_T2H,r7
 	mov	_T2L,r5
-;	FwLib_STC8\src\fw_uart.c:173: TIM_Timer2_SetRunState(HAL_State_ON);
+;	.\FwLib_STC8\src\fw_uart.c:173: TIM_Timer2_SetRunState(HAL_State_ON);
 	mov	a,#0xef
 	anl	a,_AUXR
 	orl	a,#0x10
 	mov	_AUXR,a
-;	FwLib_STC8\src\fw_uart.c:174: }
+;	.\FwLib_STC8\src\fw_uart.c:174: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART4_ConfigOnTimer4'
@@ -1612,7 +1612,7 @@ _UART4_ConfigOnTimer2:
 ;_1TMode       Allocated with name '_UART4_ConfigOnTimer4__1TMode_10000_63'
 ;init          Allocated with name '_UART4_ConfigOnTimer4_init_10000_64'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_uart.c:176: void UART4_ConfigOnTimer4(HAL_State_t _1TMode, uint32_t baudrate)
+;	.\FwLib_STC8\src\fw_uart.c:176: void UART4_ConfigOnTimer4(HAL_State_t _1TMode, uint32_t baudrate)
 ;	-----------------------------------------
 ;	 function UART4_ConfigOnTimer4
 ;	-----------------------------------------
@@ -1620,12 +1620,12 @@ _UART4_ConfigOnTimer4:
 	mov	a,dpl
 	mov	dptr,#_UART4_ConfigOnTimer4__1TMode_10000_63
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_uart.c:180: UART4_SetBaudSource(0x01);
+;	.\FwLib_STC8\src\fw_uart.c:180: UART4_SetBaudSource(0x01);
 	mov	a,#0xbf
 	anl	a,_S4CON
 	orl	a,#0x40
 	mov	_S4CON,a
-;	FwLib_STC8\src\fw_uart.c:181: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+;	.\FwLib_STC8\src\fw_uart.c:181: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
 	movx	a,@dptr
 	mov	r7,a
 	mov	dptr,#_UART4_ConfigOnTimer4_PARM_2
@@ -1655,15 +1655,15 @@ _UART4_ConfigOnTimer4:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3600
-	mov	b, #0x6e
+	mov	dptr,#0x8000
+	mov	b, #0x51
 	mov	a, #0x01
 	push	ar7
 	lcall	_UART_Timer_InitValueCalculate
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-;	FwLib_STC8\src\fw_uart.c:182: TIM_Timer4_Set1TMode(_1TMode);
+;	.\FwLib_STC8\src\fw_uart.c:182: TIM_Timer4_Set1TMode(_1TMode);
 	mov	a,#0xdf
 	anl	a,_T4T3M
 	mov	r4,a
@@ -1673,17 +1673,17 @@ _UART4_ConfigOnTimer4:
 	anl	a,#0xe0
 	orl	a,r4
 	mov	_T4T3M,a
-;	FwLib_STC8\src\fw_uart.c:183: TIM_Timer4_SetInitValue(init >> 8, init & 0xFF);
+;	.\FwLib_STC8\src\fw_uart.c:183: TIM_Timer4_SetInitValue(init >> 8, init & 0xFF);
 	mov	ar4,r5
 	mov	ar7,r6
 	mov	_T4H,r7
 	mov	_T4L,r5
-;	FwLib_STC8\src\fw_uart.c:184: TIM_Timer4_SetRunState(HAL_State_ON);
+;	.\FwLib_STC8\src\fw_uart.c:184: TIM_Timer4_SetRunState(HAL_State_ON);
 	mov	a,#0x7f
 	anl	a,_T4T3M
 	orl	a,#0x80
 	mov	_T4T3M,a
-;	FwLib_STC8\src\fw_uart.c:185: }
+;	.\FwLib_STC8\src\fw_uart.c:185: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

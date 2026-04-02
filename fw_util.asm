@@ -504,7 +504,7 @@ _P77	=	0x00ff
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UTIL_Uart1_24M_9600_Init'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_util.c:20: void UTIL_Uart1_24M_9600_Init(void)
+;	.\FwLib_STC8\src\fw_util.c:20: void UTIL_Uart1_24M_9600_Init(void)
 ;	-----------------------------------------
 ;	 function UTIL_Uart1_24M_9600_Init
 ;	-----------------------------------------
@@ -517,193 +517,193 @@ _UTIL_Uart1_24M_9600_Init:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	FwLib_STC8\src\fw_util.c:22: SCON = 0x50;		//8 bits and variable baudrate
+;	.\FwLib_STC8\src\fw_util.c:22: SCON = 0x50;		//8 bits and variable baudrate
 	mov	_SCON,#0x50
-;	FwLib_STC8\src\fw_util.c:23: AUXR |= 0x40;		//imer clock is 1T mode
+;	.\FwLib_STC8\src\fw_util.c:23: AUXR |= 0x40;		//imer clock is 1T mode
 	orl	_AUXR,#0x40
-;	FwLib_STC8\src\fw_util.c:24: AUXR &= 0xFE;		//UART 1 use Timer1 as baudrate generator
+;	.\FwLib_STC8\src\fw_util.c:24: AUXR &= 0xFE;		//UART 1 use Timer1 as baudrate generator
 	anl	_AUXR,#0xfe
-;	FwLib_STC8\src\fw_util.c:25: TMOD &= 0x0F;		//Set timer work mode
+;	.\FwLib_STC8\src\fw_util.c:25: TMOD &= 0x0F;		//Set timer work mode
 	anl	_TMOD,#0x0f
-;	FwLib_STC8\src\fw_util.c:26: TL1 = 0x8F;		//Initial timer value
+;	.\FwLib_STC8\src\fw_util.c:26: TL1 = 0x8F;		//Initial timer value
 	mov	_TL1,#0x8f
-;	FwLib_STC8\src\fw_util.c:27: TH1 = 0xFD;		//Initial timer value
+;	.\FwLib_STC8\src\fw_util.c:27: TH1 = 0xFD;		//Initial timer value
 	mov	_TH1,#0xfd
-;	FwLib_STC8\src\fw_util.c:28: ET1 = 0;		//Disable Timer%d interrupt
+;	.\FwLib_STC8\src\fw_util.c:28: ET1 = 0;		//Disable Timer%d interrupt
 ;	assignBit
 	clr	_ET1
-;	FwLib_STC8\src\fw_util.c:29: TR1 = 1;		//Timer1 start run
+;	.\FwLib_STC8\src\fw_util.c:29: TR1 = 1;		//Timer1 start run
 ;	assignBit
 	setb	_TR1
-;	FwLib_STC8\src\fw_util.c:30: }
+;	.\FwLib_STC8\src\fw_util.c:30: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UTIL_Uart1_24M_115200_Init'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_util.c:32: void UTIL_Uart1_24M_115200_Init(void)
+;	.\FwLib_STC8\src\fw_util.c:32: void UTIL_Uart1_24M_115200_Init(void)
 ;	-----------------------------------------
 ;	 function UTIL_Uart1_24M_115200_Init
 ;	-----------------------------------------
 _UTIL_Uart1_24M_115200_Init:
-;	FwLib_STC8\src\fw_util.c:34: SCON = 0x50;		//8 bits and variable baudrate
+;	.\FwLib_STC8\src\fw_util.c:34: SCON = 0x50;		//8 bits and variable baudrate
 	mov	_SCON,#0x50
-;	FwLib_STC8\src\fw_util.c:35: AUXR |= 0x40;		//imer clock is 1T mode
+;	.\FwLib_STC8\src\fw_util.c:35: AUXR |= 0x40;		//imer clock is 1T mode
 	orl	_AUXR,#0x40
-;	FwLib_STC8\src\fw_util.c:36: AUXR &= 0xFE;		//UART 1 use Timer1 as baudrate generator
+;	.\FwLib_STC8\src\fw_util.c:36: AUXR &= 0xFE;		//UART 1 use Timer1 as baudrate generator
 	anl	_AUXR,#0xfe
-;	FwLib_STC8\src\fw_util.c:37: TMOD &= 0x0F;		//Set timer work mode
+;	.\FwLib_STC8\src\fw_util.c:37: TMOD &= 0x0F;		//Set timer work mode
 	anl	_TMOD,#0x0f
-;	FwLib_STC8\src\fw_util.c:38: TL1 = 0xCC;		//Initial timer value
+;	.\FwLib_STC8\src\fw_util.c:38: TL1 = 0xCC;		//Initial timer value
 	mov	_TL1,#0xcc
-;	FwLib_STC8\src\fw_util.c:39: TH1 = 0xFF;		//Initial timer value
+;	.\FwLib_STC8\src\fw_util.c:39: TH1 = 0xFF;		//Initial timer value
 	mov	_TH1,#0xff
-;	FwLib_STC8\src\fw_util.c:40: ET1 = 0;		//Disable Timer%d interrupt
+;	.\FwLib_STC8\src\fw_util.c:40: ET1 = 0;		//Disable Timer%d interrupt
 ;	assignBit
 	clr	_ET1
-;	FwLib_STC8\src\fw_util.c:41: TR1 = 1;		//Timer1 start run
+;	.\FwLib_STC8\src\fw_util.c:41: TR1 = 1;		//Timer1 start run
 ;	assignBit
 	setb	_TR1
-;	FwLib_STC8\src\fw_util.c:42: }
+;	.\FwLib_STC8\src\fw_util.c:42: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UTIL_Uart1_33M1776_9600_Init'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_util.c:44: void UTIL_Uart1_33M1776_9600_Init(void)
+;	.\FwLib_STC8\src\fw_util.c:44: void UTIL_Uart1_33M1776_9600_Init(void)
 ;	-----------------------------------------
 ;	 function UTIL_Uart1_33M1776_9600_Init
 ;	-----------------------------------------
 _UTIL_Uart1_33M1776_9600_Init:
-;	FwLib_STC8\src\fw_util.c:46: SCON = 0x50;		//8 bits and variable baudrate
+;	.\FwLib_STC8\src\fw_util.c:46: SCON = 0x50;		//8 bits and variable baudrate
 	mov	_SCON,#0x50
-;	FwLib_STC8\src\fw_util.c:47: AUXR |= 0x40;		//imer clock is 1T mode
+;	.\FwLib_STC8\src\fw_util.c:47: AUXR |= 0x40;		//imer clock is 1T mode
 	orl	_AUXR,#0x40
-;	FwLib_STC8\src\fw_util.c:48: AUXR &= 0xFE;		//UART 1 use Timer1 as baudrate generator
+;	.\FwLib_STC8\src\fw_util.c:48: AUXR &= 0xFE;		//UART 1 use Timer1 as baudrate generator
 	anl	_AUXR,#0xfe
-;	FwLib_STC8\src\fw_util.c:49: TMOD &= 0x0F;		//Set timer work mode
+;	.\FwLib_STC8\src\fw_util.c:49: TMOD &= 0x0F;		//Set timer work mode
 	anl	_TMOD,#0x0f
-;	FwLib_STC8\src\fw_util.c:50: TL1 = 0xA0;		//Initial timer value
+;	.\FwLib_STC8\src\fw_util.c:50: TL1 = 0xA0;		//Initial timer value
 	mov	_TL1,#0xa0
-;	FwLib_STC8\src\fw_util.c:51: TH1 = 0xFC;		//Initial timer value
+;	.\FwLib_STC8\src\fw_util.c:51: TH1 = 0xFC;		//Initial timer value
 	mov	_TH1,#0xfc
-;	FwLib_STC8\src\fw_util.c:52: ET1 = 0;		//Disable Timer%d interrupt
+;	.\FwLib_STC8\src\fw_util.c:52: ET1 = 0;		//Disable Timer%d interrupt
 ;	assignBit
 	clr	_ET1
-;	FwLib_STC8\src\fw_util.c:53: TR1 = 1;		//Timer1 start run
+;	.\FwLib_STC8\src\fw_util.c:53: TR1 = 1;		//Timer1 start run
 ;	assignBit
 	setb	_TR1
-;	FwLib_STC8\src\fw_util.c:54: }
+;	.\FwLib_STC8\src\fw_util.c:54: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UTIL_Uart1_33M1776_115200_Init'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_util.c:56: void UTIL_Uart1_33M1776_115200_Init(void)
+;	.\FwLib_STC8\src\fw_util.c:56: void UTIL_Uart1_33M1776_115200_Init(void)
 ;	-----------------------------------------
 ;	 function UTIL_Uart1_33M1776_115200_Init
 ;	-----------------------------------------
 _UTIL_Uart1_33M1776_115200_Init:
-;	FwLib_STC8\src\fw_util.c:58: SCON = 0x50;
+;	.\FwLib_STC8\src\fw_util.c:58: SCON = 0x50;
 	mov	_SCON,#0x50
-;	FwLib_STC8\src\fw_util.c:59: AUXR |= 0x40;
+;	.\FwLib_STC8\src\fw_util.c:59: AUXR |= 0x40;
 	orl	_AUXR,#0x40
-;	FwLib_STC8\src\fw_util.c:60: AUXR &= 0xFE;
+;	.\FwLib_STC8\src\fw_util.c:60: AUXR &= 0xFE;
 	anl	_AUXR,#0xfe
-;	FwLib_STC8\src\fw_util.c:61: TMOD &= 0x0F;
+;	.\FwLib_STC8\src\fw_util.c:61: TMOD &= 0x0F;
 	anl	_TMOD,#0x0f
-;	FwLib_STC8\src\fw_util.c:62: TL1 = 0xB8;
+;	.\FwLib_STC8\src\fw_util.c:62: TL1 = 0xB8;
 	mov	_TL1,#0xb8
-;	FwLib_STC8\src\fw_util.c:63: TH1 = 0xFF;
+;	.\FwLib_STC8\src\fw_util.c:63: TH1 = 0xFF;
 	mov	_TH1,#0xff
-;	FwLib_STC8\src\fw_util.c:64: ET1 = 0;
+;	.\FwLib_STC8\src\fw_util.c:64: ET1 = 0;
 ;	assignBit
 	clr	_ET1
-;	FwLib_STC8\src\fw_util.c:65: TR1 = 1;
+;	.\FwLib_STC8\src\fw_util.c:65: TR1 = 1;
 ;	assignBit
 	setb	_TR1
-;	FwLib_STC8\src\fw_util.c:66: }
+;	.\FwLib_STC8\src\fw_util.c:66: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UTIL_Uart1_35M_9600_Init'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_util.c:68: void UTIL_Uart1_35M_9600_Init(void)
+;	.\FwLib_STC8\src\fw_util.c:68: void UTIL_Uart1_35M_9600_Init(void)
 ;	-----------------------------------------
 ;	 function UTIL_Uart1_35M_9600_Init
 ;	-----------------------------------------
 _UTIL_Uart1_35M_9600_Init:
-;	FwLib_STC8\src\fw_util.c:70: SCON = 0x50;
+;	.\FwLib_STC8\src\fw_util.c:70: SCON = 0x50;
 	mov	_SCON,#0x50
-;	FwLib_STC8\src\fw_util.c:71: AUXR |= 0x40;
+;	.\FwLib_STC8\src\fw_util.c:71: AUXR |= 0x40;
 	orl	_AUXR,#0x40
-;	FwLib_STC8\src\fw_util.c:72: AUXR &= 0xFE;
+;	.\FwLib_STC8\src\fw_util.c:72: AUXR &= 0xFE;
 	anl	_AUXR,#0xfe
-;	FwLib_STC8\src\fw_util.c:73: TMOD &= 0x0F;
+;	.\FwLib_STC8\src\fw_util.c:73: TMOD &= 0x0F;
 	anl	_TMOD,#0x0f
-;	FwLib_STC8\src\fw_util.c:74: TL1 = 0x70;
+;	.\FwLib_STC8\src\fw_util.c:74: TL1 = 0x70;
 	mov	_TL1,#0x70
-;	FwLib_STC8\src\fw_util.c:75: TH1 = 0xFC;
+;	.\FwLib_STC8\src\fw_util.c:75: TH1 = 0xFC;
 	mov	_TH1,#0xfc
-;	FwLib_STC8\src\fw_util.c:76: ET1 = 0;
+;	.\FwLib_STC8\src\fw_util.c:76: ET1 = 0;
 ;	assignBit
 	clr	_ET1
-;	FwLib_STC8\src\fw_util.c:77: TR1 = 1;
+;	.\FwLib_STC8\src\fw_util.c:77: TR1 = 1;
 ;	assignBit
 	setb	_TR1
-;	FwLib_STC8\src\fw_util.c:78: }
+;	.\FwLib_STC8\src\fw_util.c:78: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UTIL_Uart1_36M864_9600_Init'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_util.c:80: void UTIL_Uart1_36M864_9600_Init(void)
+;	.\FwLib_STC8\src\fw_util.c:80: void UTIL_Uart1_36M864_9600_Init(void)
 ;	-----------------------------------------
 ;	 function UTIL_Uart1_36M864_9600_Init
 ;	-----------------------------------------
 _UTIL_Uart1_36M864_9600_Init:
-;	FwLib_STC8\src\fw_util.c:82: SCON = 0x50;
+;	.\FwLib_STC8\src\fw_util.c:82: SCON = 0x50;
 	mov	_SCON,#0x50
-;	FwLib_STC8\src\fw_util.c:83: AUXR |= 0x40;
+;	.\FwLib_STC8\src\fw_util.c:83: AUXR |= 0x40;
 	orl	_AUXR,#0x40
-;	FwLib_STC8\src\fw_util.c:84: AUXR &= 0xFE;
+;	.\FwLib_STC8\src\fw_util.c:84: AUXR &= 0xFE;
 	anl	_AUXR,#0xfe
-;	FwLib_STC8\src\fw_util.c:85: TMOD &= 0x0F;
+;	.\FwLib_STC8\src\fw_util.c:85: TMOD &= 0x0F;
 	anl	_TMOD,#0x0f
-;	FwLib_STC8\src\fw_util.c:86: TL1 = 0x40;
+;	.\FwLib_STC8\src\fw_util.c:86: TL1 = 0x40;
 	mov	_TL1,#0x40
-;	FwLib_STC8\src\fw_util.c:87: TH1 = 0xFC;
+;	.\FwLib_STC8\src\fw_util.c:87: TH1 = 0xFC;
 	mov	_TH1,#0xfc
-;	FwLib_STC8\src\fw_util.c:88: ET1 = 0;
+;	.\FwLib_STC8\src\fw_util.c:88: ET1 = 0;
 ;	assignBit
 	clr	_ET1
-;	FwLib_STC8\src\fw_util.c:89: TR1 = 1;
+;	.\FwLib_STC8\src\fw_util.c:89: TR1 = 1;
 ;	assignBit
 	setb	_TR1
-;	FwLib_STC8\src\fw_util.c:90: }
+;	.\FwLib_STC8\src\fw_util.c:90: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UTIL_Uart1_36M864_115200_Init'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_util.c:92: void UTIL_Uart1_36M864_115200_Init(void)
+;	.\FwLib_STC8\src\fw_util.c:92: void UTIL_Uart1_36M864_115200_Init(void)
 ;	-----------------------------------------
 ;	 function UTIL_Uart1_36M864_115200_Init
 ;	-----------------------------------------
 _UTIL_Uart1_36M864_115200_Init:
-;	FwLib_STC8\src\fw_util.c:94: SCON = 0x50;
+;	.\FwLib_STC8\src\fw_util.c:94: SCON = 0x50;
 	mov	_SCON,#0x50
-;	FwLib_STC8\src\fw_util.c:95: AUXR |= 0x40;
+;	.\FwLib_STC8\src\fw_util.c:95: AUXR |= 0x40;
 	orl	_AUXR,#0x40
-;	FwLib_STC8\src\fw_util.c:96: AUXR &= 0xFE;
+;	.\FwLib_STC8\src\fw_util.c:96: AUXR &= 0xFE;
 	anl	_AUXR,#0xfe
-;	FwLib_STC8\src\fw_util.c:97: TMOD &= 0x0F;
+;	.\FwLib_STC8\src\fw_util.c:97: TMOD &= 0x0F;
 	anl	_TMOD,#0x0f
-;	FwLib_STC8\src\fw_util.c:98: TL1 = 0xB0;
+;	.\FwLib_STC8\src\fw_util.c:98: TL1 = 0xB0;
 	mov	_TL1,#0xb0
-;	FwLib_STC8\src\fw_util.c:99: TH1 = 0xFF;
+;	.\FwLib_STC8\src\fw_util.c:99: TH1 = 0xFF;
 	mov	_TH1,#0xff
-;	FwLib_STC8\src\fw_util.c:100: ET1 = 0;
+;	.\FwLib_STC8\src\fw_util.c:100: ET1 = 0;
 ;	assignBit
 	clr	_ET1
-;	FwLib_STC8\src\fw_util.c:101: TR1 = 1;
+;	.\FwLib_STC8\src\fw_util.c:101: TR1 = 1;
 ;	assignBit
 	setb	_TR1
-;	FwLib_STC8\src\fw_util.c:102: }
+;	.\FwLib_STC8\src\fw_util.c:102: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

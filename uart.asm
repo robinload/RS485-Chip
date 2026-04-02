@@ -8,6 +8,7 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
+	.globl _UART2_ISR
 	.globl _Timer0_ISR
 	.globl _UART_ISR
 	.globl _P77
@@ -214,9 +215,9 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
-	.globl _cached_id
 	.globl _mb_frame_ready
 	.globl _mb_idx
+	.globl _UART2_SendBuffer_PARM_2
 	.globl _UART_SendBuffer_PARM_2
 	.globl _mb_buf
 	.globl _UART_Init
@@ -227,6 +228,9 @@
 	.globl _UART_SendLong
 	.globl _UART_CheckRx
 	.globl _UART_GetRxChar
+	.globl _UART2_Init
+	.globl _UART2_SendChar
+	.globl _UART2_SendBuffer
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -480,26 +484,34 @@ _UART_SendLong_sloc1_1_0:
 	.area XSEG    (XDATA)
 _mb_buf::
 	.ds 64
-_UART_ISR_b_20000_67:
+_UART_ISR_b_20000_71:
 	.ds 1
-_UART_SendChar_c_10000_75:
+_UART_SendChar_c_10000_79:
 	.ds 1
 _UART_SendBuffer_PARM_2:
 	.ds 2
-_UART_SendBuffer_dat_10000_77:
+_UART_SendBuffer_dat_10000_81:
 	.ds 3
-_UART_SendString_s_10000_80:
+_UART_SendString_s_10000_84:
 	.ds 3
-_UART_SendInt_n_10000_82:
+_UART_SendInt_n_10000_86:
 	.ds 2
-_UART_SendInt_buf_10000_83:
+_UART_SendInt_buf_10000_87:
 	.ds 6
-_UART_SendLong_n_10000_86:
+_UART_SendLong_n_10000_90:
 	.ds 4
-_UART_SendLong_buf_10000_87:
+_UART_SendLong_buf_10000_91:
 	.ds 12
-_UART_SendLong_v_10000_87:
+_UART_SendLong_v_10000_91:
 	.ds 4
+_UART2_ISR_b_20000_104:
+	.ds 1
+_UART2_SendChar_c_10000_110:
+	.ds 1
+_UART2_SendBuffer_PARM_2:
+	.ds 1
+_UART2_SendBuffer_buf_10000_112:
+	.ds 3
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -511,8 +523,6 @@ _UART_SendLong_v_10000_87:
 _mb_idx::
 	.ds 1
 _mb_frame_ready::
-	.ds 1
-_cached_id::
 	.ds 1
 	.area HOME    (CODE)
 	.area GSINIT0 (CODE)
@@ -614,7 +624,7 @@ _Modbus_ResetSilentTimer:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_ISR'
 ;------------------------------------------------------------
-;b             Allocated with name '_UART_ISR_b_20000_67'
+;b             Allocated with name '_UART_ISR_b_20000_71'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\uart.c:52: void UART_ISR(void) __interrupt(4)
 ;	-----------------------------------------
@@ -632,7 +642,7 @@ _UART_ISR:
 ;	.\FwLib_STC8\user\uart.c:54: if (RI) 
 	jnb	_RI,00106$
 ;	.\FwLib_STC8\user\uart.c:56: uint8_t b = SBUF; 
-	mov	dptr,#_UART_ISR_b_20000_67
+	mov	dptr,#_UART_ISR_b_20000_71
 	mov	a,_SBUF
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\uart.c:57: RI = 0; 
@@ -657,7 +667,7 @@ _UART_ISR:
 	clr	a
 	addc	a, #(_mb_buf >> 8)
 	mov	r6,a
-	mov	dptr,#_UART_ISR_b_20000_67
+	mov	dptr,#_UART_ISR_b_20000_71
 	movx	a,@dptr
 	mov	dpl,r7
 	mov	dph,r6
@@ -725,7 +735,7 @@ _Timer0_ISR:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_SendChar'
 ;------------------------------------------------------------
-;c             Allocated with name '_UART_SendChar_c_10000_75'
+;c             Allocated with name '_UART_SendChar_c_10000_79'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\uart.c:83: void UART_SendChar(char c)
 ;	-----------------------------------------
@@ -733,13 +743,13 @@ _Timer0_ISR:
 ;	-----------------------------------------
 _UART_SendChar:
 	mov	a,dpl
-	mov	dptr,#_UART_SendChar_c_10000_75
+	mov	dptr,#_UART_SendChar_c_10000_79
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\uart.c:85: TI = 0;         // Ensure flag is clear
 ;	assignBit
 	clr	_TI
 ;	.\FwLib_STC8\user\uart.c:86: SBUF = c;
-	mov	dptr,#_UART_SendChar_c_10000_75
+	mov	dptr,#_UART_SendChar_c_10000_79
 	movx	a,@dptr
 	mov	_SBUF,a
 ;	.\FwLib_STC8\user\uart.c:87: while (!TI);    // Wait for hardware to finish
@@ -755,7 +765,7 @@ _UART_SendChar:
 ;Allocation info for local variables in function 'UART_SendBuffer'
 ;------------------------------------------------------------
 ;len           Allocated with name '_UART_SendBuffer_PARM_2'
-;dat           Allocated with name '_UART_SendBuffer_dat_10000_77'
+;dat           Allocated with name '_UART_SendBuffer_dat_10000_81'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\uart.c:91: void UART_SendBuffer(uint8_t *dat, uint16_t len)
 ;	-----------------------------------------
@@ -765,7 +775,7 @@ _UART_SendBuffer:
 	mov	r7,b
 	mov	r6,dph
 	mov	a,dpl
-	mov	dptr,#_UART_SendBuffer_dat_10000_77
+	mov	dptr,#_UART_SendBuffer_dat_10000_81
 	movx	@dptr,a
 	mov	a,r6
 	inc	dptr
@@ -777,7 +787,7 @@ _UART_SendBuffer:
 ;	assignBit
 	clr	_ES
 ;	.\FwLib_STC8\user\uart.c:94: while (len--)
-	mov	dptr,#_UART_SendBuffer_dat_10000_77
+	mov	dptr,#_UART_SendBuffer_dat_10000_81
 	movx	a,@dptr
 	mov	r5,a
 	inc	dptr
@@ -811,7 +821,7 @@ _UART_SendBuffer:
 	inc	dptr
 	mov	r5,dpl
 	mov	r6,dph
-	mov	dptr,#_UART_SendBuffer_dat_10000_77
+	mov	dptr,#_UART_SendBuffer_dat_10000_81
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r6
@@ -834,7 +844,7 @@ _UART_SendBuffer:
 	pop	ar7
 	sjmp	00101$
 00108$:
-	mov	dptr,#_UART_SendBuffer_dat_10000_77
+	mov	dptr,#_UART_SendBuffer_dat_10000_81
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r6
@@ -851,7 +861,7 @@ _UART_SendBuffer:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_SendString'
 ;------------------------------------------------------------
-;s             Allocated with name '_UART_SendString_s_10000_80'
+;s             Allocated with name '_UART_SendString_s_10000_84'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\uart.c:101: void UART_SendString(char *s)
 ;	-----------------------------------------
@@ -861,7 +871,7 @@ _UART_SendString:
 	mov	r7,b
 	mov	r6,dph
 	mov	a,dpl
-	mov	dptr,#_UART_SendString_s_10000_80
+	mov	dptr,#_UART_SendString_s_10000_84
 	movx	@dptr,a
 	mov	a,r6
 	inc	dptr
@@ -870,7 +880,7 @@ _UART_SendString:
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\uart.c:103: while (*s)
-	mov	dptr,#_UART_SendString_s_10000_80
+	mov	dptr,#_UART_SendString_s_10000_84
 	movx	a,@dptr
 	mov	r5,a
 	inc	dptr
@@ -891,7 +901,7 @@ _UART_SendString:
 	cjne	r5,#0x00,00120$
 	inc	r6
 00120$:
-	mov	dptr,#_UART_SendString_s_10000_80
+	mov	dptr,#_UART_SendString_s_10000_84
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r6
@@ -910,7 +920,7 @@ _UART_SendString:
 	pop	ar7
 	sjmp	00101$
 00108$:
-	mov	dptr,#_UART_SendString_s_10000_80
+	mov	dptr,#_UART_SendString_s_10000_84
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r6
@@ -924,9 +934,9 @@ _UART_SendString:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_SendInt'
 ;------------------------------------------------------------
-;n             Allocated with name '_UART_SendInt_n_10000_82'
-;buf           Allocated with name '_UART_SendInt_buf_10000_83'
-;i             Allocated with name '_UART_SendInt_i_10000_83'
+;n             Allocated with name '_UART_SendInt_n_10000_86'
+;buf           Allocated with name '_UART_SendInt_buf_10000_87'
+;i             Allocated with name '_UART_SendInt_i_10000_87'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\uart.c:109: void UART_SendInt(uint16_t n)
 ;	-----------------------------------------
@@ -935,13 +945,13 @@ _UART_SendString:
 _UART_SendInt:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_UART_SendInt_n_10000_82
+	mov	dptr,#_UART_SendInt_n_10000_86
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\uart.c:113: if (n == 0) { UART_SendChar('0'); return; }
-	mov	dptr,#_UART_SendInt_n_10000_82
+	mov	dptr,#_UART_SendInt_n_10000_86
 	movx	a,@dptr
 	mov	b,a
 	inc	dptr
@@ -954,13 +964,13 @@ _UART_SendInt:
 00113$:
 	mov	r7,#0x00
 00103$:
-	mov	dptr,#_UART_SendInt_n_10000_82
+	mov	dptr,#_UART_SendInt_n_10000_86
 	movx	a,@dptr
 	mov	r5,a
 	inc	dptr
 	movx	a,@dptr
 	mov	r6,a
-	mov	dptr,#_UART_SendInt_n_10000_82
+	mov	dptr,#_UART_SendInt_n_10000_86
 	movx	a,@dptr
 	mov	b,a
 	inc	dptr
@@ -975,10 +985,10 @@ _UART_SendInt:
 	mov	r4,a
 	inc	r7
 	mov	a,r3
-	add	a, #_UART_SendInt_buf_10000_83
+	add	a, #_UART_SendInt_buf_10000_87
 	mov	r3,a
 	mov	a,r4
-	addc	a, #(_UART_SendInt_buf_10000_83 >> 8)
+	addc	a, #(_UART_SendInt_buf_10000_87 >> 8)
 	mov	r4,a
 	mov	dptr,#__moduint_PARM_2
 	mov	a,#0x0a
@@ -1017,7 +1027,7 @@ _UART_SendInt:
 	mov	r5, dpl
 	mov	r6, dph
 	pop	ar7
-	mov	dptr,#_UART_SendInt_n_10000_82
+	mov	dptr,#_UART_SendInt_n_10000_86
 	mov	a,r5
 	movx	@dptr,a
 	mov	a,r6
@@ -1032,10 +1042,10 @@ _UART_SendInt:
 	jb	acc.7,00109$
 	mov	ar6,r7
 	mov	a,r6
-	add	a, #_UART_SendInt_buf_10000_83
+	add	a, #_UART_SendInt_buf_10000_87
 	mov	dpl,a
 	clr	a
-	addc	a, #(_UART_SendInt_buf_10000_83 >> 8)
+	addc	a, #(_UART_SendInt_buf_10000_87 >> 8)
 	mov	dph,a
 	movx	a,@dptr
 	mov	dpl,a
@@ -1051,10 +1061,10 @@ _UART_SendInt:
 ;------------------------------------------------------------
 ;sloc0         Allocated with name '_UART_SendLong_sloc0_1_0'
 ;sloc1         Allocated with name '_UART_SendLong_sloc1_1_0'
-;n             Allocated with name '_UART_SendLong_n_10000_86'
-;buf           Allocated with name '_UART_SendLong_buf_10000_87'
-;i             Allocated with name '_UART_SendLong_i_10000_87'
-;v             Allocated with name '_UART_SendLong_v_10000_87'
+;n             Allocated with name '_UART_SendLong_n_10000_90'
+;buf           Allocated with name '_UART_SendLong_buf_10000_91'
+;i             Allocated with name '_UART_SendLong_i_10000_91'
+;v             Allocated with name '_UART_SendLong_v_10000_91'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\uart.c:121: void UART_SendLong(int32_t n)
 ;	-----------------------------------------
@@ -1065,7 +1075,7 @@ _UART_SendLong:
 	mov	r6,dph
 	mov	r5,b
 	mov	r4,a
-	mov	dptr,#_UART_SendLong_n_10000_86
+	mov	dptr,#_UART_SendLong_n_10000_90
 	mov	a,r7
 	movx	@dptr,a
 	mov	a,r6
@@ -1078,7 +1088,7 @@ _UART_SendLong:
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\uart.c:127: if (n < 0) {
-	mov	dptr,#_UART_SendLong_n_10000_86
+	mov	dptr,#_UART_SendLong_n_10000_90
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
@@ -1116,7 +1126,7 @@ _UART_SendLong:
 	clr	a
 	subb	a,r7
 	mov	r3,a
-	mov	dptr,#_UART_SendLong_v_10000_87
+	mov	dptr,#_UART_SendLong_v_10000_91
 	mov	a,r0
 	movx	@dptr,a
 	mov	a,r1
@@ -1131,7 +1141,7 @@ _UART_SendLong:
 	sjmp	00103$
 00102$:
 ;	.\FwLib_STC8\user\uart.c:131: v = (uint32_t)n;
-	mov	dptr,#_UART_SendLong_v_10000_87
+	mov	dptr,#_UART_SendLong_v_10000_91
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
@@ -1145,7 +1155,7 @@ _UART_SendLong:
 	movx	@dptr,a
 00103$:
 ;	.\FwLib_STC8\user\uart.c:134: if (v == 0) { UART_SendChar('0'); return; }
-	mov	dptr,#_UART_SendLong_v_10000_87
+	mov	dptr,#_UART_SendLong_v_10000_91
 	movx	a,@dptr
 	mov	b,a
 	inc	dptr
@@ -1164,7 +1174,7 @@ _UART_SendLong:
 00117$:
 	mov	_UART_SendLong_sloc1_1_0,#0x00
 00106$:
-	mov	dptr,#_UART_SendLong_v_10000_87
+	mov	dptr,#_UART_SendLong_v_10000_91
 	movx	a,@dptr
 	mov	r3,a
 	inc	dptr
@@ -1189,10 +1199,10 @@ _UART_SendLong:
 	mov	r2,a
 	inc	_UART_SendLong_sloc1_1_0
 	mov	a,r1
-	add	a, #_UART_SendLong_buf_10000_87
+	add	a, #_UART_SendLong_buf_10000_91
 	mov	_UART_SendLong_sloc0_1_0,a
 	mov	a,r2
-	addc	a, #(_UART_SendLong_buf_10000_87 >> 8)
+	addc	a, #(_UART_SendLong_buf_10000_91 >> 8)
 	mov	(_UART_SendLong_sloc0_1_0 + 1),a
 	mov	dptr,#__modulong_PARM_2
 	mov	a,#0x0a
@@ -1243,7 +1253,7 @@ _UART_SendLong:
 	mov	r5, dph
 	mov	r6, b
 	mov	r7, a
-	mov	dptr,#_UART_SendLong_v_10000_87
+	mov	dptr,#_UART_SendLong_v_10000_91
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
@@ -1265,10 +1275,10 @@ _UART_SendLong:
 	jb	acc.7,00112$
 	mov	ar6,r7
 	mov	a,r6
-	add	a, #_UART_SendLong_buf_10000_87
+	add	a, #_UART_SendLong_buf_10000_91
 	mov	dpl,a
 	clr	a
-	addc	a, #(_UART_SendLong_buf_10000_87 >> 8)
+	addc	a, #(_UART_SendLong_buf_10000_91 >> 8)
 	mov	dph,a
 	movx	a,@dptr
 	mov	dpl,a
@@ -1297,7 +1307,7 @@ _UART_CheckRx:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'UART_GetRxChar'
 ;------------------------------------------------------------
-;c             Allocated with name '_UART_GetRxChar_c_10000_95'
+;c             Allocated with name '_UART_GetRxChar_c_10000_99'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\uart.c:149: char UART_GetRxChar(void)
 ;	-----------------------------------------
@@ -1327,6 +1337,242 @@ _UART_GetRxChar:
 	mov	dpl, r7
 ;	.\FwLib_STC8\user\uart.c:158: }
 	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'UART2_Init'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\uart.c:161: void UART2_Init(void)
+;	-----------------------------------------
+;	 function UART2_Init
+;	-----------------------------------------
+_UART2_Init:
+;	.\FwLib_STC8\user\uart.c:164: P_SW2 |= 0x80; 
+	orl	_P_SW2,#0x80
+;	.\FwLib_STC8\user\uart.c:167: P1M0 |= 0x02; P1M1 &= ~0x02; // P1.1 PP
+	orl	_P1M0,#0x02
+	anl	_P1M1,#0xfd
+;	.\FwLib_STC8\user\uart.c:168: P1M0 &= ~0x01; P1M1 &= ~0x01; // P1.0 Quasi
+	anl	_P1M0,#0xfe
+	anl	_P1M1,#0xfe
+;	.\FwLib_STC8\user\uart.c:171: P3M0 |= 0x10; P3M1 &= ~0x10; 
+	orl	_P3M0,#0x10
+	anl	_P3M1,#0xef
+;	.\FwLib_STC8\user\uart.c:174: S2CON = 0x50; 
+	mov	_S2CON,#0x50
+;	.\FwLib_STC8\user\uart.c:176: RS485_DIR_RX(); // Start in listening mode
+	anl	_P3,#0xef
+;	.\FwLib_STC8\user\uart.c:177: IE2 |= 0x01;    // Enable UART2 Interrupt
+	orl	_IE2,#0x01
+;	.\FwLib_STC8\user\uart.c:178: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'UART2_ISR'
+;------------------------------------------------------------
+;b             Allocated with name '_UART2_ISR_b_20000_104'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\uart.c:182: void UART2_ISR(void) __interrupt(8)
+;	-----------------------------------------
+;	 function UART2_ISR
+;	-----------------------------------------
+_UART2_ISR:
+	push	acc
+	push	dpl
+	push	dph
+	push	ar7
+	push	ar6
+	push	ar5
+	push	psw
+	mov	psw,#0x00
+;	.\FwLib_STC8\user\uart.c:185: P_SW2 |= 0x80;
+	orl	_P_SW2,#0x80
+;	.\FwLib_STC8\user\uart.c:187: if (S2CON & 0x01) // RI2: Byte Received
+	mov	a,_S2CON
+	jnb	acc.0,00104$
+;	.\FwLib_STC8\user\uart.c:189: uint8_t b = S2BUF;
+	mov	dptr,#_UART2_ISR_b_20000_104
+	mov	a,_S2BUF
+	movx	@dptr,a
+;	.\FwLib_STC8\user\uart.c:190: S2CON &= ~0x01; // Clear RI2
+	anl	_S2CON,#0xfe
+;	.\FwLib_STC8\user\uart.c:192: if (mb_idx < sizeof(mb_buf))
+	mov	dptr,#_mb_idx
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x40,00129$
+00129$:
+	jnc	00102$
+;	.\FwLib_STC8\user\uart.c:194: mb_buf[mb_idx++] = b;
+	mov	dptr,#_mb_idx
+	movx	a,@dptr
+	mov	r7,a
+	inc	a
+	movx	@dptr,a
+	mov	a,r7
+	add	a, #_mb_buf
+	mov	r7,a
+	clr	a
+	addc	a, #(_mb_buf >> 8)
+	mov	r6,a
+	mov	dptr,#_UART2_ISR_b_20000_104
+	movx	a,@dptr
+	mov	dpl,r7
+	mov	dph,r6
+	movx	@dptr,a
+00102$:
+;	.\FwLib_STC8\user\uart.c:42: TR0 = 0;        // Stop
+;	assignBit
+	clr	_TR0
+;	.\FwLib_STC8\user\uart.c:43: TH0 = T0_RELOAD_H; 
+	mov	_TH0,#0x20
+;	.\FwLib_STC8\user\uart.c:44: TL0 = T0_RELOAD_L; 
+	mov	_TL0,#0x00
+;	.\FwLib_STC8\user\uart.c:45: TF0 = 0;        // Clear flag
+;	assignBit
+	clr	_TF0
+;	.\FwLib_STC8\user\uart.c:46: TR0 = 1;        // Restart
+;	assignBit
+	setb	_TR0
+;	.\FwLib_STC8\user\uart.c:198: Modbus_ResetSilentTimer();
+00104$:
+;	.\FwLib_STC8\user\uart.c:201: if (S2CON & 0x02) // TI2: Byte Sent
+	mov	a,_S2CON
+	jnb	acc.1,00108$
+;	.\FwLib_STC8\user\uart.c:203: S2CON &= ~0x02; // Clear TI2
+	anl	_S2CON,#0xfd
+00108$:
+;	.\FwLib_STC8\user\uart.c:205: }
+	pop	psw
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	pop	dph
+	pop	dpl
+	pop	acc
+	reti
+;	eliminated unneeded push/pop b
+;------------------------------------------------------------
+;Allocation info for local variables in function 'UART2_SendChar'
+;------------------------------------------------------------
+;c             Allocated with name '_UART2_SendChar_c_10000_110'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\uart.c:209: void UART2_SendChar(char c)
+;	-----------------------------------------
+;	 function UART2_SendChar
+;	-----------------------------------------
+_UART2_SendChar:
+	mov	a,dpl
+	mov	dptr,#_UART2_SendChar_c_10000_110
+	movx	@dptr,a
+;	.\FwLib_STC8\user\uart.c:211: P_SW2 |= 0x80;
+	orl	_P_SW2,#0x80
+;	.\FwLib_STC8\user\uart.c:212: S2BUF = c;
+	mov	dptr,#_UART2_SendChar_c_10000_110
+	movx	a,@dptr
+	mov	_S2BUF,a
+;	.\FwLib_STC8\user\uart.c:213: while (!(S2CON & 0x02)); // Wait for TI2
+00101$:
+	mov	a,_S2CON
+	jnb	acc.1,00101$
+;	.\FwLib_STC8\user\uart.c:214: S2CON &= ~0x02;          // Clear TI2
+	anl	_S2CON,#0xfd
+;	.\FwLib_STC8\user\uart.c:215: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'UART2_SendBuffer'
+;------------------------------------------------------------
+;len           Allocated with name '_UART2_SendBuffer_PARM_2'
+;buf           Allocated with name '_UART2_SendBuffer_buf_10000_112'
+;_f            Allocated with name '_UART2_SendBuffer__f_20000_115'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\uart.c:217: void UART2_SendBuffer(uint8_t *buf, uint8_t len)
+;	-----------------------------------------
+;	 function UART2_SendBuffer
+;	-----------------------------------------
+_UART2_SendBuffer:
+	mov	r7,b
+	mov	r6,dph
+	mov	a,dpl
+	mov	dptr,#_UART2_SendBuffer_buf_10000_112
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\uart.c:219: RS485_DIR_TX();          // Flip transceiver to Transmit
+	orl	_P3,#0x10
+;	.\FwLib_STC8\user\uart.c:220: while (len--)
+	mov	dptr,#_UART2_SendBuffer_buf_10000_112
+	movx	a,@dptr
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	dptr,#_UART2_SendBuffer_PARM_2
+	movx	a,@dptr
+	mov	r4,a
+00101$:
+	mov	ar3,r4
+	dec	r4
+	mov	a,r3
+	jz	00114$
+;	.\FwLib_STC8\user\uart.c:222: UART2_SendChar(*buf++);
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+	lcall	__gptrget
+	mov	r3,a
+	inc	dptr
+	mov	r5,dpl
+	mov	r6,dph
+	mov	dptr,#_UART2_SendBuffer_buf_10000_112
+	mov	a,r5
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+	mov	dpl, r3
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	lcall	_UART2_SendChar
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+	sjmp	00101$
+00114$:
+	mov	dptr,#_UART2_SendBuffer_buf_10000_112
+	mov	a,r5
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\uart.c:224: RS485_FLUSH();           // Wait for physical bits to leave the wire
+	mov	r6,#0x70
+	mov	r7,#0x17
+00107$:
+	dec	r6
+	cjne	r6,#0xff,00137$
+	dec	r7
+00137$:
+	mov	a,r6
+	orl	a,r7
+	jnz	00107$
+;	.\FwLib_STC8\user\uart.c:225: RS485_DIR_RX();          // Flip back to Receive
+	anl	_P3,#0xef
+;	.\FwLib_STC8\user\uart.c:226: }
+	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area XINIT   (CODE)
@@ -1334,6 +1580,4 @@ __xinit__mb_idx:
 	.db #0x00	; 0
 __xinit__mb_frame_ready:
 	.db #0x00	; 0
-__xinit__cached_id:
-	.db #0x01	; 1
 	.area CABS    (ABS,CODE)

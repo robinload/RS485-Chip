@@ -516,7 +516,7 @@ _SYS_DelayUs_t_10000_16:
 ;i             Allocated with name '_SYS_SetClock_i_10000_6'
 ;j             Allocated with name '_SYS_SetClock_j_10000_6'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_sys.c:40: void SYS_SetClock(void)
+;	.\FwLib_STC8\src\fw_sys.c:40: void SYS_SetClock(void)
 ;	-----------------------------------------
 ;	 function SYS_SetClock
 ;	-----------------------------------------
@@ -529,51 +529,49 @@ _SYS_SetClock:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	FwLib_STC8\src\fw_sys.c:43: uint16_t i = 0; uint8_t j = 5;
+;	.\FwLib_STC8\src\fw_sys.c:43: uint16_t i = 0; uint8_t j = 5;
 	mov	dptr,#_SYS_SetClock_i_10000_6
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_sys.c:44: P_SW2 = 0x80;
+;	.\FwLib_STC8\src\fw_sys.c:44: P_SW2 = 0x80;
 	mov	_P_SW2,#0x80
-;	FwLib_STC8\src\fw_sys.c:45: if (CLKDIV != (__CONF_CLKDIV))
+;	.\FwLib_STC8\src\fw_sys.c:45: if (CLKDIV != (__CONF_CLKDIV))
 	mov	dptr,#0xfe01
 	movx	a,@dptr
-	jz	00108$
-;	FwLib_STC8\src\fw_sys.c:47: CLKDIV = (__CONF_CLKDIV);
+	jz	00109$
+;	.\FwLib_STC8\src\fw_sys.c:47: CLKDIV = (__CONF_CLKDIV);
 	mov	dptr,#0xfe01
 	clr	a
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_sys.c:49: while (--i);
+;	.\FwLib_STC8\src\fw_sys.c:49: while (--i);
 	mov	r6,a
 	mov	r7,a
 	mov	r5,#0x05
 00101$:
 	dec	r6
-	cjne	r6,#0xff,00149$
+	cjne	r6,#0xff,00155$
 	dec	r7
-00149$:
+00155$:
 	mov	a,r6
 	orl	a,r7
 	jnz	00101$
-;	FwLib_STC8\src\fw_sys.c:50: } while (--j);
+;	.\FwLib_STC8\src\fw_sys.c:50: } while (--j);
 	djnz	r5,00101$
+;	.\FwLib_STC8\src\fw_sys.c:53: SYS_SetFOSC(__CONF_IRCBAND, __CONF_VRTRIM, __CONF_IRTRIM, __CONF_LIRTRIM);
 	mov	dptr,#_SYS_SetClock_i_10000_6
 	mov	a,r6
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-00108$:
-;	FwLib_STC8\src\fw_sys.c:52: P_SW2 = 0x00;
-	mov	_P_SW2,#0x00
-;	FwLib_STC8\src\fw_sys.c:53: SYS_SetFOSC(__CONF_IRCBAND, __CONF_VRTRIM, __CONF_IRTRIM, __CONF_LIRTRIM);
-	mov	_IRCBAND,#0x00
-	mov	_VRTRIM,#0x00
-	mov	_IRTRIM,#0x00
+00109$:
+	mov	_IRCBAND,#0x02
+	mov	_VRTRIM,#0x19
+	mov	_IRTRIM,#0x2c
 	mov	_LIRTRIM,#0x00
-;	FwLib_STC8\src\fw_sys.c:54: while (--i); // Wait
+;	.\FwLib_STC8\src\fw_sys.c:54: while (--i); // Wait
 	mov	dptr,#_SYS_SetClock_i_10000_6
 	movx	a,@dptr
 	mov	r6,a
@@ -582,13 +580,15 @@ _SYS_SetClock:
 	mov	r7,a
 00112$:
 	dec	r6
-	cjne	r6,#0xff,00152$
+	cjne	r6,#0xff,00158$
 	dec	r7
-00152$:
+00158$:
 	mov	a,r6
 	orl	a,r7
+;	.\FwLib_STC8\src\fw_sys.c:55: P_SW2 = 0x00;
 	jnz	00112$
-;	FwLib_STC8\src\fw_sys.c:56: }
+	mov	_P_SW2,a
+;	.\FwLib_STC8\src\fw_sys.c:57: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SYS_TrimClock'
@@ -597,7 +597,7 @@ _SYS_SetClock:
 ;vrtrim        Allocated with name '_SYS_TrimClock_vrtrim_10000_10'
 ;i             Allocated with name '_SYS_TrimClock_i_10000_11'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_sys.c:58: void SYS_TrimClock(uint8_t vrtrim, uint8_t irtrim)
+;	.\FwLib_STC8\src\fw_sys.c:59: void SYS_TrimClock(uint8_t vrtrim, uint8_t irtrim)
 ;	-----------------------------------------
 ;	 function SYS_TrimClock
 ;	-----------------------------------------
@@ -605,15 +605,15 @@ _SYS_TrimClock:
 	mov	a,dpl
 	mov	dptr,#_SYS_TrimClock_vrtrim_10000_10
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_sys.c:61: SYS_SetFOSC(__CONF_IRCBAND, vrtrim, irtrim, __CONF_LIRTRIM);
-	mov	_IRCBAND,#0x00
+;	.\FwLib_STC8\src\fw_sys.c:62: SYS_SetFOSC(__CONF_IRCBAND, vrtrim, irtrim, __CONF_LIRTRIM);
+	mov	_IRCBAND,#0x02
 	movx	a,@dptr
 	mov	_VRTRIM,a
 	mov	dptr,#_SYS_TrimClock_PARM_2
 	movx	a,@dptr
 	mov	_IRTRIM,a
 	mov	_LIRTRIM,#0x00
-;	FwLib_STC8\src\fw_sys.c:62: while (--i); // Wait
+;	.\FwLib_STC8\src\fw_sys.c:63: while (--i); // Wait
 	mov	r6,#0x00
 	mov	r7,#0x00
 00104$:
@@ -624,7 +624,7 @@ _SYS_TrimClock:
 	mov	a,r6
 	orl	a,r7
 	jnz	00104$
-;	FwLib_STC8\src\fw_sys.c:63: }
+;	.\FwLib_STC8\src\fw_sys.c:64: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SYS_Delay'
@@ -632,7 +632,7 @@ _SYS_TrimClock:
 ;t             Allocated with name '_SYS_Delay_t_10000_13'
 ;i             Allocated with name '_SYS_Delay_i_10000_14'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_sys.c:65: void SYS_Delay(uint16_t t)
+;	.\FwLib_STC8\src\fw_sys.c:66: void SYS_Delay(uint16_t t)
 ;	-----------------------------------------
 ;	 function SYS_Delay
 ;	-----------------------------------------
@@ -644,7 +644,7 @@ _SYS_Delay:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_sys.c:68: do
+;	.\FwLib_STC8\src\fw_sys.c:69: do
 	mov	dptr,#_SYS_Delay_t_10000_13
 	movx	a,@dptr
 	mov	r6,a
@@ -652,7 +652,7 @@ _SYS_Delay:
 	movx	a,@dptr
 	mov	r7,a
 00104$:
-;	FwLib_STC8\src\fw_sys.c:70: i = ticks_ms;
+;	.\FwLib_STC8\src\fw_sys.c:71: i = ticks_ms;
 	mov	dptr,#_ticks_ms
 	clr	a
 	movc	a,@a+dptr
@@ -660,7 +660,7 @@ _SYS_Delay:
 	mov	a,#0x01
 	movc	a,@a+dptr
 	mov	r5,a
-;	FwLib_STC8\src\fw_sys.c:71: while (--i);
+;	.\FwLib_STC8\src\fw_sys.c:72: while (--i);
 00101$:
 	dec	r4
 	cjne	r4,#0xff,00134$
@@ -669,7 +669,7 @@ _SYS_Delay:
 	mov	a,r4
 	orl	a,r5
 	jnz	00101$
-;	FwLib_STC8\src\fw_sys.c:72: } while (--t);
+;	.\FwLib_STC8\src\fw_sys.c:73: } while (--t);
 	dec	r6
 	cjne	r6,#0xff,00136$
 	dec	r7
@@ -689,7 +689,7 @@ _SYS_Delay:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_sys.c:73: }
+;	.\FwLib_STC8\src\fw_sys.c:74: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'SYS_DelayUs'
@@ -697,7 +697,7 @@ _SYS_Delay:
 ;t             Allocated with name '_SYS_DelayUs_t_10000_16'
 ;i             Allocated with name '_SYS_DelayUs_i_10000_17'
 ;------------------------------------------------------------
-;	FwLib_STC8\src\fw_sys.c:75: void SYS_DelayUs(uint16_t t)
+;	.\FwLib_STC8\src\fw_sys.c:76: void SYS_DelayUs(uint16_t t)
 ;	-----------------------------------------
 ;	 function SYS_DelayUs
 ;	-----------------------------------------
@@ -709,7 +709,7 @@ _SYS_DelayUs:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_sys.c:78: do
+;	.\FwLib_STC8\src\fw_sys.c:79: do
 	mov	dptr,#_SYS_DelayUs_t_10000_16
 	movx	a,@dptr
 	mov	r6,a
@@ -717,15 +717,15 @@ _SYS_DelayUs:
 	movx	a,@dptr
 	mov	r7,a
 00104$:
-;	FwLib_STC8\src\fw_sys.c:80: i = ticks_us;
+;	.\FwLib_STC8\src\fw_sys.c:81: i = ticks_us;
 	mov	dptr,#_ticks_us
 	clr	a
 	movc	a,@a+dptr
 	mov	r5,a
-;	FwLib_STC8\src\fw_sys.c:81: while (--i);
+;	.\FwLib_STC8\src\fw_sys.c:82: while (--i);
 00101$:
 	djnz	r5,00101$
-;	FwLib_STC8\src\fw_sys.c:82: } while (--t);
+;	.\FwLib_STC8\src\fw_sys.c:83: } while (--t);
 	dec	r6
 	cjne	r6,#0xff,00135$
 	dec	r7
@@ -745,13 +745,13 @@ _SYS_DelayUs:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	FwLib_STC8\src\fw_sys.c:83: }
+;	.\FwLib_STC8\src\fw_sys.c:84: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area CONST   (CODE)
 _ticks_ms:
-	.byte #0x6a, #0x0a	; 2666
+	.byte #0x99, #0x09	; 2457
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 _ticks_us:

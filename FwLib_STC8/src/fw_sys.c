@@ -49,9 +49,10 @@ void SYS_SetClock(void)
             while (--i);
         } while (--j);
     }
-    P_SW2 = 0x00;
+
     SYS_SetFOSC(__CONF_IRCBAND, __CONF_VRTRIM, __CONF_IRTRIM, __CONF_LIRTRIM);
     while (--i); // Wait
+    P_SW2 = 0x00;
 #endif
 }
 

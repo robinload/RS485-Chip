@@ -71,7 +71,7 @@
 
 
 #ifndef __CONF_FOSC
-    #define __CONF_FOSC 24000000UL
+    #define __CONF_FOSC 24000000UL      
 #endif
 
 #ifndef __CONF_CLKDIV
@@ -95,7 +95,7 @@
 #endif
 
 #ifndef __CONF_MCU_MODEL
-    #define __CONF_MCU_MODEL MCU_MODEL_STC8H1K08
+    #define __CONF_MCU_MODEL MCU_MODEL_STC8H1K08  
 #endif
 
 #if (__CONF_MCU_MODEL == MCU_MODEL_STC8A8K64D4)

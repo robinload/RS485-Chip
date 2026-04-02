@@ -254,7 +254,6 @@ Symbol Table
     _IT0                                                        =  000088 G
     _IT1                                                        =  00008A G
     _LIRTRIM                                                    =  00009E G
-    _MEAS_Process                                                  ****** GX
     _OV                                                         =  0000D2 G
     _P                                                          =  0000D0 G
     _P0                                                         =  000080 G
@@ -298,12 +297,12 @@ Symbol Table
     _P34                                                        =  0000B4 G
     _P35                                                        =  0000B5 G
     _P36                                                        =  0000B6 G
+    _P37                                                        =  0000B7 G
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)               Page 6
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-    _P37                                                        =  0000B7 G
     _P3M0                                                       =  0000B2 G
     _P3M1                                                       =  0000B1 G
     _P4                                                         =  0000C0 G
@@ -358,12 +357,12 @@ Symbol Table
     _PSW                                                        =  0000D0 G
     _PT0                                                        =  0000B9 G
     _PT1                                                        =  0000BB G
+    _PX0                                                        =  0000B8 G
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)               Page 7
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-    _PX0                                                        =  0000B8 G
     _PX1                                                        =  0000BA G
     _P_SW1                                                      =  0000A2 G
     _P_SW2                                                      =  0000BA G
@@ -410,38 +409,34 @@ Symbol Table
     _TMOD                                                       =  000089 G
     _TR0                                                        =  00008C G
     _TR1                                                        =  00008E G
-    _Timer0_ISR                                                    ****** GX
-    _UART_ISR                                                      ****** GX
-    _UART_Init                                                     ****** GX
-    _UART_SendString                                               ****** GX
+ 17 _UART2_SendByte                                                000000 GR
+  B _UART2_SendByte_dat_10000_47                                   000000 R
+ 17 _UART2_SendString                                              000019 GR
+  B _UART2_SendString_str_10000_49                                 000001 R
     _USBADR                                                     =  0000FC G
     _USBCLK                                                     =  0000DC G
     _USBCON                                                     =  0000F4 G
     _USBDAT                                                     =  0000EC G
+    _VRTRIM                                                     =  0000A6 G
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)               Page 8
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-    _VRTRIM                                                     =  0000A6 G
     _WDT_CONTR                                                  =  0000C1 G
     _WKTCH                                                      =  0000AB G
     _WKTCL                                                      =  0000AA G
  18 ___str_0                                                       000000 R
+    __gptrget                                                      ****** GX
   E __interrupt_vect                                               000000 R
     __mcs51_genRAMCLEAR                                            ****** GX
     __mcs51_genXINIT                                               ****** GX
     __mcs51_genXRAMCLEAR                                           ****** GX
     __sdcc_gsinit_startup                                          ****** GX
-  E __sdcc_program_startup                                         000069 GR
+  E __sdcc_program_startup                                         000049 GR
   6 __start__stack                                                 000000 GR
-    _cached_id                                                     ****** GX
- 17 _main                                                          000000 GR
-    _mb_frame_ready                                                ****** GX
-    _mb_idx                                                        ****** GX
-    _mb_parse_request                                              ****** GX
-    _reg_init                                                      ****** GX
-    _reg_station_id                                                ****** GX
+ 17 _main                                                          00006F GR
+  B _main_received_30000_55                                        000004 R
     a                                                           =  0000E0 L
     a.0                                                         =  0000E0 L
     a.1                                                         =  0000E1 L
@@ -478,16 +473,16 @@ Symbol Table
     b.5                                                         =  0000F5 L
     b.6                                                         =  0000F6 L
     b.7                                                         =  0000F7 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)               Page 9
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     cprl2                                                       =  0000C8 L
     ct2                                                         =  0000C9 L
     cy                                                          =  0000D7 L
     dph                                                         =  000083 L
     dpl                                                         =  000082 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)               Page 9
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     ea                                                          =  0000AF L
     es                                                          =  0000AC L
     et0                                                         =  0000A9 L
@@ -538,16 +533,16 @@ Symbol Table
     p1.4                                                        =  000094 L
     p1.5                                                        =  000095 L
     p1.6                                                        =  000096 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)              Page 10
-Hexadecimal [24-Bits]
-
-Symbol Table
-
     p1.7                                                        =  000097 L
     p2                                                          =  0000A0 L
     p2.0                                                        =  0000A0 L
     p2.1                                                        =  0000A1 L
     p2.2                                                        =  0000A2 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)              Page 10
+Hexadecimal [24-Bits]
+
+Symbol Table
+
     p2.3                                                        =  0000A3 L
     p2.4                                                        =  0000A4 L
     p2.5                                                        =  0000A5 L
@@ -597,22 +592,22 @@ Symbol Table
     scon.5                                                      =  00009D L
     scon.6                                                      =  00009E L
     scon.7                                                      =  00009F L
-  E sdcc_atomic_compare_exchange_gptr_impl                         00005F GR
+  E sdcc_atomic_compare_exchange_gptr_impl                         00003F GR
+  E sdcc_atomic_compare_exchange_idata_impl                        000018 R
+  E sdcc_atomic_compare_exchange_pdata_impl                        000020 R
+  E sdcc_atomic_compare_exchange_xdata_impl                        000028 R
+  E sdcc_atomic_exchange_exit                                      00003C R
+  E sdcc_atomic_exchange_gptr_impl                                 00002F GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)              Page 11
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  E sdcc_atomic_compare_exchange_idata_impl                        000038 R
-  E sdcc_atomic_compare_exchange_pdata_impl                        000040 R
-  E sdcc_atomic_compare_exchange_xdata_impl                        000048 R
-  E sdcc_atomic_exchange_exit                                      00005C R
-  E sdcc_atomic_exchange_gptr_impl                                 00004F GR
-  E sdcc_atomic_exchange_idata_impl                                000057 R
-  E sdcc_atomic_exchange_pdata_impl                                00002A R
-  E sdcc_atomic_exchange_rollback_end                              00004F GR
-  E sdcc_atomic_exchange_rollback_start                            000028 GR
-  E sdcc_atomic_exchange_xdata_impl                                000032 R
+  E sdcc_atomic_exchange_idata_impl                                000037 R
+  E sdcc_atomic_exchange_pdata_impl                                00000A R
+  E sdcc_atomic_exchange_rollback_end                              00002F GR
+  E sdcc_atomic_exchange_rollback_start                            000008 GR
+  E sdcc_atomic_exchange_xdata_impl                                000012 R
     sm0                                                         =  00009F L
     sm1                                                         =  00009E L
     sm2                                                         =  00009D L
@@ -653,7 +648,6 @@ Symbol Table
     tr2                                                         =  0000CA L
     txd                                                         =  0000B1 L
 
-
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051)              Page 12
 Hexadecimal [24-Bits]
 
@@ -670,10 +664,10 @@ Area Table
    8 IABS                                       size      0   flags    8
    9 BSEG                                       size      0   flags   80
    A PSEG                                       size      0   flags   50
-   B XSEG                                       size      0   flags   40
+   B XSEG                                       size      5   flags   40
    C XABS                                       size      0   flags   48
    D XISEG                                      size      0   flags   40
-   E HOME                                       size     6C   flags   20
+   E HOME                                       size     4C   flags   20
    F GSINIT0                                    size      0   flags   20
   10 GSINIT1                                    size      0   flags   20
   11 GSINIT2                                    size      0   flags   20
@@ -682,8 +676,8 @@ Area Table
   14 GSINIT5                                    size      0   flags   20
   15 GSINIT                                     size      0   flags   20
   16 GSFINAL                                    size      3   flags   20
-  17 CSEG                                       size     47   flags   20
-  18 CONST                                      size      A   flags   20
+  17 CSEG                                       size     BD   flags   20
+  18 CONST                                      size      8   flags   20
   19 XINIT                                      size      0   flags   20
   1A CABS                                       size      0   flags   28
 

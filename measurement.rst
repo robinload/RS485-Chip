@@ -441,24 +441,24 @@
                                     441 ; internal ram data
                                     442 ;--------------------------------------------------------
                                     443 	.area DSEG    (DATA)
-      00002E                        444 _scale_value_sloc0_1_0:
-      00002E                        445 	.ds 1
-      00002F                        446 _scale_value_sloc1_1_0:
-      00002F                        447 	.ds 1
-      000030                        448 _scale_value_sloc2_1_0:
-      000030                        449 	.ds 4
-      000034                        450 _scale_value_sloc3_1_0:
-      000034                        451 	.ds 4
-      000038                        452 _scale_value_sloc4_1_0:
-      000038                        453 	.ds 4
-      00003C                        454 _scale_value_sloc5_1_0:
-      00003C                        455 	.ds 4
-      000040                        456 _MEAS_Process_sloc0_1_0:
-      000040                        457 	.ds 4
-      000044                        458 _MEAS_Process_sloc1_1_0:
-      000044                        459 	.ds 4
-      000048                        460 _MEAS_Process_sloc2_1_0:
-      000048                        461 	.ds 4
+      00002B                        444 _scale_value_sloc0_1_0:
+      00002B                        445 	.ds 1
+      00002C                        446 _scale_value_sloc1_1_0:
+      00002C                        447 	.ds 1
+      00002D                        448 _scale_value_sloc2_1_0:
+      00002D                        449 	.ds 4
+      000031                        450 _scale_value_sloc3_1_0:
+      000031                        451 	.ds 4
+      000035                        452 _scale_value_sloc4_1_0:
+      000035                        453 	.ds 4
+      000039                        454 _scale_value_sloc5_1_0:
+      000039                        455 	.ds 4
+      00003D                        456 _MEAS_Process_sloc0_1_0:
+      00003D                        457 	.ds 4
+      000041                        458 _MEAS_Process_sloc1_1_0:
+      000041                        459 	.ds 4
+      000045                        460 _MEAS_Process_sloc2_1_0:
+      000045                        461 	.ds 4
                                     462 ;--------------------------------------------------------
                                     463 ; overlayable items in internal ram
                                     464 ;--------------------------------------------------------
@@ -483,26 +483,26 @@
                                     483 ; uninitialized external ram data
                                     484 ;--------------------------------------------------------
                                     485 	.area XSEG    (XDATA)
-      0001C5                        486 _scale_value_raw_adc_10000_62:
-      0001C5                        487 	.ds 4
-      0001C9                        488 _scale_value_i_10000_63:
-      0001C9                        489 	.ds 1
-      0001CA                        490 _scale_value_x0_10000_63:
-      0001CA                        491 	.ds 4
-      0001CE                        492 _scale_value_x1_10000_63:
-      0001CE                        493 	.ds 4
-      0001D2                        494 _scale_value_y0_10000_63:
-      0001D2                        495 	.ds 4
-      0001D6                        496 _scale_value_y1_10000_63:
-      0001D6                        497 	.ds 4
-      0001DA                        498 _MEAS_Process_raw_adc_10000_67:
-      0001DA                        499 	.ds 4
-      0001DE                        500 _MEAS_Process_current_weight_10000_67:
-      0001DE                        501 	.ds 4
-      0001E2                        502 _MEAS_Process_diff_10000_67:
-      0001E2                        503 	.ds 4
-      0001E6                        504 _MEAS_Process_stable_diff_10000_67:
-      0001E6                        505 	.ds 4
+      00015F                        486 _scale_value_raw_adc_10000_62:
+      00015F                        487 	.ds 4
+      000163                        488 _scale_value_i_10000_63:
+      000163                        489 	.ds 1
+      000164                        490 _scale_value_x0_10000_63:
+      000164                        491 	.ds 4
+      000168                        492 _scale_value_x1_10000_63:
+      000168                        493 	.ds 4
+      00016C                        494 _scale_value_y0_10000_63:
+      00016C                        495 	.ds 4
+      000170                        496 _scale_value_y1_10000_63:
+      000170                        497 	.ds 4
+      000174                        498 _MEAS_Process_raw_adc_10000_67:
+      000174                        499 	.ds 4
+      000178                        500 _MEAS_Process_current_weight_10000_67:
+      000178                        501 	.ds 4
+      00017C                        502 _MEAS_Process_diff_10000_67:
+      00017C                        503 	.ds 4
+      000180                        504 _MEAS_Process_stable_diff_10000_67:
+      000180                        505 	.ds 4
                                     506 ;--------------------------------------------------------
                                     507 ; absolute external ram data
                                     508 ;--------------------------------------------------------
@@ -511,14 +511,14 @@
                                     511 ; initialized external ram data
                                     512 ;--------------------------------------------------------
                                     513 	.area XISEG   (XDATA)
-      00022C                        514 _filtered_adc:
-      00022C                        515 	.ds 4
-      000230                        516 _zero_track_cnt:
-      000230                        517 	.ds 2
-      000232                        518 _stable_cnt:
-      000232                        519 	.ds 2
-      000234                        520 _last_stable_val:
-      000234                        521 	.ds 4
+      0001AE                        514 _filtered_adc:
+      0001AE                        515 	.ds 4
+      0001B2                        516 _zero_track_cnt:
+      0001B2                        517 	.ds 2
+      0001B4                        518 _stable_cnt:
+      0001B4                        519 	.ds 2
+      0001B6                        520 _last_stable_val:
+      0001B6                        521 	.ds 4
                                     522 	.area HOME    (CODE)
                                     523 	.area GSINIT0 (CODE)
                                     524 	.area GSINIT1 (CODE)
@@ -552,7 +552,7 @@
                                     552 ;	-----------------------------------------
                                     553 ;	 function MEAS_Init
                                     554 ;	-----------------------------------------
-      002338                        555 _MEAS_Init:
+      001FC2                        555 _MEAS_Init:
                            000007   556 	ar7 = 0x07
                            000006   557 	ar6 = 0x06
                            000005   558 	ar5 = 0x05
@@ -562,45 +562,45 @@
                            000001   562 	ar1 = 0x01
                            000000   563 	ar0 = 0x00
                                     564 ;	.\FwLib_STC8\user\measurement.c:12: filtered_adc = Read_HX71708_Raw();
-      002338 12 0E 7A         [24]  565 	lcall	_Read_HX71708_Raw
-      00233B AC 82            [24]  566 	mov	r4, dpl
-      00233D AD 83            [24]  567 	mov	r5, dph
-      00233F AE F0            [24]  568 	mov	r6, b
-      002341 FF               [12]  569 	mov	r7, a
-      002342 90 02 2C         [24]  570 	mov	dptr,#_filtered_adc
-      002345 EC               [12]  571 	mov	a,r4
-      002346 F0               [24]  572 	movx	@dptr,a
-      002347 ED               [12]  573 	mov	a,r5
-      002348 A3               [24]  574 	inc	dptr
-      002349 F0               [24]  575 	movx	@dptr,a
-      00234A EE               [12]  576 	mov	a,r6
-      00234B A3               [24]  577 	inc	dptr
-      00234C F0               [24]  578 	movx	@dptr,a
-      00234D EF               [12]  579 	mov	a,r7
-      00234E A3               [24]  580 	inc	dptr
-      00234F F0               [24]  581 	movx	@dptr,a
+      001FC2 12 0B 04         [24]  565 	lcall	_Read_HX71708_Raw
+      001FC5 AC 82            [24]  566 	mov	r4, dpl
+      001FC7 AD 83            [24]  567 	mov	r5, dph
+      001FC9 AE F0            [24]  568 	mov	r6, b
+      001FCB FF               [12]  569 	mov	r7, a
+      001FCC 90 01 AE         [24]  570 	mov	dptr,#_filtered_adc
+      001FCF EC               [12]  571 	mov	a,r4
+      001FD0 F0               [24]  572 	movx	@dptr,a
+      001FD1 ED               [12]  573 	mov	a,r5
+      001FD2 A3               [24]  574 	inc	dptr
+      001FD3 F0               [24]  575 	movx	@dptr,a
+      001FD4 EE               [12]  576 	mov	a,r6
+      001FD5 A3               [24]  577 	inc	dptr
+      001FD6 F0               [24]  578 	movx	@dptr,a
+      001FD7 EF               [12]  579 	mov	a,r7
+      001FD8 A3               [24]  580 	inc	dptr
+      001FD9 F0               [24]  581 	movx	@dptr,a
                                     582 ;	.\FwLib_STC8\user\measurement.c:13: last_stable_val = 0;
-      002350 90 02 34         [24]  583 	mov	dptr,#_last_stable_val
-      002353 E4               [12]  584 	clr	a
-      002354 F0               [24]  585 	movx	@dptr,a
-      002355 A3               [24]  586 	inc	dptr
-      002356 F0               [24]  587 	movx	@dptr,a
-      002357 A3               [24]  588 	inc	dptr
-      002358 F0               [24]  589 	movx	@dptr,a
-      002359 A3               [24]  590 	inc	dptr
-      00235A F0               [24]  591 	movx	@dptr,a
+      001FDA 90 01 B6         [24]  583 	mov	dptr,#_last_stable_val
+      001FDD E4               [12]  584 	clr	a
+      001FDE F0               [24]  585 	movx	@dptr,a
+      001FDF A3               [24]  586 	inc	dptr
+      001FE0 F0               [24]  587 	movx	@dptr,a
+      001FE1 A3               [24]  588 	inc	dptr
+      001FE2 F0               [24]  589 	movx	@dptr,a
+      001FE3 A3               [24]  590 	inc	dptr
+      001FE4 F0               [24]  591 	movx	@dptr,a
                                     592 ;	.\FwLib_STC8\user\measurement.c:14: stable_cnt = 0;
-      00235B 90 02 32         [24]  593 	mov	dptr,#_stable_cnt
-      00235E F0               [24]  594 	movx	@dptr,a
-      00235F A3               [24]  595 	inc	dptr
-      002360 F0               [24]  596 	movx	@dptr,a
+      001FE5 90 01 B4         [24]  593 	mov	dptr,#_stable_cnt
+      001FE8 F0               [24]  594 	movx	@dptr,a
+      001FE9 A3               [24]  595 	inc	dptr
+      001FEA F0               [24]  596 	movx	@dptr,a
                                     597 ;	.\FwLib_STC8\user\measurement.c:15: zero_track_cnt = 0;
-      002361 90 02 30         [24]  598 	mov	dptr,#_zero_track_cnt
-      002364 F0               [24]  599 	movx	@dptr,a
-      002365 A3               [24]  600 	inc	dptr
-      002366 F0               [24]  601 	movx	@dptr,a
+      001FEB 90 01 B2         [24]  598 	mov	dptr,#_zero_track_cnt
+      001FEE F0               [24]  599 	movx	@dptr,a
+      001FEF A3               [24]  600 	inc	dptr
+      001FF0 F0               [24]  601 	movx	@dptr,a
                                     602 ;	.\FwLib_STC8\user\measurement.c:16: }
-      002367 22               [24]  603 	ret
+      001FF1 22               [24]  603 	ret
                                     604 ;------------------------------------------------------------
                                     605 ;Allocation info for local variables in function 'scale_value'
                                     606 ;------------------------------------------------------------
@@ -621,488 +621,488 @@
                                     621 ;	-----------------------------------------
                                     622 ;	 function scale_value
                                     623 ;	-----------------------------------------
-      002368                        624 _scale_value:
-      002368 AF 82            [24]  625 	mov	r7,dpl
-      00236A AE 83            [24]  626 	mov	r6,dph
-      00236C AD F0            [24]  627 	mov	r5,b
-      00236E FC               [12]  628 	mov	r4,a
-      00236F 90 01 C5         [24]  629 	mov	dptr,#_scale_value_raw_adc_10000_62
-      002372 EF               [12]  630 	mov	a,r7
-      002373 F0               [24]  631 	movx	@dptr,a
-      002374 EE               [12]  632 	mov	a,r6
-      002375 A3               [24]  633 	inc	dptr
-      002376 F0               [24]  634 	movx	@dptr,a
-      002377 ED               [12]  635 	mov	a,r5
-      002378 A3               [24]  636 	inc	dptr
-      002379 F0               [24]  637 	movx	@dptr,a
-      00237A EC               [12]  638 	mov	a,r4
-      00237B A3               [24]  639 	inc	dptr
-      00237C F0               [24]  640 	movx	@dptr,a
+      001FF2                        624 _scale_value:
+      001FF2 AF 82            [24]  625 	mov	r7,dpl
+      001FF4 AE 83            [24]  626 	mov	r6,dph
+      001FF6 AD F0            [24]  627 	mov	r5,b
+      001FF8 FC               [12]  628 	mov	r4,a
+      001FF9 90 01 5F         [24]  629 	mov	dptr,#_scale_value_raw_adc_10000_62
+      001FFC EF               [12]  630 	mov	a,r7
+      001FFD F0               [24]  631 	movx	@dptr,a
+      001FFE EE               [12]  632 	mov	a,r6
+      001FFF A3               [24]  633 	inc	dptr
+      002000 F0               [24]  634 	movx	@dptr,a
+      002001 ED               [12]  635 	mov	a,r5
+      002002 A3               [24]  636 	inc	dptr
+      002003 F0               [24]  637 	movx	@dptr,a
+      002004 EC               [12]  638 	mov	a,r4
+      002005 A3               [24]  639 	inc	dptr
+      002006 F0               [24]  640 	movx	@dptr,a
                                     641 ;	.\FwLib_STC8\user\measurement.c:26: if (reg_cal_points_num < 2) return 0;
-      00237D 90 00 1E         [24]  642 	mov	dptr,#_reg_cal_points_num
-      002380 E0               [24]  643 	movx	a,@dptr
-      002381 FC               [12]  644 	mov	r4,a
-      002382 A3               [24]  645 	inc	dptr
-      002383 E0               [24]  646 	movx	a,@dptr
-      002384 FD               [12]  647 	mov	r5,a
-      002385 A3               [24]  648 	inc	dptr
-      002386 E0               [24]  649 	movx	a,@dptr
-      002387 FE               [12]  650 	mov	r6,a
-      002388 A3               [24]  651 	inc	dptr
-      002389 E0               [24]  652 	movx	a,@dptr
-      00238A FF               [12]  653 	mov	r7,a
-      00238B C3               [12]  654 	clr	c
-      00238C EC               [12]  655 	mov	a,r4
-      00238D 94 02            [12]  656 	subb	a,#0x02
-      00238F ED               [12]  657 	mov	a,r5
-      002390 94 00            [12]  658 	subb	a,#0x00
-      002392 EE               [12]  659 	mov	a,r6
-      002393 94 00            [12]  660 	subb	a,#0x00
-      002395 EF               [12]  661 	mov	a,r7
-      002396 64 80            [12]  662 	xrl	a,#0x80
-      002398 94 80            [12]  663 	subb	a,#0x80
-      00239A 50 07            [24]  664 	jnc	00102$
-      00239C 90 00 00         [24]  665 	mov	dptr,#0x0000
-      00239F E4               [12]  666 	clr	a
-      0023A0 F5 F0            [12]  667 	mov	b,a
-      0023A2 22               [24]  668 	ret
-      0023A3                        669 00102$:
+      002007 90 00 1E         [24]  642 	mov	dptr,#_reg_cal_points_num
+      00200A E0               [24]  643 	movx	a,@dptr
+      00200B FC               [12]  644 	mov	r4,a
+      00200C A3               [24]  645 	inc	dptr
+      00200D E0               [24]  646 	movx	a,@dptr
+      00200E FD               [12]  647 	mov	r5,a
+      00200F A3               [24]  648 	inc	dptr
+      002010 E0               [24]  649 	movx	a,@dptr
+      002011 FE               [12]  650 	mov	r6,a
+      002012 A3               [24]  651 	inc	dptr
+      002013 E0               [24]  652 	movx	a,@dptr
+      002014 FF               [12]  653 	mov	r7,a
+      002015 C3               [12]  654 	clr	c
+      002016 EC               [12]  655 	mov	a,r4
+      002017 94 02            [12]  656 	subb	a,#0x02
+      002019 ED               [12]  657 	mov	a,r5
+      00201A 94 00            [12]  658 	subb	a,#0x00
+      00201C EE               [12]  659 	mov	a,r6
+      00201D 94 00            [12]  660 	subb	a,#0x00
+      00201F EF               [12]  661 	mov	a,r7
+      002020 64 80            [12]  662 	xrl	a,#0x80
+      002022 94 80            [12]  663 	subb	a,#0x80
+      002024 50 07            [24]  664 	jnc	00102$
+      002026 90 00 00         [24]  665 	mov	dptr,#0x0000
+      002029 E4               [12]  666 	clr	a
+      00202A F5 F0            [12]  667 	mov	b,a
+      00202C 22               [24]  668 	ret
+      00202D                        669 00102$:
                                     670 ;	.\FwLib_STC8\user\measurement.c:29: for (i = 0; i < (uint8_t)(reg_cal_points_num - 1); i++) {
-      0023A3 90 01 C9         [24]  671 	mov	dptr,#_scale_value_i_10000_63
-      0023A6 E4               [12]  672 	clr	a
-      0023A7 F0               [24]  673 	movx	@dptr,a
-      0023A8 90 01 C5         [24]  674 	mov	dptr,#_scale_value_raw_adc_10000_62
-      0023AB E0               [24]  675 	movx	a,@dptr
-      0023AC F8               [12]  676 	mov	r0,a
-      0023AD A3               [24]  677 	inc	dptr
-      0023AE E0               [24]  678 	movx	a,@dptr
-      0023AF F9               [12]  679 	mov	r1,a
-      0023B0 A3               [24]  680 	inc	dptr
-      0023B1 E0               [24]  681 	movx	a,@dptr
-      0023B2 FA               [12]  682 	mov	r2,a
-      0023B3 A3               [24]  683 	inc	dptr
-      0023B4 E0               [24]  684 	movx	a,@dptr
-      0023B5 FB               [12]  685 	mov	r3,a
-      0023B6                        686 00111$:
-      0023B6 C0 00            [24]  687 	push	ar0
-      0023B8 C0 01            [24]  688 	push	ar1
-      0023BA C0 02            [24]  689 	push	ar2
-      0023BC C0 03            [24]  690 	push	ar3
-      0023BE EC               [12]  691 	mov	a,r4
-      0023BF F5 2E            [12]  692 	mov	_scale_value_sloc0_1_0,a
-      0023C1 14               [12]  693 	dec	a
-      0023C2 FB               [12]  694 	mov	r3,a
-      0023C3 90 01 C9         [24]  695 	mov	dptr,#_scale_value_i_10000_63
-      0023C6 E0               [24]  696 	movx	a,@dptr
-      0023C7 F5 2F            [12]  697 	mov	_scale_value_sloc1_1_0,a
-      0023C9 C3               [12]  698 	clr	c
-      0023CA 9B               [12]  699 	subb	a,r3
-      0023CB D0 03            [24]  700 	pop	ar3
-      0023CD D0 02            [24]  701 	pop	ar2
-      0023CF D0 01            [24]  702 	pop	ar1
-      0023D1 D0 00            [24]  703 	pop	ar0
-      0023D3 50 5F            [24]  704 	jnc	00105$
+      00202D 90 01 63         [24]  671 	mov	dptr,#_scale_value_i_10000_63
+      002030 E4               [12]  672 	clr	a
+      002031 F0               [24]  673 	movx	@dptr,a
+      002032 90 01 5F         [24]  674 	mov	dptr,#_scale_value_raw_adc_10000_62
+      002035 E0               [24]  675 	movx	a,@dptr
+      002036 F8               [12]  676 	mov	r0,a
+      002037 A3               [24]  677 	inc	dptr
+      002038 E0               [24]  678 	movx	a,@dptr
+      002039 F9               [12]  679 	mov	r1,a
+      00203A A3               [24]  680 	inc	dptr
+      00203B E0               [24]  681 	movx	a,@dptr
+      00203C FA               [12]  682 	mov	r2,a
+      00203D A3               [24]  683 	inc	dptr
+      00203E E0               [24]  684 	movx	a,@dptr
+      00203F FB               [12]  685 	mov	r3,a
+      002040                        686 00111$:
+      002040 C0 00            [24]  687 	push	ar0
+      002042 C0 01            [24]  688 	push	ar1
+      002044 C0 02            [24]  689 	push	ar2
+      002046 C0 03            [24]  690 	push	ar3
+      002048 EC               [12]  691 	mov	a,r4
+      002049 F5 2B            [12]  692 	mov	_scale_value_sloc0_1_0,a
+      00204B 14               [12]  693 	dec	a
+      00204C FB               [12]  694 	mov	r3,a
+      00204D 90 01 63         [24]  695 	mov	dptr,#_scale_value_i_10000_63
+      002050 E0               [24]  696 	movx	a,@dptr
+      002051 F5 2C            [12]  697 	mov	_scale_value_sloc1_1_0,a
+      002053 C3               [12]  698 	clr	c
+      002054 9B               [12]  699 	subb	a,r3
+      002055 D0 03            [24]  700 	pop	ar3
+      002057 D0 02            [24]  701 	pop	ar2
+      002059 D0 01            [24]  702 	pop	ar1
+      00205B D0 00            [24]  703 	pop	ar0
+      00205D 50 5F            [24]  704 	jnc	00105$
                                     705 ;	.\FwLib_STC8\user\measurement.c:30: if (raw_adc < reg_avp[i + 1]) break;
-      0023D5 C0 04            [24]  706 	push	ar4
-      0023D7 C0 05            [24]  707 	push	ar5
-      0023D9 C0 06            [24]  708 	push	ar6
-      0023DB C0 07            [24]  709 	push	ar7
-      0023DD AF 2F            [24]  710 	mov	r7,_scale_value_sloc1_1_0
-      0023DF 0F               [12]  711 	inc	r7
-      0023E0 C2 D5            [12]  712 	clr	F0
-      0023E2 75 F0 04         [24]  713 	mov	b,#0x04
-      0023E5 EF               [12]  714 	mov	a,r7
-      0023E6 30 E7 04         [24]  715 	jnb	acc.7,00153$
-      0023E9 B2 D5            [12]  716 	cpl	F0
-      0023EB F4               [12]  717 	cpl	a
-      0023EC 04               [12]  718 	inc	a
-      0023ED                        719 00153$:
-      0023ED A4               [48]  720 	mul	ab
-      0023EE 30 D5 0A         [24]  721 	jnb	F0,00154$
-      0023F1 F4               [12]  722 	cpl	a
-      0023F2 24 01            [12]  723 	add	a,#0x01
-      0023F4 C5 F0            [12]  724 	xch	a,b
-      0023F6 F4               [12]  725 	cpl	a
-      0023F7 34 00            [12]  726 	addc	a,#0x00
-      0023F9 C5 F0            [12]  727 	xch	a,b
-      0023FB                        728 00154$:
-      0023FB 24 22            [12]  729 	add	a, #_reg_avp
-      0023FD F5 82            [12]  730 	mov	dpl,a
-      0023FF 74 00            [12]  731 	mov	a,#(_reg_avp >> 8)
-      002401 35 F0            [12]  732 	addc	a, b
-      002403 F5 83            [12]  733 	mov	dph,a
-      002405 E0               [24]  734 	movx	a,@dptr
-      002406 FC               [12]  735 	mov	r4,a
-      002407 A3               [24]  736 	inc	dptr
-      002408 E0               [24]  737 	movx	a,@dptr
-      002409 FD               [12]  738 	mov	r5,a
-      00240A A3               [24]  739 	inc	dptr
-      00240B E0               [24]  740 	movx	a,@dptr
-      00240C FE               [12]  741 	mov	r6,a
-      00240D A3               [24]  742 	inc	dptr
-      00240E E0               [24]  743 	movx	a,@dptr
-      00240F FF               [12]  744 	mov	r7,a
-      002410 C3               [12]  745 	clr	c
-      002411 E8               [12]  746 	mov	a,r0
-      002412 9C               [12]  747 	subb	a,r4
-      002413 E9               [12]  748 	mov	a,r1
-      002414 9D               [12]  749 	subb	a,r5
-      002415 EA               [12]  750 	mov	a,r2
-      002416 9E               [12]  751 	subb	a,r6
-      002417 EB               [12]  752 	mov	a,r3
-      002418 64 80            [12]  753 	xrl	a,#0x80
-      00241A 8F F0            [24]  754 	mov	b,r7
-      00241C 63 F0 80         [24]  755 	xrl	b,#0x80
-      00241F 95 F0            [12]  756 	subb	a,b
-      002421 D0 07            [24]  757 	pop	ar7
-      002423 D0 06            [24]  758 	pop	ar6
-      002425 D0 05            [24]  759 	pop	ar5
-      002427 D0 04            [24]  760 	pop	ar4
-      002429 40 09            [24]  761 	jc	00105$
+      00205F C0 04            [24]  706 	push	ar4
+      002061 C0 05            [24]  707 	push	ar5
+      002063 C0 06            [24]  708 	push	ar6
+      002065 C0 07            [24]  709 	push	ar7
+      002067 AF 2C            [24]  710 	mov	r7,_scale_value_sloc1_1_0
+      002069 0F               [12]  711 	inc	r7
+      00206A C2 D5            [12]  712 	clr	F0
+      00206C 75 F0 04         [24]  713 	mov	b,#0x04
+      00206F EF               [12]  714 	mov	a,r7
+      002070 30 E7 04         [24]  715 	jnb	acc.7,00153$
+      002073 B2 D5            [12]  716 	cpl	F0
+      002075 F4               [12]  717 	cpl	a
+      002076 04               [12]  718 	inc	a
+      002077                        719 00153$:
+      002077 A4               [48]  720 	mul	ab
+      002078 30 D5 0A         [24]  721 	jnb	F0,00154$
+      00207B F4               [12]  722 	cpl	a
+      00207C 24 01            [12]  723 	add	a,#0x01
+      00207E C5 F0            [12]  724 	xch	a,b
+      002080 F4               [12]  725 	cpl	a
+      002081 34 00            [12]  726 	addc	a,#0x00
+      002083 C5 F0            [12]  727 	xch	a,b
+      002085                        728 00154$:
+      002085 24 22            [12]  729 	add	a, #_reg_avp
+      002087 F5 82            [12]  730 	mov	dpl,a
+      002089 74 00            [12]  731 	mov	a,#(_reg_avp >> 8)
+      00208B 35 F0            [12]  732 	addc	a, b
+      00208D F5 83            [12]  733 	mov	dph,a
+      00208F E0               [24]  734 	movx	a,@dptr
+      002090 FC               [12]  735 	mov	r4,a
+      002091 A3               [24]  736 	inc	dptr
+      002092 E0               [24]  737 	movx	a,@dptr
+      002093 FD               [12]  738 	mov	r5,a
+      002094 A3               [24]  739 	inc	dptr
+      002095 E0               [24]  740 	movx	a,@dptr
+      002096 FE               [12]  741 	mov	r6,a
+      002097 A3               [24]  742 	inc	dptr
+      002098 E0               [24]  743 	movx	a,@dptr
+      002099 FF               [12]  744 	mov	r7,a
+      00209A C3               [12]  745 	clr	c
+      00209B E8               [12]  746 	mov	a,r0
+      00209C 9C               [12]  747 	subb	a,r4
+      00209D E9               [12]  748 	mov	a,r1
+      00209E 9D               [12]  749 	subb	a,r5
+      00209F EA               [12]  750 	mov	a,r2
+      0020A0 9E               [12]  751 	subb	a,r6
+      0020A1 EB               [12]  752 	mov	a,r3
+      0020A2 64 80            [12]  753 	xrl	a,#0x80
+      0020A4 8F F0            [24]  754 	mov	b,r7
+      0020A6 63 F0 80         [24]  755 	xrl	b,#0x80
+      0020A9 95 F0            [12]  756 	subb	a,b
+      0020AB D0 07            [24]  757 	pop	ar7
+      0020AD D0 06            [24]  758 	pop	ar6
+      0020AF D0 05            [24]  759 	pop	ar5
+      0020B1 D0 04            [24]  760 	pop	ar4
+      0020B3 40 09            [24]  761 	jc	00105$
                                     762 ;	.\FwLib_STC8\user\measurement.c:29: for (i = 0; i < (uint8_t)(reg_cal_points_num - 1); i++) {
-      00242B 90 01 C9         [24]  763 	mov	dptr,#_scale_value_i_10000_63
-      00242E E5 2F            [12]  764 	mov	a,_scale_value_sloc1_1_0
-      002430 04               [12]  765 	inc	a
-      002431 F0               [24]  766 	movx	@dptr,a
-      002432 80 82            [24]  767 	sjmp	00111$
-      002434                        768 00105$:
+      0020B5 90 01 63         [24]  763 	mov	dptr,#_scale_value_i_10000_63
+      0020B8 E5 2C            [12]  764 	mov	a,_scale_value_sloc1_1_0
+      0020BA 04               [12]  765 	inc	a
+      0020BB F0               [24]  766 	movx	@dptr,a
+      0020BC 80 82            [24]  767 	sjmp	00111$
+      0020BE                        768 00105$:
                                     769 ;	.\FwLib_STC8\user\measurement.c:33: if (i >= (reg_cal_points_num - 1)) i = reg_cal_points_num - 2;
-      002434 1C               [12]  770 	dec	r4
-      002435 BC FF 09         [24]  771 	cjne	r4,#0xff,00156$
-      002438 1D               [12]  772 	dec	r5
-      002439 BD FF 05         [24]  773 	cjne	r5,#0xff,00156$
-      00243C 1E               [12]  774 	dec	r6
-      00243D BE FF 01         [24]  775 	cjne	r6,#0xff,00156$
-      002440 1F               [12]  776 	dec	r7
-      002441                        777 00156$:
-      002441 90 01 C9         [24]  778 	mov	dptr,#_scale_value_i_10000_63
-      002444 E0               [24]  779 	movx	a,@dptr
-      002445 F8               [12]  780 	mov	r0,a
-      002446 79 00            [12]  781 	mov	r1,#0x00
-      002448 7A 00            [12]  782 	mov	r2,#0x00
-      00244A 7B 00            [12]  783 	mov	r3,#0x00
-      00244C C3               [12]  784 	clr	c
-      00244D E8               [12]  785 	mov	a,r0
-      00244E 9C               [12]  786 	subb	a,r4
-      00244F E9               [12]  787 	mov	a,r1
-      002450 9D               [12]  788 	subb	a,r5
-      002451 EA               [12]  789 	mov	a,r2
-      002452 9E               [12]  790 	subb	a,r6
-      002453 EB               [12]  791 	mov	a,r3
-      002454 64 80            [12]  792 	xrl	a,#0x80
-      002456 8F F0            [24]  793 	mov	b,r7
-      002458 63 F0 80         [24]  794 	xrl	b,#0x80
-      00245B 95 F0            [12]  795 	subb	a,b
-      00245D 40 08            [24]  796 	jc	00107$
-      00245F E5 2E            [12]  797 	mov	a,_scale_value_sloc0_1_0
-      002461 24 FE            [12]  798 	add	a,#0xfe
-      002463 90 01 C9         [24]  799 	mov	dptr,#_scale_value_i_10000_63
-      002466 F0               [24]  800 	movx	@dptr,a
-      002467                        801 00107$:
+      0020BE 1C               [12]  770 	dec	r4
+      0020BF BC FF 09         [24]  771 	cjne	r4,#0xff,00156$
+      0020C2 1D               [12]  772 	dec	r5
+      0020C3 BD FF 05         [24]  773 	cjne	r5,#0xff,00156$
+      0020C6 1E               [12]  774 	dec	r6
+      0020C7 BE FF 01         [24]  775 	cjne	r6,#0xff,00156$
+      0020CA 1F               [12]  776 	dec	r7
+      0020CB                        777 00156$:
+      0020CB 90 01 63         [24]  778 	mov	dptr,#_scale_value_i_10000_63
+      0020CE E0               [24]  779 	movx	a,@dptr
+      0020CF F8               [12]  780 	mov	r0,a
+      0020D0 79 00            [12]  781 	mov	r1,#0x00
+      0020D2 7A 00            [12]  782 	mov	r2,#0x00
+      0020D4 7B 00            [12]  783 	mov	r3,#0x00
+      0020D6 C3               [12]  784 	clr	c
+      0020D7 E8               [12]  785 	mov	a,r0
+      0020D8 9C               [12]  786 	subb	a,r4
+      0020D9 E9               [12]  787 	mov	a,r1
+      0020DA 9D               [12]  788 	subb	a,r5
+      0020DB EA               [12]  789 	mov	a,r2
+      0020DC 9E               [12]  790 	subb	a,r6
+      0020DD EB               [12]  791 	mov	a,r3
+      0020DE 64 80            [12]  792 	xrl	a,#0x80
+      0020E0 8F F0            [24]  793 	mov	b,r7
+      0020E2 63 F0 80         [24]  794 	xrl	b,#0x80
+      0020E5 95 F0            [12]  795 	subb	a,b
+      0020E7 40 08            [24]  796 	jc	00107$
+      0020E9 E5 2B            [12]  797 	mov	a,_scale_value_sloc0_1_0
+      0020EB 24 FE            [12]  798 	add	a,#0xfe
+      0020ED 90 01 63         [24]  799 	mov	dptr,#_scale_value_i_10000_63
+      0020F0 F0               [24]  800 	movx	@dptr,a
+      0020F1                        801 00107$:
                                     802 ;	.\FwLib_STC8\user\measurement.c:35: x0 = reg_avp[i];     y0 = reg_pvp[i];
-      002467 90 01 C9         [24]  803 	mov	dptr,#_scale_value_i_10000_63
-      00246A E0               [24]  804 	movx	a,@dptr
-      00246B FF               [12]  805 	mov	r7,a
-      00246C 75 F0 04         [24]  806 	mov	b,#0x04
-      00246F A4               [48]  807 	mul	ab
-      002470 FD               [12]  808 	mov	r5,a
-      002471 AE F0            [24]  809 	mov	r6,b
-      002473 24 22            [12]  810 	add	a, #_reg_avp
-      002475 F5 82            [12]  811 	mov	dpl,a
-      002477 EE               [12]  812 	mov	a,r6
-      002478 34 00            [12]  813 	addc	a, #(_reg_avp >> 8)
-      00247A F5 83            [12]  814 	mov	dph,a
-      00247C E0               [24]  815 	movx	a,@dptr
-      00247D F9               [12]  816 	mov	r1,a
-      00247E A3               [24]  817 	inc	dptr
-      00247F E0               [24]  818 	movx	a,@dptr
-      002480 FA               [12]  819 	mov	r2,a
-      002481 A3               [24]  820 	inc	dptr
-      002482 E0               [24]  821 	movx	a,@dptr
-      002483 FB               [12]  822 	mov	r3,a
-      002484 A3               [24]  823 	inc	dptr
-      002485 E0               [24]  824 	movx	a,@dptr
-      002486 FC               [12]  825 	mov	r4,a
-      002487 90 01 CA         [24]  826 	mov	dptr,#_scale_value_x0_10000_63
-      00248A E9               [12]  827 	mov	a,r1
-      00248B F0               [24]  828 	movx	@dptr,a
-      00248C EA               [12]  829 	mov	a,r2
-      00248D A3               [24]  830 	inc	dptr
-      00248E F0               [24]  831 	movx	@dptr,a
-      00248F EB               [12]  832 	mov	a,r3
-      002490 A3               [24]  833 	inc	dptr
-      002491 F0               [24]  834 	movx	@dptr,a
-      002492 EC               [12]  835 	mov	a,r4
-      002493 A3               [24]  836 	inc	dptr
-      002494 F0               [24]  837 	movx	@dptr,a
-      002495 ED               [12]  838 	mov	a,r5
-      002496 24 46            [12]  839 	add	a, #_reg_pvp
-      002498 F5 82            [12]  840 	mov	dpl,a
-      00249A EE               [12]  841 	mov	a,r6
-      00249B 34 00            [12]  842 	addc	a, #(_reg_pvp >> 8)
-      00249D F5 83            [12]  843 	mov	dph,a
-      00249F E0               [24]  844 	movx	a,@dptr
-      0024A0 F5 30            [12]  845 	mov	_scale_value_sloc2_1_0,a
-      0024A2 A3               [24]  846 	inc	dptr
-      0024A3 E0               [24]  847 	movx	a,@dptr
-      0024A4 F5 31            [12]  848 	mov	(_scale_value_sloc2_1_0 + 1),a
-      0024A6 A3               [24]  849 	inc	dptr
-      0024A7 E0               [24]  850 	movx	a,@dptr
-      0024A8 F5 32            [12]  851 	mov	(_scale_value_sloc2_1_0 + 2),a
-      0024AA A3               [24]  852 	inc	dptr
-      0024AB E0               [24]  853 	movx	a,@dptr
-      0024AC F5 33            [12]  854 	mov	(_scale_value_sloc2_1_0 + 3),a
-      0024AE 90 01 D2         [24]  855 	mov	dptr,#_scale_value_y0_10000_63
-      0024B1 E5 30            [12]  856 	mov	a,_scale_value_sloc2_1_0
-      0024B3 F0               [24]  857 	movx	@dptr,a
-      0024B4 E5 31            [12]  858 	mov	a,(_scale_value_sloc2_1_0 + 1)
-      0024B6 A3               [24]  859 	inc	dptr
-      0024B7 F0               [24]  860 	movx	@dptr,a
-      0024B8 E5 32            [12]  861 	mov	a,(_scale_value_sloc2_1_0 + 2)
-      0024BA A3               [24]  862 	inc	dptr
-      0024BB F0               [24]  863 	movx	@dptr,a
-      0024BC E5 33            [12]  864 	mov	a,(_scale_value_sloc2_1_0 + 3)
-      0024BE A3               [24]  865 	inc	dptr
-      0024BF F0               [24]  866 	movx	@dptr,a
+      0020F1 90 01 63         [24]  803 	mov	dptr,#_scale_value_i_10000_63
+      0020F4 E0               [24]  804 	movx	a,@dptr
+      0020F5 FF               [12]  805 	mov	r7,a
+      0020F6 75 F0 04         [24]  806 	mov	b,#0x04
+      0020F9 A4               [48]  807 	mul	ab
+      0020FA FD               [12]  808 	mov	r5,a
+      0020FB AE F0            [24]  809 	mov	r6,b
+      0020FD 24 22            [12]  810 	add	a, #_reg_avp
+      0020FF F5 82            [12]  811 	mov	dpl,a
+      002101 EE               [12]  812 	mov	a,r6
+      002102 34 00            [12]  813 	addc	a, #(_reg_avp >> 8)
+      002104 F5 83            [12]  814 	mov	dph,a
+      002106 E0               [24]  815 	movx	a,@dptr
+      002107 F9               [12]  816 	mov	r1,a
+      002108 A3               [24]  817 	inc	dptr
+      002109 E0               [24]  818 	movx	a,@dptr
+      00210A FA               [12]  819 	mov	r2,a
+      00210B A3               [24]  820 	inc	dptr
+      00210C E0               [24]  821 	movx	a,@dptr
+      00210D FB               [12]  822 	mov	r3,a
+      00210E A3               [24]  823 	inc	dptr
+      00210F E0               [24]  824 	movx	a,@dptr
+      002110 FC               [12]  825 	mov	r4,a
+      002111 90 01 64         [24]  826 	mov	dptr,#_scale_value_x0_10000_63
+      002114 E9               [12]  827 	mov	a,r1
+      002115 F0               [24]  828 	movx	@dptr,a
+      002116 EA               [12]  829 	mov	a,r2
+      002117 A3               [24]  830 	inc	dptr
+      002118 F0               [24]  831 	movx	@dptr,a
+      002119 EB               [12]  832 	mov	a,r3
+      00211A A3               [24]  833 	inc	dptr
+      00211B F0               [24]  834 	movx	@dptr,a
+      00211C EC               [12]  835 	mov	a,r4
+      00211D A3               [24]  836 	inc	dptr
+      00211E F0               [24]  837 	movx	@dptr,a
+      00211F ED               [12]  838 	mov	a,r5
+      002120 24 46            [12]  839 	add	a, #_reg_pvp
+      002122 F5 82            [12]  840 	mov	dpl,a
+      002124 EE               [12]  841 	mov	a,r6
+      002125 34 00            [12]  842 	addc	a, #(_reg_pvp >> 8)
+      002127 F5 83            [12]  843 	mov	dph,a
+      002129 E0               [24]  844 	movx	a,@dptr
+      00212A F5 2D            [12]  845 	mov	_scale_value_sloc2_1_0,a
+      00212C A3               [24]  846 	inc	dptr
+      00212D E0               [24]  847 	movx	a,@dptr
+      00212E F5 2E            [12]  848 	mov	(_scale_value_sloc2_1_0 + 1),a
+      002130 A3               [24]  849 	inc	dptr
+      002131 E0               [24]  850 	movx	a,@dptr
+      002132 F5 2F            [12]  851 	mov	(_scale_value_sloc2_1_0 + 2),a
+      002134 A3               [24]  852 	inc	dptr
+      002135 E0               [24]  853 	movx	a,@dptr
+      002136 F5 30            [12]  854 	mov	(_scale_value_sloc2_1_0 + 3),a
+      002138 90 01 6C         [24]  855 	mov	dptr,#_scale_value_y0_10000_63
+      00213B E5 2D            [12]  856 	mov	a,_scale_value_sloc2_1_0
+      00213D F0               [24]  857 	movx	@dptr,a
+      00213E E5 2E            [12]  858 	mov	a,(_scale_value_sloc2_1_0 + 1)
+      002140 A3               [24]  859 	inc	dptr
+      002141 F0               [24]  860 	movx	@dptr,a
+      002142 E5 2F            [12]  861 	mov	a,(_scale_value_sloc2_1_0 + 2)
+      002144 A3               [24]  862 	inc	dptr
+      002145 F0               [24]  863 	movx	@dptr,a
+      002146 E5 30            [12]  864 	mov	a,(_scale_value_sloc2_1_0 + 3)
+      002148 A3               [24]  865 	inc	dptr
+      002149 F0               [24]  866 	movx	@dptr,a
                                     867 ;	.\FwLib_STC8\user\measurement.c:36: x1 = reg_avp[i + 1]; y1 = reg_pvp[i + 1];
-      0024C0 0F               [12]  868 	inc	r7
-      0024C1 C2 D5            [12]  869 	clr	F0
-      0024C3 75 F0 04         [24]  870 	mov	b,#0x04
-      0024C6 EF               [12]  871 	mov	a,r7
-      0024C7 30 E7 04         [24]  872 	jnb	acc.7,00158$
-      0024CA B2 D5            [12]  873 	cpl	F0
-      0024CC F4               [12]  874 	cpl	a
-      0024CD 04               [12]  875 	inc	a
-      0024CE                        876 00158$:
-      0024CE A4               [48]  877 	mul	ab
-      0024CF 30 D5 0A         [24]  878 	jnb	F0,00159$
-      0024D2 F4               [12]  879 	cpl	a
-      0024D3 24 01            [12]  880 	add	a,#0x01
-      0024D5 C5 F0            [12]  881 	xch	a,b
-      0024D7 F4               [12]  882 	cpl	a
-      0024D8 34 00            [12]  883 	addc	a,#0x00
-      0024DA C5 F0            [12]  884 	xch	a,b
-      0024DC                        885 00159$:
-      0024DC FF               [12]  886 	mov	r7,a
-      0024DD AE F0            [24]  887 	mov	r6,b
-      0024DF 24 22            [12]  888 	add	a, #_reg_avp
-      0024E1 F5 82            [12]  889 	mov	dpl,a
-      0024E3 EE               [12]  890 	mov	a,r6
-      0024E4 34 00            [12]  891 	addc	a, #(_reg_avp >> 8)
-      0024E6 F5 83            [12]  892 	mov	dph,a
-      0024E8 E0               [24]  893 	movx	a,@dptr
-      0024E9 F5 34            [12]  894 	mov	_scale_value_sloc3_1_0,a
-      0024EB A3               [24]  895 	inc	dptr
-      0024EC E0               [24]  896 	movx	a,@dptr
-      0024ED F5 35            [12]  897 	mov	(_scale_value_sloc3_1_0 + 1),a
-      0024EF A3               [24]  898 	inc	dptr
-      0024F0 E0               [24]  899 	movx	a,@dptr
-      0024F1 F5 36            [12]  900 	mov	(_scale_value_sloc3_1_0 + 2),a
-      0024F3 A3               [24]  901 	inc	dptr
-      0024F4 E0               [24]  902 	movx	a,@dptr
-      0024F5 F5 37            [12]  903 	mov	(_scale_value_sloc3_1_0 + 3),a
-      0024F7 90 01 CE         [24]  904 	mov	dptr,#_scale_value_x1_10000_63
-      0024FA E5 34            [12]  905 	mov	a,_scale_value_sloc3_1_0
-      0024FC F0               [24]  906 	movx	@dptr,a
-      0024FD E5 35            [12]  907 	mov	a,(_scale_value_sloc3_1_0 + 1)
-      0024FF A3               [24]  908 	inc	dptr
-      002500 F0               [24]  909 	movx	@dptr,a
-      002501 E5 36            [12]  910 	mov	a,(_scale_value_sloc3_1_0 + 2)
-      002503 A3               [24]  911 	inc	dptr
-      002504 F0               [24]  912 	movx	@dptr,a
-      002505 E5 37            [12]  913 	mov	a,(_scale_value_sloc3_1_0 + 3)
-      002507 A3               [24]  914 	inc	dptr
-      002508 F0               [24]  915 	movx	@dptr,a
-      002509 EF               [12]  916 	mov	a,r7
-      00250A 24 46            [12]  917 	add	a, #_reg_pvp
-      00250C F5 82            [12]  918 	mov	dpl,a
-      00250E EE               [12]  919 	mov	a,r6
-      00250F 34 00            [12]  920 	addc	a, #(_reg_pvp >> 8)
-      002511 F5 83            [12]  921 	mov	dph,a
-      002513 E0               [24]  922 	movx	a,@dptr
-      002514 F5 38            [12]  923 	mov	_scale_value_sloc4_1_0,a
-      002516 A3               [24]  924 	inc	dptr
-      002517 E0               [24]  925 	movx	a,@dptr
-      002518 F5 39            [12]  926 	mov	(_scale_value_sloc4_1_0 + 1),a
-      00251A A3               [24]  927 	inc	dptr
-      00251B E0               [24]  928 	movx	a,@dptr
-      00251C F5 3A            [12]  929 	mov	(_scale_value_sloc4_1_0 + 2),a
-      00251E A3               [24]  930 	inc	dptr
-      00251F E0               [24]  931 	movx	a,@dptr
-      002520 F5 3B            [12]  932 	mov	(_scale_value_sloc4_1_0 + 3),a
-      002522 90 01 D6         [24]  933 	mov	dptr,#_scale_value_y1_10000_63
-      002525 E5 38            [12]  934 	mov	a,_scale_value_sloc4_1_0
-      002527 F0               [24]  935 	movx	@dptr,a
-      002528 E5 39            [12]  936 	mov	a,(_scale_value_sloc4_1_0 + 1)
-      00252A A3               [24]  937 	inc	dptr
-      00252B F0               [24]  938 	movx	@dptr,a
-      00252C E5 3A            [12]  939 	mov	a,(_scale_value_sloc4_1_0 + 2)
-      00252E A3               [24]  940 	inc	dptr
-      00252F F0               [24]  941 	movx	@dptr,a
-      002530 E5 3B            [12]  942 	mov	a,(_scale_value_sloc4_1_0 + 3)
-      002532 A3               [24]  943 	inc	dptr
-      002533 F0               [24]  944 	movx	@dptr,a
+      00214A 0F               [12]  868 	inc	r7
+      00214B C2 D5            [12]  869 	clr	F0
+      00214D 75 F0 04         [24]  870 	mov	b,#0x04
+      002150 EF               [12]  871 	mov	a,r7
+      002151 30 E7 04         [24]  872 	jnb	acc.7,00158$
+      002154 B2 D5            [12]  873 	cpl	F0
+      002156 F4               [12]  874 	cpl	a
+      002157 04               [12]  875 	inc	a
+      002158                        876 00158$:
+      002158 A4               [48]  877 	mul	ab
+      002159 30 D5 0A         [24]  878 	jnb	F0,00159$
+      00215C F4               [12]  879 	cpl	a
+      00215D 24 01            [12]  880 	add	a,#0x01
+      00215F C5 F0            [12]  881 	xch	a,b
+      002161 F4               [12]  882 	cpl	a
+      002162 34 00            [12]  883 	addc	a,#0x00
+      002164 C5 F0            [12]  884 	xch	a,b
+      002166                        885 00159$:
+      002166 FF               [12]  886 	mov	r7,a
+      002167 AE F0            [24]  887 	mov	r6,b
+      002169 24 22            [12]  888 	add	a, #_reg_avp
+      00216B F5 82            [12]  889 	mov	dpl,a
+      00216D EE               [12]  890 	mov	a,r6
+      00216E 34 00            [12]  891 	addc	a, #(_reg_avp >> 8)
+      002170 F5 83            [12]  892 	mov	dph,a
+      002172 E0               [24]  893 	movx	a,@dptr
+      002173 F5 31            [12]  894 	mov	_scale_value_sloc3_1_0,a
+      002175 A3               [24]  895 	inc	dptr
+      002176 E0               [24]  896 	movx	a,@dptr
+      002177 F5 32            [12]  897 	mov	(_scale_value_sloc3_1_0 + 1),a
+      002179 A3               [24]  898 	inc	dptr
+      00217A E0               [24]  899 	movx	a,@dptr
+      00217B F5 33            [12]  900 	mov	(_scale_value_sloc3_1_0 + 2),a
+      00217D A3               [24]  901 	inc	dptr
+      00217E E0               [24]  902 	movx	a,@dptr
+      00217F F5 34            [12]  903 	mov	(_scale_value_sloc3_1_0 + 3),a
+      002181 90 01 68         [24]  904 	mov	dptr,#_scale_value_x1_10000_63
+      002184 E5 31            [12]  905 	mov	a,_scale_value_sloc3_1_0
+      002186 F0               [24]  906 	movx	@dptr,a
+      002187 E5 32            [12]  907 	mov	a,(_scale_value_sloc3_1_0 + 1)
+      002189 A3               [24]  908 	inc	dptr
+      00218A F0               [24]  909 	movx	@dptr,a
+      00218B E5 33            [12]  910 	mov	a,(_scale_value_sloc3_1_0 + 2)
+      00218D A3               [24]  911 	inc	dptr
+      00218E F0               [24]  912 	movx	@dptr,a
+      00218F E5 34            [12]  913 	mov	a,(_scale_value_sloc3_1_0 + 3)
+      002191 A3               [24]  914 	inc	dptr
+      002192 F0               [24]  915 	movx	@dptr,a
+      002193 EF               [12]  916 	mov	a,r7
+      002194 24 46            [12]  917 	add	a, #_reg_pvp
+      002196 F5 82            [12]  918 	mov	dpl,a
+      002198 EE               [12]  919 	mov	a,r6
+      002199 34 00            [12]  920 	addc	a, #(_reg_pvp >> 8)
+      00219B F5 83            [12]  921 	mov	dph,a
+      00219D E0               [24]  922 	movx	a,@dptr
+      00219E F5 35            [12]  923 	mov	_scale_value_sloc4_1_0,a
+      0021A0 A3               [24]  924 	inc	dptr
+      0021A1 E0               [24]  925 	movx	a,@dptr
+      0021A2 F5 36            [12]  926 	mov	(_scale_value_sloc4_1_0 + 1),a
+      0021A4 A3               [24]  927 	inc	dptr
+      0021A5 E0               [24]  928 	movx	a,@dptr
+      0021A6 F5 37            [12]  929 	mov	(_scale_value_sloc4_1_0 + 2),a
+      0021A8 A3               [24]  930 	inc	dptr
+      0021A9 E0               [24]  931 	movx	a,@dptr
+      0021AA F5 38            [12]  932 	mov	(_scale_value_sloc4_1_0 + 3),a
+      0021AC 90 01 70         [24]  933 	mov	dptr,#_scale_value_y1_10000_63
+      0021AF E5 35            [12]  934 	mov	a,_scale_value_sloc4_1_0
+      0021B1 F0               [24]  935 	movx	@dptr,a
+      0021B2 E5 36            [12]  936 	mov	a,(_scale_value_sloc4_1_0 + 1)
+      0021B4 A3               [24]  937 	inc	dptr
+      0021B5 F0               [24]  938 	movx	@dptr,a
+      0021B6 E5 37            [12]  939 	mov	a,(_scale_value_sloc4_1_0 + 2)
+      0021B8 A3               [24]  940 	inc	dptr
+      0021B9 F0               [24]  941 	movx	@dptr,a
+      0021BA E5 38            [12]  942 	mov	a,(_scale_value_sloc4_1_0 + 3)
+      0021BC A3               [24]  943 	inc	dptr
+      0021BD F0               [24]  944 	movx	@dptr,a
                                     945 ;	.\FwLib_STC8\user\measurement.c:38: if (x1 == x0) return y0;
-      002534 E9               [12]  946 	mov	a,r1
-      002535 B5 34 18         [24]  947 	cjne	a,_scale_value_sloc3_1_0,00109$
-      002538 EA               [12]  948 	mov	a,r2
-      002539 B5 35 14         [24]  949 	cjne	a,(_scale_value_sloc3_1_0 + 1),00109$
-      00253C EB               [12]  950 	mov	a,r3
-      00253D B5 36 10         [24]  951 	cjne	a,(_scale_value_sloc3_1_0 + 2),00109$
-      002540 EC               [12]  952 	mov	a,r4
-      002541 B5 37 0C         [24]  953 	cjne	a,(_scale_value_sloc3_1_0 + 3),00109$
-      002544 85 30 82         [24]  954 	mov	dpl, _scale_value_sloc2_1_0
-      002547 85 31 83         [24]  955 	mov	dph, (_scale_value_sloc2_1_0 + 1)
-      00254A 85 32 F0         [24]  956 	mov	b, (_scale_value_sloc2_1_0 + 2)
-      00254D E5 33            [12]  957 	mov	a, (_scale_value_sloc2_1_0 + 3)
-      00254F 22               [24]  958 	ret
-      002550                        959 00109$:
+      0021BE E9               [12]  946 	mov	a,r1
+      0021BF B5 31 18         [24]  947 	cjne	a,_scale_value_sloc3_1_0,00109$
+      0021C2 EA               [12]  948 	mov	a,r2
+      0021C3 B5 32 14         [24]  949 	cjne	a,(_scale_value_sloc3_1_0 + 1),00109$
+      0021C6 EB               [12]  950 	mov	a,r3
+      0021C7 B5 33 10         [24]  951 	cjne	a,(_scale_value_sloc3_1_0 + 2),00109$
+      0021CA EC               [12]  952 	mov	a,r4
+      0021CB B5 34 0C         [24]  953 	cjne	a,(_scale_value_sloc3_1_0 + 3),00109$
+      0021CE 85 2D 82         [24]  954 	mov	dpl, _scale_value_sloc2_1_0
+      0021D1 85 2E 83         [24]  955 	mov	dph, (_scale_value_sloc2_1_0 + 1)
+      0021D4 85 2F F0         [24]  956 	mov	b, (_scale_value_sloc2_1_0 + 2)
+      0021D7 E5 30            [12]  957 	mov	a, (_scale_value_sloc2_1_0 + 3)
+      0021D9 22               [24]  958 	ret
+      0021DA                        959 00109$:
                                     960 ;	.\FwLib_STC8\user\measurement.c:42: return y0 + (int32_t)((float)(raw_adc - x0) * (y1 - y0) / (x1 - x0));
-      002550 90 01 C5         [24]  961 	mov	dptr,#_scale_value_raw_adc_10000_62
-      002553 E0               [24]  962 	movx	a,@dptr
-      002554 F8               [12]  963 	mov	r0,a
-      002555 A3               [24]  964 	inc	dptr
-      002556 E0               [24]  965 	movx	a,@dptr
-      002557 FD               [12]  966 	mov	r5,a
-      002558 A3               [24]  967 	inc	dptr
-      002559 E0               [24]  968 	movx	a,@dptr
-      00255A FE               [12]  969 	mov	r6,a
-      00255B A3               [24]  970 	inc	dptr
-      00255C E0               [24]  971 	movx	a,@dptr
-      00255D FF               [12]  972 	mov	r7,a
-      00255E E8               [12]  973 	mov	a,r0
-      00255F C3               [12]  974 	clr	c
-      002560 99               [12]  975 	subb	a,r1
-      002561 F8               [12]  976 	mov	r0,a
-      002562 ED               [12]  977 	mov	a,r5
-      002563 9A               [12]  978 	subb	a,r2
-      002564 FD               [12]  979 	mov	r5,a
-      002565 EE               [12]  980 	mov	a,r6
-      002566 9B               [12]  981 	subb	a,r3
-      002567 FE               [12]  982 	mov	r6,a
-      002568 EF               [12]  983 	mov	a,r7
-      002569 9C               [12]  984 	subb	a,r4
-      00256A 88 82            [24]  985 	mov	dpl,r0
-      00256C 8D 83            [24]  986 	mov	dph,r5
-      00256E 8E F0            [24]  987 	mov	b,r6
-      002570 C0 04            [24]  988 	push	ar4
-      002572 C0 03            [24]  989 	push	ar3
-      002574 C0 02            [24]  990 	push	ar2
-      002576 C0 01            [24]  991 	push	ar1
-      002578 12 30 D6         [24]  992 	lcall	___slong2fs
-      00257B 85 82 3C         [24]  993 	mov	_scale_value_sloc5_1_0,dpl
-      00257E 85 83 3D         [24]  994 	mov	(_scale_value_sloc5_1_0 + 1),dph
-      002581 85 F0 3E         [24]  995 	mov	(_scale_value_sloc5_1_0 + 2),b
-      002584 F5 3F            [12]  996 	mov	(_scale_value_sloc5_1_0 + 3),a
-      002586 E5 38            [12]  997 	mov	a,_scale_value_sloc4_1_0
-      002588 C3               [12]  998 	clr	c
-      002589 95 30            [12]  999 	subb	a,_scale_value_sloc2_1_0
-      00258B F8               [12] 1000 	mov	r0,a
-      00258C E5 39            [12] 1001 	mov	a,(_scale_value_sloc4_1_0 + 1)
-      00258E 95 31            [12] 1002 	subb	a,(_scale_value_sloc2_1_0 + 1)
-      002590 FD               [12] 1003 	mov	r5,a
-      002591 E5 3A            [12] 1004 	mov	a,(_scale_value_sloc4_1_0 + 2)
-      002593 95 32            [12] 1005 	subb	a,(_scale_value_sloc2_1_0 + 2)
-      002595 FE               [12] 1006 	mov	r6,a
-      002596 E5 3B            [12] 1007 	mov	a,(_scale_value_sloc4_1_0 + 3)
-      002598 95 33            [12] 1008 	subb	a,(_scale_value_sloc2_1_0 + 3)
-      00259A 88 82            [24] 1009 	mov	dpl,r0
-      00259C 8D 83            [24] 1010 	mov	dph,r5
-      00259E 8E F0            [24] 1011 	mov	b,r6
-      0025A0 12 30 D6         [24] 1012 	lcall	___slong2fs
-      0025A3 A8 82            [24] 1013 	mov	r0, dpl
-      0025A5 AD 83            [24] 1014 	mov	r5, dph
-      0025A7 AE F0            [24] 1015 	mov	r6, b
-      0025A9 FF               [12] 1016 	mov	r7, a
-      0025AA C0 00            [24] 1017 	push	ar0
-      0025AC C0 05            [24] 1018 	push	ar5
-      0025AE C0 06            [24] 1019 	push	ar6
-      0025B0 C0 07            [24] 1020 	push	ar7
-      0025B2 85 3C 82         [24] 1021 	mov	dpl, _scale_value_sloc5_1_0
-      0025B5 85 3D 83         [24] 1022 	mov	dph, (_scale_value_sloc5_1_0 + 1)
-      0025B8 85 3E F0         [24] 1023 	mov	b, (_scale_value_sloc5_1_0 + 2)
-      0025BB E5 3F            [12] 1024 	mov	a, (_scale_value_sloc5_1_0 + 3)
-      0025BD 12 2D AC         [24] 1025 	lcall	___fsmul
-      0025C0 A8 82            [24] 1026 	mov	r0, dpl
-      0025C2 AD 83            [24] 1027 	mov	r5, dph
-      0025C4 AE F0            [24] 1028 	mov	r6, b
-      0025C6 FF               [12] 1029 	mov	r7, a
-      0025C7 E5 81            [12] 1030 	mov	a,sp
-      0025C9 24 FC            [12] 1031 	add	a,#0xfc
-      0025CB F5 81            [12] 1032 	mov	sp,a
-      0025CD D0 01            [24] 1033 	pop	ar1
-      0025CF D0 02            [24] 1034 	pop	ar2
-      0025D1 D0 03            [24] 1035 	pop	ar3
-      0025D3 D0 04            [24] 1036 	pop	ar4
-      0025D5 E5 34            [12] 1037 	mov	a,_scale_value_sloc3_1_0
-      0025D7 C3               [12] 1038 	clr	c
-      0025D8 99               [12] 1039 	subb	a,r1
-      0025D9 F9               [12] 1040 	mov	r1,a
-      0025DA E5 35            [12] 1041 	mov	a,(_scale_value_sloc3_1_0 + 1)
-      0025DC 9A               [12] 1042 	subb	a,r2
-      0025DD FA               [12] 1043 	mov	r2,a
-      0025DE E5 36            [12] 1044 	mov	a,(_scale_value_sloc3_1_0 + 2)
-      0025E0 9B               [12] 1045 	subb	a,r3
-      0025E1 FB               [12] 1046 	mov	r3,a
-      0025E2 E5 37            [12] 1047 	mov	a,(_scale_value_sloc3_1_0 + 3)
-      0025E4 9C               [12] 1048 	subb	a,r4
-      0025E5 89 82            [24] 1049 	mov	dpl,r1
-      0025E7 8A 83            [24] 1050 	mov	dph,r2
-      0025E9 8B F0            [24] 1051 	mov	b,r3
-      0025EB C0 07            [24] 1052 	push	ar7
-      0025ED C0 06            [24] 1053 	push	ar6
-      0025EF C0 05            [24] 1054 	push	ar5
-      0025F1 C0 00            [24] 1055 	push	ar0
-      0025F3 12 30 D6         [24] 1056 	lcall	___slong2fs
-      0025F6 A9 82            [24] 1057 	mov	r1, dpl
-      0025F8 AA 83            [24] 1058 	mov	r2, dph
-      0025FA AB F0            [24] 1059 	mov	r3, b
-      0025FC FC               [12] 1060 	mov	r4, a
-      0025FD D0 00            [24] 1061 	pop	ar0
-      0025FF D0 05            [24] 1062 	pop	ar5
-      002601 D0 06            [24] 1063 	pop	ar6
-      002603 D0 07            [24] 1064 	pop	ar7
-      002605 C0 01            [24] 1065 	push	ar1
-      002607 C0 02            [24] 1066 	push	ar2
-      002609 C0 03            [24] 1067 	push	ar3
-      00260B C0 04            [24] 1068 	push	ar4
-      00260D 88 82            [24] 1069 	mov	dpl, r0
-      00260F 8D 83            [24] 1070 	mov	dph, r5
-      002611 8E F0            [24] 1071 	mov	b, r6
-      002613 EF               [12] 1072 	mov	a, r7
-      002614 12 33 11         [24] 1073 	lcall	___fsdiv
-      002617 AC 82            [24] 1074 	mov	r4, dpl
-      002619 AD 83            [24] 1075 	mov	r5, dph
-      00261B AE F0            [24] 1076 	mov	r6, b
-      00261D FF               [12] 1077 	mov	r7, a
-      00261E E5 81            [12] 1078 	mov	a,sp
-      002620 24 FC            [12] 1079 	add	a,#0xfc
-      002622 F5 81            [12] 1080 	mov	sp,a
-      002624 8C 82            [24] 1081 	mov	dpl, r4
-      002626 8D 83            [24] 1082 	mov	dph, r5
-      002628 8E F0            [24] 1083 	mov	b, r6
-      00262A EF               [12] 1084 	mov	a, r7
-      00262B 12 31 03         [24] 1085 	lcall	___fs2slong
-      00262E AC 82            [24] 1086 	mov	r4, dpl
-      002630 AD 83            [24] 1087 	mov	r5, dph
-      002632 AE F0            [24] 1088 	mov	r6, b
-      002634 FF               [12] 1089 	mov	r7, a
-      002635 EC               [12] 1090 	mov	a,r4
-      002636 25 30            [12] 1091 	add	a, _scale_value_sloc2_1_0
-      002638 FC               [12] 1092 	mov	r4,a
-      002639 ED               [12] 1093 	mov	a,r5
-      00263A 35 31            [12] 1094 	addc	a, (_scale_value_sloc2_1_0 + 1)
-      00263C FD               [12] 1095 	mov	r5,a
-      00263D EE               [12] 1096 	mov	a,r6
-      00263E 35 32            [12] 1097 	addc	a, (_scale_value_sloc2_1_0 + 2)
-      002640 FE               [12] 1098 	mov	r6,a
-      002641 EF               [12] 1099 	mov	a,r7
-      002642 35 33            [12] 1100 	addc	a, (_scale_value_sloc2_1_0 + 3)
-      002644 8C 82            [24] 1101 	mov	dpl,r4
-      002646 8D 83            [24] 1102 	mov	dph,r5
-      002648 8E F0            [24] 1103 	mov	b,r6
+      0021DA 90 01 5F         [24]  961 	mov	dptr,#_scale_value_raw_adc_10000_62
+      0021DD E0               [24]  962 	movx	a,@dptr
+      0021DE F8               [12]  963 	mov	r0,a
+      0021DF A3               [24]  964 	inc	dptr
+      0021E0 E0               [24]  965 	movx	a,@dptr
+      0021E1 FD               [12]  966 	mov	r5,a
+      0021E2 A3               [24]  967 	inc	dptr
+      0021E3 E0               [24]  968 	movx	a,@dptr
+      0021E4 FE               [12]  969 	mov	r6,a
+      0021E5 A3               [24]  970 	inc	dptr
+      0021E6 E0               [24]  971 	movx	a,@dptr
+      0021E7 FF               [12]  972 	mov	r7,a
+      0021E8 E8               [12]  973 	mov	a,r0
+      0021E9 C3               [12]  974 	clr	c
+      0021EA 99               [12]  975 	subb	a,r1
+      0021EB F8               [12]  976 	mov	r0,a
+      0021EC ED               [12]  977 	mov	a,r5
+      0021ED 9A               [12]  978 	subb	a,r2
+      0021EE FD               [12]  979 	mov	r5,a
+      0021EF EE               [12]  980 	mov	a,r6
+      0021F0 9B               [12]  981 	subb	a,r3
+      0021F1 FE               [12]  982 	mov	r6,a
+      0021F2 EF               [12]  983 	mov	a,r7
+      0021F3 9C               [12]  984 	subb	a,r4
+      0021F4 88 82            [24]  985 	mov	dpl,r0
+      0021F6 8D 83            [24]  986 	mov	dph,r5
+      0021F8 8E F0            [24]  987 	mov	b,r6
+      0021FA C0 04            [24]  988 	push	ar4
+      0021FC C0 03            [24]  989 	push	ar3
+      0021FE C0 02            [24]  990 	push	ar2
+      002200 C0 01            [24]  991 	push	ar1
+      002202 12 2B 94         [24]  992 	lcall	___slong2fs
+      002205 85 82 39         [24]  993 	mov	_scale_value_sloc5_1_0,dpl
+      002208 85 83 3A         [24]  994 	mov	(_scale_value_sloc5_1_0 + 1),dph
+      00220B 85 F0 3B         [24]  995 	mov	(_scale_value_sloc5_1_0 + 2),b
+      00220E F5 3C            [12]  996 	mov	(_scale_value_sloc5_1_0 + 3),a
+      002210 E5 35            [12]  997 	mov	a,_scale_value_sloc4_1_0
+      002212 C3               [12]  998 	clr	c
+      002213 95 2D            [12]  999 	subb	a,_scale_value_sloc2_1_0
+      002215 F8               [12] 1000 	mov	r0,a
+      002216 E5 36            [12] 1001 	mov	a,(_scale_value_sloc4_1_0 + 1)
+      002218 95 2E            [12] 1002 	subb	a,(_scale_value_sloc2_1_0 + 1)
+      00221A FD               [12] 1003 	mov	r5,a
+      00221B E5 37            [12] 1004 	mov	a,(_scale_value_sloc4_1_0 + 2)
+      00221D 95 2F            [12] 1005 	subb	a,(_scale_value_sloc2_1_0 + 2)
+      00221F FE               [12] 1006 	mov	r6,a
+      002220 E5 38            [12] 1007 	mov	a,(_scale_value_sloc4_1_0 + 3)
+      002222 95 30            [12] 1008 	subb	a,(_scale_value_sloc2_1_0 + 3)
+      002224 88 82            [24] 1009 	mov	dpl,r0
+      002226 8D 83            [24] 1010 	mov	dph,r5
+      002228 8E F0            [24] 1011 	mov	b,r6
+      00222A 12 2B 94         [24] 1012 	lcall	___slong2fs
+      00222D A8 82            [24] 1013 	mov	r0, dpl
+      00222F AD 83            [24] 1014 	mov	r5, dph
+      002231 AE F0            [24] 1015 	mov	r6, b
+      002233 FF               [12] 1016 	mov	r7, a
+      002234 C0 00            [24] 1017 	push	ar0
+      002236 C0 05            [24] 1018 	push	ar5
+      002238 C0 06            [24] 1019 	push	ar6
+      00223A C0 07            [24] 1020 	push	ar7
+      00223C 85 39 82         [24] 1021 	mov	dpl, _scale_value_sloc5_1_0
+      00223F 85 3A 83         [24] 1022 	mov	dph, (_scale_value_sloc5_1_0 + 1)
+      002242 85 3B F0         [24] 1023 	mov	b, (_scale_value_sloc5_1_0 + 2)
+      002245 E5 3C            [12] 1024 	mov	a, (_scale_value_sloc5_1_0 + 3)
+      002247 12 28 6A         [24] 1025 	lcall	___fsmul
+      00224A A8 82            [24] 1026 	mov	r0, dpl
+      00224C AD 83            [24] 1027 	mov	r5, dph
+      00224E AE F0            [24] 1028 	mov	r6, b
+      002250 FF               [12] 1029 	mov	r7, a
+      002251 E5 81            [12] 1030 	mov	a,sp
+      002253 24 FC            [12] 1031 	add	a,#0xfc
+      002255 F5 81            [12] 1032 	mov	sp,a
+      002257 D0 01            [24] 1033 	pop	ar1
+      002259 D0 02            [24] 1034 	pop	ar2
+      00225B D0 03            [24] 1035 	pop	ar3
+      00225D D0 04            [24] 1036 	pop	ar4
+      00225F E5 31            [12] 1037 	mov	a,_scale_value_sloc3_1_0
+      002261 C3               [12] 1038 	clr	c
+      002262 99               [12] 1039 	subb	a,r1
+      002263 F9               [12] 1040 	mov	r1,a
+      002264 E5 32            [12] 1041 	mov	a,(_scale_value_sloc3_1_0 + 1)
+      002266 9A               [12] 1042 	subb	a,r2
+      002267 FA               [12] 1043 	mov	r2,a
+      002268 E5 33            [12] 1044 	mov	a,(_scale_value_sloc3_1_0 + 2)
+      00226A 9B               [12] 1045 	subb	a,r3
+      00226B FB               [12] 1046 	mov	r3,a
+      00226C E5 34            [12] 1047 	mov	a,(_scale_value_sloc3_1_0 + 3)
+      00226E 9C               [12] 1048 	subb	a,r4
+      00226F 89 82            [24] 1049 	mov	dpl,r1
+      002271 8A 83            [24] 1050 	mov	dph,r2
+      002273 8B F0            [24] 1051 	mov	b,r3
+      002275 C0 07            [24] 1052 	push	ar7
+      002277 C0 06            [24] 1053 	push	ar6
+      002279 C0 05            [24] 1054 	push	ar5
+      00227B C0 00            [24] 1055 	push	ar0
+      00227D 12 2B 94         [24] 1056 	lcall	___slong2fs
+      002280 A9 82            [24] 1057 	mov	r1, dpl
+      002282 AA 83            [24] 1058 	mov	r2, dph
+      002284 AB F0            [24] 1059 	mov	r3, b
+      002286 FC               [12] 1060 	mov	r4, a
+      002287 D0 00            [24] 1061 	pop	ar0
+      002289 D0 05            [24] 1062 	pop	ar5
+      00228B D0 06            [24] 1063 	pop	ar6
+      00228D D0 07            [24] 1064 	pop	ar7
+      00228F C0 01            [24] 1065 	push	ar1
+      002291 C0 02            [24] 1066 	push	ar2
+      002293 C0 03            [24] 1067 	push	ar3
+      002295 C0 04            [24] 1068 	push	ar4
+      002297 88 82            [24] 1069 	mov	dpl, r0
+      002299 8D 83            [24] 1070 	mov	dph, r5
+      00229B 8E F0            [24] 1071 	mov	b, r6
+      00229D EF               [12] 1072 	mov	a, r7
+      00229E 12 2D 24         [24] 1073 	lcall	___fsdiv
+      0022A1 AC 82            [24] 1074 	mov	r4, dpl
+      0022A3 AD 83            [24] 1075 	mov	r5, dph
+      0022A5 AE F0            [24] 1076 	mov	r6, b
+      0022A7 FF               [12] 1077 	mov	r7, a
+      0022A8 E5 81            [12] 1078 	mov	a,sp
+      0022AA 24 FC            [12] 1079 	add	a,#0xfc
+      0022AC F5 81            [12] 1080 	mov	sp,a
+      0022AE 8C 82            [24] 1081 	mov	dpl, r4
+      0022B0 8D 83            [24] 1082 	mov	dph, r5
+      0022B2 8E F0            [24] 1083 	mov	b, r6
+      0022B4 EF               [12] 1084 	mov	a, r7
+      0022B5 12 2B C1         [24] 1085 	lcall	___fs2slong
+      0022B8 AC 82            [24] 1086 	mov	r4, dpl
+      0022BA AD 83            [24] 1087 	mov	r5, dph
+      0022BC AE F0            [24] 1088 	mov	r6, b
+      0022BE FF               [12] 1089 	mov	r7, a
+      0022BF EC               [12] 1090 	mov	a,r4
+      0022C0 25 2D            [12] 1091 	add	a, _scale_value_sloc2_1_0
+      0022C2 FC               [12] 1092 	mov	r4,a
+      0022C3 ED               [12] 1093 	mov	a,r5
+      0022C4 35 2E            [12] 1094 	addc	a, (_scale_value_sloc2_1_0 + 1)
+      0022C6 FD               [12] 1095 	mov	r5,a
+      0022C7 EE               [12] 1096 	mov	a,r6
+      0022C8 35 2F            [12] 1097 	addc	a, (_scale_value_sloc2_1_0 + 2)
+      0022CA FE               [12] 1098 	mov	r6,a
+      0022CB EF               [12] 1099 	mov	a,r7
+      0022CC 35 30            [12] 1100 	addc	a, (_scale_value_sloc2_1_0 + 3)
+      0022CE 8C 82            [24] 1101 	mov	dpl,r4
+      0022D0 8D 83            [24] 1102 	mov	dph,r5
+      0022D2 8E F0            [24] 1103 	mov	b,r6
                                    1104 ;	.\FwLib_STC8\user\measurement.c:43: }
-      00264A 22               [24] 1105 	ret
+      0022D4 22               [24] 1105 	ret
                                    1106 ;------------------------------------------------------------
                                    1107 ;Allocation info for local variables in function 'MEAS_Process'
                                    1108 ;------------------------------------------------------------
@@ -1118,950 +1118,950 @@
                                    1118 ;	-----------------------------------------
                                    1119 ;	 function MEAS_Process
                                    1120 ;	-----------------------------------------
-      00264B                       1121 _MEAS_Process:
+      0022D5                       1121 _MEAS_Process:
                                    1122 ;	.\FwLib_STC8\user\measurement.c:52: reg_adc_raw_value = 0x12345678; // 强制写入一个固定值
-      00264B 90 00 0E         [24] 1123 	mov	dptr,#_reg_adc_raw_value
-      00264E 74 78            [12] 1124 	mov	a,#0x78
-      002650 F0               [24] 1125 	movx	@dptr,a
-      002651 74 56            [12] 1126 	mov	a,#0x56
-      002653 A3               [24] 1127 	inc	dptr
-      002654 F0               [24] 1128 	movx	@dptr,a
-      002655 74 34            [12] 1129 	mov	a,#0x34
-      002657 A3               [24] 1130 	inc	dptr
-      002658 F0               [24] 1131 	movx	@dptr,a
-      002659 74 12            [12] 1132 	mov	a,#0x12
-      00265B A3               [24] 1133 	inc	dptr
-      00265C F0               [24] 1134 	movx	@dptr,a
+      0022D5 90 00 0E         [24] 1123 	mov	dptr,#_reg_adc_raw_value
+      0022D8 74 78            [12] 1124 	mov	a,#0x78
+      0022DA F0               [24] 1125 	movx	@dptr,a
+      0022DB 74 56            [12] 1126 	mov	a,#0x56
+      0022DD A3               [24] 1127 	inc	dptr
+      0022DE F0               [24] 1128 	movx	@dptr,a
+      0022DF 74 34            [12] 1129 	mov	a,#0x34
+      0022E1 A3               [24] 1130 	inc	dptr
+      0022E2 F0               [24] 1131 	movx	@dptr,a
+      0022E3 74 12            [12] 1132 	mov	a,#0x12
+      0022E5 A3               [24] 1133 	inc	dptr
+      0022E6 F0               [24] 1134 	movx	@dptr,a
                                    1135 ;	.\FwLib_STC8\user\measurement.c:53: raw_adc = Read_HX71708_Raw();
-      00265D 12 0E 7A         [24] 1136 	lcall	_Read_HX71708_Raw
-      002660 AC 82            [24] 1137 	mov	r4, dpl
-      002662 AD 83            [24] 1138 	mov	r5, dph
-      002664 AE F0            [24] 1139 	mov	r6, b
-      002666 FF               [12] 1140 	mov	r7, a
-      002667 90 01 DA         [24] 1141 	mov	dptr,#_MEAS_Process_raw_adc_10000_67
-      00266A EC               [12] 1142 	mov	a,r4
-      00266B F0               [24] 1143 	movx	@dptr,a
-      00266C ED               [12] 1144 	mov	a,r5
-      00266D A3               [24] 1145 	inc	dptr
-      00266E F0               [24] 1146 	movx	@dptr,a
-      00266F EE               [12] 1147 	mov	a,r6
-      002670 A3               [24] 1148 	inc	dptr
-      002671 F0               [24] 1149 	movx	@dptr,a
-      002672 EF               [12] 1150 	mov	a,r7
-      002673 A3               [24] 1151 	inc	dptr
-      002674 F0               [24] 1152 	movx	@dptr,a
+      0022E7 12 0B 04         [24] 1136 	lcall	_Read_HX71708_Raw
+      0022EA AC 82            [24] 1137 	mov	r4, dpl
+      0022EC AD 83            [24] 1138 	mov	r5, dph
+      0022EE AE F0            [24] 1139 	mov	r6, b
+      0022F0 FF               [12] 1140 	mov	r7, a
+      0022F1 90 01 74         [24] 1141 	mov	dptr,#_MEAS_Process_raw_adc_10000_67
+      0022F4 EC               [12] 1142 	mov	a,r4
+      0022F5 F0               [24] 1143 	movx	@dptr,a
+      0022F6 ED               [12] 1144 	mov	a,r5
+      0022F7 A3               [24] 1145 	inc	dptr
+      0022F8 F0               [24] 1146 	movx	@dptr,a
+      0022F9 EE               [12] 1147 	mov	a,r6
+      0022FA A3               [24] 1148 	inc	dptr
+      0022FB F0               [24] 1149 	movx	@dptr,a
+      0022FC EF               [12] 1150 	mov	a,r7
+      0022FD A3               [24] 1151 	inc	dptr
+      0022FE F0               [24] 1152 	movx	@dptr,a
                                    1153 ;	.\FwLib_STC8\user\measurement.c:54: if (raw_adc == -1) return; 
-      002675 BC FF 0A         [24] 1154 	cjne	r4,#0xff,00102$
-      002678 BD FF 07         [24] 1155 	cjne	r5,#0xff,00102$
-      00267B BE FF 04         [24] 1156 	cjne	r6,#0xff,00102$
-      00267E BF FF 01         [24] 1157 	cjne	r7,#0xff,00102$
-      002681 22               [24] 1158 	ret
-      002682                       1159 00102$:
+      0022FF BC FF 0A         [24] 1154 	cjne	r4,#0xff,00102$
+      002302 BD FF 07         [24] 1155 	cjne	r5,#0xff,00102$
+      002305 BE FF 04         [24] 1156 	cjne	r6,#0xff,00102$
+      002308 BF FF 01         [24] 1157 	cjne	r7,#0xff,00102$
+      00230B 22               [24] 1158 	ret
+      00230C                       1159 00102$:
                                    1160 ;	.\FwLib_STC8\user\measurement.c:56: reg_adc_raw_value = raw_adc;
-      002682 90 00 0E         [24] 1161 	mov	dptr,#_reg_adc_raw_value
-      002685 EC               [12] 1162 	mov	a,r4
-      002686 F0               [24] 1163 	movx	@dptr,a
-      002687 ED               [12] 1164 	mov	a,r5
-      002688 A3               [24] 1165 	inc	dptr
-      002689 F0               [24] 1166 	movx	@dptr,a
-      00268A EE               [12] 1167 	mov	a,r6
-      00268B A3               [24] 1168 	inc	dptr
-      00268C F0               [24] 1169 	movx	@dptr,a
-      00268D EF               [12] 1170 	mov	a,r7
-      00268E A3               [24] 1171 	inc	dptr
-      00268F F0               [24] 1172 	movx	@dptr,a
+      00230C 90 00 0E         [24] 1161 	mov	dptr,#_reg_adc_raw_value
+      00230F EC               [12] 1162 	mov	a,r4
+      002310 F0               [24] 1163 	movx	@dptr,a
+      002311 ED               [12] 1164 	mov	a,r5
+      002312 A3               [24] 1165 	inc	dptr
+      002313 F0               [24] 1166 	movx	@dptr,a
+      002314 EE               [12] 1167 	mov	a,r6
+      002315 A3               [24] 1168 	inc	dptr
+      002316 F0               [24] 1169 	movx	@dptr,a
+      002317 EF               [12] 1170 	mov	a,r7
+      002318 A3               [24] 1171 	inc	dptr
+      002319 F0               [24] 1172 	movx	@dptr,a
                                    1173 ;	.\FwLib_STC8\user\measurement.c:59: if (reg_filter_level == 0) {
-      002690 90 00 72         [24] 1174 	mov	dptr,#_reg_filter_level
-      002693 E0               [24] 1175 	movx	a,@dptr
-      002694 F8               [12] 1176 	mov	r0,a
-      002695 A3               [24] 1177 	inc	dptr
-      002696 E0               [24] 1178 	movx	a,@dptr
-      002697 F9               [12] 1179 	mov	r1,a
-      002698 A3               [24] 1180 	inc	dptr
-      002699 E0               [24] 1181 	movx	a,@dptr
-      00269A FA               [12] 1182 	mov	r2,a
-      00269B A3               [24] 1183 	inc	dptr
-      00269C E0               [24] 1184 	movx	a,@dptr
-      00269D FB               [12] 1185 	mov	r3,a
-      00269E 90 00 72         [24] 1186 	mov	dptr,#_reg_filter_level
-      0026A1 E0               [24] 1187 	movx	a,@dptr
-      0026A2 F5 F0            [12] 1188 	mov	b,a
-      0026A4 A3               [24] 1189 	inc	dptr
-      0026A5 E0               [24] 1190 	movx	a,@dptr
-      0026A6 42 F0            [12] 1191 	orl	b,a
-      0026A8 A3               [24] 1192 	inc	dptr
-      0026A9 E0               [24] 1193 	movx	a,@dptr
-      0026AA 42 F0            [12] 1194 	orl	b,a
-      0026AC A3               [24] 1195 	inc	dptr
-      0026AD E0               [24] 1196 	movx	a,@dptr
-      0026AE 45 F0            [12] 1197 	orl	a,b
-      0026B0 70 11            [24] 1198 	jnz	00108$
+      00231A 90 00 72         [24] 1174 	mov	dptr,#_reg_filter_level
+      00231D E0               [24] 1175 	movx	a,@dptr
+      00231E F8               [12] 1176 	mov	r0,a
+      00231F A3               [24] 1177 	inc	dptr
+      002320 E0               [24] 1178 	movx	a,@dptr
+      002321 F9               [12] 1179 	mov	r1,a
+      002322 A3               [24] 1180 	inc	dptr
+      002323 E0               [24] 1181 	movx	a,@dptr
+      002324 FA               [12] 1182 	mov	r2,a
+      002325 A3               [24] 1183 	inc	dptr
+      002326 E0               [24] 1184 	movx	a,@dptr
+      002327 FB               [12] 1185 	mov	r3,a
+      002328 90 00 72         [24] 1186 	mov	dptr,#_reg_filter_level
+      00232B E0               [24] 1187 	movx	a,@dptr
+      00232C F5 F0            [12] 1188 	mov	b,a
+      00232E A3               [24] 1189 	inc	dptr
+      00232F E0               [24] 1190 	movx	a,@dptr
+      002330 42 F0            [12] 1191 	orl	b,a
+      002332 A3               [24] 1192 	inc	dptr
+      002333 E0               [24] 1193 	movx	a,@dptr
+      002334 42 F0            [12] 1194 	orl	b,a
+      002336 A3               [24] 1195 	inc	dptr
+      002337 E0               [24] 1196 	movx	a,@dptr
+      002338 45 F0            [12] 1197 	orl	a,b
+      00233A 70 11            [24] 1198 	jnz	00108$
                                    1199 ;	.\FwLib_STC8\user\measurement.c:60: filtered_adc = raw_adc;
-      0026B2 90 02 2C         [24] 1200 	mov	dptr,#_filtered_adc
-      0026B5 EC               [12] 1201 	mov	a,r4
-      0026B6 F0               [24] 1202 	movx	@dptr,a
-      0026B7 ED               [12] 1203 	mov	a,r5
-      0026B8 A3               [24] 1204 	inc	dptr
-      0026B9 F0               [24] 1205 	movx	@dptr,a
-      0026BA EE               [12] 1206 	mov	a,r6
-      0026BB A3               [24] 1207 	inc	dptr
-      0026BC F0               [24] 1208 	movx	@dptr,a
-      0026BD EF               [12] 1209 	mov	a,r7
-      0026BE A3               [24] 1210 	inc	dptr
-      0026BF F0               [24] 1211 	movx	@dptr,a
-      0026C0 02 27 AA         [24] 1212 	ljmp	00109$
-      0026C3                       1213 00108$:
+      00233C 90 01 AE         [24] 1200 	mov	dptr,#_filtered_adc
+      00233F EC               [12] 1201 	mov	a,r4
+      002340 F0               [24] 1202 	movx	@dptr,a
+      002341 ED               [12] 1203 	mov	a,r5
+      002342 A3               [24] 1204 	inc	dptr
+      002343 F0               [24] 1205 	movx	@dptr,a
+      002344 EE               [12] 1206 	mov	a,r6
+      002345 A3               [24] 1207 	inc	dptr
+      002346 F0               [24] 1208 	movx	@dptr,a
+      002347 EF               [12] 1209 	mov	a,r7
+      002348 A3               [24] 1210 	inc	dptr
+      002349 F0               [24] 1211 	movx	@dptr,a
+      00234A 02 24 34         [24] 1212 	ljmp	00109$
+      00234D                       1213 00108$:
                                    1214 ;	.\FwLib_STC8\user\measurement.c:62: diff = raw_adc - filtered_adc;
-      0026C3 90 02 2C         [24] 1215 	mov	dptr,#_filtered_adc
-      0026C6 E0               [24] 1216 	movx	a,@dptr
-      0026C7 F5 40            [12] 1217 	mov	_MEAS_Process_sloc0_1_0,a
-      0026C9 A3               [24] 1218 	inc	dptr
-      0026CA E0               [24] 1219 	movx	a,@dptr
-      0026CB F5 41            [12] 1220 	mov	(_MEAS_Process_sloc0_1_0 + 1),a
-      0026CD A3               [24] 1221 	inc	dptr
-      0026CE E0               [24] 1222 	movx	a,@dptr
-      0026CF F5 42            [12] 1223 	mov	(_MEAS_Process_sloc0_1_0 + 2),a
-      0026D1 A3               [24] 1224 	inc	dptr
-      0026D2 E0               [24] 1225 	movx	a,@dptr
-      0026D3 F5 43            [12] 1226 	mov	(_MEAS_Process_sloc0_1_0 + 3),a
-      0026D5 EC               [12] 1227 	mov	a,r4
-      0026D6 C3               [12] 1228 	clr	c
-      0026D7 95 40            [12] 1229 	subb	a,_MEAS_Process_sloc0_1_0
-      0026D9 F5 44            [12] 1230 	mov	_MEAS_Process_sloc1_1_0,a
-      0026DB ED               [12] 1231 	mov	a,r5
-      0026DC 95 41            [12] 1232 	subb	a,(_MEAS_Process_sloc0_1_0 + 1)
-      0026DE F5 45            [12] 1233 	mov	(_MEAS_Process_sloc1_1_0 + 1),a
-      0026E0 EE               [12] 1234 	mov	a,r6
-      0026E1 95 42            [12] 1235 	subb	a,(_MEAS_Process_sloc0_1_0 + 2)
-      0026E3 F5 46            [12] 1236 	mov	(_MEAS_Process_sloc1_1_0 + 2),a
-      0026E5 EF               [12] 1237 	mov	a,r7
-      0026E6 95 43            [12] 1238 	subb	a,(_MEAS_Process_sloc0_1_0 + 3)
-      0026E8 F5 47            [12] 1239 	mov	(_MEAS_Process_sloc1_1_0 + 3),a
-      0026EA 90 01 E2         [24] 1240 	mov	dptr,#_MEAS_Process_diff_10000_67
-      0026ED E5 44            [12] 1241 	mov	a,_MEAS_Process_sloc1_1_0
-      0026EF F0               [24] 1242 	movx	@dptr,a
-      0026F0 E5 45            [12] 1243 	mov	a,(_MEAS_Process_sloc1_1_0 + 1)
-      0026F2 A3               [24] 1244 	inc	dptr
-      0026F3 F0               [24] 1245 	movx	@dptr,a
-      0026F4 E5 46            [12] 1246 	mov	a,(_MEAS_Process_sloc1_1_0 + 2)
-      0026F6 A3               [24] 1247 	inc	dptr
-      0026F7 F0               [24] 1248 	movx	@dptr,a
-      0026F8 E5 47            [12] 1249 	mov	a,(_MEAS_Process_sloc1_1_0 + 3)
-      0026FA A3               [24] 1250 	inc	dptr
-      0026FB F0               [24] 1251 	movx	@dptr,a
+      00234D 90 01 AE         [24] 1215 	mov	dptr,#_filtered_adc
+      002350 E0               [24] 1216 	movx	a,@dptr
+      002351 F5 3D            [12] 1217 	mov	_MEAS_Process_sloc0_1_0,a
+      002353 A3               [24] 1218 	inc	dptr
+      002354 E0               [24] 1219 	movx	a,@dptr
+      002355 F5 3E            [12] 1220 	mov	(_MEAS_Process_sloc0_1_0 + 1),a
+      002357 A3               [24] 1221 	inc	dptr
+      002358 E0               [24] 1222 	movx	a,@dptr
+      002359 F5 3F            [12] 1223 	mov	(_MEAS_Process_sloc0_1_0 + 2),a
+      00235B A3               [24] 1224 	inc	dptr
+      00235C E0               [24] 1225 	movx	a,@dptr
+      00235D F5 40            [12] 1226 	mov	(_MEAS_Process_sloc0_1_0 + 3),a
+      00235F EC               [12] 1227 	mov	a,r4
+      002360 C3               [12] 1228 	clr	c
+      002361 95 3D            [12] 1229 	subb	a,_MEAS_Process_sloc0_1_0
+      002363 F5 41            [12] 1230 	mov	_MEAS_Process_sloc1_1_0,a
+      002365 ED               [12] 1231 	mov	a,r5
+      002366 95 3E            [12] 1232 	subb	a,(_MEAS_Process_sloc0_1_0 + 1)
+      002368 F5 42            [12] 1233 	mov	(_MEAS_Process_sloc1_1_0 + 1),a
+      00236A EE               [12] 1234 	mov	a,r6
+      00236B 95 3F            [12] 1235 	subb	a,(_MEAS_Process_sloc0_1_0 + 2)
+      00236D F5 43            [12] 1236 	mov	(_MEAS_Process_sloc1_1_0 + 2),a
+      00236F EF               [12] 1237 	mov	a,r7
+      002370 95 40            [12] 1238 	subb	a,(_MEAS_Process_sloc0_1_0 + 3)
+      002372 F5 44            [12] 1239 	mov	(_MEAS_Process_sloc1_1_0 + 3),a
+      002374 90 01 7C         [24] 1240 	mov	dptr,#_MEAS_Process_diff_10000_67
+      002377 E5 41            [12] 1241 	mov	a,_MEAS_Process_sloc1_1_0
+      002379 F0               [24] 1242 	movx	@dptr,a
+      00237A E5 42            [12] 1243 	mov	a,(_MEAS_Process_sloc1_1_0 + 1)
+      00237C A3               [24] 1244 	inc	dptr
+      00237D F0               [24] 1245 	movx	@dptr,a
+      00237E E5 43            [12] 1246 	mov	a,(_MEAS_Process_sloc1_1_0 + 2)
+      002380 A3               [24] 1247 	inc	dptr
+      002381 F0               [24] 1248 	movx	@dptr,a
+      002382 E5 44            [12] 1249 	mov	a,(_MEAS_Process_sloc1_1_0 + 3)
+      002384 A3               [24] 1250 	inc	dptr
+      002385 F0               [24] 1251 	movx	@dptr,a
                                    1252 ;	.\FwLib_STC8\user\measurement.c:64: if (diff > reg_filter_band || diff < -reg_filter_band) {
-      0026FC 90 00 76         [24] 1253 	mov	dptr,#_reg_filter_band
-      0026FF E0               [24] 1254 	movx	a,@dptr
-      002700 F5 48            [12] 1255 	mov	_MEAS_Process_sloc2_1_0,a
-      002702 A3               [24] 1256 	inc	dptr
-      002703 E0               [24] 1257 	movx	a,@dptr
-      002704 F5 49            [12] 1258 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
-      002706 A3               [24] 1259 	inc	dptr
-      002707 E0               [24] 1260 	movx	a,@dptr
-      002708 F5 4A            [12] 1261 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
-      00270A A3               [24] 1262 	inc	dptr
-      00270B E0               [24] 1263 	movx	a,@dptr
-      00270C F5 4B            [12] 1264 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
-      00270E C3               [12] 1265 	clr	c
-      00270F E5 48            [12] 1266 	mov	a,_MEAS_Process_sloc2_1_0
-      002711 95 44            [12] 1267 	subb	a,_MEAS_Process_sloc1_1_0
-      002713 E5 49            [12] 1268 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002715 95 45            [12] 1269 	subb	a,(_MEAS_Process_sloc1_1_0 + 1)
-      002717 E5 4A            [12] 1270 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
-      002719 95 46            [12] 1271 	subb	a,(_MEAS_Process_sloc1_1_0 + 2)
-      00271B E5 4B            [12] 1272 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
-      00271D 64 80            [12] 1273 	xrl	a,#0x80
-      00271F 85 47 F0         [24] 1274 	mov	b,(_MEAS_Process_sloc1_1_0 + 3)
-      002722 63 F0 80         [24] 1275 	xrl	b,#0x80
-      002725 95 F0            [12] 1276 	subb	a,b
-      002727 40 38            [24] 1277 	jc	00103$
-      002729 C0 00            [24] 1278 	push	ar0
-      00272B C0 01            [24] 1279 	push	ar1
-      00272D C0 02            [24] 1280 	push	ar2
-      00272F C0 03            [24] 1281 	push	ar3
-      002731 C3               [12] 1282 	clr	c
-      002732 E4               [12] 1283 	clr	a
-      002733 95 48            [12] 1284 	subb	a,_MEAS_Process_sloc2_1_0
-      002735 F8               [12] 1285 	mov	r0,a
-      002736 E4               [12] 1286 	clr	a
-      002737 95 49            [12] 1287 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002739 F9               [12] 1288 	mov	r1,a
-      00273A E4               [12] 1289 	clr	a
-      00273B 95 4A            [12] 1290 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
-      00273D FA               [12] 1291 	mov	r2,a
-      00273E E4               [12] 1292 	clr	a
-      00273F 95 4B            [12] 1293 	subb	a,(_MEAS_Process_sloc2_1_0 + 3)
-      002741 FB               [12] 1294 	mov	r3,a
-      002742 C3               [12] 1295 	clr	c
-      002743 E5 44            [12] 1296 	mov	a,_MEAS_Process_sloc1_1_0
-      002745 98               [12] 1297 	subb	a,r0
-      002746 E5 45            [12] 1298 	mov	a,(_MEAS_Process_sloc1_1_0 + 1)
-      002748 99               [12] 1299 	subb	a,r1
-      002749 E5 46            [12] 1300 	mov	a,(_MEAS_Process_sloc1_1_0 + 2)
-      00274B 9A               [12] 1301 	subb	a,r2
-      00274C E5 47            [12] 1302 	mov	a,(_MEAS_Process_sloc1_1_0 + 3)
-      00274E 64 80            [12] 1303 	xrl	a,#0x80
-      002750 8B F0            [24] 1304 	mov	b,r3
-      002752 63 F0 80         [24] 1305 	xrl	b,#0x80
-      002755 95 F0            [12] 1306 	subb	a,b
-      002757 D0 03            [24] 1307 	pop	ar3
-      002759 D0 02            [24] 1308 	pop	ar2
-      00275B D0 01            [24] 1309 	pop	ar1
-      00275D D0 00            [24] 1310 	pop	ar0
-      00275F 50 10            [24] 1311 	jnc	00104$
-      002761                       1312 00103$:
+      002386 90 00 76         [24] 1253 	mov	dptr,#_reg_filter_band
+      002389 E0               [24] 1254 	movx	a,@dptr
+      00238A F5 45            [12] 1255 	mov	_MEAS_Process_sloc2_1_0,a
+      00238C A3               [24] 1256 	inc	dptr
+      00238D E0               [24] 1257 	movx	a,@dptr
+      00238E F5 46            [12] 1258 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
+      002390 A3               [24] 1259 	inc	dptr
+      002391 E0               [24] 1260 	movx	a,@dptr
+      002392 F5 47            [12] 1261 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
+      002394 A3               [24] 1262 	inc	dptr
+      002395 E0               [24] 1263 	movx	a,@dptr
+      002396 F5 48            [12] 1264 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
+      002398 C3               [12] 1265 	clr	c
+      002399 E5 45            [12] 1266 	mov	a,_MEAS_Process_sloc2_1_0
+      00239B 95 41            [12] 1267 	subb	a,_MEAS_Process_sloc1_1_0
+      00239D E5 46            [12] 1268 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+      00239F 95 42            [12] 1269 	subb	a,(_MEAS_Process_sloc1_1_0 + 1)
+      0023A1 E5 47            [12] 1270 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+      0023A3 95 43            [12] 1271 	subb	a,(_MEAS_Process_sloc1_1_0 + 2)
+      0023A5 E5 48            [12] 1272 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+      0023A7 64 80            [12] 1273 	xrl	a,#0x80
+      0023A9 85 44 F0         [24] 1274 	mov	b,(_MEAS_Process_sloc1_1_0 + 3)
+      0023AC 63 F0 80         [24] 1275 	xrl	b,#0x80
+      0023AF 95 F0            [12] 1276 	subb	a,b
+      0023B1 40 38            [24] 1277 	jc	00103$
+      0023B3 C0 00            [24] 1278 	push	ar0
+      0023B5 C0 01            [24] 1279 	push	ar1
+      0023B7 C0 02            [24] 1280 	push	ar2
+      0023B9 C0 03            [24] 1281 	push	ar3
+      0023BB C3               [12] 1282 	clr	c
+      0023BC E4               [12] 1283 	clr	a
+      0023BD 95 45            [12] 1284 	subb	a,_MEAS_Process_sloc2_1_0
+      0023BF F8               [12] 1285 	mov	r0,a
+      0023C0 E4               [12] 1286 	clr	a
+      0023C1 95 46            [12] 1287 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
+      0023C3 F9               [12] 1288 	mov	r1,a
+      0023C4 E4               [12] 1289 	clr	a
+      0023C5 95 47            [12] 1290 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
+      0023C7 FA               [12] 1291 	mov	r2,a
+      0023C8 E4               [12] 1292 	clr	a
+      0023C9 95 48            [12] 1293 	subb	a,(_MEAS_Process_sloc2_1_0 + 3)
+      0023CB FB               [12] 1294 	mov	r3,a
+      0023CC C3               [12] 1295 	clr	c
+      0023CD E5 41            [12] 1296 	mov	a,_MEAS_Process_sloc1_1_0
+      0023CF 98               [12] 1297 	subb	a,r0
+      0023D0 E5 42            [12] 1298 	mov	a,(_MEAS_Process_sloc1_1_0 + 1)
+      0023D2 99               [12] 1299 	subb	a,r1
+      0023D3 E5 43            [12] 1300 	mov	a,(_MEAS_Process_sloc1_1_0 + 2)
+      0023D5 9A               [12] 1301 	subb	a,r2
+      0023D6 E5 44            [12] 1302 	mov	a,(_MEAS_Process_sloc1_1_0 + 3)
+      0023D8 64 80            [12] 1303 	xrl	a,#0x80
+      0023DA 8B F0            [24] 1304 	mov	b,r3
+      0023DC 63 F0 80         [24] 1305 	xrl	b,#0x80
+      0023DF 95 F0            [12] 1306 	subb	a,b
+      0023E1 D0 03            [24] 1307 	pop	ar3
+      0023E3 D0 02            [24] 1308 	pop	ar2
+      0023E5 D0 01            [24] 1309 	pop	ar1
+      0023E7 D0 00            [24] 1310 	pop	ar0
+      0023E9 50 10            [24] 1311 	jnc	00104$
+      0023EB                       1312 00103$:
                                    1313 ;	.\FwLib_STC8\user\measurement.c:65: filtered_adc = raw_adc;
-      002761 90 02 2C         [24] 1314 	mov	dptr,#_filtered_adc
-      002764 EC               [12] 1315 	mov	a,r4
-      002765 F0               [24] 1316 	movx	@dptr,a
-      002766 ED               [12] 1317 	mov	a,r5
-      002767 A3               [24] 1318 	inc	dptr
-      002768 F0               [24] 1319 	movx	@dptr,a
-      002769 EE               [12] 1320 	mov	a,r6
-      00276A A3               [24] 1321 	inc	dptr
-      00276B F0               [24] 1322 	movx	@dptr,a
-      00276C EF               [12] 1323 	mov	a,r7
-      00276D A3               [24] 1324 	inc	dptr
-      00276E F0               [24] 1325 	movx	@dptr,a
-      00276F 80 39            [24] 1326 	sjmp	00109$
-      002771                       1327 00104$:
+      0023EB 90 01 AE         [24] 1314 	mov	dptr,#_filtered_adc
+      0023EE EC               [12] 1315 	mov	a,r4
+      0023EF F0               [24] 1316 	movx	@dptr,a
+      0023F0 ED               [12] 1317 	mov	a,r5
+      0023F1 A3               [24] 1318 	inc	dptr
+      0023F2 F0               [24] 1319 	movx	@dptr,a
+      0023F3 EE               [12] 1320 	mov	a,r6
+      0023F4 A3               [24] 1321 	inc	dptr
+      0023F5 F0               [24] 1322 	movx	@dptr,a
+      0023F6 EF               [12] 1323 	mov	a,r7
+      0023F7 A3               [24] 1324 	inc	dptr
+      0023F8 F0               [24] 1325 	movx	@dptr,a
+      0023F9 80 39            [24] 1326 	sjmp	00109$
+      0023FB                       1327 00104$:
                                    1328 ;	.\FwLib_STC8\user\measurement.c:68: filtered_adc += (diff >> reg_filter_level);
-      002771 88 F0            [24] 1329 	mov	b,r0
-      002773 05 F0            [12] 1330 	inc	b
-      002775 A8 44            [24] 1331 	mov	r0,_MEAS_Process_sloc1_1_0
-      002777 A9 45            [24] 1332 	mov	r1,(_MEAS_Process_sloc1_1_0 + 1)
-      002779 AA 46            [24] 1333 	mov	r2,(_MEAS_Process_sloc1_1_0 + 2)
-      00277B E5 47            [12] 1334 	mov	a,(_MEAS_Process_sloc1_1_0 + 3)
-      00277D FB               [12] 1335 	mov	r3,a
-      00277E 33               [12] 1336 	rlc	a
-      00277F 92 D2            [24] 1337 	mov	ov,c
-      002781 80 0E            [24] 1338 	sjmp	00217$
-      002783                       1339 00216$:
-      002783 A2 D2            [12] 1340 	mov	c,ov
-      002785 EB               [12] 1341 	mov	a,r3
-      002786 13               [12] 1342 	rrc	a
-      002787 FB               [12] 1343 	mov	r3,a
-      002788 EA               [12] 1344 	mov	a,r2
-      002789 13               [12] 1345 	rrc	a
-      00278A FA               [12] 1346 	mov	r2,a
-      00278B E9               [12] 1347 	mov	a,r1
-      00278C 13               [12] 1348 	rrc	a
-      00278D F9               [12] 1349 	mov	r1,a
-      00278E E8               [12] 1350 	mov	a,r0
-      00278F 13               [12] 1351 	rrc	a
-      002790 F8               [12] 1352 	mov	r0,a
-      002791                       1353 00217$:
-      002791 D5 F0 EF         [24] 1354 	djnz	b,00216$
-      002794 90 02 2C         [24] 1355 	mov	dptr,#_filtered_adc
-      002797 E8               [12] 1356 	mov	a,r0
-      002798 25 40            [12] 1357 	add	a, _MEAS_Process_sloc0_1_0
-      00279A F0               [24] 1358 	movx	@dptr,a
-      00279B E9               [12] 1359 	mov	a,r1
-      00279C 35 41            [12] 1360 	addc	a, (_MEAS_Process_sloc0_1_0 + 1)
-      00279E A3               [24] 1361 	inc	dptr
-      00279F F0               [24] 1362 	movx	@dptr,a
-      0027A0 EA               [12] 1363 	mov	a,r2
-      0027A1 35 42            [12] 1364 	addc	a, (_MEAS_Process_sloc0_1_0 + 2)
-      0027A3 A3               [24] 1365 	inc	dptr
-      0027A4 F0               [24] 1366 	movx	@dptr,a
-      0027A5 EB               [12] 1367 	mov	a,r3
-      0027A6 35 43            [12] 1368 	addc	a, (_MEAS_Process_sloc0_1_0 + 3)
-      0027A8 A3               [24] 1369 	inc	dptr
-      0027A9 F0               [24] 1370 	movx	@dptr,a
-      0027AA                       1371 00109$:
+      0023FB 88 F0            [24] 1329 	mov	b,r0
+      0023FD 05 F0            [12] 1330 	inc	b
+      0023FF A8 41            [24] 1331 	mov	r0,_MEAS_Process_sloc1_1_0
+      002401 A9 42            [24] 1332 	mov	r1,(_MEAS_Process_sloc1_1_0 + 1)
+      002403 AA 43            [24] 1333 	mov	r2,(_MEAS_Process_sloc1_1_0 + 2)
+      002405 E5 44            [12] 1334 	mov	a,(_MEAS_Process_sloc1_1_0 + 3)
+      002407 FB               [12] 1335 	mov	r3,a
+      002408 33               [12] 1336 	rlc	a
+      002409 92 D2            [24] 1337 	mov	ov,c
+      00240B 80 0E            [24] 1338 	sjmp	00217$
+      00240D                       1339 00216$:
+      00240D A2 D2            [12] 1340 	mov	c,ov
+      00240F EB               [12] 1341 	mov	a,r3
+      002410 13               [12] 1342 	rrc	a
+      002411 FB               [12] 1343 	mov	r3,a
+      002412 EA               [12] 1344 	mov	a,r2
+      002413 13               [12] 1345 	rrc	a
+      002414 FA               [12] 1346 	mov	r2,a
+      002415 E9               [12] 1347 	mov	a,r1
+      002416 13               [12] 1348 	rrc	a
+      002417 F9               [12] 1349 	mov	r1,a
+      002418 E8               [12] 1350 	mov	a,r0
+      002419 13               [12] 1351 	rrc	a
+      00241A F8               [12] 1352 	mov	r0,a
+      00241B                       1353 00217$:
+      00241B D5 F0 EF         [24] 1354 	djnz	b,00216$
+      00241E 90 01 AE         [24] 1355 	mov	dptr,#_filtered_adc
+      002421 E8               [12] 1356 	mov	a,r0
+      002422 25 3D            [12] 1357 	add	a, _MEAS_Process_sloc0_1_0
+      002424 F0               [24] 1358 	movx	@dptr,a
+      002425 E9               [12] 1359 	mov	a,r1
+      002426 35 3E            [12] 1360 	addc	a, (_MEAS_Process_sloc0_1_0 + 1)
+      002428 A3               [24] 1361 	inc	dptr
+      002429 F0               [24] 1362 	movx	@dptr,a
+      00242A EA               [12] 1363 	mov	a,r2
+      00242B 35 3F            [12] 1364 	addc	a, (_MEAS_Process_sloc0_1_0 + 2)
+      00242D A3               [24] 1365 	inc	dptr
+      00242E F0               [24] 1366 	movx	@dptr,a
+      00242F EB               [12] 1367 	mov	a,r3
+      002430 35 40            [12] 1368 	addc	a, (_MEAS_Process_sloc0_1_0 + 3)
+      002432 A3               [24] 1369 	inc	dptr
+      002433 F0               [24] 1370 	movx	@dptr,a
+      002434                       1371 00109$:
                                    1372 ;	.\FwLib_STC8\user\measurement.c:73: current_weight = scale_value(filtered_adc);
-      0027AA 90 02 2C         [24] 1373 	mov	dptr,#_filtered_adc
-      0027AD E0               [24] 1374 	movx	a,@dptr
-      0027AE FC               [12] 1375 	mov	r4,a
-      0027AF A3               [24] 1376 	inc	dptr
-      0027B0 E0               [24] 1377 	movx	a,@dptr
-      0027B1 FD               [12] 1378 	mov	r5,a
-      0027B2 A3               [24] 1379 	inc	dptr
-      0027B3 E0               [24] 1380 	movx	a,@dptr
-      0027B4 FE               [12] 1381 	mov	r6,a
-      0027B5 A3               [24] 1382 	inc	dptr
-      0027B6 E0               [24] 1383 	movx	a,@dptr
-      0027B7 8C 82            [24] 1384 	mov	dpl,r4
-      0027B9 8D 83            [24] 1385 	mov	dph,r5
-      0027BB 8E F0            [24] 1386 	mov	b,r6
-      0027BD 12 23 68         [24] 1387 	lcall	_scale_value
-      0027C0 AC 82            [24] 1388 	mov	r4, dpl
-      0027C2 AD 83            [24] 1389 	mov	r5, dph
-      0027C4 AE F0            [24] 1390 	mov	r6, b
-      0027C6 FF               [12] 1391 	mov	r7, a
+      002434 90 01 AE         [24] 1373 	mov	dptr,#_filtered_adc
+      002437 E0               [24] 1374 	movx	a,@dptr
+      002438 FC               [12] 1375 	mov	r4,a
+      002439 A3               [24] 1376 	inc	dptr
+      00243A E0               [24] 1377 	movx	a,@dptr
+      00243B FD               [12] 1378 	mov	r5,a
+      00243C A3               [24] 1379 	inc	dptr
+      00243D E0               [24] 1380 	movx	a,@dptr
+      00243E FE               [12] 1381 	mov	r6,a
+      00243F A3               [24] 1382 	inc	dptr
+      002440 E0               [24] 1383 	movx	a,@dptr
+      002441 8C 82            [24] 1384 	mov	dpl,r4
+      002443 8D 83            [24] 1385 	mov	dph,r5
+      002445 8E F0            [24] 1386 	mov	b,r6
+      002447 12 1F F2         [24] 1387 	lcall	_scale_value
+      00244A AC 82            [24] 1388 	mov	r4, dpl
+      00244C AD 83            [24] 1389 	mov	r5, dph
+      00244E AE F0            [24] 1390 	mov	r6, b
+      002450 FF               [12] 1391 	mov	r7, a
                                    1392 ;	.\FwLib_STC8\user\measurement.c:76: current_weight += reg_offset_val;
-      0027C7 90 00 1A         [24] 1393 	mov	dptr,#_reg_offset_val
-      0027CA E0               [24] 1394 	movx	a,@dptr
-      0027CB F8               [12] 1395 	mov	r0,a
-      0027CC A3               [24] 1396 	inc	dptr
-      0027CD E0               [24] 1397 	movx	a,@dptr
-      0027CE F9               [12] 1398 	mov	r1,a
-      0027CF A3               [24] 1399 	inc	dptr
-      0027D0 E0               [24] 1400 	movx	a,@dptr
-      0027D1 FA               [12] 1401 	mov	r2,a
-      0027D2 A3               [24] 1402 	inc	dptr
-      0027D3 E0               [24] 1403 	movx	a,@dptr
-      0027D4 FB               [12] 1404 	mov	r3,a
-      0027D5 E8               [12] 1405 	mov	a,r0
-      0027D6 2C               [12] 1406 	add	a, r4
-      0027D7 FC               [12] 1407 	mov	r4,a
-      0027D8 E9               [12] 1408 	mov	a,r1
-      0027D9 3D               [12] 1409 	addc	a, r5
-      0027DA FD               [12] 1410 	mov	r5,a
-      0027DB EA               [12] 1411 	mov	a,r2
-      0027DC 3E               [12] 1412 	addc	a, r6
-      0027DD FE               [12] 1413 	mov	r6,a
-      0027DE EB               [12] 1414 	mov	a,r3
-      0027DF 3F               [12] 1415 	addc	a, r7
-      0027E0 FF               [12] 1416 	mov	r7,a
-      0027E1 90 01 DE         [24] 1417 	mov	dptr,#_MEAS_Process_current_weight_10000_67
-      0027E4 EC               [12] 1418 	mov	a,r4
-      0027E5 F0               [24] 1419 	movx	@dptr,a
-      0027E6 ED               [12] 1420 	mov	a,r5
-      0027E7 A3               [24] 1421 	inc	dptr
-      0027E8 F0               [24] 1422 	movx	@dptr,a
-      0027E9 EE               [12] 1423 	mov	a,r6
-      0027EA A3               [24] 1424 	inc	dptr
-      0027EB F0               [24] 1425 	movx	@dptr,a
-      0027EC EF               [12] 1426 	mov	a,r7
-      0027ED A3               [24] 1427 	inc	dptr
-      0027EE F0               [24] 1428 	movx	@dptr,a
+      002451 90 00 1A         [24] 1393 	mov	dptr,#_reg_offset_val
+      002454 E0               [24] 1394 	movx	a,@dptr
+      002455 F8               [12] 1395 	mov	r0,a
+      002456 A3               [24] 1396 	inc	dptr
+      002457 E0               [24] 1397 	movx	a,@dptr
+      002458 F9               [12] 1398 	mov	r1,a
+      002459 A3               [24] 1399 	inc	dptr
+      00245A E0               [24] 1400 	movx	a,@dptr
+      00245B FA               [12] 1401 	mov	r2,a
+      00245C A3               [24] 1402 	inc	dptr
+      00245D E0               [24] 1403 	movx	a,@dptr
+      00245E FB               [12] 1404 	mov	r3,a
+      00245F E8               [12] 1405 	mov	a,r0
+      002460 2C               [12] 1406 	add	a, r4
+      002461 FC               [12] 1407 	mov	r4,a
+      002462 E9               [12] 1408 	mov	a,r1
+      002463 3D               [12] 1409 	addc	a, r5
+      002464 FD               [12] 1410 	mov	r5,a
+      002465 EA               [12] 1411 	mov	a,r2
+      002466 3E               [12] 1412 	addc	a, r6
+      002467 FE               [12] 1413 	mov	r6,a
+      002468 EB               [12] 1414 	mov	a,r3
+      002469 3F               [12] 1415 	addc	a, r7
+      00246A FF               [12] 1416 	mov	r7,a
+      00246B 90 01 78         [24] 1417 	mov	dptr,#_MEAS_Process_current_weight_10000_67
+      00246E EC               [12] 1418 	mov	a,r4
+      00246F F0               [24] 1419 	movx	@dptr,a
+      002470 ED               [12] 1420 	mov	a,r5
+      002471 A3               [24] 1421 	inc	dptr
+      002472 F0               [24] 1422 	movx	@dptr,a
+      002473 EE               [12] 1423 	mov	a,r6
+      002474 A3               [24] 1424 	inc	dptr
+      002475 F0               [24] 1425 	movx	@dptr,a
+      002476 EF               [12] 1426 	mov	a,r7
+      002477 A3               [24] 1427 	inc	dptr
+      002478 F0               [24] 1428 	movx	@dptr,a
                                    1429 ;	.\FwLib_STC8\user\measurement.c:79: if (reg_output_round > 1) {
-      0027EF 90 00 8E         [24] 1430 	mov	dptr,#_reg_output_round
-      0027F2 E0               [24] 1431 	movx	a,@dptr
-      0027F3 F5 48            [12] 1432 	mov	_MEAS_Process_sloc2_1_0,a
-      0027F5 A3               [24] 1433 	inc	dptr
-      0027F6 E0               [24] 1434 	movx	a,@dptr
-      0027F7 F5 49            [12] 1435 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
-      0027F9 A3               [24] 1436 	inc	dptr
-      0027FA E0               [24] 1437 	movx	a,@dptr
-      0027FB F5 4A            [12] 1438 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
-      0027FD A3               [24] 1439 	inc	dptr
-      0027FE E0               [24] 1440 	movx	a,@dptr
-      0027FF F5 4B            [12] 1441 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
-      002801 C3               [12] 1442 	clr	c
-      002802 74 01            [12] 1443 	mov	a,#0x01
-      002804 95 48            [12] 1444 	subb	a,_MEAS_Process_sloc2_1_0
-      002806 E4               [12] 1445 	clr	a
-      002807 95 49            [12] 1446 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002809 E4               [12] 1447 	clr	a
-      00280A 95 4A            [12] 1448 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
-      00280C 74 80            [12] 1449 	mov	a,#(0x00 ^ 0x80)
-      00280E 85 4B F0         [24] 1450 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
-      002811 63 F0 80         [24] 1451 	xrl	b,#0x80
-      002814 95 F0            [12] 1452 	subb	a,b
-      002816 40 03            [24] 1453 	jc	00218$
-      002818 02 29 7A         [24] 1454 	ljmp	00114$
-      00281B                       1455 00218$:
+      002479 90 00 8E         [24] 1430 	mov	dptr,#_reg_output_round
+      00247C E0               [24] 1431 	movx	a,@dptr
+      00247D F5 45            [12] 1432 	mov	_MEAS_Process_sloc2_1_0,a
+      00247F A3               [24] 1433 	inc	dptr
+      002480 E0               [24] 1434 	movx	a,@dptr
+      002481 F5 46            [12] 1435 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
+      002483 A3               [24] 1436 	inc	dptr
+      002484 E0               [24] 1437 	movx	a,@dptr
+      002485 F5 47            [12] 1438 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
+      002487 A3               [24] 1439 	inc	dptr
+      002488 E0               [24] 1440 	movx	a,@dptr
+      002489 F5 48            [12] 1441 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
+      00248B C3               [12] 1442 	clr	c
+      00248C 74 01            [12] 1443 	mov	a,#0x01
+      00248E 95 45            [12] 1444 	subb	a,_MEAS_Process_sloc2_1_0
+      002490 E4               [12] 1445 	clr	a
+      002491 95 46            [12] 1446 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
+      002493 E4               [12] 1447 	clr	a
+      002494 95 47            [12] 1448 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
+      002496 74 80            [12] 1449 	mov	a,#(0x00 ^ 0x80)
+      002498 85 48 F0         [24] 1450 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
+      00249B 63 F0 80         [24] 1451 	xrl	b,#0x80
+      00249E 95 F0            [12] 1452 	subb	a,b
+      0024A0 40 03            [24] 1453 	jc	00218$
+      0024A2 02 26 04         [24] 1454 	ljmp	00114$
+      0024A5                       1455 00218$:
                                    1456 ;	.\FwLib_STC8\user\measurement.c:80: if (current_weight >= 0) {
-      00281B EF               [12] 1457 	mov	a,r7
-      00281C 30 E7 03         [24] 1458 	jnb	acc.7,00219$
-      00281F 02 28 C7         [24] 1459 	ljmp	00111$
-      002822                       1460 00219$:
+      0024A5 EF               [12] 1457 	mov	a,r7
+      0024A6 30 E7 03         [24] 1458 	jnb	acc.7,00219$
+      0024A9 02 25 51         [24] 1459 	ljmp	00111$
+      0024AC                       1460 00219$:
                                    1461 ;	.\FwLib_STC8\user\measurement.c:81: current_weight = (current_weight + (reg_output_round / 2)) / reg_output_round * reg_output_round;
-      002822 C0 00            [24] 1462 	push	ar0
-      002824 C0 01            [24] 1463 	push	ar1
-      002826 C0 02            [24] 1464 	push	ar2
-      002828 C0 03            [24] 1465 	push	ar3
-      00282A 90 01 FA         [24] 1466 	mov	dptr,#__divslong_PARM_2
-      00282D 74 02            [12] 1467 	mov	a,#0x02
-      00282F F0               [24] 1468 	movx	@dptr,a
-      002830 E4               [12] 1469 	clr	a
-      002831 A3               [24] 1470 	inc	dptr
-      002832 F0               [24] 1471 	movx	@dptr,a
-      002833 A3               [24] 1472 	inc	dptr
-      002834 F0               [24] 1473 	movx	@dptr,a
-      002835 A3               [24] 1474 	inc	dptr
-      002836 F0               [24] 1475 	movx	@dptr,a
-      002837 85 48 82         [24] 1476 	mov	dpl, _MEAS_Process_sloc2_1_0
-      00283A 85 49 83         [24] 1477 	mov	dph, (_MEAS_Process_sloc2_1_0 + 1)
-      00283D 85 4A F0         [24] 1478 	mov	b, (_MEAS_Process_sloc2_1_0 + 2)
-      002840 E5 4B            [12] 1479 	mov	a, (_MEAS_Process_sloc2_1_0 + 3)
-      002842 C0 07            [24] 1480 	push	ar7
-      002844 C0 06            [24] 1481 	push	ar6
-      002846 C0 05            [24] 1482 	push	ar5
-      002848 C0 04            [24] 1483 	push	ar4
-      00284A 12 2E 4F         [24] 1484 	lcall	__divslong
-      00284D A8 82            [24] 1485 	mov	r0, dpl
-      00284F A9 83            [24] 1486 	mov	r1, dph
-      002851 AA F0            [24] 1487 	mov	r2, b
-      002853 FB               [12] 1488 	mov	r3, a
-      002854 D0 04            [24] 1489 	pop	ar4
-      002856 D0 05            [24] 1490 	pop	ar5
-      002858 D0 06            [24] 1491 	pop	ar6
-      00285A D0 07            [24] 1492 	pop	ar7
-      00285C E8               [12] 1493 	mov	a,r0
-      00285D 2C               [12] 1494 	add	a, r4
-      00285E F8               [12] 1495 	mov	r0,a
-      00285F E9               [12] 1496 	mov	a,r1
-      002860 3D               [12] 1497 	addc	a, r5
-      002861 F9               [12] 1498 	mov	r1,a
-      002862 EA               [12] 1499 	mov	a,r2
-      002863 3E               [12] 1500 	addc	a, r6
-      002864 FA               [12] 1501 	mov	r2,a
-      002865 EB               [12] 1502 	mov	a,r3
-      002866 3F               [12] 1503 	addc	a, r7
-      002867 FB               [12] 1504 	mov	r3,a
-      002868 90 01 FA         [24] 1505 	mov	dptr,#__divslong_PARM_2
-      00286B E5 48            [12] 1506 	mov	a,_MEAS_Process_sloc2_1_0
-      00286D F0               [24] 1507 	movx	@dptr,a
-      00286E E5 49            [12] 1508 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002870 A3               [24] 1509 	inc	dptr
-      002871 F0               [24] 1510 	movx	@dptr,a
-      002872 E5 4A            [12] 1511 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
-      002874 A3               [24] 1512 	inc	dptr
-      002875 F0               [24] 1513 	movx	@dptr,a
-      002876 E5 4B            [12] 1514 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
-      002878 A3               [24] 1515 	inc	dptr
-      002879 F0               [24] 1516 	movx	@dptr,a
-      00287A 88 82            [24] 1517 	mov	dpl, r0
-      00287C 89 83            [24] 1518 	mov	dph, r1
-      00287E 8A F0            [24] 1519 	mov	b, r2
-      002880 EB               [12] 1520 	mov	a, r3
-      002881 12 2E 4F         [24] 1521 	lcall	__divslong
-      002884 A8 82            [24] 1522 	mov	r0, dpl
-      002886 A9 83            [24] 1523 	mov	r1, dph
-      002888 AA F0            [24] 1524 	mov	r2, b
-      00288A FB               [12] 1525 	mov	r3, a
-      00288B 90 02 1A         [24] 1526 	mov	dptr,#__mullong_PARM_2
-      00288E E5 48            [12] 1527 	mov	a,_MEAS_Process_sloc2_1_0
-      002890 F0               [24] 1528 	movx	@dptr,a
-      002891 E5 49            [12] 1529 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002893 A3               [24] 1530 	inc	dptr
-      002894 F0               [24] 1531 	movx	@dptr,a
-      002895 E5 4A            [12] 1532 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
-      002897 A3               [24] 1533 	inc	dptr
-      002898 F0               [24] 1534 	movx	@dptr,a
-      002899 E5 4B            [12] 1535 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
-      00289B A3               [24] 1536 	inc	dptr
-      00289C F0               [24] 1537 	movx	@dptr,a
-      00289D 88 82            [24] 1538 	mov	dpl, r0
-      00289F 89 83            [24] 1539 	mov	dph, r1
-      0028A1 8A F0            [24] 1540 	mov	b, r2
-      0028A3 EB               [12] 1541 	mov	a, r3
-      0028A4 12 31 AB         [24] 1542 	lcall	__mullong
-      0028A7 A8 82            [24] 1543 	mov	r0, dpl
-      0028A9 A9 83            [24] 1544 	mov	r1, dph
-      0028AB AA F0            [24] 1545 	mov	r2, b
-      0028AD FB               [12] 1546 	mov	r3, a
-      0028AE 90 01 DE         [24] 1547 	mov	dptr,#_MEAS_Process_current_weight_10000_67
-      0028B1 E8               [12] 1548 	mov	a,r0
-      0028B2 F0               [24] 1549 	movx	@dptr,a
-      0028B3 E9               [12] 1550 	mov	a,r1
-      0028B4 A3               [24] 1551 	inc	dptr
-      0028B5 F0               [24] 1552 	movx	@dptr,a
-      0028B6 EA               [12] 1553 	mov	a,r2
-      0028B7 A3               [24] 1554 	inc	dptr
-      0028B8 F0               [24] 1555 	movx	@dptr,a
-      0028B9 EB               [12] 1556 	mov	a,r3
-      0028BA A3               [24] 1557 	inc	dptr
-      0028BB F0               [24] 1558 	movx	@dptr,a
-      0028BC D0 03            [24] 1559 	pop	ar3
-      0028BE D0 02            [24] 1560 	pop	ar2
-      0028C0 D0 01            [24] 1561 	pop	ar1
-      0028C2 D0 00            [24] 1562 	pop	ar0
-      0028C4 02 29 7A         [24] 1563 	ljmp	00114$
-      0028C7                       1564 00111$:
+      0024AC C0 00            [24] 1462 	push	ar0
+      0024AE C0 01            [24] 1463 	push	ar1
+      0024B0 C0 02            [24] 1464 	push	ar2
+      0024B2 C0 03            [24] 1465 	push	ar3
+      0024B4 90 01 84         [24] 1466 	mov	dptr,#__divslong_PARM_2
+      0024B7 74 02            [12] 1467 	mov	a,#0x02
+      0024B9 F0               [24] 1468 	movx	@dptr,a
+      0024BA E4               [12] 1469 	clr	a
+      0024BB A3               [24] 1470 	inc	dptr
+      0024BC F0               [24] 1471 	movx	@dptr,a
+      0024BD A3               [24] 1472 	inc	dptr
+      0024BE F0               [24] 1473 	movx	@dptr,a
+      0024BF A3               [24] 1474 	inc	dptr
+      0024C0 F0               [24] 1475 	movx	@dptr,a
+      0024C1 85 45 82         [24] 1476 	mov	dpl, _MEAS_Process_sloc2_1_0
+      0024C4 85 46 83         [24] 1477 	mov	dph, (_MEAS_Process_sloc2_1_0 + 1)
+      0024C7 85 47 F0         [24] 1478 	mov	b, (_MEAS_Process_sloc2_1_0 + 2)
+      0024CA E5 48            [12] 1479 	mov	a, (_MEAS_Process_sloc2_1_0 + 3)
+      0024CC C0 07            [24] 1480 	push	ar7
+      0024CE C0 06            [24] 1481 	push	ar6
+      0024D0 C0 05            [24] 1482 	push	ar5
+      0024D2 C0 04            [24] 1483 	push	ar4
+      0024D4 12 29 0D         [24] 1484 	lcall	__divslong
+      0024D7 A8 82            [24] 1485 	mov	r0, dpl
+      0024D9 A9 83            [24] 1486 	mov	r1, dph
+      0024DB AA F0            [24] 1487 	mov	r2, b
+      0024DD FB               [12] 1488 	mov	r3, a
+      0024DE D0 04            [24] 1489 	pop	ar4
+      0024E0 D0 05            [24] 1490 	pop	ar5
+      0024E2 D0 06            [24] 1491 	pop	ar6
+      0024E4 D0 07            [24] 1492 	pop	ar7
+      0024E6 E8               [12] 1493 	mov	a,r0
+      0024E7 2C               [12] 1494 	add	a, r4
+      0024E8 F8               [12] 1495 	mov	r0,a
+      0024E9 E9               [12] 1496 	mov	a,r1
+      0024EA 3D               [12] 1497 	addc	a, r5
+      0024EB F9               [12] 1498 	mov	r1,a
+      0024EC EA               [12] 1499 	mov	a,r2
+      0024ED 3E               [12] 1500 	addc	a, r6
+      0024EE FA               [12] 1501 	mov	r2,a
+      0024EF EB               [12] 1502 	mov	a,r3
+      0024F0 3F               [12] 1503 	addc	a, r7
+      0024F1 FB               [12] 1504 	mov	r3,a
+      0024F2 90 01 84         [24] 1505 	mov	dptr,#__divslong_PARM_2
+      0024F5 E5 45            [12] 1506 	mov	a,_MEAS_Process_sloc2_1_0
+      0024F7 F0               [24] 1507 	movx	@dptr,a
+      0024F8 E5 46            [12] 1508 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+      0024FA A3               [24] 1509 	inc	dptr
+      0024FB F0               [24] 1510 	movx	@dptr,a
+      0024FC E5 47            [12] 1511 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+      0024FE A3               [24] 1512 	inc	dptr
+      0024FF F0               [24] 1513 	movx	@dptr,a
+      002500 E5 48            [12] 1514 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+      002502 A3               [24] 1515 	inc	dptr
+      002503 F0               [24] 1516 	movx	@dptr,a
+      002504 88 82            [24] 1517 	mov	dpl, r0
+      002506 89 83            [24] 1518 	mov	dph, r1
+      002508 8A F0            [24] 1519 	mov	b, r2
+      00250A EB               [12] 1520 	mov	a, r3
+      00250B 12 29 0D         [24] 1521 	lcall	__divslong
+      00250E A8 82            [24] 1522 	mov	r0, dpl
+      002510 A9 83            [24] 1523 	mov	r1, dph
+      002512 AA F0            [24] 1524 	mov	r2, b
+      002514 FB               [12] 1525 	mov	r3, a
+      002515 90 01 A4         [24] 1526 	mov	dptr,#__mullong_PARM_2
+      002518 E5 45            [12] 1527 	mov	a,_MEAS_Process_sloc2_1_0
+      00251A F0               [24] 1528 	movx	@dptr,a
+      00251B E5 46            [12] 1529 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+      00251D A3               [24] 1530 	inc	dptr
+      00251E F0               [24] 1531 	movx	@dptr,a
+      00251F E5 47            [12] 1532 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+      002521 A3               [24] 1533 	inc	dptr
+      002522 F0               [24] 1534 	movx	@dptr,a
+      002523 E5 48            [12] 1535 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+      002525 A3               [24] 1536 	inc	dptr
+      002526 F0               [24] 1537 	movx	@dptr,a
+      002527 88 82            [24] 1538 	mov	dpl, r0
+      002529 89 83            [24] 1539 	mov	dph, r1
+      00252B 8A F0            [24] 1540 	mov	b, r2
+      00252D EB               [12] 1541 	mov	a, r3
+      00252E 12 2C 69         [24] 1542 	lcall	__mullong
+      002531 A8 82            [24] 1543 	mov	r0, dpl
+      002533 A9 83            [24] 1544 	mov	r1, dph
+      002535 AA F0            [24] 1545 	mov	r2, b
+      002537 FB               [12] 1546 	mov	r3, a
+      002538 90 01 78         [24] 1547 	mov	dptr,#_MEAS_Process_current_weight_10000_67
+      00253B E8               [12] 1548 	mov	a,r0
+      00253C F0               [24] 1549 	movx	@dptr,a
+      00253D E9               [12] 1550 	mov	a,r1
+      00253E A3               [24] 1551 	inc	dptr
+      00253F F0               [24] 1552 	movx	@dptr,a
+      002540 EA               [12] 1553 	mov	a,r2
+      002541 A3               [24] 1554 	inc	dptr
+      002542 F0               [24] 1555 	movx	@dptr,a
+      002543 EB               [12] 1556 	mov	a,r3
+      002544 A3               [24] 1557 	inc	dptr
+      002545 F0               [24] 1558 	movx	@dptr,a
+      002546 D0 03            [24] 1559 	pop	ar3
+      002548 D0 02            [24] 1560 	pop	ar2
+      00254A D0 01            [24] 1561 	pop	ar1
+      00254C D0 00            [24] 1562 	pop	ar0
+      00254E 02 26 04         [24] 1563 	ljmp	00114$
+      002551                       1564 00111$:
                                    1565 ;	.\FwLib_STC8\user\measurement.c:83: current_weight = (current_weight - (reg_output_round / 2)) / reg_output_round * reg_output_round;
-      0028C7 C0 00            [24] 1566 	push	ar0
-      0028C9 C0 01            [24] 1567 	push	ar1
-      0028CB C0 02            [24] 1568 	push	ar2
-      0028CD C0 03            [24] 1569 	push	ar3
-      0028CF 90 01 FA         [24] 1570 	mov	dptr,#__divslong_PARM_2
-      0028D2 74 02            [12] 1571 	mov	a,#0x02
-      0028D4 F0               [24] 1572 	movx	@dptr,a
-      0028D5 E4               [12] 1573 	clr	a
-      0028D6 A3               [24] 1574 	inc	dptr
-      0028D7 F0               [24] 1575 	movx	@dptr,a
-      0028D8 A3               [24] 1576 	inc	dptr
-      0028D9 F0               [24] 1577 	movx	@dptr,a
-      0028DA A3               [24] 1578 	inc	dptr
-      0028DB F0               [24] 1579 	movx	@dptr,a
-      0028DC 85 48 82         [24] 1580 	mov	dpl, _MEAS_Process_sloc2_1_0
-      0028DF 85 49 83         [24] 1581 	mov	dph, (_MEAS_Process_sloc2_1_0 + 1)
-      0028E2 85 4A F0         [24] 1582 	mov	b, (_MEAS_Process_sloc2_1_0 + 2)
-      0028E5 E5 4B            [12] 1583 	mov	a, (_MEAS_Process_sloc2_1_0 + 3)
-      0028E7 C0 07            [24] 1584 	push	ar7
-      0028E9 C0 06            [24] 1585 	push	ar6
-      0028EB C0 05            [24] 1586 	push	ar5
-      0028ED C0 04            [24] 1587 	push	ar4
-      0028EF 12 2E 4F         [24] 1588 	lcall	__divslong
-      0028F2 A8 82            [24] 1589 	mov	r0, dpl
-      0028F4 A9 83            [24] 1590 	mov	r1, dph
-      0028F6 AA F0            [24] 1591 	mov	r2, b
-      0028F8 FB               [12] 1592 	mov	r3, a
-      0028F9 D0 04            [24] 1593 	pop	ar4
-      0028FB D0 05            [24] 1594 	pop	ar5
-      0028FD D0 06            [24] 1595 	pop	ar6
-      0028FF D0 07            [24] 1596 	pop	ar7
-      002901 EC               [12] 1597 	mov	a,r4
-      002902 C3               [12] 1598 	clr	c
-      002903 98               [12] 1599 	subb	a,r0
-      002904 FC               [12] 1600 	mov	r4,a
-      002905 ED               [12] 1601 	mov	a,r5
-      002906 99               [12] 1602 	subb	a,r1
-      002907 FD               [12] 1603 	mov	r5,a
-      002908 EE               [12] 1604 	mov	a,r6
-      002909 9A               [12] 1605 	subb	a,r2
-      00290A FE               [12] 1606 	mov	r6,a
-      00290B EF               [12] 1607 	mov	a,r7
-      00290C 9B               [12] 1608 	subb	a,r3
-      00290D FF               [12] 1609 	mov	r7,a
-      00290E 90 01 FA         [24] 1610 	mov	dptr,#__divslong_PARM_2
-      002911 E5 48            [12] 1611 	mov	a,_MEAS_Process_sloc2_1_0
-      002913 F0               [24] 1612 	movx	@dptr,a
-      002914 E5 49            [12] 1613 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002916 A3               [24] 1614 	inc	dptr
-      002917 F0               [24] 1615 	movx	@dptr,a
-      002918 E5 4A            [12] 1616 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
-      00291A A3               [24] 1617 	inc	dptr
-      00291B F0               [24] 1618 	movx	@dptr,a
-      00291C E5 4B            [12] 1619 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
-      00291E A3               [24] 1620 	inc	dptr
-      00291F F0               [24] 1621 	movx	@dptr,a
-      002920 8C 82            [24] 1622 	mov	dpl, r4
-      002922 8D 83            [24] 1623 	mov	dph, r5
-      002924 8E F0            [24] 1624 	mov	b, r6
-      002926 EF               [12] 1625 	mov	a, r7
-      002927 C0 03            [24] 1626 	push	ar3
-      002929 C0 02            [24] 1627 	push	ar2
-      00292B C0 01            [24] 1628 	push	ar1
-      00292D C0 00            [24] 1629 	push	ar0
-      00292F 12 2E 4F         [24] 1630 	lcall	__divslong
-      002932 AC 82            [24] 1631 	mov	r4, dpl
-      002934 AD 83            [24] 1632 	mov	r5, dph
-      002936 AE F0            [24] 1633 	mov	r6, b
-      002938 FF               [12] 1634 	mov	r7, a
-      002939 90 02 1A         [24] 1635 	mov	dptr,#__mullong_PARM_2
-      00293C E5 48            [12] 1636 	mov	a,_MEAS_Process_sloc2_1_0
-      00293E F0               [24] 1637 	movx	@dptr,a
-      00293F E5 49            [12] 1638 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002941 A3               [24] 1639 	inc	dptr
-      002942 F0               [24] 1640 	movx	@dptr,a
-      002943 E5 4A            [12] 1641 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
-      002945 A3               [24] 1642 	inc	dptr
-      002946 F0               [24] 1643 	movx	@dptr,a
-      002947 E5 4B            [12] 1644 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
-      002949 A3               [24] 1645 	inc	dptr
-      00294A F0               [24] 1646 	movx	@dptr,a
-      00294B 8C 82            [24] 1647 	mov	dpl, r4
-      00294D 8D 83            [24] 1648 	mov	dph, r5
-      00294F 8E F0            [24] 1649 	mov	b, r6
-      002951 EF               [12] 1650 	mov	a, r7
-      002952 12 31 AB         [24] 1651 	lcall	__mullong
-      002955 AC 82            [24] 1652 	mov	r4, dpl
-      002957 AD 83            [24] 1653 	mov	r5, dph
-      002959 AE F0            [24] 1654 	mov	r6, b
-      00295B FF               [12] 1655 	mov	r7, a
-      00295C D0 00            [24] 1656 	pop	ar0
-      00295E D0 01            [24] 1657 	pop	ar1
-      002960 D0 02            [24] 1658 	pop	ar2
-      002962 D0 03            [24] 1659 	pop	ar3
-      002964 90 01 DE         [24] 1660 	mov	dptr,#_MEAS_Process_current_weight_10000_67
-      002967 EC               [12] 1661 	mov	a,r4
-      002968 F0               [24] 1662 	movx	@dptr,a
-      002969 ED               [12] 1663 	mov	a,r5
-      00296A A3               [24] 1664 	inc	dptr
-      00296B F0               [24] 1665 	movx	@dptr,a
-      00296C EE               [12] 1666 	mov	a,r6
-      00296D A3               [24] 1667 	inc	dptr
-      00296E F0               [24] 1668 	movx	@dptr,a
-      00296F EF               [12] 1669 	mov	a,r7
-      002970 A3               [24] 1670 	inc	dptr
-      002971 F0               [24] 1671 	movx	@dptr,a
+      002551 C0 00            [24] 1566 	push	ar0
+      002553 C0 01            [24] 1567 	push	ar1
+      002555 C0 02            [24] 1568 	push	ar2
+      002557 C0 03            [24] 1569 	push	ar3
+      002559 90 01 84         [24] 1570 	mov	dptr,#__divslong_PARM_2
+      00255C 74 02            [12] 1571 	mov	a,#0x02
+      00255E F0               [24] 1572 	movx	@dptr,a
+      00255F E4               [12] 1573 	clr	a
+      002560 A3               [24] 1574 	inc	dptr
+      002561 F0               [24] 1575 	movx	@dptr,a
+      002562 A3               [24] 1576 	inc	dptr
+      002563 F0               [24] 1577 	movx	@dptr,a
+      002564 A3               [24] 1578 	inc	dptr
+      002565 F0               [24] 1579 	movx	@dptr,a
+      002566 85 45 82         [24] 1580 	mov	dpl, _MEAS_Process_sloc2_1_0
+      002569 85 46 83         [24] 1581 	mov	dph, (_MEAS_Process_sloc2_1_0 + 1)
+      00256C 85 47 F0         [24] 1582 	mov	b, (_MEAS_Process_sloc2_1_0 + 2)
+      00256F E5 48            [12] 1583 	mov	a, (_MEAS_Process_sloc2_1_0 + 3)
+      002571 C0 07            [24] 1584 	push	ar7
+      002573 C0 06            [24] 1585 	push	ar6
+      002575 C0 05            [24] 1586 	push	ar5
+      002577 C0 04            [24] 1587 	push	ar4
+      002579 12 29 0D         [24] 1588 	lcall	__divslong
+      00257C A8 82            [24] 1589 	mov	r0, dpl
+      00257E A9 83            [24] 1590 	mov	r1, dph
+      002580 AA F0            [24] 1591 	mov	r2, b
+      002582 FB               [12] 1592 	mov	r3, a
+      002583 D0 04            [24] 1593 	pop	ar4
+      002585 D0 05            [24] 1594 	pop	ar5
+      002587 D0 06            [24] 1595 	pop	ar6
+      002589 D0 07            [24] 1596 	pop	ar7
+      00258B EC               [12] 1597 	mov	a,r4
+      00258C C3               [12] 1598 	clr	c
+      00258D 98               [12] 1599 	subb	a,r0
+      00258E FC               [12] 1600 	mov	r4,a
+      00258F ED               [12] 1601 	mov	a,r5
+      002590 99               [12] 1602 	subb	a,r1
+      002591 FD               [12] 1603 	mov	r5,a
+      002592 EE               [12] 1604 	mov	a,r6
+      002593 9A               [12] 1605 	subb	a,r2
+      002594 FE               [12] 1606 	mov	r6,a
+      002595 EF               [12] 1607 	mov	a,r7
+      002596 9B               [12] 1608 	subb	a,r3
+      002597 FF               [12] 1609 	mov	r7,a
+      002598 90 01 84         [24] 1610 	mov	dptr,#__divslong_PARM_2
+      00259B E5 45            [12] 1611 	mov	a,_MEAS_Process_sloc2_1_0
+      00259D F0               [24] 1612 	movx	@dptr,a
+      00259E E5 46            [12] 1613 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+      0025A0 A3               [24] 1614 	inc	dptr
+      0025A1 F0               [24] 1615 	movx	@dptr,a
+      0025A2 E5 47            [12] 1616 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+      0025A4 A3               [24] 1617 	inc	dptr
+      0025A5 F0               [24] 1618 	movx	@dptr,a
+      0025A6 E5 48            [12] 1619 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+      0025A8 A3               [24] 1620 	inc	dptr
+      0025A9 F0               [24] 1621 	movx	@dptr,a
+      0025AA 8C 82            [24] 1622 	mov	dpl, r4
+      0025AC 8D 83            [24] 1623 	mov	dph, r5
+      0025AE 8E F0            [24] 1624 	mov	b, r6
+      0025B0 EF               [12] 1625 	mov	a, r7
+      0025B1 C0 03            [24] 1626 	push	ar3
+      0025B3 C0 02            [24] 1627 	push	ar2
+      0025B5 C0 01            [24] 1628 	push	ar1
+      0025B7 C0 00            [24] 1629 	push	ar0
+      0025B9 12 29 0D         [24] 1630 	lcall	__divslong
+      0025BC AC 82            [24] 1631 	mov	r4, dpl
+      0025BE AD 83            [24] 1632 	mov	r5, dph
+      0025C0 AE F0            [24] 1633 	mov	r6, b
+      0025C2 FF               [12] 1634 	mov	r7, a
+      0025C3 90 01 A4         [24] 1635 	mov	dptr,#__mullong_PARM_2
+      0025C6 E5 45            [12] 1636 	mov	a,_MEAS_Process_sloc2_1_0
+      0025C8 F0               [24] 1637 	movx	@dptr,a
+      0025C9 E5 46            [12] 1638 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+      0025CB A3               [24] 1639 	inc	dptr
+      0025CC F0               [24] 1640 	movx	@dptr,a
+      0025CD E5 47            [12] 1641 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+      0025CF A3               [24] 1642 	inc	dptr
+      0025D0 F0               [24] 1643 	movx	@dptr,a
+      0025D1 E5 48            [12] 1644 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+      0025D3 A3               [24] 1645 	inc	dptr
+      0025D4 F0               [24] 1646 	movx	@dptr,a
+      0025D5 8C 82            [24] 1647 	mov	dpl, r4
+      0025D7 8D 83            [24] 1648 	mov	dph, r5
+      0025D9 8E F0            [24] 1649 	mov	b, r6
+      0025DB EF               [12] 1650 	mov	a, r7
+      0025DC 12 2C 69         [24] 1651 	lcall	__mullong
+      0025DF AC 82            [24] 1652 	mov	r4, dpl
+      0025E1 AD 83            [24] 1653 	mov	r5, dph
+      0025E3 AE F0            [24] 1654 	mov	r6, b
+      0025E5 FF               [12] 1655 	mov	r7, a
+      0025E6 D0 00            [24] 1656 	pop	ar0
+      0025E8 D0 01            [24] 1657 	pop	ar1
+      0025EA D0 02            [24] 1658 	pop	ar2
+      0025EC D0 03            [24] 1659 	pop	ar3
+      0025EE 90 01 78         [24] 1660 	mov	dptr,#_MEAS_Process_current_weight_10000_67
+      0025F1 EC               [12] 1661 	mov	a,r4
+      0025F2 F0               [24] 1662 	movx	@dptr,a
+      0025F3 ED               [12] 1663 	mov	a,r5
+      0025F4 A3               [24] 1664 	inc	dptr
+      0025F5 F0               [24] 1665 	movx	@dptr,a
+      0025F6 EE               [12] 1666 	mov	a,r6
+      0025F7 A3               [24] 1667 	inc	dptr
+      0025F8 F0               [24] 1668 	movx	@dptr,a
+      0025F9 EF               [12] 1669 	mov	a,r7
+      0025FA A3               [24] 1670 	inc	dptr
+      0025FB F0               [24] 1671 	movx	@dptr,a
                                    1672 ;	.\FwLib_STC8\user\measurement.c:111: reg_stable_mark = 0;
-      002972 D0 03            [24] 1673 	pop	ar3
-      002974 D0 02            [24] 1674 	pop	ar2
-      002976 D0 01            [24] 1675 	pop	ar1
-      002978 D0 00            [24] 1676 	pop	ar0
+      0025FC D0 03            [24] 1673 	pop	ar3
+      0025FE D0 02            [24] 1674 	pop	ar2
+      002600 D0 01            [24] 1675 	pop	ar1
+      002602 D0 00            [24] 1676 	pop	ar0
                                    1677 ;	.\FwLib_STC8\user\measurement.c:83: current_weight = (current_weight - (reg_output_round / 2)) / reg_output_round * reg_output_round;
-      00297A                       1678 00114$:
+      002604                       1678 00114$:
                                    1679 ;	.\FwLib_STC8\user\measurement.c:86: reg_measuring_val = current_weight;
-      00297A 90 01 DE         [24] 1680 	mov	dptr,#_MEAS_Process_current_weight_10000_67
-      00297D E0               [24] 1681 	movx	a,@dptr
-      00297E FC               [12] 1682 	mov	r4,a
-      00297F A3               [24] 1683 	inc	dptr
-      002980 E0               [24] 1684 	movx	a,@dptr
-      002981 FD               [12] 1685 	mov	r5,a
-      002982 A3               [24] 1686 	inc	dptr
-      002983 E0               [24] 1687 	movx	a,@dptr
-      002984 FE               [12] 1688 	mov	r6,a
-      002985 A3               [24] 1689 	inc	dptr
-      002986 E0               [24] 1690 	movx	a,@dptr
-      002987 FF               [12] 1691 	mov	r7,a
-      002988 90 00 12         [24] 1692 	mov	dptr,#_reg_measuring_val
-      00298B EC               [12] 1693 	mov	a,r4
-      00298C F0               [24] 1694 	movx	@dptr,a
-      00298D ED               [12] 1695 	mov	a,r5
-      00298E A3               [24] 1696 	inc	dptr
-      00298F F0               [24] 1697 	movx	@dptr,a
-      002990 EE               [12] 1698 	mov	a,r6
-      002991 A3               [24] 1699 	inc	dptr
-      002992 F0               [24] 1700 	movx	@dptr,a
-      002993 EF               [12] 1701 	mov	a,r7
-      002994 A3               [24] 1702 	inc	dptr
-      002995 F0               [24] 1703 	movx	@dptr,a
+      002604 90 01 78         [24] 1680 	mov	dptr,#_MEAS_Process_current_weight_10000_67
+      002607 E0               [24] 1681 	movx	a,@dptr
+      002608 FC               [12] 1682 	mov	r4,a
+      002609 A3               [24] 1683 	inc	dptr
+      00260A E0               [24] 1684 	movx	a,@dptr
+      00260B FD               [12] 1685 	mov	r5,a
+      00260C A3               [24] 1686 	inc	dptr
+      00260D E0               [24] 1687 	movx	a,@dptr
+      00260E FE               [12] 1688 	mov	r6,a
+      00260F A3               [24] 1689 	inc	dptr
+      002610 E0               [24] 1690 	movx	a,@dptr
+      002611 FF               [12] 1691 	mov	r7,a
+      002612 90 00 12         [24] 1692 	mov	dptr,#_reg_measuring_val
+      002615 EC               [12] 1693 	mov	a,r4
+      002616 F0               [24] 1694 	movx	@dptr,a
+      002617 ED               [12] 1695 	mov	a,r5
+      002618 A3               [24] 1696 	inc	dptr
+      002619 F0               [24] 1697 	movx	@dptr,a
+      00261A EE               [12] 1698 	mov	a,r6
+      00261B A3               [24] 1699 	inc	dptr
+      00261C F0               [24] 1700 	movx	@dptr,a
+      00261D EF               [12] 1701 	mov	a,r7
+      00261E A3               [24] 1702 	inc	dptr
+      00261F F0               [24] 1703 	movx	@dptr,a
                                    1704 ;	.\FwLib_STC8\user\measurement.c:89: if (reg_zero_trace_band > 0) {
-      002996 90 00 82         [24] 1705 	mov	dptr,#_reg_zero_trace_band
-      002999 E0               [24] 1706 	movx	a,@dptr
-      00299A F5 48            [12] 1707 	mov	_MEAS_Process_sloc2_1_0,a
-      00299C A3               [24] 1708 	inc	dptr
-      00299D E0               [24] 1709 	movx	a,@dptr
-      00299E F5 49            [12] 1710 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
-      0029A0 A3               [24] 1711 	inc	dptr
-      0029A1 E0               [24] 1712 	movx	a,@dptr
-      0029A2 F5 4A            [12] 1713 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
-      0029A4 A3               [24] 1714 	inc	dptr
-      0029A5 E0               [24] 1715 	movx	a,@dptr
-      0029A6 F5 4B            [12] 1716 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
-      0029A8 C3               [12] 1717 	clr	c
-      0029A9 E4               [12] 1718 	clr	a
-      0029AA 95 48            [12] 1719 	subb	a,_MEAS_Process_sloc2_1_0
-      0029AC E4               [12] 1720 	clr	a
-      0029AD 95 49            [12] 1721 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
-      0029AF E4               [12] 1722 	clr	a
-      0029B0 95 4A            [12] 1723 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
-      0029B2 74 80            [12] 1724 	mov	a,#(0x00 ^ 0x80)
-      0029B4 85 4B F0         [24] 1725 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
-      0029B7 63 F0 80         [24] 1726 	xrl	b,#0x80
-      0029BA 95 F0            [12] 1727 	subb	a,b
-      0029BC 40 03            [24] 1728 	jc	00220$
-      0029BE 02 2A 8F         [24] 1729 	ljmp	00122$
-      0029C1                       1730 00220$:
+      002620 90 00 82         [24] 1705 	mov	dptr,#_reg_zero_trace_band
+      002623 E0               [24] 1706 	movx	a,@dptr
+      002624 F5 45            [12] 1707 	mov	_MEAS_Process_sloc2_1_0,a
+      002626 A3               [24] 1708 	inc	dptr
+      002627 E0               [24] 1709 	movx	a,@dptr
+      002628 F5 46            [12] 1710 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
+      00262A A3               [24] 1711 	inc	dptr
+      00262B E0               [24] 1712 	movx	a,@dptr
+      00262C F5 47            [12] 1713 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
+      00262E A3               [24] 1714 	inc	dptr
+      00262F E0               [24] 1715 	movx	a,@dptr
+      002630 F5 48            [12] 1716 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
+      002632 C3               [12] 1717 	clr	c
+      002633 E4               [12] 1718 	clr	a
+      002634 95 45            [12] 1719 	subb	a,_MEAS_Process_sloc2_1_0
+      002636 E4               [12] 1720 	clr	a
+      002637 95 46            [12] 1721 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
+      002639 E4               [12] 1722 	clr	a
+      00263A 95 47            [12] 1723 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
+      00263C 74 80            [12] 1724 	mov	a,#(0x00 ^ 0x80)
+      00263E 85 48 F0         [24] 1725 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
+      002641 63 F0 80         [24] 1726 	xrl	b,#0x80
+      002644 95 F0            [12] 1727 	subb	a,b
+      002646 40 03            [24] 1728 	jc	00220$
+      002648 02 27 19         [24] 1729 	ljmp	00122$
+      00264B                       1730 00220$:
                                    1731 ;	.\FwLib_STC8\user\measurement.c:90: if (reg_measuring_val > -reg_zero_trace_band && reg_measuring_val < reg_zero_trace_band) {
-      0029C1 C0 00            [24] 1732 	push	ar0
-      0029C3 C0 01            [24] 1733 	push	ar1
-      0029C5 C0 02            [24] 1734 	push	ar2
-      0029C7 C0 03            [24] 1735 	push	ar3
-      0029C9 C3               [12] 1736 	clr	c
-      0029CA E4               [12] 1737 	clr	a
-      0029CB 95 48            [12] 1738 	subb	a,_MEAS_Process_sloc2_1_0
-      0029CD F8               [12] 1739 	mov	r0,a
-      0029CE E4               [12] 1740 	clr	a
-      0029CF 95 49            [12] 1741 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
-      0029D1 F9               [12] 1742 	mov	r1,a
-      0029D2 E4               [12] 1743 	clr	a
-      0029D3 95 4A            [12] 1744 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
-      0029D5 FA               [12] 1745 	mov	r2,a
-      0029D6 E4               [12] 1746 	clr	a
-      0029D7 95 4B            [12] 1747 	subb	a,(_MEAS_Process_sloc2_1_0 + 3)
-      0029D9 FB               [12] 1748 	mov	r3,a
-      0029DA C3               [12] 1749 	clr	c
-      0029DB E8               [12] 1750 	mov	a,r0
-      0029DC 9C               [12] 1751 	subb	a,r4
-      0029DD E9               [12] 1752 	mov	a,r1
-      0029DE 9D               [12] 1753 	subb	a,r5
-      0029DF EA               [12] 1754 	mov	a,r2
-      0029E0 9E               [12] 1755 	subb	a,r6
-      0029E1 EB               [12] 1756 	mov	a,r3
-      0029E2 64 80            [12] 1757 	xrl	a,#0x80
-      0029E4 8F F0            [24] 1758 	mov	b,r7
-      0029E6 63 F0 80         [24] 1759 	xrl	b,#0x80
-      0029E9 95 F0            [12] 1760 	subb	a,b
-      0029EB D0 03            [24] 1761 	pop	ar3
-      0029ED D0 02            [24] 1762 	pop	ar2
-      0029EF D0 01            [24] 1763 	pop	ar1
-      0029F1 D0 00            [24] 1764 	pop	ar0
-      0029F3 40 03            [24] 1765 	jc	00221$
-      0029F5 02 2A 88         [24] 1766 	ljmp	00118$
-      0029F8                       1767 00221$:
-      0029F8 C3               [12] 1768 	clr	c
-      0029F9 EC               [12] 1769 	mov	a,r4
-      0029FA 95 48            [12] 1770 	subb	a,_MEAS_Process_sloc2_1_0
-      0029FC ED               [12] 1771 	mov	a,r5
-      0029FD 95 49            [12] 1772 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
-      0029FF EE               [12] 1773 	mov	a,r6
-      002A00 95 4A            [12] 1774 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
-      002A02 EF               [12] 1775 	mov	a,r7
-      002A03 64 80            [12] 1776 	xrl	a,#0x80
-      002A05 85 4B F0         [24] 1777 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
-      002A08 63 F0 80         [24] 1778 	xrl	b,#0x80
-      002A0B 95 F0            [12] 1779 	subb	a,b
-      002A0D 50 79            [24] 1780 	jnc	00118$
+      00264B C0 00            [24] 1732 	push	ar0
+      00264D C0 01            [24] 1733 	push	ar1
+      00264F C0 02            [24] 1734 	push	ar2
+      002651 C0 03            [24] 1735 	push	ar3
+      002653 C3               [12] 1736 	clr	c
+      002654 E4               [12] 1737 	clr	a
+      002655 95 45            [12] 1738 	subb	a,_MEAS_Process_sloc2_1_0
+      002657 F8               [12] 1739 	mov	r0,a
+      002658 E4               [12] 1740 	clr	a
+      002659 95 46            [12] 1741 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
+      00265B F9               [12] 1742 	mov	r1,a
+      00265C E4               [12] 1743 	clr	a
+      00265D 95 47            [12] 1744 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
+      00265F FA               [12] 1745 	mov	r2,a
+      002660 E4               [12] 1746 	clr	a
+      002661 95 48            [12] 1747 	subb	a,(_MEAS_Process_sloc2_1_0 + 3)
+      002663 FB               [12] 1748 	mov	r3,a
+      002664 C3               [12] 1749 	clr	c
+      002665 E8               [12] 1750 	mov	a,r0
+      002666 9C               [12] 1751 	subb	a,r4
+      002667 E9               [12] 1752 	mov	a,r1
+      002668 9D               [12] 1753 	subb	a,r5
+      002669 EA               [12] 1754 	mov	a,r2
+      00266A 9E               [12] 1755 	subb	a,r6
+      00266B EB               [12] 1756 	mov	a,r3
+      00266C 64 80            [12] 1757 	xrl	a,#0x80
+      00266E 8F F0            [24] 1758 	mov	b,r7
+      002670 63 F0 80         [24] 1759 	xrl	b,#0x80
+      002673 95 F0            [12] 1760 	subb	a,b
+      002675 D0 03            [24] 1761 	pop	ar3
+      002677 D0 02            [24] 1762 	pop	ar2
+      002679 D0 01            [24] 1763 	pop	ar1
+      00267B D0 00            [24] 1764 	pop	ar0
+      00267D 40 03            [24] 1765 	jc	00221$
+      00267F 02 27 12         [24] 1766 	ljmp	00118$
+      002682                       1767 00221$:
+      002682 C3               [12] 1768 	clr	c
+      002683 EC               [12] 1769 	mov	a,r4
+      002684 95 45            [12] 1770 	subb	a,_MEAS_Process_sloc2_1_0
+      002686 ED               [12] 1771 	mov	a,r5
+      002687 95 46            [12] 1772 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
+      002689 EE               [12] 1773 	mov	a,r6
+      00268A 95 47            [12] 1774 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
+      00268C EF               [12] 1775 	mov	a,r7
+      00268D 64 80            [12] 1776 	xrl	a,#0x80
+      00268F 85 48 F0         [24] 1777 	mov	b,(_MEAS_Process_sloc2_1_0 + 3)
+      002692 63 F0 80         [24] 1778 	xrl	b,#0x80
+      002695 95 F0            [12] 1779 	subb	a,b
+      002697 50 79            [24] 1780 	jnc	00118$
                                    1781 ;	.\FwLib_STC8\user\measurement.c:92: if (++zero_track_cnt > (uint16_t)(reg_zero_trace_delay * 10)) {
-      002A0F C0 00            [24] 1782 	push	ar0
-      002A11 C0 01            [24] 1783 	push	ar1
-      002A13 C0 02            [24] 1784 	push	ar2
-      002A15 C0 03            [24] 1785 	push	ar3
-      002A17 90 02 30         [24] 1786 	mov	dptr,#_zero_track_cnt
-      002A1A E0               [24] 1787 	movx	a,@dptr
-      002A1B 24 01            [12] 1788 	add	a, #0x01
-      002A1D F0               [24] 1789 	movx	@dptr,a
-      002A1E A3               [24] 1790 	inc	dptr
-      002A1F E0               [24] 1791 	movx	a,@dptr
-      002A20 34 00            [12] 1792 	addc	a, #0x00
-      002A22 F0               [24] 1793 	movx	@dptr,a
-      002A23 90 00 7E         [24] 1794 	mov	dptr,#_reg_zero_trace_delay
-      002A26 E0               [24] 1795 	movx	a,@dptr
-      002A27 FA               [12] 1796 	mov	r2,a
-      002A28 A3               [24] 1797 	inc	dptr
-      002A29 E0               [24] 1798 	movx	a,@dptr
-      002A2A FB               [12] 1799 	mov	r3,a
-      002A2B 90 02 18         [24] 1800 	mov	dptr,#__mulint_PARM_2
-      002A2E EA               [12] 1801 	mov	a,r2
-      002A2F F0               [24] 1802 	movx	@dptr,a
-      002A30 EB               [12] 1803 	mov	a,r3
-      002A31 A3               [24] 1804 	inc	dptr
-      002A32 F0               [24] 1805 	movx	@dptr,a
-      002A33 90 00 0A         [24] 1806 	mov	dptr,#0x000a
-      002A36 C0 07            [24] 1807 	push	ar7
-      002A38 C0 06            [24] 1808 	push	ar6
-      002A3A C0 05            [24] 1809 	push	ar5
-      002A3C C0 04            [24] 1810 	push	ar4
-      002A3E C0 01            [24] 1811 	push	ar1
-      002A40 C0 00            [24] 1812 	push	ar0
-      002A42 12 31 8B         [24] 1813 	lcall	__mulint
-      002A45 AA 82            [24] 1814 	mov	r2, dpl
-      002A47 AB 83            [24] 1815 	mov	r3, dph
-      002A49 D0 00            [24] 1816 	pop	ar0
-      002A4B D0 01            [24] 1817 	pop	ar1
-      002A4D D0 04            [24] 1818 	pop	ar4
-      002A4F D0 05            [24] 1819 	pop	ar5
-      002A51 D0 06            [24] 1820 	pop	ar6
-      002A53 D0 07            [24] 1821 	pop	ar7
-      002A55 90 02 30         [24] 1822 	mov	dptr,#_zero_track_cnt
-      002A58 E0               [24] 1823 	movx	a,@dptr
-      002A59 F8               [12] 1824 	mov	r0,a
-      002A5A A3               [24] 1825 	inc	dptr
-      002A5B E0               [24] 1826 	movx	a,@dptr
-      002A5C F9               [12] 1827 	mov	r1,a
-      002A5D C3               [12] 1828 	clr	c
-      002A5E EA               [12] 1829 	mov	a,r2
-      002A5F 98               [12] 1830 	subb	a,r0
-      002A60 EB               [12] 1831 	mov	a,r3
-      002A61 99               [12] 1832 	subb	a,r1
-      002A62 D0 03            [24] 1833 	pop	ar3
-      002A64 D0 02            [24] 1834 	pop	ar2
-      002A66 D0 01            [24] 1835 	pop	ar1
-      002A68 D0 00            [24] 1836 	pop	ar0
-      002A6A 50 23            [24] 1837 	jnc	00122$
+      002699 C0 00            [24] 1782 	push	ar0
+      00269B C0 01            [24] 1783 	push	ar1
+      00269D C0 02            [24] 1784 	push	ar2
+      00269F C0 03            [24] 1785 	push	ar3
+      0026A1 90 01 B2         [24] 1786 	mov	dptr,#_zero_track_cnt
+      0026A4 E0               [24] 1787 	movx	a,@dptr
+      0026A5 24 01            [12] 1788 	add	a, #0x01
+      0026A7 F0               [24] 1789 	movx	@dptr,a
+      0026A8 A3               [24] 1790 	inc	dptr
+      0026A9 E0               [24] 1791 	movx	a,@dptr
+      0026AA 34 00            [12] 1792 	addc	a, #0x00
+      0026AC F0               [24] 1793 	movx	@dptr,a
+      0026AD 90 00 7E         [24] 1794 	mov	dptr,#_reg_zero_trace_delay
+      0026B0 E0               [24] 1795 	movx	a,@dptr
+      0026B1 FA               [12] 1796 	mov	r2,a
+      0026B2 A3               [24] 1797 	inc	dptr
+      0026B3 E0               [24] 1798 	movx	a,@dptr
+      0026B4 FB               [12] 1799 	mov	r3,a
+      0026B5 90 01 A2         [24] 1800 	mov	dptr,#__mulint_PARM_2
+      0026B8 EA               [12] 1801 	mov	a,r2
+      0026B9 F0               [24] 1802 	movx	@dptr,a
+      0026BA EB               [12] 1803 	mov	a,r3
+      0026BB A3               [24] 1804 	inc	dptr
+      0026BC F0               [24] 1805 	movx	@dptr,a
+      0026BD 90 00 0A         [24] 1806 	mov	dptr,#0x000a
+      0026C0 C0 07            [24] 1807 	push	ar7
+      0026C2 C0 06            [24] 1808 	push	ar6
+      0026C4 C0 05            [24] 1809 	push	ar5
+      0026C6 C0 04            [24] 1810 	push	ar4
+      0026C8 C0 01            [24] 1811 	push	ar1
+      0026CA C0 00            [24] 1812 	push	ar0
+      0026CC 12 2C 49         [24] 1813 	lcall	__mulint
+      0026CF AA 82            [24] 1814 	mov	r2, dpl
+      0026D1 AB 83            [24] 1815 	mov	r3, dph
+      0026D3 D0 00            [24] 1816 	pop	ar0
+      0026D5 D0 01            [24] 1817 	pop	ar1
+      0026D7 D0 04            [24] 1818 	pop	ar4
+      0026D9 D0 05            [24] 1819 	pop	ar5
+      0026DB D0 06            [24] 1820 	pop	ar6
+      0026DD D0 07            [24] 1821 	pop	ar7
+      0026DF 90 01 B2         [24] 1822 	mov	dptr,#_zero_track_cnt
+      0026E2 E0               [24] 1823 	movx	a,@dptr
+      0026E3 F8               [12] 1824 	mov	r0,a
+      0026E4 A3               [24] 1825 	inc	dptr
+      0026E5 E0               [24] 1826 	movx	a,@dptr
+      0026E6 F9               [12] 1827 	mov	r1,a
+      0026E7 C3               [12] 1828 	clr	c
+      0026E8 EA               [12] 1829 	mov	a,r2
+      0026E9 98               [12] 1830 	subb	a,r0
+      0026EA EB               [12] 1831 	mov	a,r3
+      0026EB 99               [12] 1832 	subb	a,r1
+      0026EC D0 03            [24] 1833 	pop	ar3
+      0026EE D0 02            [24] 1834 	pop	ar2
+      0026F0 D0 01            [24] 1835 	pop	ar1
+      0026F2 D0 00            [24] 1836 	pop	ar0
+      0026F4 50 23            [24] 1837 	jnc	00122$
                                    1838 ;	.\FwLib_STC8\user\measurement.c:93: reg_offset_val -= reg_measuring_val;
-      002A6C 90 00 1A         [24] 1839 	mov	dptr,#_reg_offset_val
-      002A6F E8               [12] 1840 	mov	a,r0
-      002A70 C3               [12] 1841 	clr	c
-      002A71 9C               [12] 1842 	subb	a,r4
-      002A72 F0               [24] 1843 	movx	@dptr,a
-      002A73 E9               [12] 1844 	mov	a,r1
-      002A74 9D               [12] 1845 	subb	a,r5
-      002A75 A3               [24] 1846 	inc	dptr
-      002A76 F0               [24] 1847 	movx	@dptr,a
-      002A77 EA               [12] 1848 	mov	a,r2
-      002A78 9E               [12] 1849 	subb	a,r6
-      002A79 A3               [24] 1850 	inc	dptr
-      002A7A F0               [24] 1851 	movx	@dptr,a
-      002A7B EB               [12] 1852 	mov	a,r3
-      002A7C 9F               [12] 1853 	subb	a,r7
-      002A7D A3               [24] 1854 	inc	dptr
-      002A7E F0               [24] 1855 	movx	@dptr,a
+      0026F6 90 00 1A         [24] 1839 	mov	dptr,#_reg_offset_val
+      0026F9 E8               [12] 1840 	mov	a,r0
+      0026FA C3               [12] 1841 	clr	c
+      0026FB 9C               [12] 1842 	subb	a,r4
+      0026FC F0               [24] 1843 	movx	@dptr,a
+      0026FD E9               [12] 1844 	mov	a,r1
+      0026FE 9D               [12] 1845 	subb	a,r5
+      0026FF A3               [24] 1846 	inc	dptr
+      002700 F0               [24] 1847 	movx	@dptr,a
+      002701 EA               [12] 1848 	mov	a,r2
+      002702 9E               [12] 1849 	subb	a,r6
+      002703 A3               [24] 1850 	inc	dptr
+      002704 F0               [24] 1851 	movx	@dptr,a
+      002705 EB               [12] 1852 	mov	a,r3
+      002706 9F               [12] 1853 	subb	a,r7
+      002707 A3               [24] 1854 	inc	dptr
+      002708 F0               [24] 1855 	movx	@dptr,a
                                    1856 ;	.\FwLib_STC8\user\measurement.c:94: zero_track_cnt = 0;
-      002A7F 90 02 30         [24] 1857 	mov	dptr,#_zero_track_cnt
-      002A82 E4               [12] 1858 	clr	a
-      002A83 F0               [24] 1859 	movx	@dptr,a
-      002A84 A3               [24] 1860 	inc	dptr
-      002A85 F0               [24] 1861 	movx	@dptr,a
-      002A86 80 07            [24] 1862 	sjmp	00122$
-      002A88                       1863 00118$:
+      002709 90 01 B2         [24] 1857 	mov	dptr,#_zero_track_cnt
+      00270C E4               [12] 1858 	clr	a
+      00270D F0               [24] 1859 	movx	@dptr,a
+      00270E A3               [24] 1860 	inc	dptr
+      00270F F0               [24] 1861 	movx	@dptr,a
+      002710 80 07            [24] 1862 	sjmp	00122$
+      002712                       1863 00118$:
                                    1864 ;	.\FwLib_STC8\user\measurement.c:97: zero_track_cnt = 0;
-      002A88 90 02 30         [24] 1865 	mov	dptr,#_zero_track_cnt
-      002A8B E4               [12] 1866 	clr	a
-      002A8C F0               [24] 1867 	movx	@dptr,a
-      002A8D A3               [24] 1868 	inc	dptr
-      002A8E F0               [24] 1869 	movx	@dptr,a
-      002A8F                       1870 00122$:
+      002712 90 01 B2         [24] 1865 	mov	dptr,#_zero_track_cnt
+      002715 E4               [12] 1866 	clr	a
+      002716 F0               [24] 1867 	movx	@dptr,a
+      002717 A3               [24] 1868 	inc	dptr
+      002718 F0               [24] 1869 	movx	@dptr,a
+      002719                       1870 00122$:
                                    1871 ;	.\FwLib_STC8\user\measurement.c:102: stable_diff = reg_measuring_val - last_stable_val;
-      002A8F 90 02 34         [24] 1872 	mov	dptr,#_last_stable_val
-      002A92 E0               [24] 1873 	movx	a,@dptr
-      002A93 F8               [12] 1874 	mov	r0,a
-      002A94 A3               [24] 1875 	inc	dptr
-      002A95 E0               [24] 1876 	movx	a,@dptr
-      002A96 F9               [12] 1877 	mov	r1,a
-      002A97 A3               [24] 1878 	inc	dptr
-      002A98 E0               [24] 1879 	movx	a,@dptr
-      002A99 FA               [12] 1880 	mov	r2,a
-      002A9A A3               [24] 1881 	inc	dptr
-      002A9B E0               [24] 1882 	movx	a,@dptr
-      002A9C FB               [12] 1883 	mov	r3,a
-      002A9D EC               [12] 1884 	mov	a,r4
-      002A9E C3               [12] 1885 	clr	c
-      002A9F 98               [12] 1886 	subb	a,r0
-      002AA0 F8               [12] 1887 	mov	r0,a
-      002AA1 ED               [12] 1888 	mov	a,r5
-      002AA2 99               [12] 1889 	subb	a,r1
-      002AA3 F9               [12] 1890 	mov	r1,a
-      002AA4 EE               [12] 1891 	mov	a,r6
-      002AA5 9A               [12] 1892 	subb	a,r2
-      002AA6 FA               [12] 1893 	mov	r2,a
-      002AA7 EF               [12] 1894 	mov	a,r7
-      002AA8 9B               [12] 1895 	subb	a,r3
-      002AA9 FB               [12] 1896 	mov	r3,a
-      002AAA 90 01 E6         [24] 1897 	mov	dptr,#_MEAS_Process_stable_diff_10000_67
-      002AAD E8               [12] 1898 	mov	a,r0
-      002AAE F0               [24] 1899 	movx	@dptr,a
-      002AAF E9               [12] 1900 	mov	a,r1
-      002AB0 A3               [24] 1901 	inc	dptr
-      002AB1 F0               [24] 1902 	movx	@dptr,a
-      002AB2 EA               [12] 1903 	mov	a,r2
-      002AB3 A3               [24] 1904 	inc	dptr
-      002AB4 F0               [24] 1905 	movx	@dptr,a
-      002AB5 EB               [12] 1906 	mov	a,r3
-      002AB6 A3               [24] 1907 	inc	dptr
-      002AB7 F0               [24] 1908 	movx	@dptr,a
+      002719 90 01 B6         [24] 1872 	mov	dptr,#_last_stable_val
+      00271C E0               [24] 1873 	movx	a,@dptr
+      00271D F8               [12] 1874 	mov	r0,a
+      00271E A3               [24] 1875 	inc	dptr
+      00271F E0               [24] 1876 	movx	a,@dptr
+      002720 F9               [12] 1877 	mov	r1,a
+      002721 A3               [24] 1878 	inc	dptr
+      002722 E0               [24] 1879 	movx	a,@dptr
+      002723 FA               [12] 1880 	mov	r2,a
+      002724 A3               [24] 1881 	inc	dptr
+      002725 E0               [24] 1882 	movx	a,@dptr
+      002726 FB               [12] 1883 	mov	r3,a
+      002727 EC               [12] 1884 	mov	a,r4
+      002728 C3               [12] 1885 	clr	c
+      002729 98               [12] 1886 	subb	a,r0
+      00272A F8               [12] 1887 	mov	r0,a
+      00272B ED               [12] 1888 	mov	a,r5
+      00272C 99               [12] 1889 	subb	a,r1
+      00272D F9               [12] 1890 	mov	r1,a
+      00272E EE               [12] 1891 	mov	a,r6
+      00272F 9A               [12] 1892 	subb	a,r2
+      002730 FA               [12] 1893 	mov	r2,a
+      002731 EF               [12] 1894 	mov	a,r7
+      002732 9B               [12] 1895 	subb	a,r3
+      002733 FB               [12] 1896 	mov	r3,a
+      002734 90 01 80         [24] 1897 	mov	dptr,#_MEAS_Process_stable_diff_10000_67
+      002737 E8               [12] 1898 	mov	a,r0
+      002738 F0               [24] 1899 	movx	@dptr,a
+      002739 E9               [12] 1900 	mov	a,r1
+      00273A A3               [24] 1901 	inc	dptr
+      00273B F0               [24] 1902 	movx	@dptr,a
+      00273C EA               [12] 1903 	mov	a,r2
+      00273D A3               [24] 1904 	inc	dptr
+      00273E F0               [24] 1905 	movx	@dptr,a
+      00273F EB               [12] 1906 	mov	a,r3
+      002740 A3               [24] 1907 	inc	dptr
+      002741 F0               [24] 1908 	movx	@dptr,a
                                    1909 ;	.\FwLib_STC8\user\measurement.c:103: if (stable_diff >= -reg_stable_band && stable_diff <= reg_stable_band) {
-      002AB8 90 00 8A         [24] 1910 	mov	dptr,#_reg_stable_band
-      002ABB E0               [24] 1911 	movx	a,@dptr
-      002ABC F5 48            [12] 1912 	mov	_MEAS_Process_sloc2_1_0,a
-      002ABE A3               [24] 1913 	inc	dptr
-      002ABF E0               [24] 1914 	movx	a,@dptr
-      002AC0 F5 49            [12] 1915 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
-      002AC2 A3               [24] 1916 	inc	dptr
-      002AC3 E0               [24] 1917 	movx	a,@dptr
-      002AC4 F5 4A            [12] 1918 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
-      002AC6 A3               [24] 1919 	inc	dptr
-      002AC7 E0               [24] 1920 	movx	a,@dptr
-      002AC8 F5 4B            [12] 1921 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
-      002ACA C0 04            [24] 1922 	push	ar4
-      002ACC C0 05            [24] 1923 	push	ar5
-      002ACE C0 06            [24] 1924 	push	ar6
-      002AD0 C0 07            [24] 1925 	push	ar7
-      002AD2 C3               [12] 1926 	clr	c
-      002AD3 E4               [12] 1927 	clr	a
-      002AD4 95 48            [12] 1928 	subb	a,_MEAS_Process_sloc2_1_0
-      002AD6 FC               [12] 1929 	mov	r4,a
-      002AD7 E4               [12] 1930 	clr	a
-      002AD8 95 49            [12] 1931 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002ADA FD               [12] 1932 	mov	r5,a
-      002ADB E4               [12] 1933 	clr	a
-      002ADC 95 4A            [12] 1934 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
-      002ADE FE               [12] 1935 	mov	r6,a
-      002ADF E4               [12] 1936 	clr	a
-      002AE0 95 4B            [12] 1937 	subb	a,(_MEAS_Process_sloc2_1_0 + 3)
-      002AE2 FF               [12] 1938 	mov	r7,a
-      002AE3 C3               [12] 1939 	clr	c
-      002AE4 E8               [12] 1940 	mov	a,r0
-      002AE5 9C               [12] 1941 	subb	a,r4
-      002AE6 E9               [12] 1942 	mov	a,r1
-      002AE7 9D               [12] 1943 	subb	a,r5
-      002AE8 EA               [12] 1944 	mov	a,r2
-      002AE9 9E               [12] 1945 	subb	a,r6
-      002AEA EB               [12] 1946 	mov	a,r3
-      002AEB 64 80            [12] 1947 	xrl	a,#0x80
-      002AED 8F F0            [24] 1948 	mov	b,r7
-      002AEF 63 F0 80         [24] 1949 	xrl	b,#0x80
-      002AF2 95 F0            [12] 1950 	subb	a,b
-      002AF4 D0 07            [24] 1951 	pop	ar7
-      002AF6 D0 06            [24] 1952 	pop	ar6
-      002AF8 D0 05            [24] 1953 	pop	ar5
-      002AFA D0 04            [24] 1954 	pop	ar4
-      002AFC 40 6D            [24] 1955 	jc	00128$
-      002AFE E5 48            [12] 1956 	mov	a,_MEAS_Process_sloc2_1_0
-      002B00 98               [12] 1957 	subb	a,r0
-      002B01 E5 49            [12] 1958 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
-      002B03 99               [12] 1959 	subb	a,r1
-      002B04 E5 4A            [12] 1960 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
-      002B06 9A               [12] 1961 	subb	a,r2
-      002B07 E5 4B            [12] 1962 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
-      002B09 64 80            [12] 1963 	xrl	a,#0x80
-      002B0B 8B F0            [24] 1964 	mov	b,r3
-      002B0D 63 F0 80         [24] 1965 	xrl	b,#0x80
-      002B10 95 F0            [12] 1966 	subb	a,b
-      002B12 40 57            [24] 1967 	jc	00128$
+      002742 90 00 8A         [24] 1910 	mov	dptr,#_reg_stable_band
+      002745 E0               [24] 1911 	movx	a,@dptr
+      002746 F5 45            [12] 1912 	mov	_MEAS_Process_sloc2_1_0,a
+      002748 A3               [24] 1913 	inc	dptr
+      002749 E0               [24] 1914 	movx	a,@dptr
+      00274A F5 46            [12] 1915 	mov	(_MEAS_Process_sloc2_1_0 + 1),a
+      00274C A3               [24] 1916 	inc	dptr
+      00274D E0               [24] 1917 	movx	a,@dptr
+      00274E F5 47            [12] 1918 	mov	(_MEAS_Process_sloc2_1_0 + 2),a
+      002750 A3               [24] 1919 	inc	dptr
+      002751 E0               [24] 1920 	movx	a,@dptr
+      002752 F5 48            [12] 1921 	mov	(_MEAS_Process_sloc2_1_0 + 3),a
+      002754 C0 04            [24] 1922 	push	ar4
+      002756 C0 05            [24] 1923 	push	ar5
+      002758 C0 06            [24] 1924 	push	ar6
+      00275A C0 07            [24] 1925 	push	ar7
+      00275C C3               [12] 1926 	clr	c
+      00275D E4               [12] 1927 	clr	a
+      00275E 95 45            [12] 1928 	subb	a,_MEAS_Process_sloc2_1_0
+      002760 FC               [12] 1929 	mov	r4,a
+      002761 E4               [12] 1930 	clr	a
+      002762 95 46            [12] 1931 	subb	a,(_MEAS_Process_sloc2_1_0 + 1)
+      002764 FD               [12] 1932 	mov	r5,a
+      002765 E4               [12] 1933 	clr	a
+      002766 95 47            [12] 1934 	subb	a,(_MEAS_Process_sloc2_1_0 + 2)
+      002768 FE               [12] 1935 	mov	r6,a
+      002769 E4               [12] 1936 	clr	a
+      00276A 95 48            [12] 1937 	subb	a,(_MEAS_Process_sloc2_1_0 + 3)
+      00276C FF               [12] 1938 	mov	r7,a
+      00276D C3               [12] 1939 	clr	c
+      00276E E8               [12] 1940 	mov	a,r0
+      00276F 9C               [12] 1941 	subb	a,r4
+      002770 E9               [12] 1942 	mov	a,r1
+      002771 9D               [12] 1943 	subb	a,r5
+      002772 EA               [12] 1944 	mov	a,r2
+      002773 9E               [12] 1945 	subb	a,r6
+      002774 EB               [12] 1946 	mov	a,r3
+      002775 64 80            [12] 1947 	xrl	a,#0x80
+      002777 8F F0            [24] 1948 	mov	b,r7
+      002779 63 F0 80         [24] 1949 	xrl	b,#0x80
+      00277C 95 F0            [12] 1950 	subb	a,b
+      00277E D0 07            [24] 1951 	pop	ar7
+      002780 D0 06            [24] 1952 	pop	ar6
+      002782 D0 05            [24] 1953 	pop	ar5
+      002784 D0 04            [24] 1954 	pop	ar4
+      002786 40 6D            [24] 1955 	jc	00128$
+      002788 E5 45            [12] 1956 	mov	a,_MEAS_Process_sloc2_1_0
+      00278A 98               [12] 1957 	subb	a,r0
+      00278B E5 46            [12] 1958 	mov	a,(_MEAS_Process_sloc2_1_0 + 1)
+      00278D 99               [12] 1959 	subb	a,r1
+      00278E E5 47            [12] 1960 	mov	a,(_MEAS_Process_sloc2_1_0 + 2)
+      002790 9A               [12] 1961 	subb	a,r2
+      002791 E5 48            [12] 1962 	mov	a,(_MEAS_Process_sloc2_1_0 + 3)
+      002793 64 80            [12] 1963 	xrl	a,#0x80
+      002795 8B F0            [24] 1964 	mov	b,r3
+      002797 63 F0 80         [24] 1965 	xrl	b,#0x80
+      00279A 95 F0            [12] 1966 	subb	a,b
+      00279C 40 57            [24] 1967 	jc	00128$
                                    1968 ;	.\FwLib_STC8\user\measurement.c:104: if (stable_cnt < 2000) stable_cnt++; 
-      002B14 90 02 32         [24] 1969 	mov	dptr,#_stable_cnt
-      002B17 E0               [24] 1970 	movx	a,@dptr
-      002B18 FA               [12] 1971 	mov	r2,a
-      002B19 A3               [24] 1972 	inc	dptr
-      002B1A E0               [24] 1973 	movx	a,@dptr
-      002B1B FB               [12] 1974 	mov	r3,a
-      002B1C 8A 00            [24] 1975 	mov	ar0,r2
-      002B1E 8B 01            [24] 1976 	mov	ar1,r3
-      002B20 C3               [12] 1977 	clr	c
-      002B21 E8               [12] 1978 	mov	a,r0
-      002B22 94 D0            [12] 1979 	subb	a,#0xd0
-      002B24 E9               [12] 1980 	mov	a,r1
-      002B25 94 07            [12] 1981 	subb	a,#0x07
-      002B27 50 0B            [24] 1982 	jnc	00124$
-      002B29 90 02 32         [24] 1983 	mov	dptr,#_stable_cnt
-      002B2C 74 01            [12] 1984 	mov	a,#0x01
-      002B2E 2A               [12] 1985 	add	a, r2
-      002B2F F0               [24] 1986 	movx	@dptr,a
-      002B30 E4               [12] 1987 	clr	a
-      002B31 3B               [12] 1988 	addc	a, r3
-      002B32 A3               [24] 1989 	inc	dptr
-      002B33 F0               [24] 1990 	movx	@dptr,a
-      002B34                       1991 00124$:
+      00279E 90 01 B4         [24] 1969 	mov	dptr,#_stable_cnt
+      0027A1 E0               [24] 1970 	movx	a,@dptr
+      0027A2 FA               [12] 1971 	mov	r2,a
+      0027A3 A3               [24] 1972 	inc	dptr
+      0027A4 E0               [24] 1973 	movx	a,@dptr
+      0027A5 FB               [12] 1974 	mov	r3,a
+      0027A6 8A 00            [24] 1975 	mov	ar0,r2
+      0027A8 8B 01            [24] 1976 	mov	ar1,r3
+      0027AA C3               [12] 1977 	clr	c
+      0027AB E8               [12] 1978 	mov	a,r0
+      0027AC 94 D0            [12] 1979 	subb	a,#0xd0
+      0027AE E9               [12] 1980 	mov	a,r1
+      0027AF 94 07            [12] 1981 	subb	a,#0x07
+      0027B1 50 0B            [24] 1982 	jnc	00124$
+      0027B3 90 01 B4         [24] 1983 	mov	dptr,#_stable_cnt
+      0027B6 74 01            [12] 1984 	mov	a,#0x01
+      0027B8 2A               [12] 1985 	add	a, r2
+      0027B9 F0               [24] 1986 	movx	@dptr,a
+      0027BA E4               [12] 1987 	clr	a
+      0027BB 3B               [12] 1988 	addc	a, r3
+      0027BC A3               [24] 1989 	inc	dptr
+      0027BD F0               [24] 1990 	movx	@dptr,a
+      0027BE                       1991 00124$:
                                    1992 ;	.\FwLib_STC8\user\measurement.c:105: if (stable_cnt >= (uint16_t)(reg_stable_delay * 10)) {
-      002B34 90 00 86         [24] 1993 	mov	dptr,#_reg_stable_delay
-      002B37 E0               [24] 1994 	movx	a,@dptr
-      002B38 FA               [12] 1995 	mov	r2,a
-      002B39 A3               [24] 1996 	inc	dptr
-      002B3A E0               [24] 1997 	movx	a,@dptr
-      002B3B FB               [12] 1998 	mov	r3,a
-      002B3C 90 02 18         [24] 1999 	mov	dptr,#__mulint_PARM_2
-      002B3F EA               [12] 2000 	mov	a,r2
-      002B40 F0               [24] 2001 	movx	@dptr,a
-      002B41 EB               [12] 2002 	mov	a,r3
-      002B42 A3               [24] 2003 	inc	dptr
-      002B43 F0               [24] 2004 	movx	@dptr,a
-      002B44 90 00 0A         [24] 2005 	mov	dptr,#0x000a
-      002B47 12 31 8B         [24] 2006 	lcall	__mulint
-      002B4A AA 82            [24] 2007 	mov	r2, dpl
-      002B4C AB 83            [24] 2008 	mov	r3, dph
-      002B4E 90 02 32         [24] 2009 	mov	dptr,#_stable_cnt
-      002B51 E0               [24] 2010 	movx	a,@dptr
-      002B52 F8               [12] 2011 	mov	r0,a
-      002B53 A3               [24] 2012 	inc	dptr
-      002B54 E0               [24] 2013 	movx	a,@dptr
-      002B55 F9               [12] 2014 	mov	r1,a
-      002B56 C3               [12] 2015 	clr	c
-      002B57 E8               [12] 2016 	mov	a,r0
-      002B58 9A               [12] 2017 	subb	a,r2
-      002B59 E9               [12] 2018 	mov	a,r1
-      002B5A 9B               [12] 2019 	subb	a,r3
-      002B5B 40 2D            [24] 2020 	jc	00131$
+      0027BE 90 00 86         [24] 1993 	mov	dptr,#_reg_stable_delay
+      0027C1 E0               [24] 1994 	movx	a,@dptr
+      0027C2 FA               [12] 1995 	mov	r2,a
+      0027C3 A3               [24] 1996 	inc	dptr
+      0027C4 E0               [24] 1997 	movx	a,@dptr
+      0027C5 FB               [12] 1998 	mov	r3,a
+      0027C6 90 01 A2         [24] 1999 	mov	dptr,#__mulint_PARM_2
+      0027C9 EA               [12] 2000 	mov	a,r2
+      0027CA F0               [24] 2001 	movx	@dptr,a
+      0027CB EB               [12] 2002 	mov	a,r3
+      0027CC A3               [24] 2003 	inc	dptr
+      0027CD F0               [24] 2004 	movx	@dptr,a
+      0027CE 90 00 0A         [24] 2005 	mov	dptr,#0x000a
+      0027D1 12 2C 49         [24] 2006 	lcall	__mulint
+      0027D4 AA 82            [24] 2007 	mov	r2, dpl
+      0027D6 AB 83            [24] 2008 	mov	r3, dph
+      0027D8 90 01 B4         [24] 2009 	mov	dptr,#_stable_cnt
+      0027DB E0               [24] 2010 	movx	a,@dptr
+      0027DC F8               [12] 2011 	mov	r0,a
+      0027DD A3               [24] 2012 	inc	dptr
+      0027DE E0               [24] 2013 	movx	a,@dptr
+      0027DF F9               [12] 2014 	mov	r1,a
+      0027E0 C3               [12] 2015 	clr	c
+      0027E1 E8               [12] 2016 	mov	a,r0
+      0027E2 9A               [12] 2017 	subb	a,r2
+      0027E3 E9               [12] 2018 	mov	a,r1
+      0027E4 9B               [12] 2019 	subb	a,r3
+      0027E5 40 2D            [24] 2020 	jc	00131$
                                    2021 ;	.\FwLib_STC8\user\measurement.c:106: reg_stable_mark = 1;
-      002B5D 90 00 A2         [24] 2022 	mov	dptr,#_reg_stable_mark
-      002B60 74 01            [12] 2023 	mov	a,#0x01
-      002B62 F0               [24] 2024 	movx	@dptr,a
-      002B63 E4               [12] 2025 	clr	a
-      002B64 A3               [24] 2026 	inc	dptr
-      002B65 F0               [24] 2027 	movx	@dptr,a
-      002B66 A3               [24] 2028 	inc	dptr
-      002B67 F0               [24] 2029 	movx	@dptr,a
-      002B68 A3               [24] 2030 	inc	dptr
-      002B69 F0               [24] 2031 	movx	@dptr,a
-      002B6A 22               [24] 2032 	ret
-      002B6B                       2033 00128$:
+      0027E7 90 00 A2         [24] 2022 	mov	dptr,#_reg_stable_mark
+      0027EA 74 01            [12] 2023 	mov	a,#0x01
+      0027EC F0               [24] 2024 	movx	@dptr,a
+      0027ED E4               [12] 2025 	clr	a
+      0027EE A3               [24] 2026 	inc	dptr
+      0027EF F0               [24] 2027 	movx	@dptr,a
+      0027F0 A3               [24] 2028 	inc	dptr
+      0027F1 F0               [24] 2029 	movx	@dptr,a
+      0027F2 A3               [24] 2030 	inc	dptr
+      0027F3 F0               [24] 2031 	movx	@dptr,a
+      0027F4 22               [24] 2032 	ret
+      0027F5                       2033 00128$:
                                    2034 ;	.\FwLib_STC8\user\measurement.c:109: last_stable_val = reg_measuring_val;
-      002B6B 90 02 34         [24] 2035 	mov	dptr,#_last_stable_val
-      002B6E EC               [12] 2036 	mov	a,r4
-      002B6F F0               [24] 2037 	movx	@dptr,a
-      002B70 ED               [12] 2038 	mov	a,r5
-      002B71 A3               [24] 2039 	inc	dptr
-      002B72 F0               [24] 2040 	movx	@dptr,a
-      002B73 EE               [12] 2041 	mov	a,r6
-      002B74 A3               [24] 2042 	inc	dptr
-      002B75 F0               [24] 2043 	movx	@dptr,a
-      002B76 EF               [12] 2044 	mov	a,r7
-      002B77 A3               [24] 2045 	inc	dptr
-      002B78 F0               [24] 2046 	movx	@dptr,a
+      0027F5 90 01 B6         [24] 2035 	mov	dptr,#_last_stable_val
+      0027F8 EC               [12] 2036 	mov	a,r4
+      0027F9 F0               [24] 2037 	movx	@dptr,a
+      0027FA ED               [12] 2038 	mov	a,r5
+      0027FB A3               [24] 2039 	inc	dptr
+      0027FC F0               [24] 2040 	movx	@dptr,a
+      0027FD EE               [12] 2041 	mov	a,r6
+      0027FE A3               [24] 2042 	inc	dptr
+      0027FF F0               [24] 2043 	movx	@dptr,a
+      002800 EF               [12] 2044 	mov	a,r7
+      002801 A3               [24] 2045 	inc	dptr
+      002802 F0               [24] 2046 	movx	@dptr,a
                                    2047 ;	.\FwLib_STC8\user\measurement.c:110: stable_cnt = 0;
-      002B79 90 02 32         [24] 2048 	mov	dptr,#_stable_cnt
-      002B7C E4               [12] 2049 	clr	a
-      002B7D F0               [24] 2050 	movx	@dptr,a
-      002B7E A3               [24] 2051 	inc	dptr
-      002B7F F0               [24] 2052 	movx	@dptr,a
+      002803 90 01 B4         [24] 2048 	mov	dptr,#_stable_cnt
+      002806 E4               [12] 2049 	clr	a
+      002807 F0               [24] 2050 	movx	@dptr,a
+      002808 A3               [24] 2051 	inc	dptr
+      002809 F0               [24] 2052 	movx	@dptr,a
                                    2053 ;	.\FwLib_STC8\user\measurement.c:111: reg_stable_mark = 0;
-      002B80 90 00 A2         [24] 2054 	mov	dptr,#_reg_stable_mark
-      002B83 F0               [24] 2055 	movx	@dptr,a
-      002B84 A3               [24] 2056 	inc	dptr
-      002B85 F0               [24] 2057 	movx	@dptr,a
-      002B86 A3               [24] 2058 	inc	dptr
-      002B87 F0               [24] 2059 	movx	@dptr,a
-      002B88 A3               [24] 2060 	inc	dptr
-      002B89 F0               [24] 2061 	movx	@dptr,a
-      002B8A                       2062 00131$:
+      00280A 90 00 A2         [24] 2054 	mov	dptr,#_reg_stable_mark
+      00280D F0               [24] 2055 	movx	@dptr,a
+      00280E A3               [24] 2056 	inc	dptr
+      00280F F0               [24] 2057 	movx	@dptr,a
+      002810 A3               [24] 2058 	inc	dptr
+      002811 F0               [24] 2059 	movx	@dptr,a
+      002812 A3               [24] 2060 	inc	dptr
+      002813 F0               [24] 2061 	movx	@dptr,a
+      002814                       2062 00131$:
                                    2063 ;	.\FwLib_STC8\user\measurement.c:113: }
-      002B8A 22               [24] 2064 	ret
+      002814 22               [24] 2064 	ret
                                    2065 ;------------------------------------------------------------
                                    2066 ;Allocation info for local variables in function 'MEAS_SetZero'
                                    2067 ;------------------------------------------------------------
@@ -2069,87 +2069,87 @@
                                    2069 ;	-----------------------------------------
                                    2070 ;	 function MEAS_SetZero
                                    2071 ;	-----------------------------------------
-      002B8B                       2072 _MEAS_SetZero:
+      002815                       2072 _MEAS_SetZero:
                                    2073 ;	.\FwLib_STC8\user\measurement.c:116: if (reg_stable_mark == 0) return 1;
-      002B8B 90 00 A2         [24] 2074 	mov	dptr,#_reg_stable_mark
-      002B8E E0               [24] 2075 	movx	a,@dptr
-      002B8F F5 F0            [12] 2076 	mov	b,a
-      002B91 A3               [24] 2077 	inc	dptr
-      002B92 E0               [24] 2078 	movx	a,@dptr
-      002B93 42 F0            [12] 2079 	orl	b,a
-      002B95 A3               [24] 2080 	inc	dptr
-      002B96 E0               [24] 2081 	movx	a,@dptr
-      002B97 42 F0            [12] 2082 	orl	b,a
-      002B99 A3               [24] 2083 	inc	dptr
-      002B9A E0               [24] 2084 	movx	a,@dptr
-      002B9B 45 F0            [12] 2085 	orl	a,b
-      002B9D 70 04            [24] 2086 	jnz	00102$
-      002B9F 75 82 01         [24] 2087 	mov	dpl, #0x01
-      002BA2 22               [24] 2088 	ret
-      002BA3                       2089 00102$:
+      002815 90 00 A2         [24] 2074 	mov	dptr,#_reg_stable_mark
+      002818 E0               [24] 2075 	movx	a,@dptr
+      002819 F5 F0            [12] 2076 	mov	b,a
+      00281B A3               [24] 2077 	inc	dptr
+      00281C E0               [24] 2078 	movx	a,@dptr
+      00281D 42 F0            [12] 2079 	orl	b,a
+      00281F A3               [24] 2080 	inc	dptr
+      002820 E0               [24] 2081 	movx	a,@dptr
+      002821 42 F0            [12] 2082 	orl	b,a
+      002823 A3               [24] 2083 	inc	dptr
+      002824 E0               [24] 2084 	movx	a,@dptr
+      002825 45 F0            [12] 2085 	orl	a,b
+      002827 70 04            [24] 2086 	jnz	00102$
+      002829 75 82 01         [24] 2087 	mov	dpl, #0x01
+      00282C 22               [24] 2088 	ret
+      00282D                       2089 00102$:
                                    2090 ;	.\FwLib_STC8\user\measurement.c:118: reg_offset_val -= reg_measuring_val;
-      002BA3 90 00 12         [24] 2091 	mov	dptr,#_reg_measuring_val
-      002BA6 E0               [24] 2092 	movx	a,@dptr
-      002BA7 FC               [12] 2093 	mov	r4,a
-      002BA8 A3               [24] 2094 	inc	dptr
-      002BA9 E0               [24] 2095 	movx	a,@dptr
-      002BAA FD               [12] 2096 	mov	r5,a
-      002BAB A3               [24] 2097 	inc	dptr
-      002BAC E0               [24] 2098 	movx	a,@dptr
-      002BAD FE               [12] 2099 	mov	r6,a
-      002BAE A3               [24] 2100 	inc	dptr
-      002BAF E0               [24] 2101 	movx	a,@dptr
-      002BB0 FF               [12] 2102 	mov	r7,a
-      002BB1 90 00 1A         [24] 2103 	mov	dptr,#_reg_offset_val
-      002BB4 E0               [24] 2104 	movx	a,@dptr
-      002BB5 F8               [12] 2105 	mov	r0,a
-      002BB6 A3               [24] 2106 	inc	dptr
-      002BB7 E0               [24] 2107 	movx	a,@dptr
-      002BB8 F9               [12] 2108 	mov	r1,a
-      002BB9 A3               [24] 2109 	inc	dptr
-      002BBA E0               [24] 2110 	movx	a,@dptr
-      002BBB FA               [12] 2111 	mov	r2,a
-      002BBC A3               [24] 2112 	inc	dptr
-      002BBD E0               [24] 2113 	movx	a,@dptr
-      002BBE FB               [12] 2114 	mov	r3,a
-      002BBF 90 00 1A         [24] 2115 	mov	dptr,#_reg_offset_val
-      002BC2 E8               [12] 2116 	mov	a,r0
-      002BC3 C3               [12] 2117 	clr	c
-      002BC4 9C               [12] 2118 	subb	a,r4
-      002BC5 F0               [24] 2119 	movx	@dptr,a
-      002BC6 E9               [12] 2120 	mov	a,r1
-      002BC7 9D               [12] 2121 	subb	a,r5
-      002BC8 A3               [24] 2122 	inc	dptr
-      002BC9 F0               [24] 2123 	movx	@dptr,a
-      002BCA EA               [12] 2124 	mov	a,r2
-      002BCB 9E               [12] 2125 	subb	a,r6
-      002BCC A3               [24] 2126 	inc	dptr
-      002BCD F0               [24] 2127 	movx	@dptr,a
-      002BCE EB               [12] 2128 	mov	a,r3
-      002BCF 9F               [12] 2129 	subb	a,r7
-      002BD0 A3               [24] 2130 	inc	dptr
-      002BD1 F0               [24] 2131 	movx	@dptr,a
+      00282D 90 00 12         [24] 2091 	mov	dptr,#_reg_measuring_val
+      002830 E0               [24] 2092 	movx	a,@dptr
+      002831 FC               [12] 2093 	mov	r4,a
+      002832 A3               [24] 2094 	inc	dptr
+      002833 E0               [24] 2095 	movx	a,@dptr
+      002834 FD               [12] 2096 	mov	r5,a
+      002835 A3               [24] 2097 	inc	dptr
+      002836 E0               [24] 2098 	movx	a,@dptr
+      002837 FE               [12] 2099 	mov	r6,a
+      002838 A3               [24] 2100 	inc	dptr
+      002839 E0               [24] 2101 	movx	a,@dptr
+      00283A FF               [12] 2102 	mov	r7,a
+      00283B 90 00 1A         [24] 2103 	mov	dptr,#_reg_offset_val
+      00283E E0               [24] 2104 	movx	a,@dptr
+      00283F F8               [12] 2105 	mov	r0,a
+      002840 A3               [24] 2106 	inc	dptr
+      002841 E0               [24] 2107 	movx	a,@dptr
+      002842 F9               [12] 2108 	mov	r1,a
+      002843 A3               [24] 2109 	inc	dptr
+      002844 E0               [24] 2110 	movx	a,@dptr
+      002845 FA               [12] 2111 	mov	r2,a
+      002846 A3               [24] 2112 	inc	dptr
+      002847 E0               [24] 2113 	movx	a,@dptr
+      002848 FB               [12] 2114 	mov	r3,a
+      002849 90 00 1A         [24] 2115 	mov	dptr,#_reg_offset_val
+      00284C E8               [12] 2116 	mov	a,r0
+      00284D C3               [12] 2117 	clr	c
+      00284E 9C               [12] 2118 	subb	a,r4
+      00284F F0               [24] 2119 	movx	@dptr,a
+      002850 E9               [12] 2120 	mov	a,r1
+      002851 9D               [12] 2121 	subb	a,r5
+      002852 A3               [24] 2122 	inc	dptr
+      002853 F0               [24] 2123 	movx	@dptr,a
+      002854 EA               [12] 2124 	mov	a,r2
+      002855 9E               [12] 2125 	subb	a,r6
+      002856 A3               [24] 2126 	inc	dptr
+      002857 F0               [24] 2127 	movx	@dptr,a
+      002858 EB               [12] 2128 	mov	a,r3
+      002859 9F               [12] 2129 	subb	a,r7
+      00285A A3               [24] 2130 	inc	dptr
+      00285B F0               [24] 2131 	movx	@dptr,a
                                    2132 ;	.\FwLib_STC8\user\measurement.c:119: zero_track_cnt = 0;
-      002BD2 90 02 30         [24] 2133 	mov	dptr,#_zero_track_cnt
-      002BD5 E4               [12] 2134 	clr	a
-      002BD6 F0               [24] 2135 	movx	@dptr,a
-      002BD7 A3               [24] 2136 	inc	dptr
-      002BD8 F0               [24] 2137 	movx	@dptr,a
+      00285C 90 01 B2         [24] 2133 	mov	dptr,#_zero_track_cnt
+      00285F E4               [12] 2134 	clr	a
+      002860 F0               [24] 2135 	movx	@dptr,a
+      002861 A3               [24] 2136 	inc	dptr
+      002862 F0               [24] 2137 	movx	@dptr,a
                                    2138 ;	.\FwLib_STC8\user\measurement.c:122: reg_save_all(); 
-      002BD9 12 03 1B         [24] 2139 	lcall	_reg_save_all
+      002863 12 03 26         [24] 2139 	lcall	_reg_save_all
                                    2140 ;	.\FwLib_STC8\user\measurement.c:123: return 0;
-      002BDC 75 82 00         [24] 2141 	mov	dpl, #0x00
+      002866 75 82 00         [24] 2141 	mov	dpl, #0x00
                                    2142 ;	.\FwLib_STC8\user\measurement.c:124: }
-      002BDF 22               [24] 2143 	ret
+      002869 22               [24] 2143 	ret
                                    2144 	.area CSEG    (CODE)
                                    2145 	.area CONST   (CODE)
                                    2146 	.area XINIT   (CODE)
-      00376A                       2147 __xinit__filtered_adc:
-      00376A 00 00 00 00           2148 	.byte #0x00, #0x00, #0x00, #0x00	;  0
-      00376E                       2149 __xinit__zero_track_cnt:
-      00376E 00 00                 2150 	.byte #0x00, #0x00	; 0
-      003770                       2151 __xinit__stable_cnt:
-      003770 00 00                 2152 	.byte #0x00, #0x00	; 0
-      003772                       2153 __xinit__last_stable_val:
-      003772 00 00 00 00           2154 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0031A1                       2147 __xinit__filtered_adc:
+      0031A1 00 00 00 00           2148 	.byte #0x00, #0x00, #0x00, #0x00	;  0
+      0031A5                       2149 __xinit__zero_track_cnt:
+      0031A5 00 00                 2150 	.byte #0x00, #0x00	; 0
+      0031A7                       2151 __xinit__stable_cnt:
+      0031A7 00 00                 2152 	.byte #0x00, #0x00	; 0
+      0031A9                       2153 __xinit__last_stable_val:
+      0031A9 00 00 00 00           2154 	.byte #0x00, #0x00, #0x00, #0x00	;  0
                                    2155 	.area CABS    (ABS,CODE)

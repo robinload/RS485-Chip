@@ -511,7 +511,7 @@
                                     511 ;	-----------------------------------------
                                     512 ;	 function MEM_SelectWorkRegGroup
                                     513 ;	-----------------------------------------
-      0001F9                        514 _MEM_SelectWorkRegGroup:
+      000204                        514 _MEM_SelectWorkRegGroup:
                            000007   515 	ar7 = 0x07
                            000006   516 	ar6 = 0x06
                            000005   517 	ar5 = 0x05
@@ -520,25 +520,25 @@
                            000002   520 	ar2 = 0x02
                            000001   521 	ar1 = 0x01
                            000000   522 	ar0 = 0x00
-      0001F9 E5 82            [12]  523 	mov	a,dpl
-      0001FB 90 00 09         [24]  524 	mov	dptr,#_MEM_SelectWorkRegGroup_WorkRegGroup_10000_4
-      0001FE F0               [24]  525 	movx	@dptr,a
+      000204 E5 82            [12]  523 	mov	a,dpl
+      000206 90 00 09         [24]  524 	mov	dptr,#_MEM_SelectWorkRegGroup_WorkRegGroup_10000_4
+      000209 F0               [24]  525 	movx	@dptr,a
                                     526 ;	FwLib_STC8\src\fw_mem.c:19: RS0 = WorkRegGroup & 0x01;
-      0001FF E0               [24]  527 	movx	a,@dptr
-      000200 FF               [12]  528 	mov	r7,a
-      000201 54 01            [12]  529 	anl	a,#0x01
+      00020A E0               [24]  527 	movx	a,@dptr
+      00020B FF               [12]  528 	mov	r7,a
+      00020C 54 01            [12]  529 	anl	a,#0x01
                                     530 ;	assignBit
-      000203 24 FF            [12]  531 	add	a,#0xff
-      000205 92 D3            [24]  532 	mov	_RS0,c
+      00020E 24 FF            [12]  531 	add	a,#0xff
+      000210 92 D3            [24]  532 	mov	_RS0,c
                                     533 ;	FwLib_STC8\src\fw_mem.c:20: RS1 = (WorkRegGroup >> 1) & 0x01;
-      000207 EF               [12]  534 	mov	a,r7
-      000208 03               [12]  535 	rr	a
-      000209 54 01            [12]  536 	anl	a,#0x01
+      000212 EF               [12]  534 	mov	a,r7
+      000213 03               [12]  535 	rr	a
+      000214 54 01            [12]  536 	anl	a,#0x01
                                     537 ;	assignBit
-      00020B 24 FF            [12]  538 	add	a,#0xff
-      00020D 92 D4            [24]  539 	mov	_RS1,c
+      000216 24 FF            [12]  538 	add	a,#0xff
+      000218 92 D4            [24]  539 	mov	_RS1,c
                                     540 ;	FwLib_STC8\src\fw_mem.c:21: }
-      00020F 22               [24]  541 	ret
+      00021A 22               [24]  541 	ret
                                     542 ;------------------------------------------------------------
                                     543 ;Allocation info for local variables in function 'MEM_SetOnchipExtRAM'
                                     544 ;------------------------------------------------------------
@@ -548,20 +548,20 @@
                                     548 ;	-----------------------------------------
                                     549 ;	 function MEM_SetOnchipExtRAM
                                     550 ;	-----------------------------------------
-      000210                        551 _MEM_SetOnchipExtRAM:
-      000210 E5 82            [12]  552 	mov	a,dpl
-      000212 90 00 0A         [24]  553 	mov	dptr,#_MEM_SetOnchipExtRAM_HAL_State_10000_6
-      000215 F0               [24]  554 	movx	@dptr,a
+      00021B                        551 _MEM_SetOnchipExtRAM:
+      00021B E5 82            [12]  552 	mov	a,dpl
+      00021D 90 00 0A         [24]  553 	mov	dptr,#_MEM_SetOnchipExtRAM_HAL_State_10000_6
+      000220 F0               [24]  554 	movx	@dptr,a
                                     555 ;	FwLib_STC8\src\fw_mem.c:25: AUXR = AUXR & ~(0x01 << 1) | (HAL_State << 1);
-      000216 74 FD            [12]  556 	mov	a,#0xfd
-      000218 55 8E            [12]  557 	anl	a,_AUXR
-      00021A FF               [12]  558 	mov	r7,a
-      00021B E0               [24]  559 	movx	a,@dptr
-      00021C 25 E0            [12]  560 	add	a,acc
-      00021E 4F               [12]  561 	orl	a,r7
-      00021F F5 8E            [12]  562 	mov	_AUXR,a
+      000221 74 FD            [12]  556 	mov	a,#0xfd
+      000223 55 8E            [12]  557 	anl	a,_AUXR
+      000225 FF               [12]  558 	mov	r7,a
+      000226 E0               [24]  559 	movx	a,@dptr
+      000227 25 E0            [12]  560 	add	a,acc
+      000229 4F               [12]  561 	orl	a,r7
+      00022A F5 8E            [12]  562 	mov	_AUXR,a
                                     563 ;	FwLib_STC8\src\fw_mem.c:26: }
-      000221 22               [24]  564 	ret
+      00022C 22               [24]  564 	ret
                                     565 ;------------------------------------------------------------
                                     566 ;Allocation info for local variables in function 'MEM_ReadChipID'
                                     567 ;------------------------------------------------------------
@@ -572,70 +572,70 @@
                                     572 ;	-----------------------------------------
                                     573 ;	 function MEM_ReadChipID
                                     574 ;	-----------------------------------------
-      000222                        575 _MEM_ReadChipID:
-      000222 AF F0            [24]  576 	mov	r7,b
-      000224 AE 83            [24]  577 	mov	r6,dph
-      000226 E5 82            [12]  578 	mov	a,dpl
-      000228 90 00 0B         [24]  579 	mov	dptr,#_MEM_ReadChipID_buff_10000_8
-      00022B F0               [24]  580 	movx	@dptr,a
-      00022C EE               [12]  581 	mov	a,r6
-      00022D A3               [24]  582 	inc	dptr
-      00022E F0               [24]  583 	movx	@dptr,a
-      00022F EF               [12]  584 	mov	a,r7
-      000230 A3               [24]  585 	inc	dptr
-      000231 F0               [24]  586 	movx	@dptr,a
+      00022D                        575 _MEM_ReadChipID:
+      00022D AF F0            [24]  576 	mov	r7,b
+      00022F AE 83            [24]  577 	mov	r6,dph
+      000231 E5 82            [12]  578 	mov	a,dpl
+      000233 90 00 0B         [24]  579 	mov	dptr,#_MEM_ReadChipID_buff_10000_8
+      000236 F0               [24]  580 	movx	@dptr,a
+      000237 EE               [12]  581 	mov	a,r6
+      000238 A3               [24]  582 	inc	dptr
+      000239 F0               [24]  583 	movx	@dptr,a
+      00023A EF               [12]  584 	mov	a,r7
+      00023B A3               [24]  585 	inc	dptr
+      00023C F0               [24]  586 	movx	@dptr,a
                                     587 ;	FwLib_STC8\src\fw_mem.c:32: P_SW2 = 0x80;
-      000232 75 BA 80         [24]  588 	mov	_P_SW2,#0x80
+      00023D 75 BA 80         [24]  588 	mov	_P_SW2,#0x80
                                     589 ;	FwLib_STC8\src\fw_mem.c:33: for (i = 0; i < 32; i++)
-      000235 90 00 0B         [24]  590 	mov	dptr,#_MEM_ReadChipID_buff_10000_8
-      000238 E0               [24]  591 	movx	a,@dptr
-      000239 FD               [12]  592 	mov	r5,a
-      00023A A3               [24]  593 	inc	dptr
-      00023B E0               [24]  594 	movx	a,@dptr
-      00023C FE               [12]  595 	mov	r6,a
-      00023D A3               [24]  596 	inc	dptr
-      00023E E0               [24]  597 	movx	a,@dptr
-      00023F FF               [12]  598 	mov	r7,a
-      000240 7C 00            [12]  599 	mov	r4,#0x00
-      000242                        600 00102$:
+      000240 90 00 0B         [24]  590 	mov	dptr,#_MEM_ReadChipID_buff_10000_8
+      000243 E0               [24]  591 	movx	a,@dptr
+      000244 FD               [12]  592 	mov	r5,a
+      000245 A3               [24]  593 	inc	dptr
+      000246 E0               [24]  594 	movx	a,@dptr
+      000247 FE               [12]  595 	mov	r6,a
+      000248 A3               [24]  596 	inc	dptr
+      000249 E0               [24]  597 	movx	a,@dptr
+      00024A FF               [12]  598 	mov	r7,a
+      00024B 7C 00            [12]  599 	mov	r4,#0x00
+      00024D                        600 00102$:
                                     601 ;	FwLib_STC8\src\fw_mem.c:35: *(buff + i) = MEM_ReadXDATA(CHIPIDxx + i);
-      000242 EC               [12]  602 	mov	a,r4
-      000243 2D               [12]  603 	add	a, r5
-      000244 F9               [12]  604 	mov	r1,a
-      000245 E4               [12]  605 	clr	a
-      000246 3E               [12]  606 	addc	a, r6
-      000247 FA               [12]  607 	mov	r2,a
-      000248 8F 03            [24]  608 	mov	ar3,r7
-      00024A 8C 00            [24]  609 	mov	ar0,r4
-      00024C C0 05            [24]  610 	push	ar5
-      00024E C0 06            [24]  611 	push	ar6
-      000250 C0 07            [24]  612 	push	ar7
-      000252 7F 00            [12]  613 	mov	r7,#0x00
-      000254 74 E0            [12]  614 	mov	a,#0xe0
-      000256 28               [12]  615 	add	a, r0
-      000257 F8               [12]  616 	mov	r0,a
-      000258 74 FD            [12]  617 	mov	a,#0xfd
-      00025A 3F               [12]  618 	addc	a, r7
-      00025B FF               [12]  619 	mov	r7,a
-      00025C 88 82            [24]  620 	mov	dpl,r0
-      00025E 8F 83            [24]  621 	mov	dph,r7
-      000260 E0               [24]  622 	movx	a,@dptr
-      000261 89 82            [24]  623 	mov	dpl,r1
-      000263 8A 83            [24]  624 	mov	dph,r2
-      000265 8B F0            [24]  625 	mov	b,r3
-      000267 12 31 70         [24]  626 	lcall	__gptrput
+      00024D EC               [12]  602 	mov	a,r4
+      00024E 2D               [12]  603 	add	a, r5
+      00024F F9               [12]  604 	mov	r1,a
+      000250 E4               [12]  605 	clr	a
+      000251 3E               [12]  606 	addc	a, r6
+      000252 FA               [12]  607 	mov	r2,a
+      000253 8F 03            [24]  608 	mov	ar3,r7
+      000255 8C 00            [24]  609 	mov	ar0,r4
+      000257 C0 05            [24]  610 	push	ar5
+      000259 C0 06            [24]  611 	push	ar6
+      00025B C0 07            [24]  612 	push	ar7
+      00025D 7F 00            [12]  613 	mov	r7,#0x00
+      00025F 74 E0            [12]  614 	mov	a,#0xe0
+      000261 28               [12]  615 	add	a, r0
+      000262 F8               [12]  616 	mov	r0,a
+      000263 74 FD            [12]  617 	mov	a,#0xfd
+      000265 3F               [12]  618 	addc	a, r7
+      000266 FF               [12]  619 	mov	r7,a
+      000267 88 82            [24]  620 	mov	dpl,r0
+      000269 8F 83            [24]  621 	mov	dph,r7
+      00026B E0               [24]  622 	movx	a,@dptr
+      00026C 89 82            [24]  623 	mov	dpl,r1
+      00026E 8A 83            [24]  624 	mov	dph,r2
+      000270 8B F0            [24]  625 	mov	b,r3
+      000272 12 2C 2E         [24]  626 	lcall	__gptrput
                                     627 ;	FwLib_STC8\src\fw_mem.c:33: for (i = 0; i < 32; i++)
-      00026A 0C               [12]  628 	inc	r4
-      00026B BC 20 00         [24]  629 	cjne	r4,#0x20,00119$
-      00026E                        630 00119$:
-      00026E D0 07            [24]  631 	pop	ar7
-      000270 D0 06            [24]  632 	pop	ar6
-      000272 D0 05            [24]  633 	pop	ar5
-      000274 40 CC            [24]  634 	jc	00102$
+      000275 0C               [12]  628 	inc	r4
+      000276 BC 20 00         [24]  629 	cjne	r4,#0x20,00119$
+      000279                        630 00119$:
+      000279 D0 07            [24]  631 	pop	ar7
+      00027B D0 06            [24]  632 	pop	ar6
+      00027D D0 05            [24]  633 	pop	ar5
+      00027F 40 CC            [24]  634 	jc	00102$
                                     635 ;	FwLib_STC8\src\fw_mem.c:37: P_SW2 = 0x00;
-      000276 75 BA 00         [24]  636 	mov	_P_SW2,#0x00
+      000281 75 BA 00         [24]  636 	mov	_P_SW2,#0x00
                                     637 ;	FwLib_STC8\src\fw_mem.c:38: }
-      000279 22               [24]  638 	ret
+      000284 22               [24]  638 	ret
                                     639 	.area CSEG    (CODE)
                                     640 	.area CONST   (CODE)
                                     641 	.area XINIT   (CODE)
