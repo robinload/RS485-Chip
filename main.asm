@@ -9,8 +9,12 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
-	.globl _UART2_SendString
-	.globl _UART2_SendByte
+	.globl _MEAS_Process
+	.globl _reg_init
+	.globl _mb_parse_request
+	.globl _UART_SendString
+	.globl _UART2_Init
+	.globl _UART_Init
 	.globl _P77
 	.globl _P76
 	.globl _P75
@@ -469,12 +473,6 @@ __start__stack:
 ; uninitialized external ram data
 ;--------------------------------------------------------
 	.area XSEG    (XDATA)
-_UART2_SendByte_dat_10000_47:
-	.ds 1
-_UART2_SendString_str_10000_49:
-	.ds 3
-_main_received_30000_55:
-	.ds 1
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -499,8 +497,25 @@ _main_received_30000_55:
 	.area HOME    (CODE)
 __interrupt_vect:
 	ljmp	__sdcc_gsinit_startup
-; restartable atomic support routines
+	reti
+	.ds	7
+	ljmp	_Timer0_ISR
 	.ds	5
+	reti
+	.ds	7
+	reti
+	.ds	7
+	ljmp	_UART_ISR
+	.ds	5
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	ljmp	_UART2_ISR
+; restartable atomic support routines
+	.ds	2
 sdcc_atomic_exchange_rollback_start::
 	nop
 	nop
@@ -585,15 +600,13 @@ __sdcc_program_startup:
 ;--------------------------------------------------------
 	.area CSEG    (CODE)
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'UART2_SendByte'
+;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;dat           Allocated with name '_UART2_SendByte_dat_10000_47'
-;------------------------------------------------------------
-;	.\FwLib_STC8\user\main.c:155: void UART2_SendByte(const char dat)
+;	.\FwLib_STC8\user\main.c:92: void main(void)
 ;	-----------------------------------------
-;	 function UART2_SendByte
+;	 function main
 ;	-----------------------------------------
-_UART2_SendByte:
+_main:
 	ar7 = 0x07
 	ar6 = 0x06
 	ar5 = 0x05
@@ -602,168 +615,61 @@ _UART2_SendByte:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	mov	a,dpl
-	mov	dptr,#_UART2_SendByte_dat_10000_47
-	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:157: RS485_DIR = 1;
-;	assignBit
-	setb	_P34
-;	.\FwLib_STC8\user\main.c:158: S2BUF = dat;
-	mov	dptr,#_UART2_SendByte_dat_10000_47
-	movx	a,@dptr
-	mov	_S2BUF,a
-;	.\FwLib_STC8\user\main.c:159: while (!(S2CON & 0x02));
-00101$:
-	mov	a,_S2CON
-	jnb	acc.1,00101$
-;	.\FwLib_STC8\user\main.c:160: S2CON &= ~0x02;
-	anl	_S2CON,#0xfd
-;	.\FwLib_STC8\user\main.c:161: RS485_DIR = 0;
-;	assignBit
-	clr	_P34
-;	.\FwLib_STC8\user\main.c:162: }
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'UART2_SendString'
-;------------------------------------------------------------
-;str           Allocated with name '_UART2_SendString_str_10000_49'
-;------------------------------------------------------------
-;	.\FwLib_STC8\user\main.c:164: void UART2_SendString(const char *str)
-;	-----------------------------------------
-;	 function UART2_SendString
-;	-----------------------------------------
-_UART2_SendString:
-	mov	r7,b
-	mov	r6,dph
-	mov	a,dpl
-	mov	dptr,#_UART2_SendString_str_10000_49
-	movx	@dptr,a
-	mov	a,r6
-	inc	dptr
-	movx	@dptr,a
-	mov	a,r7
-	inc	dptr
-	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:166: while (*str)
-	mov	dptr,#_UART2_SendString_str_10000_49
-	movx	a,@dptr
-	mov	r5,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	r7,a
-00101$:
-	mov	dpl,r5
-	mov	dph,r6
-	mov	b,r7
-	lcall	__gptrget
-	mov	r4,a
-	jz	00108$
-;	.\FwLib_STC8\user\main.c:168: UART2_SendByte(*str++);
-	inc	r5
-	cjne	r5,#0x00,00120$
-	inc	r6
-00120$:
-	mov	dptr,#_UART2_SendString_str_10000_49
-	mov	a,r5
-	movx	@dptr,a
-	mov	a,r6
-	inc	dptr
-	movx	@dptr,a
-	mov	a,r7
-	inc	dptr
-	movx	@dptr,a
-	mov	dpl, r4
-	push	ar7
-	push	ar6
-	push	ar5
-	lcall	_UART2_SendByte
-	pop	ar5
-	pop	ar6
-	pop	ar7
-	sjmp	00101$
-00108$:
-	mov	dptr,#_UART2_SendString_str_10000_49
-	mov	a,r5
-	movx	@dptr,a
-	mov	a,r6
-	inc	dptr
-	movx	@dptr,a
-	mov	a,r7
-	inc	dptr
-	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:170: }
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'main'
-;------------------------------------------------------------
-;received      Allocated with name '_main_received_30000_55'
-;------------------------------------------------------------
-;	.\FwLib_STC8\user\main.c:172: void main(void)
-;	-----------------------------------------
-;	 function main
-;	-----------------------------------------
-_main:
-;	.\FwLib_STC8\user\main.c:175: P1M1 &= ~0x01;
-	anl	_P1M1,#0xfe
-;	.\FwLib_STC8\user\main.c:176: P1M0 &= ~0x01;
-	anl	_P1M0,#0xfe
-;	.\FwLib_STC8\user\main.c:179: P1M1 &= ~0x02;
-	anl	_P1M1,#0xfd
-;	.\FwLib_STC8\user\main.c:180: P1M0 |=  0x02;
-	orl	_P1M0,#0x02
-;	.\FwLib_STC8\user\main.c:183: P3M1 &= ~0x10;
-	anl	_P3M1,#0xef
-;	.\FwLib_STC8\user\main.c:184: P3M0 |=  0x10;
-	orl	_P3M0,#0x10
-;	.\FwLib_STC8\user\main.c:185: RS485_DIR = 0;   // default RX mode
-;	assignBit
-	clr	_P34
-;	.\FwLib_STC8\user\main.c:188: P_SW2 &= ~0x01;
-	anl	_P_SW2,#0xfe
-;	.\FwLib_STC8\user\main.c:191: AUXR &= ~0x04;
-	anl	_AUXR,#0xfb
-;	.\FwLib_STC8\user\main.c:194: AUXR &= ~0x10;
-	anl	_AUXR,#0xef
-;	.\FwLib_STC8\user\main.c:195: AUXR |=  0x04;   // T2x12=1, 1T mode
-	orl	_AUXR,#0x04
-;	.\FwLib_STC8\user\main.c:196: T2H = T2H_VAL;
-	mov	_T2H,#0xfe
-;	.\FwLib_STC8\user\main.c:197: T2L = T2L_VAL;
-	mov	_T2L,#0x80
-;	.\FwLib_STC8\user\main.c:198: AUXR |=  0x10;
-	orl	_AUXR,#0x10
-;	.\FwLib_STC8\user\main.c:201: S2CON = 0x50;
-	mov	_S2CON,#0x50
-;	.\FwLib_STC8\user\main.c:203: UART2_SendString("READY\r\n");
+;	.\FwLib_STC8\user\main.c:94: ENABLE_XRAM();
+	orl	_P_SW2,#0x80
+;	.\FwLib_STC8\user\main.c:96: UART_Init();   // UART1 (debug) + Timer2 (baud) + Timer0 (Modbus frame gap)
+	lcall	_UART_Init
+;	.\FwLib_STC8\user\main.c:97: UART2_Init();  // UART2 (RS485 Modbus) on P1.0/P1.1
+	lcall	_UART2_Init
+;	.\FwLib_STC8\user\main.c:99: reg_init();
+	lcall	_reg_init
+;	.\FwLib_STC8\user\main.c:101: UART_SendString("BOOT_OK\r\n"); // Debug confirms boot on UART1
 	mov	dptr,#___str_0
 	mov	b, #0x80
-	lcall	_UART2_SendString
-;	.\FwLib_STC8\user\main.c:205: while (1)
+	lcall	_UART_SendString
+;	.\FwLib_STC8\user\main.c:103: ET0 = 1;        // Timer0 interrupt (frame gap detection)
+;	assignBit
+	setb	_ET0
+;	.\FwLib_STC8\user\main.c:104: ES  = 1;        // UART1 interrupt (debug, TX only)
+;	assignBit
+	setb	_ES
+;	.\FwLib_STC8\user\main.c:105: IE2 |= 0x01;    // UART2 interrupt (Modbus RX)
+	orl	_IE2,#0x01
+;	.\FwLib_STC8\user\main.c:106: EA  = 1;        // Global enable
+;	assignBit
+	setb	_EA
+;	.\FwLib_STC8\user\main.c:108: while (1)
 00104$:
-;	.\FwLib_STC8\user\main.c:208: if (S2CON & 0x01)
-	mov	a,_S2CON
-	jnb	acc.0,00104$
-;	.\FwLib_STC8\user\main.c:210: char received = S2BUF;
-	mov	dptr,#_main_received_30000_55
-	mov	a,_S2BUF
-	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:211: S2CON &= ~0x01;          // clear RI2
-	anl	_S2CON,#0xfe
-;	.\FwLib_STC8\user\main.c:213: UART2_SendByte(received); // echo back
-	mov	dptr,#_main_received_30000_55
+;	.\FwLib_STC8\user\main.c:110: WDT_CONTR = 0x35;
+	mov	_WDT_CONTR,#0x35
+;	.\FwLib_STC8\user\main.c:112: MEAS_Process();
+	lcall	_MEAS_Process
+;	.\FwLib_STC8\user\main.c:114: if (mb_frame_ready)
+	mov	dptr,#_mb_frame_ready
 	movx	a,@dptr
-	mov	dpl,a
-	lcall	_UART2_SendByte
-;	.\FwLib_STC8\user\main.c:216: }
+	jz	00104$
+;	.\FwLib_STC8\user\main.c:116: EA = 0;
+;	assignBit
+	clr	_EA
+;	.\FwLib_STC8\user\main.c:117: mb_parse_request();
+	lcall	_mb_parse_request
+;	.\FwLib_STC8\user\main.c:118: mb_idx = 0;
+	mov	dptr,#_mb_idx
+	clr	a
+	movx	@dptr,a
+;	.\FwLib_STC8\user\main.c:119: mb_frame_ready = 0;
+	mov	dptr,#_mb_frame_ready
+	movx	@dptr,a
+;	.\FwLib_STC8\user\main.c:120: EA = 1;
+;	assignBit
+	setb	_EA
+;	.\FwLib_STC8\user\main.c:123: }
 	sjmp	00104$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area CONST   (CODE)
 ___str_0:
-	.ascii "READY"
+	.ascii "BOOT_OK"
 	.db 0x0d
 	.db 0x0a
 	.db 0x00

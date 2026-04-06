@@ -466,16 +466,16 @@
                                     466 ; uninitialized external ram data
                                     467 ;--------------------------------------------------------
                                     468 	.area XSEG    (XDATA)
-      000048                        469 _SYS_SetClock_i_10000_6:
-      000048                        470 	.ds 2
-      00004A                        471 _SYS_TrimClock_PARM_2:
-      00004A                        472 	.ds 1
-      00004B                        473 _SYS_TrimClock_vrtrim_10000_10:
-      00004B                        474 	.ds 1
-      00004C                        475 _SYS_Delay_t_10000_13:
-      00004C                        476 	.ds 2
-      00004E                        477 _SYS_DelayUs_t_10000_16:
-      00004E                        478 	.ds 2
+      000001                        469 _SYS_SetClock_i_10000_6:
+      000001                        470 	.ds 2
+      000003                        471 _SYS_TrimClock_PARM_2:
+      000003                        472 	.ds 1
+      000004                        473 _SYS_TrimClock_vrtrim_10000_10:
+      000004                        474 	.ds 1
+      000005                        475 _SYS_Delay_t_10000_13:
+      000005                        476 	.ds 2
+      000007                        477 _SYS_DelayUs_t_10000_16:
+      000007                        478 	.ds 2
                                     479 ;--------------------------------------------------------
                                     480 ; absolute external ram data
                                     481 ;--------------------------------------------------------
@@ -520,7 +520,7 @@
                                     520 ;	-----------------------------------------
                                     521 ;	 function SYS_SetClock
                                     522 ;	-----------------------------------------
-      00064F                        523 _SYS_SetClock:
+      000129                        523 _SYS_SetClock:
                            000007   524 	ar7 = 0x07
                            000006   525 	ar6 = 0x06
                            000005   526 	ar5 = 0x05
@@ -530,66 +530,66 @@
                            000001   530 	ar1 = 0x01
                            000000   531 	ar0 = 0x00
                                     532 ;	.\FwLib_STC8\src\fw_sys.c:43: uint16_t i = 0; uint8_t j = 5;
-      00064F 90 00 48         [24]  533 	mov	dptr,#_SYS_SetClock_i_10000_6
-      000652 E4               [12]  534 	clr	a
-      000653 F0               [24]  535 	movx	@dptr,a
-      000654 A3               [24]  536 	inc	dptr
-      000655 F0               [24]  537 	movx	@dptr,a
+      000129 90 00 01         [24]  533 	mov	dptr,#_SYS_SetClock_i_10000_6
+      00012C E4               [12]  534 	clr	a
+      00012D F0               [24]  535 	movx	@dptr,a
+      00012E A3               [24]  536 	inc	dptr
+      00012F F0               [24]  537 	movx	@dptr,a
                                     538 ;	.\FwLib_STC8\src\fw_sys.c:44: P_SW2 = 0x80;
-      000656 75 BA 80         [24]  539 	mov	_P_SW2,#0x80
+      000130 75 BA 80         [24]  539 	mov	_P_SW2,#0x80
                                     540 ;	.\FwLib_STC8\src\fw_sys.c:45: if (CLKDIV != (__CONF_CLKDIV))
-      000659 90 FE 01         [24]  541 	mov	dptr,#0xfe01
-      00065C E0               [24]  542 	movx	a,@dptr
-      00065D 60 1C            [24]  543 	jz	00109$
+      000133 90 FE 01         [24]  541 	mov	dptr,#0xfe01
+      000136 E0               [24]  542 	movx	a,@dptr
+      000137 60 1C            [24]  543 	jz	00109$
                                     544 ;	.\FwLib_STC8\src\fw_sys.c:47: CLKDIV = (__CONF_CLKDIV);
-      00065F 90 FE 01         [24]  545 	mov	dptr,#0xfe01
-      000662 E4               [12]  546 	clr	a
-      000663 F0               [24]  547 	movx	@dptr,a
+      000139 90 FE 01         [24]  545 	mov	dptr,#0xfe01
+      00013C E4               [12]  546 	clr	a
+      00013D F0               [24]  547 	movx	@dptr,a
                                     548 ;	.\FwLib_STC8\src\fw_sys.c:49: while (--i);
-      000664 FE               [12]  549 	mov	r6,a
-      000665 FF               [12]  550 	mov	r7,a
-      000666 7D 05            [12]  551 	mov	r5,#0x05
-      000668                        552 00101$:
-      000668 1E               [12]  553 	dec	r6
-      000669 BE FF 01         [24]  554 	cjne	r6,#0xff,00155$
-      00066C 1F               [12]  555 	dec	r7
-      00066D                        556 00155$:
-      00066D EE               [12]  557 	mov	a,r6
-      00066E 4F               [12]  558 	orl	a,r7
-      00066F 70 F7            [24]  559 	jnz	00101$
+      00013E FE               [12]  549 	mov	r6,a
+      00013F FF               [12]  550 	mov	r7,a
+      000140 7D 05            [12]  551 	mov	r5,#0x05
+      000142                        552 00101$:
+      000142 1E               [12]  553 	dec	r6
+      000143 BE FF 01         [24]  554 	cjne	r6,#0xff,00155$
+      000146 1F               [12]  555 	dec	r7
+      000147                        556 00155$:
+      000147 EE               [12]  557 	mov	a,r6
+      000148 4F               [12]  558 	orl	a,r7
+      000149 70 F7            [24]  559 	jnz	00101$
                                     560 ;	.\FwLib_STC8\src\fw_sys.c:50: } while (--j);
-      000671 DD F5            [24]  561 	djnz	r5,00101$
+      00014B DD F5            [24]  561 	djnz	r5,00101$
                                     562 ;	.\FwLib_STC8\src\fw_sys.c:53: SYS_SetFOSC(__CONF_IRCBAND, __CONF_VRTRIM, __CONF_IRTRIM, __CONF_LIRTRIM);
-      000673 90 00 48         [24]  563 	mov	dptr,#_SYS_SetClock_i_10000_6
-      000676 EE               [12]  564 	mov	a,r6
-      000677 F0               [24]  565 	movx	@dptr,a
-      000678 EF               [12]  566 	mov	a,r7
-      000679 A3               [24]  567 	inc	dptr
-      00067A F0               [24]  568 	movx	@dptr,a
-      00067B                        569 00109$:
-      00067B 75 9D 02         [24]  570 	mov	_IRCBAND,#0x02
-      00067E 75 A6 19         [24]  571 	mov	_VRTRIM,#0x19
-      000681 75 9F 2C         [24]  572 	mov	_IRTRIM,#0x2c
-      000684 75 9E 00         [24]  573 	mov	_LIRTRIM,#0x00
+      00014D 90 00 01         [24]  563 	mov	dptr,#_SYS_SetClock_i_10000_6
+      000150 EE               [12]  564 	mov	a,r6
+      000151 F0               [24]  565 	movx	@dptr,a
+      000152 EF               [12]  566 	mov	a,r7
+      000153 A3               [24]  567 	inc	dptr
+      000154 F0               [24]  568 	movx	@dptr,a
+      000155                        569 00109$:
+      000155 75 9D 02         [24]  570 	mov	_IRCBAND,#0x02
+      000158 75 A6 19         [24]  571 	mov	_VRTRIM,#0x19
+      00015B 75 9F 2C         [24]  572 	mov	_IRTRIM,#0x2c
+      00015E 75 9E 00         [24]  573 	mov	_LIRTRIM,#0x00
                                     574 ;	.\FwLib_STC8\src\fw_sys.c:54: while (--i); // Wait
-      000687 90 00 48         [24]  575 	mov	dptr,#_SYS_SetClock_i_10000_6
-      00068A E0               [24]  576 	movx	a,@dptr
-      00068B FE               [12]  577 	mov	r6,a
-      00068C A3               [24]  578 	inc	dptr
-      00068D E0               [24]  579 	movx	a,@dptr
-      00068E FF               [12]  580 	mov	r7,a
-      00068F                        581 00112$:
-      00068F 1E               [12]  582 	dec	r6
-      000690 BE FF 01         [24]  583 	cjne	r6,#0xff,00158$
-      000693 1F               [12]  584 	dec	r7
-      000694                        585 00158$:
-      000694 EE               [12]  586 	mov	a,r6
-      000695 4F               [12]  587 	orl	a,r7
+      000161 90 00 01         [24]  575 	mov	dptr,#_SYS_SetClock_i_10000_6
+      000164 E0               [24]  576 	movx	a,@dptr
+      000165 FE               [12]  577 	mov	r6,a
+      000166 A3               [24]  578 	inc	dptr
+      000167 E0               [24]  579 	movx	a,@dptr
+      000168 FF               [12]  580 	mov	r7,a
+      000169                        581 00112$:
+      000169 1E               [12]  582 	dec	r6
+      00016A BE FF 01         [24]  583 	cjne	r6,#0xff,00158$
+      00016D 1F               [12]  584 	dec	r7
+      00016E                        585 00158$:
+      00016E EE               [12]  586 	mov	a,r6
+      00016F 4F               [12]  587 	orl	a,r7
                                     588 ;	.\FwLib_STC8\src\fw_sys.c:55: P_SW2 = 0x00;
-      000696 70 F7            [24]  589 	jnz	00112$
-      000698 F5 BA            [12]  590 	mov	_P_SW2,a
+      000170 70 F7            [24]  589 	jnz	00112$
+      000172 F5 BA            [12]  590 	mov	_P_SW2,a
                                     591 ;	.\FwLib_STC8\src\fw_sys.c:57: }
-      00069A 22               [24]  592 	ret
+      000174 22               [24]  592 	ret
                                     593 ;------------------------------------------------------------
                                     594 ;Allocation info for local variables in function 'SYS_TrimClock'
                                     595 ;------------------------------------------------------------
@@ -601,31 +601,31 @@
                                     601 ;	-----------------------------------------
                                     602 ;	 function SYS_TrimClock
                                     603 ;	-----------------------------------------
-      00069B                        604 _SYS_TrimClock:
-      00069B E5 82            [12]  605 	mov	a,dpl
-      00069D 90 00 4B         [24]  606 	mov	dptr,#_SYS_TrimClock_vrtrim_10000_10
-      0006A0 F0               [24]  607 	movx	@dptr,a
+      000175                        604 _SYS_TrimClock:
+      000175 E5 82            [12]  605 	mov	a,dpl
+      000177 90 00 04         [24]  606 	mov	dptr,#_SYS_TrimClock_vrtrim_10000_10
+      00017A F0               [24]  607 	movx	@dptr,a
                                     608 ;	.\FwLib_STC8\src\fw_sys.c:62: SYS_SetFOSC(__CONF_IRCBAND, vrtrim, irtrim, __CONF_LIRTRIM);
-      0006A1 75 9D 02         [24]  609 	mov	_IRCBAND,#0x02
-      0006A4 E0               [24]  610 	movx	a,@dptr
-      0006A5 F5 A6            [12]  611 	mov	_VRTRIM,a
-      0006A7 90 00 4A         [24]  612 	mov	dptr,#_SYS_TrimClock_PARM_2
-      0006AA E0               [24]  613 	movx	a,@dptr
-      0006AB F5 9F            [12]  614 	mov	_IRTRIM,a
-      0006AD 75 9E 00         [24]  615 	mov	_LIRTRIM,#0x00
+      00017B 75 9D 02         [24]  609 	mov	_IRCBAND,#0x02
+      00017E E0               [24]  610 	movx	a,@dptr
+      00017F F5 A6            [12]  611 	mov	_VRTRIM,a
+      000181 90 00 03         [24]  612 	mov	dptr,#_SYS_TrimClock_PARM_2
+      000184 E0               [24]  613 	movx	a,@dptr
+      000185 F5 9F            [12]  614 	mov	_IRTRIM,a
+      000187 75 9E 00         [24]  615 	mov	_LIRTRIM,#0x00
                                     616 ;	.\FwLib_STC8\src\fw_sys.c:63: while (--i); // Wait
-      0006B0 7E 00            [12]  617 	mov	r6,#0x00
-      0006B2 7F 00            [12]  618 	mov	r7,#0x00
-      0006B4                        619 00104$:
-      0006B4 1E               [12]  620 	dec	r6
-      0006B5 BE FF 01         [24]  621 	cjne	r6,#0xff,00116$
-      0006B8 1F               [12]  622 	dec	r7
-      0006B9                        623 00116$:
-      0006B9 EE               [12]  624 	mov	a,r6
-      0006BA 4F               [12]  625 	orl	a,r7
-      0006BB 70 F7            [24]  626 	jnz	00104$
+      00018A 7E 00            [12]  617 	mov	r6,#0x00
+      00018C 7F 00            [12]  618 	mov	r7,#0x00
+      00018E                        619 00104$:
+      00018E 1E               [12]  620 	dec	r6
+      00018F BE FF 01         [24]  621 	cjne	r6,#0xff,00116$
+      000192 1F               [12]  622 	dec	r7
+      000193                        623 00116$:
+      000193 EE               [12]  624 	mov	a,r6
+      000194 4F               [12]  625 	orl	a,r7
+      000195 70 F7            [24]  626 	jnz	00104$
                                     627 ;	.\FwLib_STC8\src\fw_sys.c:64: }
-      0006BD 22               [24]  628 	ret
+      000197 22               [24]  628 	ret
                                     629 ;------------------------------------------------------------
                                     630 ;Allocation info for local variables in function 'SYS_Delay'
                                     631 ;------------------------------------------------------------
@@ -636,61 +636,61 @@
                                     636 ;	-----------------------------------------
                                     637 ;	 function SYS_Delay
                                     638 ;	-----------------------------------------
-      0006BE                        639 _SYS_Delay:
-      0006BE AF 83            [24]  640 	mov	r7,dph
-      0006C0 E5 82            [12]  641 	mov	a,dpl
-      0006C2 90 00 4C         [24]  642 	mov	dptr,#_SYS_Delay_t_10000_13
-      0006C5 F0               [24]  643 	movx	@dptr,a
-      0006C6 EF               [12]  644 	mov	a,r7
-      0006C7 A3               [24]  645 	inc	dptr
-      0006C8 F0               [24]  646 	movx	@dptr,a
+      000198                        639 _SYS_Delay:
+      000198 AF 83            [24]  640 	mov	r7,dph
+      00019A E5 82            [12]  641 	mov	a,dpl
+      00019C 90 00 05         [24]  642 	mov	dptr,#_SYS_Delay_t_10000_13
+      00019F F0               [24]  643 	movx	@dptr,a
+      0001A0 EF               [12]  644 	mov	a,r7
+      0001A1 A3               [24]  645 	inc	dptr
+      0001A2 F0               [24]  646 	movx	@dptr,a
                                     647 ;	.\FwLib_STC8\src\fw_sys.c:69: do
-      0006C9 90 00 4C         [24]  648 	mov	dptr,#_SYS_Delay_t_10000_13
-      0006CC E0               [24]  649 	movx	a,@dptr
-      0006CD FE               [12]  650 	mov	r6,a
-      0006CE A3               [24]  651 	inc	dptr
-      0006CF E0               [24]  652 	movx	a,@dptr
-      0006D0 FF               [12]  653 	mov	r7,a
-      0006D1                        654 00104$:
+      0001A3 90 00 05         [24]  648 	mov	dptr,#_SYS_Delay_t_10000_13
+      0001A6 E0               [24]  649 	movx	a,@dptr
+      0001A7 FE               [12]  650 	mov	r6,a
+      0001A8 A3               [24]  651 	inc	dptr
+      0001A9 E0               [24]  652 	movx	a,@dptr
+      0001AA FF               [12]  653 	mov	r7,a
+      0001AB                        654 00104$:
                                     655 ;	.\FwLib_STC8\src\fw_sys.c:71: i = ticks_ms;
-      0006D1 90 08 F0         [24]  656 	mov	dptr,#_ticks_ms
-      0006D4 E4               [12]  657 	clr	a
-      0006D5 93               [24]  658 	movc	a,@a+dptr
-      0006D6 FC               [12]  659 	mov	r4,a
-      0006D7 74 01            [12]  660 	mov	a,#0x01
-      0006D9 93               [24]  661 	movc	a,@a+dptr
-      0006DA FD               [12]  662 	mov	r5,a
+      0001AB 90 26 90         [24]  656 	mov	dptr,#_ticks_ms
+      0001AE E4               [12]  657 	clr	a
+      0001AF 93               [24]  658 	movc	a,@a+dptr
+      0001B0 FC               [12]  659 	mov	r4,a
+      0001B1 74 01            [12]  660 	mov	a,#0x01
+      0001B3 93               [24]  661 	movc	a,@a+dptr
+      0001B4 FD               [12]  662 	mov	r5,a
                                     663 ;	.\FwLib_STC8\src\fw_sys.c:72: while (--i);
-      0006DB                        664 00101$:
-      0006DB 1C               [12]  665 	dec	r4
-      0006DC BC FF 01         [24]  666 	cjne	r4,#0xff,00134$
-      0006DF 1D               [12]  667 	dec	r5
-      0006E0                        668 00134$:
-      0006E0 EC               [12]  669 	mov	a,r4
-      0006E1 4D               [12]  670 	orl	a,r5
-      0006E2 70 F7            [24]  671 	jnz	00101$
+      0001B5                        664 00101$:
+      0001B5 1C               [12]  665 	dec	r4
+      0001B6 BC FF 01         [24]  666 	cjne	r4,#0xff,00134$
+      0001B9 1D               [12]  667 	dec	r5
+      0001BA                        668 00134$:
+      0001BA EC               [12]  669 	mov	a,r4
+      0001BB 4D               [12]  670 	orl	a,r5
+      0001BC 70 F7            [24]  671 	jnz	00101$
                                     672 ;	.\FwLib_STC8\src\fw_sys.c:73: } while (--t);
-      0006E4 1E               [12]  673 	dec	r6
-      0006E5 BE FF 01         [24]  674 	cjne	r6,#0xff,00136$
-      0006E8 1F               [12]  675 	dec	r7
-      0006E9                        676 00136$:
-      0006E9 90 00 4C         [24]  677 	mov	dptr,#_SYS_Delay_t_10000_13
-      0006EC EE               [12]  678 	mov	a,r6
-      0006ED F0               [24]  679 	movx	@dptr,a
-      0006EE EF               [12]  680 	mov	a,r7
-      0006EF A3               [24]  681 	inc	dptr
-      0006F0 F0               [24]  682 	movx	@dptr,a
-      0006F1 EE               [12]  683 	mov	a,r6
-      0006F2 4F               [12]  684 	orl	a,r7
-      0006F3 70 DC            [24]  685 	jnz	00104$
-      0006F5 90 00 4C         [24]  686 	mov	dptr,#_SYS_Delay_t_10000_13
-      0006F8 EE               [12]  687 	mov	a,r6
-      0006F9 F0               [24]  688 	movx	@dptr,a
-      0006FA EF               [12]  689 	mov	a,r7
-      0006FB A3               [24]  690 	inc	dptr
-      0006FC F0               [24]  691 	movx	@dptr,a
+      0001BE 1E               [12]  673 	dec	r6
+      0001BF BE FF 01         [24]  674 	cjne	r6,#0xff,00136$
+      0001C2 1F               [12]  675 	dec	r7
+      0001C3                        676 00136$:
+      0001C3 90 00 05         [24]  677 	mov	dptr,#_SYS_Delay_t_10000_13
+      0001C6 EE               [12]  678 	mov	a,r6
+      0001C7 F0               [24]  679 	movx	@dptr,a
+      0001C8 EF               [12]  680 	mov	a,r7
+      0001C9 A3               [24]  681 	inc	dptr
+      0001CA F0               [24]  682 	movx	@dptr,a
+      0001CB EE               [12]  683 	mov	a,r6
+      0001CC 4F               [12]  684 	orl	a,r7
+      0001CD 70 DC            [24]  685 	jnz	00104$
+      0001CF 90 00 05         [24]  686 	mov	dptr,#_SYS_Delay_t_10000_13
+      0001D2 EE               [12]  687 	mov	a,r6
+      0001D3 F0               [24]  688 	movx	@dptr,a
+      0001D4 EF               [12]  689 	mov	a,r7
+      0001D5 A3               [24]  690 	inc	dptr
+      0001D6 F0               [24]  691 	movx	@dptr,a
                                     692 ;	.\FwLib_STC8\src\fw_sys.c:74: }
-      0006FD 22               [24]  693 	ret
+      0001D7 22               [24]  693 	ret
                                     694 ;------------------------------------------------------------
                                     695 ;Allocation info for local variables in function 'SYS_DelayUs'
                                     696 ;------------------------------------------------------------
@@ -701,61 +701,61 @@
                                     701 ;	-----------------------------------------
                                     702 ;	 function SYS_DelayUs
                                     703 ;	-----------------------------------------
-      0006FE                        704 _SYS_DelayUs:
-      0006FE AF 83            [24]  705 	mov	r7,dph
-      000700 E5 82            [12]  706 	mov	a,dpl
-      000702 90 00 4E         [24]  707 	mov	dptr,#_SYS_DelayUs_t_10000_16
-      000705 F0               [24]  708 	movx	@dptr,a
-      000706 EF               [12]  709 	mov	a,r7
-      000707 A3               [24]  710 	inc	dptr
-      000708 F0               [24]  711 	movx	@dptr,a
+      0001D8                        704 _SYS_DelayUs:
+      0001D8 AF 83            [24]  705 	mov	r7,dph
+      0001DA E5 82            [12]  706 	mov	a,dpl
+      0001DC 90 00 07         [24]  707 	mov	dptr,#_SYS_DelayUs_t_10000_16
+      0001DF F0               [24]  708 	movx	@dptr,a
+      0001E0 EF               [12]  709 	mov	a,r7
+      0001E1 A3               [24]  710 	inc	dptr
+      0001E2 F0               [24]  711 	movx	@dptr,a
                                     712 ;	.\FwLib_STC8\src\fw_sys.c:79: do
-      000709 90 00 4E         [24]  713 	mov	dptr,#_SYS_DelayUs_t_10000_16
-      00070C E0               [24]  714 	movx	a,@dptr
-      00070D FE               [12]  715 	mov	r6,a
-      00070E A3               [24]  716 	inc	dptr
-      00070F E0               [24]  717 	movx	a,@dptr
-      000710 FF               [12]  718 	mov	r7,a
-      000711                        719 00104$:
+      0001E3 90 00 07         [24]  713 	mov	dptr,#_SYS_DelayUs_t_10000_16
+      0001E6 E0               [24]  714 	movx	a,@dptr
+      0001E7 FE               [12]  715 	mov	r6,a
+      0001E8 A3               [24]  716 	inc	dptr
+      0001E9 E0               [24]  717 	movx	a,@dptr
+      0001EA FF               [12]  718 	mov	r7,a
+      0001EB                        719 00104$:
                                     720 ;	.\FwLib_STC8\src\fw_sys.c:81: i = ticks_us;
-      000711 90 08 F2         [24]  721 	mov	dptr,#_ticks_us
-      000714 E4               [12]  722 	clr	a
-      000715 93               [24]  723 	movc	a,@a+dptr
-      000716 FD               [12]  724 	mov	r5,a
+      0001EB 90 26 92         [24]  721 	mov	dptr,#_ticks_us
+      0001EE E4               [12]  722 	clr	a
+      0001EF 93               [24]  723 	movc	a,@a+dptr
+      0001F0 FD               [12]  724 	mov	r5,a
                                     725 ;	.\FwLib_STC8\src\fw_sys.c:82: while (--i);
-      000717                        726 00101$:
-      000717 DD FE            [24]  727 	djnz	r5,00101$
+      0001F1                        726 00101$:
+      0001F1 DD FE            [24]  727 	djnz	r5,00101$
                                     728 ;	.\FwLib_STC8\src\fw_sys.c:83: } while (--t);
-      000719 1E               [12]  729 	dec	r6
-      00071A BE FF 01         [24]  730 	cjne	r6,#0xff,00135$
-      00071D 1F               [12]  731 	dec	r7
-      00071E                        732 00135$:
-      00071E 90 00 4E         [24]  733 	mov	dptr,#_SYS_DelayUs_t_10000_16
-      000721 EE               [12]  734 	mov	a,r6
-      000722 F0               [24]  735 	movx	@dptr,a
-      000723 EF               [12]  736 	mov	a,r7
-      000724 A3               [24]  737 	inc	dptr
-      000725 F0               [24]  738 	movx	@dptr,a
-      000726 EE               [12]  739 	mov	a,r6
-      000727 4F               [12]  740 	orl	a,r7
-      000728 70 E7            [24]  741 	jnz	00104$
-      00072A 90 00 4E         [24]  742 	mov	dptr,#_SYS_DelayUs_t_10000_16
-      00072D EE               [12]  743 	mov	a,r6
-      00072E F0               [24]  744 	movx	@dptr,a
-      00072F EF               [12]  745 	mov	a,r7
-      000730 A3               [24]  746 	inc	dptr
-      000731 F0               [24]  747 	movx	@dptr,a
+      0001F3 1E               [12]  729 	dec	r6
+      0001F4 BE FF 01         [24]  730 	cjne	r6,#0xff,00135$
+      0001F7 1F               [12]  731 	dec	r7
+      0001F8                        732 00135$:
+      0001F8 90 00 07         [24]  733 	mov	dptr,#_SYS_DelayUs_t_10000_16
+      0001FB EE               [12]  734 	mov	a,r6
+      0001FC F0               [24]  735 	movx	@dptr,a
+      0001FD EF               [12]  736 	mov	a,r7
+      0001FE A3               [24]  737 	inc	dptr
+      0001FF F0               [24]  738 	movx	@dptr,a
+      000200 EE               [12]  739 	mov	a,r6
+      000201 4F               [12]  740 	orl	a,r7
+      000202 70 E7            [24]  741 	jnz	00104$
+      000204 90 00 07         [24]  742 	mov	dptr,#_SYS_DelayUs_t_10000_16
+      000207 EE               [12]  743 	mov	a,r6
+      000208 F0               [24]  744 	movx	@dptr,a
+      000209 EF               [12]  745 	mov	a,r7
+      00020A A3               [24]  746 	inc	dptr
+      00020B F0               [24]  747 	movx	@dptr,a
                                     748 ;	.\FwLib_STC8\src\fw_sys.c:84: }
-      000732 22               [24]  749 	ret
+      00020C 22               [24]  749 	ret
                                     750 	.area CSEG    (CODE)
                                     751 	.area CONST   (CODE)
                                     752 	.area CONST   (CODE)
-      0008F0                        753 _ticks_ms:
-      0008F0 99 09                  754 	.byte #0x99, #0x09	; 2457
+      002690                        753 _ticks_ms:
+      002690 99 09                  754 	.byte #0x99, #0x09	; 2457
                                     755 	.area CSEG    (CODE)
                                     756 	.area CONST   (CODE)
-      0008F2                        757 _ticks_us:
-      0008F2 02                     758 	.db #0x02	; 2
+      002692                        757 _ticks_us:
+      002692 02                     758 	.db #0x02	; 2
                                     759 	.area CSEG    (CODE)
                                     760 	.area XINIT   (CODE)
                                     761 	.area CABS    (ABS,CODE)

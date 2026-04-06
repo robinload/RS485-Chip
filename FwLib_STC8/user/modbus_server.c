@@ -78,7 +78,7 @@ static void handle_fc03(uint8_t __xdata *buf)
     crc = mb_crc16(res_buf, frame_len);
     res_buf[frame_len++] = (uint8_t)crc;
     res_buf[frame_len++] = (uint8_t)(crc >> 8);
-    UART_SendBuffer(res_buf, frame_len);
+    UART2_SendBuffer(res_buf, frame_len);
 }
 
 /* ================= FC16: Write Multiple Registers ================= */
@@ -110,7 +110,7 @@ static void handle_fc16(uint8_t __xdata *buf)
     crc = mb_crc16(res_buf, 6);
     res_buf[6] = (uint8_t)crc;
     res_buf[7] = (uint8_t)(crc >> 8);
-    UART_SendBuffer(res_buf, 8);
+    UART2_SendBuffer(res_buf, 8);
 }
 
 /* ================= Main Parser Logic ================= */

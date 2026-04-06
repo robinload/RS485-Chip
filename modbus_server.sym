@@ -409,8 +409,8 @@ Symbol Table
     _TMOD                                                       =  000089 G
     _TR0                                                        =  00008C G
     _TR1                                                        =  00008E G
-    _UART_SendBuffer                                               ****** GX
-    _UART_SendBuffer_PARM_2                                        ****** GX
+    _UART2_SendBuffer                                              ****** GX
+    _UART2_SendBuffer_PARM_2                                       ****** GX
     _UART_SendChar                                                 ****** GX
     _USBADR                                                     =  0000FC G
     _USBCLK                                                     =  0000DC G
@@ -428,24 +428,24 @@ Symbol Table
     __gptrget                                                      ****** GX
   A _calc_temp                                                     000020 R
  16 _find_reg                                                      00008C GR
-  A _find_reg_addr_10000_69                                        000027 R
+  A _find_reg_addr_10000_73                                        000027 R
  16 _handle_fc03                                                   0000D7 R
-  A _handle_fc03_buf_10000_73                                      000029 R
-  A _handle_fc03_frame_len_10000_74                                00002B R
- 16 _handle_fc16                                                   000223 R
-  A _handle_fc16_buf_10000_77                                      00002C R
+  A _handle_fc03_buf_10000_77                                      000029 R
+  A _handle_fc03_frame_len_10000_78                                00002B R
+ 16 _handle_fc16                                                   00021D R
+  A _handle_fc16_buf_10000_81                                      00002C R
   5 _handle_fc16_sloc0_1_0                                         000000 R
-  A _handle_fc16_val_10000_78                                      00002E R
+  A _handle_fc16_val_10000_82                                      00002E R
     _mb_buf                                                        ****** GX
  16 _mb_crc16                                                      000000 GR
   A _mb_crc16_PARM_2                                               000022 GR
-  A _mb_crc16_buffer_10000_63                                      000023 R
-  A _mb_crc16_crc_10000_64                                         000025 R
+  A _mb_crc16_buffer_10000_67                                      000023 R
+  A _mb_crc16_crc_10000_68                                         000025 R
     _mb_frame_ready                                                ****** GX
     _mb_idx                                                        ****** GX
- 16 _mb_parse_request                                              0003FB GR
-  A _mb_parse_request_i_10000_82                                   000032 R
-  A _mb_parse_request_offset_10000_82                              000033 R
+ 16 _mb_parse_request                                              0003F3 GR
+  A _mb_parse_request_i_10000_86                                   000032 R
+  A _mb_parse_request_offset_10000_86                              000033 R
     _reg_table                                                     ****** GX
     _reg_write                                                     ****** GX
     _reg_write_PARM_2                                              ****** GX
@@ -678,7 +678,7 @@ Area Table
   13 GSINIT5                                    size      0   flags   20
   14 GSINIT                                     size      0   flags   20
   15 GSFINAL                                    size      0   flags   20
-  16 CSEG                                       size    569   flags   20
+  16 CSEG                                       size    561   flags   20
   17 CONST                                      size      0   flags   20
   18 XINIT                                      size      0   flags   20
   19 CABS                                       size      0   flags   28

@@ -17,8 +17,12 @@
 -l liblong
 -l libfloat
 main.rel
-fw_uart.rel
 fw_sys.rel
 fw_util.rel
+hx71708.rel
+modbus_server.rel
+measurement.rel
+reg_table.rel
+uart.rel
 
 -e
