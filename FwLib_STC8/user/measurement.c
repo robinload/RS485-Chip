@@ -8,6 +8,32 @@ static uint16_t zero_track_cnt = 0;
 static uint16_t stable_cnt = 0;
 static int32_t last_stable_val = 0;
 
+#define LABS(x)  ((x) < 0 ? -(x) : (x))
+
+/* Reject single-sample ADC spikes while filtered state is still near empty/loaded */
+static uint8_t raw_is_plausible(int32_t raw)
+{
+    int32_t top;
+    uint8_t n;
+
+    if (!meas_ready || reg_cal_points_num < 2) {
+        return 1;
+    }
+
+    n = (uint8_t)reg_cal_points_num;
+    top = reg_avp[n - 1];
+
+    if (filtered_adc < reg_avp[0] + 200000L && raw > top + 200000L) {
+        return 0;
+    }
+
+    if (filtered_adc > top - 200000L && raw < reg_avp[0] - 200000L) {
+        return 0;
+    }
+
+    return 1;
+}
+
 void MEAS_Init(void)
 {
     meas_ready = 0;
@@ -57,6 +83,10 @@ void MEAS_Process(void)
     raw_adc = Read_HX71708_Raw();
     if (raw_adc == -1) {
         reg_adc_raw_value = -999999;
+        return;
+    }
+
+    if (!raw_is_plausible(raw_adc)) {
         return;
     }
 
@@ -130,6 +160,6 @@ uint8_t MEAS_SetZero(void)
     reg_offset_val -= reg_measuring_val;
     zero_track_cnt  = 0;
 
-    reg_save_all();
+    reg_save_pending = 1;
     return 0;
 }

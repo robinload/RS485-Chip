@@ -26,6 +26,12 @@ void UART_Init(void);
  */
 void UART2_Init(void);
 
+/**
+ * Apply reg_baud_rate and reg_parity to Timer2 / UART1 / UART2.
+ * Call after reg_init() and after baud/parity register writes.
+ */
+void UART_ApplyConfig(void);
+
 /* ================= UART1 (Debug Port) ================= */
 void UART_SendChar(char c);
 void UART_SendString(char *s);

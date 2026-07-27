@@ -19,21 +19,23 @@ static void hx_pulse_sck(void)
     _nop_(); _nop_(); _nop_(); _nop_(); _nop_();
 }
 
+/*
+   Product spec: 0 = 10 SPS, 1 = 40 SPS.
+   HX71708: 1 pulse = 10 Hz, 3 pulses = 80 Hz + 2-sample avg -> 40 SPS.
+*/
 static uint8_t hx_rate_pulses(void)
 {
-    switch ((uint8_t)reg_adc_speed) {
-        case 1:  return 3;  /* 80 Hz */
-        case 2:  return 4;  /* 320 Hz hardware, averaged -> 160 Hz */
-        case 3:  return 4;  /* 320 Hz */
-        default: return 1;  /* 10 Hz */
+    if ((uint8_t)reg_adc_speed == 1) {
+        return 3;
     }
+    return 1;
 }
 
 static void hx_on_rate_change(void)
 {
     uint8_t rate = (uint8_t)reg_adc_speed;
 
-    if (rate > 3) {
+    if (rate > 1) {
         rate = 0;
     }
 
@@ -58,12 +60,10 @@ void HX_Init(void)
 
 uint8_t HX_GetSampleRateHz(void)
 {
-    switch ((uint8_t)reg_adc_speed) {
-        case 1:  return 80;
-        case 2:  return 160;
-        case 3:  return 320;
-        default: return 10;
+    if ((uint8_t)reg_adc_speed == 1) {
+        return 40;
     }
+    return 10;
 }
 
 int32_t Read_HX71708_Raw(void)
@@ -133,7 +133,7 @@ int32_t Read_HX71708_Raw(void)
         return -1;
     }
 
-    if ((uint8_t)reg_adc_speed == 2) {
+    if ((uint8_t)reg_adc_speed == 1) {
         if (!hx_pair_valid) {
             hx_pair_prev = sample;
             hx_pair_valid = 1;

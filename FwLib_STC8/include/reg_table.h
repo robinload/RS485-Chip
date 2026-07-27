@@ -32,7 +32,7 @@ typedef struct {
 } reg_desc_t;
 
 /* ================= Table Configuration ================= */
-#define REG_TABLE_SIZE  34// Adjusted to include all indices + raw value + stable mark
+#define REG_TABLE_SIZE  34
 
 extern const reg_desc_t reg_table[REG_TABLE_SIZE];
 
@@ -46,8 +46,11 @@ uint8_t reg_write(void *target, int32_t value);
 uint8_t reg_write_ram(void *target, int32_t value);
 int32_t reg_read_i32(const reg_desc_t *r);
 uint16_t reg_read_u16(const reg_desc_t *r);
+const reg_desc_t *find_reg(uint16_t addr);
+uint8_t reg_reg_words(const reg_desc_t *r);
 
 extern volatile uint8_t reg_save_pending;
+extern volatile uint8_t reg_uart_apply_pending;
 
 /* ================= Exposed RAM registers ================= */
 /* All converted to int32_t to match the implementation in .c */

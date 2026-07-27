@@ -93,10 +93,11 @@ void main(void)
 {
     ENABLE_XRAM();
 
-    UART_Init();   // UART1 (debug) + Timer2 (baud) + Timer0 (Modbus frame gap)
+    UART_Init();   // UART1 (debug) + Timer0 (Modbus frame gap)
     UART2_Init();  // UART2 (RS485 Modbus) on P1.0/P1.1
 
     reg_init();
+    UART_ApplyConfig();
     HX_Init();
     mb_refresh_slave_id();
 
@@ -124,6 +125,12 @@ void main(void)
         {
             reg_save_pending = 0;
             reg_save_all();
+        }
+
+        if (reg_uart_apply_pending)
+        {
+            reg_uart_apply_pending = 0;
+            UART_ApplyConfig();
         }
 
         MEAS_Process();
