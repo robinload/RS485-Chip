@@ -9,7 +9,7 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _find_reg
-	.globl _UART_SendBuffer
+	.globl _UART2_SendBuffer
 	.globl _UART_SendChar
 	.globl _reg_write
 	.globl _P77
@@ -474,23 +474,23 @@ _calc_temp:
 	.ds 2
 _mb_crc16_PARM_2:
 	.ds 1
-_mb_crc16_buffer_10000_63:
+_mb_crc16_buffer_10000_67:
 	.ds 2
-_mb_crc16_crc_10000_64:
+_mb_crc16_crc_10000_68:
 	.ds 2
-_find_reg_addr_10000_69:
+_find_reg_addr_10000_73:
 	.ds 2
-_handle_fc03_buf_10000_73:
+_handle_fc03_buf_10000_77:
 	.ds 2
-_handle_fc03_frame_len_10000_74:
+_handle_fc03_frame_len_10000_78:
 	.ds 1
-_handle_fc16_buf_10000_77:
+_handle_fc16_buf_10000_81:
 	.ds 2
-_handle_fc16_val_10000_78:
+_handle_fc16_val_10000_82:
 	.ds 4
-_mb_parse_request_i_10000_82:
+_mb_parse_request_i_10000_86:
 	.ds 1
-_mb_parse_request_offset_10000_82:
+_mb_parse_request_offset_10000_86:
 	.ds 1
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -530,10 +530,10 @@ _mb_parse_request_offset_10000_82:
 ;Allocation info for local variables in function 'mb_crc16'
 ;------------------------------------------------------------
 ;length        Allocated with name '_mb_crc16_PARM_2'
-;buffer        Allocated with name '_mb_crc16_buffer_10000_63'
-;i             Allocated with name '_mb_crc16_i_10000_64'
-;j             Allocated with name '_mb_crc16_j_10000_64'
-;crc           Allocated with name '_mb_crc16_crc_10000_64'
+;buffer        Allocated with name '_mb_crc16_buffer_10000_67'
+;i             Allocated with name '_mb_crc16_i_10000_68'
+;j             Allocated with name '_mb_crc16_j_10000_68'
+;crc           Allocated with name '_mb_crc16_crc_10000_68'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\modbus_server.c:15: uint16_t mb_crc16(uint8_t __xdata *buffer, uint8_t length)
 ;	-----------------------------------------
@@ -550,19 +550,19 @@ _mb_crc16:
 	ar0 = 0x00
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_mb_crc16_buffer_10000_63
+	mov	dptr,#_mb_crc16_buffer_10000_67
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:18: uint16_t crc = 0xFFFF;
-	mov	dptr,#_mb_crc16_crc_10000_64
+	mov	dptr,#_mb_crc16_crc_10000_68
 	mov	a,#0xff
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:20: for (i = 0; i < length; i++) 
-	mov	dptr,#_mb_crc16_buffer_10000_63
+	mov	dptr,#_mb_crc16_buffer_10000_67
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -587,7 +587,7 @@ _mb_crc16:
 	movx	a,@dptr
 	mov	r3,a
 	mov	r2,#0x00
-	mov	dptr,#_mb_crc16_crc_10000_64
+	mov	dptr,#_mb_crc16_crc_10000_68
 	movx	a,@dptr
 	xrl	a,r3
 	movx	@dptr,a
@@ -599,7 +599,7 @@ _mb_crc16:
 	mov	r3,#0x00
 00106$:
 ;	.\FwLib_STC8\user\modbus_server.c:25: if (crc & 0x0001) crc = (crc >> 1) ^ 0xA001;
-	mov	dptr,#_mb_crc16_crc_10000_64
+	mov	dptr,#_mb_crc16_crc_10000_68
 	movx	a,@dptr
 	mov	r1,a
 	inc	dptr
@@ -618,7 +618,7 @@ _mb_crc16:
 	mov	r5,a
 	xrl	ar0,#0x01
 	xrl	ar5,#0xa0
-	mov	dptr,#_mb_crc16_crc_10000_64
+	mov	dptr,#_mb_crc16_crc_10000_68
 	mov	a,r0
 	movx	@dptr,a
 	mov	a,r5
@@ -635,7 +635,7 @@ _mb_crc16:
 	rrc	a
 	xch	a,r1
 	mov	r2,a
-	mov	dptr,#_mb_crc16_crc_10000_64
+	mov	dptr,#_mb_crc16_crc_10000_68
 	mov	a,r1
 	movx	@dptr,a
 	mov	a,r2
@@ -652,7 +652,7 @@ _mb_crc16:
 	sjmp	00109$
 00105$:
 ;	.\FwLib_STC8\user\modbus_server.c:29: return crc;
-	mov	dptr,#_mb_crc16_crc_10000_64
+	mov	dptr,#_mb_crc16_crc_10000_68
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -664,8 +664,8 @@ _mb_crc16:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'find_reg'
 ;------------------------------------------------------------
-;addr          Allocated with name '_find_reg_addr_10000_69'
-;idx           Allocated with name '_find_reg_idx_10000_70'
+;addr          Allocated with name '_find_reg_addr_10000_73'
+;idx           Allocated with name '_find_reg_idx_10000_74'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\modbus_server.c:33: const reg_desc_t* find_reg(uint16_t addr)
 ;	-----------------------------------------
@@ -674,13 +674,13 @@ _mb_crc16:
 _find_reg:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_find_reg_addr_10000_69
+	mov	dptr,#_find_reg_addr_10000_73
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:36: for (idx = 0; idx < REG_TABLE_SIZE; idx++) {
-	mov	dptr,#_find_reg_addr_10000_69
+	mov	dptr,#_find_reg_addr_10000_73
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -730,14 +730,14 @@ _find_reg:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'handle_fc03'
 ;------------------------------------------------------------
-;buf           Allocated with name '_handle_fc03_buf_10000_73'
-;addr          Allocated with name '_handle_fc03_addr_10000_74'
-;qty           Allocated with name '_handle_fc03_qty_10000_74'
-;crc           Allocated with name '_handle_fc03_crc_10000_74'
-;r             Allocated with name '_handle_fc03_r_10000_74'
-;frame_len     Allocated with name '_handle_fc03_frame_len_10000_74'
-;val16         Allocated with name '_handle_fc03_val16_20000_75'
-;val32         Allocated with name '_handle_fc03_val32_20000_76'
+;buf           Allocated with name '_handle_fc03_buf_10000_77'
+;addr          Allocated with name '_handle_fc03_addr_10000_78'
+;qty           Allocated with name '_handle_fc03_qty_10000_78'
+;crc           Allocated with name '_handle_fc03_crc_10000_78'
+;r             Allocated with name '_handle_fc03_r_10000_78'
+;frame_len     Allocated with name '_handle_fc03_frame_len_10000_78'
+;val16         Allocated with name '_handle_fc03_val16_20000_79'
+;val32         Allocated with name '_handle_fc03_val32_20000_80'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\modbus_server.c:44: static void handle_fc03(uint8_t __xdata *buf)
 ;	-----------------------------------------
@@ -746,13 +746,13 @@ _find_reg:
 _handle_fc03:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_handle_fc03_buf_10000_73
+	mov	dptr,#_handle_fc03_buf_10000_77
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:50: addr = ((uint16_t)buf[2] << 8) | buf[3];
-	mov	dptr,#_handle_fc03_buf_10000_73
+	mov	dptr,#_handle_fc03_buf_10000_77
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -857,7 +857,7 @@ _handle_fc03:
 	mov	a,r6
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:65: frame_len = 5;
-	mov	dptr,#_handle_fc03_frame_len_10000_74
+	mov	dptr,#_handle_fc03_frame_len_10000_78
 	mov	a,#0x05
 	movx	@dptr,a
 	sjmp	00105$
@@ -914,12 +914,12 @@ _handle_fc03:
 	mov	a,r4
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:75: frame_len = 7;
-	mov	dptr,#_handle_fc03_frame_len_10000_74
+	mov	dptr,#_handle_fc03_frame_len_10000_78
 	mov	a,#0x07
 	movx	@dptr,a
 00105$:
 ;	.\FwLib_STC8\user\modbus_server.c:78: crc = mb_crc16(res_buf, frame_len);
-	mov	dptr,#_handle_fc03_frame_len_10000_74
+	mov	dptr,#_handle_fc03_frame_len_10000_78
 	movx	a,@dptr
 	mov	r7,a
 	mov	dptr,#_mb_crc16_PARM_2
@@ -931,7 +931,7 @@ _handle_fc03:
 	mov	r6, dph
 	pop	ar7
 ;	.\FwLib_STC8\user\modbus_server.c:79: res_buf[frame_len++] = (uint8_t)crc;
-	mov	dptr,#_handle_fc03_frame_len_10000_74
+	mov	dptr,#_handle_fc03_frame_len_10000_78
 	mov	a,r7
 	inc	a
 	movx	@dptr,a
@@ -945,7 +945,7 @@ _handle_fc03:
 	mov	a,r7
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:80: res_buf[frame_len++] = (uint8_t)(crc >> 8);
-	mov	dptr,#_handle_fc03_frame_len_10000_74
+	mov	dptr,#_handle_fc03_frame_len_10000_78
 	movx	a,@dptr
 	mov	r7,a
 	inc	a
@@ -959,31 +959,25 @@ _handle_fc03:
 	mov	ar5,r6
 	mov	a,r5
 	movx	@dptr,a
-;	.\FwLib_STC8\user\modbus_server.c:81: UART_SendBuffer(res_buf, frame_len);
-	mov	dptr,#_handle_fc03_frame_len_10000_74
+;	.\FwLib_STC8\user\modbus_server.c:81: UART2_SendBuffer(res_buf, frame_len);
+	mov	dptr,#_handle_fc03_frame_len_10000_78
 	movx	a,@dptr
-	mov	r6,a
-	mov	r7,#0x00
-	mov	dptr,#_UART_SendBuffer_PARM_2
-	mov	a,r6
-	movx	@dptr,a
-	mov	a,r7
-	inc	dptr
+	mov	dptr,#_UART2_SendBuffer_PARM_2
 	movx	@dptr,a
 	mov	dptr,#_res_buf
-	mov	b,a
+	mov	b, #0x00
 ;	.\FwLib_STC8\user\modbus_server.c:82: }
-	ljmp	_UART_SendBuffer
+	ljmp	_UART2_SendBuffer
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'handle_fc16'
 ;------------------------------------------------------------
 ;sloc0         Allocated with name '_handle_fc16_sloc0_1_0'
-;buf           Allocated with name '_handle_fc16_buf_10000_77'
-;addr          Allocated with name '_handle_fc16_addr_10000_78'
-;qty           Allocated with name '_handle_fc16_qty_10000_78'
-;crc           Allocated with name '_handle_fc16_crc_10000_78'
-;val           Allocated with name '_handle_fc16_val_10000_78'
-;r             Allocated with name '_handle_fc16_r_10000_78'
+;buf           Allocated with name '_handle_fc16_buf_10000_81'
+;addr          Allocated with name '_handle_fc16_addr_10000_82'
+;qty           Allocated with name '_handle_fc16_qty_10000_82'
+;crc           Allocated with name '_handle_fc16_crc_10000_82'
+;val           Allocated with name '_handle_fc16_val_10000_82'
+;r             Allocated with name '_handle_fc16_r_10000_82'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\modbus_server.c:85: static void handle_fc16(uint8_t __xdata *buf)
 ;	-----------------------------------------
@@ -992,13 +986,13 @@ _handle_fc03:
 _handle_fc16:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_handle_fc16_buf_10000_77
+	mov	dptr,#_handle_fc16_buf_10000_81
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	.\FwLib_STC8\user\modbus_server.c:91: addr = ((uint16_t)buf[2] << 8) | buf[3];
-	mov	dptr,#_handle_fc16_buf_10000_77
+	mov	dptr,#_handle_fc16_buf_10000_81
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -1060,7 +1054,7 @@ _handle_fc16:
 	push	ar3
 	push	ar4
 	push	ar5
-	mov	dptr,#_handle_fc16_buf_10000_77
+	mov	dptr,#_handle_fc16_buf_10000_81
 	movx	a,@dptr
 	mov	r1,a
 	inc	dptr
@@ -1086,7 +1080,7 @@ _handle_fc16:
 	orl	ar0,a
 	mov	a,r3
 	orl	ar5,a
-	mov	dptr,#_handle_fc16_val_10000_78
+	mov	dptr,#_handle_fc16_val_10000_82
 	mov	a,r0
 	movx	@dptr,a
 	mov	a,r5
@@ -1167,7 +1161,7 @@ _handle_fc16:
 	mov	r6,#0x00
 	mov	r3,#0x00
 	mov	r2,#0x00
-	mov	dptr,#_handle_fc16_val_10000_78
+	mov	dptr,#_handle_fc16_val_10000_82
 	mov	a,r7
 	orl	a,r0
 	movx	@dptr,a
@@ -1183,7 +1177,7 @@ _handle_fc16:
 	orl	a,r5
 	inc	dptr
 	movx	@dptr,a
-;	.\FwLib_STC8\user\modbus_server.c:113: UART_SendBuffer(res_buf, 8);
+;	.\FwLib_STC8\user\modbus_server.c:113: UART2_SendBuffer(res_buf, 8);
 	pop	ar5
 	pop	ar4
 	pop	ar3
@@ -1205,7 +1199,7 @@ _handle_fc16:
 	lcall	__gptrget
 	mov	r4,a
 	mov	r7,#0x00
-	mov	dptr,#_handle_fc16_val_10000_78
+	mov	dptr,#_handle_fc16_val_10000_82
 	movx	a,@dptr
 	mov	r1,a
 	inc	dptr
@@ -1234,7 +1228,7 @@ _handle_fc16:
 	mov	b, r7
 	lcall	_reg_write
 ;	.\FwLib_STC8\user\modbus_server.c:105: res_buf[0] = buf[0];
-	mov	dptr,#_handle_fc16_buf_10000_77
+	mov	dptr,#_handle_fc16_buf_10000_81
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -1303,24 +1297,21 @@ _handle_fc16:
 	mov	dptr,#(_res_buf + 0x0007)
 	mov	a,r6
 	movx	@dptr,a
-;	.\FwLib_STC8\user\modbus_server.c:113: UART_SendBuffer(res_buf, 8);
-	mov	dptr,#_UART_SendBuffer_PARM_2
+;	.\FwLib_STC8\user\modbus_server.c:113: UART2_SendBuffer(res_buf, 8);
+	mov	dptr,#_UART2_SendBuffer_PARM_2
 	mov	a,#0x08
 	movx	@dptr,a
-	clr	a
-	inc	dptr
-	movx	@dptr,a
 	mov	dptr,#_res_buf
-	mov	b,a
+	mov	b, #0x00
 ;	.\FwLib_STC8\user\modbus_server.c:114: }
-	ljmp	_UART_SendBuffer
+	ljmp	_UART2_SendBuffer
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'mb_parse_request'
 ;------------------------------------------------------------
-;i             Allocated with name '_mb_parse_request_i_10000_82'
-;offset        Allocated with name '_mb_parse_request_offset_10000_82'
-;crc_calc      Allocated with name '_mb_parse_request_crc_calc_10000_82'
-;p             Allocated with name '_mb_parse_request_p_10000_82'
+;i             Allocated with name '_mb_parse_request_i_10000_86'
+;offset        Allocated with name '_mb_parse_request_offset_10000_86'
+;crc_calc      Allocated with name '_mb_parse_request_crc_calc_10000_86'
+;p             Allocated with name '_mb_parse_request_p_10000_86'
 ;------------------------------------------------------------
 ;	.\FwLib_STC8\user\modbus_server.c:117: void mb_parse_request(void)
 ;	-----------------------------------------
@@ -1343,7 +1334,7 @@ _mb_parse_request:
 	mov	r7,a
 	cjne	r7,#0x01,00108$
 ;	.\FwLib_STC8\user\modbus_server.c:131: offset = 0;
-	mov	dptr,#_mb_parse_request_offset_10000_82
+	mov	dptr,#_mb_parse_request_offset_10000_86
 	clr	a
 	movx	@dptr,a
 	sjmp	00109$
@@ -1356,7 +1347,7 @@ _mb_parse_request:
 	mov	r7,a
 	cjne	r7,#0x01,00104$
 ;	.\FwLib_STC8\user\modbus_server.c:133: offset = 1;
-	mov	dptr,#_mb_parse_request_offset_10000_82
+	mov	dptr,#_mb_parse_request_offset_10000_86
 	mov	a,#0x01
 	movx	@dptr,a
 	sjmp	00109$
@@ -1368,7 +1359,7 @@ _mb_parse_request:
 	ljmp	00128$
 00109$:
 ;	.\FwLib_STC8\user\modbus_server.c:139: p = &mb_buf[offset]; 
-	mov	dptr,#_mb_parse_request_offset_10000_82
+	mov	dptr,#_mb_parse_request_offset_10000_86
 	movx	a,@dptr
 	mov	r7,a
 	add	a, #_mb_buf
@@ -1420,7 +1411,7 @@ _mb_parse_request:
 	ljmp	00128$
 00111$:
 ;	.\FwLib_STC8\user\modbus_server.c:149: i = 6; 
-	mov	dptr,#_mb_parse_request_i_10000_82
+	mov	dptr,#_mb_parse_request_i_10000_86
 	mov	a,#0x06
 	movx	@dptr,a
 	sjmp	00119$
@@ -1455,7 +1446,7 @@ _mb_parse_request:
 	ljmp	00128$
 00113$:
 ;	.\FwLib_STC8\user\modbus_server.c:156: i = 11;
-	mov	dptr,#_mb_parse_request_i_10000_82
+	mov	dptr,#_mb_parse_request_i_10000_86
 	mov	a,#0x0b
 	movx	@dptr,a
 	sjmp	00119$
@@ -1467,7 +1458,7 @@ _mb_parse_request:
 	ljmp	00128$
 00119$:
 ;	.\FwLib_STC8\user\modbus_server.c:164: crc_calc = mb_crc16(p, i);
-	mov	dptr,#_mb_parse_request_i_10000_82
+	mov	dptr,#_mb_parse_request_i_10000_86
 	movx	a,@dptr
 	mov	r7,a
 	mov	dptr,#_mb_crc16_PARM_2

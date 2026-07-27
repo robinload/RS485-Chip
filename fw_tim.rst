@@ -458,8 +458,8 @@
                                     458 ; internal ram data
                                     459 ;--------------------------------------------------------
                                     460 	.area DSEG    (DATA)
-      00002C                        461 _TIM_Timer0n1_CalculateInitValue_sloc0_1_0:
-      00002C                        462 	.ds 2
+      000029                        461 _TIM_Timer0n1_CalculateInitValue_sloc0_1_0:
+      000029                        462 	.ds 2
                                     463 ;--------------------------------------------------------
                                     464 ; overlayable items in internal ram
                                     465 ;--------------------------------------------------------
@@ -484,56 +484,56 @@
                                     484 ; uninitialized external ram data
                                     485 ;--------------------------------------------------------
                                     486 	.area XSEG    (XDATA)
-      00019E                        487 _TIM_Timer0n1_CalculateInitValue_PARM_2:
-      00019E                        488 	.ds 1
-      00019F                        489 _TIM_Timer0n1_CalculateInitValue_PARM_3:
-      00019F                        490 	.ds 2
-      0001A1                        491 _TIM_Timer0n1_CalculateInitValue_frequency_10000_18:
-      0001A1                        492 	.ds 2
-      0001A3                        493 _TIM_Timer0n1_CalculateInitValue_value_10000_19:
-      0001A3                        494 	.ds 4
-      0001A7                        495 _TIM_Timer0_Config_PARM_2:
-      0001A7                        496 	.ds 1
-      0001A8                        497 _TIM_Timer0_Config_PARM_3:
-      0001A8                        498 	.ds 2
-      0001AA                        499 _TIM_Timer0_Config_freq1t_10000_20:
-      0001AA                        500 	.ds 1
-      0001AB                        501 _TIM_Timer1_Config_PARM_2:
-      0001AB                        502 	.ds 1
-      0001AC                        503 _TIM_Timer1_Config_PARM_3:
-      0001AC                        504 	.ds 2
-      0001AE                        505 _TIM_Timer1_Config_freq1t_10000_26:
-      0001AE                        506 	.ds 1
-      0001AF                        507 __TIM_Timer234_InitValueCalculate_PARM_2:
-      0001AF                        508 	.ds 1
-      0001B0                        509 __TIM_Timer234_InitValueCalculate_PARM_3:
-      0001B0                        510 	.ds 1
-      0001B1                        511 __TIM_Timer234_InitValueCalculate_frequency_10000_32:
-      0001B1                        512 	.ds 2
-      0001B3                        513 __TIM_Timer234_InitValueCalculate_value_10000_33:
-      0001B3                        514 	.ds 4
-      0001B7                        515 _TIM_Timer2_Config_PARM_2:
-      0001B7                        516 	.ds 1
-      0001B8                        517 _TIM_Timer2_Config_PARM_3:
-      0001B8                        518 	.ds 2
-      0001BA                        519 _TIM_Timer2_Config_freq1t_10000_34:
-      0001BA                        520 	.ds 1
-      0001BB                        521 _TIM_Timer3_Config_PARM_2:
-      0001BB                        522 	.ds 1
-      0001BC                        523 _TIM_Timer3_Config_PARM_3:
-      0001BC                        524 	.ds 2
-      0001BE                        525 _TIM_Timer3_Config_PARM_4:
-      0001BE                        526 	.ds 1
-      0001BF                        527 _TIM_Timer3_Config_freq1t_10000_38:
-      0001BF                        528 	.ds 1
-      0001C0                        529 _TIM_Timer4_Config_PARM_2:
-      0001C0                        530 	.ds 1
-      0001C1                        531 _TIM_Timer4_Config_PARM_3:
-      0001C1                        532 	.ds 2
-      0001C3                        533 _TIM_Timer4_Config_PARM_4:
-      0001C3                        534 	.ds 1
-      0001C4                        535 _TIM_Timer4_Config_freq1t_10000_42:
-      0001C4                        536 	.ds 1
+      000138                        487 _TIM_Timer0n1_CalculateInitValue_PARM_2:
+      000138                        488 	.ds 1
+      000139                        489 _TIM_Timer0n1_CalculateInitValue_PARM_3:
+      000139                        490 	.ds 2
+      00013B                        491 _TIM_Timer0n1_CalculateInitValue_frequency_10000_18:
+      00013B                        492 	.ds 2
+      00013D                        493 _TIM_Timer0n1_CalculateInitValue_value_10000_19:
+      00013D                        494 	.ds 4
+      000141                        495 _TIM_Timer0_Config_PARM_2:
+      000141                        496 	.ds 1
+      000142                        497 _TIM_Timer0_Config_PARM_3:
+      000142                        498 	.ds 2
+      000144                        499 _TIM_Timer0_Config_freq1t_10000_20:
+      000144                        500 	.ds 1
+      000145                        501 _TIM_Timer1_Config_PARM_2:
+      000145                        502 	.ds 1
+      000146                        503 _TIM_Timer1_Config_PARM_3:
+      000146                        504 	.ds 2
+      000148                        505 _TIM_Timer1_Config_freq1t_10000_26:
+      000148                        506 	.ds 1
+      000149                        507 __TIM_Timer234_InitValueCalculate_PARM_2:
+      000149                        508 	.ds 1
+      00014A                        509 __TIM_Timer234_InitValueCalculate_PARM_3:
+      00014A                        510 	.ds 1
+      00014B                        511 __TIM_Timer234_InitValueCalculate_frequency_10000_32:
+      00014B                        512 	.ds 2
+      00014D                        513 __TIM_Timer234_InitValueCalculate_value_10000_33:
+      00014D                        514 	.ds 4
+      000151                        515 _TIM_Timer2_Config_PARM_2:
+      000151                        516 	.ds 1
+      000152                        517 _TIM_Timer2_Config_PARM_3:
+      000152                        518 	.ds 2
+      000154                        519 _TIM_Timer2_Config_freq1t_10000_34:
+      000154                        520 	.ds 1
+      000155                        521 _TIM_Timer3_Config_PARM_2:
+      000155                        522 	.ds 1
+      000156                        523 _TIM_Timer3_Config_PARM_3:
+      000156                        524 	.ds 2
+      000158                        525 _TIM_Timer3_Config_PARM_4:
+      000158                        526 	.ds 1
+      000159                        527 _TIM_Timer3_Config_freq1t_10000_38:
+      000159                        528 	.ds 1
+      00015A                        529 _TIM_Timer4_Config_PARM_2:
+      00015A                        530 	.ds 1
+      00015B                        531 _TIM_Timer4_Config_PARM_3:
+      00015B                        532 	.ds 2
+      00015D                        533 _TIM_Timer4_Config_PARM_4:
+      00015D                        534 	.ds 1
+      00015E                        535 _TIM_Timer4_Config_freq1t_10000_42:
+      00015E                        536 	.ds 1
                                     537 ;--------------------------------------------------------
                                     538 ; absolute external ram data
                                     539 ;--------------------------------------------------------
@@ -581,7 +581,7 @@
                                     581 ;	-----------------------------------------
                                     582 ;	 function TIM_Timer0n1_CalculateInitValue
                                     583 ;	-----------------------------------------
-      001FB6                        584 _TIM_Timer0n1_CalculateInitValue:
+      001C40                        584 _TIM_Timer0n1_CalculateInitValue:
                            000007   585 	ar7 = 0x07
                            000006   586 	ar6 = 0x06
                            000005   587 	ar5 = 0x05
@@ -590,145 +590,145 @@
                            000002   590 	ar2 = 0x02
                            000001   591 	ar1 = 0x01
                            000000   592 	ar0 = 0x00
-      001FB6 AF 83            [24]  593 	mov	r7,dph
-      001FB8 E5 82            [12]  594 	mov	a,dpl
-      001FBA 90 01 A1         [24]  595 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_frequency_10000_18
-      001FBD F0               [24]  596 	movx	@dptr,a
-      001FBE EF               [12]  597 	mov	a,r7
-      001FBF A3               [24]  598 	inc	dptr
-      001FC0 F0               [24]  599 	movx	@dptr,a
+      001C40 AF 83            [24]  593 	mov	r7,dph
+      001C42 E5 82            [12]  594 	mov	a,dpl
+      001C44 90 01 3B         [24]  595 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_frequency_10000_18
+      001C47 F0               [24]  596 	movx	@dptr,a
+      001C48 EF               [12]  597 	mov	a,r7
+      001C49 A3               [24]  598 	inc	dptr
+      001C4A F0               [24]  599 	movx	@dptr,a
                                     600 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:28: uint32_t value = __SYSCLOCK;
-      001FC1 90 01 A3         [24]  601 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
-      001FC4 E4               [12]  602 	clr	a
-      001FC5 F0               [24]  603 	movx	@dptr,a
-      001FC6 74 36            [12]  604 	mov	a,#0x36
-      001FC8 A3               [24]  605 	inc	dptr
-      001FC9 F0               [24]  606 	movx	@dptr,a
-      001FCA 74 6E            [12]  607 	mov	a,#0x6e
-      001FCC A3               [24]  608 	inc	dptr
-      001FCD F0               [24]  609 	movx	@dptr,a
-      001FCE 74 01            [12]  610 	mov	a,#0x01
-      001FD0 A3               [24]  611 	inc	dptr
-      001FD1 F0               [24]  612 	movx	@dptr,a
+      001C4B 90 01 3D         [24]  601 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
+      001C4E E4               [12]  602 	clr	a
+      001C4F F0               [24]  603 	movx	@dptr,a
+      001C50 74 36            [12]  604 	mov	a,#0x36
+      001C52 A3               [24]  605 	inc	dptr
+      001C53 F0               [24]  606 	movx	@dptr,a
+      001C54 74 6E            [12]  607 	mov	a,#0x6e
+      001C56 A3               [24]  608 	inc	dptr
+      001C57 F0               [24]  609 	movx	@dptr,a
+      001C58 74 01            [12]  610 	mov	a,#0x01
+      001C5A A3               [24]  611 	inc	dptr
+      001C5B F0               [24]  612 	movx	@dptr,a
                                     613 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:29: if (!freq1t)
-      001FD2 90 01 9E         [24]  614 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
-      001FD5 E0               [24]  615 	movx	a,@dptr
-      001FD6 70 11            [24]  616 	jnz	00102$
+      001C5C 90 01 38         [24]  614 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
+      001C5F E0               [24]  615 	movx	a,@dptr
+      001C60 70 11            [24]  616 	jnz	00102$
                                     617 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:30: value = value / 12;
-      001FD8 90 01 A3         [24]  618 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
-      001FDB 74 80            [12]  619 	mov	a,#0x80
-      001FDD F0               [24]  620 	movx	@dptr,a
-      001FDE 74 84            [12]  621 	mov	a,#0x84
-      001FE0 A3               [24]  622 	inc	dptr
-      001FE1 F0               [24]  623 	movx	@dptr,a
-      001FE2 74 1E            [12]  624 	mov	a,#0x1e
-      001FE4 A3               [24]  625 	inc	dptr
-      001FE5 F0               [24]  626 	movx	@dptr,a
-      001FE6 E4               [12]  627 	clr	a
-      001FE7 A3               [24]  628 	inc	dptr
-      001FE8 F0               [24]  629 	movx	@dptr,a
-      001FE9                        630 00102$:
+      001C62 90 01 3D         [24]  618 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
+      001C65 74 80            [12]  619 	mov	a,#0x80
+      001C67 F0               [24]  620 	movx	@dptr,a
+      001C68 74 84            [12]  621 	mov	a,#0x84
+      001C6A A3               [24]  622 	inc	dptr
+      001C6B F0               [24]  623 	movx	@dptr,a
+      001C6C 74 1E            [12]  624 	mov	a,#0x1e
+      001C6E A3               [24]  625 	inc	dptr
+      001C6F F0               [24]  626 	movx	@dptr,a
+      001C70 E4               [12]  627 	clr	a
+      001C71 A3               [24]  628 	inc	dptr
+      001C72 F0               [24]  629 	movx	@dptr,a
+      001C73                        630 00102$:
                                     631 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:31: value = value / frequency;
-      001FE9 90 01 A1         [24]  632 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_frequency_10000_18
-      001FEC E0               [24]  633 	movx	a,@dptr
-      001FED FE               [12]  634 	mov	r6,a
-      001FEE A3               [24]  635 	inc	dptr
-      001FEF E0               [24]  636 	movx	a,@dptr
-      001FF0 FF               [12]  637 	mov	r7,a
-      001FF1 90 01 A3         [24]  638 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
-      001FF4 E0               [24]  639 	movx	a,@dptr
-      001FF5 FA               [12]  640 	mov	r2,a
-      001FF6 A3               [24]  641 	inc	dptr
-      001FF7 E0               [24]  642 	movx	a,@dptr
-      001FF8 FB               [12]  643 	mov	r3,a
-      001FF9 A3               [24]  644 	inc	dptr
-      001FFA E0               [24]  645 	movx	a,@dptr
-      001FFB FC               [12]  646 	mov	r4,a
-      001FFC A3               [24]  647 	inc	dptr
-      001FFD E0               [24]  648 	movx	a,@dptr
-      001FFE FD               [12]  649 	mov	r5,a
-      001FFF 90 02 02         [24]  650 	mov	dptr,#__divulong_PARM_2
-      002002 EE               [12]  651 	mov	a,r6
-      002003 F0               [24]  652 	movx	@dptr,a
-      002004 EF               [12]  653 	mov	a,r7
-      002005 A3               [24]  654 	inc	dptr
-      002006 F0               [24]  655 	movx	@dptr,a
-      002007 E4               [12]  656 	clr	a
-      002008 A3               [24]  657 	inc	dptr
-      002009 F0               [24]  658 	movx	@dptr,a
-      00200A A3               [24]  659 	inc	dptr
-      00200B F0               [24]  660 	movx	@dptr,a
-      00200C 8A 82            [24]  661 	mov	dpl, r2
-      00200E 8B 83            [24]  662 	mov	dph, r3
-      002010 8C F0            [24]  663 	mov	b, r4
-      002012 ED               [12]  664 	mov	a, r5
-      002013 12 2F 39         [24]  665 	lcall	__divulong
-      002016 AC 82            [24]  666 	mov	r4, dpl
-      002018 AD 83            [24]  667 	mov	r5, dph
-      00201A AE F0            [24]  668 	mov	r6, b
-      00201C FF               [12]  669 	mov	r7, a
-      00201D 90 01 A3         [24]  670 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
-      002020 EC               [12]  671 	mov	a,r4
-      002021 F0               [24]  672 	movx	@dptr,a
-      002022 ED               [12]  673 	mov	a,r5
-      002023 A3               [24]  674 	inc	dptr
-      002024 F0               [24]  675 	movx	@dptr,a
-      002025 EE               [12]  676 	mov	a,r6
-      002026 A3               [24]  677 	inc	dptr
-      002027 F0               [24]  678 	movx	@dptr,a
-      002028 EF               [12]  679 	mov	a,r7
-      002029 A3               [24]  680 	inc	dptr
-      00202A F0               [24]  681 	movx	@dptr,a
+      001C73 90 01 3B         [24]  632 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_frequency_10000_18
+      001C76 E0               [24]  633 	movx	a,@dptr
+      001C77 FE               [12]  634 	mov	r6,a
+      001C78 A3               [24]  635 	inc	dptr
+      001C79 E0               [24]  636 	movx	a,@dptr
+      001C7A FF               [12]  637 	mov	r7,a
+      001C7B 90 01 3D         [24]  638 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
+      001C7E E0               [24]  639 	movx	a,@dptr
+      001C7F FA               [12]  640 	mov	r2,a
+      001C80 A3               [24]  641 	inc	dptr
+      001C81 E0               [24]  642 	movx	a,@dptr
+      001C82 FB               [12]  643 	mov	r3,a
+      001C83 A3               [24]  644 	inc	dptr
+      001C84 E0               [24]  645 	movx	a,@dptr
+      001C85 FC               [12]  646 	mov	r4,a
+      001C86 A3               [24]  647 	inc	dptr
+      001C87 E0               [24]  648 	movx	a,@dptr
+      001C88 FD               [12]  649 	mov	r5,a
+      001C89 90 01 8C         [24]  650 	mov	dptr,#__divulong_PARM_2
+      001C8C EE               [12]  651 	mov	a,r6
+      001C8D F0               [24]  652 	movx	@dptr,a
+      001C8E EF               [12]  653 	mov	a,r7
+      001C8F A3               [24]  654 	inc	dptr
+      001C90 F0               [24]  655 	movx	@dptr,a
+      001C91 E4               [12]  656 	clr	a
+      001C92 A3               [24]  657 	inc	dptr
+      001C93 F0               [24]  658 	movx	@dptr,a
+      001C94 A3               [24]  659 	inc	dptr
+      001C95 F0               [24]  660 	movx	@dptr,a
+      001C96 8A 82            [24]  661 	mov	dpl, r2
+      001C98 8B 83            [24]  662 	mov	dph, r3
+      001C9A 8C F0            [24]  663 	mov	b, r4
+      001C9C ED               [12]  664 	mov	a, r5
+      001C9D 12 29 F7         [24]  665 	lcall	__divulong
+      001CA0 AC 82            [24]  666 	mov	r4, dpl
+      001CA2 AD 83            [24]  667 	mov	r5, dph
+      001CA4 AE F0            [24]  668 	mov	r6, b
+      001CA6 FF               [12]  669 	mov	r7, a
+      001CA7 90 01 3D         [24]  670 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
+      001CAA EC               [12]  671 	mov	a,r4
+      001CAB F0               [24]  672 	movx	@dptr,a
+      001CAC ED               [12]  673 	mov	a,r5
+      001CAD A3               [24]  674 	inc	dptr
+      001CAE F0               [24]  675 	movx	@dptr,a
+      001CAF EE               [12]  676 	mov	a,r6
+      001CB0 A3               [24]  677 	inc	dptr
+      001CB1 F0               [24]  678 	movx	@dptr,a
+      001CB2 EF               [12]  679 	mov	a,r7
+      001CB3 A3               [24]  680 	inc	dptr
+      001CB4 F0               [24]  681 	movx	@dptr,a
                                     682 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:32: if (value > limit)
-      00202B 90 01 A3         [24]  683 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
-      00202E E0               [24]  684 	movx	a,@dptr
-      00202F FC               [12]  685 	mov	r4,a
-      002030 A3               [24]  686 	inc	dptr
-      002031 E0               [24]  687 	movx	a,@dptr
-      002032 FD               [12]  688 	mov	r5,a
-      002033 A3               [24]  689 	inc	dptr
-      002034 E0               [24]  690 	movx	a,@dptr
-      002035 FE               [12]  691 	mov	r6,a
-      002036 A3               [24]  692 	inc	dptr
-      002037 E0               [24]  693 	movx	a,@dptr
-      002038 FF               [12]  694 	mov	r7,a
-      002039 90 01 9F         [24]  695 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
-      00203C E0               [24]  696 	movx	a,@dptr
-      00203D F5 2C            [12]  697 	mov	_TIM_Timer0n1_CalculateInitValue_sloc0_1_0,a
-      00203F A3               [24]  698 	inc	dptr
-      002040 E0               [24]  699 	movx	a,@dptr
-      002041 F5 2D            [12]  700 	mov	(_TIM_Timer0n1_CalculateInitValue_sloc0_1_0 + 1),a
-      002043 A8 2C            [24]  701 	mov	r0,_TIM_Timer0n1_CalculateInitValue_sloc0_1_0
-      002045 A9 2D            [24]  702 	mov	r1,(_TIM_Timer0n1_CalculateInitValue_sloc0_1_0 + 1)
-      002047 7A 00            [12]  703 	mov	r2,#0x00
-      002049 7B 00            [12]  704 	mov	r3,#0x00
-      00204B C3               [12]  705 	clr	c
-      00204C E8               [12]  706 	mov	a,r0
-      00204D 9C               [12]  707 	subb	a,r4
-      00204E E9               [12]  708 	mov	a,r1
-      00204F 9D               [12]  709 	subb	a,r5
-      002050 EA               [12]  710 	mov	a,r2
-      002051 9E               [12]  711 	subb	a,r6
-      002052 EB               [12]  712 	mov	a,r3
-      002053 9F               [12]  713 	subb	a,r7
-      002054 50 04            [24]  714 	jnc	00104$
+      001CB5 90 01 3D         [24]  683 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_value_10000_19
+      001CB8 E0               [24]  684 	movx	a,@dptr
+      001CB9 FC               [12]  685 	mov	r4,a
+      001CBA A3               [24]  686 	inc	dptr
+      001CBB E0               [24]  687 	movx	a,@dptr
+      001CBC FD               [12]  688 	mov	r5,a
+      001CBD A3               [24]  689 	inc	dptr
+      001CBE E0               [24]  690 	movx	a,@dptr
+      001CBF FE               [12]  691 	mov	r6,a
+      001CC0 A3               [24]  692 	inc	dptr
+      001CC1 E0               [24]  693 	movx	a,@dptr
+      001CC2 FF               [12]  694 	mov	r7,a
+      001CC3 90 01 39         [24]  695 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
+      001CC6 E0               [24]  696 	movx	a,@dptr
+      001CC7 F5 29            [12]  697 	mov	_TIM_Timer0n1_CalculateInitValue_sloc0_1_0,a
+      001CC9 A3               [24]  698 	inc	dptr
+      001CCA E0               [24]  699 	movx	a,@dptr
+      001CCB F5 2A            [12]  700 	mov	(_TIM_Timer0n1_CalculateInitValue_sloc0_1_0 + 1),a
+      001CCD A8 29            [24]  701 	mov	r0,_TIM_Timer0n1_CalculateInitValue_sloc0_1_0
+      001CCF A9 2A            [24]  702 	mov	r1,(_TIM_Timer0n1_CalculateInitValue_sloc0_1_0 + 1)
+      001CD1 7A 00            [12]  703 	mov	r2,#0x00
+      001CD3 7B 00            [12]  704 	mov	r3,#0x00
+      001CD5 C3               [12]  705 	clr	c
+      001CD6 E8               [12]  706 	mov	a,r0
+      001CD7 9C               [12]  707 	subb	a,r4
+      001CD8 E9               [12]  708 	mov	a,r1
+      001CD9 9D               [12]  709 	subb	a,r5
+      001CDA EA               [12]  710 	mov	a,r2
+      001CDB 9E               [12]  711 	subb	a,r6
+      001CDC EB               [12]  712 	mov	a,r3
+      001CDD 9F               [12]  713 	subb	a,r7
+      001CDE 50 04            [24]  714 	jnc	00104$
                                     715 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:33: return 0;
-      002056 90 00 00         [24]  716 	mov	dptr,#0x0000
-      002059 22               [24]  717 	ret
-      00205A                        718 00104$:
+      001CE0 90 00 00         [24]  716 	mov	dptr,#0x0000
+      001CE3 22               [24]  717 	ret
+      001CE4                        718 00104$:
                                     719 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:35: return limit - value;
-      00205A AA 2C            [24]  720 	mov	r2,_TIM_Timer0n1_CalculateInitValue_sloc0_1_0
-      00205C AB 2D            [24]  721 	mov	r3,(_TIM_Timer0n1_CalculateInitValue_sloc0_1_0 + 1)
-      00205E EA               [12]  722 	mov	a,r2
-      00205F C3               [12]  723 	clr	c
-      002060 9C               [12]  724 	subb	a,r4
-      002061 FA               [12]  725 	mov	r2,a
-      002062 EB               [12]  726 	mov	a,r3
-      002063 9D               [12]  727 	subb	a,r5
+      001CE4 AA 29            [24]  720 	mov	r2,_TIM_Timer0n1_CalculateInitValue_sloc0_1_0
+      001CE6 AB 2A            [24]  721 	mov	r3,(_TIM_Timer0n1_CalculateInitValue_sloc0_1_0 + 1)
+      001CE8 EA               [12]  722 	mov	a,r2
+      001CE9 C3               [12]  723 	clr	c
+      001CEA 9C               [12]  724 	subb	a,r4
+      001CEB FA               [12]  725 	mov	r2,a
+      001CEC EB               [12]  726 	mov	a,r3
+      001CED 9D               [12]  727 	subb	a,r5
                                     728 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:36: }
-      002064 8A 82            [24]  729 	mov	dpl,r2
-      002066 F5 83            [12]  730 	mov	dph,a
-      002068 22               [24]  731 	ret
+      001CEE 8A 82            [24]  729 	mov	dpl,r2
+      001CF0 F5 83            [12]  730 	mov	dph,a
+      001CF2 22               [24]  731 	ret
                                     732 ;------------------------------------------------------------
                                     733 ;Allocation info for local variables in function 'TIM_Timer0_Config'
                                     734 ;------------------------------------------------------------
@@ -741,86 +741,86 @@
                                     741 ;	-----------------------------------------
                                     742 ;	 function TIM_Timer0_Config
                                     743 ;	-----------------------------------------
-      002069                        744 _TIM_Timer0_Config:
-      002069 E5 82            [12]  745 	mov	a,dpl
-      00206B 90 01 AA         [24]  746 	mov	dptr,#_TIM_Timer0_Config_freq1t_10000_20
-      00206E F0               [24]  747 	movx	@dptr,a
+      001CF3                        744 _TIM_Timer0_Config:
+      001CF3 E5 82            [12]  745 	mov	a,dpl
+      001CF5 90 01 44         [24]  746 	mov	dptr,#_TIM_Timer0_Config_freq1t_10000_20
+      001CF8 F0               [24]  747 	movx	@dptr,a
                                     748 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:41: TIM_Timer0_Set1TMode(freq1t);
-      00206F 74 7F            [12]  749 	mov	a,#0x7f
-      002071 55 8E            [12]  750 	anl	a,_AUXR
-      002073 FF               [12]  751 	mov	r7,a
-      002074 E0               [24]  752 	movx	a,@dptr
-      002075 FE               [12]  753 	mov	r6,a
-      002076 03               [12]  754 	rr	a
-      002077 54 80            [12]  755 	anl	a,#0x80
-      002079 4F               [12]  756 	orl	a,r7
-      00207A F5 8E            [12]  757 	mov	_AUXR,a
+      001CF9 74 7F            [12]  749 	mov	a,#0x7f
+      001CFB 55 8E            [12]  750 	anl	a,_AUXR
+      001CFD FF               [12]  751 	mov	r7,a
+      001CFE E0               [24]  752 	movx	a,@dptr
+      001CFF FE               [12]  753 	mov	r6,a
+      001D00 03               [12]  754 	rr	a
+      001D01 54 80            [12]  755 	anl	a,#0x80
+      001D03 4F               [12]  756 	orl	a,r7
+      001D04 F5 8E            [12]  757 	mov	_AUXR,a
                                     758 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:42: TIM_Timer0_SetMode(mode);
-      00207C 74 FC            [12]  759 	mov	a,#0xfc
-      00207E 55 89            [12]  760 	anl	a,_TMOD
-      002080 FF               [12]  761 	mov	r7,a
-      002081 90 01 A7         [24]  762 	mov	dptr,#_TIM_Timer0_Config_PARM_2
-      002084 E0               [24]  763 	movx	a,@dptr
-      002085 FD               [12]  764 	mov	r5,a
-      002086 4F               [12]  765 	orl	a,r7
-      002087 F5 89            [12]  766 	mov	_TMOD,a
+      001D06 74 FC            [12]  759 	mov	a,#0xfc
+      001D08 55 89            [12]  760 	anl	a,_TMOD
+      001D0A FF               [12]  761 	mov	r7,a
+      001D0B 90 01 41         [24]  762 	mov	dptr,#_TIM_Timer0_Config_PARM_2
+      001D0E E0               [24]  763 	movx	a,@dptr
+      001D0F FD               [12]  764 	mov	r5,a
+      001D10 4F               [12]  765 	orl	a,r7
+      001D11 F5 89            [12]  766 	mov	_TMOD,a
                                     767 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:43: if (mode == TIM_TimerMode_8BitAuto)
-      002089 BD 02 2A         [24]  768 	cjne	r5,#0x02,00108$
+      001D13 BD 02 2A         [24]  768 	cjne	r5,#0x02,00108$
                                     769 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:45: init = TIM_Timer0n1_CalculateInitValue(frequency, freq1t, 0xFF);
-      00208C 90 01 A8         [24]  770 	mov	dptr,#_TIM_Timer0_Config_PARM_3
-      00208F E0               [24]  771 	movx	a,@dptr
-      002090 FD               [12]  772 	mov	r5,a
-      002091 A3               [24]  773 	inc	dptr
-      002092 E0               [24]  774 	movx	a,@dptr
-      002093 FF               [12]  775 	mov	r7,a
-      002094 90 01 9E         [24]  776 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
-      002097 EE               [12]  777 	mov	a,r6
-      002098 F0               [24]  778 	movx	@dptr,a
-      002099 90 01 9F         [24]  779 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
-      00209C 74 FF            [12]  780 	mov	a,#0xff
-      00209E F0               [24]  781 	movx	@dptr,a
-      00209F E4               [12]  782 	clr	a
-      0020A0 A3               [24]  783 	inc	dptr
-      0020A1 F0               [24]  784 	movx	@dptr,a
-      0020A2 8D 82            [24]  785 	mov	dpl, r5
-      0020A4 8F 83            [24]  786 	mov	dph, r7
-      0020A6 12 1F B6         [24]  787 	lcall	_TIM_Timer0n1_CalculateInitValue
-      0020A9 AD 82            [24]  788 	mov	r5, dpl
-      0020AB AF 83            [24]  789 	mov	r7, dph
+      001D16 90 01 42         [24]  770 	mov	dptr,#_TIM_Timer0_Config_PARM_3
+      001D19 E0               [24]  771 	movx	a,@dptr
+      001D1A FD               [12]  772 	mov	r5,a
+      001D1B A3               [24]  773 	inc	dptr
+      001D1C E0               [24]  774 	movx	a,@dptr
+      001D1D FF               [12]  775 	mov	r7,a
+      001D1E 90 01 38         [24]  776 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
+      001D21 EE               [12]  777 	mov	a,r6
+      001D22 F0               [24]  778 	movx	@dptr,a
+      001D23 90 01 39         [24]  779 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
+      001D26 74 FF            [12]  780 	mov	a,#0xff
+      001D28 F0               [24]  781 	movx	@dptr,a
+      001D29 E4               [12]  782 	clr	a
+      001D2A A3               [24]  783 	inc	dptr
+      001D2B F0               [24]  784 	movx	@dptr,a
+      001D2C 8D 82            [24]  785 	mov	dpl, r5
+      001D2E 8F 83            [24]  786 	mov	dph, r7
+      001D30 12 1C 40         [24]  787 	lcall	_TIM_Timer0n1_CalculateInitValue
+      001D33 AD 82            [24]  788 	mov	r5, dpl
+      001D35 AF 83            [24]  789 	mov	r7, dph
                                     790 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:46: TIM_Timer0_SetInitValue(init & 0xFF, init & 0xFF);
-      0020AD 8D 03            [24]  791 	mov	ar3,r5
-      0020AF 8F 04            [24]  792 	mov	ar4,r7
-      0020B1 8B 8C            [24]  793 	mov	_TH0,r3
-      0020B3 8D 8A            [24]  794 	mov	_TL0,r5
-      0020B5 22               [24]  795 	ret
-      0020B6                        796 00108$:
+      001D37 8D 03            [24]  791 	mov	ar3,r5
+      001D39 8F 04            [24]  792 	mov	ar4,r7
+      001D3B 8B 8C            [24]  793 	mov	_TH0,r3
+      001D3D 8D 8A            [24]  794 	mov	_TL0,r5
+      001D3F 22               [24]  795 	ret
+      001D40                        796 00108$:
                                     797 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:50: init = TIM_Timer0n1_CalculateInitValue(frequency, freq1t, 0xFFFF);
-      0020B6 90 01 A8         [24]  798 	mov	dptr,#_TIM_Timer0_Config_PARM_3
-      0020B9 E0               [24]  799 	movx	a,@dptr
-      0020BA FD               [12]  800 	mov	r5,a
-      0020BB A3               [24]  801 	inc	dptr
-      0020BC E0               [24]  802 	movx	a,@dptr
-      0020BD FF               [12]  803 	mov	r7,a
-      0020BE 90 01 9E         [24]  804 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
-      0020C1 EE               [12]  805 	mov	a,r6
-      0020C2 F0               [24]  806 	movx	@dptr,a
-      0020C3 90 01 9F         [24]  807 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
-      0020C6 74 FF            [12]  808 	mov	a,#0xff
-      0020C8 F0               [24]  809 	movx	@dptr,a
-      0020C9 A3               [24]  810 	inc	dptr
-      0020CA F0               [24]  811 	movx	@dptr,a
-      0020CB 8D 82            [24]  812 	mov	dpl, r5
-      0020CD 8F 83            [24]  813 	mov	dph, r7
-      0020CF 12 1F B6         [24]  814 	lcall	_TIM_Timer0n1_CalculateInitValue
-      0020D2 AE 82            [24]  815 	mov	r6, dpl
-      0020D4 AF 83            [24]  816 	mov	r7, dph
+      001D40 90 01 42         [24]  798 	mov	dptr,#_TIM_Timer0_Config_PARM_3
+      001D43 E0               [24]  799 	movx	a,@dptr
+      001D44 FD               [12]  800 	mov	r5,a
+      001D45 A3               [24]  801 	inc	dptr
+      001D46 E0               [24]  802 	movx	a,@dptr
+      001D47 FF               [12]  803 	mov	r7,a
+      001D48 90 01 38         [24]  804 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
+      001D4B EE               [12]  805 	mov	a,r6
+      001D4C F0               [24]  806 	movx	@dptr,a
+      001D4D 90 01 39         [24]  807 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
+      001D50 74 FF            [12]  808 	mov	a,#0xff
+      001D52 F0               [24]  809 	movx	@dptr,a
+      001D53 A3               [24]  810 	inc	dptr
+      001D54 F0               [24]  811 	movx	@dptr,a
+      001D55 8D 82            [24]  812 	mov	dpl, r5
+      001D57 8F 83            [24]  813 	mov	dph, r7
+      001D59 12 1C 40         [24]  814 	lcall	_TIM_Timer0n1_CalculateInitValue
+      001D5C AE 82            [24]  815 	mov	r6, dpl
+      001D5E AF 83            [24]  816 	mov	r7, dph
                                     817 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:51: TIM_Timer0_SetInitValue(init >> 8, init & 0xFF);
-      0020D6 8E 04            [24]  818 	mov	ar4,r6
-      0020D8 8F 05            [24]  819 	mov	ar5,r7
-      0020DA 8D 8C            [24]  820 	mov	_TH0,r5
-      0020DC 8E 8A            [24]  821 	mov	_TL0,r6
+      001D60 8E 04            [24]  818 	mov	ar4,r6
+      001D62 8F 05            [24]  819 	mov	ar5,r7
+      001D64 8D 8C            [24]  820 	mov	_TH0,r5
+      001D66 8E 8A            [24]  821 	mov	_TL0,r6
                                     822 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:53: }
-      0020DE 22               [24]  823 	ret
+      001D68 22               [24]  823 	ret
                                     824 ;------------------------------------------------------------
                                     825 ;Allocation info for local variables in function 'TIM_Timer1_Config'
                                     826 ;------------------------------------------------------------
@@ -833,90 +833,90 @@
                                     833 ;	-----------------------------------------
                                     834 ;	 function TIM_Timer1_Config
                                     835 ;	-----------------------------------------
-      0020DF                        836 _TIM_Timer1_Config:
-      0020DF E5 82            [12]  837 	mov	a,dpl
-      0020E1 90 01 AE         [24]  838 	mov	dptr,#_TIM_Timer1_Config_freq1t_10000_26
-      0020E4 F0               [24]  839 	movx	@dptr,a
+      001D69                        836 _TIM_Timer1_Config:
+      001D69 E5 82            [12]  837 	mov	a,dpl
+      001D6B 90 01 48         [24]  838 	mov	dptr,#_TIM_Timer1_Config_freq1t_10000_26
+      001D6E F0               [24]  839 	movx	@dptr,a
                                     840 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:58: TIM_Timer1_Set1TMode(freq1t);
-      0020E5 74 BF            [12]  841 	mov	a,#0xbf
-      0020E7 55 8E            [12]  842 	anl	a,_AUXR
-      0020E9 FF               [12]  843 	mov	r7,a
-      0020EA E0               [24]  844 	movx	a,@dptr
-      0020EB FE               [12]  845 	mov	r6,a
-      0020EC 03               [12]  846 	rr	a
-      0020ED 03               [12]  847 	rr	a
-      0020EE 54 C0            [12]  848 	anl	a,#0xc0
-      0020F0 4F               [12]  849 	orl	a,r7
-      0020F1 F5 8E            [12]  850 	mov	_AUXR,a
+      001D6F 74 BF            [12]  841 	mov	a,#0xbf
+      001D71 55 8E            [12]  842 	anl	a,_AUXR
+      001D73 FF               [12]  843 	mov	r7,a
+      001D74 E0               [24]  844 	movx	a,@dptr
+      001D75 FE               [12]  845 	mov	r6,a
+      001D76 03               [12]  846 	rr	a
+      001D77 03               [12]  847 	rr	a
+      001D78 54 C0            [12]  848 	anl	a,#0xc0
+      001D7A 4F               [12]  849 	orl	a,r7
+      001D7B F5 8E            [12]  850 	mov	_AUXR,a
                                     851 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:59: TIM_Timer1_SetMode(mode);
-      0020F3 74 CF            [12]  852 	mov	a,#0xcf
-      0020F5 55 89            [12]  853 	anl	a,_TMOD
-      0020F7 FF               [12]  854 	mov	r7,a
-      0020F8 90 01 AB         [24]  855 	mov	dptr,#_TIM_Timer1_Config_PARM_2
-      0020FB E0               [24]  856 	movx	a,@dptr
-      0020FC FD               [12]  857 	mov	r5,a
-      0020FD C4               [12]  858 	swap	a
-      0020FE 54 F0            [12]  859 	anl	a,#0xf0
-      002100 4F               [12]  860 	orl	a,r7
-      002101 F5 89            [12]  861 	mov	_TMOD,a
+      001D7D 74 CF            [12]  852 	mov	a,#0xcf
+      001D7F 55 89            [12]  853 	anl	a,_TMOD
+      001D81 FF               [12]  854 	mov	r7,a
+      001D82 90 01 45         [24]  855 	mov	dptr,#_TIM_Timer1_Config_PARM_2
+      001D85 E0               [24]  856 	movx	a,@dptr
+      001D86 FD               [12]  857 	mov	r5,a
+      001D87 C4               [12]  858 	swap	a
+      001D88 54 F0            [12]  859 	anl	a,#0xf0
+      001D8A 4F               [12]  860 	orl	a,r7
+      001D8B F5 89            [12]  861 	mov	_TMOD,a
                                     862 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:60: if (mode == TIM_TimerMode_8BitAuto)
-      002103 BD 02 2A         [24]  863 	cjne	r5,#0x02,00108$
+      001D8D BD 02 2A         [24]  863 	cjne	r5,#0x02,00108$
                                     864 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:62: init = TIM_Timer0n1_CalculateInitValue(frequency, freq1t, 0xFF);
-      002106 90 01 AC         [24]  865 	mov	dptr,#_TIM_Timer1_Config_PARM_3
-      002109 E0               [24]  866 	movx	a,@dptr
-      00210A FD               [12]  867 	mov	r5,a
-      00210B A3               [24]  868 	inc	dptr
-      00210C E0               [24]  869 	movx	a,@dptr
-      00210D FF               [12]  870 	mov	r7,a
-      00210E 90 01 9E         [24]  871 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
-      002111 EE               [12]  872 	mov	a,r6
-      002112 F0               [24]  873 	movx	@dptr,a
-      002113 90 01 9F         [24]  874 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
-      002116 74 FF            [12]  875 	mov	a,#0xff
-      002118 F0               [24]  876 	movx	@dptr,a
-      002119 E4               [12]  877 	clr	a
-      00211A A3               [24]  878 	inc	dptr
-      00211B F0               [24]  879 	movx	@dptr,a
-      00211C 8D 82            [24]  880 	mov	dpl, r5
-      00211E 8F 83            [24]  881 	mov	dph, r7
-      002120 12 1F B6         [24]  882 	lcall	_TIM_Timer0n1_CalculateInitValue
-      002123 AD 82            [24]  883 	mov	r5, dpl
-      002125 AF 83            [24]  884 	mov	r7, dph
+      001D90 90 01 46         [24]  865 	mov	dptr,#_TIM_Timer1_Config_PARM_3
+      001D93 E0               [24]  866 	movx	a,@dptr
+      001D94 FD               [12]  867 	mov	r5,a
+      001D95 A3               [24]  868 	inc	dptr
+      001D96 E0               [24]  869 	movx	a,@dptr
+      001D97 FF               [12]  870 	mov	r7,a
+      001D98 90 01 38         [24]  871 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
+      001D9B EE               [12]  872 	mov	a,r6
+      001D9C F0               [24]  873 	movx	@dptr,a
+      001D9D 90 01 39         [24]  874 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
+      001DA0 74 FF            [12]  875 	mov	a,#0xff
+      001DA2 F0               [24]  876 	movx	@dptr,a
+      001DA3 E4               [12]  877 	clr	a
+      001DA4 A3               [24]  878 	inc	dptr
+      001DA5 F0               [24]  879 	movx	@dptr,a
+      001DA6 8D 82            [24]  880 	mov	dpl, r5
+      001DA8 8F 83            [24]  881 	mov	dph, r7
+      001DAA 12 1C 40         [24]  882 	lcall	_TIM_Timer0n1_CalculateInitValue
+      001DAD AD 82            [24]  883 	mov	r5, dpl
+      001DAF AF 83            [24]  884 	mov	r7, dph
                                     885 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:63: TIM_Timer1_SetInitValue(init & 0xFF, init & 0xFF);
-      002127 8D 03            [24]  886 	mov	ar3,r5
-      002129 8F 04            [24]  887 	mov	ar4,r7
-      00212B 8B 8D            [24]  888 	mov	_TH1,r3
-      00212D 8D 8B            [24]  889 	mov	_TL1,r5
-      00212F 22               [24]  890 	ret
-      002130                        891 00108$:
+      001DB1 8D 03            [24]  886 	mov	ar3,r5
+      001DB3 8F 04            [24]  887 	mov	ar4,r7
+      001DB5 8B 8D            [24]  888 	mov	_TH1,r3
+      001DB7 8D 8B            [24]  889 	mov	_TL1,r5
+      001DB9 22               [24]  890 	ret
+      001DBA                        891 00108$:
                                     892 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:67: init = TIM_Timer0n1_CalculateInitValue(frequency, freq1t, 0xFF);
-      002130 90 01 AC         [24]  893 	mov	dptr,#_TIM_Timer1_Config_PARM_3
-      002133 E0               [24]  894 	movx	a,@dptr
-      002134 FD               [12]  895 	mov	r5,a
-      002135 A3               [24]  896 	inc	dptr
-      002136 E0               [24]  897 	movx	a,@dptr
-      002137 FF               [12]  898 	mov	r7,a
-      002138 90 01 9E         [24]  899 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
-      00213B EE               [12]  900 	mov	a,r6
-      00213C F0               [24]  901 	movx	@dptr,a
-      00213D 90 01 9F         [24]  902 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
-      002140 74 FF            [12]  903 	mov	a,#0xff
-      002142 F0               [24]  904 	movx	@dptr,a
-      002143 E4               [12]  905 	clr	a
-      002144 A3               [24]  906 	inc	dptr
-      002145 F0               [24]  907 	movx	@dptr,a
-      002146 8D 82            [24]  908 	mov	dpl, r5
-      002148 8F 83            [24]  909 	mov	dph, r7
-      00214A 12 1F B6         [24]  910 	lcall	_TIM_Timer0n1_CalculateInitValue
-      00214D AE 82            [24]  911 	mov	r6, dpl
-      00214F AF 83            [24]  912 	mov	r7, dph
+      001DBA 90 01 46         [24]  893 	mov	dptr,#_TIM_Timer1_Config_PARM_3
+      001DBD E0               [24]  894 	movx	a,@dptr
+      001DBE FD               [12]  895 	mov	r5,a
+      001DBF A3               [24]  896 	inc	dptr
+      001DC0 E0               [24]  897 	movx	a,@dptr
+      001DC1 FF               [12]  898 	mov	r7,a
+      001DC2 90 01 38         [24]  899 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_2
+      001DC5 EE               [12]  900 	mov	a,r6
+      001DC6 F0               [24]  901 	movx	@dptr,a
+      001DC7 90 01 39         [24]  902 	mov	dptr,#_TIM_Timer0n1_CalculateInitValue_PARM_3
+      001DCA 74 FF            [12]  903 	mov	a,#0xff
+      001DCC F0               [24]  904 	movx	@dptr,a
+      001DCD E4               [12]  905 	clr	a
+      001DCE A3               [24]  906 	inc	dptr
+      001DCF F0               [24]  907 	movx	@dptr,a
+      001DD0 8D 82            [24]  908 	mov	dpl, r5
+      001DD2 8F 83            [24]  909 	mov	dph, r7
+      001DD4 12 1C 40         [24]  910 	lcall	_TIM_Timer0n1_CalculateInitValue
+      001DD7 AE 82            [24]  911 	mov	r6, dpl
+      001DD9 AF 83            [24]  912 	mov	r7, dph
                                     913 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:68: TIM_Timer1_SetInitValue(init >> 8, init & 0xFF);
-      002151 8E 04            [24]  914 	mov	ar4,r6
-      002153 8F 05            [24]  915 	mov	ar5,r7
-      002155 8D 8D            [24]  916 	mov	_TH1,r5
-      002157 8E 8B            [24]  917 	mov	_TL1,r6
+      001DDB 8E 04            [24]  914 	mov	ar4,r6
+      001DDD 8F 05            [24]  915 	mov	ar5,r7
+      001DDF 8D 8D            [24]  916 	mov	_TH1,r5
+      001DE1 8E 8B            [24]  917 	mov	_TL1,r6
                                     918 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:70: }
-      002159 22               [24]  919 	ret
+      001DE3 22               [24]  919 	ret
                                     920 ;------------------------------------------------------------
                                     921 ;Allocation info for local variables in function '_TIM_Timer234_InitValueCalculate'
                                     922 ;------------------------------------------------------------
@@ -929,153 +929,153 @@
                                     929 ;	-----------------------------------------
                                     930 ;	 function _TIM_Timer234_InitValueCalculate
                                     931 ;	-----------------------------------------
-      00215A                        932 __TIM_Timer234_InitValueCalculate:
-      00215A AF 83            [24]  933 	mov	r7,dph
-      00215C E5 82            [12]  934 	mov	a,dpl
-      00215E 90 01 B1         [24]  935 	mov	dptr,#__TIM_Timer234_InitValueCalculate_frequency_10000_32
-      002161 F0               [24]  936 	movx	@dptr,a
-      002162 EF               [12]  937 	mov	a,r7
-      002163 A3               [24]  938 	inc	dptr
-      002164 F0               [24]  939 	movx	@dptr,a
+      001DE4                        932 __TIM_Timer234_InitValueCalculate:
+      001DE4 AF 83            [24]  933 	mov	r7,dph
+      001DE6 E5 82            [12]  934 	mov	a,dpl
+      001DE8 90 01 4B         [24]  935 	mov	dptr,#__TIM_Timer234_InitValueCalculate_frequency_10000_32
+      001DEB F0               [24]  936 	movx	@dptr,a
+      001DEC EF               [12]  937 	mov	a,r7
+      001DED A3               [24]  938 	inc	dptr
+      001DEE F0               [24]  939 	movx	@dptr,a
                                     940 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:75: uint32_t value = __SYSCLOCK;
-      002165 90 01 B3         [24]  941 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
-      002168 E4               [12]  942 	clr	a
-      002169 F0               [24]  943 	movx	@dptr,a
-      00216A 74 36            [12]  944 	mov	a,#0x36
-      00216C A3               [24]  945 	inc	dptr
-      00216D F0               [24]  946 	movx	@dptr,a
-      00216E 74 6E            [12]  947 	mov	a,#0x6e
-      002170 A3               [24]  948 	inc	dptr
-      002171 F0               [24]  949 	movx	@dptr,a
-      002172 74 01            [12]  950 	mov	a,#0x01
-      002174 A3               [24]  951 	inc	dptr
-      002175 F0               [24]  952 	movx	@dptr,a
+      001DEF 90 01 4D         [24]  941 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
+      001DF2 E4               [12]  942 	clr	a
+      001DF3 F0               [24]  943 	movx	@dptr,a
+      001DF4 74 36            [12]  944 	mov	a,#0x36
+      001DF6 A3               [24]  945 	inc	dptr
+      001DF7 F0               [24]  946 	movx	@dptr,a
+      001DF8 74 6E            [12]  947 	mov	a,#0x6e
+      001DFA A3               [24]  948 	inc	dptr
+      001DFB F0               [24]  949 	movx	@dptr,a
+      001DFC 74 01            [12]  950 	mov	a,#0x01
+      001DFE A3               [24]  951 	inc	dptr
+      001DFF F0               [24]  952 	movx	@dptr,a
                                     953 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:76: if (!freq1t)
-      002176 90 01 B0         [24]  954 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
-      002179 E0               [24]  955 	movx	a,@dptr
-      00217A 70 11            [24]  956 	jnz	00102$
+      001E00 90 01 4A         [24]  954 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
+      001E03 E0               [24]  955 	movx	a,@dptr
+      001E04 70 11            [24]  956 	jnz	00102$
                                     957 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:77: value = value / 12;
-      00217C 90 01 B3         [24]  958 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
-      00217F 74 80            [12]  959 	mov	a,#0x80
-      002181 F0               [24]  960 	movx	@dptr,a
-      002182 74 84            [12]  961 	mov	a,#0x84
-      002184 A3               [24]  962 	inc	dptr
-      002185 F0               [24]  963 	movx	@dptr,a
-      002186 74 1E            [12]  964 	mov	a,#0x1e
-      002188 A3               [24]  965 	inc	dptr
-      002189 F0               [24]  966 	movx	@dptr,a
-      00218A E4               [12]  967 	clr	a
-      00218B A3               [24]  968 	inc	dptr
-      00218C F0               [24]  969 	movx	@dptr,a
-      00218D                        970 00102$:
+      001E06 90 01 4D         [24]  958 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
+      001E09 74 80            [12]  959 	mov	a,#0x80
+      001E0B F0               [24]  960 	movx	@dptr,a
+      001E0C 74 84            [12]  961 	mov	a,#0x84
+      001E0E A3               [24]  962 	inc	dptr
+      001E0F F0               [24]  963 	movx	@dptr,a
+      001E10 74 1E            [12]  964 	mov	a,#0x1e
+      001E12 A3               [24]  965 	inc	dptr
+      001E13 F0               [24]  966 	movx	@dptr,a
+      001E14 E4               [12]  967 	clr	a
+      001E15 A3               [24]  968 	inc	dptr
+      001E16 F0               [24]  969 	movx	@dptr,a
+      001E17                        970 00102$:
                                     971 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:78: value = value / ((prescaler + 1) * frequency);
-      00218D 90 01 AF         [24]  972 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
-      002190 E0               [24]  973 	movx	a,@dptr
-      002191 FE               [12]  974 	mov	r6,a
-      002192 7F 00            [12]  975 	mov	r7,#0x00
-      002194 0E               [12]  976 	inc	r6
-      002195 BE 00 01         [24]  977 	cjne	r6,#0x00,00121$
-      002198 0F               [12]  978 	inc	r7
-      002199                        979 00121$:
-      002199 90 01 B1         [24]  980 	mov	dptr,#__TIM_Timer234_InitValueCalculate_frequency_10000_32
-      00219C E0               [24]  981 	movx	a,@dptr
-      00219D FC               [12]  982 	mov	r4,a
-      00219E A3               [24]  983 	inc	dptr
-      00219F E0               [24]  984 	movx	a,@dptr
-      0021A0 FD               [12]  985 	mov	r5,a
-      0021A1 90 02 18         [24]  986 	mov	dptr,#__mulint_PARM_2
-      0021A4 EC               [12]  987 	mov	a,r4
-      0021A5 F0               [24]  988 	movx	@dptr,a
-      0021A6 ED               [12]  989 	mov	a,r5
-      0021A7 A3               [24]  990 	inc	dptr
-      0021A8 F0               [24]  991 	movx	@dptr,a
-      0021A9 8E 82            [24]  992 	mov	dpl, r6
-      0021AB 8F 83            [24]  993 	mov	dph, r7
-      0021AD 12 31 8B         [24]  994 	lcall	__mulint
-      0021B0 AE 82            [24]  995 	mov	r6, dpl
-      0021B2 AF 83            [24]  996 	mov	r7, dph
-      0021B4 90 01 B3         [24]  997 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
-      0021B7 E0               [24]  998 	movx	a,@dptr
-      0021B8 FA               [12]  999 	mov	r2,a
-      0021B9 A3               [24] 1000 	inc	dptr
-      0021BA E0               [24] 1001 	movx	a,@dptr
-      0021BB FB               [12] 1002 	mov	r3,a
-      0021BC A3               [24] 1003 	inc	dptr
-      0021BD E0               [24] 1004 	movx	a,@dptr
-      0021BE FC               [12] 1005 	mov	r4,a
-      0021BF A3               [24] 1006 	inc	dptr
-      0021C0 E0               [24] 1007 	movx	a,@dptr
-      0021C1 FD               [12] 1008 	mov	r5,a
-      0021C2 90 02 02         [24] 1009 	mov	dptr,#__divulong_PARM_2
-      0021C5 EE               [12] 1010 	mov	a,r6
-      0021C6 F0               [24] 1011 	movx	@dptr,a
-      0021C7 EF               [12] 1012 	mov	a,r7
-      0021C8 A3               [24] 1013 	inc	dptr
-      0021C9 F0               [24] 1014 	movx	@dptr,a
-      0021CA E4               [12] 1015 	clr	a
-      0021CB A3               [24] 1016 	inc	dptr
-      0021CC F0               [24] 1017 	movx	@dptr,a
-      0021CD A3               [24] 1018 	inc	dptr
-      0021CE F0               [24] 1019 	movx	@dptr,a
-      0021CF 8A 82            [24] 1020 	mov	dpl, r2
-      0021D1 8B 83            [24] 1021 	mov	dph, r3
-      0021D3 8C F0            [24] 1022 	mov	b, r4
-      0021D5 ED               [12] 1023 	mov	a, r5
-      0021D6 12 2F 39         [24] 1024 	lcall	__divulong
-      0021D9 AC 82            [24] 1025 	mov	r4, dpl
-      0021DB AD 83            [24] 1026 	mov	r5, dph
-      0021DD AE F0            [24] 1027 	mov	r6, b
-      0021DF FF               [12] 1028 	mov	r7, a
-      0021E0 90 01 B3         [24] 1029 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
-      0021E3 EC               [12] 1030 	mov	a,r4
-      0021E4 F0               [24] 1031 	movx	@dptr,a
-      0021E5 ED               [12] 1032 	mov	a,r5
-      0021E6 A3               [24] 1033 	inc	dptr
-      0021E7 F0               [24] 1034 	movx	@dptr,a
-      0021E8 EE               [12] 1035 	mov	a,r6
-      0021E9 A3               [24] 1036 	inc	dptr
-      0021EA F0               [24] 1037 	movx	@dptr,a
-      0021EB EF               [12] 1038 	mov	a,r7
-      0021EC A3               [24] 1039 	inc	dptr
-      0021ED F0               [24] 1040 	movx	@dptr,a
+      001E17 90 01 49         [24]  972 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
+      001E1A E0               [24]  973 	movx	a,@dptr
+      001E1B FE               [12]  974 	mov	r6,a
+      001E1C 7F 00            [12]  975 	mov	r7,#0x00
+      001E1E 0E               [12]  976 	inc	r6
+      001E1F BE 00 01         [24]  977 	cjne	r6,#0x00,00121$
+      001E22 0F               [12]  978 	inc	r7
+      001E23                        979 00121$:
+      001E23 90 01 4B         [24]  980 	mov	dptr,#__TIM_Timer234_InitValueCalculate_frequency_10000_32
+      001E26 E0               [24]  981 	movx	a,@dptr
+      001E27 FC               [12]  982 	mov	r4,a
+      001E28 A3               [24]  983 	inc	dptr
+      001E29 E0               [24]  984 	movx	a,@dptr
+      001E2A FD               [12]  985 	mov	r5,a
+      001E2B 90 01 A2         [24]  986 	mov	dptr,#__mulint_PARM_2
+      001E2E EC               [12]  987 	mov	a,r4
+      001E2F F0               [24]  988 	movx	@dptr,a
+      001E30 ED               [12]  989 	mov	a,r5
+      001E31 A3               [24]  990 	inc	dptr
+      001E32 F0               [24]  991 	movx	@dptr,a
+      001E33 8E 82            [24]  992 	mov	dpl, r6
+      001E35 8F 83            [24]  993 	mov	dph, r7
+      001E37 12 2C 49         [24]  994 	lcall	__mulint
+      001E3A AE 82            [24]  995 	mov	r6, dpl
+      001E3C AF 83            [24]  996 	mov	r7, dph
+      001E3E 90 01 4D         [24]  997 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
+      001E41 E0               [24]  998 	movx	a,@dptr
+      001E42 FA               [12]  999 	mov	r2,a
+      001E43 A3               [24] 1000 	inc	dptr
+      001E44 E0               [24] 1001 	movx	a,@dptr
+      001E45 FB               [12] 1002 	mov	r3,a
+      001E46 A3               [24] 1003 	inc	dptr
+      001E47 E0               [24] 1004 	movx	a,@dptr
+      001E48 FC               [12] 1005 	mov	r4,a
+      001E49 A3               [24] 1006 	inc	dptr
+      001E4A E0               [24] 1007 	movx	a,@dptr
+      001E4B FD               [12] 1008 	mov	r5,a
+      001E4C 90 01 8C         [24] 1009 	mov	dptr,#__divulong_PARM_2
+      001E4F EE               [12] 1010 	mov	a,r6
+      001E50 F0               [24] 1011 	movx	@dptr,a
+      001E51 EF               [12] 1012 	mov	a,r7
+      001E52 A3               [24] 1013 	inc	dptr
+      001E53 F0               [24] 1014 	movx	@dptr,a
+      001E54 E4               [12] 1015 	clr	a
+      001E55 A3               [24] 1016 	inc	dptr
+      001E56 F0               [24] 1017 	movx	@dptr,a
+      001E57 A3               [24] 1018 	inc	dptr
+      001E58 F0               [24] 1019 	movx	@dptr,a
+      001E59 8A 82            [24] 1020 	mov	dpl, r2
+      001E5B 8B 83            [24] 1021 	mov	dph, r3
+      001E5D 8C F0            [24] 1022 	mov	b, r4
+      001E5F ED               [12] 1023 	mov	a, r5
+      001E60 12 29 F7         [24] 1024 	lcall	__divulong
+      001E63 AC 82            [24] 1025 	mov	r4, dpl
+      001E65 AD 83            [24] 1026 	mov	r5, dph
+      001E67 AE F0            [24] 1027 	mov	r6, b
+      001E69 FF               [12] 1028 	mov	r7, a
+      001E6A 90 01 4D         [24] 1029 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
+      001E6D EC               [12] 1030 	mov	a,r4
+      001E6E F0               [24] 1031 	movx	@dptr,a
+      001E6F ED               [12] 1032 	mov	a,r5
+      001E70 A3               [24] 1033 	inc	dptr
+      001E71 F0               [24] 1034 	movx	@dptr,a
+      001E72 EE               [12] 1035 	mov	a,r6
+      001E73 A3               [24] 1036 	inc	dptr
+      001E74 F0               [24] 1037 	movx	@dptr,a
+      001E75 EF               [12] 1038 	mov	a,r7
+      001E76 A3               [24] 1039 	inc	dptr
+      001E77 F0               [24] 1040 	movx	@dptr,a
                                    1041 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:80: if (value > 0xFFFF)
-      0021EE 90 01 B3         [24] 1042 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
-      0021F1 E0               [24] 1043 	movx	a,@dptr
-      0021F2 FC               [12] 1044 	mov	r4,a
-      0021F3 A3               [24] 1045 	inc	dptr
-      0021F4 E0               [24] 1046 	movx	a,@dptr
-      0021F5 FD               [12] 1047 	mov	r5,a
-      0021F6 A3               [24] 1048 	inc	dptr
-      0021F7 E0               [24] 1049 	movx	a,@dptr
-      0021F8 FE               [12] 1050 	mov	r6,a
-      0021F9 A3               [24] 1051 	inc	dptr
-      0021FA E0               [24] 1052 	movx	a,@dptr
-      0021FB FF               [12] 1053 	mov	r7,a
-      0021FC C3               [12] 1054 	clr	c
-      0021FD 74 FF            [12] 1055 	mov	a,#0xff
-      0021FF 9C               [12] 1056 	subb	a,r4
-      002200 74 FF            [12] 1057 	mov	a,#0xff
-      002202 9D               [12] 1058 	subb	a,r5
-      002203 E4               [12] 1059 	clr	a
-      002204 9E               [12] 1060 	subb	a,r6
-      002205 E4               [12] 1061 	clr	a
-      002206 9F               [12] 1062 	subb	a,r7
-      002207 50 04            [24] 1063 	jnc	00104$
+      001E78 90 01 4D         [24] 1042 	mov	dptr,#__TIM_Timer234_InitValueCalculate_value_10000_33
+      001E7B E0               [24] 1043 	movx	a,@dptr
+      001E7C FC               [12] 1044 	mov	r4,a
+      001E7D A3               [24] 1045 	inc	dptr
+      001E7E E0               [24] 1046 	movx	a,@dptr
+      001E7F FD               [12] 1047 	mov	r5,a
+      001E80 A3               [24] 1048 	inc	dptr
+      001E81 E0               [24] 1049 	movx	a,@dptr
+      001E82 FE               [12] 1050 	mov	r6,a
+      001E83 A3               [24] 1051 	inc	dptr
+      001E84 E0               [24] 1052 	movx	a,@dptr
+      001E85 FF               [12] 1053 	mov	r7,a
+      001E86 C3               [12] 1054 	clr	c
+      001E87 74 FF            [12] 1055 	mov	a,#0xff
+      001E89 9C               [12] 1056 	subb	a,r4
+      001E8A 74 FF            [12] 1057 	mov	a,#0xff
+      001E8C 9D               [12] 1058 	subb	a,r5
+      001E8D E4               [12] 1059 	clr	a
+      001E8E 9E               [12] 1060 	subb	a,r6
+      001E8F E4               [12] 1061 	clr	a
+      001E90 9F               [12] 1062 	subb	a,r7
+      001E91 50 04            [24] 1063 	jnc	00104$
                                    1064 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:81: return 0;
-      002209 90 00 00         [24] 1065 	mov	dptr,#0x0000
-      00220C 22               [24] 1066 	ret
-      00220D                       1067 00104$:
+      001E93 90 00 00         [24] 1065 	mov	dptr,#0x0000
+      001E96 22               [24] 1066 	ret
+      001E97                       1067 00104$:
                                    1068 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:83: return 0xFFFF - value;
-      00220D 74 FF            [12] 1069 	mov	a,#0xff
-      00220F C3               [12] 1070 	clr	c
-      002210 9C               [12] 1071 	subb	a,r4
-      002211 FC               [12] 1072 	mov	r4,a
-      002212 74 FF            [12] 1073 	mov	a,#0xff
-      002214 9D               [12] 1074 	subb	a,r5
+      001E97 74 FF            [12] 1069 	mov	a,#0xff
+      001E99 C3               [12] 1070 	clr	c
+      001E9A 9C               [12] 1071 	subb	a,r4
+      001E9B FC               [12] 1072 	mov	r4,a
+      001E9C 74 FF            [12] 1073 	mov	a,#0xff
+      001E9E 9D               [12] 1074 	subb	a,r5
                                    1075 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:84: }
-      002215 8C 82            [24] 1076 	mov	dpl,r4
-      002217 F5 83            [12] 1077 	mov	dph,a
-      002219 22               [24] 1078 	ret
+      001E9F 8C 82            [24] 1076 	mov	dpl,r4
+      001EA1 F5 83            [12] 1077 	mov	dph,a
+      001EA3 22               [24] 1078 	ret
                                    1079 ;------------------------------------------------------------
                                    1080 ;Allocation info for local variables in function 'TIM_Timer2_Config'
                                    1081 ;------------------------------------------------------------
@@ -1088,60 +1088,60 @@
                                    1088 ;	-----------------------------------------
                                    1089 ;	 function TIM_Timer2_Config
                                    1090 ;	-----------------------------------------
-      00221A                       1091 _TIM_Timer2_Config:
-      00221A E5 82            [12] 1092 	mov	a,dpl
-      00221C 90 01 BA         [24] 1093 	mov	dptr,#_TIM_Timer2_Config_freq1t_10000_34
-      00221F F0               [24] 1094 	movx	@dptr,a
+      001EA4                       1091 _TIM_Timer2_Config:
+      001EA4 E5 82            [12] 1092 	mov	a,dpl
+      001EA6 90 01 54         [24] 1093 	mov	dptr,#_TIM_Timer2_Config_freq1t_10000_34
+      001EA9 F0               [24] 1094 	movx	@dptr,a
                                    1095 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:95: uint16_t init = _TIM_Timer234_InitValueCalculate(frequency, prescaler, freq1t);
-      002220 90 01 B8         [24] 1096 	mov	dptr,#_TIM_Timer2_Config_PARM_3
-      002223 E0               [24] 1097 	movx	a,@dptr
-      002224 FE               [12] 1098 	mov	r6,a
-      002225 A3               [24] 1099 	inc	dptr
-      002226 E0               [24] 1100 	movx	a,@dptr
-      002227 FF               [12] 1101 	mov	r7,a
-      002228 90 01 B7         [24] 1102 	mov	dptr,#_TIM_Timer2_Config_PARM_2
-      00222B E0               [24] 1103 	movx	a,@dptr
-      00222C FD               [12] 1104 	mov	r5,a
-      00222D 90 01 BA         [24] 1105 	mov	dptr,#_TIM_Timer2_Config_freq1t_10000_34
-      002230 E0               [24] 1106 	movx	a,@dptr
-      002231 FC               [12] 1107 	mov	r4,a
-      002232 90 01 AF         [24] 1108 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
-      002235 ED               [12] 1109 	mov	a,r5
-      002236 F0               [24] 1110 	movx	@dptr,a
-      002237 90 01 B0         [24] 1111 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
-      00223A EC               [12] 1112 	mov	a,r4
-      00223B F0               [24] 1113 	movx	@dptr,a
-      00223C 8E 82            [24] 1114 	mov	dpl, r6
-      00223E 8F 83            [24] 1115 	mov	dph, r7
-      002240 C0 05            [24] 1116 	push	ar5
-      002242 C0 04            [24] 1117 	push	ar4
-      002244 12 21 5A         [24] 1118 	lcall	__TIM_Timer234_InitValueCalculate
-      002247 AE 82            [24] 1119 	mov	r6, dpl
-      002249 AF 83            [24] 1120 	mov	r7, dph
-      00224B D0 04            [24] 1121 	pop	ar4
-      00224D D0 05            [24] 1122 	pop	ar5
+      001EAA 90 01 52         [24] 1096 	mov	dptr,#_TIM_Timer2_Config_PARM_3
+      001EAD E0               [24] 1097 	movx	a,@dptr
+      001EAE FE               [12] 1098 	mov	r6,a
+      001EAF A3               [24] 1099 	inc	dptr
+      001EB0 E0               [24] 1100 	movx	a,@dptr
+      001EB1 FF               [12] 1101 	mov	r7,a
+      001EB2 90 01 51         [24] 1102 	mov	dptr,#_TIM_Timer2_Config_PARM_2
+      001EB5 E0               [24] 1103 	movx	a,@dptr
+      001EB6 FD               [12] 1104 	mov	r5,a
+      001EB7 90 01 54         [24] 1105 	mov	dptr,#_TIM_Timer2_Config_freq1t_10000_34
+      001EBA E0               [24] 1106 	movx	a,@dptr
+      001EBB FC               [12] 1107 	mov	r4,a
+      001EBC 90 01 49         [24] 1108 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
+      001EBF ED               [12] 1109 	mov	a,r5
+      001EC0 F0               [24] 1110 	movx	@dptr,a
+      001EC1 90 01 4A         [24] 1111 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
+      001EC4 EC               [12] 1112 	mov	a,r4
+      001EC5 F0               [24] 1113 	movx	@dptr,a
+      001EC6 8E 82            [24] 1114 	mov	dpl, r6
+      001EC8 8F 83            [24] 1115 	mov	dph, r7
+      001ECA C0 05            [24] 1116 	push	ar5
+      001ECC C0 04            [24] 1117 	push	ar4
+      001ECE 12 1D E4         [24] 1118 	lcall	__TIM_Timer234_InitValueCalculate
+      001ED1 AE 82            [24] 1119 	mov	r6, dpl
+      001ED3 AF 83            [24] 1120 	mov	r7, dph
+      001ED5 D0 04            [24] 1121 	pop	ar4
+      001ED7 D0 05            [24] 1122 	pop	ar5
                                    1123 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:96: TIM_Timer2_Set1TMode(freq1t);
-      00224F 74 FB            [12] 1124 	mov	a,#0xfb
-      002251 55 8E            [12] 1125 	anl	a,_AUXR
-      002253 FB               [12] 1126 	mov	r3,a
-      002254 EC               [12] 1127 	mov	a,r4
-      002255 2C               [12] 1128 	add	a,r4
-      002256 25 E0            [12] 1129 	add	a,acc
-      002258 4B               [12] 1130 	orl	a,r3
-      002259 F5 8E            [12] 1131 	mov	_AUXR,a
+      001ED9 74 FB            [12] 1124 	mov	a,#0xfb
+      001EDB 55 8E            [12] 1125 	anl	a,_AUXR
+      001EDD FB               [12] 1126 	mov	r3,a
+      001EDE EC               [12] 1127 	mov	a,r4
+      001EDF 2C               [12] 1128 	add	a,r4
+      001EE0 25 E0            [12] 1129 	add	a,acc
+      001EE2 4B               [12] 1130 	orl	a,r3
+      001EE3 F5 8E            [12] 1131 	mov	_AUXR,a
                                    1132 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:97: TIM_Timer2_SetPreScaler(prescaler);
-      00225B 43 BA 80         [24] 1133 	orl	_P_SW2,#0x80
-      00225E 90 FE A2         [24] 1134 	mov	dptr,#0xfea2
-      002261 ED               [12] 1135 	mov	a,r5
-      002262 F0               [24] 1136 	movx	@dptr,a
-      002263 53 BA 7F         [24] 1137 	anl	_P_SW2,#0x7f
+      001EE5 43 BA 80         [24] 1133 	orl	_P_SW2,#0x80
+      001EE8 90 FE A2         [24] 1134 	mov	dptr,#0xfea2
+      001EEB ED               [12] 1135 	mov	a,r5
+      001EEC F0               [24] 1136 	movx	@dptr,a
+      001EED 53 BA 7F         [24] 1137 	anl	_P_SW2,#0x7f
                                    1138 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:98: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
-      002266 8E 04            [24] 1139 	mov	ar4,r6
-      002268 8F 05            [24] 1140 	mov	ar5,r7
-      00226A 8D D6            [24] 1141 	mov	_T2H,r5
-      00226C 8E D7            [24] 1142 	mov	_T2L,r6
+      001EF0 8E 04            [24] 1139 	mov	ar4,r6
+      001EF2 8F 05            [24] 1140 	mov	ar5,r7
+      001EF4 8D D6            [24] 1141 	mov	_T2H,r5
+      001EF6 8E D7            [24] 1142 	mov	_T2L,r6
                                    1143 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:99: }
-      00226E 22               [24] 1144 	ret
+      001EF8 22               [24] 1144 	ret
                                    1145 ;------------------------------------------------------------
                                    1146 ;Allocation info for local variables in function 'TIM_Timer3_Config'
                                    1147 ;------------------------------------------------------------
@@ -1155,70 +1155,70 @@
                                    1155 ;	-----------------------------------------
                                    1156 ;	 function TIM_Timer3_Config
                                    1157 ;	-----------------------------------------
-      00226F                       1158 _TIM_Timer3_Config:
-      00226F E5 82            [12] 1159 	mov	a,dpl
-      002271 90 01 BF         [24] 1160 	mov	dptr,#_TIM_Timer3_Config_freq1t_10000_38
-      002274 F0               [24] 1161 	movx	@dptr,a
+      001EF9                       1158 _TIM_Timer3_Config:
+      001EF9 E5 82            [12] 1159 	mov	a,dpl
+      001EFB 90 01 59         [24] 1160 	mov	dptr,#_TIM_Timer3_Config_freq1t_10000_38
+      001EFE F0               [24] 1161 	movx	@dptr,a
                                    1162 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:104: uint16_t init = _TIM_Timer234_InitValueCalculate(frequency, prescaler, freq1t);
-      002275 90 01 BC         [24] 1163 	mov	dptr,#_TIM_Timer3_Config_PARM_3
-      002278 E0               [24] 1164 	movx	a,@dptr
-      002279 FE               [12] 1165 	mov	r6,a
-      00227A A3               [24] 1166 	inc	dptr
-      00227B E0               [24] 1167 	movx	a,@dptr
-      00227C FF               [12] 1168 	mov	r7,a
-      00227D 90 01 BB         [24] 1169 	mov	dptr,#_TIM_Timer3_Config_PARM_2
-      002280 E0               [24] 1170 	movx	a,@dptr
-      002281 FD               [12] 1171 	mov	r5,a
-      002282 90 01 BF         [24] 1172 	mov	dptr,#_TIM_Timer3_Config_freq1t_10000_38
-      002285 E0               [24] 1173 	movx	a,@dptr
-      002286 FC               [12] 1174 	mov	r4,a
-      002287 90 01 AF         [24] 1175 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
-      00228A ED               [12] 1176 	mov	a,r5
-      00228B F0               [24] 1177 	movx	@dptr,a
-      00228C 90 01 B0         [24] 1178 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
-      00228F EC               [12] 1179 	mov	a,r4
-      002290 F0               [24] 1180 	movx	@dptr,a
-      002291 8E 82            [24] 1181 	mov	dpl, r6
-      002293 8F 83            [24] 1182 	mov	dph, r7
-      002295 C0 05            [24] 1183 	push	ar5
-      002297 C0 04            [24] 1184 	push	ar4
-      002299 12 21 5A         [24] 1185 	lcall	__TIM_Timer234_InitValueCalculate
-      00229C AE 82            [24] 1186 	mov	r6, dpl
-      00229E AF 83            [24] 1187 	mov	r7, dph
-      0022A0 D0 04            [24] 1188 	pop	ar4
-      0022A2 D0 05            [24] 1189 	pop	ar5
+      001EFF 90 01 56         [24] 1163 	mov	dptr,#_TIM_Timer3_Config_PARM_3
+      001F02 E0               [24] 1164 	movx	a,@dptr
+      001F03 FE               [12] 1165 	mov	r6,a
+      001F04 A3               [24] 1166 	inc	dptr
+      001F05 E0               [24] 1167 	movx	a,@dptr
+      001F06 FF               [12] 1168 	mov	r7,a
+      001F07 90 01 55         [24] 1169 	mov	dptr,#_TIM_Timer3_Config_PARM_2
+      001F0A E0               [24] 1170 	movx	a,@dptr
+      001F0B FD               [12] 1171 	mov	r5,a
+      001F0C 90 01 59         [24] 1172 	mov	dptr,#_TIM_Timer3_Config_freq1t_10000_38
+      001F0F E0               [24] 1173 	movx	a,@dptr
+      001F10 FC               [12] 1174 	mov	r4,a
+      001F11 90 01 49         [24] 1175 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
+      001F14 ED               [12] 1176 	mov	a,r5
+      001F15 F0               [24] 1177 	movx	@dptr,a
+      001F16 90 01 4A         [24] 1178 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
+      001F19 EC               [12] 1179 	mov	a,r4
+      001F1A F0               [24] 1180 	movx	@dptr,a
+      001F1B 8E 82            [24] 1181 	mov	dpl, r6
+      001F1D 8F 83            [24] 1182 	mov	dph, r7
+      001F1F C0 05            [24] 1183 	push	ar5
+      001F21 C0 04            [24] 1184 	push	ar4
+      001F23 12 1D E4         [24] 1185 	lcall	__TIM_Timer234_InitValueCalculate
+      001F26 AE 82            [24] 1186 	mov	r6, dpl
+      001F28 AF 83            [24] 1187 	mov	r7, dph
+      001F2A D0 04            [24] 1188 	pop	ar4
+      001F2C D0 05            [24] 1189 	pop	ar5
                                    1190 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:105: TIM_Timer3_Set1TMode(freq1t);
-      0022A4 74 FD            [12] 1191 	mov	a,#0xfd
-      0022A6 55 D1            [12] 1192 	anl	a,_T4T3M
-      0022A8 FB               [12] 1193 	mov	r3,a
-      0022A9 EC               [12] 1194 	mov	a,r4
-      0022AA 2C               [12] 1195 	add	a,r4
-      0022AB 4B               [12] 1196 	orl	a,r3
-      0022AC F5 D1            [12] 1197 	mov	_T4T3M,a
+      001F2E 74 FD            [12] 1191 	mov	a,#0xfd
+      001F30 55 D1            [12] 1192 	anl	a,_T4T3M
+      001F32 FB               [12] 1193 	mov	r3,a
+      001F33 EC               [12] 1194 	mov	a,r4
+      001F34 2C               [12] 1195 	add	a,r4
+      001F35 4B               [12] 1196 	orl	a,r3
+      001F36 F5 D1            [12] 1197 	mov	_T4T3M,a
                                    1198 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:106: TIM_Timer3_SetPreScaler(prescaler);
-      0022AE 43 BA 80         [24] 1199 	orl	_P_SW2,#0x80
-      0022B1 90 FE A3         [24] 1200 	mov	dptr,#0xfea3
-      0022B4 ED               [12] 1201 	mov	a,r5
-      0022B5 F0               [24] 1202 	movx	@dptr,a
-      0022B6 53 BA 7F         [24] 1203 	anl	_P_SW2,#0x7f
+      001F38 43 BA 80         [24] 1199 	orl	_P_SW2,#0x80
+      001F3B 90 FE A3         [24] 1200 	mov	dptr,#0xfea3
+      001F3E ED               [12] 1201 	mov	a,r5
+      001F3F F0               [24] 1202 	movx	@dptr,a
+      001F40 53 BA 7F         [24] 1203 	anl	_P_SW2,#0x7f
                                    1204 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:107: TIM_Timer3_SetInitValue(init >> 8, init & 0xFF);
-      0022B9 8E 04            [24] 1205 	mov	ar4,r6
-      0022BB 8F 05            [24] 1206 	mov	ar5,r7
-      0022BD 8D D4            [24] 1207 	mov	_T3H,r5
-      0022BF 8E D5            [24] 1208 	mov	_T3L,r6
+      001F43 8E 04            [24] 1205 	mov	ar4,r6
+      001F45 8F 05            [24] 1206 	mov	ar5,r7
+      001F47 8D D4            [24] 1207 	mov	_T3H,r5
+      001F49 8E D5            [24] 1208 	mov	_T3L,r6
                                    1209 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:108: EXTI_Timer3_SetIntState(intState);
-      0022C1 74 DF            [12] 1210 	mov	a,#0xdf
-      0022C3 55 AF            [12] 1211 	anl	a,_IE2
-      0022C5 FF               [12] 1212 	mov	r7,a
-      0022C6 90 01 BE         [24] 1213 	mov	dptr,#_TIM_Timer3_Config_PARM_4
-      0022C9 E0               [24] 1214 	movx	a,@dptr
-      0022CA C4               [12] 1215 	swap	a
-      0022CB 23               [12] 1216 	rl	a
-      0022CC 54 E0            [12] 1217 	anl	a,#0xe0
-      0022CE 4F               [12] 1218 	orl	a,r7
-      0022CF F5 AF            [12] 1219 	mov	_IE2,a
+      001F4B 74 DF            [12] 1210 	mov	a,#0xdf
+      001F4D 55 AF            [12] 1211 	anl	a,_IE2
+      001F4F FF               [12] 1212 	mov	r7,a
+      001F50 90 01 58         [24] 1213 	mov	dptr,#_TIM_Timer3_Config_PARM_4
+      001F53 E0               [24] 1214 	movx	a,@dptr
+      001F54 C4               [12] 1215 	swap	a
+      001F55 23               [12] 1216 	rl	a
+      001F56 54 E0            [12] 1217 	anl	a,#0xe0
+      001F58 4F               [12] 1218 	orl	a,r7
+      001F59 F5 AF            [12] 1219 	mov	_IE2,a
                                    1220 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:109: }
-      0022D1 22               [24] 1221 	ret
+      001F5B 22               [24] 1221 	ret
                                    1222 ;------------------------------------------------------------
                                    1223 ;Allocation info for local variables in function 'TIM_Timer4_Config'
                                    1224 ;------------------------------------------------------------
@@ -1232,72 +1232,72 @@
                                    1232 ;	-----------------------------------------
                                    1233 ;	 function TIM_Timer4_Config
                                    1234 ;	-----------------------------------------
-      0022D2                       1235 _TIM_Timer4_Config:
-      0022D2 E5 82            [12] 1236 	mov	a,dpl
-      0022D4 90 01 C4         [24] 1237 	mov	dptr,#_TIM_Timer4_Config_freq1t_10000_42
-      0022D7 F0               [24] 1238 	movx	@dptr,a
+      001F5C                       1235 _TIM_Timer4_Config:
+      001F5C E5 82            [12] 1236 	mov	a,dpl
+      001F5E 90 01 5E         [24] 1237 	mov	dptr,#_TIM_Timer4_Config_freq1t_10000_42
+      001F61 F0               [24] 1238 	movx	@dptr,a
                                    1239 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:114: uint16_t init = _TIM_Timer234_InitValueCalculate(frequency, prescaler, freq1t);
-      0022D8 90 01 C1         [24] 1240 	mov	dptr,#_TIM_Timer4_Config_PARM_3
-      0022DB E0               [24] 1241 	movx	a,@dptr
-      0022DC FE               [12] 1242 	mov	r6,a
-      0022DD A3               [24] 1243 	inc	dptr
-      0022DE E0               [24] 1244 	movx	a,@dptr
-      0022DF FF               [12] 1245 	mov	r7,a
-      0022E0 90 01 C0         [24] 1246 	mov	dptr,#_TIM_Timer4_Config_PARM_2
-      0022E3 E0               [24] 1247 	movx	a,@dptr
-      0022E4 FD               [12] 1248 	mov	r5,a
-      0022E5 90 01 C4         [24] 1249 	mov	dptr,#_TIM_Timer4_Config_freq1t_10000_42
-      0022E8 E0               [24] 1250 	movx	a,@dptr
-      0022E9 FC               [12] 1251 	mov	r4,a
-      0022EA 90 01 AF         [24] 1252 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
-      0022ED ED               [12] 1253 	mov	a,r5
-      0022EE F0               [24] 1254 	movx	@dptr,a
-      0022EF 90 01 B0         [24] 1255 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
-      0022F2 EC               [12] 1256 	mov	a,r4
-      0022F3 F0               [24] 1257 	movx	@dptr,a
-      0022F4 8E 82            [24] 1258 	mov	dpl, r6
-      0022F6 8F 83            [24] 1259 	mov	dph, r7
-      0022F8 C0 05            [24] 1260 	push	ar5
-      0022FA C0 04            [24] 1261 	push	ar4
-      0022FC 12 21 5A         [24] 1262 	lcall	__TIM_Timer234_InitValueCalculate
-      0022FF AE 82            [24] 1263 	mov	r6, dpl
-      002301 AF 83            [24] 1264 	mov	r7, dph
-      002303 D0 04            [24] 1265 	pop	ar4
-      002305 D0 05            [24] 1266 	pop	ar5
+      001F62 90 01 5B         [24] 1240 	mov	dptr,#_TIM_Timer4_Config_PARM_3
+      001F65 E0               [24] 1241 	movx	a,@dptr
+      001F66 FE               [12] 1242 	mov	r6,a
+      001F67 A3               [24] 1243 	inc	dptr
+      001F68 E0               [24] 1244 	movx	a,@dptr
+      001F69 FF               [12] 1245 	mov	r7,a
+      001F6A 90 01 5A         [24] 1246 	mov	dptr,#_TIM_Timer4_Config_PARM_2
+      001F6D E0               [24] 1247 	movx	a,@dptr
+      001F6E FD               [12] 1248 	mov	r5,a
+      001F6F 90 01 5E         [24] 1249 	mov	dptr,#_TIM_Timer4_Config_freq1t_10000_42
+      001F72 E0               [24] 1250 	movx	a,@dptr
+      001F73 FC               [12] 1251 	mov	r4,a
+      001F74 90 01 49         [24] 1252 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_2
+      001F77 ED               [12] 1253 	mov	a,r5
+      001F78 F0               [24] 1254 	movx	@dptr,a
+      001F79 90 01 4A         [24] 1255 	mov	dptr,#__TIM_Timer234_InitValueCalculate_PARM_3
+      001F7C EC               [12] 1256 	mov	a,r4
+      001F7D F0               [24] 1257 	movx	@dptr,a
+      001F7E 8E 82            [24] 1258 	mov	dpl, r6
+      001F80 8F 83            [24] 1259 	mov	dph, r7
+      001F82 C0 05            [24] 1260 	push	ar5
+      001F84 C0 04            [24] 1261 	push	ar4
+      001F86 12 1D E4         [24] 1262 	lcall	__TIM_Timer234_InitValueCalculate
+      001F89 AE 82            [24] 1263 	mov	r6, dpl
+      001F8B AF 83            [24] 1264 	mov	r7, dph
+      001F8D D0 04            [24] 1265 	pop	ar4
+      001F8F D0 05            [24] 1266 	pop	ar5
                                    1267 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:115: TIM_Timer4_Set1TMode(freq1t);
-      002307 74 DF            [12] 1268 	mov	a,#0xdf
-      002309 55 D1            [12] 1269 	anl	a,_T4T3M
-      00230B FB               [12] 1270 	mov	r3,a
-      00230C EC               [12] 1271 	mov	a,r4
-      00230D C4               [12] 1272 	swap	a
-      00230E 23               [12] 1273 	rl	a
-      00230F 54 E0            [12] 1274 	anl	a,#0xe0
-      002311 4B               [12] 1275 	orl	a,r3
-      002312 F5 D1            [12] 1276 	mov	_T4T3M,a
+      001F91 74 DF            [12] 1268 	mov	a,#0xdf
+      001F93 55 D1            [12] 1269 	anl	a,_T4T3M
+      001F95 FB               [12] 1270 	mov	r3,a
+      001F96 EC               [12] 1271 	mov	a,r4
+      001F97 C4               [12] 1272 	swap	a
+      001F98 23               [12] 1273 	rl	a
+      001F99 54 E0            [12] 1274 	anl	a,#0xe0
+      001F9B 4B               [12] 1275 	orl	a,r3
+      001F9C F5 D1            [12] 1276 	mov	_T4T3M,a
                                    1277 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:116: TIM_Timer4_SetPreScaler(prescaler);
-      002314 43 BA 80         [24] 1278 	orl	_P_SW2,#0x80
-      002317 90 FE A4         [24] 1279 	mov	dptr,#0xfea4
-      00231A ED               [12] 1280 	mov	a,r5
-      00231B F0               [24] 1281 	movx	@dptr,a
-      00231C 53 BA 7F         [24] 1282 	anl	_P_SW2,#0x7f
+      001F9E 43 BA 80         [24] 1278 	orl	_P_SW2,#0x80
+      001FA1 90 FE A4         [24] 1279 	mov	dptr,#0xfea4
+      001FA4 ED               [12] 1280 	mov	a,r5
+      001FA5 F0               [24] 1281 	movx	@dptr,a
+      001FA6 53 BA 7F         [24] 1282 	anl	_P_SW2,#0x7f
                                    1283 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:117: TIM_Timer4_SetInitValue(init >> 8, init & 0xFF);
-      00231F 8E 04            [24] 1284 	mov	ar4,r6
-      002321 8F 05            [24] 1285 	mov	ar5,r7
-      002323 8D D2            [24] 1286 	mov	_T4H,r5
-      002325 8E D3            [24] 1287 	mov	_T4L,r6
+      001FA9 8E 04            [24] 1284 	mov	ar4,r6
+      001FAB 8F 05            [24] 1285 	mov	ar5,r7
+      001FAD 8D D2            [24] 1286 	mov	_T4H,r5
+      001FAF 8E D3            [24] 1287 	mov	_T4L,r6
                                    1288 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:118: EXTI_Timer4_SetIntState(intState);
-      002327 74 BF            [12] 1289 	mov	a,#0xbf
-      002329 55 AF            [12] 1290 	anl	a,_IE2
-      00232B FF               [12] 1291 	mov	r7,a
-      00232C 90 01 C3         [24] 1292 	mov	dptr,#_TIM_Timer4_Config_PARM_4
-      00232F E0               [24] 1293 	movx	a,@dptr
-      002330 03               [12] 1294 	rr	a
-      002331 03               [12] 1295 	rr	a
-      002332 54 C0            [12] 1296 	anl	a,#0xc0
-      002334 4F               [12] 1297 	orl	a,r7
-      002335 F5 AF            [12] 1298 	mov	_IE2,a
+      001FB1 74 BF            [12] 1289 	mov	a,#0xbf
+      001FB3 55 AF            [12] 1290 	anl	a,_IE2
+      001FB5 FF               [12] 1291 	mov	r7,a
+      001FB6 90 01 5D         [24] 1292 	mov	dptr,#_TIM_Timer4_Config_PARM_4
+      001FB9 E0               [24] 1293 	movx	a,@dptr
+      001FBA 03               [12] 1294 	rr	a
+      001FBB 03               [12] 1295 	rr	a
+      001FBC 54 C0            [12] 1296 	anl	a,#0xc0
+      001FBE 4F               [12] 1297 	orl	a,r7
+      001FBF F5 AF            [12] 1298 	mov	_IE2,a
                                    1299 ;	C:\Users\RobinLee\Documents\sdcc\FwLib_STC8\src\fw_tim.c:119: }
-      002337 22               [24] 1300 	ret
+      001FC1 22               [24] 1300 	ret
                                    1301 	.area CSEG    (CODE)
                                    1302 	.area CONST   (CODE)
                                    1303 	.area XINIT   (CODE)

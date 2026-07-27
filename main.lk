@@ -18,16 +18,11 @@
 -l libfloat
 main.rel
 fw_sys.rel
-fw_mem.rel
 fw_util.rel
+hx71708.rel
+modbus_server.rel
+measurement.rel
 reg_table.rel
 uart.rel
-hx71708.rel
-adc.rel
-weight_proc.rel
-calibration.rel
-modbus_server.rel
-fw_tim.rel
-measurement.rel
 
 -e

@@ -389,13 +389,13 @@ Symbol Table
     _SPCTL                                                      =  0000CE G
     _SPDAT                                                      =  0000CF G
     _SPSTAT                                                     =  0000CD G
- 16 _SYS_Delay                                                     000070 GR
- 16 _SYS_DelayUs                                                   0000B0 GR
+ 16 _SYS_Delay                                                     00006F GR
+ 16 _SYS_DelayUs                                                   0000AF GR
   A _SYS_DelayUs_t_10000_16                                        000006 R
   A _SYS_Delay_t_10000_13                                          000004 R
  16 _SYS_SetClock                                                  000000 GR
   A _SYS_SetClock_i_10000_6                                        000000 R
- 16 _SYS_TrimClock                                                 00004D GR
+ 16 _SYS_TrimClock                                                 00004C GR
   A _SYS_TrimClock_PARM_2                                          000002 GR
   A _SYS_TrimClock_vrtrim_10000_10                                 000003 R
     _T2H                                                        =  0000D6 G
@@ -660,7 +660,7 @@ Area Table
   13 GSINIT5                                    size      0   flags   20
   14 GSINIT                                     size      0   flags   20
   15 GSFINAL                                    size      0   flags   20
-  16 CSEG                                       size     E5   flags   20
+  16 CSEG                                       size     E4   flags   20
   17 CONST                                      size      3   flags   20
   18 XINIT                                      size      0   flags   20
   19 CABS                                       size      0   flags   28

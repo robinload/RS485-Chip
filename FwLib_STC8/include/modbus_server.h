@@ -20,6 +20,11 @@
 /* ================= Public API ================= */
 
 /**
+ * Reload cached_id from reg_station_id (Modbus 0x0002).
+ */
+void mb_refresh_slave_id(void);
+
+/**
  * Main Modbus RTU entry point.
  * Validates ID + CRC and dispatches handlers.
  */

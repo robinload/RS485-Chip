@@ -2,18 +2,19 @@
 ; File Created by SDCC : free open source ISO C Compiler
 ; Version 4.5.0 #15242 (MINGW64)
 ;--------------------------------------------------------
-	.module main
+	.module RS485
 	
 	.optsdcc -mmcs51 --model-large
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
-	.globl _MEAS_Process
-	.globl _reg_init
-	.globl _mb_parse_request
-	.globl _UART_SendString
+	.globl _delay_ms
+	.globl _UART2_ISR
+	.globl _U2_SendStr
+	.globl _U2_SendBuf
 	.globl _UART2_Init
+	.globl _UART_SendString
 	.globl _UART_Init
 	.globl _P77
 	.globl _P76
@@ -219,6 +220,7 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
+	.globl _U2_SendBuf_PARM_2
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -473,6 +475,22 @@ __start__stack:
 ; uninitialized external ram data
 ;--------------------------------------------------------
 	.area XSEG    (XDATA)
+_u2_rx_buf:
+	.ds 64
+_U2_SendBuf_PARM_2:
+	.ds 1
+_U2_SendBuf_buf_10000_58:
+	.ds 3
+_U2_SendStr_s_10000_61:
+	.ds 3
+_delay_ms_ms_10000_67:
+	.ds 2
+_main_pkt_10000_73:
+	.ds 4
+_main_b_30000_75:
+	.ds 1
+_main_lo_30001_76:
+	.ds 1
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -481,6 +499,10 @@ __start__stack:
 ; initialized external ram data
 ;--------------------------------------------------------
 	.area XISEG   (XDATA)
+_u2_rx_head:
+	.ds 1
+_u2_rx_tail:
+	.ds 1
 	.area HOME    (CODE)
 	.area GSINIT0 (CODE)
 	.area GSINIT1 (CODE)
@@ -499,8 +521,8 @@ __interrupt_vect:
 	ljmp	__sdcc_gsinit_startup
 	reti
 	.ds	7
-	ljmp	_Timer0_ISR
-	.ds	5
+	reti
+	.ds	7
 	reti
 	.ds	7
 	reti
@@ -600,13 +622,13 @@ __sdcc_program_startup:
 ;--------------------------------------------------------
 	.area CSEG    (CODE)
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'main'
+;Allocation info for local variables in function 'UART2_Init'
 ;------------------------------------------------------------
-;	.\FwLib_STC8\user\main.c:92: void main(void)
+;	.\FwLib_STC8\user\RS485.c:28: void UART2_Init(void)
 ;	-----------------------------------------
-;	 function main
+;	 function UART2_Init
 ;	-----------------------------------------
-_main:
+_UART2_Init:
 	ar7 = 0x07
 	ar6 = 0x06
 	ar5 = 0x05
@@ -615,64 +637,488 @@ _main:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	.\FwLib_STC8\user\main.c:94: ENABLE_XRAM();
+;	.\FwLib_STC8\user\RS485.c:31: AUXR &= ~0x10;          // Stop Timer2
+	anl	_AUXR,#0xef
+;	.\FwLib_STC8\user\RS485.c:32: T2L   = T2L_VAL;
+	mov	_T2L,#0xb8
+;	.\FwLib_STC8\user\RS485.c:33: T2H   = T2H_VAL;
+	mov	_T2H,#0xff
+;	.\FwLib_STC8\user\RS485.c:34: AUXR |= 0x04;           // UART2 clock = Timer2
+	orl	_AUXR,#0x04
+;	.\FwLib_STC8\user\RS485.c:35: AUXR |= 0x10;           // Start Timer2
+	orl	_AUXR,#0x10
+;	.\FwLib_STC8\user\RS485.c:37: S2CON = 0x50;           // 8-bit UART, RX enabled
+	mov	_S2CON,#0x50
+;	.\FwLib_STC8\user\RS485.c:38: IE2  |= 0x01;           // Enable UART2 interrupt
+	orl	_IE2,#0x01
+;	.\FwLib_STC8\user\RS485.c:40: RX_MODE();              // Default receive
+	anl	_P3,#0xef
+;	.\FwLib_STC8\user\RS485.c:41: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'U2_SendBuf'
+;------------------------------------------------------------
+;len           Allocated with name '_U2_SendBuf_PARM_2'
+;buf           Allocated with name '_U2_SendBuf_buf_10000_58'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\RS485.c:44: void U2_SendBuf(uint8_t *buf, uint8_t len)
+;	-----------------------------------------
+;	 function U2_SendBuf
+;	-----------------------------------------
+_U2_SendBuf:
+	mov	r7,b
+	mov	r6,dph
+	mov	a,dpl
+	mov	dptr,#_U2_SendBuf_buf_10000_58
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:46: TX_MODE();
+	orl	_P3,#0x10
+;	.\FwLib_STC8\user\RS485.c:47: while (len--) {
+	mov	dptr,#_U2_SendBuf_buf_10000_58
+	movx	a,@dptr
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	dptr,#_U2_SendBuf_PARM_2
+	movx	a,@dptr
+	mov	r4,a
+00104$:
+	mov	ar3,r4
+	dec	r4
+	mov	a,r3
+	jz	00113$
+;	.\FwLib_STC8\user\RS485.c:48: S2BUF = *buf++;
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+	lcall	__gptrget
+	mov	_S2BUF,a
+	inc	dptr
+	mov	r5,dpl
+	mov	r6,dph
+	mov	dptr,#_U2_SendBuf_buf_10000_58
+	mov	a,r5
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:49: while (!(S2CON & 0x02));    // wait TI2
+00101$:
+	mov	a,_S2CON
+	jnb	acc.1,00101$
+;	.\FwLib_STC8\user\RS485.c:50: S2CON &= ~0x02;
+	anl	_S2CON,#0xfd
+	sjmp	00104$
+00113$:
+	mov	dptr,#_U2_SendBuf_buf_10000_58
+	mov	a,r5
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:52: RX_MODE();
+	anl	_P3,#0xef
+;	.\FwLib_STC8\user\RS485.c:53: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'U2_SendStr'
+;------------------------------------------------------------
+;s             Allocated with name '_U2_SendStr_s_10000_61'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\RS485.c:55: void U2_SendStr(const char *s)
+;	-----------------------------------------
+;	 function U2_SendStr
+;	-----------------------------------------
+_U2_SendStr:
+	mov	r7,b
+	mov	r6,dph
+	mov	a,dpl
+	mov	dptr,#_U2_SendStr_s_10000_61
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:57: TX_MODE();
+	orl	_P3,#0x10
+;	.\FwLib_STC8\user\RS485.c:58: while (*s) {
+	mov	dptr,#_U2_SendStr_s_10000_61
+	movx	a,@dptr
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+00104$:
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+	lcall	__gptrget
+	mov	r4,a
+	jz	00113$
+;	.\FwLib_STC8\user\RS485.c:59: S2BUF = (uint8_t)*s++;
+	mov	_S2BUF,r4
+	inc	r5
+	cjne	r5,#0x00,00135$
+	inc	r6
+00135$:
+	mov	dptr,#_U2_SendStr_s_10000_61
+	mov	a,r5
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:60: while (!(S2CON & 0x02));
+00101$:
+	mov	a,_S2CON
+	jnb	acc.1,00101$
+;	.\FwLib_STC8\user\RS485.c:61: S2CON &= ~0x02;
+	anl	_S2CON,#0xfd
+	sjmp	00104$
+00113$:
+	mov	dptr,#_U2_SendStr_s_10000_61
+	mov	a,r5
+	movx	@dptr,a
+	mov	a,r6
+	inc	dptr
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:63: RX_MODE();
+	anl	_P3,#0xef
+;	.\FwLib_STC8\user\RS485.c:64: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'UART2_ISR'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\RS485.c:67: void UART2_ISR(void) __interrupt(8)
+;	-----------------------------------------
+;	 function UART2_ISR
+;	-----------------------------------------
+_UART2_ISR:
+	push	acc
+	push	dpl
+	push	dph
+	push	ar7
+	push	psw
+	mov	psw,#0x00
+;	.\FwLib_STC8\user\RS485.c:69: if (S2CON & 0x01) {
+	mov	a,_S2CON
+	jnb	acc.0,00103$
+;	.\FwLib_STC8\user\RS485.c:70: S2CON &= ~0x01;
+	anl	_S2CON,#0xfe
+;	.\FwLib_STC8\user\RS485.c:71: u2_rx_buf[u2_rx_head++ & (RX_BUF_SIZE - 1)] = S2BUF;
+	mov	dptr,#_u2_rx_head
+	movx	a,@dptr
+	mov	r7,a
+	inc	a
+	movx	@dptr,a
+	mov	a,#0x3f
+	anl	a,r7
+	add	a, #_u2_rx_buf
+	mov	dpl,a
+	clr	a
+	addc	a,#(_u2_rx_buf >> 8)
+	mov	dph,a
+	mov	a,_S2BUF
+	movx	@dptr,a
+00103$:
+;	.\FwLib_STC8\user\RS485.c:73: }
+	pop	psw
+	pop	ar7
+	pop	dph
+	pop	dpl
+	pop	acc
+	reti
+;	eliminated unneeded push/pop b
+;------------------------------------------------------------
+;Allocation info for local variables in function 'delay_ms'
+;------------------------------------------------------------
+;ms            Allocated with name '_delay_ms_ms_10000_67'
+;i             Allocated with name '_delay_ms_i_10000_68'
+;j             Allocated with name '_delay_ms_j_10000_68'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\RS485.c:76: void delay_ms(uint16_t ms)
+;	-----------------------------------------
+;	 function delay_ms
+;	-----------------------------------------
+_delay_ms:
+	mov	r7,dph
+	mov	a,dpl
+	mov	dptr,#_delay_ms_ms_10000_67
+	movx	@dptr,a
+	mov	a,r7
+	inc	dptr
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:79: for (i = ms; i > 0; i--)
+	mov	dptr,#_delay_ms_ms_10000_67
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+00106$:
+	mov	a,r6
+	orl	a,r7
+	jz	00108$
+;	.\FwLib_STC8\user\RS485.c:80: for (j = 1840; j > 0; j--);    // ~1ms @ 22.1184 MHz
+	mov	r4,#0x30
+	mov	r5,#0x07
+00104$:
+	dec	r4
+	cjne	r4,#0xff,00141$
+	dec	r5
+00141$:
+	mov	a,r4
+	orl	a,r5
+	jnz	00104$
+;	.\FwLib_STC8\user\RS485.c:79: for (i = ms; i > 0; i--)
+	dec	r6
+	cjne	r6,#0xff,00143$
+	dec	r7
+00143$:
+	sjmp	00106$
+00108$:
+;	.\FwLib_STC8\user\RS485.c:81: }
+	ret
+;------------------------------------------------------------
+;Allocation info for local variables in function 'main'
+;------------------------------------------------------------
+;counter       Allocated with name '_main_counter_10000_73'
+;pkt           Allocated with name '_main_pkt_10000_73'
+;b             Allocated with name '_main_b_30000_75'
+;hi            Allocated with name '_main_hi_30001_76'
+;lo            Allocated with name '_main_lo_30001_76'
+;------------------------------------------------------------
+;	.\FwLib_STC8\user\RS485.c:86: void main(void)
+;	-----------------------------------------
+;	 function main
+;	-----------------------------------------
+_main:
+;	.\FwLib_STC8\user\RS485.c:91: ENABLE_XRAM();
 	orl	_P_SW2,#0x80
-;	.\FwLib_STC8\user\main.c:96: UART_Init();   // UART1 (debug) + Timer2 (baud) + Timer0 (Modbus frame gap)
+;	.\FwLib_STC8\user\RS485.c:92: UART_Init();        // your existing UART1 for debug prints
 	lcall	_UART_Init
-;	.\FwLib_STC8\user\main.c:97: UART2_Init();  // UART2 (RS485 Modbus) on P1.0/P1.1
+;	.\FwLib_STC8\user\RS485.c:93: UART2_Init();       // RS485 UART2
 	lcall	_UART2_Init
-;	.\FwLib_STC8\user\main.c:99: reg_init();
-	lcall	_reg_init
-;	.\FwLib_STC8\user\main.c:101: UART_SendString("BOOT_OK\r\n"); // Debug confirms boot on UART1
+;	.\FwLib_STC8\user\RS485.c:94: EA = 1;
+;	assignBit
+	setb	_EA
+;	.\FwLib_STC8\user\RS485.c:97: delay_ms(100);
+	mov	dptr,#0x0064
+	lcall	_delay_ms
+;	.\FwLib_STC8\user\RS485.c:98: U2_SendStr("STC8H RS485 TEST OK\r\n");
 	mov	dptr,#___str_0
 	mov	b, #0x80
+	lcall	_U2_SendStr
+;	.\FwLib_STC8\user\RS485.c:99: UART_SendString("RS485 init done\r\n");   // debug on UART1
+	mov	dptr,#___str_1
+	mov	b, #0x80
 	lcall	_UART_SendString
-;	.\FwLib_STC8\user\main.c:103: ET0 = 1;        // Timer0 interrupt (frame gap detection)
-;	assignBit
-	setb	_ET0
-;	.\FwLib_STC8\user\main.c:104: ES  = 1;        // UART1 interrupt (debug, TX only)
-;	assignBit
-	setb	_ES
-;	.\FwLib_STC8\user\main.c:105: IE2 |= 0x01;    // UART2 interrupt (Modbus RX)
-	orl	_IE2,#0x01
-;	.\FwLib_STC8\user\main.c:106: EA  = 1;        // Global enable
-;	assignBit
-	setb	_EA
-;	.\FwLib_STC8\user\main.c:108: while (1)
-00104$:
-;	.\FwLib_STC8\user\main.c:110: WDT_CONTR = 0x35;
+;	.\FwLib_STC8\user\RS485.c:101: while (1)
+	mov	r7,#0x00
+00111$:
+;	.\FwLib_STC8\user\RS485.c:103: WDT_CONTR = 0x35;   // feed watchdog
 	mov	_WDT_CONTR,#0x35
-;	.\FwLib_STC8\user\main.c:112: MEAS_Process();
-	lcall	_MEAS_Process
-;	.\FwLib_STC8\user\main.c:114: if (mb_frame_ready)
-	mov	dptr,#_mb_frame_ready
+;	.\FwLib_STC8\user\RS485.c:106: pkt[0] = 0xAA;
+	mov	dptr,#_main_pkt_10000_73
+	mov	a,#0xaa
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:107: pkt[1] = counter;
+	mov	dptr,#(_main_pkt_10000_73 + 0x0001)
+	mov	a,r7
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:108: pkt[2] = ~counter;  // inverted — integrity check
+	mov	a,r7
+	cpl	a
+	mov	dptr,#(_main_pkt_10000_73 + 0x0002)
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:109: pkt[3] = 0x55;
+	mov	dptr,#(_main_pkt_10000_73 + 0x0003)
+	mov	a,#0x55
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:110: U2_SendBuf(pkt, 4);
+	mov	dptr,#_U2_SendBuf_PARM_2
+	mov	a,#0x04
+	movx	@dptr,a
+	mov	dptr,#_main_pkt_10000_73
+	mov	b, #0x00
+	push	ar7
+	lcall	_U2_SendBuf
+	pop	ar7
+;	.\FwLib_STC8\user\RS485.c:111: counter++;
+	inc	r7
+;	.\FwLib_STC8\user\RS485.c:114: delay_ms(50);
+	mov	dptr,#0x0032
+	push	ar7
+	lcall	_delay_ms
+	pop	ar7
+;	.\FwLib_STC8\user\RS485.c:115: while (U2_RX_AVAIL()) {
+00107$:
+	mov	dptr,#_u2_rx_head
 	movx	a,@dptr
-	jz	00104$
-;	.\FwLib_STC8\user\main.c:116: EA = 0;
-;	assignBit
-	clr	_EA
-;	.\FwLib_STC8\user\main.c:117: mb_parse_request();
-	lcall	_mb_parse_request
-;	.\FwLib_STC8\user\main.c:118: mb_idx = 0;
-	mov	dptr,#_mb_idx
+	mov	r6,a
+	mov	dptr,#_u2_rx_tail
+	movx	a,@dptr
+	mov	r5,a
+	mov	a,r6
+	cjne	a,ar5,00173$
+	ljmp	00109$
+00173$:
+;	.\FwLib_STC8\user\RS485.c:116: uint8_t b = U2_RX_GET();
+	mov	dptr,#_u2_rx_tail
+	movx	a,@dptr
+	mov	r6,a
+	inc	a
+	movx	@dptr,a
+	mov	a,#0x3f
+	anl	a,r6
+	add	a, #_u2_rx_buf
+	mov	dpl,a
 	clr	a
+	addc	a,#(_u2_rx_buf >> 8)
+	mov	dph,a
+	movx	a,@dptr
+	mov	dptr,#_main_b_30000_75
 	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:119: mb_frame_ready = 0;
-	mov	dptr,#_mb_frame_ready
+;	.\FwLib_STC8\user\RS485.c:118: U2_SendBuf(&b, 1);
+	mov	dptr,#_U2_SendBuf_PARM_2
+	mov	a,#0x01
 	movx	@dptr,a
-;	.\FwLib_STC8\user\main.c:120: EA = 1;
-;	assignBit
-	setb	_EA
-;	.\FwLib_STC8\user\main.c:123: }
-	sjmp	00104$
+	mov	dptr,#_main_b_30000_75
+	mov	b, #0x00
+	push	ar7
+	lcall	_U2_SendBuf
+;	.\FwLib_STC8\user\RS485.c:120: UART_SendString("RX: 0x");
+	mov	dptr,#___str_2
+	mov	b, #0x80
+	lcall	_UART_SendString
+	pop	ar7
+;	.\FwLib_STC8\user\RS485.c:122: uint8_t hi = (b >> 4) & 0x0F;
+	mov	dptr,#_main_b_30000_75
+	movx	a,@dptr
+	mov	r6,a
+	swap	a
+	anl	a,#0x0f
+	mov	r5,a
+	anl	ar5,#0x0f
+;	.\FwLib_STC8\user\RS485.c:123: uint8_t lo =  b       & 0x0F;
+	mov	dptr,#_main_lo_30001_76
+	mov	a,#0x0f
+	anl	a,r6
+	movx	@dptr,a
+;	.\FwLib_STC8\user\RS485.c:124: SBUF = hi < 10 ? '0' + hi : 'A' + hi - 10;
+	cjne	r5,#0x0a,00174$
+00174$:
+	jnc	00115$
+	mov	ar6,r5
+	mov	a,#0x30
+	add	a, r6
+	mov	r6,a
+	sjmp	00116$
+00115$:
+	mov	a,#0x37
+	add	a, r5
+	mov	r6,a
+00116$:
+	mov	_SBUF,r6
+;	.\FwLib_STC8\user\RS485.c:125: while (!(SCON & 0x02)); SCON &= ~0x02;
+00101$:
+	mov	a,_SCON
+	jnb	acc.1,00101$
+	anl	_SCON,#0xfd
+;	.\FwLib_STC8\user\RS485.c:126: SBUF = lo < 10 ? '0' + lo : 'A' + lo - 10;
+	mov	dptr,#_main_lo_30001_76
+	movx	a,@dptr
+	mov	r6,a
+	cjne	r6,#0x0a,00177$
+00177$:
+	jnc	00117$
+	mov	ar5,r6
+	mov	a,#0x30
+	add	a, r5
+	mov	r5,a
+	sjmp	00118$
+00117$:
+	mov	a,#0x37
+	add	a, r6
+	mov	r5,a
+00118$:
+	mov	_SBUF,r5
+;	.\FwLib_STC8\user\RS485.c:127: while (!(SCON & 0x02)); SCON &= ~0x02;
+00104$:
+	mov	a,_SCON
+	jnb	acc.1,00104$
+	anl	_SCON,#0xfd
+;	.\FwLib_STC8\user\RS485.c:128: UART_SendString("\r\n");
+	mov	dptr,#___str_3
+	mov	b, #0x80
+	push	ar7
+	lcall	_UART_SendString
+	pop	ar7
+	ljmp	00107$
+00109$:
+;	.\FwLib_STC8\user\RS485.c:131: delay_ms(950);      // ~1 second loop
+	mov	dptr,#0x03b6
+	push	ar7
+	lcall	_delay_ms
+	pop	ar7
+;	.\FwLib_STC8\user\RS485.c:133: }
+	ljmp	00111$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area CONST   (CODE)
 ___str_0:
-	.ascii "BOOT_OK"
+	.ascii "STC8H RS485 TEST OK"
+	.db 0x0d
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_1:
+	.ascii "RS485 init done"
+	.db 0x0d
+	.db 0x0a
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_2:
+	.ascii "RX: 0x"
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_3:
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area XINIT   (CODE)
+__xinit__u2_rx_head:
+	.db #0x00	; 0
+__xinit__u2_rx_tail:
+	.db #0x00	; 0
 	.area CABS    (ABS,CODE)

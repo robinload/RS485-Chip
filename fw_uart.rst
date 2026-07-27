@@ -488,66 +488,66 @@
                                     488 ; uninitialized external ram data
                                     489 ;--------------------------------------------------------
                                     490 	.area XSEG    (XDATA)
-      00001F                        491 _UART_Timer_InitValueCalculate_PARM_2:
-      00001F                        492 	.ds 1
-      000020                        493 _UART_Timer_InitValueCalculate_PARM_3:
-      000020                        494 	.ds 4
-      000024                        495 _UART_Timer_InitValueCalculate_sysclk_10000_25:
-      000024                        496 	.ds 4
-      000028                        497 _UART_Timer_InitValueCalculate_value_10000_26:
-      000028                        498 	.ds 4
-      00002C                        499 __UART1_ConfigDynUart_PARM_2:
-      00002C                        500 	.ds 1
-      00002D                        501 __UART1_ConfigDynUart_PARM_3:
-      00002D                        502 	.ds 2
-      00002F                        503 __UART1_ConfigDynUart_baudSource_10000_27:
-      00002F                        504 	.ds 1
-      000030                        505 _UART1_Config8bitUart_PARM_2:
-      000030                        506 	.ds 1
-      000031                        507 _UART1_Config8bitUart_PARM_3:
-      000031                        508 	.ds 4
-      000035                        509 _UART1_Config8bitUart_baudSource_10000_33:
-      000035                        510 	.ds 1
-      000036                        511 _UART1_Config9bitUart_PARM_2:
-      000036                        512 	.ds 1
-      000037                        513 _UART1_Config9bitUart_PARM_3:
-      000037                        514 	.ds 4
-      00003B                        515 _UART1_Config9bitUart_baudSource_10000_35:
-      00003B                        516 	.ds 1
-      00003C                        517 _UART1_TxChar_dat_10000_37:
-      00003C                        518 	.ds 1
-      00003D                        519 _UART1_TxHex_hex_10000_39:
-      00003D                        520 	.ds 1
-      00003E                        521 _UART1_TxString_str_10000_41:
-      00003E                        522 	.ds 3
-      000041                        523 _putchar_dat_10000_43:
-      000041                        524 	.ds 2
-      000043                        525 _UART2_Config_PARM_2:
-      000043                        526 	.ds 4
-      000047                        527 _UART2_Config__1TMode_10000_45:
-      000047                        528 	.ds 1
-      000048                        529 _UART2_TxChar_dat_10000_48:
-      000048                        530 	.ds 1
-      000049                        531 _UART2_TxHex_hex_10000_50:
-      000049                        532 	.ds 1
-      00004A                        533 _UART2_TxString_str_10000_52:
-      00004A                        534 	.ds 3
-      00004D                        535 _UART3_ConfigOnTimer2_PARM_2:
-      00004D                        536 	.ds 4
-      000051                        537 _UART3_ConfigOnTimer2__1TMode_10000_54:
-      000051                        538 	.ds 1
-      000052                        539 _UART3_ConfigOnTimer3_PARM_2:
-      000052                        540 	.ds 4
-      000056                        541 _UART3_ConfigOnTimer3__1TMode_10000_57:
-      000056                        542 	.ds 1
-      000057                        543 _UART4_ConfigOnTimer2_PARM_2:
-      000057                        544 	.ds 4
-      00005B                        545 _UART4_ConfigOnTimer2__1TMode_10000_60:
-      00005B                        546 	.ds 1
-      00005C                        547 _UART4_ConfigOnTimer4_PARM_2:
-      00005C                        548 	.ds 4
-      000060                        549 _UART4_ConfigOnTimer4__1TMode_10000_63:
-      000060                        550 	.ds 1
+      000001                        491 _UART_Timer_InitValueCalculate_PARM_2:
+      000001                        492 	.ds 1
+      000002                        493 _UART_Timer_InitValueCalculate_PARM_3:
+      000002                        494 	.ds 4
+      000006                        495 _UART_Timer_InitValueCalculate_sysclk_10000_25:
+      000006                        496 	.ds 4
+      00000A                        497 _UART_Timer_InitValueCalculate_value_10000_26:
+      00000A                        498 	.ds 4
+      00000E                        499 __UART1_ConfigDynUart_PARM_2:
+      00000E                        500 	.ds 1
+      00000F                        501 __UART1_ConfigDynUart_PARM_3:
+      00000F                        502 	.ds 2
+      000011                        503 __UART1_ConfigDynUart_baudSource_10000_27:
+      000011                        504 	.ds 1
+      000012                        505 _UART1_Config8bitUart_PARM_2:
+      000012                        506 	.ds 1
+      000013                        507 _UART1_Config8bitUart_PARM_3:
+      000013                        508 	.ds 4
+      000017                        509 _UART1_Config8bitUart_baudSource_10000_33:
+      000017                        510 	.ds 1
+      000018                        511 _UART1_Config9bitUart_PARM_2:
+      000018                        512 	.ds 1
+      000019                        513 _UART1_Config9bitUart_PARM_3:
+      000019                        514 	.ds 4
+      00001D                        515 _UART1_Config9bitUart_baudSource_10000_35:
+      00001D                        516 	.ds 1
+      00001E                        517 _UART1_TxChar_dat_10000_37:
+      00001E                        518 	.ds 1
+      00001F                        519 _UART1_TxHex_hex_10000_39:
+      00001F                        520 	.ds 1
+      000020                        521 _UART1_TxString_str_10000_41:
+      000020                        522 	.ds 3
+      000023                        523 _putchar_dat_10000_43:
+      000023                        524 	.ds 2
+      000025                        525 _UART2_Config_PARM_2:
+      000025                        526 	.ds 4
+      000029                        527 _UART2_Config__1TMode_10000_45:
+      000029                        528 	.ds 1
+      00002A                        529 _UART2_TxChar_dat_10000_48:
+      00002A                        530 	.ds 1
+      00002B                        531 _UART2_TxHex_hex_10000_50:
+      00002B                        532 	.ds 1
+      00002C                        533 _UART2_TxString_str_10000_52:
+      00002C                        534 	.ds 3
+      00002F                        535 _UART3_ConfigOnTimer2_PARM_2:
+      00002F                        536 	.ds 4
+      000033                        537 _UART3_ConfigOnTimer2__1TMode_10000_54:
+      000033                        538 	.ds 1
+      000034                        539 _UART3_ConfigOnTimer3_PARM_2:
+      000034                        540 	.ds 4
+      000038                        541 _UART3_ConfigOnTimer3__1TMode_10000_57:
+      000038                        542 	.ds 1
+      000039                        543 _UART4_ConfigOnTimer2_PARM_2:
+      000039                        544 	.ds 4
+      00003D                        545 _UART4_ConfigOnTimer2__1TMode_10000_60:
+      00003D                        546 	.ds 1
+      00003E                        547 _UART4_ConfigOnTimer4_PARM_2:
+      00003E                        548 	.ds 4
+      000042                        549 _UART4_ConfigOnTimer4__1TMode_10000_63:
+      000042                        550 	.ds 1
                                     551 ;--------------------------------------------------------
                                     552 ; absolute external ram data
                                     553 ;--------------------------------------------------------
@@ -590,11 +590,11 @@
                                     590 ;sysclk        Allocated with name '_UART_Timer_InitValueCalculate_sysclk_10000_25'
                                     591 ;value         Allocated with name '_UART_Timer_InitValueCalculate_value_10000_26'
                                     592 ;------------------------------------------------------------
-                                    593 ;	FwLib_STC8\src\fw_uart.c:20: int16_t UART_Timer_InitValueCalculate(uint32_t sysclk, HAL_State_t _1TMode, uint32_t baudrate)
+                                    593 ;	.\FwLib_STC8\src\fw_uart.c:20: int16_t UART_Timer_InitValueCalculate(uint32_t sysclk, HAL_State_t _1TMode, uint32_t baudrate)
                                     594 ;	-----------------------------------------
                                     595 ;	 function UART_Timer_InitValueCalculate
                                     596 ;	-----------------------------------------
-      0003FD                        597 _UART_Timer_InitValueCalculate:
+      000129                        597 _UART_Timer_InitValueCalculate:
                            000007   598 	ar7 = 0x07
                            000006   599 	ar6 = 0x06
                            000005   600 	ar5 = 0x05
@@ -603,179 +603,179 @@
                            000002   603 	ar2 = 0x02
                            000001   604 	ar1 = 0x01
                            000000   605 	ar0 = 0x00
-      0003FD AF 82            [24]  606 	mov	r7,dpl
-      0003FF AE 83            [24]  607 	mov	r6,dph
-      000401 AD F0            [24]  608 	mov	r5,b
-      000403 FC               [12]  609 	mov	r4,a
-      000404 90 00 24         [24]  610 	mov	dptr,#_UART_Timer_InitValueCalculate_sysclk_10000_25
-      000407 EF               [12]  611 	mov	a,r7
-      000408 F0               [24]  612 	movx	@dptr,a
-      000409 EE               [12]  613 	mov	a,r6
-      00040A A3               [24]  614 	inc	dptr
-      00040B F0               [24]  615 	movx	@dptr,a
-      00040C ED               [12]  616 	mov	a,r5
-      00040D A3               [24]  617 	inc	dptr
-      00040E F0               [24]  618 	movx	@dptr,a
-      00040F EC               [12]  619 	mov	a,r4
-      000410 A3               [24]  620 	inc	dptr
-      000411 F0               [24]  621 	movx	@dptr,a
-                                    622 ;	FwLib_STC8\src\fw_uart.c:23: value = sysclk / (4 * baudrate);
-      000412 90 00 20         [24]  623 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      000415 E0               [24]  624 	movx	a,@dptr
-      000416 FC               [12]  625 	mov	r4,a
-      000417 A3               [24]  626 	inc	dptr
-      000418 E0               [24]  627 	movx	a,@dptr
-      000419 FD               [12]  628 	mov	r5,a
-      00041A A3               [24]  629 	inc	dptr
-      00041B E0               [24]  630 	movx	a,@dptr
-      00041C FE               [12]  631 	mov	r6,a
-      00041D A3               [24]  632 	inc	dptr
-      00041E E0               [24]  633 	movx	a,@dptr
-      00041F FF               [12]  634 	mov	r7,a
-      000420 EC               [12]  635 	mov	a,r4
-      000421 2C               [12]  636 	add	a,r4
-      000422 FC               [12]  637 	mov	r4,a
-      000423 ED               [12]  638 	mov	a,r5
-      000424 33               [12]  639 	rlc	a
-      000425 FD               [12]  640 	mov	r5,a
-      000426 EE               [12]  641 	mov	a,r6
-      000427 33               [12]  642 	rlc	a
-      000428 FE               [12]  643 	mov	r6,a
-      000429 EF               [12]  644 	mov	a,r7
-      00042A 33               [12]  645 	rlc	a
-      00042B FF               [12]  646 	mov	r7,a
-      00042C EC               [12]  647 	mov	a,r4
-      00042D 2C               [12]  648 	add	a,r4
-      00042E FC               [12]  649 	mov	r4,a
-      00042F ED               [12]  650 	mov	a,r5
-      000430 33               [12]  651 	rlc	a
-      000431 FD               [12]  652 	mov	r5,a
-      000432 EE               [12]  653 	mov	a,r6
-      000433 33               [12]  654 	rlc	a
-      000434 FE               [12]  655 	mov	r6,a
-      000435 EF               [12]  656 	mov	a,r7
-      000436 33               [12]  657 	rlc	a
-      000437 FF               [12]  658 	mov	r7,a
-      000438 90 00 24         [24]  659 	mov	dptr,#_UART_Timer_InitValueCalculate_sysclk_10000_25
-      00043B E0               [24]  660 	movx	a,@dptr
-      00043C F8               [12]  661 	mov	r0,a
-      00043D A3               [24]  662 	inc	dptr
-      00043E E0               [24]  663 	movx	a,@dptr
-      00043F F9               [12]  664 	mov	r1,a
-      000440 A3               [24]  665 	inc	dptr
-      000441 E0               [24]  666 	movx	a,@dptr
-      000442 FA               [12]  667 	mov	r2,a
-      000443 A3               [24]  668 	inc	dptr
-      000444 E0               [24]  669 	movx	a,@dptr
-      000445 FB               [12]  670 	mov	r3,a
-      000446 90 01 22         [24]  671 	mov	dptr,#__divulong_PARM_2
-      000449 EC               [12]  672 	mov	a,r4
-      00044A F0               [24]  673 	movx	@dptr,a
-      00044B ED               [12]  674 	mov	a,r5
-      00044C A3               [24]  675 	inc	dptr
-      00044D F0               [24]  676 	movx	@dptr,a
-      00044E EE               [12]  677 	mov	a,r6
-      00044F A3               [24]  678 	inc	dptr
-      000450 F0               [24]  679 	movx	@dptr,a
-      000451 EF               [12]  680 	mov	a,r7
-      000452 A3               [24]  681 	inc	dptr
-      000453 F0               [24]  682 	movx	@dptr,a
-      000454 88 82            [24]  683 	mov	dpl, r0
-      000456 89 83            [24]  684 	mov	dph, r1
-      000458 8A F0            [24]  685 	mov	b, r2
-      00045A EB               [12]  686 	mov	a, r3
-      00045B 12 16 36         [24]  687 	lcall	__divulong
-      00045E AC 82            [24]  688 	mov	r4, dpl
-      000460 AD 83            [24]  689 	mov	r5, dph
-      000462 AE F0            [24]  690 	mov	r6, b
-      000464 FF               [12]  691 	mov	r7, a
-      000465 90 00 28         [24]  692 	mov	dptr,#_UART_Timer_InitValueCalculate_value_10000_26
-      000468 EC               [12]  693 	mov	a,r4
-      000469 F0               [24]  694 	movx	@dptr,a
-      00046A ED               [12]  695 	mov	a,r5
-      00046B A3               [24]  696 	inc	dptr
-      00046C F0               [24]  697 	movx	@dptr,a
-      00046D EE               [12]  698 	mov	a,r6
-      00046E A3               [24]  699 	inc	dptr
-      00046F F0               [24]  700 	movx	@dptr,a
-      000470 EF               [12]  701 	mov	a,r7
-      000471 A3               [24]  702 	inc	dptr
-      000472 F0               [24]  703 	movx	@dptr,a
-                                    704 ;	FwLib_STC8\src\fw_uart.c:24: if (!_1TMode)
-      000473 90 00 1F         [24]  705 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      000476 E0               [24]  706 	movx	a,@dptr
-      000477 70 2C            [24]  707 	jnz	00102$
-                                    708 ;	FwLib_STC8\src\fw_uart.c:25: value = value / 12;
-      000479 90 01 22         [24]  709 	mov	dptr,#__divulong_PARM_2
-      00047C 74 0C            [12]  710 	mov	a,#0x0c
-      00047E F0               [24]  711 	movx	@dptr,a
-      00047F E4               [12]  712 	clr	a
-      000480 A3               [24]  713 	inc	dptr
-      000481 F0               [24]  714 	movx	@dptr,a
-      000482 A3               [24]  715 	inc	dptr
-      000483 F0               [24]  716 	movx	@dptr,a
-      000484 A3               [24]  717 	inc	dptr
-      000485 F0               [24]  718 	movx	@dptr,a
-      000486 8C 82            [24]  719 	mov	dpl, r4
-      000488 8D 83            [24]  720 	mov	dph, r5
-      00048A 8E F0            [24]  721 	mov	b, r6
-      00048C EF               [12]  722 	mov	a, r7
-      00048D 12 16 36         [24]  723 	lcall	__divulong
-      000490 AC 82            [24]  724 	mov	r4, dpl
-      000492 AD 83            [24]  725 	mov	r5, dph
-      000494 AE F0            [24]  726 	mov	r6, b
-      000496 FF               [12]  727 	mov	r7, a
-      000497 90 00 28         [24]  728 	mov	dptr,#_UART_Timer_InitValueCalculate_value_10000_26
-      00049A EC               [12]  729 	mov	a,r4
-      00049B F0               [24]  730 	movx	@dptr,a
-      00049C ED               [12]  731 	mov	a,r5
-      00049D A3               [24]  732 	inc	dptr
-      00049E F0               [24]  733 	movx	@dptr,a
-      00049F EE               [12]  734 	mov	a,r6
-      0004A0 A3               [24]  735 	inc	dptr
-      0004A1 F0               [24]  736 	movx	@dptr,a
-      0004A2 EF               [12]  737 	mov	a,r7
-      0004A3 A3               [24]  738 	inc	dptr
-      0004A4 F0               [24]  739 	movx	@dptr,a
-      0004A5                        740 00102$:
-                                    741 ;	FwLib_STC8\src\fw_uart.c:26: if (value > 0xFFFF)
-      0004A5 90 00 28         [24]  742 	mov	dptr,#_UART_Timer_InitValueCalculate_value_10000_26
-      0004A8 E0               [24]  743 	movx	a,@dptr
-      0004A9 FC               [12]  744 	mov	r4,a
-      0004AA A3               [24]  745 	inc	dptr
-      0004AB E0               [24]  746 	movx	a,@dptr
-      0004AC FD               [12]  747 	mov	r5,a
-      0004AD A3               [24]  748 	inc	dptr
-      0004AE E0               [24]  749 	movx	a,@dptr
-      0004AF FE               [12]  750 	mov	r6,a
-      0004B0 A3               [24]  751 	inc	dptr
-      0004B1 E0               [24]  752 	movx	a,@dptr
-      0004B2 FF               [12]  753 	mov	r7,a
-      0004B3 C3               [12]  754 	clr	c
-      0004B4 74 FF            [12]  755 	mov	a,#0xff
-      0004B6 9C               [12]  756 	subb	a,r4
-      0004B7 74 FF            [12]  757 	mov	a,#0xff
-      0004B9 9D               [12]  758 	subb	a,r5
-      0004BA E4               [12]  759 	clr	a
-      0004BB 9E               [12]  760 	subb	a,r6
-      0004BC E4               [12]  761 	clr	a
-      0004BD 9F               [12]  762 	subb	a,r7
-      0004BE 50 04            [24]  763 	jnc	00104$
-                                    764 ;	FwLib_STC8\src\fw_uart.c:27: return 0;
-      0004C0 90 00 00         [24]  765 	mov	dptr,#0x0000
-      0004C3 22               [24]  766 	ret
-      0004C4                        767 00104$:
-                                    768 ;	FwLib_STC8\src\fw_uart.c:29: return 0xFFFF - value + 1;
-      0004C4 C3               [12]  769 	clr	c
-      0004C5 E4               [12]  770 	clr	a
-      0004C6 9C               [12]  771 	subb	a,r4
-      0004C7 FC               [12]  772 	mov	r4,a
-      0004C8 E4               [12]  773 	clr	a
-      0004C9 9D               [12]  774 	subb	a,r5
-                                    775 ;	FwLib_STC8\src\fw_uart.c:30: }
-      0004CA 8C 82            [24]  776 	mov	dpl,r4
-      0004CC F5 83            [12]  777 	mov	dph,a
-      0004CE 22               [24]  778 	ret
+      000129 AF 82            [24]  606 	mov	r7,dpl
+      00012B AE 83            [24]  607 	mov	r6,dph
+      00012D AD F0            [24]  608 	mov	r5,b
+      00012F FC               [12]  609 	mov	r4,a
+      000130 90 00 06         [24]  610 	mov	dptr,#_UART_Timer_InitValueCalculate_sysclk_10000_25
+      000133 EF               [12]  611 	mov	a,r7
+      000134 F0               [24]  612 	movx	@dptr,a
+      000135 EE               [12]  613 	mov	a,r6
+      000136 A3               [24]  614 	inc	dptr
+      000137 F0               [24]  615 	movx	@dptr,a
+      000138 ED               [12]  616 	mov	a,r5
+      000139 A3               [24]  617 	inc	dptr
+      00013A F0               [24]  618 	movx	@dptr,a
+      00013B EC               [12]  619 	mov	a,r4
+      00013C A3               [24]  620 	inc	dptr
+      00013D F0               [24]  621 	movx	@dptr,a
+                                    622 ;	.\FwLib_STC8\src\fw_uart.c:23: value = sysclk / (4 * baudrate);
+      00013E 90 00 02         [24]  623 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      000141 E0               [24]  624 	movx	a,@dptr
+      000142 FC               [12]  625 	mov	r4,a
+      000143 A3               [24]  626 	inc	dptr
+      000144 E0               [24]  627 	movx	a,@dptr
+      000145 FD               [12]  628 	mov	r5,a
+      000146 A3               [24]  629 	inc	dptr
+      000147 E0               [24]  630 	movx	a,@dptr
+      000148 FE               [12]  631 	mov	r6,a
+      000149 A3               [24]  632 	inc	dptr
+      00014A E0               [24]  633 	movx	a,@dptr
+      00014B FF               [12]  634 	mov	r7,a
+      00014C EC               [12]  635 	mov	a,r4
+      00014D 2C               [12]  636 	add	a,r4
+      00014E FC               [12]  637 	mov	r4,a
+      00014F ED               [12]  638 	mov	a,r5
+      000150 33               [12]  639 	rlc	a
+      000151 FD               [12]  640 	mov	r5,a
+      000152 EE               [12]  641 	mov	a,r6
+      000153 33               [12]  642 	rlc	a
+      000154 FE               [12]  643 	mov	r6,a
+      000155 EF               [12]  644 	mov	a,r7
+      000156 33               [12]  645 	rlc	a
+      000157 FF               [12]  646 	mov	r7,a
+      000158 EC               [12]  647 	mov	a,r4
+      000159 2C               [12]  648 	add	a,r4
+      00015A FC               [12]  649 	mov	r4,a
+      00015B ED               [12]  650 	mov	a,r5
+      00015C 33               [12]  651 	rlc	a
+      00015D FD               [12]  652 	mov	r5,a
+      00015E EE               [12]  653 	mov	a,r6
+      00015F 33               [12]  654 	rlc	a
+      000160 FE               [12]  655 	mov	r6,a
+      000161 EF               [12]  656 	mov	a,r7
+      000162 33               [12]  657 	rlc	a
+      000163 FF               [12]  658 	mov	r7,a
+      000164 90 00 06         [24]  659 	mov	dptr,#_UART_Timer_InitValueCalculate_sysclk_10000_25
+      000167 E0               [24]  660 	movx	a,@dptr
+      000168 F8               [12]  661 	mov	r0,a
+      000169 A3               [24]  662 	inc	dptr
+      00016A E0               [24]  663 	movx	a,@dptr
+      00016B F9               [12]  664 	mov	r1,a
+      00016C A3               [24]  665 	inc	dptr
+      00016D E0               [24]  666 	movx	a,@dptr
+      00016E FA               [12]  667 	mov	r2,a
+      00016F A3               [24]  668 	inc	dptr
+      000170 E0               [24]  669 	movx	a,@dptr
+      000171 FB               [12]  670 	mov	r3,a
+      000172 90 01 F1         [24]  671 	mov	dptr,#__divulong_PARM_2
+      000175 EC               [12]  672 	mov	a,r4
+      000176 F0               [24]  673 	movx	@dptr,a
+      000177 ED               [12]  674 	mov	a,r5
+      000178 A3               [24]  675 	inc	dptr
+      000179 F0               [24]  676 	movx	@dptr,a
+      00017A EE               [12]  677 	mov	a,r6
+      00017B A3               [24]  678 	inc	dptr
+      00017C F0               [24]  679 	movx	@dptr,a
+      00017D EF               [12]  680 	mov	a,r7
+      00017E A3               [24]  681 	inc	dptr
+      00017F F0               [24]  682 	movx	@dptr,a
+      000180 88 82            [24]  683 	mov	dpl, r0
+      000182 89 83            [24]  684 	mov	dph, r1
+      000184 8A F0            [24]  685 	mov	b, r2
+      000186 EB               [12]  686 	mov	a, r3
+      000187 12 27 0B         [24]  687 	lcall	__divulong
+      00018A AC 82            [24]  688 	mov	r4, dpl
+      00018C AD 83            [24]  689 	mov	r5, dph
+      00018E AE F0            [24]  690 	mov	r6, b
+      000190 FF               [12]  691 	mov	r7, a
+      000191 90 00 0A         [24]  692 	mov	dptr,#_UART_Timer_InitValueCalculate_value_10000_26
+      000194 EC               [12]  693 	mov	a,r4
+      000195 F0               [24]  694 	movx	@dptr,a
+      000196 ED               [12]  695 	mov	a,r5
+      000197 A3               [24]  696 	inc	dptr
+      000198 F0               [24]  697 	movx	@dptr,a
+      000199 EE               [12]  698 	mov	a,r6
+      00019A A3               [24]  699 	inc	dptr
+      00019B F0               [24]  700 	movx	@dptr,a
+      00019C EF               [12]  701 	mov	a,r7
+      00019D A3               [24]  702 	inc	dptr
+      00019E F0               [24]  703 	movx	@dptr,a
+                                    704 ;	.\FwLib_STC8\src\fw_uart.c:24: if (!_1TMode)
+      00019F 90 00 01         [24]  705 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      0001A2 E0               [24]  706 	movx	a,@dptr
+      0001A3 70 2C            [24]  707 	jnz	00102$
+                                    708 ;	.\FwLib_STC8\src\fw_uart.c:25: value = value / 12;
+      0001A5 90 01 F1         [24]  709 	mov	dptr,#__divulong_PARM_2
+      0001A8 74 0C            [12]  710 	mov	a,#0x0c
+      0001AA F0               [24]  711 	movx	@dptr,a
+      0001AB E4               [12]  712 	clr	a
+      0001AC A3               [24]  713 	inc	dptr
+      0001AD F0               [24]  714 	movx	@dptr,a
+      0001AE A3               [24]  715 	inc	dptr
+      0001AF F0               [24]  716 	movx	@dptr,a
+      0001B0 A3               [24]  717 	inc	dptr
+      0001B1 F0               [24]  718 	movx	@dptr,a
+      0001B2 8C 82            [24]  719 	mov	dpl, r4
+      0001B4 8D 83            [24]  720 	mov	dph, r5
+      0001B6 8E F0            [24]  721 	mov	b, r6
+      0001B8 EF               [12]  722 	mov	a, r7
+      0001B9 12 27 0B         [24]  723 	lcall	__divulong
+      0001BC AC 82            [24]  724 	mov	r4, dpl
+      0001BE AD 83            [24]  725 	mov	r5, dph
+      0001C0 AE F0            [24]  726 	mov	r6, b
+      0001C2 FF               [12]  727 	mov	r7, a
+      0001C3 90 00 0A         [24]  728 	mov	dptr,#_UART_Timer_InitValueCalculate_value_10000_26
+      0001C6 EC               [12]  729 	mov	a,r4
+      0001C7 F0               [24]  730 	movx	@dptr,a
+      0001C8 ED               [12]  731 	mov	a,r5
+      0001C9 A3               [24]  732 	inc	dptr
+      0001CA F0               [24]  733 	movx	@dptr,a
+      0001CB EE               [12]  734 	mov	a,r6
+      0001CC A3               [24]  735 	inc	dptr
+      0001CD F0               [24]  736 	movx	@dptr,a
+      0001CE EF               [12]  737 	mov	a,r7
+      0001CF A3               [24]  738 	inc	dptr
+      0001D0 F0               [24]  739 	movx	@dptr,a
+      0001D1                        740 00102$:
+                                    741 ;	.\FwLib_STC8\src\fw_uart.c:26: if (value > 0xFFFF)
+      0001D1 90 00 0A         [24]  742 	mov	dptr,#_UART_Timer_InitValueCalculate_value_10000_26
+      0001D4 E0               [24]  743 	movx	a,@dptr
+      0001D5 FC               [12]  744 	mov	r4,a
+      0001D6 A3               [24]  745 	inc	dptr
+      0001D7 E0               [24]  746 	movx	a,@dptr
+      0001D8 FD               [12]  747 	mov	r5,a
+      0001D9 A3               [24]  748 	inc	dptr
+      0001DA E0               [24]  749 	movx	a,@dptr
+      0001DB FE               [12]  750 	mov	r6,a
+      0001DC A3               [24]  751 	inc	dptr
+      0001DD E0               [24]  752 	movx	a,@dptr
+      0001DE FF               [12]  753 	mov	r7,a
+      0001DF C3               [12]  754 	clr	c
+      0001E0 74 FF            [12]  755 	mov	a,#0xff
+      0001E2 9C               [12]  756 	subb	a,r4
+      0001E3 74 FF            [12]  757 	mov	a,#0xff
+      0001E5 9D               [12]  758 	subb	a,r5
+      0001E6 E4               [12]  759 	clr	a
+      0001E7 9E               [12]  760 	subb	a,r6
+      0001E8 E4               [12]  761 	clr	a
+      0001E9 9F               [12]  762 	subb	a,r7
+      0001EA 50 04            [24]  763 	jnc	00104$
+                                    764 ;	.\FwLib_STC8\src\fw_uart.c:27: return 0;
+      0001EC 90 00 00         [24]  765 	mov	dptr,#0x0000
+      0001EF 22               [24]  766 	ret
+      0001F0                        767 00104$:
+                                    768 ;	.\FwLib_STC8\src\fw_uart.c:29: return 0xFFFF - value + 1;
+      0001F0 C3               [12]  769 	clr	c
+      0001F1 E4               [12]  770 	clr	a
+      0001F2 9C               [12]  771 	subb	a,r4
+      0001F3 FC               [12]  772 	mov	r4,a
+      0001F4 E4               [12]  773 	clr	a
+      0001F5 9D               [12]  774 	subb	a,r5
+                                    775 ;	.\FwLib_STC8\src\fw_uart.c:30: }
+      0001F6 8C 82            [24]  776 	mov	dpl,r4
+      0001F8 F5 83            [12]  777 	mov	dph,a
+      0001FA 22               [24]  778 	ret
                                     779 ;------------------------------------------------------------
                                     780 ;Allocation info for local variables in function '_UART1_ConfigDynUart'
                                     781 ;------------------------------------------------------------
@@ -783,76 +783,76 @@
                                     783 ;init          Allocated with name '__UART1_ConfigDynUart_PARM_3'
                                     784 ;baudSource    Allocated with name '__UART1_ConfigDynUart_baudSource_10000_27'
                                     785 ;------------------------------------------------------------
-                                    786 ;	FwLib_STC8\src\fw_uart.c:36: void _UART1_ConfigDynUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, int16_t init)
+                                    786 ;	.\FwLib_STC8\src\fw_uart.c:36: void _UART1_ConfigDynUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, int16_t init)
                                     787 ;	-----------------------------------------
                                     788 ;	 function _UART1_ConfigDynUart
                                     789 ;	-----------------------------------------
-      0004CF                        790 __UART1_ConfigDynUart:
-      0004CF E5 82            [12]  791 	mov	a,dpl
-      0004D1 90 00 2F         [24]  792 	mov	dptr,#__UART1_ConfigDynUart_baudSource_10000_27
-      0004D4 F0               [24]  793 	movx	@dptr,a
-                                    794 ;	FwLib_STC8\src\fw_uart.c:38: UART1_SetBaudSource(baudSource);
-      0004D5 74 FE            [12]  795 	mov	a,#0xfe
-      0004D7 55 8E            [12]  796 	anl	a,_AUXR
-      0004D9 FF               [12]  797 	mov	r7,a
-      0004DA E0               [24]  798 	movx	a,@dptr
-      0004DB FE               [12]  799 	mov	r6,a
-      0004DC 4F               [12]  800 	orl	a,r7
-      0004DD F5 8E            [12]  801 	mov	_AUXR,a
-                                    802 ;	FwLib_STC8\src\fw_uart.c:40: if (baudSource == UART1_BaudSource_Timer1)
-      0004DF EE               [12]  803 	mov	a,r6
-      0004E0 70 21            [24]  804 	jnz	00108$
-                                    805 ;	FwLib_STC8\src\fw_uart.c:42: TIM_Timer1_Set1TMode(_1TMode);
-      0004E2 74 BF            [12]  806 	mov	a,#0xbf
-      0004E4 55 8E            [12]  807 	anl	a,_AUXR
-      0004E6 FF               [12]  808 	mov	r7,a
-      0004E7 90 00 2C         [24]  809 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
-      0004EA E0               [24]  810 	movx	a,@dptr
-      0004EB 03               [12]  811 	rr	a
-      0004EC 03               [12]  812 	rr	a
-      0004ED 54 C0            [12]  813 	anl	a,#0xc0
-      0004EF 4F               [12]  814 	orl	a,r7
-      0004F0 F5 8E            [12]  815 	mov	_AUXR,a
-                                    816 ;	FwLib_STC8\src\fw_uart.c:43: TIM_Timer1_SetMode(TIM_TimerMode_16BitAuto);
-      0004F2 53 89 CF         [24]  817 	anl	_TMOD,#0xcf
-                                    818 ;	FwLib_STC8\src\fw_uart.c:44: TIM_Timer1_SetInitValue(init >> 8, init & 0xFF);
-      0004F5 90 00 2D         [24]  819 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
-      0004F8 E0               [24]  820 	movx	a,@dptr
-      0004F9 FE               [12]  821 	mov	r6,a
-      0004FA A3               [24]  822 	inc	dptr
-      0004FB E0               [24]  823 	movx	a,@dptr
-      0004FC F5 8D            [12]  824 	mov	_TH1, a
-      0004FE 8E 8B            [24]  825 	mov	_TL1,r6
-                                    826 ;	FwLib_STC8\src\fw_uart.c:45: TIM_Timer1_SetRunState(HAL_State_ON);
+      0001FB                        790 __UART1_ConfigDynUart:
+      0001FB E5 82            [12]  791 	mov	a,dpl
+      0001FD 90 00 11         [24]  792 	mov	dptr,#__UART1_ConfigDynUart_baudSource_10000_27
+      000200 F0               [24]  793 	movx	@dptr,a
+                                    794 ;	.\FwLib_STC8\src\fw_uart.c:38: UART1_SetBaudSource(baudSource);
+      000201 74 FE            [12]  795 	mov	a,#0xfe
+      000203 55 8E            [12]  796 	anl	a,_AUXR
+      000205 FF               [12]  797 	mov	r7,a
+      000206 E0               [24]  798 	movx	a,@dptr
+      000207 FE               [12]  799 	mov	r6,a
+      000208 4F               [12]  800 	orl	a,r7
+      000209 F5 8E            [12]  801 	mov	_AUXR,a
+                                    802 ;	.\FwLib_STC8\src\fw_uart.c:40: if (baudSource == UART1_BaudSource_Timer1)
+      00020B EE               [12]  803 	mov	a,r6
+      00020C 70 21            [24]  804 	jnz	00108$
+                                    805 ;	.\FwLib_STC8\src\fw_uart.c:42: TIM_Timer1_Set1TMode(_1TMode);
+      00020E 74 BF            [12]  806 	mov	a,#0xbf
+      000210 55 8E            [12]  807 	anl	a,_AUXR
+      000212 FF               [12]  808 	mov	r7,a
+      000213 90 00 0E         [24]  809 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
+      000216 E0               [24]  810 	movx	a,@dptr
+      000217 03               [12]  811 	rr	a
+      000218 03               [12]  812 	rr	a
+      000219 54 C0            [12]  813 	anl	a,#0xc0
+      00021B 4F               [12]  814 	orl	a,r7
+      00021C F5 8E            [12]  815 	mov	_AUXR,a
+                                    816 ;	.\FwLib_STC8\src\fw_uart.c:43: TIM_Timer1_SetMode(TIM_TimerMode_16BitAuto);
+      00021E 53 89 CF         [24]  817 	anl	_TMOD,#0xcf
+                                    818 ;	.\FwLib_STC8\src\fw_uart.c:44: TIM_Timer1_SetInitValue(init >> 8, init & 0xFF);
+      000221 90 00 0F         [24]  819 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
+      000224 E0               [24]  820 	movx	a,@dptr
+      000225 FE               [12]  821 	mov	r6,a
+      000226 A3               [24]  822 	inc	dptr
+      000227 E0               [24]  823 	movx	a,@dptr
+      000228 F5 8D            [12]  824 	mov	_TH1, a
+      00022A 8E 8B            [24]  825 	mov	_TL1,r6
+                                    826 ;	.\FwLib_STC8\src\fw_uart.c:45: TIM_Timer1_SetRunState(HAL_State_ON);
                                     827 ;	assignBit
-      000500 D2 8E            [12]  828 	setb	_TR1
-      000502 22               [24]  829 	ret
-      000503                        830 00108$:
-                                    831 ;	FwLib_STC8\src\fw_uart.c:51: TIM_Timer2_Set1TMode(_1TMode);
-      000503 74 FB            [12]  832 	mov	a,#0xfb
-      000505 55 8E            [12]  833 	anl	a,_AUXR
-      000507 FF               [12]  834 	mov	r7,a
-      000508 90 00 2C         [24]  835 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
-      00050B E0               [24]  836 	movx	a,@dptr
-      00050C 25 E0            [12]  837 	add	a,acc
-      00050E 25 E0            [12]  838 	add	a,acc
-      000510 4F               [12]  839 	orl	a,r7
-      000511 F5 8E            [12]  840 	mov	_AUXR,a
-                                    841 ;	FwLib_STC8\src\fw_uart.c:52: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
-      000513 90 00 2D         [24]  842 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
-      000516 E0               [24]  843 	movx	a,@dptr
-      000517 FE               [12]  844 	mov	r6,a
-      000518 A3               [24]  845 	inc	dptr
-      000519 E0               [24]  846 	movx	a,@dptr
-      00051A F5 D6            [12]  847 	mov	_T2H, a
-      00051C 8E D7            [24]  848 	mov	_T2L,r6
-                                    849 ;	FwLib_STC8\src\fw_uart.c:53: TIM_Timer2_SetRunState(HAL_State_ON);
-      00051E 74 EF            [12]  850 	mov	a,#0xef
-      000520 55 8E            [12]  851 	anl	a,_AUXR
-      000522 44 10            [12]  852 	orl	a,#0x10
-      000524 F5 8E            [12]  853 	mov	_AUXR,a
-                                    854 ;	FwLib_STC8\src\fw_uart.c:55: }
-      000526 22               [24]  855 	ret
+      00022C D2 8E            [12]  828 	setb	_TR1
+      00022E 22               [24]  829 	ret
+      00022F                        830 00108$:
+                                    831 ;	.\FwLib_STC8\src\fw_uart.c:51: TIM_Timer2_Set1TMode(_1TMode);
+      00022F 74 FB            [12]  832 	mov	a,#0xfb
+      000231 55 8E            [12]  833 	anl	a,_AUXR
+      000233 FF               [12]  834 	mov	r7,a
+      000234 90 00 0E         [24]  835 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
+      000237 E0               [24]  836 	movx	a,@dptr
+      000238 25 E0            [12]  837 	add	a,acc
+      00023A 25 E0            [12]  838 	add	a,acc
+      00023C 4F               [12]  839 	orl	a,r7
+      00023D F5 8E            [12]  840 	mov	_AUXR,a
+                                    841 ;	.\FwLib_STC8\src\fw_uart.c:52: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+      00023F 90 00 0F         [24]  842 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
+      000242 E0               [24]  843 	movx	a,@dptr
+      000243 FE               [12]  844 	mov	r6,a
+      000244 A3               [24]  845 	inc	dptr
+      000245 E0               [24]  846 	movx	a,@dptr
+      000246 F5 D6            [12]  847 	mov	_T2H, a
+      000248 8E D7            [24]  848 	mov	_T2L,r6
+                                    849 ;	.\FwLib_STC8\src\fw_uart.c:53: TIM_Timer2_SetRunState(HAL_State_ON);
+      00024A 74 EF            [12]  850 	mov	a,#0xef
+      00024C 55 8E            [12]  851 	anl	a,_AUXR
+      00024E 44 10            [12]  852 	orl	a,#0x10
+      000250 F5 8E            [12]  853 	mov	_AUXR,a
+                                    854 ;	.\FwLib_STC8\src\fw_uart.c:55: }
+      000252 22               [24]  855 	ret
                                     856 ;------------------------------------------------------------
                                     857 ;Allocation info for local variables in function 'UART1_Config8bitUart'
                                     858 ;------------------------------------------------------------
@@ -861,74 +861,74 @@
                                     861 ;baudSource    Allocated with name '_UART1_Config8bitUart_baudSource_10000_33'
                                     862 ;init          Allocated with name '_UART1_Config8bitUart_init_10000_34'
                                     863 ;------------------------------------------------------------
-                                    864 ;	FwLib_STC8\src\fw_uart.c:56: void UART1_Config8bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
+                                    864 ;	.\FwLib_STC8\src\fw_uart.c:56: void UART1_Config8bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
                                     865 ;	-----------------------------------------
                                     866 ;	 function UART1_Config8bitUart
                                     867 ;	-----------------------------------------
-      000527                        868 _UART1_Config8bitUart:
-      000527 E5 82            [12]  869 	mov	a,dpl
-      000529 90 00 35         [24]  870 	mov	dptr,#_UART1_Config8bitUart_baudSource_10000_33
-      00052C F0               [24]  871 	movx	@dptr,a
-                                    872 ;	FwLib_STC8\src\fw_uart.c:59: SM0=0; SM1=1;
+      000253                        868 _UART1_Config8bitUart:
+      000253 E5 82            [12]  869 	mov	a,dpl
+      000255 90 00 17         [24]  870 	mov	dptr,#_UART1_Config8bitUart_baudSource_10000_33
+      000258 F0               [24]  871 	movx	@dptr,a
+                                    872 ;	.\FwLib_STC8\src\fw_uart.c:59: SM0=0; SM1=1;
                                     873 ;	assignBit
-      00052D C2 9F            [12]  874 	clr	_SM0
+      000259 C2 9F            [12]  874 	clr	_SM0
                                     875 ;	assignBit
-      00052F D2 9E            [12]  876 	setb	_SM1
-                                    877 ;	FwLib_STC8\src\fw_uart.c:60: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
-      000531 90 00 30         [24]  878 	mov	dptr,#_UART1_Config8bitUart_PARM_2
-      000534 E0               [24]  879 	movx	a,@dptr
-      000535 FF               [12]  880 	mov	r7,a
-      000536 90 00 31         [24]  881 	mov	dptr,#_UART1_Config8bitUart_PARM_3
-      000539 E0               [24]  882 	movx	a,@dptr
-      00053A FB               [12]  883 	mov	r3,a
-      00053B A3               [24]  884 	inc	dptr
-      00053C E0               [24]  885 	movx	a,@dptr
-      00053D FC               [12]  886 	mov	r4,a
-      00053E A3               [24]  887 	inc	dptr
-      00053F E0               [24]  888 	movx	a,@dptr
-      000540 FD               [12]  889 	mov	r5,a
-      000541 A3               [24]  890 	inc	dptr
-      000542 E0               [24]  891 	movx	a,@dptr
-      000543 FE               [12]  892 	mov	r6,a
-      000544 90 00 1F         [24]  893 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      000547 EF               [12]  894 	mov	a,r7
-      000548 F0               [24]  895 	movx	@dptr,a
-      000549 90 00 20         [24]  896 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      00054C EB               [12]  897 	mov	a,r3
-      00054D F0               [24]  898 	movx	@dptr,a
-      00054E EC               [12]  899 	mov	a,r4
-      00054F A3               [24]  900 	inc	dptr
-      000550 F0               [24]  901 	movx	@dptr,a
-      000551 ED               [12]  902 	mov	a,r5
-      000552 A3               [24]  903 	inc	dptr
-      000553 F0               [24]  904 	movx	@dptr,a
-      000554 EE               [12]  905 	mov	a,r6
-      000555 A3               [24]  906 	inc	dptr
-      000556 F0               [24]  907 	movx	@dptr,a
-      000557 90 36 00         [24]  908 	mov	dptr,#0x3600
-      00055A 75 F0 6E         [24]  909 	mov	b, #0x6e
-      00055D 74 01            [12]  910 	mov	a, #0x01
-      00055F C0 07            [24]  911 	push	ar7
-      000561 12 03 FD         [24]  912 	lcall	_UART_Timer_InitValueCalculate
-      000564 AD 82            [24]  913 	mov	r5, dpl
-      000566 AE 83            [24]  914 	mov	r6, dph
-      000568 D0 07            [24]  915 	pop	ar7
-                                    916 ;	FwLib_STC8\src\fw_uart.c:61: _UART1_ConfigDynUart(baudSource, _1TMode, init);
-      00056A 90 00 35         [24]  917 	mov	dptr,#_UART1_Config8bitUart_baudSource_10000_33
-      00056D E0               [24]  918 	movx	a,@dptr
-      00056E FC               [12]  919 	mov	r4,a
-      00056F 90 00 2C         [24]  920 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
-      000572 EF               [12]  921 	mov	a,r7
-      000573 F0               [24]  922 	movx	@dptr,a
-      000574 90 00 2D         [24]  923 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
-      000577 ED               [12]  924 	mov	a,r5
-      000578 F0               [24]  925 	movx	@dptr,a
-      000579 EE               [12]  926 	mov	a,r6
-      00057A A3               [24]  927 	inc	dptr
-      00057B F0               [24]  928 	movx	@dptr,a
-      00057C 8C 82            [24]  929 	mov	dpl, r4
-                                    930 ;	FwLib_STC8\src\fw_uart.c:62: }
-      00057E 02 04 CF         [24]  931 	ljmp	__UART1_ConfigDynUart
+      00025B D2 9E            [12]  876 	setb	_SM1
+                                    877 ;	.\FwLib_STC8\src\fw_uart.c:60: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+      00025D 90 00 12         [24]  878 	mov	dptr,#_UART1_Config8bitUart_PARM_2
+      000260 E0               [24]  879 	movx	a,@dptr
+      000261 FF               [12]  880 	mov	r7,a
+      000262 90 00 13         [24]  881 	mov	dptr,#_UART1_Config8bitUart_PARM_3
+      000265 E0               [24]  882 	movx	a,@dptr
+      000266 FB               [12]  883 	mov	r3,a
+      000267 A3               [24]  884 	inc	dptr
+      000268 E0               [24]  885 	movx	a,@dptr
+      000269 FC               [12]  886 	mov	r4,a
+      00026A A3               [24]  887 	inc	dptr
+      00026B E0               [24]  888 	movx	a,@dptr
+      00026C FD               [12]  889 	mov	r5,a
+      00026D A3               [24]  890 	inc	dptr
+      00026E E0               [24]  891 	movx	a,@dptr
+      00026F FE               [12]  892 	mov	r6,a
+      000270 90 00 01         [24]  893 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      000273 EF               [12]  894 	mov	a,r7
+      000274 F0               [24]  895 	movx	@dptr,a
+      000275 90 00 02         [24]  896 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      000278 EB               [12]  897 	mov	a,r3
+      000279 F0               [24]  898 	movx	@dptr,a
+      00027A EC               [12]  899 	mov	a,r4
+      00027B A3               [24]  900 	inc	dptr
+      00027C F0               [24]  901 	movx	@dptr,a
+      00027D ED               [12]  902 	mov	a,r5
+      00027E A3               [24]  903 	inc	dptr
+      00027F F0               [24]  904 	movx	@dptr,a
+      000280 EE               [12]  905 	mov	a,r6
+      000281 A3               [24]  906 	inc	dptr
+      000282 F0               [24]  907 	movx	@dptr,a
+      000283 90 80 00         [24]  908 	mov	dptr,#0x8000
+      000286 75 F0 51         [24]  909 	mov	b, #0x51
+      000289 74 01            [12]  910 	mov	a, #0x01
+      00028B C0 07            [24]  911 	push	ar7
+      00028D 12 01 29         [24]  912 	lcall	_UART_Timer_InitValueCalculate
+      000290 AD 82            [24]  913 	mov	r5, dpl
+      000292 AE 83            [24]  914 	mov	r6, dph
+      000294 D0 07            [24]  915 	pop	ar7
+                                    916 ;	.\FwLib_STC8\src\fw_uart.c:61: _UART1_ConfigDynUart(baudSource, _1TMode, init);
+      000296 90 00 17         [24]  917 	mov	dptr,#_UART1_Config8bitUart_baudSource_10000_33
+      000299 E0               [24]  918 	movx	a,@dptr
+      00029A FC               [12]  919 	mov	r4,a
+      00029B 90 00 0E         [24]  920 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
+      00029E EF               [12]  921 	mov	a,r7
+      00029F F0               [24]  922 	movx	@dptr,a
+      0002A0 90 00 0F         [24]  923 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
+      0002A3 ED               [12]  924 	mov	a,r5
+      0002A4 F0               [24]  925 	movx	@dptr,a
+      0002A5 EE               [12]  926 	mov	a,r6
+      0002A6 A3               [24]  927 	inc	dptr
+      0002A7 F0               [24]  928 	movx	@dptr,a
+      0002A8 8C 82            [24]  929 	mov	dpl, r4
+                                    930 ;	.\FwLib_STC8\src\fw_uart.c:62: }
+      0002AA 02 01 FB         [24]  931 	ljmp	__UART1_ConfigDynUart
                                     932 ;------------------------------------------------------------
                                     933 ;Allocation info for local variables in function 'UART1_Config9bitUart'
                                     934 ;------------------------------------------------------------
@@ -937,240 +937,240 @@
                                     937 ;baudSource    Allocated with name '_UART1_Config9bitUart_baudSource_10000_35'
                                     938 ;init          Allocated with name '_UART1_Config9bitUart_init_10000_36'
                                     939 ;------------------------------------------------------------
-                                    940 ;	FwLib_STC8\src\fw_uart.c:64: void UART1_Config9bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
+                                    940 ;	.\FwLib_STC8\src\fw_uart.c:64: void UART1_Config9bitUart(UART1_BaudSource_t baudSource, HAL_State_t _1TMode, uint32_t baudrate)
                                     941 ;	-----------------------------------------
                                     942 ;	 function UART1_Config9bitUart
                                     943 ;	-----------------------------------------
-      000581                        944 _UART1_Config9bitUart:
-      000581 E5 82            [12]  945 	mov	a,dpl
-      000583 90 00 3B         [24]  946 	mov	dptr,#_UART1_Config9bitUart_baudSource_10000_35
-      000586 F0               [24]  947 	movx	@dptr,a
-                                    948 ;	FwLib_STC8\src\fw_uart.c:67: SM0=1; SM1=1;
+      0002AD                        944 _UART1_Config9bitUart:
+      0002AD E5 82            [12]  945 	mov	a,dpl
+      0002AF 90 00 1D         [24]  946 	mov	dptr,#_UART1_Config9bitUart_baudSource_10000_35
+      0002B2 F0               [24]  947 	movx	@dptr,a
+                                    948 ;	.\FwLib_STC8\src\fw_uart.c:67: SM0=1; SM1=1;
                                     949 ;	assignBit
-      000587 D2 9F            [12]  950 	setb	_SM0
+      0002B3 D2 9F            [12]  950 	setb	_SM0
                                     951 ;	assignBit
-      000589 D2 9E            [12]  952 	setb	_SM1
-                                    953 ;	FwLib_STC8\src\fw_uart.c:68: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
-      00058B 90 00 36         [24]  954 	mov	dptr,#_UART1_Config9bitUart_PARM_2
-      00058E E0               [24]  955 	movx	a,@dptr
-      00058F FF               [12]  956 	mov	r7,a
-      000590 90 00 37         [24]  957 	mov	dptr,#_UART1_Config9bitUart_PARM_3
-      000593 E0               [24]  958 	movx	a,@dptr
-      000594 FB               [12]  959 	mov	r3,a
-      000595 A3               [24]  960 	inc	dptr
-      000596 E0               [24]  961 	movx	a,@dptr
-      000597 FC               [12]  962 	mov	r4,a
-      000598 A3               [24]  963 	inc	dptr
-      000599 E0               [24]  964 	movx	a,@dptr
-      00059A FD               [12]  965 	mov	r5,a
-      00059B A3               [24]  966 	inc	dptr
-      00059C E0               [24]  967 	movx	a,@dptr
-      00059D FE               [12]  968 	mov	r6,a
-      00059E 90 00 1F         [24]  969 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      0005A1 EF               [12]  970 	mov	a,r7
-      0005A2 F0               [24]  971 	movx	@dptr,a
-      0005A3 90 00 20         [24]  972 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      0005A6 EB               [12]  973 	mov	a,r3
-      0005A7 F0               [24]  974 	movx	@dptr,a
-      0005A8 EC               [12]  975 	mov	a,r4
-      0005A9 A3               [24]  976 	inc	dptr
-      0005AA F0               [24]  977 	movx	@dptr,a
-      0005AB ED               [12]  978 	mov	a,r5
-      0005AC A3               [24]  979 	inc	dptr
-      0005AD F0               [24]  980 	movx	@dptr,a
-      0005AE EE               [12]  981 	mov	a,r6
-      0005AF A3               [24]  982 	inc	dptr
-      0005B0 F0               [24]  983 	movx	@dptr,a
-      0005B1 90 36 00         [24]  984 	mov	dptr,#0x3600
-      0005B4 75 F0 6E         [24]  985 	mov	b, #0x6e
-      0005B7 74 01            [12]  986 	mov	a, #0x01
-      0005B9 C0 07            [24]  987 	push	ar7
-      0005BB 12 03 FD         [24]  988 	lcall	_UART_Timer_InitValueCalculate
-      0005BE AD 82            [24]  989 	mov	r5, dpl
-      0005C0 AE 83            [24]  990 	mov	r6, dph
-      0005C2 D0 07            [24]  991 	pop	ar7
-                                    992 ;	FwLib_STC8\src\fw_uart.c:69: _UART1_ConfigDynUart(baudSource, _1TMode, init);
-      0005C4 90 00 3B         [24]  993 	mov	dptr,#_UART1_Config9bitUart_baudSource_10000_35
-      0005C7 E0               [24]  994 	movx	a,@dptr
-      0005C8 FC               [12]  995 	mov	r4,a
-      0005C9 90 00 2C         [24]  996 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
-      0005CC EF               [12]  997 	mov	a,r7
-      0005CD F0               [24]  998 	movx	@dptr,a
-      0005CE 90 00 2D         [24]  999 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
-      0005D1 ED               [12] 1000 	mov	a,r5
-      0005D2 F0               [24] 1001 	movx	@dptr,a
-      0005D3 EE               [12] 1002 	mov	a,r6
-      0005D4 A3               [24] 1003 	inc	dptr
-      0005D5 F0               [24] 1004 	movx	@dptr,a
-      0005D6 8C 82            [24] 1005 	mov	dpl, r4
-                                   1006 ;	FwLib_STC8\src\fw_uart.c:70: }
-      0005D8 02 04 CF         [24] 1007 	ljmp	__UART1_ConfigDynUart
+      0002B5 D2 9E            [12]  952 	setb	_SM1
+                                    953 ;	.\FwLib_STC8\src\fw_uart.c:68: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+      0002B7 90 00 18         [24]  954 	mov	dptr,#_UART1_Config9bitUart_PARM_2
+      0002BA E0               [24]  955 	movx	a,@dptr
+      0002BB FF               [12]  956 	mov	r7,a
+      0002BC 90 00 19         [24]  957 	mov	dptr,#_UART1_Config9bitUart_PARM_3
+      0002BF E0               [24]  958 	movx	a,@dptr
+      0002C0 FB               [12]  959 	mov	r3,a
+      0002C1 A3               [24]  960 	inc	dptr
+      0002C2 E0               [24]  961 	movx	a,@dptr
+      0002C3 FC               [12]  962 	mov	r4,a
+      0002C4 A3               [24]  963 	inc	dptr
+      0002C5 E0               [24]  964 	movx	a,@dptr
+      0002C6 FD               [12]  965 	mov	r5,a
+      0002C7 A3               [24]  966 	inc	dptr
+      0002C8 E0               [24]  967 	movx	a,@dptr
+      0002C9 FE               [12]  968 	mov	r6,a
+      0002CA 90 00 01         [24]  969 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      0002CD EF               [12]  970 	mov	a,r7
+      0002CE F0               [24]  971 	movx	@dptr,a
+      0002CF 90 00 02         [24]  972 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      0002D2 EB               [12]  973 	mov	a,r3
+      0002D3 F0               [24]  974 	movx	@dptr,a
+      0002D4 EC               [12]  975 	mov	a,r4
+      0002D5 A3               [24]  976 	inc	dptr
+      0002D6 F0               [24]  977 	movx	@dptr,a
+      0002D7 ED               [12]  978 	mov	a,r5
+      0002D8 A3               [24]  979 	inc	dptr
+      0002D9 F0               [24]  980 	movx	@dptr,a
+      0002DA EE               [12]  981 	mov	a,r6
+      0002DB A3               [24]  982 	inc	dptr
+      0002DC F0               [24]  983 	movx	@dptr,a
+      0002DD 90 80 00         [24]  984 	mov	dptr,#0x8000
+      0002E0 75 F0 51         [24]  985 	mov	b, #0x51
+      0002E3 74 01            [12]  986 	mov	a, #0x01
+      0002E5 C0 07            [24]  987 	push	ar7
+      0002E7 12 01 29         [24]  988 	lcall	_UART_Timer_InitValueCalculate
+      0002EA AD 82            [24]  989 	mov	r5, dpl
+      0002EC AE 83            [24]  990 	mov	r6, dph
+      0002EE D0 07            [24]  991 	pop	ar7
+                                    992 ;	.\FwLib_STC8\src\fw_uart.c:69: _UART1_ConfigDynUart(baudSource, _1TMode, init);
+      0002F0 90 00 1D         [24]  993 	mov	dptr,#_UART1_Config9bitUart_baudSource_10000_35
+      0002F3 E0               [24]  994 	movx	a,@dptr
+      0002F4 FC               [12]  995 	mov	r4,a
+      0002F5 90 00 0E         [24]  996 	mov	dptr,#__UART1_ConfigDynUart_PARM_2
+      0002F8 EF               [12]  997 	mov	a,r7
+      0002F9 F0               [24]  998 	movx	@dptr,a
+      0002FA 90 00 0F         [24]  999 	mov	dptr,#__UART1_ConfigDynUart_PARM_3
+      0002FD ED               [12] 1000 	mov	a,r5
+      0002FE F0               [24] 1001 	movx	@dptr,a
+      0002FF EE               [12] 1002 	mov	a,r6
+      000300 A3               [24] 1003 	inc	dptr
+      000301 F0               [24] 1004 	movx	@dptr,a
+      000302 8C 82            [24] 1005 	mov	dpl, r4
+                                   1006 ;	.\FwLib_STC8\src\fw_uart.c:70: }
+      000304 02 01 FB         [24] 1007 	ljmp	__UART1_ConfigDynUart
                                    1008 ;------------------------------------------------------------
                                    1009 ;Allocation info for local variables in function 'UART1_TxChar'
                                    1010 ;------------------------------------------------------------
                                    1011 ;dat           Allocated with name '_UART1_TxChar_dat_10000_37'
                                    1012 ;------------------------------------------------------------
-                                   1013 ;	FwLib_STC8\src\fw_uart.c:72: void UART1_TxChar(char dat)
+                                   1013 ;	.\FwLib_STC8\src\fw_uart.c:72: void UART1_TxChar(char dat)
                                    1014 ;	-----------------------------------------
                                    1015 ;	 function UART1_TxChar
                                    1016 ;	-----------------------------------------
-      0005DB                       1017 _UART1_TxChar:
-      0005DB E5 82            [12] 1018 	mov	a,dpl
-      0005DD 90 00 3C         [24] 1019 	mov	dptr,#_UART1_TxChar_dat_10000_37
-      0005E0 F0               [24] 1020 	movx	@dptr,a
-                                   1021 ;	FwLib_STC8\src\fw_uart.c:74: UART1_WriteBuffer(dat);
-      0005E1 E0               [24] 1022 	movx	a,@dptr
-      0005E2 F5 99            [12] 1023 	mov	_SBUF,a
-                                   1024 ;	FwLib_STC8\src\fw_uart.c:75: while(!TI);
-      0005E4                       1025 00101$:
-                                   1026 ;	FwLib_STC8\src\fw_uart.c:76: UART1_ClearTxInterrupt();
+      000307                       1017 _UART1_TxChar:
+      000307 E5 82            [12] 1018 	mov	a,dpl
+      000309 90 00 1E         [24] 1019 	mov	dptr,#_UART1_TxChar_dat_10000_37
+      00030C F0               [24] 1020 	movx	@dptr,a
+                                   1021 ;	.\FwLib_STC8\src\fw_uart.c:74: UART1_WriteBuffer(dat);
+      00030D E0               [24] 1022 	movx	a,@dptr
+      00030E F5 99            [12] 1023 	mov	_SBUF,a
+                                   1024 ;	.\FwLib_STC8\src\fw_uart.c:75: while(!TI);
+      000310                       1025 00101$:
+                                   1026 ;	.\FwLib_STC8\src\fw_uart.c:76: UART1_ClearTxInterrupt();
                                    1027 ;	assignBit
-      0005E4 10 99 02         [24] 1028 	jbc	_TI,00118$
-      0005E7 80 FB            [24] 1029 	sjmp	00101$
-      0005E9                       1030 00118$:
-                                   1031 ;	FwLib_STC8\src\fw_uart.c:77: }
-      0005E9 22               [24] 1032 	ret
+      000310 10 99 02         [24] 1028 	jbc	_TI,00118$
+      000313 80 FB            [24] 1029 	sjmp	00101$
+      000315                       1030 00118$:
+                                   1031 ;	.\FwLib_STC8\src\fw_uart.c:77: }
+      000315 22               [24] 1032 	ret
                                    1033 ;------------------------------------------------------------
                                    1034 ;Allocation info for local variables in function 'UART1_TxHex'
                                    1035 ;------------------------------------------------------------
                                    1036 ;hex           Allocated with name '_UART1_TxHex_hex_10000_39'
                                    1037 ;------------------------------------------------------------
-                                   1038 ;	FwLib_STC8\src\fw_uart.c:79: void UART1_TxHex(uint8_t hex)
+                                   1038 ;	.\FwLib_STC8\src\fw_uart.c:79: void UART1_TxHex(uint8_t hex)
                                    1039 ;	-----------------------------------------
                                    1040 ;	 function UART1_TxHex
                                    1041 ;	-----------------------------------------
-      0005EA                       1042 _UART1_TxHex:
-      0005EA E5 82            [12] 1043 	mov	a,dpl
-      0005EC 90 00 3D         [24] 1044 	mov	dptr,#_UART1_TxHex_hex_10000_39
-      0005EF F0               [24] 1045 	movx	@dptr,a
-                                   1046 ;	FwLib_STC8\src\fw_uart.c:81: UART1_TxChar(HEX_TABLE[hex >> 4]);
-      0005F0 E0               [24] 1047 	movx	a,@dptr
-      0005F1 FF               [12] 1048 	mov	r7,a
-      0005F2 C4               [12] 1049 	swap	a
-      0005F3 54 0F            [12] 1050 	anl	a,#0x0f
-      0005F5 90 18 5D         [24] 1051 	mov	dptr,#_HEX_TABLE
-      0005F8 93               [24] 1052 	movc	a,@a+dptr
-      0005F9 F5 82            [12] 1053 	mov	dpl,a
-      0005FB C0 07            [24] 1054 	push	ar7
-      0005FD 12 05 DB         [24] 1055 	lcall	_UART1_TxChar
-      000600 D0 07            [24] 1056 	pop	ar7
-                                   1057 ;	FwLib_STC8\src\fw_uart.c:82: UART1_TxChar(HEX_TABLE[hex & 0xF]);
-      000602 74 0F            [12] 1058 	mov	a,#0x0f
-      000604 5F               [12] 1059 	anl	a,r7
-      000605 90 18 5D         [24] 1060 	mov	dptr,#_HEX_TABLE
-      000608 93               [24] 1061 	movc	a,@a+dptr
-      000609 F5 82            [12] 1062 	mov	dpl,a
-                                   1063 ;	FwLib_STC8\src\fw_uart.c:83: }
-      00060B 02 05 DB         [24] 1064 	ljmp	_UART1_TxChar
+      000316                       1042 _UART1_TxHex:
+      000316 E5 82            [12] 1043 	mov	a,dpl
+      000318 90 00 1F         [24] 1044 	mov	dptr,#_UART1_TxHex_hex_10000_39
+      00031B F0               [24] 1045 	movx	@dptr,a
+                                   1046 ;	.\FwLib_STC8\src\fw_uart.c:81: UART1_TxChar(HEX_TABLE[hex >> 4]);
+      00031C E0               [24] 1047 	movx	a,@dptr
+      00031D FF               [12] 1048 	mov	r7,a
+      00031E C4               [12] 1049 	swap	a
+      00031F 54 0F            [12] 1050 	anl	a,#0x0f
+      000321 90 2B 85         [24] 1051 	mov	dptr,#_HEX_TABLE
+      000324 93               [24] 1052 	movc	a,@a+dptr
+      000325 F5 82            [12] 1053 	mov	dpl,a
+      000327 C0 07            [24] 1054 	push	ar7
+      000329 12 03 07         [24] 1055 	lcall	_UART1_TxChar
+      00032C D0 07            [24] 1056 	pop	ar7
+                                   1057 ;	.\FwLib_STC8\src\fw_uart.c:82: UART1_TxChar(HEX_TABLE[hex & 0xF]);
+      00032E 74 0F            [12] 1058 	mov	a,#0x0f
+      000330 5F               [12] 1059 	anl	a,r7
+      000331 90 2B 85         [24] 1060 	mov	dptr,#_HEX_TABLE
+      000334 93               [24] 1061 	movc	a,@a+dptr
+      000335 F5 82            [12] 1062 	mov	dpl,a
+                                   1063 ;	.\FwLib_STC8\src\fw_uart.c:83: }
+      000337 02 03 07         [24] 1064 	ljmp	_UART1_TxChar
                                    1065 ;------------------------------------------------------------
                                    1066 ;Allocation info for local variables in function 'UART1_TxString'
                                    1067 ;------------------------------------------------------------
                                    1068 ;str           Allocated with name '_UART1_TxString_str_10000_41'
                                    1069 ;------------------------------------------------------------
-                                   1070 ;	FwLib_STC8\src\fw_uart.c:85: void UART1_TxString(uint8_t *str)
+                                   1070 ;	.\FwLib_STC8\src\fw_uart.c:85: void UART1_TxString(uint8_t *str)
                                    1071 ;	-----------------------------------------
                                    1072 ;	 function UART1_TxString
                                    1073 ;	-----------------------------------------
-      00060E                       1074 _UART1_TxString:
-      00060E AF F0            [24] 1075 	mov	r7,b
-      000610 AE 83            [24] 1076 	mov	r6,dph
-      000612 E5 82            [12] 1077 	mov	a,dpl
-      000614 90 00 3E         [24] 1078 	mov	dptr,#_UART1_TxString_str_10000_41
-      000617 F0               [24] 1079 	movx	@dptr,a
-      000618 EE               [12] 1080 	mov	a,r6
-      000619 A3               [24] 1081 	inc	dptr
-      00061A F0               [24] 1082 	movx	@dptr,a
-      00061B EF               [12] 1083 	mov	a,r7
-      00061C A3               [24] 1084 	inc	dptr
-      00061D F0               [24] 1085 	movx	@dptr,a
-                                   1086 ;	FwLib_STC8\src\fw_uart.c:87: while (*str) UART1_TxChar(*str++);
-      00061E 90 00 3E         [24] 1087 	mov	dptr,#_UART1_TxString_str_10000_41
-      000621 E0               [24] 1088 	movx	a,@dptr
-      000622 FD               [12] 1089 	mov	r5,a
-      000623 A3               [24] 1090 	inc	dptr
-      000624 E0               [24] 1091 	movx	a,@dptr
-      000625 FE               [12] 1092 	mov	r6,a
-      000626 A3               [24] 1093 	inc	dptr
-      000627 E0               [24] 1094 	movx	a,@dptr
-      000628 FF               [12] 1095 	mov	r7,a
-      000629                       1096 00101$:
-      000629 8D 82            [24] 1097 	mov	dpl,r5
-      00062B 8E 83            [24] 1098 	mov	dph,r6
-      00062D 8F F0            [24] 1099 	mov	b,r7
-      00062F 12 17 F0         [24] 1100 	lcall	__gptrget
-      000632 FC               [12] 1101 	mov	r4,a
-      000633 60 23            [24] 1102 	jz	00108$
-      000635 0D               [12] 1103 	inc	r5
-      000636 BD 00 01         [24] 1104 	cjne	r5,#0x00,00120$
-      000639 0E               [12] 1105 	inc	r6
-      00063A                       1106 00120$:
-      00063A 90 00 3E         [24] 1107 	mov	dptr,#_UART1_TxString_str_10000_41
-      00063D ED               [12] 1108 	mov	a,r5
-      00063E F0               [24] 1109 	movx	@dptr,a
-      00063F EE               [12] 1110 	mov	a,r6
-      000640 A3               [24] 1111 	inc	dptr
-      000641 F0               [24] 1112 	movx	@dptr,a
-      000642 EF               [12] 1113 	mov	a,r7
-      000643 A3               [24] 1114 	inc	dptr
-      000644 F0               [24] 1115 	movx	@dptr,a
-      000645 8C 82            [24] 1116 	mov	dpl, r4
-      000647 C0 07            [24] 1117 	push	ar7
-      000649 C0 06            [24] 1118 	push	ar6
-      00064B C0 05            [24] 1119 	push	ar5
-      00064D 12 05 DB         [24] 1120 	lcall	_UART1_TxChar
-      000650 D0 05            [24] 1121 	pop	ar5
-      000652 D0 06            [24] 1122 	pop	ar6
-      000654 D0 07            [24] 1123 	pop	ar7
-      000656 80 D1            [24] 1124 	sjmp	00101$
-      000658                       1125 00108$:
-      000658 90 00 3E         [24] 1126 	mov	dptr,#_UART1_TxString_str_10000_41
-      00065B ED               [12] 1127 	mov	a,r5
-      00065C F0               [24] 1128 	movx	@dptr,a
-      00065D EE               [12] 1129 	mov	a,r6
-      00065E A3               [24] 1130 	inc	dptr
-      00065F F0               [24] 1131 	movx	@dptr,a
-      000660 EF               [12] 1132 	mov	a,r7
-      000661 A3               [24] 1133 	inc	dptr
-      000662 F0               [24] 1134 	movx	@dptr,a
-                                   1135 ;	FwLib_STC8\src\fw_uart.c:88: }
-      000663 22               [24] 1136 	ret
+      00033A                       1074 _UART1_TxString:
+      00033A AF F0            [24] 1075 	mov	r7,b
+      00033C AE 83            [24] 1076 	mov	r6,dph
+      00033E E5 82            [12] 1077 	mov	a,dpl
+      000340 90 00 20         [24] 1078 	mov	dptr,#_UART1_TxString_str_10000_41
+      000343 F0               [24] 1079 	movx	@dptr,a
+      000344 EE               [12] 1080 	mov	a,r6
+      000345 A3               [24] 1081 	inc	dptr
+      000346 F0               [24] 1082 	movx	@dptr,a
+      000347 EF               [12] 1083 	mov	a,r7
+      000348 A3               [24] 1084 	inc	dptr
+      000349 F0               [24] 1085 	movx	@dptr,a
+                                   1086 ;	.\FwLib_STC8\src\fw_uart.c:87: while (*str) UART1_TxChar(*str++);
+      00034A 90 00 20         [24] 1087 	mov	dptr,#_UART1_TxString_str_10000_41
+      00034D E0               [24] 1088 	movx	a,@dptr
+      00034E FD               [12] 1089 	mov	r5,a
+      00034F A3               [24] 1090 	inc	dptr
+      000350 E0               [24] 1091 	movx	a,@dptr
+      000351 FE               [12] 1092 	mov	r6,a
+      000352 A3               [24] 1093 	inc	dptr
+      000353 E0               [24] 1094 	movx	a,@dptr
+      000354 FF               [12] 1095 	mov	r7,a
+      000355                       1096 00101$:
+      000355 8D 82            [24] 1097 	mov	dpl,r5
+      000357 8E 83            [24] 1098 	mov	dph,r6
+      000359 8F F0            [24] 1099 	mov	b,r7
+      00035B 12 2B 15         [24] 1100 	lcall	__gptrget
+      00035E FC               [12] 1101 	mov	r4,a
+      00035F 60 23            [24] 1102 	jz	00108$
+      000361 0D               [12] 1103 	inc	r5
+      000362 BD 00 01         [24] 1104 	cjne	r5,#0x00,00120$
+      000365 0E               [12] 1105 	inc	r6
+      000366                       1106 00120$:
+      000366 90 00 20         [24] 1107 	mov	dptr,#_UART1_TxString_str_10000_41
+      000369 ED               [12] 1108 	mov	a,r5
+      00036A F0               [24] 1109 	movx	@dptr,a
+      00036B EE               [12] 1110 	mov	a,r6
+      00036C A3               [24] 1111 	inc	dptr
+      00036D F0               [24] 1112 	movx	@dptr,a
+      00036E EF               [12] 1113 	mov	a,r7
+      00036F A3               [24] 1114 	inc	dptr
+      000370 F0               [24] 1115 	movx	@dptr,a
+      000371 8C 82            [24] 1116 	mov	dpl, r4
+      000373 C0 07            [24] 1117 	push	ar7
+      000375 C0 06            [24] 1118 	push	ar6
+      000377 C0 05            [24] 1119 	push	ar5
+      000379 12 03 07         [24] 1120 	lcall	_UART1_TxChar
+      00037C D0 05            [24] 1121 	pop	ar5
+      00037E D0 06            [24] 1122 	pop	ar6
+      000380 D0 07            [24] 1123 	pop	ar7
+      000382 80 D1            [24] 1124 	sjmp	00101$
+      000384                       1125 00108$:
+      000384 90 00 20         [24] 1126 	mov	dptr,#_UART1_TxString_str_10000_41
+      000387 ED               [12] 1127 	mov	a,r5
+      000388 F0               [24] 1128 	movx	@dptr,a
+      000389 EE               [12] 1129 	mov	a,r6
+      00038A A3               [24] 1130 	inc	dptr
+      00038B F0               [24] 1131 	movx	@dptr,a
+      00038C EF               [12] 1132 	mov	a,r7
+      00038D A3               [24] 1133 	inc	dptr
+      00038E F0               [24] 1134 	movx	@dptr,a
+                                   1135 ;	.\FwLib_STC8\src\fw_uart.c:88: }
+      00038F 22               [24] 1136 	ret
                                    1137 ;------------------------------------------------------------
                                    1138 ;Allocation info for local variables in function 'putchar'
                                    1139 ;------------------------------------------------------------
                                    1140 ;dat           Allocated with name '_putchar_dat_10000_43'
                                    1141 ;------------------------------------------------------------
-                                   1142 ;	FwLib_STC8\src\fw_uart.c:90: int putchar(int dat) {
+                                   1142 ;	.\FwLib_STC8\src\fw_uart.c:90: int putchar(int dat) {
                                    1143 ;	-----------------------------------------
                                    1144 ;	 function putchar
                                    1145 ;	-----------------------------------------
-      000664                       1146 _putchar:
-      000664 AF 83            [24] 1147 	mov	r7,dph
-      000666 E5 82            [12] 1148 	mov	a,dpl
-      000668 90 00 41         [24] 1149 	mov	dptr,#_putchar_dat_10000_43
-      00066B F0               [24] 1150 	movx	@dptr,a
-      00066C EF               [12] 1151 	mov	a,r7
-      00066D A3               [24] 1152 	inc	dptr
-      00066E F0               [24] 1153 	movx	@dptr,a
-                                   1154 ;	FwLib_STC8\src\fw_uart.c:91: UART1_WriteBuffer(dat);
-      00066F 90 00 41         [24] 1155 	mov	dptr,#_putchar_dat_10000_43
-      000672 E0               [24] 1156 	movx	a,@dptr
-      000673 FE               [12] 1157 	mov	r6,a
-      000674 A3               [24] 1158 	inc	dptr
-      000675 E0               [24] 1159 	movx	a,@dptr
-      000676 FF               [12] 1160 	mov	r7,a
-      000677 8E 99            [24] 1161 	mov	_SBUF,r6
-                                   1162 ;	FwLib_STC8\src\fw_uart.c:92: while(!TI);
-      000679                       1163 00101$:
-                                   1164 ;	FwLib_STC8\src\fw_uart.c:93: UART1_ClearTxInterrupt();
+      000390                       1146 _putchar:
+      000390 AF 83            [24] 1147 	mov	r7,dph
+      000392 E5 82            [12] 1148 	mov	a,dpl
+      000394 90 00 23         [24] 1149 	mov	dptr,#_putchar_dat_10000_43
+      000397 F0               [24] 1150 	movx	@dptr,a
+      000398 EF               [12] 1151 	mov	a,r7
+      000399 A3               [24] 1152 	inc	dptr
+      00039A F0               [24] 1153 	movx	@dptr,a
+                                   1154 ;	.\FwLib_STC8\src\fw_uart.c:91: UART1_WriteBuffer(dat);
+      00039B 90 00 23         [24] 1155 	mov	dptr,#_putchar_dat_10000_43
+      00039E E0               [24] 1156 	movx	a,@dptr
+      00039F FE               [12] 1157 	mov	r6,a
+      0003A0 A3               [24] 1158 	inc	dptr
+      0003A1 E0               [24] 1159 	movx	a,@dptr
+      0003A2 FF               [12] 1160 	mov	r7,a
+      0003A3 8E 99            [24] 1161 	mov	_SBUF,r6
+                                   1162 ;	.\FwLib_STC8\src\fw_uart.c:92: while(!TI);
+      0003A5                       1163 00101$:
+                                   1164 ;	.\FwLib_STC8\src\fw_uart.c:93: UART1_ClearTxInterrupt();
                                    1165 ;	assignBit
-      000679 10 99 02         [24] 1166 	jbc	_TI,00118$
-      00067C 80 FB            [24] 1167 	sjmp	00101$
-      00067E                       1168 00118$:
-                                   1169 ;	FwLib_STC8\src\fw_uart.c:94: return dat;
-      00067E 8E 82            [24] 1170 	mov	dpl, r6
-      000680 8F 83            [24] 1171 	mov	dph, r7
-                                   1172 ;	FwLib_STC8\src\fw_uart.c:95: }
-      000682 22               [24] 1173 	ret
+      0003A5 10 99 02         [24] 1166 	jbc	_TI,00118$
+      0003A8 80 FB            [24] 1167 	sjmp	00101$
+      0003AA                       1168 00118$:
+                                   1169 ;	.\FwLib_STC8\src\fw_uart.c:94: return dat;
+      0003AA 8E 82            [24] 1170 	mov	dpl, r6
+      0003AC 8F 83            [24] 1171 	mov	dph, r7
+                                   1172 ;	.\FwLib_STC8\src\fw_uart.c:95: }
+      0003AE 22               [24] 1173 	ret
                                    1174 ;------------------------------------------------------------
                                    1175 ;Allocation info for local variables in function 'UART2_Config'
                                    1176 ;------------------------------------------------------------
@@ -1178,201 +1178,201 @@
                                    1178 ;_1TMode       Allocated with name '_UART2_Config__1TMode_10000_45'
                                    1179 ;init          Allocated with name '_UART2_Config_init_10000_46'
                                    1180 ;------------------------------------------------------------
-                                   1181 ;	FwLib_STC8\src\fw_uart.c:102: void UART2_Config(HAL_State_t _1TMode, uint32_t baudrate)
+                                   1181 ;	.\FwLib_STC8\src\fw_uart.c:102: void UART2_Config(HAL_State_t _1TMode, uint32_t baudrate)
                                    1182 ;	-----------------------------------------
                                    1183 ;	 function UART2_Config
                                    1184 ;	-----------------------------------------
-      000683                       1185 _UART2_Config:
-      000683 E5 82            [12] 1186 	mov	a,dpl
-      000685 90 00 47         [24] 1187 	mov	dptr,#_UART2_Config__1TMode_10000_45
-      000688 F0               [24] 1188 	movx	@dptr,a
-                                   1189 ;	FwLib_STC8\src\fw_uart.c:106: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
-      000689 E0               [24] 1190 	movx	a,@dptr
-      00068A FF               [12] 1191 	mov	r7,a
-      00068B 90 00 43         [24] 1192 	mov	dptr,#_UART2_Config_PARM_2
-      00068E E0               [24] 1193 	movx	a,@dptr
-      00068F FB               [12] 1194 	mov	r3,a
-      000690 A3               [24] 1195 	inc	dptr
-      000691 E0               [24] 1196 	movx	a,@dptr
-      000692 FC               [12] 1197 	mov	r4,a
-      000693 A3               [24] 1198 	inc	dptr
-      000694 E0               [24] 1199 	movx	a,@dptr
-      000695 FD               [12] 1200 	mov	r5,a
-      000696 A3               [24] 1201 	inc	dptr
-      000697 E0               [24] 1202 	movx	a,@dptr
-      000698 FE               [12] 1203 	mov	r6,a
-      000699 90 00 1F         [24] 1204 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      00069C EF               [12] 1205 	mov	a,r7
-      00069D F0               [24] 1206 	movx	@dptr,a
-      00069E 90 00 20         [24] 1207 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      0006A1 EB               [12] 1208 	mov	a,r3
-      0006A2 F0               [24] 1209 	movx	@dptr,a
-      0006A3 EC               [12] 1210 	mov	a,r4
-      0006A4 A3               [24] 1211 	inc	dptr
-      0006A5 F0               [24] 1212 	movx	@dptr,a
-      0006A6 ED               [12] 1213 	mov	a,r5
-      0006A7 A3               [24] 1214 	inc	dptr
-      0006A8 F0               [24] 1215 	movx	@dptr,a
-      0006A9 EE               [12] 1216 	mov	a,r6
-      0006AA A3               [24] 1217 	inc	dptr
-      0006AB F0               [24] 1218 	movx	@dptr,a
-      0006AC 90 36 00         [24] 1219 	mov	dptr,#0x3600
-      0006AF 75 F0 6E         [24] 1220 	mov	b, #0x6e
-      0006B2 74 01            [12] 1221 	mov	a, #0x01
-      0006B4 C0 07            [24] 1222 	push	ar7
-      0006B6 12 03 FD         [24] 1223 	lcall	_UART_Timer_InitValueCalculate
-      0006B9 AD 82            [24] 1224 	mov	r5, dpl
-      0006BB AE 83            [24] 1225 	mov	r6, dph
-      0006BD D0 07            [24] 1226 	pop	ar7
-                                   1227 ;	FwLib_STC8\src\fw_uart.c:108: TIM_Timer2_Set1TMode(_1TMode);
-      0006BF 74 FB            [12] 1228 	mov	a,#0xfb
-      0006C1 55 8E            [12] 1229 	anl	a,_AUXR
-      0006C3 FC               [12] 1230 	mov	r4,a
-      0006C4 EF               [12] 1231 	mov	a,r7
-      0006C5 2F               [12] 1232 	add	a,r7
-      0006C6 25 E0            [12] 1233 	add	a,acc
-      0006C8 4C               [12] 1234 	orl	a,r4
-      0006C9 F5 8E            [12] 1235 	mov	_AUXR,a
-                                   1236 ;	FwLib_STC8\src\fw_uart.c:109: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
-      0006CB 8D 04            [24] 1237 	mov	ar4,r5
-      0006CD 8E 07            [24] 1238 	mov	ar7,r6
-      0006CF 8F D6            [24] 1239 	mov	_T2H,r7
-      0006D1 8D D7            [24] 1240 	mov	_T2L,r5
-                                   1241 ;	FwLib_STC8\src\fw_uart.c:110: TIM_Timer2_SetRunState(HAL_State_ON);
-      0006D3 74 EF            [12] 1242 	mov	a,#0xef
-      0006D5 55 8E            [12] 1243 	anl	a,_AUXR
-      0006D7 44 10            [12] 1244 	orl	a,#0x10
-      0006D9 F5 8E            [12] 1245 	mov	_AUXR,a
-                                   1246 ;	FwLib_STC8\src\fw_uart.c:111: }
-      0006DB 22               [24] 1247 	ret
+      0003AF                       1185 _UART2_Config:
+      0003AF E5 82            [12] 1186 	mov	a,dpl
+      0003B1 90 00 29         [24] 1187 	mov	dptr,#_UART2_Config__1TMode_10000_45
+      0003B4 F0               [24] 1188 	movx	@dptr,a
+                                   1189 ;	.\FwLib_STC8\src\fw_uart.c:106: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+      0003B5 E0               [24] 1190 	movx	a,@dptr
+      0003B6 FF               [12] 1191 	mov	r7,a
+      0003B7 90 00 25         [24] 1192 	mov	dptr,#_UART2_Config_PARM_2
+      0003BA E0               [24] 1193 	movx	a,@dptr
+      0003BB FB               [12] 1194 	mov	r3,a
+      0003BC A3               [24] 1195 	inc	dptr
+      0003BD E0               [24] 1196 	movx	a,@dptr
+      0003BE FC               [12] 1197 	mov	r4,a
+      0003BF A3               [24] 1198 	inc	dptr
+      0003C0 E0               [24] 1199 	movx	a,@dptr
+      0003C1 FD               [12] 1200 	mov	r5,a
+      0003C2 A3               [24] 1201 	inc	dptr
+      0003C3 E0               [24] 1202 	movx	a,@dptr
+      0003C4 FE               [12] 1203 	mov	r6,a
+      0003C5 90 00 01         [24] 1204 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      0003C8 EF               [12] 1205 	mov	a,r7
+      0003C9 F0               [24] 1206 	movx	@dptr,a
+      0003CA 90 00 02         [24] 1207 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      0003CD EB               [12] 1208 	mov	a,r3
+      0003CE F0               [24] 1209 	movx	@dptr,a
+      0003CF EC               [12] 1210 	mov	a,r4
+      0003D0 A3               [24] 1211 	inc	dptr
+      0003D1 F0               [24] 1212 	movx	@dptr,a
+      0003D2 ED               [12] 1213 	mov	a,r5
+      0003D3 A3               [24] 1214 	inc	dptr
+      0003D4 F0               [24] 1215 	movx	@dptr,a
+      0003D5 EE               [12] 1216 	mov	a,r6
+      0003D6 A3               [24] 1217 	inc	dptr
+      0003D7 F0               [24] 1218 	movx	@dptr,a
+      0003D8 90 80 00         [24] 1219 	mov	dptr,#0x8000
+      0003DB 75 F0 51         [24] 1220 	mov	b, #0x51
+      0003DE 74 01            [12] 1221 	mov	a, #0x01
+      0003E0 C0 07            [24] 1222 	push	ar7
+      0003E2 12 01 29         [24] 1223 	lcall	_UART_Timer_InitValueCalculate
+      0003E5 AD 82            [24] 1224 	mov	r5, dpl
+      0003E7 AE 83            [24] 1225 	mov	r6, dph
+      0003E9 D0 07            [24] 1226 	pop	ar7
+                                   1227 ;	.\FwLib_STC8\src\fw_uart.c:108: TIM_Timer2_Set1TMode(_1TMode);
+      0003EB 74 FB            [12] 1228 	mov	a,#0xfb
+      0003ED 55 8E            [12] 1229 	anl	a,_AUXR
+      0003EF FC               [12] 1230 	mov	r4,a
+      0003F0 EF               [12] 1231 	mov	a,r7
+      0003F1 2F               [12] 1232 	add	a,r7
+      0003F2 25 E0            [12] 1233 	add	a,acc
+      0003F4 4C               [12] 1234 	orl	a,r4
+      0003F5 F5 8E            [12] 1235 	mov	_AUXR,a
+                                   1236 ;	.\FwLib_STC8\src\fw_uart.c:109: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+      0003F7 8D 04            [24] 1237 	mov	ar4,r5
+      0003F9 8E 07            [24] 1238 	mov	ar7,r6
+      0003FB 8F D6            [24] 1239 	mov	_T2H,r7
+      0003FD 8D D7            [24] 1240 	mov	_T2L,r5
+                                   1241 ;	.\FwLib_STC8\src\fw_uart.c:110: TIM_Timer2_SetRunState(HAL_State_ON);
+      0003FF 74 EF            [12] 1242 	mov	a,#0xef
+      000401 55 8E            [12] 1243 	anl	a,_AUXR
+      000403 44 10            [12] 1244 	orl	a,#0x10
+      000405 F5 8E            [12] 1245 	mov	_AUXR,a
+                                   1246 ;	.\FwLib_STC8\src\fw_uart.c:111: }
+      000407 22               [24] 1247 	ret
                                    1248 ;------------------------------------------------------------
                                    1249 ;Allocation info for local variables in function 'UART2_TxChar'
                                    1250 ;------------------------------------------------------------
                                    1251 ;dat           Allocated with name '_UART2_TxChar_dat_10000_48'
                                    1252 ;------------------------------------------------------------
-                                   1253 ;	FwLib_STC8\src\fw_uart.c:113: void UART2_TxChar(char dat)
+                                   1253 ;	.\FwLib_STC8\src\fw_uart.c:113: void UART2_TxChar(char dat)
                                    1254 ;	-----------------------------------------
                                    1255 ;	 function UART2_TxChar
                                    1256 ;	-----------------------------------------
-      0006DC                       1257 _UART2_TxChar:
-      0006DC E5 82            [12] 1258 	mov	a,dpl
-      0006DE 90 00 48         [24] 1259 	mov	dptr,#_UART2_TxChar_dat_10000_48
-      0006E1 F0               [24] 1260 	movx	@dptr,a
-                                   1261 ;	FwLib_STC8\src\fw_uart.c:115: UART2_WriteBuffer(dat);
-      0006E2 E0               [24] 1262 	movx	a,@dptr
-      0006E3 F5 9B            [12] 1263 	mov	_S2BUF,a
-                                   1264 ;	FwLib_STC8\src\fw_uart.c:116: while(!UART2_TxFinished());
-      0006E5                       1265 00101$:
-      0006E5 E5 9A            [12] 1266 	mov	a,_S2CON
-      0006E7 30 E1 FB         [24] 1267 	jnb	acc.1,00101$
-                                   1268 ;	FwLib_STC8\src\fw_uart.c:117: UART2_ClearTxInterrupt();
-      0006EA 53 9A FD         [24] 1269 	anl	_S2CON,#0xfd
-                                   1270 ;	FwLib_STC8\src\fw_uart.c:118: }
-      0006ED 22               [24] 1271 	ret
+      000408                       1257 _UART2_TxChar:
+      000408 E5 82            [12] 1258 	mov	a,dpl
+      00040A 90 00 2A         [24] 1259 	mov	dptr,#_UART2_TxChar_dat_10000_48
+      00040D F0               [24] 1260 	movx	@dptr,a
+                                   1261 ;	.\FwLib_STC8\src\fw_uart.c:115: UART2_WriteBuffer(dat);
+      00040E E0               [24] 1262 	movx	a,@dptr
+      00040F F5 9B            [12] 1263 	mov	_S2BUF,a
+                                   1264 ;	.\FwLib_STC8\src\fw_uart.c:116: while(!UART2_TxFinished());
+      000411                       1265 00101$:
+      000411 E5 9A            [12] 1266 	mov	a,_S2CON
+      000413 30 E1 FB         [24] 1267 	jnb	acc.1,00101$
+                                   1268 ;	.\FwLib_STC8\src\fw_uart.c:117: UART2_ClearTxInterrupt();
+      000416 53 9A FD         [24] 1269 	anl	_S2CON,#0xfd
+                                   1270 ;	.\FwLib_STC8\src\fw_uart.c:118: }
+      000419 22               [24] 1271 	ret
                                    1272 ;------------------------------------------------------------
                                    1273 ;Allocation info for local variables in function 'UART2_TxHex'
                                    1274 ;------------------------------------------------------------
                                    1275 ;hex           Allocated with name '_UART2_TxHex_hex_10000_50'
                                    1276 ;------------------------------------------------------------
-                                   1277 ;	FwLib_STC8\src\fw_uart.c:120: void UART2_TxHex(uint8_t hex)
+                                   1277 ;	.\FwLib_STC8\src\fw_uart.c:120: void UART2_TxHex(uint8_t hex)
                                    1278 ;	-----------------------------------------
                                    1279 ;	 function UART2_TxHex
                                    1280 ;	-----------------------------------------
-      0006EE                       1281 _UART2_TxHex:
-      0006EE E5 82            [12] 1282 	mov	a,dpl
-      0006F0 90 00 49         [24] 1283 	mov	dptr,#_UART2_TxHex_hex_10000_50
-      0006F3 F0               [24] 1284 	movx	@dptr,a
-                                   1285 ;	FwLib_STC8\src\fw_uart.c:122: UART2_TxChar(HEX_TABLE[hex >> 4]);
-      0006F4 E0               [24] 1286 	movx	a,@dptr
-      0006F5 FF               [12] 1287 	mov	r7,a
-      0006F6 C4               [12] 1288 	swap	a
-      0006F7 54 0F            [12] 1289 	anl	a,#0x0f
-      0006F9 90 18 5D         [24] 1290 	mov	dptr,#_HEX_TABLE
-      0006FC 93               [24] 1291 	movc	a,@a+dptr
-      0006FD F5 82            [12] 1292 	mov	dpl,a
-      0006FF C0 07            [24] 1293 	push	ar7
-      000701 12 06 DC         [24] 1294 	lcall	_UART2_TxChar
-      000704 D0 07            [24] 1295 	pop	ar7
-                                   1296 ;	FwLib_STC8\src\fw_uart.c:123: UART2_TxChar(HEX_TABLE[hex & 0xF]);
-      000706 74 0F            [12] 1297 	mov	a,#0x0f
-      000708 5F               [12] 1298 	anl	a,r7
-      000709 90 18 5D         [24] 1299 	mov	dptr,#_HEX_TABLE
-      00070C 93               [24] 1300 	movc	a,@a+dptr
-      00070D F5 82            [12] 1301 	mov	dpl,a
-                                   1302 ;	FwLib_STC8\src\fw_uart.c:124: }
-      00070F 02 06 DC         [24] 1303 	ljmp	_UART2_TxChar
+      00041A                       1281 _UART2_TxHex:
+      00041A E5 82            [12] 1282 	mov	a,dpl
+      00041C 90 00 2B         [24] 1283 	mov	dptr,#_UART2_TxHex_hex_10000_50
+      00041F F0               [24] 1284 	movx	@dptr,a
+                                   1285 ;	.\FwLib_STC8\src\fw_uart.c:122: UART2_TxChar(HEX_TABLE[hex >> 4]);
+      000420 E0               [24] 1286 	movx	a,@dptr
+      000421 FF               [12] 1287 	mov	r7,a
+      000422 C4               [12] 1288 	swap	a
+      000423 54 0F            [12] 1289 	anl	a,#0x0f
+      000425 90 2B 85         [24] 1290 	mov	dptr,#_HEX_TABLE
+      000428 93               [24] 1291 	movc	a,@a+dptr
+      000429 F5 82            [12] 1292 	mov	dpl,a
+      00042B C0 07            [24] 1293 	push	ar7
+      00042D 12 04 08         [24] 1294 	lcall	_UART2_TxChar
+      000430 D0 07            [24] 1295 	pop	ar7
+                                   1296 ;	.\FwLib_STC8\src\fw_uart.c:123: UART2_TxChar(HEX_TABLE[hex & 0xF]);
+      000432 74 0F            [12] 1297 	mov	a,#0x0f
+      000434 5F               [12] 1298 	anl	a,r7
+      000435 90 2B 85         [24] 1299 	mov	dptr,#_HEX_TABLE
+      000438 93               [24] 1300 	movc	a,@a+dptr
+      000439 F5 82            [12] 1301 	mov	dpl,a
+                                   1302 ;	.\FwLib_STC8\src\fw_uart.c:124: }
+      00043B 02 04 08         [24] 1303 	ljmp	_UART2_TxChar
                                    1304 ;------------------------------------------------------------
                                    1305 ;Allocation info for local variables in function 'UART2_TxString'
                                    1306 ;------------------------------------------------------------
                                    1307 ;str           Allocated with name '_UART2_TxString_str_10000_52'
                                    1308 ;------------------------------------------------------------
-                                   1309 ;	FwLib_STC8\src\fw_uart.c:126: void UART2_TxString(uint8_t *str)
+                                   1309 ;	.\FwLib_STC8\src\fw_uart.c:126: void UART2_TxString(uint8_t *str)
                                    1310 ;	-----------------------------------------
                                    1311 ;	 function UART2_TxString
                                    1312 ;	-----------------------------------------
-      000712                       1313 _UART2_TxString:
-      000712 AF F0            [24] 1314 	mov	r7,b
-      000714 AE 83            [24] 1315 	mov	r6,dph
-      000716 E5 82            [12] 1316 	mov	a,dpl
-      000718 90 00 4A         [24] 1317 	mov	dptr,#_UART2_TxString_str_10000_52
-      00071B F0               [24] 1318 	movx	@dptr,a
-      00071C EE               [12] 1319 	mov	a,r6
-      00071D A3               [24] 1320 	inc	dptr
-      00071E F0               [24] 1321 	movx	@dptr,a
-      00071F EF               [12] 1322 	mov	a,r7
-      000720 A3               [24] 1323 	inc	dptr
-      000721 F0               [24] 1324 	movx	@dptr,a
-                                   1325 ;	FwLib_STC8\src\fw_uart.c:128: while (*str) UART2_TxChar(*str++);
-      000722 90 00 4A         [24] 1326 	mov	dptr,#_UART2_TxString_str_10000_52
-      000725 E0               [24] 1327 	movx	a,@dptr
-      000726 FD               [12] 1328 	mov	r5,a
-      000727 A3               [24] 1329 	inc	dptr
-      000728 E0               [24] 1330 	movx	a,@dptr
-      000729 FE               [12] 1331 	mov	r6,a
-      00072A A3               [24] 1332 	inc	dptr
-      00072B E0               [24] 1333 	movx	a,@dptr
-      00072C FF               [12] 1334 	mov	r7,a
-      00072D                       1335 00101$:
-      00072D 8D 82            [24] 1336 	mov	dpl,r5
-      00072F 8E 83            [24] 1337 	mov	dph,r6
-      000731 8F F0            [24] 1338 	mov	b,r7
-      000733 12 17 F0         [24] 1339 	lcall	__gptrget
-      000736 FC               [12] 1340 	mov	r4,a
-      000737 60 23            [24] 1341 	jz	00108$
-      000739 0D               [12] 1342 	inc	r5
-      00073A BD 00 01         [24] 1343 	cjne	r5,#0x00,00120$
-      00073D 0E               [12] 1344 	inc	r6
-      00073E                       1345 00120$:
-      00073E 90 00 4A         [24] 1346 	mov	dptr,#_UART2_TxString_str_10000_52
-      000741 ED               [12] 1347 	mov	a,r5
-      000742 F0               [24] 1348 	movx	@dptr,a
-      000743 EE               [12] 1349 	mov	a,r6
-      000744 A3               [24] 1350 	inc	dptr
-      000745 F0               [24] 1351 	movx	@dptr,a
-      000746 EF               [12] 1352 	mov	a,r7
-      000747 A3               [24] 1353 	inc	dptr
-      000748 F0               [24] 1354 	movx	@dptr,a
-      000749 8C 82            [24] 1355 	mov	dpl, r4
-      00074B C0 07            [24] 1356 	push	ar7
-      00074D C0 06            [24] 1357 	push	ar6
-      00074F C0 05            [24] 1358 	push	ar5
-      000751 12 06 DC         [24] 1359 	lcall	_UART2_TxChar
-      000754 D0 05            [24] 1360 	pop	ar5
-      000756 D0 06            [24] 1361 	pop	ar6
-      000758 D0 07            [24] 1362 	pop	ar7
-      00075A 80 D1            [24] 1363 	sjmp	00101$
-      00075C                       1364 00108$:
-      00075C 90 00 4A         [24] 1365 	mov	dptr,#_UART2_TxString_str_10000_52
-      00075F ED               [12] 1366 	mov	a,r5
-      000760 F0               [24] 1367 	movx	@dptr,a
-      000761 EE               [12] 1368 	mov	a,r6
-      000762 A3               [24] 1369 	inc	dptr
-      000763 F0               [24] 1370 	movx	@dptr,a
-      000764 EF               [12] 1371 	mov	a,r7
-      000765 A3               [24] 1372 	inc	dptr
-      000766 F0               [24] 1373 	movx	@dptr,a
-                                   1374 ;	FwLib_STC8\src\fw_uart.c:129: }
-      000767 22               [24] 1375 	ret
+      00043E                       1313 _UART2_TxString:
+      00043E AF F0            [24] 1314 	mov	r7,b
+      000440 AE 83            [24] 1315 	mov	r6,dph
+      000442 E5 82            [12] 1316 	mov	a,dpl
+      000444 90 00 2C         [24] 1317 	mov	dptr,#_UART2_TxString_str_10000_52
+      000447 F0               [24] 1318 	movx	@dptr,a
+      000448 EE               [12] 1319 	mov	a,r6
+      000449 A3               [24] 1320 	inc	dptr
+      00044A F0               [24] 1321 	movx	@dptr,a
+      00044B EF               [12] 1322 	mov	a,r7
+      00044C A3               [24] 1323 	inc	dptr
+      00044D F0               [24] 1324 	movx	@dptr,a
+                                   1325 ;	.\FwLib_STC8\src\fw_uart.c:128: while (*str) UART2_TxChar(*str++);
+      00044E 90 00 2C         [24] 1326 	mov	dptr,#_UART2_TxString_str_10000_52
+      000451 E0               [24] 1327 	movx	a,@dptr
+      000452 FD               [12] 1328 	mov	r5,a
+      000453 A3               [24] 1329 	inc	dptr
+      000454 E0               [24] 1330 	movx	a,@dptr
+      000455 FE               [12] 1331 	mov	r6,a
+      000456 A3               [24] 1332 	inc	dptr
+      000457 E0               [24] 1333 	movx	a,@dptr
+      000458 FF               [12] 1334 	mov	r7,a
+      000459                       1335 00101$:
+      000459 8D 82            [24] 1336 	mov	dpl,r5
+      00045B 8E 83            [24] 1337 	mov	dph,r6
+      00045D 8F F0            [24] 1338 	mov	b,r7
+      00045F 12 2B 15         [24] 1339 	lcall	__gptrget
+      000462 FC               [12] 1340 	mov	r4,a
+      000463 60 23            [24] 1341 	jz	00108$
+      000465 0D               [12] 1342 	inc	r5
+      000466 BD 00 01         [24] 1343 	cjne	r5,#0x00,00120$
+      000469 0E               [12] 1344 	inc	r6
+      00046A                       1345 00120$:
+      00046A 90 00 2C         [24] 1346 	mov	dptr,#_UART2_TxString_str_10000_52
+      00046D ED               [12] 1347 	mov	a,r5
+      00046E F0               [24] 1348 	movx	@dptr,a
+      00046F EE               [12] 1349 	mov	a,r6
+      000470 A3               [24] 1350 	inc	dptr
+      000471 F0               [24] 1351 	movx	@dptr,a
+      000472 EF               [12] 1352 	mov	a,r7
+      000473 A3               [24] 1353 	inc	dptr
+      000474 F0               [24] 1354 	movx	@dptr,a
+      000475 8C 82            [24] 1355 	mov	dpl, r4
+      000477 C0 07            [24] 1356 	push	ar7
+      000479 C0 06            [24] 1357 	push	ar6
+      00047B C0 05            [24] 1358 	push	ar5
+      00047D 12 04 08         [24] 1359 	lcall	_UART2_TxChar
+      000480 D0 05            [24] 1360 	pop	ar5
+      000482 D0 06            [24] 1361 	pop	ar6
+      000484 D0 07            [24] 1362 	pop	ar7
+      000486 80 D1            [24] 1363 	sjmp	00101$
+      000488                       1364 00108$:
+      000488 90 00 2C         [24] 1365 	mov	dptr,#_UART2_TxString_str_10000_52
+      00048B ED               [12] 1366 	mov	a,r5
+      00048C F0               [24] 1367 	movx	@dptr,a
+      00048D EE               [12] 1368 	mov	a,r6
+      00048E A3               [24] 1369 	inc	dptr
+      00048F F0               [24] 1370 	movx	@dptr,a
+      000490 EF               [12] 1371 	mov	a,r7
+      000491 A3               [24] 1372 	inc	dptr
+      000492 F0               [24] 1373 	movx	@dptr,a
+                                   1374 ;	.\FwLib_STC8\src\fw_uart.c:129: }
+      000493 22               [24] 1375 	ret
                                    1376 ;------------------------------------------------------------
                                    1377 ;Allocation info for local variables in function 'UART3_ConfigOnTimer2'
                                    1378 ;------------------------------------------------------------
@@ -1380,76 +1380,76 @@
                                    1380 ;_1TMode       Allocated with name '_UART3_ConfigOnTimer2__1TMode_10000_54'
                                    1381 ;init          Allocated with name '_UART3_ConfigOnTimer2_init_10000_55'
                                    1382 ;------------------------------------------------------------
-                                   1383 ;	FwLib_STC8\src\fw_uart.c:136: void UART3_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
+                                   1383 ;	.\FwLib_STC8\src\fw_uart.c:136: void UART3_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
                                    1384 ;	-----------------------------------------
                                    1385 ;	 function UART3_ConfigOnTimer2
                                    1386 ;	-----------------------------------------
-      000768                       1387 _UART3_ConfigOnTimer2:
-      000768 E5 82            [12] 1388 	mov	a,dpl
-      00076A 90 00 51         [24] 1389 	mov	dptr,#_UART3_ConfigOnTimer2__1TMode_10000_54
-      00076D F0               [24] 1390 	movx	@dptr,a
-                                   1391 ;	FwLib_STC8\src\fw_uart.c:140: UART3_SetBaudSource(0x00);
-      00076E 53 AC BF         [24] 1392 	anl	_S3CON,#0xbf
-                                   1393 ;	FwLib_STC8\src\fw_uart.c:141: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
-      000771 90 00 51         [24] 1394 	mov	dptr,#_UART3_ConfigOnTimer2__1TMode_10000_54
-      000774 E0               [24] 1395 	movx	a,@dptr
-      000775 FF               [12] 1396 	mov	r7,a
-      000776 90 00 4D         [24] 1397 	mov	dptr,#_UART3_ConfigOnTimer2_PARM_2
-      000779 E0               [24] 1398 	movx	a,@dptr
-      00077A FB               [12] 1399 	mov	r3,a
-      00077B A3               [24] 1400 	inc	dptr
-      00077C E0               [24] 1401 	movx	a,@dptr
-      00077D FC               [12] 1402 	mov	r4,a
-      00077E A3               [24] 1403 	inc	dptr
-      00077F E0               [24] 1404 	movx	a,@dptr
-      000780 FD               [12] 1405 	mov	r5,a
-      000781 A3               [24] 1406 	inc	dptr
-      000782 E0               [24] 1407 	movx	a,@dptr
-      000783 FE               [12] 1408 	mov	r6,a
-      000784 90 00 1F         [24] 1409 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      000787 EF               [12] 1410 	mov	a,r7
-      000788 F0               [24] 1411 	movx	@dptr,a
-      000789 90 00 20         [24] 1412 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      00078C EB               [12] 1413 	mov	a,r3
-      00078D F0               [24] 1414 	movx	@dptr,a
-      00078E EC               [12] 1415 	mov	a,r4
-      00078F A3               [24] 1416 	inc	dptr
-      000790 F0               [24] 1417 	movx	@dptr,a
-      000791 ED               [12] 1418 	mov	a,r5
-      000792 A3               [24] 1419 	inc	dptr
-      000793 F0               [24] 1420 	movx	@dptr,a
-      000794 EE               [12] 1421 	mov	a,r6
-      000795 A3               [24] 1422 	inc	dptr
-      000796 F0               [24] 1423 	movx	@dptr,a
-      000797 90 36 00         [24] 1424 	mov	dptr,#0x3600
-      00079A 75 F0 6E         [24] 1425 	mov	b, #0x6e
-      00079D 74 01            [12] 1426 	mov	a, #0x01
-      00079F C0 07            [24] 1427 	push	ar7
-      0007A1 12 03 FD         [24] 1428 	lcall	_UART_Timer_InitValueCalculate
-      0007A4 AD 82            [24] 1429 	mov	r5, dpl
-      0007A6 AE 83            [24] 1430 	mov	r6, dph
-      0007A8 D0 07            [24] 1431 	pop	ar7
-                                   1432 ;	FwLib_STC8\src\fw_uart.c:143: TIM_Timer2_Set1TMode(_1TMode);
-      0007AA 74 FB            [12] 1433 	mov	a,#0xfb
-      0007AC 55 8E            [12] 1434 	anl	a,_AUXR
-      0007AE FC               [12] 1435 	mov	r4,a
-      0007AF EF               [12] 1436 	mov	a,r7
-      0007B0 2F               [12] 1437 	add	a,r7
-      0007B1 25 E0            [12] 1438 	add	a,acc
-      0007B3 4C               [12] 1439 	orl	a,r4
-      0007B4 F5 8E            [12] 1440 	mov	_AUXR,a
-                                   1441 ;	FwLib_STC8\src\fw_uart.c:144: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
-      0007B6 8D 04            [24] 1442 	mov	ar4,r5
-      0007B8 8E 07            [24] 1443 	mov	ar7,r6
-      0007BA 8F D6            [24] 1444 	mov	_T2H,r7
-      0007BC 8D D7            [24] 1445 	mov	_T2L,r5
-                                   1446 ;	FwLib_STC8\src\fw_uart.c:145: TIM_Timer2_SetRunState(HAL_State_ON);
-      0007BE 74 EF            [12] 1447 	mov	a,#0xef
-      0007C0 55 8E            [12] 1448 	anl	a,_AUXR
-      0007C2 44 10            [12] 1449 	orl	a,#0x10
-      0007C4 F5 8E            [12] 1450 	mov	_AUXR,a
-                                   1451 ;	FwLib_STC8\src\fw_uart.c:146: }
-      0007C6 22               [24] 1452 	ret
+      000494                       1387 _UART3_ConfigOnTimer2:
+      000494 E5 82            [12] 1388 	mov	a,dpl
+      000496 90 00 33         [24] 1389 	mov	dptr,#_UART3_ConfigOnTimer2__1TMode_10000_54
+      000499 F0               [24] 1390 	movx	@dptr,a
+                                   1391 ;	.\FwLib_STC8\src\fw_uart.c:140: UART3_SetBaudSource(0x00);
+      00049A 53 AC BF         [24] 1392 	anl	_S3CON,#0xbf
+                                   1393 ;	.\FwLib_STC8\src\fw_uart.c:141: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+      00049D 90 00 33         [24] 1394 	mov	dptr,#_UART3_ConfigOnTimer2__1TMode_10000_54
+      0004A0 E0               [24] 1395 	movx	a,@dptr
+      0004A1 FF               [12] 1396 	mov	r7,a
+      0004A2 90 00 2F         [24] 1397 	mov	dptr,#_UART3_ConfigOnTimer2_PARM_2
+      0004A5 E0               [24] 1398 	movx	a,@dptr
+      0004A6 FB               [12] 1399 	mov	r3,a
+      0004A7 A3               [24] 1400 	inc	dptr
+      0004A8 E0               [24] 1401 	movx	a,@dptr
+      0004A9 FC               [12] 1402 	mov	r4,a
+      0004AA A3               [24] 1403 	inc	dptr
+      0004AB E0               [24] 1404 	movx	a,@dptr
+      0004AC FD               [12] 1405 	mov	r5,a
+      0004AD A3               [24] 1406 	inc	dptr
+      0004AE E0               [24] 1407 	movx	a,@dptr
+      0004AF FE               [12] 1408 	mov	r6,a
+      0004B0 90 00 01         [24] 1409 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      0004B3 EF               [12] 1410 	mov	a,r7
+      0004B4 F0               [24] 1411 	movx	@dptr,a
+      0004B5 90 00 02         [24] 1412 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      0004B8 EB               [12] 1413 	mov	a,r3
+      0004B9 F0               [24] 1414 	movx	@dptr,a
+      0004BA EC               [12] 1415 	mov	a,r4
+      0004BB A3               [24] 1416 	inc	dptr
+      0004BC F0               [24] 1417 	movx	@dptr,a
+      0004BD ED               [12] 1418 	mov	a,r5
+      0004BE A3               [24] 1419 	inc	dptr
+      0004BF F0               [24] 1420 	movx	@dptr,a
+      0004C0 EE               [12] 1421 	mov	a,r6
+      0004C1 A3               [24] 1422 	inc	dptr
+      0004C2 F0               [24] 1423 	movx	@dptr,a
+      0004C3 90 80 00         [24] 1424 	mov	dptr,#0x8000
+      0004C6 75 F0 51         [24] 1425 	mov	b, #0x51
+      0004C9 74 01            [12] 1426 	mov	a, #0x01
+      0004CB C0 07            [24] 1427 	push	ar7
+      0004CD 12 01 29         [24] 1428 	lcall	_UART_Timer_InitValueCalculate
+      0004D0 AD 82            [24] 1429 	mov	r5, dpl
+      0004D2 AE 83            [24] 1430 	mov	r6, dph
+      0004D4 D0 07            [24] 1431 	pop	ar7
+                                   1432 ;	.\FwLib_STC8\src\fw_uart.c:143: TIM_Timer2_Set1TMode(_1TMode);
+      0004D6 74 FB            [12] 1433 	mov	a,#0xfb
+      0004D8 55 8E            [12] 1434 	anl	a,_AUXR
+      0004DA FC               [12] 1435 	mov	r4,a
+      0004DB EF               [12] 1436 	mov	a,r7
+      0004DC 2F               [12] 1437 	add	a,r7
+      0004DD 25 E0            [12] 1438 	add	a,acc
+      0004DF 4C               [12] 1439 	orl	a,r4
+      0004E0 F5 8E            [12] 1440 	mov	_AUXR,a
+                                   1441 ;	.\FwLib_STC8\src\fw_uart.c:144: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+      0004E2 8D 04            [24] 1442 	mov	ar4,r5
+      0004E4 8E 07            [24] 1443 	mov	ar7,r6
+      0004E6 8F D6            [24] 1444 	mov	_T2H,r7
+      0004E8 8D D7            [24] 1445 	mov	_T2L,r5
+                                   1446 ;	.\FwLib_STC8\src\fw_uart.c:145: TIM_Timer2_SetRunState(HAL_State_ON);
+      0004EA 74 EF            [12] 1447 	mov	a,#0xef
+      0004EC 55 8E            [12] 1448 	anl	a,_AUXR
+      0004EE 44 10            [12] 1449 	orl	a,#0x10
+      0004F0 F5 8E            [12] 1450 	mov	_AUXR,a
+                                   1451 ;	.\FwLib_STC8\src\fw_uart.c:146: }
+      0004F2 22               [24] 1452 	ret
                                    1453 ;------------------------------------------------------------
                                    1454 ;Allocation info for local variables in function 'UART3_ConfigOnTimer3'
                                    1455 ;------------------------------------------------------------
@@ -1457,77 +1457,77 @@
                                    1457 ;_1TMode       Allocated with name '_UART3_ConfigOnTimer3__1TMode_10000_57'
                                    1458 ;init          Allocated with name '_UART3_ConfigOnTimer3_init_10000_58'
                                    1459 ;------------------------------------------------------------
-                                   1460 ;	FwLib_STC8\src\fw_uart.c:148: void UART3_ConfigOnTimer3(HAL_State_t _1TMode, uint32_t baudrate)
+                                   1460 ;	.\FwLib_STC8\src\fw_uart.c:148: void UART3_ConfigOnTimer3(HAL_State_t _1TMode, uint32_t baudrate)
                                    1461 ;	-----------------------------------------
                                    1462 ;	 function UART3_ConfigOnTimer3
                                    1463 ;	-----------------------------------------
-      0007C7                       1464 _UART3_ConfigOnTimer3:
-      0007C7 E5 82            [12] 1465 	mov	a,dpl
-      0007C9 90 00 56         [24] 1466 	mov	dptr,#_UART3_ConfigOnTimer3__1TMode_10000_57
-      0007CC F0               [24] 1467 	movx	@dptr,a
-                                   1468 ;	FwLib_STC8\src\fw_uart.c:152: UART3_SetBaudSource(0x01);
-      0007CD 74 BF            [12] 1469 	mov	a,#0xbf
-      0007CF 55 AC            [12] 1470 	anl	a,_S3CON
-      0007D1 44 40            [12] 1471 	orl	a,#0x40
-      0007D3 F5 AC            [12] 1472 	mov	_S3CON,a
-                                   1473 ;	FwLib_STC8\src\fw_uart.c:153: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
-      0007D5 E0               [24] 1474 	movx	a,@dptr
-      0007D6 FF               [12] 1475 	mov	r7,a
-      0007D7 90 00 52         [24] 1476 	mov	dptr,#_UART3_ConfigOnTimer3_PARM_2
-      0007DA E0               [24] 1477 	movx	a,@dptr
-      0007DB FB               [12] 1478 	mov	r3,a
-      0007DC A3               [24] 1479 	inc	dptr
-      0007DD E0               [24] 1480 	movx	a,@dptr
-      0007DE FC               [12] 1481 	mov	r4,a
-      0007DF A3               [24] 1482 	inc	dptr
-      0007E0 E0               [24] 1483 	movx	a,@dptr
-      0007E1 FD               [12] 1484 	mov	r5,a
-      0007E2 A3               [24] 1485 	inc	dptr
-      0007E3 E0               [24] 1486 	movx	a,@dptr
-      0007E4 FE               [12] 1487 	mov	r6,a
-      0007E5 90 00 1F         [24] 1488 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      0007E8 EF               [12] 1489 	mov	a,r7
-      0007E9 F0               [24] 1490 	movx	@dptr,a
-      0007EA 90 00 20         [24] 1491 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      0007ED EB               [12] 1492 	mov	a,r3
-      0007EE F0               [24] 1493 	movx	@dptr,a
-      0007EF EC               [12] 1494 	mov	a,r4
-      0007F0 A3               [24] 1495 	inc	dptr
-      0007F1 F0               [24] 1496 	movx	@dptr,a
-      0007F2 ED               [12] 1497 	mov	a,r5
-      0007F3 A3               [24] 1498 	inc	dptr
-      0007F4 F0               [24] 1499 	movx	@dptr,a
-      0007F5 EE               [12] 1500 	mov	a,r6
-      0007F6 A3               [24] 1501 	inc	dptr
-      0007F7 F0               [24] 1502 	movx	@dptr,a
-      0007F8 90 36 00         [24] 1503 	mov	dptr,#0x3600
-      0007FB 75 F0 6E         [24] 1504 	mov	b, #0x6e
-      0007FE 74 01            [12] 1505 	mov	a, #0x01
-      000800 C0 07            [24] 1506 	push	ar7
-      000802 12 03 FD         [24] 1507 	lcall	_UART_Timer_InitValueCalculate
-      000805 AD 82            [24] 1508 	mov	r5, dpl
-      000807 AE 83            [24] 1509 	mov	r6, dph
-      000809 D0 07            [24] 1510 	pop	ar7
-                                   1511 ;	FwLib_STC8\src\fw_uart.c:155: TIM_Timer3_Set1TMode(_1TMode);
-      00080B 74 FD            [12] 1512 	mov	a,#0xfd
-      00080D 55 D1            [12] 1513 	anl	a,_T4T3M
-      00080F FC               [12] 1514 	mov	r4,a
-      000810 EF               [12] 1515 	mov	a,r7
-      000811 2F               [12] 1516 	add	a,r7
-      000812 4C               [12] 1517 	orl	a,r4
-      000813 F5 D1            [12] 1518 	mov	_T4T3M,a
-                                   1519 ;	FwLib_STC8\src\fw_uart.c:156: TIM_Timer3_SetInitValue(init >> 8, init & 0xFF);
-      000815 8D 04            [24] 1520 	mov	ar4,r5
-      000817 8E 07            [24] 1521 	mov	ar7,r6
-      000819 8F D4            [24] 1522 	mov	_T3H,r7
-      00081B 8D D5            [24] 1523 	mov	_T3L,r5
-                                   1524 ;	FwLib_STC8\src\fw_uart.c:157: TIM_Timer3_SetRunState(HAL_State_ON);
-      00081D 74 F7            [12] 1525 	mov	a,#0xf7
-      00081F 55 D1            [12] 1526 	anl	a,_T4T3M
-      000821 44 08            [12] 1527 	orl	a,#0x08
-      000823 F5 D1            [12] 1528 	mov	_T4T3M,a
-                                   1529 ;	FwLib_STC8\src\fw_uart.c:158: }
-      000825 22               [24] 1530 	ret
+      0004F3                       1464 _UART3_ConfigOnTimer3:
+      0004F3 E5 82            [12] 1465 	mov	a,dpl
+      0004F5 90 00 38         [24] 1466 	mov	dptr,#_UART3_ConfigOnTimer3__1TMode_10000_57
+      0004F8 F0               [24] 1467 	movx	@dptr,a
+                                   1468 ;	.\FwLib_STC8\src\fw_uart.c:152: UART3_SetBaudSource(0x01);
+      0004F9 74 BF            [12] 1469 	mov	a,#0xbf
+      0004FB 55 AC            [12] 1470 	anl	a,_S3CON
+      0004FD 44 40            [12] 1471 	orl	a,#0x40
+      0004FF F5 AC            [12] 1472 	mov	_S3CON,a
+                                   1473 ;	.\FwLib_STC8\src\fw_uart.c:153: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+      000501 E0               [24] 1474 	movx	a,@dptr
+      000502 FF               [12] 1475 	mov	r7,a
+      000503 90 00 34         [24] 1476 	mov	dptr,#_UART3_ConfigOnTimer3_PARM_2
+      000506 E0               [24] 1477 	movx	a,@dptr
+      000507 FB               [12] 1478 	mov	r3,a
+      000508 A3               [24] 1479 	inc	dptr
+      000509 E0               [24] 1480 	movx	a,@dptr
+      00050A FC               [12] 1481 	mov	r4,a
+      00050B A3               [24] 1482 	inc	dptr
+      00050C E0               [24] 1483 	movx	a,@dptr
+      00050D FD               [12] 1484 	mov	r5,a
+      00050E A3               [24] 1485 	inc	dptr
+      00050F E0               [24] 1486 	movx	a,@dptr
+      000510 FE               [12] 1487 	mov	r6,a
+      000511 90 00 01         [24] 1488 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      000514 EF               [12] 1489 	mov	a,r7
+      000515 F0               [24] 1490 	movx	@dptr,a
+      000516 90 00 02         [24] 1491 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      000519 EB               [12] 1492 	mov	a,r3
+      00051A F0               [24] 1493 	movx	@dptr,a
+      00051B EC               [12] 1494 	mov	a,r4
+      00051C A3               [24] 1495 	inc	dptr
+      00051D F0               [24] 1496 	movx	@dptr,a
+      00051E ED               [12] 1497 	mov	a,r5
+      00051F A3               [24] 1498 	inc	dptr
+      000520 F0               [24] 1499 	movx	@dptr,a
+      000521 EE               [12] 1500 	mov	a,r6
+      000522 A3               [24] 1501 	inc	dptr
+      000523 F0               [24] 1502 	movx	@dptr,a
+      000524 90 80 00         [24] 1503 	mov	dptr,#0x8000
+      000527 75 F0 51         [24] 1504 	mov	b, #0x51
+      00052A 74 01            [12] 1505 	mov	a, #0x01
+      00052C C0 07            [24] 1506 	push	ar7
+      00052E 12 01 29         [24] 1507 	lcall	_UART_Timer_InitValueCalculate
+      000531 AD 82            [24] 1508 	mov	r5, dpl
+      000533 AE 83            [24] 1509 	mov	r6, dph
+      000535 D0 07            [24] 1510 	pop	ar7
+                                   1511 ;	.\FwLib_STC8\src\fw_uart.c:155: TIM_Timer3_Set1TMode(_1TMode);
+      000537 74 FD            [12] 1512 	mov	a,#0xfd
+      000539 55 D1            [12] 1513 	anl	a,_T4T3M
+      00053B FC               [12] 1514 	mov	r4,a
+      00053C EF               [12] 1515 	mov	a,r7
+      00053D 2F               [12] 1516 	add	a,r7
+      00053E 4C               [12] 1517 	orl	a,r4
+      00053F F5 D1            [12] 1518 	mov	_T4T3M,a
+                                   1519 ;	.\FwLib_STC8\src\fw_uart.c:156: TIM_Timer3_SetInitValue(init >> 8, init & 0xFF);
+      000541 8D 04            [24] 1520 	mov	ar4,r5
+      000543 8E 07            [24] 1521 	mov	ar7,r6
+      000545 8F D4            [24] 1522 	mov	_T3H,r7
+      000547 8D D5            [24] 1523 	mov	_T3L,r5
+                                   1524 ;	.\FwLib_STC8\src\fw_uart.c:157: TIM_Timer3_SetRunState(HAL_State_ON);
+      000549 74 F7            [12] 1525 	mov	a,#0xf7
+      00054B 55 D1            [12] 1526 	anl	a,_T4T3M
+      00054D 44 08            [12] 1527 	orl	a,#0x08
+      00054F F5 D1            [12] 1528 	mov	_T4T3M,a
+                                   1529 ;	.\FwLib_STC8\src\fw_uart.c:158: }
+      000551 22               [24] 1530 	ret
                                    1531 ;------------------------------------------------------------
                                    1532 ;Allocation info for local variables in function 'UART4_ConfigOnTimer2'
                                    1533 ;------------------------------------------------------------
@@ -1535,76 +1535,76 @@
                                    1535 ;_1TMode       Allocated with name '_UART4_ConfigOnTimer2__1TMode_10000_60'
                                    1536 ;init          Allocated with name '_UART4_ConfigOnTimer2_init_10000_61'
                                    1537 ;------------------------------------------------------------
-                                   1538 ;	FwLib_STC8\src\fw_uart.c:165: void UART4_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
+                                   1538 ;	.\FwLib_STC8\src\fw_uart.c:165: void UART4_ConfigOnTimer2(HAL_State_t _1TMode, uint32_t baudrate)
                                    1539 ;	-----------------------------------------
                                    1540 ;	 function UART4_ConfigOnTimer2
                                    1541 ;	-----------------------------------------
-      000826                       1542 _UART4_ConfigOnTimer2:
-      000826 E5 82            [12] 1543 	mov	a,dpl
-      000828 90 00 5B         [24] 1544 	mov	dptr,#_UART4_ConfigOnTimer2__1TMode_10000_60
-      00082B F0               [24] 1545 	movx	@dptr,a
-                                   1546 ;	FwLib_STC8\src\fw_uart.c:169: UART4_SetBaudSource(0x00);
-      00082C 53 84 BF         [24] 1547 	anl	_S4CON,#0xbf
-                                   1548 ;	FwLib_STC8\src\fw_uart.c:170: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
-      00082F 90 00 5B         [24] 1549 	mov	dptr,#_UART4_ConfigOnTimer2__1TMode_10000_60
-      000832 E0               [24] 1550 	movx	a,@dptr
-      000833 FF               [12] 1551 	mov	r7,a
-      000834 90 00 57         [24] 1552 	mov	dptr,#_UART4_ConfigOnTimer2_PARM_2
-      000837 E0               [24] 1553 	movx	a,@dptr
-      000838 FB               [12] 1554 	mov	r3,a
-      000839 A3               [24] 1555 	inc	dptr
-      00083A E0               [24] 1556 	movx	a,@dptr
-      00083B FC               [12] 1557 	mov	r4,a
-      00083C A3               [24] 1558 	inc	dptr
-      00083D E0               [24] 1559 	movx	a,@dptr
-      00083E FD               [12] 1560 	mov	r5,a
-      00083F A3               [24] 1561 	inc	dptr
-      000840 E0               [24] 1562 	movx	a,@dptr
-      000841 FE               [12] 1563 	mov	r6,a
-      000842 90 00 1F         [24] 1564 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      000845 EF               [12] 1565 	mov	a,r7
-      000846 F0               [24] 1566 	movx	@dptr,a
-      000847 90 00 20         [24] 1567 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      00084A EB               [12] 1568 	mov	a,r3
-      00084B F0               [24] 1569 	movx	@dptr,a
-      00084C EC               [12] 1570 	mov	a,r4
-      00084D A3               [24] 1571 	inc	dptr
-      00084E F0               [24] 1572 	movx	@dptr,a
-      00084F ED               [12] 1573 	mov	a,r5
-      000850 A3               [24] 1574 	inc	dptr
-      000851 F0               [24] 1575 	movx	@dptr,a
-      000852 EE               [12] 1576 	mov	a,r6
-      000853 A3               [24] 1577 	inc	dptr
-      000854 F0               [24] 1578 	movx	@dptr,a
-      000855 90 36 00         [24] 1579 	mov	dptr,#0x3600
-      000858 75 F0 6E         [24] 1580 	mov	b, #0x6e
-      00085B 74 01            [12] 1581 	mov	a, #0x01
-      00085D C0 07            [24] 1582 	push	ar7
-      00085F 12 03 FD         [24] 1583 	lcall	_UART_Timer_InitValueCalculate
-      000862 AD 82            [24] 1584 	mov	r5, dpl
-      000864 AE 83            [24] 1585 	mov	r6, dph
-      000866 D0 07            [24] 1586 	pop	ar7
-                                   1587 ;	FwLib_STC8\src\fw_uart.c:171: TIM_Timer2_Set1TMode(_1TMode);
-      000868 74 FB            [12] 1588 	mov	a,#0xfb
-      00086A 55 8E            [12] 1589 	anl	a,_AUXR
-      00086C FC               [12] 1590 	mov	r4,a
-      00086D EF               [12] 1591 	mov	a,r7
-      00086E 2F               [12] 1592 	add	a,r7
-      00086F 25 E0            [12] 1593 	add	a,acc
-      000871 4C               [12] 1594 	orl	a,r4
-      000872 F5 8E            [12] 1595 	mov	_AUXR,a
-                                   1596 ;	FwLib_STC8\src\fw_uart.c:172: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
-      000874 8D 04            [24] 1597 	mov	ar4,r5
-      000876 8E 07            [24] 1598 	mov	ar7,r6
-      000878 8F D6            [24] 1599 	mov	_T2H,r7
-      00087A 8D D7            [24] 1600 	mov	_T2L,r5
-                                   1601 ;	FwLib_STC8\src\fw_uart.c:173: TIM_Timer2_SetRunState(HAL_State_ON);
-      00087C 74 EF            [12] 1602 	mov	a,#0xef
-      00087E 55 8E            [12] 1603 	anl	a,_AUXR
-      000880 44 10            [12] 1604 	orl	a,#0x10
-      000882 F5 8E            [12] 1605 	mov	_AUXR,a
-                                   1606 ;	FwLib_STC8\src\fw_uart.c:174: }
-      000884 22               [24] 1607 	ret
+      000552                       1542 _UART4_ConfigOnTimer2:
+      000552 E5 82            [12] 1543 	mov	a,dpl
+      000554 90 00 3D         [24] 1544 	mov	dptr,#_UART4_ConfigOnTimer2__1TMode_10000_60
+      000557 F0               [24] 1545 	movx	@dptr,a
+                                   1546 ;	.\FwLib_STC8\src\fw_uart.c:169: UART4_SetBaudSource(0x00);
+      000558 53 84 BF         [24] 1547 	anl	_S4CON,#0xbf
+                                   1548 ;	.\FwLib_STC8\src\fw_uart.c:170: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+      00055B 90 00 3D         [24] 1549 	mov	dptr,#_UART4_ConfigOnTimer2__1TMode_10000_60
+      00055E E0               [24] 1550 	movx	a,@dptr
+      00055F FF               [12] 1551 	mov	r7,a
+      000560 90 00 39         [24] 1552 	mov	dptr,#_UART4_ConfigOnTimer2_PARM_2
+      000563 E0               [24] 1553 	movx	a,@dptr
+      000564 FB               [12] 1554 	mov	r3,a
+      000565 A3               [24] 1555 	inc	dptr
+      000566 E0               [24] 1556 	movx	a,@dptr
+      000567 FC               [12] 1557 	mov	r4,a
+      000568 A3               [24] 1558 	inc	dptr
+      000569 E0               [24] 1559 	movx	a,@dptr
+      00056A FD               [12] 1560 	mov	r5,a
+      00056B A3               [24] 1561 	inc	dptr
+      00056C E0               [24] 1562 	movx	a,@dptr
+      00056D FE               [12] 1563 	mov	r6,a
+      00056E 90 00 01         [24] 1564 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      000571 EF               [12] 1565 	mov	a,r7
+      000572 F0               [24] 1566 	movx	@dptr,a
+      000573 90 00 02         [24] 1567 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      000576 EB               [12] 1568 	mov	a,r3
+      000577 F0               [24] 1569 	movx	@dptr,a
+      000578 EC               [12] 1570 	mov	a,r4
+      000579 A3               [24] 1571 	inc	dptr
+      00057A F0               [24] 1572 	movx	@dptr,a
+      00057B ED               [12] 1573 	mov	a,r5
+      00057C A3               [24] 1574 	inc	dptr
+      00057D F0               [24] 1575 	movx	@dptr,a
+      00057E EE               [12] 1576 	mov	a,r6
+      00057F A3               [24] 1577 	inc	dptr
+      000580 F0               [24] 1578 	movx	@dptr,a
+      000581 90 80 00         [24] 1579 	mov	dptr,#0x8000
+      000584 75 F0 51         [24] 1580 	mov	b, #0x51
+      000587 74 01            [12] 1581 	mov	a, #0x01
+      000589 C0 07            [24] 1582 	push	ar7
+      00058B 12 01 29         [24] 1583 	lcall	_UART_Timer_InitValueCalculate
+      00058E AD 82            [24] 1584 	mov	r5, dpl
+      000590 AE 83            [24] 1585 	mov	r6, dph
+      000592 D0 07            [24] 1586 	pop	ar7
+                                   1587 ;	.\FwLib_STC8\src\fw_uart.c:171: TIM_Timer2_Set1TMode(_1TMode);
+      000594 74 FB            [12] 1588 	mov	a,#0xfb
+      000596 55 8E            [12] 1589 	anl	a,_AUXR
+      000598 FC               [12] 1590 	mov	r4,a
+      000599 EF               [12] 1591 	mov	a,r7
+      00059A 2F               [12] 1592 	add	a,r7
+      00059B 25 E0            [12] 1593 	add	a,acc
+      00059D 4C               [12] 1594 	orl	a,r4
+      00059E F5 8E            [12] 1595 	mov	_AUXR,a
+                                   1596 ;	.\FwLib_STC8\src\fw_uart.c:172: TIM_Timer2_SetInitValue(init >> 8, init & 0xFF);
+      0005A0 8D 04            [24] 1597 	mov	ar4,r5
+      0005A2 8E 07            [24] 1598 	mov	ar7,r6
+      0005A4 8F D6            [24] 1599 	mov	_T2H,r7
+      0005A6 8D D7            [24] 1600 	mov	_T2L,r5
+                                   1601 ;	.\FwLib_STC8\src\fw_uart.c:173: TIM_Timer2_SetRunState(HAL_State_ON);
+      0005A8 74 EF            [12] 1602 	mov	a,#0xef
+      0005AA 55 8E            [12] 1603 	anl	a,_AUXR
+      0005AC 44 10            [12] 1604 	orl	a,#0x10
+      0005AE F5 8E            [12] 1605 	mov	_AUXR,a
+                                   1606 ;	.\FwLib_STC8\src\fw_uart.c:174: }
+      0005B0 22               [24] 1607 	ret
                                    1608 ;------------------------------------------------------------
                                    1609 ;Allocation info for local variables in function 'UART4_ConfigOnTimer4'
                                    1610 ;------------------------------------------------------------
@@ -1612,79 +1612,79 @@
                                    1612 ;_1TMode       Allocated with name '_UART4_ConfigOnTimer4__1TMode_10000_63'
                                    1613 ;init          Allocated with name '_UART4_ConfigOnTimer4_init_10000_64'
                                    1614 ;------------------------------------------------------------
-                                   1615 ;	FwLib_STC8\src\fw_uart.c:176: void UART4_ConfigOnTimer4(HAL_State_t _1TMode, uint32_t baudrate)
+                                   1615 ;	.\FwLib_STC8\src\fw_uart.c:176: void UART4_ConfigOnTimer4(HAL_State_t _1TMode, uint32_t baudrate)
                                    1616 ;	-----------------------------------------
                                    1617 ;	 function UART4_ConfigOnTimer4
                                    1618 ;	-----------------------------------------
-      000885                       1619 _UART4_ConfigOnTimer4:
-      000885 E5 82            [12] 1620 	mov	a,dpl
-      000887 90 00 60         [24] 1621 	mov	dptr,#_UART4_ConfigOnTimer4__1TMode_10000_63
-      00088A F0               [24] 1622 	movx	@dptr,a
-                                   1623 ;	FwLib_STC8\src\fw_uart.c:180: UART4_SetBaudSource(0x01);
-      00088B 74 BF            [12] 1624 	mov	a,#0xbf
-      00088D 55 84            [12] 1625 	anl	a,_S4CON
-      00088F 44 40            [12] 1626 	orl	a,#0x40
-      000891 F5 84            [12] 1627 	mov	_S4CON,a
-                                   1628 ;	FwLib_STC8\src\fw_uart.c:181: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
-      000893 E0               [24] 1629 	movx	a,@dptr
-      000894 FF               [12] 1630 	mov	r7,a
-      000895 90 00 5C         [24] 1631 	mov	dptr,#_UART4_ConfigOnTimer4_PARM_2
-      000898 E0               [24] 1632 	movx	a,@dptr
-      000899 FB               [12] 1633 	mov	r3,a
-      00089A A3               [24] 1634 	inc	dptr
-      00089B E0               [24] 1635 	movx	a,@dptr
-      00089C FC               [12] 1636 	mov	r4,a
-      00089D A3               [24] 1637 	inc	dptr
-      00089E E0               [24] 1638 	movx	a,@dptr
-      00089F FD               [12] 1639 	mov	r5,a
-      0008A0 A3               [24] 1640 	inc	dptr
-      0008A1 E0               [24] 1641 	movx	a,@dptr
-      0008A2 FE               [12] 1642 	mov	r6,a
-      0008A3 90 00 1F         [24] 1643 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
-      0008A6 EF               [12] 1644 	mov	a,r7
-      0008A7 F0               [24] 1645 	movx	@dptr,a
-      0008A8 90 00 20         [24] 1646 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
-      0008AB EB               [12] 1647 	mov	a,r3
-      0008AC F0               [24] 1648 	movx	@dptr,a
-      0008AD EC               [12] 1649 	mov	a,r4
-      0008AE A3               [24] 1650 	inc	dptr
-      0008AF F0               [24] 1651 	movx	@dptr,a
-      0008B0 ED               [12] 1652 	mov	a,r5
-      0008B1 A3               [24] 1653 	inc	dptr
-      0008B2 F0               [24] 1654 	movx	@dptr,a
-      0008B3 EE               [12] 1655 	mov	a,r6
-      0008B4 A3               [24] 1656 	inc	dptr
-      0008B5 F0               [24] 1657 	movx	@dptr,a
-      0008B6 90 36 00         [24] 1658 	mov	dptr,#0x3600
-      0008B9 75 F0 6E         [24] 1659 	mov	b, #0x6e
-      0008BC 74 01            [12] 1660 	mov	a, #0x01
-      0008BE C0 07            [24] 1661 	push	ar7
-      0008C0 12 03 FD         [24] 1662 	lcall	_UART_Timer_InitValueCalculate
-      0008C3 AD 82            [24] 1663 	mov	r5, dpl
-      0008C5 AE 83            [24] 1664 	mov	r6, dph
-      0008C7 D0 07            [24] 1665 	pop	ar7
-                                   1666 ;	FwLib_STC8\src\fw_uart.c:182: TIM_Timer4_Set1TMode(_1TMode);
-      0008C9 74 DF            [12] 1667 	mov	a,#0xdf
-      0008CB 55 D1            [12] 1668 	anl	a,_T4T3M
-      0008CD FC               [12] 1669 	mov	r4,a
-      0008CE EF               [12] 1670 	mov	a,r7
-      0008CF C4               [12] 1671 	swap	a
-      0008D0 23               [12] 1672 	rl	a
-      0008D1 54 E0            [12] 1673 	anl	a,#0xe0
-      0008D3 4C               [12] 1674 	orl	a,r4
-      0008D4 F5 D1            [12] 1675 	mov	_T4T3M,a
-                                   1676 ;	FwLib_STC8\src\fw_uart.c:183: TIM_Timer4_SetInitValue(init >> 8, init & 0xFF);
-      0008D6 8D 04            [24] 1677 	mov	ar4,r5
-      0008D8 8E 07            [24] 1678 	mov	ar7,r6
-      0008DA 8F D2            [24] 1679 	mov	_T4H,r7
-      0008DC 8D D3            [24] 1680 	mov	_T4L,r5
-                                   1681 ;	FwLib_STC8\src\fw_uart.c:184: TIM_Timer4_SetRunState(HAL_State_ON);
-      0008DE 74 7F            [12] 1682 	mov	a,#0x7f
-      0008E0 55 D1            [12] 1683 	anl	a,_T4T3M
-      0008E2 44 80            [12] 1684 	orl	a,#0x80
-      0008E4 F5 D1            [12] 1685 	mov	_T4T3M,a
-                                   1686 ;	FwLib_STC8\src\fw_uart.c:185: }
-      0008E6 22               [24] 1687 	ret
+      0005B1                       1619 _UART4_ConfigOnTimer4:
+      0005B1 E5 82            [12] 1620 	mov	a,dpl
+      0005B3 90 00 42         [24] 1621 	mov	dptr,#_UART4_ConfigOnTimer4__1TMode_10000_63
+      0005B6 F0               [24] 1622 	movx	@dptr,a
+                                   1623 ;	.\FwLib_STC8\src\fw_uart.c:180: UART4_SetBaudSource(0x01);
+      0005B7 74 BF            [12] 1624 	mov	a,#0xbf
+      0005B9 55 84            [12] 1625 	anl	a,_S4CON
+      0005BB 44 40            [12] 1626 	orl	a,#0x40
+      0005BD F5 84            [12] 1627 	mov	_S4CON,a
+                                   1628 ;	.\FwLib_STC8\src\fw_uart.c:181: init = UART_Timer_InitValueCalculate(__SYSCLOCK, _1TMode, baudrate);
+      0005BF E0               [24] 1629 	movx	a,@dptr
+      0005C0 FF               [12] 1630 	mov	r7,a
+      0005C1 90 00 3E         [24] 1631 	mov	dptr,#_UART4_ConfigOnTimer4_PARM_2
+      0005C4 E0               [24] 1632 	movx	a,@dptr
+      0005C5 FB               [12] 1633 	mov	r3,a
+      0005C6 A3               [24] 1634 	inc	dptr
+      0005C7 E0               [24] 1635 	movx	a,@dptr
+      0005C8 FC               [12] 1636 	mov	r4,a
+      0005C9 A3               [24] 1637 	inc	dptr
+      0005CA E0               [24] 1638 	movx	a,@dptr
+      0005CB FD               [12] 1639 	mov	r5,a
+      0005CC A3               [24] 1640 	inc	dptr
+      0005CD E0               [24] 1641 	movx	a,@dptr
+      0005CE FE               [12] 1642 	mov	r6,a
+      0005CF 90 00 01         [24] 1643 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_2
+      0005D2 EF               [12] 1644 	mov	a,r7
+      0005D3 F0               [24] 1645 	movx	@dptr,a
+      0005D4 90 00 02         [24] 1646 	mov	dptr,#_UART_Timer_InitValueCalculate_PARM_3
+      0005D7 EB               [12] 1647 	mov	a,r3
+      0005D8 F0               [24] 1648 	movx	@dptr,a
+      0005D9 EC               [12] 1649 	mov	a,r4
+      0005DA A3               [24] 1650 	inc	dptr
+      0005DB F0               [24] 1651 	movx	@dptr,a
+      0005DC ED               [12] 1652 	mov	a,r5
+      0005DD A3               [24] 1653 	inc	dptr
+      0005DE F0               [24] 1654 	movx	@dptr,a
+      0005DF EE               [12] 1655 	mov	a,r6
+      0005E0 A3               [24] 1656 	inc	dptr
+      0005E1 F0               [24] 1657 	movx	@dptr,a
+      0005E2 90 80 00         [24] 1658 	mov	dptr,#0x8000
+      0005E5 75 F0 51         [24] 1659 	mov	b, #0x51
+      0005E8 74 01            [12] 1660 	mov	a, #0x01
+      0005EA C0 07            [24] 1661 	push	ar7
+      0005EC 12 01 29         [24] 1662 	lcall	_UART_Timer_InitValueCalculate
+      0005EF AD 82            [24] 1663 	mov	r5, dpl
+      0005F1 AE 83            [24] 1664 	mov	r6, dph
+      0005F3 D0 07            [24] 1665 	pop	ar7
+                                   1666 ;	.\FwLib_STC8\src\fw_uart.c:182: TIM_Timer4_Set1TMode(_1TMode);
+      0005F5 74 DF            [12] 1667 	mov	a,#0xdf
+      0005F7 55 D1            [12] 1668 	anl	a,_T4T3M
+      0005F9 FC               [12] 1669 	mov	r4,a
+      0005FA EF               [12] 1670 	mov	a,r7
+      0005FB C4               [12] 1671 	swap	a
+      0005FC 23               [12] 1672 	rl	a
+      0005FD 54 E0            [12] 1673 	anl	a,#0xe0
+      0005FF 4C               [12] 1674 	orl	a,r4
+      000600 F5 D1            [12] 1675 	mov	_T4T3M,a
+                                   1676 ;	.\FwLib_STC8\src\fw_uart.c:183: TIM_Timer4_SetInitValue(init >> 8, init & 0xFF);
+      000602 8D 04            [24] 1677 	mov	ar4,r5
+      000604 8E 07            [24] 1678 	mov	ar7,r6
+      000606 8F D2            [24] 1679 	mov	_T4H,r7
+      000608 8D D3            [24] 1680 	mov	_T4L,r5
+                                   1681 ;	.\FwLib_STC8\src\fw_uart.c:184: TIM_Timer4_SetRunState(HAL_State_ON);
+      00060A 74 7F            [12] 1682 	mov	a,#0x7f
+      00060C 55 D1            [12] 1683 	anl	a,_T4T3M
+      00060E 44 80            [12] 1684 	orl	a,#0x80
+      000610 F5 D1            [12] 1685 	mov	_T4T3M,a
+                                   1686 ;	.\FwLib_STC8\src\fw_uart.c:185: }
+      000612 22               [24] 1687 	ret
                                    1688 	.area CSEG    (CODE)
                                    1689 	.area CONST   (CODE)
                                    1690 	.area XINIT   (CODE)
