@@ -2,6 +2,9 @@
 #include "reg_table.h"
 #include "fw_hal.h"
 
+extern volatile uint8_t mb_frame_ready;
+extern volatile uint8_t mb_idx;
+
 #define _nop_() __asm NOP __endasm
 
 #define HX_SETTLE_SAMPLES  4
@@ -85,6 +88,10 @@ int32_t Read_HX71708_Raw(void)
 
     timeout = 500000UL;
     while (HX_DOUT) {
+        if (mb_frame_ready || mb_idx > 0) {
+            busy = 0;
+            return -1;
+        }
         if (--timeout == 0) {
             busy = 0;
             return -1;

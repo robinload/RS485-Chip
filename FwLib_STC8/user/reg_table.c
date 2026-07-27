@@ -173,7 +173,29 @@ void reg_load(const reg_desc_t *r) {
 }
 
 volatile uint8_t reg_save_pending = 0;
+volatile uint8_t reg_save_due = 0;
 volatile uint8_t reg_uart_apply_pending = 0;
+
+static volatile uint16_t reg_save_ms = 0;
+
+#define REG_SAVE_DEBOUNCE_MS  500
+
+void reg_schedule_save(void)
+{
+    reg_save_pending = 1;
+    reg_save_due = 0;
+    reg_save_ms = REG_SAVE_DEBOUNCE_MS;
+}
+
+void reg_save_tick_1ms(void)
+{
+    if (reg_save_pending && reg_save_ms > 0) {
+        reg_save_ms--;
+        if (reg_save_ms == 0) {
+            reg_save_due = 1;
+        }
+    }
+}
 
 static uint8_t reg_update_ram(void *target, int32_t value, const reg_desc_t **out_r)
 {
@@ -220,7 +242,7 @@ uint8_t reg_write(void *target, int32_t value) {
     if (rc != 0) return rc;
 
     if (r && !(r->flags & REG_FLAG_VOLATILE)) {
-        reg_save_all();
+        reg_schedule_save();
     }
 
     return 0;

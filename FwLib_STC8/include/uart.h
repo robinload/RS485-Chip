@@ -20,6 +20,7 @@ extern __xdata volatile uint8_t cached_id;
  * Configures UART1 (Debug), Timer 2 (Baud), and Timer 0 (Modbus Timeout)
  */
 void UART_Init(void);
+void Timer1_Init(void);
 
 /**
  * Configures UART2 (RS485) on P1.0/P1.1

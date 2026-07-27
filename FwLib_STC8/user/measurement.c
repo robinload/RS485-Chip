@@ -160,6 +160,6 @@ uint8_t MEAS_SetZero(void)
     reg_offset_val -= reg_measuring_val;
     zero_track_cnt  = 0;
 
-    reg_save_pending = 1;
+    reg_schedule_save();
     return 0;
 }

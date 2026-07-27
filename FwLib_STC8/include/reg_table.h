@@ -41,6 +41,8 @@ void reg_init(void);
 void reg_load_all(void);
 void reg_load(const reg_desc_t *r);
 void reg_save_all(void);
+void reg_schedule_save(void);
+void reg_save_tick_1ms(void);
 void reg_reset_defaults(void);
 uint8_t reg_write(void *target, int32_t value);
 uint8_t reg_write_ram(void *target, int32_t value);
@@ -50,6 +52,7 @@ const reg_desc_t *find_reg(uint16_t addr);
 uint8_t reg_reg_words(const reg_desc_t *r);
 
 extern volatile uint8_t reg_save_pending;
+extern volatile uint8_t reg_save_due;
 extern volatile uint8_t reg_uart_apply_pending;
 
 /* ================= Exposed RAM registers ================= */

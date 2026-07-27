@@ -91,7 +91,7 @@ static uint8_t mb_write_register(const reg_desc_t *r, int32_t val)
 {
     if (r->ram_ptr == (void __xdata *)&reg_measuring_val) {
         reg_offset_val += (val - reg_measuring_val);
-        reg_save_pending = 1;
+        reg_schedule_save();
         return 0;
     }
 
@@ -195,7 +195,7 @@ static void handle_fc06(uint8_t __xdata *buf, uint8_t respond)
 
     if (!respond) {
         if (!(r->flags & REG_FLAG_VOLATILE)) {
-            reg_save_pending = 1;
+            reg_schedule_save();
         }
         return;
     }
@@ -213,7 +213,7 @@ static void handle_fc06(uint8_t __xdata *buf, uint8_t respond)
     UART2_SendBuffer(res_buf, 8);
 
     if (!(r->flags & REG_FLAG_VOLATILE)) {
-        reg_save_pending = 1;
+        reg_schedule_save();
     }
 }
 
@@ -250,7 +250,7 @@ static void handle_fc16(uint8_t __xdata *buf, uint8_t respond)
 
     if (!respond) {
         if (!(r->flags & REG_FLAG_VOLATILE)) {
-            reg_save_pending = 1;
+            reg_schedule_save();
         }
         return;
     }
@@ -268,7 +268,7 @@ static void handle_fc16(uint8_t __xdata *buf, uint8_t respond)
     UART2_SendBuffer(res_buf, 8);
 
     if (!(r->flags & REG_FLAG_VOLATILE)) {
-        reg_save_pending = 1;
+        reg_schedule_save();
     }
 }
 

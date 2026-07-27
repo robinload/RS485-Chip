@@ -88,6 +88,7 @@ extern volatile uint8_t mb_frame_ready;
 void UART_ISR(void)  __interrupt(4);
 void UART2_ISR(void) __interrupt(8);
 void Timer0_ISR(void) __interrupt(1);
+void Timer1_ISR(void) __interrupt(3);
 
 void main(void)
 {
@@ -104,6 +105,7 @@ void main(void)
     UART_SendString("BOOT_OK\r\n"); // Debug confirms boot on UART1
 
     ET0 = 1;        // Timer0 interrupt (frame gap detection)
+    ET1 = 1;        // Timer1 interrupt (deferred EEPROM save)
     ES  = 1;        // UART1 interrupt (debug, TX only)
     IE2 |= 0x01;    // UART2 interrupt (Modbus RX)
     EA  = 1;        // Global enable
@@ -112,7 +114,7 @@ void main(void)
     {
         WDT_CONTR = 0x35;
 
-        if (mb_frame_ready)
+        while (mb_frame_ready)
         {
             EA = 0;
             mb_parse_request();
@@ -121,18 +123,22 @@ void main(void)
             EA = 1;
         }
 
-        if (reg_save_pending)
+        if (reg_save_due && mb_idx == 0 && !mb_frame_ready)
         {
+            reg_save_due = 0;
             reg_save_pending = 0;
             reg_save_all();
         }
 
-        if (reg_uart_apply_pending)
+        if (reg_uart_apply_pending && mb_idx == 0 && !mb_frame_ready)
         {
             reg_uart_apply_pending = 0;
             UART_ApplyConfig();
         }
 
-        MEAS_Process();
+        if (mb_idx == 0 && !mb_frame_ready && !reg_save_due)
+        {
+            MEAS_Process();
+        }
     }
 }

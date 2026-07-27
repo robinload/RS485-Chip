@@ -14,9 +14,14 @@ __xdata volatile uint8_t cached_id = 1;
 #define T0_RELOAD_H      0x20
 #define T0_RELOAD_L      0x00
 
+/*
+   Table 2 baud (reg_baud_rate @ 0x005A):
+   0=300 1=600 2=1200 3=2400 4=4800 5=9600 6=19200
+   7=28800 8=38400 9=57600 10=115200
+*/
 static const uint32_t __code BAUD_TABLE[] = {
     300UL, 600UL, 1200UL, 2400UL, 4800UL, 9600UL,
-    19200UL, 38400UL, 57600UL, 76800UL, 115200UL
+    19200UL, 28800UL, 38400UL, 57600UL, 115200UL
 };
 
 static uint8_t uart_parity_mode = 0;
@@ -156,6 +161,31 @@ void UART_Init(void)
     TF0 = 0;
     ET0 = 1;
     TR0 = 0;
+
+    Timer1_Init();
+}
+
+void Timer1_Init(void)
+{
+    /* 1 ms tick @ 22.1184 MHz, Timer1 mode 1, 1T */
+    TMOD = (TMOD & 0x0F) | 0x10;
+    AUXR |= 0x40;
+
+    TH1 = (uint8_t)((65536UL - 22118UL) >> 8);
+    TL1 = (uint8_t)(65536UL - 22118UL);
+
+    TF1 = 0;
+    ET1 = 1;
+    TR1 = 1;
+}
+
+void Timer1_ISR(void) __interrupt(3)
+{
+    TH1 = (uint8_t)((65536UL - 22118UL) >> 8);
+    TL1 = (uint8_t)(65536UL - 22118UL);
+    TF1 = 0;
+
+    reg_save_tick_1ms();
 }
 
 static inline void Modbus_ResetSilentTimer(void)
