@@ -73,7 +73,7 @@ const reg_desc_t reg_table[] = {
  { 0x002A, 0x0054, REG_I32, &reg_pvp[8], 0, I32_MIN, I32_MAX, 0 },
 
  /* ================= System Settings ================= */
- { 0x0034, 0x0058, REG_I32, &reg_adc_speed,         0, 0, 1, 0 },
+ { 0x0034, 0x0058, REG_I32, &reg_adc_speed,         0, 0, 3, 0 },
  { 0x0056, 0x005C, REG_I32, &reg_filter_level,      2, 0, 5, 0 },
  { 0x0058, 0x0060, REG_I32, &reg_filter_band,      10, 0, 1000, 0 },
  { 0x005A, 0x0064, REG_I32, &reg_baud_rate,         3, 0, 10, 0 },
@@ -108,7 +108,8 @@ void reg_save_all(void) {
 
     IAP_SetWaitTime();
     IAP_SetEnabled(HAL_State_ON);
-    IAP_CmdErase(0x0000); 
+    IAP_CmdErase(0x0000);
+    WDT_CONTR = 0x35;
 
     for (i = 0; i < REG_TABLE_SIZE; i++) {
         r = &reg_table[i];
@@ -120,8 +121,10 @@ void reg_save_all(void) {
 
         for (j = 0; j < size; j++) {
             IAP_WriteData((uint8_t)(v >> (8 * j)));
-            IAP_CmdWrite(r->eeprom_addr + j);    
+            IAP_CmdWrite(r->eeprom_addr + j);
+            WDT_CONTR = 0x35;
         }
+        WDT_CONTR = 0x35;
     }
     IAP_SetEnabled(HAL_State_OFF);
 }
@@ -166,40 +169,73 @@ void reg_load(const reg_desc_t *r) {
     else if (r->type == REG_I32) *(int32_t*)r->ram_ptr = (int32_t)v;
 }
 
-uint8_t reg_write(void *target, int32_t value) {
+volatile uint8_t reg_save_pending = 0;
+
+static uint8_t reg_update_ram(void *target, int32_t value, const reg_desc_t **out_r)
+{
     uint8_t i;
     const reg_desc_t *r = 0;
 
-    // 1. Find the register metadata
     for (i = 0; i < REG_TABLE_SIZE; i++) {
         if (reg_table[i].ram_ptr == target) {
             r = &reg_table[i];
             break;
         }
     }
-    
-    if (!r) return 1; // Not found
 
-    // 2. Prevent writes to Read-Only registers (from external sources)
+    if (!r) return 1;
     if (r->flags & REG_FLAG_READONLY) return 2;
 
-    // 3. Update RAM (Type-specific casting)
-    if (r->type == REG_U8) { 
-        *(uint8_t*)r->ram_ptr = (uint8_t)value; 
-    } 
-    else if (r->type == REG_U16 || r->type == REG_I16) { 
-        *(uint16_t*)r->ram_ptr = (uint16_t)value; 
-    } 
-    else { 
-        *(uint32_t*)r->ram_ptr = (uint32_t)value; 
+    if (r->type == REG_U8) {
+        *(uint8_t*)r->ram_ptr = (uint8_t)value;
+    }
+    else if (r->type == REG_U16 || r->type == REG_I16) {
+        *(uint16_t*)r->ram_ptr = (uint16_t)value;
+    }
+    else {
+        *(uint32_t*)r->ram_ptr = (uint32_t)value;
     }
 
-    // 4. SMART SAVE: Only save if NOT volatile
-    if (!(r->flags & REG_FLAG_VOLATILE)) {
-        reg_save_all(); 
+    if (out_r) {
+        *out_r = r;
     }
 
     return 0;
+}
+
+uint8_t reg_write_ram(void *target, int32_t value)
+{
+    return reg_update_ram(target, value, 0);
+}
+
+uint8_t reg_write(void *target, int32_t value) {
+    const reg_desc_t *r = 0;
+    uint8_t rc;
+
+    rc = reg_update_ram(target, value, &r);
+    if (rc != 0) return rc;
+
+    if (r && !(r->flags & REG_FLAG_VOLATILE)) {
+        reg_save_all();
+    }
+
+    return 0;
+}
+
+int32_t reg_read_i32(const reg_desc_t *r)
+{
+    if (r->modbus_addr == 0x0000) {
+        return reg_measuring_val;
+    }
+    if (r->modbus_addr == 0x1F40) {
+        return reg_adc_raw_value;
+    }
+    return *(int32_t __xdata *)r->ram_ptr;
+}
+
+uint16_t reg_read_u16(const reg_desc_t *r)
+{
+    return *(uint16_t __xdata *)r->ram_ptr;
 }
 
 void reg_load_all(void) {
@@ -232,9 +268,10 @@ void reg_reset_defaults(void) {
     const reg_desc_t *r;
     for (i = 0; i < REG_TABLE_SIZE; i++) {
         r = &reg_table[i];
-        if (r->type == REG_U8) *(uint8_t*)r->ram_ptr = (uint8_t)r->default_val;
-        else if (r->type == REG_U16 || r->type == REG_I16) *(uint16_t*)r->ram_ptr = (uint16_t)r->default_val;
-        else *(uint32_t*)r->ram_ptr = (uint32_t)r->default_val;
+        if (r->flags & REG_FLAG_VOLATILE) continue;
+        if (r->type == REG_U8) *(uint8_t __xdata *)r->ram_ptr = (uint8_t)r->default_val;
+        else if (r->type == REG_U16 || r->type == REG_I16) *(uint16_t __xdata *)r->ram_ptr = (uint16_t)r->default_val;
+        else *(uint32_t __xdata *)r->ram_ptr = (uint32_t)r->default_val;
     }
     reg_save_all();
 }

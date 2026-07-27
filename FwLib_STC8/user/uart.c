@@ -6,6 +6,7 @@
 __xdata uint8_t  mb_buf[64];
 volatile uint8_t mb_idx = 0;
 volatile uint8_t mb_frame_ready = 0;
+__xdata volatile uint8_t cached_id = 1;
 
 
 /* ================= Timer Configs ================= */
@@ -209,18 +210,23 @@ void UART2_ISR(void) __interrupt(8)
 void UART2_SendChar(char c)
 {
     P_SW2 |= 0x80;
+    S2CON &= ~0x02;
     S2BUF = c;
-    while (!(S2CON & 0x02)); // Wait for TI2
-    S2CON &= ~0x02;          // Clear TI2
+    while (!(S2CON & 0x02));
+    S2CON &= ~0x02;
 }
 
 void UART2_SendBuffer(uint8_t *buf, uint8_t len)
 {
-    RS485_DIR_TX();          // Flip transceiver to Transmit
+    EA = 0;
+    IE2 &= ~0x01;
+    RS485_DIR_TX();
     while (len--)
     {
         UART2_SendChar(*buf++);
     }
-    RS485_FLUSH();           // Wait for physical bits to leave the wire
-    RS485_DIR_RX();          // Flip back to Receive
+    RS485_FLUSH();
+    RS485_DIR_RX();
+    IE2 |= 0x01;
+    EA = 1;
 }

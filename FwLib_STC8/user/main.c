@@ -97,6 +97,8 @@ void main(void)
     UART2_Init();  // UART2 (RS485 Modbus) on P1.0/P1.1
 
     reg_init();
+    HX_Init();
+    mb_refresh_slave_id();
 
     UART_SendString("BOOT_OK\r\n"); // Debug confirms boot on UART1
 
@@ -109,8 +111,6 @@ void main(void)
     {
         WDT_CONTR = 0x35;
 
-        MEAS_Process();
-
         if (mb_frame_ready)
         {
             EA = 0;
@@ -119,5 +119,13 @@ void main(void)
             mb_frame_ready = 0;
             EA = 1;
         }
+
+        if (reg_save_pending)
+        {
+            reg_save_pending = 0;
+            reg_save_all();
+        }
+
+        MEAS_Process();
     }
 }

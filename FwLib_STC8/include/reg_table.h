@@ -43,32 +43,37 @@ void reg_load(const reg_desc_t *r);
 void reg_save_all(void);
 void reg_reset_defaults(void);
 uint8_t reg_write(void *target, int32_t value);
+uint8_t reg_write_ram(void *target, int32_t value);
+int32_t reg_read_i32(const reg_desc_t *r);
+uint16_t reg_read_u16(const reg_desc_t *r);
+
+extern volatile uint8_t reg_save_pending;
 
 /* ================= Exposed RAM registers ================= */
 /* All converted to int32_t to match the implementation in .c */
-extern int32_t  reg_measuring_val;  
-extern int32_t  reg_station_id;     
-extern int32_t  reg_offset_val;     
-extern int32_t  reg_cal_points_num; 
+extern __xdata int32_t  reg_measuring_val;
+extern __xdata int32_t  reg_station_id;
+extern __xdata int32_t  reg_offset_val;
+extern __xdata int32_t  reg_cal_points_num;
 
-extern int32_t  reg_avp[9];         
-extern int32_t  reg_pvp[9];         
+extern __xdata int32_t  reg_avp[9];
+extern __xdata int32_t  reg_pvp[9];
 
-extern int32_t  reg_adc_speed;      
-extern int32_t  reg_filter_level;   
-extern int32_t  reg_filter_band;    
-extern int32_t  reg_baud_rate;      
+extern __xdata int32_t  reg_adc_speed;
+extern __xdata int32_t  reg_filter_level;
+extern __xdata int32_t  reg_filter_band;
+extern __xdata int32_t  reg_baud_rate;
 
-extern int32_t  reg_zero_trace_delay; 
-extern int32_t  reg_zero_trace_band;  
-extern int32_t  reg_stable_delay;     
-extern int32_t  reg_stable_band;      
-extern int32_t  reg_output_round;     
-extern int32_t  reg_parity;           
+extern __xdata int32_t  reg_zero_trace_delay;
+extern __xdata int32_t  reg_zero_trace_band;
+extern __xdata int32_t  reg_stable_delay;
+extern __xdata int32_t  reg_stable_band;
+extern __xdata int32_t  reg_output_round;
+extern __xdata int32_t  reg_parity;
 
-/* Live runtime registers */
-extern int32_t  reg_adc_raw_value;
-extern int32_t  reg_stable_mark;
+/* Live runtime registers (must match __xdata definitions in reg_table.c) */
+extern __xdata int32_t  reg_adc_raw_value;
+extern __xdata int32_t  reg_stable_mark;
 
 /* Magic Key stays uint16 as it is a specific flash check value */
 extern uint16_t reg_magic_key;
